@@ -1,0 +1,77 @@
+<?php
+
+/* Remove top admin menu items (WordPress icon)
+-------------------------------------------------------------------------------------- */
+function wps_admin_bar() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('wp-logo');
+    $wp_admin_bar->remove_menu('about');
+    $wp_admin_bar->remove_menu('wporg');
+    $wp_admin_bar->remove_menu('documentation');
+    $wp_admin_bar->remove_menu('support-forums');
+    $wp_admin_bar->remove_menu('feedback');
+    $wp_admin_bar->remove_menu('view-site');
+    $wp_admin_bar->remove_menu('new-content'); // Remove ALL New links from header menu
+    $wp_admin_bar->remove_menu('new-link'); // Remove New Link link from header menu
+    $wp_admin_bar->remove_menu('new-media'); // Remove New Media link from header menu
+    $wp_admin_bar->remove_menu('new-user'); // Remove New User link from header menu
+    $wp_admin_bar->remove_menu('comments'); // Remove comments header menu
+}
+add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
+
+
+
+/************* REMOVING DASHBOARD WIDGETS *****************/
+
+// disable default dashboard widgets
+function disable_default_dashboard_widgets() {
+	remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
+	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); // Comments Widget
+	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
+	remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
+	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
+	remove_meta_box('dashboard_primary', 'dashboard', 'core');         //
+	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       //
+
+	// removing plugin dashboard boxes
+	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');         // Yoast's SEO Plugin Widget
+	remove_meta_box('tribe_dashboard_widget', 'dashboard', 'normal');  // Modern Tribe Plugin Widget
+}
+
+// removing the dashboard widgets
+add_action('admin_menu', 'disable_default_dashboard_widgets');
+
+
+
+/************* CUSTOM LOGIN PAGE *****************/
+
+// calling your own login css so you can style it
+function bones_login_css() {
+	wp_enqueue_style( 'bones_login_css', get_template_directory_uri() . '/library/css/login.css', false );
+}
+
+// changing the logo link from wordpress.org to your site
+function bones_login_url() {  return home_url(); }
+
+// changing the alt text on the logo to show your site name
+function bones_login_title() { return get_option( 'blogname' ); }
+
+// calling it only on the login page
+add_action( 'login_enqueue_scripts', 'bones_login_css', 10 );
+add_filter( 'login_headerurl', 'bones_login_url' );
+add_filter( 'login_headertitle', 'bones_login_title' );
+
+
+
+/************* CUSTOMIZE ADMIN FOOTER *******************/
+
+// Custom Backend Footer
+function bones_custom_admin_footer() {
+	echo '<span id="footer-thankyou">Crafted by <a href="http://creativeslice.com" target="_blank">Creative Slice</a></span> with <a href="http://wordpress.org" target="_blank">WordPress</a>.';
+}
+
+// adding it to the admin area
+add_filter('admin_footer_text', 'bones_custom_admin_footer');
+
+?>

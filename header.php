@@ -1,23 +1,17 @@
 <!doctype html>
-
-<!--[if lt IE 7]><html lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html lang="en-US" class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html lang="en-US" class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en-US" class="no-js"><!--<![endif]-->
+<html dir="ltr" lang="en-US">
 
 <head>
 	<title><?php wp_title(''); ?></title>
 	
-	<meta charset="utf-8">
+	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
-	<!--[if IE]>
-		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-	<![endif]-->
+	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/library/images/favicon.png">
+	<!--[if IE]><link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/library/images/favicon.ico"><![endif]-->
 	<meta name="msapplication-TileColor" content="#e7c12a">
 	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/mstile-310x310.png">
 
@@ -33,7 +27,7 @@
 
 			<div id="inner-header" class="wrap cf">
 
-				<p id="logo" class="h1"><a href="<?php echo home_url(); ?>" rel="nofollow"><?php bloginfo('name'); ?></a></p>
+				<div id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></div>
 
 				<nav role="navigation">
 					<?php wp_nav_menu(array(

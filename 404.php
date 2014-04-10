@@ -22,7 +22,7 @@
 
 				<section class="search">
 
-						<p><?php get_search_form(); ?></p>
+					<p><?php get_search_form(); ?></p>
 
 				</section>
 
