@@ -1,5 +1,7 @@
 # folders and files to be ignored by git
 
+node_modules/
+
 ############
 ## Bones
 ############
