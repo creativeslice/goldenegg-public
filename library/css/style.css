@@ -1,24 +1,13 @@
-/*! Made with Bones: http://themble.com/bones :) */
+/*! Built by Creative Slice in Tucson, AZ! http://creativeslice.com */
 /******************************************************************
-Site Name:
-Author:
+Site Name: Golden Egg Starter Theme
+Author: Creative Slice
 
 Stylesheet: Main Stylesheet
-
-Here's where the magic happens. Here, you'll see we are calling in
-the separate media queries. The base mobile goes outside any query
-and is called at the beginning, after that we call the rest
-of the styles inside media queries.
-
-Helpful articles on Sass file organization:
-http://thesassway.com/advanced/modular-css-naming-conventions
 
 ******************************************************************/
 /*********************
 IMPORTING PARTIALS
-These files are needed at the beginning so that we establish all
-our mixins, functions, and variables that we'll be using across
-the whole project.
 *********************/
 /* normalize.css 2012-07-07T09:50 UTC - http://github.com/necolas/normalize.css */
 /* ==========================================================================
@@ -944,20 +933,9 @@ them however you see fit.
 }
 /*********************
 IMPORTING MODULES
-Modules are reusable blocks or elements we use throughout the project.
-We can break them up as much as we want or just keep them all in one.
-I mean, you can do whatever you want. The world is your oyster. Unless
-you hate oysters, then the world is your peanut butter & jelly sandwich.
 *********************/
 /******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Alert Styles
-
-If you want to use these alerts in your design, you can. If not,
-you can just remove this stylesheet.
-
 ******************************************************************/
 .alert-help, .alert-info, .alert-error, .alert-success {
   margin: 10px;
@@ -986,28 +964,10 @@ you can just remove this stylesheet.
 }
 
 /******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Button Styles
-
-Buttons are a pretty important part of your site's style, so it's
-important to have a consistent baseline for them. Use this stylesheet
-to create all kinds of buttons.
-
-Helpful Links:
-http://galp.in/blog/2011/08/02/the-ui-guide-part-1-buttons/
-
 ******************************************************************/
 /*********************
 BUTTON DEFAULTS
-We're gonna use a placeholder selector here
-so we can use common styles. We then use this
-to load up the defaults in all our buttons.
-
-Here's a quick video to show how it works:
-http://www.youtube.com/watch?v=hwdVpKiJzac
-
 *********************/
 .blue-btn, .comment-reply-link, #submit {
   display: inline-block;
@@ -1023,8 +983,8 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   border-radius: 4px;
   border: 0;
   cursor: pointer;
-  -webkit-transition: background-color 0.14s ease-in-out;
-  transition: background-color 0.14s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 .blue-btn:hover, .comment-reply-link:hover, #submit:hover, .blue-btn:focus, .comment-reply-link:focus, #submit:focus {
   color: white;
@@ -1050,14 +1010,7 @@ and it will create a button dependant on those variables.
 }
 
 /******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Form Styles
-
-We put all the form and button styles in here to setup a consistent
-look. If we need to customize them, we can do this in the main
-stylesheets and just override them. Easy Peasy.
 
 You're gonna see a few data-uri thingies down there. If you're not
 sure what they are, check this link out:
@@ -1341,23 +1294,174 @@ select {
   background-position: 97.5% center;
 }
 
+/******************************************************************
+Stylesheet: Comment Styles
+******************************************************************/
+/******************************************************************
+COMMENT STYLES
+******************************************************************/
+/* h3 comment title */
+#comments-title {
+  padding: 0.75em;
+  margin: 0;
+  border-top: 1px solid #f8f9fa;
+  /* number of comments span */
+}
+
+.commentlist {
+  margin: 0;
+  list-style-type: none;
+}
+
+.comment {
+  position: relative;
+  clear: both;
+  overflow: hidden;
+  padding: 1.5em;
+  border-bottom: 1px solid #f8f9fa;
+  /* vcard */
+  /* end .commentlist .vcard */
+  /* end children */
+  /* general comment classes */
+}
+.comment .comment-author {
+  padding: 7px;
+  border: 0;
+}
+.comment .vcard {
+  margin-left: 50px;
+}
+.comment .vcard cite.fn {
+  font-weight: 700;
+  font-style: normal;
+}
+.comment .vcard time {
+  display: block;
+  font-size: 0.9em;
+  font-style: italic;
+}
+.comment .vcard time a {
+  color: #9fa6b4;
+  text-decoration: none;
+}
+.comment .vcard time a:hover {
+  text-decoration: underline;
+}
+.comment .vcard .avatar {
+  position: absolute;
+  left: 16px;
+  border-radius: 50%;
+}
+.comment:last-child {
+  margin-bottom: 0;
+}
+.comment .children {
+  margin: 0;
+  /* variations */
+  /* change number for different depth */
+}
+.comment[class*=depth-] {
+  margin-top: 1.1em;
+}
+.comment.depth-1 {
+  margin-left: 0;
+  margin-top: 0;
+}
+.comment:not(.depth-1) {
+  margin-top: 0;
+  margin-left: 7px;
+  padding: 7px;
+}
+.comment.odd {
+  background-color: white;
+}
+.comment.even {
+  background: #f8f9fa;
+}
+
+/* comment meta */
+/* comment content */
+.comment_content p {
+  margin: 0.7335em 0 1.5em;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+/* end .commentlist .comment_content */
+/* comment reply link */
+.comment-reply-link {
+  font-size: 0.9em;
+  float: right;
+}
+
+/* end .commentlist .comment-reply-link */
+/* edit comment link */
+.comment-edit-link {
+  font-style: italic;
+  margin: 0 7px;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+/******************************************************************
+COMMENT FORM STYLES
+******************************************************************/
+.comment-respond {
+  padding: 1.5em;
+  border-top: 1px solid #f8f9fa;
+}
+
+#reply-title {
+  margin: 0;
+}
+
+.logged-in-as {
+  color: #9fa6b4;
+  font-style: italic;
+  margin: 0;
+}
+.logged-in-as a {
+  color: #5c6b80;
+}
+
+.comment-form-comment {
+  margin: 1.5em 0 0.75em;
+}
+
+.form-allowed-tags {
+  padding: 1.5em;
+  background-color: #f8f9fa;
+  font-size: 0.9em;
+}
+
+/* comment submit button */
+#submit {
+  float: right;
+  font-size: 1em;
+}
+
+/* comment form title */
+#comment-form-title {
+  margin: 0 0 1.1em;
+}
+
+/* cancel comment reply link */
+/* logged in comments */
+/* allowed tags */
+#allowed_tags {
+  margin: 1.5em 10px 0.7335em 0;
+}
+
+/* no comments */
+.nocomments {
+  margin: 0 20px 1.1em;
+}
+
 /*********************
 BASE (MOBILE) SIZE
-This are the mobile styles. It's what people see on their phones. If
-you set a great foundation, you won't need to add too many styles in
-the other stylesheets. Remember, keep it light: Speed is Important.
 *********************/
 /******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Base Mobile Stylesheet
-
-Be light and don't over style since everything here will be
-loaded by mobile devices. You want to keep it as minimal as
-possible. This is called at the top of the main stylsheet
-and will be used across all viewports.
-
 ******************************************************************/
 /*********************
 GENERAL STYLES
@@ -1445,11 +1549,6 @@ H1, H2, H3, H4, H5 STYLES
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   text-rendering: optimizelegibility;
   font-weight: 500;
-  /*
-  if you're going to use webfonts, be sure to check your weights
-  http://css-tricks.com/watch-your-font-weight/
-  */
-  /* removing text decoration from all headline links */
 }
 h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
   text-decoration: none;
@@ -1499,13 +1598,6 @@ HEADER STYLES
 /*********************
 NAVIGATION STYLES
 *********************/
-/*
-all navs have a .nav class applied via
-the wp_menu function; this is so we can
-easily write one group of styles for
-the navs on the site so our css is cleaner
-and more scalable.
-*/
 .nav {
   border-bottom: 0;
   margin: 0;
@@ -1513,26 +1605,11 @@ and more scalable.
   /* highlight current page */
   /* end current highlighters */
 }
-.nav li {
-  /*
-  so you really have to rethink your dropdowns for mobile.
-  you don't want to have it expand too much because the
-  screen is so small. How you manage your menu should
-  depend on the project. Here's some great info on it:
-  http://www.alistapart.com/articles/organizing-mobile/
-  */
-}
 .nav li a {
   display: block;
   color: white;
   text-decoration: none;
   padding: 0.75em;
-  /*
-  remember this is for mobile ONLY, so there's no need
-  to even declare hover styles here, you can do it in
-  the style.scss file where it's relevant. We want to
-  keep this file as small as possible!
-  */
 }
 .nav li ul.sub-menu li a,
 .nav li ul.children li a {
@@ -1757,180 +1834,11 @@ PAGE NAVI STYLES
 }
 
 /* end .wp-prev-next */
-/******************************************************************
-COMMENT STYLES
-******************************************************************/
-/* h3 comment title */
-#comments-title {
-  padding: 0.75em;
-  margin: 0;
-  border-top: 1px solid #f8f9fa;
-  /* number of comments span */
-}
-
-.commentlist {
-  margin: 0;
-  list-style-type: none;
-}
-
-.comment {
-  position: relative;
-  clear: both;
-  overflow: hidden;
-  padding: 1.5em;
-  border-bottom: 1px solid #f8f9fa;
-  /* vcard */
-  /* end .commentlist .vcard */
-  /* end children */
-  /* general comment classes */
-}
-.comment .comment-author {
-  padding: 7px;
-  border: 0;
-}
-.comment .vcard {
-  margin-left: 50px;
-}
-.comment .vcard cite.fn {
-  font-weight: 700;
-  font-style: normal;
-}
-.comment .vcard time {
-  display: block;
-  font-size: 0.9em;
-  font-style: italic;
-}
-.comment .vcard time a {
-  color: #9fa6b4;
-  text-decoration: none;
-}
-.comment .vcard time a:hover {
-  text-decoration: underline;
-}
-.comment .vcard .avatar {
-  position: absolute;
-  left: 16px;
-  border-radius: 50%;
-}
-.comment:last-child {
-  margin-bottom: 0;
-}
-.comment .children {
-  margin: 0;
-  /* variations */
-  /* change number for different depth */
-}
-.comment[class*=depth-] {
-  margin-top: 1.1em;
-}
-.comment.depth-1 {
-  margin-left: 0;
-  margin-top: 0;
-}
-.comment:not(.depth-1) {
-  margin-top: 0;
-  margin-left: 7px;
-  padding: 7px;
-}
-.comment.odd {
-  background-color: white;
-}
-.comment.even {
-  background: #f8f9fa;
-}
-
-/* comment meta */
-/* comment content */
-.comment_content p {
-  margin: 0.7335em 0 1.5em;
-  font-size: 1em;
-  line-height: 1.5em;
-}
-
-/* end .commentlist .comment_content */
-/* comment reply link */
-.comment-reply-link {
-  font-size: 0.9em;
-  float: right;
-}
-
-/* end .commentlist .comment-reply-link */
-/* edit comment link */
-.comment-edit-link {
-  font-style: italic;
-  margin: 0 7px;
-  text-decoration: none;
-  font-size: 0.9em;
-}
-
-/******************************************************************
-COMMENT FORM STYLES
-******************************************************************/
-.comment-respond {
-  padding: 1.5em;
-  border-top: 1px solid #f8f9fa;
-}
-
-#reply-title {
-  margin: 0;
-}
-
-.logged-in-as {
-  color: #9fa6b4;
-  font-style: italic;
-  margin: 0;
-}
-.logged-in-as a {
-  color: #5c6b80;
-}
-
-.comment-form-comment {
-  margin: 1.5em 0 0.75em;
-}
-
-.form-allowed-tags {
-  padding: 1.5em;
-  background-color: #f8f9fa;
-  font-size: 0.9em;
-}
-
-/* comment submit button */
-#submit {
-  float: right;
-  font-size: 1em;
-}
-
-/* comment form title */
-#comment-form-title {
-  margin: 0 0 1.1em;
-}
-
-/* cancel comment reply link */
-/* logged in comments */
-/* allowed tags */
-#allowed_tags {
-  margin: 1.5em 10px 0.7335em 0;
-}
-
-/* no comments */
-.nocomments {
-  margin: 0 20px 1.1em;
-}
-
 /*********************
 SIDEBARS & ASIDES
 *********************/
 .widget ul li {
   /* deep nesting */
-}
-
-.no-widgets {
-  background-color: white;
-  padding: 1.5em;
-  text-align: center;
-  border: 1px solid #cccccc;
-  border-radius: 2px;
-  margin-bottom: 1.5em;
 }
 
 /*********************
@@ -1942,45 +1850,14 @@ FOOTER STYLES
   color: #f8f9fa;
 }
 
-/*
-if you checked out the link above:
-http://www.alistapart.com/articles/organizing-mobile/
-you'll want to style the footer nav
-a bit more in-depth. Remember to keep
-it simple because you'll have to
-override these styles for the desktop
-view.
-*/
 /* end .footer-links */
 /*********************
 LARGER MOBILE DEVICES
-This is for devices like the Galaxy Note or something that's
-larger than an iPhone but smaller than a tablet. Let's call them
-tweeners.
 *********************/
 @media only screen and (min-width: 481px) {
   /******************************************************************
-  Site Name:
-  Author:
-  
   Stylesheet: 481px and Up Stylesheet
-  
-  This stylesheet is loaded for larger devices. It's set to
-  481px because at 480px it would load on a landscaped iPhone.
-  This isn't ideal because then you would be loading all those
-  extra styles on that same mobile connection.
-  
-  A word of warning. This size COULD be a larger mobile device,
-  so you still want to keep it pretty light and simply expand
-  upon your base.scss styles.
-  
   ******************************************************************/
-  /*
-  IMPORTANT NOTE ABOUT SASS 3.3 & UP
-  You can't use @extend within media queries
-  anymore, so just be aware that if you drop
-  them in here, they won't work.
-  */
   /*********************
   NAVIGATION STYLES
   *********************/
@@ -1996,12 +1873,6 @@ tweeners.
   .menu ul li {
     /*
     plan your menus and drop-downs wisely.
-    */
-  }
-  .menu ul li a {
-    /*
-    you can use hover styles here even though this size
-    has the possibility of being a mobile device.
     */
   }
 
@@ -2034,31 +1905,14 @@ tweeners.
   /*********************
   FOOTER STYLES
   *********************/
-  /*
-  check your menus here. do they look good?
-  do they need tweaking?
-  */
   /* end .footer-links */
 }
 /*********************
 TABLET & SMALLER LAPTOPS
-This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
 *********************/
 @media only screen and (min-width: 768px) {
   /******************************************************************
-  Site Name:
-  Author:
-  
   Stylesheet: Tablet & Small Desktop Stylesheet
-  
-  Here's where you can start getting into the good stuff.
-  This size will work on iPads, other tablets, and desktops.
-  So you can start working with more styles, background images,
-  and other resources. You'll also notice the grid starts to
-  come into play. Have fun!
-  
   ******************************************************************/
   /*********************
   GENERAL STYLES
@@ -2198,20 +2052,10 @@ you can add resource intensive styles.
 }
 /*********************
 DESKTOP
-This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
 *********************/
 @media only screen and (min-width: 1030px) {
   /******************************************************************
-  Site Name:
-  Author:
-  
   Stylesheet: Desktop Stylsheet
-  
-  This is the desktop size. It's larger than an iPad so it will only
-  be seen on the Desktop.
-  
   ******************************************************************/
   .wrap {
     width: 1040px;
@@ -2219,41 +2063,22 @@ you can add resource intensive styles.
 }
 /*********************
 LARGE VIEWING SIZE
-This is for the larger monitors and possibly full screen viewers.
 *********************/
 @media only screen and (min-width: 1240px) {
   /******************************************************************
-  Site Name: 
-  Author: 
-  
   Stylesheet: Super Large Monitor Stylesheet
-  
-  You can add some advanced styles here if you like. This kicks in
-  on larger screens.
-  
   ******************************************************************/
 }
 /*********************
 RETINA (2x RESOLUTION DEVICES)
-This applies to the retina iPhone (4s) and iPad (2,3) along with
-other displays with a 2x resolution. You can also create a media
-query for retina AND a certain size if you want. Go Nuts.
 *********************/
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
   /******************************************************************
-  Site Name: 
-  Author: 
-  
   Stylesheet: Retina Screens & Devices Stylesheet
-  
-  When handling retina screens you need to make adjustments, especially
-  if you're not using font icons. Here you can add them in one neat
-  place.
-  
   ******************************************************************/
-  /* 
+  /*
   
-  EXAMPLE 
+  EXAMPLE
   Let's say you have an image and you need to make sure it looks ok
   on retina screens. Let's say we have an icon which dimension are
   24px x 24px. In your regular stylesheets, it would look something
@@ -2274,18 +2099,15 @@ query for retina AND a certain size if you want. Go Nuts.
   	background-size: 24px 24px;
   }
   
-  So, you would create the same icon, but at double the resolution, meaning 
+  So, you would create the same icon, but at double the resolution, meaning
   it would be 48px x 48px. You'd name it the same, but with a @2x at the end
   (this is pretty standard practice). Set the background image so it matches
-  the original dimensions and you are good to go. 
+  the original dimensions and you are good to go.
   
   */
 }
 /*********************
 PRINT STYLESHEET
-Feel free to customize this. Remember to add things that won't make
-sense to print at the bottom. Things like nav, ads, and forms should
-be set to display none.
 *********************/
 @media print {
   /******************************************************************

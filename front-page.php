@@ -1,10 +1,10 @@
-<?php get_header(); // Template Name: Custom Template ?>
+<?php get_header(); // Template Name: Home ?>
 
 <div id="content">
 
 	<div id="inner-content" class="wrap cf">
 
-		<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+		<div id="main" class="cf" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -24,20 +24,16 @@
 
 
 				<footer class="article-footer">
-
+					
+					Article Footer
+					
 				</footer>
 
 			</article>
 
-			<?php endwhile; else : ?>
-
-				<?php get_template_part( 'partials/content', 'missing' ); ?>
-
-			<?php endif; ?>
+			<?php endwhile; endif; ?>
 
 		</div>
-
-		<?php get_sidebar(); ?>
 
 	</div>
 

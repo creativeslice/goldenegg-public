@@ -1,7 +1,4 @@
 /******************************************************************
-Site Name:
-Author:
-
 Stylesheet: IE Stylesheet
 
 So instead of using the respond.js file to add media query support
@@ -14,10 +11,6 @@ without the media queries. No need to worry about editing anything!
 
 /******************************************************************
 IMPORTS & DEPENDENCIES
-Remember, all the BASE styles are called already since IE can
-read those. Below, we need to import only the stuff IE can't
-understand (what's inside the media queries). We also need to
-import the mixins file so SASS can understand the variables.
 ******************************************************************/
 
 @import "partials/variables"; // import variables
@@ -28,10 +21,6 @@ import the mixins file so SASS can understand the variables.
 @import "breakpoints/481up";
 @import "breakpoints/768up";
 @import "breakpoints/1030up";
-
-/*
-you can call the larger styles if you want, but there's really no need
-*/
 
 
 /******************************************************************
@@ -46,12 +35,5 @@ http://www.modernizr.com/docs/
 For example, you can use something like:
 
 .no-textshadow .class { ... }
-
-You can also target specific versions by using the classes applied to
-the html element. These can sometimes change, so take a look inside the
-header.php file to see what they are:
-
-
-.lt-ie8 .class { ... }
 
 */

@@ -1,14 +1,5 @@
 /******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Base Mobile Stylesheet
-
-Be light and don't over style since everything here will be
-loaded by mobile devices. You want to keep it as minimal as
-possible. This is called at the top of the main stylsheet
-and will be used across all viewports.
-
 ******************************************************************/
 
 /*********************
@@ -21,7 +12,7 @@ body {
 	line-height: 1.5;
 	color: $text-color;
 	background-color: $gray;
-  -webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
 }
 
 /********************
@@ -109,12 +100,6 @@ H1, H2, H3, H4, H5 STYLES
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	text-rendering: optimizelegibility;
 	font-weight: 500;
-	/*
-	if you're going to use webfonts, be sure to check your weights
-	http://css-tricks.com/watch-your-font-weight/
-	*/
-
-	/* removing text decoration from all headline links */
 	a {
 		text-decoration: none;
 	}
@@ -167,14 +152,6 @@ HEADER STYLES
 NAVIGATION STYLES
 *********************/
 
-/*
-all navs have a .nav class applied via
-the wp_menu function; this is so we can
-easily write one group of styles for
-the navs on the site so our css is cleaner
-and more scalable.
-*/
-
 .nav {
 	border-bottom: 0;
 	margin: 0;
@@ -187,12 +164,6 @@ and more scalable.
 			text-decoration: none;
 			padding: 0.75em;
 
-			/*
-			remember this is for mobile ONLY, so there's no need
-			to even declare hover styles here, you can do it in
-			the style.scss file where it's relevant. We want to
-			keep this file as small as possible!
-			*/
 			&:hover, &:focus {
 
 			}
@@ -202,13 +173,6 @@ and more scalable.
 
 		&:last-child {}
 
-		/*
-		so you really have to rethink your dropdowns for mobile.
-		you don't want to have it expand too much because the
-		screen is so small. How you manage your menu should
-		depend on the project. Here's some great info on it:
-		http://www.alistapart.com/articles/organizing-mobile/
-		*/
 		ul.sub-menu,
 		ul.children {
 
@@ -254,238 +218,238 @@ POSTS & CONTENT STYLES
 	margin-top: 1.5em;
 }
 
-		.hentry {
-			background-color: $white;
-			border-radius: 3px;
-			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
+	.hentry {
+		background-color: $white;
+		border-radius: 3px;
+		margin-bottom: 1.5em;
+		border: 1px solid $border-color;
 
-			header {
-				border-bottom: 1px solid $light-gray;
-				padding: 1.5em;
-			}
-
-			footer {
-				padding: 1.5em;
-				border-top: 1px solid $light-gray;
-
-				p {
-					margin: 0;
-				}
-			}
-
-		} /* end .hentry */
-
-		.single-title,
-		.page-title,
-		.entry-title {
-			margin: 0;
+		header {
+			border-bottom: 1px solid $light-gray;
+			padding: 1.5em;
 		}
 
-		.single-title {}
-
-		.page-title {}
-
-		.entry-title {}
-
-		.archive-title {}
-
-		/* want to style individual post classes? Booya! */
-		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
-		.page {}            /* general article on a page style */
-		.attachment {}      /* general style on an attatchment */
-		.sticky {}          /* sticky post style */
-		.hentry {}          /* hentry class */
-		.category-slug {}   /* style by category (i.e. category-videos) */
-		.tag-slug {}        /* style by tag (i.e. tag-news) */
-
-		/* post meta */
-		.byline {
-			color: $meta-gray;
-			font-style: italic;
-			margin: 0;
-
-			time {}
-		}
-
-		/* entry content */
-		.entry-content {
-			padding: 1.5em 1.5em 0;
+		footer {
+			padding: 1.5em;
+			border-top: 1px solid $light-gray;
 
 			p {
-				margin: 0 0 1.5em;
+				margin: 0;
 			}
+		}
 
+	} /* end .hentry */
 
-			ul, ol, table, dl {}
-
-			ul, ol {
-
-				li {}
-
-			}
-
-			ul {
-
-				li {}
-
-			}
-
-			ol {
-
-				li {}
-
-			}
-
-			table {
-				width: 100%;
-				border: 1px solid $gray;
-				margin-bottom: 1.5em;
-
-				caption {
-					margin: 0 0 7px;
-					font-size: 0.75em;
-					color: $meta-gray;
-					text-transform: uppercase;
-					letter-spacing: 1px;
-				}
-			}
-
-			tr {
-				border-bottom: 1px solid $gray;
-
-				&:nth-child(even) {
-					background-color: $light-gray;
-				}
-			}
-
-			td {
-				padding: 7px;
-				border-right: 1px solid $gray;
-
-				&:last-child {
-					border-right: 0;
-				}
-			}
-
-			th {
-				background-color: $light-gray;
-				border-bottom: 1px solid $gray;
-				border-right: 1px solid $gray;
-
-				&:last-child {
-					border-right: 0;
-				}
-			}
-
-			blockquote {
-				margin: 0 0 1.5em 0.75em;
-				padding: 0 0 0 0.75em;
-				border-left: 3px solid $blue;
-				font-style: italic;
-				color: $meta-gray;
-
-				&:before {}
-
-			}
-
-			dl {}
-
-			dt {}
-
-			dd {
-				margin-left: 0;
-				font-size: 0.9em;
-				color: #787878;
-				margin-bottom: 1.5em;
-			}
-
-			img {
-				margin: 0 0 1.5em 0;
-				max-width: 100%;
-				height: auto;
-			}
-
-			/*
-			image alignment on a screen this size may be
-			a bit difficult. It's set to start aligning
-			and floating images at the next breakpoint,
-			but it's up to you. Feel free to change it up.
-			*/
-			.alignleft, img.alignleft {}
-			.alignright, img.alignright {}
-			.aligncenter, img.aligncenter {}
-
-			.size-auto,
-			.size-full,
-			.size-large,
-			.size-medium,
-			.size-thumbnail {
-				max-width: 100%;
-				height: auto;
-			}
-
-			pre {
-				background: $black;
-				color: $light-gray;
-				font-size: 0.9em;
-				padding: 1.5em;
-				margin: 0 0 1.5em;
-				border-radius: 3px;
-			}
-
-		} /* end .entry-content */
-
-		.wp-caption {
-			max-width: 100%;
-			background: #eee;
-			padding: 5px;
-
-			/* images inside wp-caption */
-			img {
-				max-width: 100%;
-				margin-bottom: 0;
-				width: 100%;
-			}
-
-			p.wp-caption-text {
-				font-size: 0.85em;
-				margin: 4px 0 7px;
-				text-align: center;
-			}
-
-		} /* end .wp-caption */
-
-		/* image gallery styles */
-		.gallery {
-
-			dl {
-
-				a {}
-
-				img {}
-
-			}
-
-			dt {}
-
-			dd {}
-
-		} /* end .gallery */
-
-		/* gallery caption styles */
-		.gallery-caption {}
-
-		.size-full {}
-		.size-large {}
-		.size-medium {}
-		.size-thumbnail {}
-
-	// the tag output
-	.tags {
+	.single-title,
+	.page-title,
+	.entry-title {
 		margin: 0;
 	}
+
+	.single-title {}
+
+	.page-title {}
+
+	.entry-title {}
+
+	.archive-title {}
+
+	/* want to style individual post classes? Booya! */
+	.post-id {}         /* post by id (i.e. post-3) */
+	.post {}            /* general post style */
+	.page {}            /* general article on a page style */
+	.attachment {}      /* general style on an attatchment */
+	.sticky {}          /* sticky post style */
+	.hentry {}          /* hentry class */
+	.category-slug {}   /* style by category (i.e. category-videos) */
+	.tag-slug {}        /* style by tag (i.e. tag-news) */
+
+	/* post meta */
+	.byline {
+		color: $meta-gray;
+		font-style: italic;
+		margin: 0;
+
+		time {}
+	}
+
+	/* entry content */
+	.entry-content {
+		padding: 1.5em 1.5em 0;
+
+		p {
+			margin: 0 0 1.5em;
+		}
+
+
+		ul, ol, table, dl {}
+
+		ul, ol {
+
+			li {}
+
+		}
+
+		ul {
+
+			li {}
+
+		}
+
+		ol {
+
+			li {}
+
+		}
+
+		table {
+			width: 100%;
+			border: 1px solid $gray;
+			margin-bottom: 1.5em;
+
+			caption {
+				margin: 0 0 7px;
+				font-size: 0.75em;
+				color: $meta-gray;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+		}
+
+		tr {
+			border-bottom: 1px solid $gray;
+
+			&:nth-child(even) {
+				background-color: $light-gray;
+			}
+		}
+
+		td {
+			padding: 7px;
+			border-right: 1px solid $gray;
+
+			&:last-child {
+				border-right: 0;
+			}
+		}
+
+		th {
+			background-color: $light-gray;
+			border-bottom: 1px solid $gray;
+			border-right: 1px solid $gray;
+
+			&:last-child {
+				border-right: 0;
+			}
+		}
+
+		blockquote {
+			margin: 0 0 1.5em 0.75em;
+			padding: 0 0 0 0.75em;
+			border-left: 3px solid $blue;
+			font-style: italic;
+			color: $meta-gray;
+
+			&:before {}
+
+		}
+
+		dl {}
+
+		dt {}
+
+		dd {
+			margin-left: 0;
+			font-size: 0.9em;
+			color: #787878;
+			margin-bottom: 1.5em;
+		}
+
+		img {
+			margin: 0 0 1.5em 0;
+			max-width: 100%;
+			height: auto;
+		}
+
+		/*
+		image alignment on a screen this size may be
+		a bit difficult. It's set to start aligning
+		and floating images at the next breakpoint,
+		but it's up to you. Feel free to change it up.
+		*/
+		.alignleft, img.alignleft {}
+		.alignright, img.alignright {}
+		.aligncenter, img.aligncenter {}
+
+		.size-auto,
+		.size-full,
+		.size-large,
+		.size-medium,
+		.size-thumbnail {
+			max-width: 100%;
+			height: auto;
+		}
+
+		pre {
+			background: $black;
+			color: $light-gray;
+			font-size: 0.9em;
+			padding: 1.5em;
+			margin: 0 0 1.5em;
+			border-radius: 3px;
+		}
+
+	} /* end .entry-content */
+
+	.wp-caption {
+		max-width: 100%;
+		background: #eee;
+		padding: 5px;
+
+		/* images inside wp-caption */
+		img {
+			max-width: 100%;
+			margin-bottom: 0;
+			width: 100%;
+		}
+
+		p.wp-caption-text {
+			font-size: 0.85em;
+			margin: 4px 0 7px;
+			text-align: center;
+		}
+
+	} /* end .wp-caption */
+
+	/* image gallery styles */
+	.gallery {
+
+		dl {
+
+			a {}
+
+			img {}
+
+		}
+
+		dt {}
+
+		dd {}
+
+	} /* end .gallery */
+
+	/* gallery caption styles */
+	.gallery-caption {}
+
+	.size-full {}
+	.size-large {}
+	.size-medium {}
+	.size-thumbnail {}
+
+// the tag output
+.tags {
+	margin: 0;
+}
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -561,261 +525,6 @@ PAGE NAVI STYLES
 
 	} /* end .wp-prev-next */
 
-/******************************************************************
-COMMENT STYLES
-******************************************************************/
-
-/* h3 comment title */
-#comments-title {
-	padding: 0.75em;
-	margin: 0;
-	border-top: 1px solid $light-gray;
-
-	/* number of comments span */
-	span {}
-
-}
-
-.comment-nav {
-
-	ul {
-
-		li {}
-
-	}
-}
-
-
-.commentlist {
-	margin: 0;
-	list-style-type: none;
-}
-
-.comment {
-	position: relative;
-	clear: both;
-	overflow: hidden;
-	padding: 1.5em;
-	border-bottom: 1px solid $light-gray;
-
-	.comment-author {
-		padding: 7px;
-		border: 0;
-	}
-
-	/* vcard */
-	.vcard {
-		margin-left: 50px;
-
-		cite.fn {
-			font-weight: 700;
-			font-style: normal;
-
-			a.url {}
-
-		}
-
-		time {
-			display: block;
-			font-size: 0.9em;
-			font-style: italic;
-
-			a {
-				color: $meta-gray;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
-				}
-
-			}
-
-		}
-
-		.photo {}
-
-		.avatar {
-			position: absolute;
-			left: 16px;
-			border-radius: 50%;
-		}
-
-	} /* end .commentlist .vcard */
-
-	&:last-child {
-		margin-bottom: 0;
-	}
-
-	.children {
-		margin: 0;
-
-		li {}
-
-			/* variations */
-			.comment {}
-			.alt {}
-			.odd {}
-			.even {}
-			.depth-1 {}           /* change number for different depth */
-			.byuser {}
-			.bypostauthor {}
-			.comment-author-admin {}
-
-	} /* end children */
-
-
-	&[class*=depth-] {
-		margin-top: 1.1em;
-	}
-
-	&.depth-1 {
-		margin-left: 0;
-		margin-top: 0;
-	}
-
-	&:not(.depth-1) {
-		margin-top: 0;
-		margin-left: 7px;
-		padding: 7px;
-	}
-
-	&.depth-2 {}
-	&.depth-3 {}
-	&.depth-4 {}
-	&.depth-5 {}
-
-	/* general comment classes */
-	&.alt {}
-	&.odd {
-		background-color: $white;
-	}
-	&.even {
-		background: $light-gray;
-	}
-	&.parent {}
-	&.comment {}
-	&.children {}
-	&.pingback {}
-	&.bypostauthor {}
-	&.comment-author {}
-	&.comment-author-admin {}
-	&.thread-alt {}
-	&.thread-odd {}
-	&.thread-even {}
-}
-
-
-
-
-	/* comment meta */
-	.comment-meta {
-
-		a {}
-
-	}
-
-	.commentmetadata {
-
-		a {}
-
-	}
-
-	/* comment content */
-	.comment_content {
-
-		p {
-			margin: 0.7335em 0 1.5em;
-			font-size: 1em;
-			line-height: 1.5em;
-		}
-
-	} /* end .commentlist .comment_content */
-
-	/* comment reply link */
-	.comment-reply-link {
-		@extend .blue-btn;
-		font-size: 0.9em;
-		float: right;
-
-		&:hover,
-		&:focus {
-		}
-
-	} /* end .commentlist .comment-reply-link */
-
-	/* edit comment link */
-	.comment-edit-link {
-		font-style: italic;
-		margin: 0 7px;
-		text-decoration: none;
-		font-size: 0.9em;
-	}
-
-
-
-/******************************************************************
-COMMENT FORM STYLES
-******************************************************************/
-
-.comment-respond {
-	@extend .cf;
-	padding: 1.5em;
-	border-top: 1px solid $light-gray;
-}
-
-	#reply-title {
-		margin: 0;
-	}
-
-	.logged-in-as {
-		color: $meta-gray;
-		font-style: italic;
-		margin: 0;
-
-		a {
-			color: $text-color;
-		}
-	}
-
-	.comment-form-comment {
-		margin: 1.5em 0 0.75em;
-	}
-
-	.form-allowed-tags {
-		padding: 1.5em;
-		background-color: $light-gray;
-		font-size: 0.9em;
-	}
-
-	/* comment submit button */
-	#submit {
-		@extend .blue-btn;
-		float: right;
-		font-size: 1em;
-	}
-
-	/* comment form title */
-	#comment-form-title {
-		margin: 0 0 1.1em;
-	}
-
-	/* cancel comment reply link */
-	#cancel-comment-reply {
-		a {}
-	}
-
-	/* logged in comments */
-	.comments-logged-in-as {}
-
-	/* allowed tags */
-	#allowed_tags {
-		margin: 1.5em 10px 0.7335em 0;
-	}
-
-	/* no comments */
-	.nocomments {
-		margin: 0 20px 1.1em;
-	}
 
 /*********************
 SIDEBARS & ASIDES
@@ -846,14 +555,6 @@ SIDEBARS & ASIDES
 
 	}
 
-	.no-widgets {
-		background-color: $white;
-		padding: 1.5em;
-		text-align: center;
-		border: 1px solid $border-color;
-		border-radius: 2px;
-		margin-bottom: 1.5em;
-	}
 
 /*********************
 FOOTER STYLES
@@ -865,15 +566,6 @@ FOOTER STYLES
 	color: $light-gray;
 }
 
-	/*
-	if you checked out the link above:
-	http://www.alistapart.com/articles/organizing-mobile/
-	you'll want to style the footer nav
-	a bit more in-depth. Remember to keep
-	it simple because you'll have to
-	override these styles for the desktop
-	view.
-	*/
 	.footer-links {
 
 		ul {
