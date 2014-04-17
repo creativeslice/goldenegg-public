@@ -2,14 +2,14 @@ var gulp = require('gulp'),
 	sass = require('gulp-ruby-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	minifycss = require('gulp-minify-css'),
-	// jshint = require('gulp-jshint'),
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
-	clean = require('gulp-clean'),
 	concat = require('gulp-concat'),
-	notify = require('gulp-notify');
+	notify = require('gulp-notify'),
+	clean = require('gulp-clean'),
+	cache = require('gulp-cache');
 
-
+// CSS
 gulp.task('styles', function() {
 	return gulp.src('scss/style.scss')
 		.pipe(sass({ style: 'expanded' }))
@@ -35,10 +35,9 @@ gulp.task('styles-login', function() {
 		.pipe(notify({ message: 'Admin styles task complete' }));
 });
 
+// JS
 gulp.task('scripts', function() {
 	return gulp.src('js/libs/*.js')
-		// .pipe(jshint())
-		// .pipe(jshint.reporter('default'))
 		.pipe(concat('scripts.js'))
 		.pipe(gulp.dest('js'))
 		.pipe(rename({suffix: '.min'}))
@@ -47,32 +46,30 @@ gulp.task('scripts', function() {
 		.pipe(notify({ message: 'Scripts task complete' }));
 });
 
-
-gulp.task('clean', function() {
-	// CLEANUP ANYTHING THAT IS NOT NEEDED FOR PRODUCTION
-	return gulp.src(['css/assets', 'js/assets', 'img/assets'], {read: false})
+// CLEANUP
+gulp.task('clean-prod', function() {
+	// delete anything that shouldn't be on the server
+	return gulp.src(['scss', 'node_modules', 'gulpfile.js'], {read: false})
 	.pipe(clean());
 });
 
 
+// default: gulp
 gulp.task('default', function() {
 	gulp.start('styles', 'scripts');
 });
 
+// production: gulp
+	// only run on the production server
+gulp.task('prod', function() {
+	gulp.start('styles', 'scripts', 'clean-prod');
+});
 
+
+// gulp watch
 gulp.task('watch', function() {
 
-	// liveReload
-	//server.listen(35729, function (err) {
-	//	if (err) {
-	//		return console.log(err)
-	//	};
-		//// Watch tasks go inside inside server.listen()
+	gulp.watch('scss/**/*.scss', ['styles', 'styles-ie', 'styles-login']);
 
-		gulp.watch('scss/**/*.scss', ['styles', 'styles-ie', 'styles-login']);
-
-		gulp.watch('js/**/*.js', ['scripts']);
-
-		//gulp.watch('img/**/*', ['images']);
-	//});
+	gulp.watch('js/**/*.js', ['scripts']);
 });
