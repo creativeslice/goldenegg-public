@@ -4,8 +4,11 @@ var gulp = require('gulp'),
 	minifycss = require('gulp-minify-css'),
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
+<<<<<<< HEAD
 	stripDebug = require('gulp-strip-debug'),
 	jsHint = require('gulp-jshint'),
+=======
+>>>>>>> d6843c5e067ec992d581ec0eb12c83b61471cbfb
 	concat = require('gulp-concat'),
 	notify = require('gulp-notify'),
 	clean = require('gulp-clean'),
@@ -39,7 +42,11 @@ gulp.task('styles-login', function() {
 
 // JS
 gulp.task('scripts', function() {
+<<<<<<< HEAD
 	return gulp.src(['js/src/*.js'])
+=======
+	return gulp.src('js/libs/*.js')
+>>>>>>> d6843c5e067ec992d581ec0eb12c83b61471cbfb
 		.pipe(concat('scripts.js'))
 		.pipe(jsHint())
 		.pipe(stripDebug())
@@ -51,7 +58,11 @@ gulp.task('scripts', function() {
 // CLEANUP
 gulp.task('clean-prod', function() {
 	// delete anything that shouldn't be on the server
+<<<<<<< HEAD
 	return gulp.src(['scss', 'node_modules'], {read: false})
+=======
+	return gulp.src(['scss', 'node_modules', 'gulpfile.js'], {read: false})
+>>>>>>> d6843c5e067ec992d581ec0eb12c83b61471cbfb
 	.pipe(clean());
 });
 
