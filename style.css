@@ -1,11 +1,15 @@
-/******************************************************************
-Theme Name: Golden Egg Starter Theme
-Theme URI: http://creativeslice.com
-Description: Starter theme built for Creative Slice projects.
-Author: Creative Slice
-Author URI: http://creativeslice.com
-Version: 1.7
-***/
+/**
+ * Theme Name:  GoldenEgg_starter_theme
+ * Theme URI:   http://creativeslice.com
+ * Description: Starter theme for Creative Slice projects.
+ * Author:      Creative Slice
+ * Author URI:  http://creativeslice.com
+ * Version:     1.7
+ * Tags:
+ *
+ * License:     GPLv2+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 .sticky {}          /* DO NOT EDIT THIS */
 .gallery-caption {} /* THESE ARE USELESS */

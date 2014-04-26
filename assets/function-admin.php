@@ -20,7 +20,6 @@ function wps_admin_bar() {
 add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
 
 
-
 /************* REMOVING DASHBOARD WIDGETS *****************/
 
 // disable default dashboard widgets
@@ -43,12 +42,11 @@ function disable_default_dashboard_widgets() {
 add_action('admin_menu', 'disable_default_dashboard_widgets');
 
 
-
 /************* CUSTOM LOGIN PAGE *****************/
 
 // calling your own login css so you can style it
 function bones_login_css() {
-	wp_enqueue_style( 'bones_login_css', get_template_directory_uri() . '/library/css/login.css', false );
+	wp_enqueue_style( 'bones_login_css', get_template_directory_uri() . '/assets/css/login.css', false );
 }
 
 // changing the logo link from wordpress.org to your site
@@ -63,12 +61,11 @@ add_filter( 'login_headerurl', 'bones_login_url' );
 add_filter( 'login_headertitle', 'bones_login_title' );
 
 
-
 /************* CUSTOMIZE ADMIN FOOTER *******************/
 
 // Custom Backend Footer
 function bones_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Crafted by <a href="http://creativeslice.com" target="_blank">Creative Slice</a></span> with <a href="http://wordpress.org" target="_blank">WordPress</a>.';
+	echo '<span id="footer-thankyou">Crafted by <a href="http://creativeslice.com" target="_blank">Creative Slice</a> with <a href="http://wordpress.org" target="_blank">WordPress</a>.</span>';
 }
 
 // adding it to the admin area

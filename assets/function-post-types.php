@@ -34,7 +34,7 @@ function custom_post_example() {
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_position' => 8,
-			'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-icon.png',
+			'menu_icon' => get_stylesheet_directory_uri() . '/images/custom-post-icon.png',
 			'rewrite'	=> array( 'slug' => 'custom_type', 'with_front' => false ),
 			'has_archive' => 'custom_type',
 			'capability_type' => 'post',
