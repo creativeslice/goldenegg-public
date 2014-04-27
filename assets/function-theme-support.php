@@ -40,7 +40,18 @@ function bones_theme_support() {
 
 	// This feature enables post and comment RSS feed links to head
 	// add_theme_support('automatic-feed-links');
-
+	
+	// Enable support for HTML5 markup.
+	add_theme_support( 'html5', 
+		array(
+			'comment-list',
+			'search-form',
+			'comment-form',
+			'gallery',
+			'caption'
+		)
+	);
+			
 	// adding post format support
 	add_theme_support( 'post-formats',
 		array(
@@ -59,13 +70,13 @@ function bones_theme_support() {
 	// wp menus
 	add_theme_support( 'menus' );
 
-	// registering wp3+ menus
+	// registering menus
 	register_nav_menus(
 		array(
 			'main-nav' => 'The Main Menu',   // main nav in header
 			'footer-links' => 'Footer Links', // secondary nav in footer
 		)
 	);
-} /* end bones theme support */
+}
 
 ?>

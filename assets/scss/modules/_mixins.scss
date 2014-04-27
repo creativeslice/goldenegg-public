@@ -1,0 +1,125 @@
+/******************************************************************
+
+Stylesheet: Mixins Stylesheet
+
+******************************************************************/
+
+/*********************
+BUTTONS
+*********************/
+
+%btn {
+  display: inline-block;
+  position: relative;
+  font-family: $sans-serif;
+  text-decoration: none;
+  color: $white;
+  font-size: 0.9em;
+  font-size: 34px;
+  line-height: 34px;
+  font-weight: normal;
+  padding: 0 24px;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  // hovering on the btn
+  &:hover, &:focus {
+    color: $white;
+    text-decoration: none;
+  }
+
+  // clicking on the button
+  &:active {
+    top: 1px; // adds a tiny hop to the click
+  }
+
+}
+
+.button {
+  @extend %btn; // here we load the btn defaults
+  background-color: $blue;
+
+  &:hover,
+  &:focus {
+    background-color: darken($blue, 4%);
+  } // end hover
+
+  &:active {
+    background-color: darken($blue, 5%);
+  } // end active
+
+} // end .button
+
+
+/*********************
+HORIZONTAL LIST
+*********************/
+/* @include horizontal-list(0 8px 0 0); */
+@mixin horizontal-list($list-margin: 0 8px 0 0) {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    li {
+        display: inline-block;
+        position: relative;
+        margin: $list-margin;
+        padding: 0;
+        &:last-of-type {margin-right: 0;}
+        a {
+            display: inline-block;
+        }
+    }
+}
+
+/*********************
+OPACITY
+*********************/
+/* @include opacity(.8); */
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+/*********************
+TRANSITION
+*********************/
+
+@mixin transition($transition...) {
+  // defining prefixes so we can use them in mixins below
+  $prefixes:      ("-webkit-", "" );
+  @each $prefix in $prefixes {
+    #{$prefix}transition: $transition;
+  }
+}
+
+/*********************
+CSS3 GRADIENTS
+*********************/
+
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+/*********************
+BOX SIZING
+*********************/
+
+/* @include box-sizing(border-box); */
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing:    $type;
+	-ms-box-sizing:     $type;
+	box-sizing:         $type;
+}
+
+

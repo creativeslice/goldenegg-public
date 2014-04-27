@@ -62,7 +62,7 @@ gulp.task('default', function() {
 });
 
 // production: gulp
-	// only run on the production server
+// only run on the production server
 gulp.task('prod', function() {
 	gulp.start('styles', 'scripts', 'clean-prod');
 });

@@ -2,8 +2,6 @@
 
 // Flush rewrite rules for custom post types
 add_action( 'after_switch_theme', 'bones_flush_rewrite_rules' );
-
-// Flush your rewrite rules
 function bones_flush_rewrite_rules() {
 	flush_rewrite_rules();
 }
@@ -39,7 +37,7 @@ function custom_post_example() {
 			'has_archive' => 'custom_type',
 			'capability_type' => 'post',
 			'hierarchical' => false,
-			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
+			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'comments', 'revisions', 'sticky')
 		)
 	); /* end of register post type */
 	
