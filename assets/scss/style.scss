@@ -39,10 +39,10 @@ BASE (MOBILE) SIZE
 
 
 /*********************
-LARGER MOBILE DEVICES
+SMALL
 *********************/
 
-@media only screen and (min-width: 30.0625em) { // 481px
+@media only screen and (min-width: 30em) { // 480px
 
 	@import "small";
 
@@ -50,9 +50,9 @@ LARGER MOBILE DEVICES
 
 
 /*********************
-TABLET & SMALLER LAPTOPS
+MEDIUM
 *********************/
-@media only screen and (min-width: 48.0625em) { // 769px
+@media only screen and (min-width: 48em) { // 768px
 
 	@import "medium";
 
@@ -60,9 +60,9 @@ TABLET & SMALLER LAPTOPS
 
 
 /*********************
-DESKTOP
+LARGE
 *********************/
-@media only screen and (min-width: 64.375em) {	// 1030px
+@media only screen and (min-width: 64em) {	// 1024px
 
 	@import "large";
 

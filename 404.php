@@ -2,15 +2,15 @@
 
 <div id="content">
 
-	<div id="inner-content" class="wrap cf">
+	<div id="inner-content" class="wrap">
 
-		<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+		<div id="main" class="cf" role="main">
 
-			<article id="post-not-found" class="hentry cf">
+			<article id="post-not-found" class="hentry">
 
 				<header class="article-header">
 
-					<h1>Epic 404 - Article Not Found</h1>
+					<h1>Page Not Found</h1>
 
 				</header>
 

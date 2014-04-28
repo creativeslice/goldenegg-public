@@ -1,6 +1,6 @@
 /******************************************************************
 
-Stylesheet: Mixins Stylesheet
+Stylesheet: Mixins
 
 ******************************************************************/
 
@@ -9,70 +9,46 @@ BUTTONS
 *********************/
 
 %btn {
-  display: inline-block;
-  position: relative;
-  font-family: $sans-serif;
-  text-decoration: none;
-  color: $white;
-  font-size: 0.9em;
-  font-size: 34px;
-  line-height: 34px;
-  font-weight: normal;
-  padding: 0 24px;
-  border-radius: 4px;
-  border: 0;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-
-  // hovering on the btn
-  &:hover, &:focus {
-    color: $white;
-    text-decoration: none;
-  }
-
-  // clicking on the button
-  &:active {
-    top: 1px; // adds a tiny hop to the click
-  }
+	display: inline-block;
+	position: relative;
+	font-family: $sans-serif;
+	text-decoration: none;
+	color: $white;
+	font-size: .9em;
+	font-weight: bold;
+	line-height: 2em;
+	padding: 0 1em;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+	
+	&:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+	}
+	
+	// clicking on the button
+	&:active {
+		top: 1px; // adds a tiny hop to the click
+	}
 
 }
 
 .button {
-  @extend %btn; // here we load the btn defaults
-  background-color: $blue;
-
-  &:hover,
-  &:focus {
-    background-color: darken($blue, 4%);
-  } // end hover
-
-  &:active {
-    background-color: darken($blue, 5%);
-  } // end active
-
-} // end .button
-
-
-/*********************
-HORIZONTAL LIST
-*********************/
-/* @include horizontal-list(0 8px 0 0); */
-@mixin horizontal-list($list-margin: 0 8px 0 0) {
-    display: inline-block;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    li {
-        display: inline-block;
-        position: relative;
-        margin: $list-margin;
-        padding: 0;
-        &:last-of-type {margin-right: 0;}
-        a {
-            display: inline-block;
-        }
-    }
+	@extend %btn; // here we load the btn defaults
+	background-color: $green;
+	
+	&:hover,
+	&:focus {
+		background-color: lighten($green, 10%);
+	}
+	
+	&:active {
+		background-color: darken($green, 5%);
+	}
+	
 }
+
 
 /*********************
 OPACITY

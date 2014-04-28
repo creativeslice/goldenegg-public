@@ -1,5 +1,40 @@
 <?php
 
+
+/* Custom TinyMCE styling
+-------------------------------------------------------------------------------------- */
+ 
+// Callback function to insert 'styleselect' into the $buttons array
+function my_mce_buttons_2( $buttons ) {
+	array_unshift( $buttons, 'styleselect' );
+	return $buttons;
+}
+add_filter('mce_buttons_2', 'my_mce_buttons_2');
+ 
+// Remove from first row
+function remove_tinymce_buttons1($buttons) {
+	$remove = array('strikethrough', 'wp_more');
+	return array_diff($buttons,$remove);
+}
+add_filter('mce_buttons','remove_tinymce_buttons1');
+ 
+// Remove from second row
+function remove_tinymce_buttons2($buttons) {
+	$remove = array('styleselect', 'underline', 'forecolor', 'alignjustify', 'pastetext', 'removeformat', 'wp_help');
+	return array_diff($buttons,$remove);
+}
+add_filter('mce_buttons_2','remove_tinymce_buttons2');
+ 
+// Callback function to filter the MCE settings
+function my_mce_before_init_insert_formats( $init_array ) {
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$init_array['block_formats'] = "Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5";
+	return $init_array;
+}
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
+
+
+
 /* Remove top admin menu items (WordPress icon)
 -------------------------------------------------------------------------------------- */
 function wps_admin_bar() {

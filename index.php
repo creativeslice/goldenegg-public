@@ -4,16 +4,16 @@
 
 	<div id="inner-content" class="cf">
 
-		<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+		<div id="main" class="goldlarge" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
+			<article <?php post_class( 'cf' ); ?> role="article">
 
 				<header class="article-header">
 
 					<h1 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-					<?php get_template_part( 'partials/content', 'byline' ); ?>
+					<?php get_template_part( 'includes/content', 'byline' ); ?>
 					</p>
 
 				</header>
@@ -43,7 +43,7 @@
 
 			<?php else : ?>
 
-				<?php get_template_part( 'partials/content', 'missing' ); ?>
+				<?php get_template_part( 'includes/content', 'missing' ); ?>
 
 			<?php endif; ?>
 
@@ -55,6 +55,5 @@
 	</div>
 
 </div>
-
 
 <?php get_footer(); ?>

@@ -8,23 +8,20 @@ Stylesheet: Variables
 COLORS
 *********************/
 
-$black:             #323944;
+$black:             #222;
 $white:             #fff;
 
-$light-gray:        #f8f9fa;
-$gray:              #eaedf2;
-$text-color:        #5c6b80;
-$meta-gray:         #9fa6b4;
+$light-gray:        #eee;
+$gray:              #ccc;
+$text-color:        #333;
+$meta-gray:         #999;
+$disabled-gray:     #ddd;
 
-$tan:               #eceee5;
-
-$green:             #7dd667;
-
-$bones-pink:        #f01d4f;
+$green: 	        #669933;
+$orange: 	        #ff9933;
 $blue:              #2980b9;
 
-$link-color:        blue;
+$link-color:        $green;
 $link-hover:        darken($link-color, 9%);
 
-$disabled-gray:     #cfcfcf;
 

@@ -35,13 +35,13 @@ if ( post_password_required() ) {
 
     <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
     	<nav class="navigation comment-navigation" role="navigation">
-      	<div class="comment-nav-prev"><?php previous_comments_link( __( '&larr; Previous Comments', 'bonestheme' ) ); ?></div>
-      	<div class="comment-nav-next"><?php next_comments_link( __( 'More Comments &rarr;', 'bonestheme' ) ); ?></div>
+      	<div class="comment-nav-prev"><?php previous_comments_link('&larr; Previous Comments'); ?></div>
+      	<div class="comment-nav-next"><?php next_comments_link('More Comments &rarr;'); ?></div>
     	</nav>
     <?php endif; ?>
 
     <?php if ( ! comments_open() ) : ?>
-    	<p class="no-comments"><?php _e( 'Comments are closed.' , 'bonestheme' ); ?></p>
+    	<p class="no-comments">Comments are closed.</p>
     <?php endif; ?>
 
   <?php endif; ?>

@@ -4,7 +4,7 @@
 
 	<div id="inner-content" class="wrap cf">
 
-		<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+		<div id="main" class="goldlarge" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -14,7 +14,7 @@
 
 			<?php else : ?>
 
-				<?php get_template_part( 'partials/content', 'missing' ); ?>
+				<?php get_template_part( 'includes/content', 'missing' ); ?>
 
 			<?php endif; ?>
 

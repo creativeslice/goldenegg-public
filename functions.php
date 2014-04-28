@@ -60,5 +60,4 @@ function bones_register_sidebars() {
 	));
 }
 
-
-/* DON'T DELETE THIS CLOSING TAG */ ?>
+?>

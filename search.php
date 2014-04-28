@@ -4,51 +4,43 @@
 
 	<div id="inner-content" class="wrap cf">
 
-		<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+		<div id="main" class="goldlarge" role="main">
 			<h1 class="archive-title"><span>Search Results for:</span> <?php echo esc_attr(get_search_query()); ?></h1>
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-				<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
+			<article <?php post_class('cf'); ?> role="article">
 
-					<header class="article-header">
+				<header class="article-header">
 
-						<h3 class="search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+					<h3 class="search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
-      <p class="byline vcard">
-        <?php printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-      </p>
+  <p class="byline vcard">
+    <?php printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
+  </p>
 
-					</header>
+				</header>
 
-					<section class="entry-content">
-							<?php the_excerpt( '<span class="read-more">' . __( 'Read more &raquo;', 'bonestheme' ) . '</span>' ); ?>
+				<section class="entry-content">
+					<?php the_excerpt( '<span class="read-more">' . __( 'Read more &raquo;', 'bonestheme' ) . '</span>' ); ?>
 
-					</section>
+				</section>
 
-					<footer class="article-footer">
-
-      <?php printf( __( 'Filed under: %1$s', 'bonestheme' ), get_the_category_list(', ') ); ?>
-
-      <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-
-					</footer> <!-- end article footer -->
-
-				</article>
+			</article>
 
 			<?php endwhile; ?>
 
-					<?php bones_page_navi(); ?>
+				<?php bones_page_navi(); ?>
 
-				<?php else : ?>
+			<?php else : ?>
 
-					<?php get_template_part( 'partials/content', 'missing' ); ?>
+				<?php get_template_part( 'includes/content', 'missing' ); ?>
 
-				<?php endif; ?>
+			<?php endif; ?>
 
-			</div>
+		</div>
 
-			<?php get_sidebar(); ?>
+		<?php get_sidebar(); ?>
 
 	</div>
 

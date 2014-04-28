@@ -8,7 +8,7 @@
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?>>
+			<article <?php post_class( 'cf' ); ?>>
 
 				<header class="article-header">
 
@@ -16,18 +16,11 @@
 
 				</header>
 
-				<section class="entry-content cf" itemprop="articleBody">
+				<section class="entry-content" itemprop="articleBody">
 					
 					<?php the_content(); ?>
 
 				</section>
-
-
-				<footer class="article-footer">
-					
-					Article Footer
-					
-				</footer>
 
 			</article>
 

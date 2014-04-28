@@ -18,13 +18,28 @@ Stylesheet: Grid Stylesheet
 }
 
 
+// golden grid layout
+.goldsmall {
+	width: 38.196601125%;
+	position: relative;
+	float: left;
+}
+
+.goldlarge {
+	width: 61.803398875%;
+	position: relative;
+	float: left;
+}
+
+
+
 /*
 Mobile Grid Styles
 These are the widths for the mobile grid.
 There are four types, but you can add or customize
 them however you see fit.
 */
-@media (max-width: 767px) {
+@media (max-width: 47.938em) {
 
   .m-all {
     @include grid-col;
@@ -61,7 +76,7 @@ them however you see fit.
 
 
 /* Portrait tablet to landscape */
-@media (min-width: 768px) and (max-width: 1029px) {
+@media (min-width: 48em) and (max-width: 63.938em) {
 
   .t-all {
     @include grid-col;
@@ -117,7 +132,7 @@ them however you see fit.
 } // end tablet
 
 /* Landscape to small desktop */
-@media (min-width: 1030px) {
+@media (min-width: 64em) {
 
   .d-all  {
     @include grid-col;

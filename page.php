@@ -4,11 +4,11 @@
 
 	<div id="inner-content" class="wrap cf">
 
-		<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+		<div id="main" class="goldlarge" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?>>
+			<article <?php post_class( 'cf' ); ?>>
 
 				<header class="article-header">
 
@@ -16,21 +16,17 @@
 
 				</header>
 
-				<section class="entry-content cf" itemprop="articleBody">
+				<section class="entry-content" itemprop="articleBody">
 					
 					<?php the_content(); ?>
 					
 				</section>
 
-				<footer class="article-footer cf">
-
-				</footer>
-
 			</article>
 
 			<?php endwhile; else : ?>
 
-				<?php get_template_part( 'partials/content', 'missing' ); ?>
+				<?php get_template_part( 'includes/content', 'missing' ); ?>
 
 			<?php endif; ?>
 
