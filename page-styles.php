@@ -8,13 +8,74 @@
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<article <?php post_class(); ?>>
 
 				<header class="article-header">
 					<h1 class="page-title"><strong>PAGE TITLE:</strong> <?php the_title(); ?></h1>
 				</header>
 
 				<section class="entry-content">
+					
+					<div class="cf">
+						<div class="goldlarge">
+							<p><strong>goldlarge</strong><br />Just some text here to see how it wraps and see how the padding works, or if it works at all...</p>
+						</div>
+						<div class="goldsmall">
+							<p><strong>goldsmall</strong><br /> Right sidebar</p>
+						</div>
+					</div>
+					
+					<hr>
+					
+					<div class="cf">
+						<div class="l-g1 m-g1 s-g1 first-col">
+							<p><strong>l-g1 m-g1 s-g1 first-col</strong><br /> Just some text here to see how it wraps and see how the padding works, or if it works at all...</p>
+						</div>
+						<div class="l-g2 m-g2 s-g2">
+							<p><strong>l-g2 m-g2 s-g2</strong><br /> Text here</p>
+						</div>
+						<div class="l-g3 m-g3 s-g1">
+							<p><strong>l-g3 m-g3 s-g1</strong><br /> Text here too</p>
+						</div>
+						<div class="l-g4 m-all s-g2 last-col">
+							<p><strong>l-g4 m-all s-g2 last-col</strong><br /> Far right column</p>
+						</div>
+					</div>
+					
+					<hr>
+					
+					<div class="cf">
+						<div class="l-g1-g2 m-g1-g2 s-g1">
+							<p><strong>l-g1-g2 m-g1-g2 s-g1</strong><br />Just some text here to see how it wraps and see how the padding works, or if it works at all...</p>
+						</div>
+						<div class="l-g3-g4 m-g3 s-g2 last-col">
+							<p><strong>l-g3-g4 m-g3 s-g2 last-col</strong><br /> Right sidebar</p>
+						</div>
+					</div>
+					
+					<hr>
+					
+					<div class="cf">
+						<div class="l-g1-g3 m-g1-g2 s-all">
+							<p><strong>l-g1-g3 m-g1-g2 s-all</strong><br />Just some text here to see how it wraps and see how the padding works, or if it works at all...</p>
+						</div>
+						<div class="l-g4 m-g3 s-all last-col">
+							<p><strong>l-g4 m-g3 s-all last-col</strong><br /> Right sidebar</p>
+						</div>
+					</div>
+					
+					<hr>
+					
+					<div class="cf">
+						<div class="l-g1 m-g1 s-g1 first-col">
+							<p><strong>l-g1 m-g1 s-g1 first-col</strong><br /> Just some text here to see how it wraps and see how the padding works, or if it works at all...</p>
+						</div>
+						<div class="l-g3-g4 m-g3 s-all last-col">
+							<p><strong>l-g3-g4 m-g3 s-all last-col</strong><br /> Far right column</p>
+						</div>
+					</div>
+					
+					<hr>
 					
 					<?php the_content(); ?>
 					

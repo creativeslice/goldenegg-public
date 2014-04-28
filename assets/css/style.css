@@ -484,19 +484,30 @@ BOX SIZING
 Stylesheet: Grid Stylesheet
 
 ******************************************************************/
-.last-col {
-  float: right;
-  padding-right: 0; }
-
 .goldsmall {
   width: 38.1966%;
-  position: relative;
-  float: left; }
+  float: left;
+  padding: 0 0.5em;
+  background: #eee;
+  border: 1px solid #ddd; }
+  .goldsmall p {
+    background: white; }
 
 .goldlarge {
   width: 61.8034%;
-  position: relative;
-  float: left; }
+  float: left;
+  padding: 0 0.5em;
+  background: #eee;
+  border: 1px solid #ddd; }
+  .goldlarge p {
+    background: white; }
+
+.first-col {
+  padding-left: 0 !important; }
+
+.last-col {
+  float: right !important;
+  padding-right: 0 !important; }
 
 /*
 Mobile Grid Styles
@@ -505,167 +516,164 @@ There are four types, but you can add or customize
 them however you see fit.
 */
 @media (max-width: 47.938em) {
-  .m-all {
+  .s-all {
     float: left;
-    padding-right: 0.75em;
-    width: 100%;
-    padding-right: 0; }
-  .m-1of2 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd;
+    width: 100%; }
+    .s-all p {
+      background: white; }
+  .s-g1 {
+    width: 61.5908%;
     float: left;
-    padding-right: 0.75em;
-    width: 50%; }
-  .m-1of3 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .s-g1 p {
+      background: white; }
+  .s-g2 {
+    width: 38.253%;
     float: left;
-    padding-right: 0.75em;
-    width: 33.33%; }
-  .m-2of3 {
-    float: left;
-    padding-right: 0.75em;
-    width: 66.66%; }
-  .m-1of4 {
-    float: left;
-    padding-right: 0.75em;
-    width: 25%; }
-  .m-3of4 {
-    float: left;
-    padding-right: 0.75em;
-    width: 75%; } }
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .s-g2 p {
+      background: white; } }
 
 /* Portrait tablet to landscape */
 @media (min-width: 48em) and (max-width: 63.938em) {
-  .t-all {
+  .m-all {
     float: left;
-    padding-right: 0.75em;
-    width: 100%;
-    padding-right: 0; }
-  .t-1of2 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd;
+    width: 100%; }
+    .m-all p {
+      background: white; }
+  .m-g1 {
+    width: 50%;
     float: left;
-    padding-right: 0.75em;
-    width: 50%; }
-  .t-1of3 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .m-g1 p {
+      background: white; }
+  .m-g1-g2 {
+    width: 69.0983%;
     float: left;
-    padding-right: 0.75em;
-    width: 33.33%; }
-  .t-2of3 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .m-g1-g2 p {
+      background: white; }
+  .m-g2 {
+    width: 19.0983%;
     float: left;
-    padding-right: 0.75em;
-    width: 66.66%; }
-  .t-1of4 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .m-g2 p {
+      background: white; }
+  .m-g2-g3 {
+    width: 50%;
     float: left;
-    padding-right: 0.75em;
-    width: 25%; }
-  .t-3of4 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .m-g2-g3 p {
+      background: white; }
+  .m-g3 {
+    width: 30.9017%;
     float: left;
-    padding-right: 0.75em;
-    width: 75%; }
-  .t-1of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 20%; }
-  .t-2of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 40%; }
-  .t-3of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 60%; }
-  .t-4of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 80%; } }
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .m-g3 p {
+      background: white; } }
 
-/* Landscape to small desktop */
+/* Large */
 @media (min-width: 64em) {
-  .d-all {
+  .l-all {
     float: left;
-    padding-right: 0.75em;
-    width: 100%;
-    padding-right: 0; }
-  .d-1of2 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd;
+    width: 100%; }
+    .l-all p {
+      background: white; }
+  .l-g1 {
+    width: 44.7214%;
     float: left;
-    padding-right: 0.75em;
-    width: 50%; }
-  .d-1of3 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .l-g1 p {
+      background: white; }
+  .l-g1-g2 {
+    width: 55.2786%;
     float: left;
-    padding-right: 0.75em;
-    width: 33.33%; }
-  .d-2of3 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .l-g1-g2 p {
+      background: white; }
+  .l-g1-g3 {
+    width: 72.3607%;
     float: left;
-    padding-right: 0.75em;
-    width: 66.66%; }
-  .d-1of4 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .l-g1-g3 p {
+      background: white; }
+  .l-g2 {
+    width: 10.5573%;
     float: left;
-    padding-right: 0.75em;
-    width: 25%; }
-  .d-3of4 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .l-g2 p {
+      background: white; }
+  .l-g2-g3 {
+    width: 27.6393%;
     float: left;
-    padding-right: 0.75em;
-    width: 75%; }
-  .d-1of5 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .l-g2-g3 p {
+      background: white; }
+  .l-g2-g4 {
+    width: 55.2786%;
     float: left;
-    padding-right: 0.75em;
-    width: 20%; }
-  .d-2of5 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .l-g2-g4 p {
+      background: white; }
+  .l-g3 {
+    width: 17.082%;
     float: left;
-    padding-right: 0.75em;
-    width: 40%; }
-  .d-3of5 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .l-g3 p {
+      background: white; }
+  .l-g3-g4 {
+    width: 44.7214%;
     float: left;
-    padding-right: 0.75em;
-    width: 60%; }
-  .d-4of5 {
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .l-g3-g4 p {
+      background: white; }
+  .l-g4 {
+    width: 27.6393%;
     float: left;
-    padding-right: 0.75em;
-    width: 80%; }
-  .d-1of6 {
-    float: left;
-    padding-right: 0.75em;
-    width: 16.66667%; }
-  .d-1of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 14.28571%; }
-  .d-2of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 28.57143%; }
-  .d-3of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 42.85714%; }
-  .d-4of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 57.14286%; }
-  .d-5of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 71.42857%; }
-  .d-6of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 85.71429%; }
-  .d-1of8 {
-    float: left;
-    padding-right: 0.75em;
-    width: 12.5%; }
-  .d-1of9 {
-    float: left;
-    padding-right: 0.75em;
-    width: 11.11111%; }
-  .d-1of10 {
-    float: left;
-    padding-right: 0.75em;
-    width: 10%; }
-  .d-1of11 {
-    float: left;
-    padding-right: 0.75em;
-    width: 9.09091%; }
-  .d-1of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 8.33%; } }
+    padding: 0 0.5em;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .l-g4 p {
+      background: white; } }
 
 /******************************************************************
 Stylesheet: Comment Styles
@@ -822,6 +830,25 @@ body {
   color: #333;
   background-color: #ccc;
   -webkit-font-smoothing: antialiased; }
+
+::-moz-selection {
+  background: #669933;
+  color: white !important;
+  text-shadow: none; }
+
+::selection {
+  background: #669933;
+  color: white !important;
+  text-shadow: none; }
+
+hr {
+  display: block;
+  height: 0px;
+  border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #ccc;
+  margin: 2em 0;
+  padding: 0; }
 
 /*********************
 LAYOUT & GRID STYLES
@@ -1140,8 +1167,6 @@ SIDEBARS & ASIDES
   /*********************
 FOOTER STYLES
 *********************/
-  .wrap {
-    width: 760px; }
   .nav {
     border: 0;
     /* end .menu ul li */

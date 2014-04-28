@@ -16,6 +16,18 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
+::selection { background: $green; color: white !important; text-shadow: none; }
+
+hr {
+	display: block;
+	height: 0px;
+	border: 0;
+	border-top: 1px solid $light-gray;
+	border-bottom: 1px solid $gray;
+	margin: 2em 0;
+	padding: 0;
+}
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/

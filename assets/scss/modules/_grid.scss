@@ -7,29 +7,40 @@ Stylesheet: Grid Stylesheet
 // using a mixin since we can't use placeholder selectors
 @mixin grid-col {
   float: left;
-  padding-right: 0.75em;
+  padding: 0 .5em;
+  background: #eee;
+  border: 1px solid #ddd;
+  p {
+	  background: white;
+  }
 
 }
 
-// the last column
-.last-col {
-  float: right;
-  padding-right: 0;
-}
 
-
-// golden grid layout
+// simple golden grid layout
 .goldsmall {
 	width: 38.196601125%;
-	position: relative;
-	float: left;
+	@include grid-col;
 }
 
 .goldlarge {
 	width: 61.803398875%;
-	position: relative;
-	float: left;
+	@include grid-col;
 }
+
+
+
+// the last column
+.first-col {
+  padding-left: 0 !important;
+}
+
+// the last column
+.last-col {
+  float: right !important;
+  padding-right: 0 !important;
+}
+
 
 
 
@@ -41,36 +52,18 @@ them however you see fit.
 */
 @media (max-width: 47.938em) {
 
-  .m-all {
-    @include grid-col;
-    width: 100%;
-    padding-right: 0;
-  }
-
-  .m-1of2 {
-    @include grid-col;
-    width: 50%;
-  }
-
-  .m-1of3 {
-    @include grid-col;
-    width: 33.33%;
-  }
-
-  .m-2of3 {
-    @include grid-col;
-    width: 66.66%;
-  }
-
-  .m-1of4 {
-    @include grid-col;
-    width: 25%;
-  }
-
-  .m-3of4 {
-    @include grid-col;
-    width: 75%;
-  }
+	.s-all  {
+		@include grid-col;
+		width: 100%;
+	}
+	.s-g1 {
+		 width: 61.5908%;
+		 @include grid-col;
+	}
+	.s-g2 {
+		 width: 38.253%;
+		 @include grid-col;
+	}
 
 } // end mobile styles
 
@@ -78,171 +71,84 @@ them however you see fit.
 /* Portrait tablet to landscape */
 @media (min-width: 48em) and (max-width: 63.938em) {
 
-  .t-all {
-    @include grid-col;
-    width: 100%;
-    padding-right: 0;
-  }
-
-  .t-1of2 {
-    @include grid-col;
-    width: 50%;
-  }
-
-  .t-1of3 {
-    @include grid-col;
-    width: 33.33%;
-  }
-
-  .t-2of3 {
-    @include grid-col;
-    width: 66.66%;
-  }
-
-  .t-1of4 {
-    @include grid-col;
-    width: 25%;
-  }
-
-  .t-3of4 {
-    @include grid-col;
-    width: 75%;
-  }
-
-  .t-1of5 {
-    @include grid-col;
-    width: 20%;
-  }
-
-  .t-2of5 {
-    @include grid-col;
-    width: 40%;
-  }
-
-  .t-3of5 {
-    @include grid-col;
-    width: 60%;
-  }
-
-  .t-4of5 {
-    @include grid-col;
-    width: 80%;
-  }
+	.m-all  {
+		@include grid-col;
+		width: 100%;
+	}
+	.m-g1 {
+		 width: 50%;
+		 @include grid-col;
+	}
+	.m-g1-g2 {
+		 width: 69.0983%;
+		 @include grid-col;
+	}
+	.m-g2 {
+		 width: 19.0983%;
+		 @include grid-col;
+	}
+	.m-g2-g3 {
+		 width: 50%;
+		 @include grid-col;
+	}
+	.m-g3 {
+		 width: 30.9017%;
+		 @include grid-col;
+	}
 
 } // end tablet
 
-/* Landscape to small desktop */
+/* Large */
 @media (min-width: 64em) {
 
-  .d-all  {
-    @include grid-col;
-    width: 100%;
-    padding-right: 0;
-  }
+	.l-all  {
+		@include grid-col;
+		width: 100%;
+	}
 
-  .d-1of2 {
-    @include grid-col;
-    width: 50%;
-  }
+	.l-g1 {
+		 width: 44.7214%;
+		 @include grid-col;
+	}
+	
+	.l-g1-g2 {
+		 width: 55.2786%;
+		 @include grid-col;
+	}
+	
+	.l-g1-g3 {
+		 width: 72.3607%;
+		 @include grid-col;
+	}
+	
+	.l-g2 {
+		 width: 10.5573%;
+		 @include grid-col;
+	}
+	
+	.l-g2-g3 {
+		 width: 27.6393%;
+		 @include grid-col;
+	}
+	
+	.l-g2-g4 {
+		 width: 55.2786%;
+		 @include grid-col;
+	}
+	
+	.l-g3 {
+		width: 17.082%;
+		@include grid-col;
+	}
+	
+	.l-g3-g4 {
+		width: 44.7214%;
+		@include grid-col;
+	}
+	
+	.l-g4 {
+		width: 27.6393%;
+		@include grid-col;
+	}
 
-  .d-1of3 {
-    @include grid-col;
-    width: 33.33%;
-  }
-
-  .d-2of3 {
-    @include grid-col;
-    width: 66.66%;
-  }
-
-  .d-1of4 {
-    @include grid-col;
-    width: 25%;
-  }
-
-  .d-3of4 {
-    @include grid-col;
-    width: 75%;
-  }
-
-  .d-1of5 {
-    @include grid-col;
-    width: 20%;
-  }
-
-  .d-2of5 {
-    @include grid-col;
-    width: 40%;
-  }
-
-  .d-3of5 {
-    @include grid-col;
-    width: 60%;
-  }
-
-  .d-4of5 {
-    @include grid-col;
-    width: 80%;
-  }
-
-  .d-1of6 {
-    @include grid-col;
-    width: 16.6666666667%;
-  }
-
-  .d-1of7 {
-    @include grid-col;
-    width: 14.2857142857%;
-  }
-
-  .d-2of7 {
-    @include grid-col;
-    width: 28.5714286%;
-  }
-
-  .d-3of7 {
-    @include grid-col;
-    width: 42.8571429%;
-  }
-
-  .d-4of7 {
-    @include grid-col;
-    width: 57.1428572%;
-  }
-
-  .d-5of7 {
-    @include grid-col;
-    width: 71.4285715%;
-  }
-
-  .d-6of7 {
-    @include grid-col;
-    width: 85.7142857%;
-  }
-
-  .d-1of8 {
-    @include grid-col;
-    width: 12.5%;
-  }
-
-  .d-1of9 {
-    @include grid-col;
-    width: 11.1111111111%;
-  }
-
-  .d-1of10 {
-    @include grid-col;
-    width: 10%;
-  }
-
-  .d-1of11 {
-    @include grid-col;
-    width: 9.09090909091%;
-  }
-
-  .d-1of12 {
-    @include grid-col;
-    width: 8.33%;
-  }
-
-} // end desktop styles
+} // end large styles
