@@ -1,0 +1,144 @@
+/******************************************************************
+
+Stylesheet: Gerstner Grid
+
+This layout is designed using a recreation of Karl Gerstner’s compound grid that was designed for Capital Magazine in the 1960’s. It’s a compound – meaning combined – grid of 6 column and 4 columns. This allows for very flexible layout combinations, including the unusual 5 column, asymmetric column configuration which is the basis for this layout.
+
+https://gridsetapp.com/specs/gerstner/?gridset=show
+
+******************************************************************/
+
+@mixin grid-col {
+  float: left;
+  background: #eee;
+  border: 1px solid #ddd;
+  p {
+	  background: white;
+  }
+
+}
+
+// the last column
+.last-col {
+  float: right !important;
+  margin-right: 0 !important;
+}
+
+
+
+/*
+Simple Golden Ratio
+*/
+.goldlarge {
+	width: 61.803398875%;
+	@include grid-col;
+}
+.goldsmall {
+	width: 38.196601125%;
+	@include grid-col;
+}
+
+
+/*
+Small - 2 column
+*/
+@media (max-width: 47.938em) {
+
+	.s-all  {
+		@include grid-col;
+		width: 100%;
+		margin-right: 0;
+	}
+	.s-g1 {
+		 width: 48.4375%;
+		 @include grid-col;
+		 margin-right: 3.125%;
+	}
+
+	.s-last {
+	  float: right;
+	  margin-right: 0;
+	}
+
+}
+
+
+/* 
+Medium - 4 column 
+*/
+@media (min-width: 48em) and (max-width: 63.938em) {
+
+	.m-all  {
+		@include grid-col;
+		width: 100%;
+		margin-right: 0;
+	}
+	.m-g1 {
+		 width: 23.0469%;
+		 @include grid-col;
+		 margin-right: 2.6042%;
+	}
+	.m-g2 {
+		 width: 48.6979%;
+		 @include grid-col;
+		 margin-right: 2.6042%;
+	}
+	.m-g3 {
+		 width: 74.349%;
+		 @include grid-col;
+		 margin-right: 2.6042%;
+	}
+	
+	.m-last {
+	  float: right;
+	  margin-right: 0;
+	}
+	
+}
+
+
+/* 
+Large - 6 column 
+*/
+@media (min-width: 64em) {
+
+	.l-all  {
+		@include grid-col;
+		width: 100%;
+		margin-right: 0;
+	}
+
+	.l-g1 {
+		 width: 14.1414%;
+		 @include grid-col;
+		 margin-right: 3.0303%;
+	}
+	
+	.l-g2 {
+		 width: 31.3131%;
+		 @include grid-col;
+		 margin-right: 3.0303%;
+	}
+	
+	.l-g3 {
+		 width: 48.4848%;
+		 @include grid-col;
+		 margin-right: 3.0303%;
+	}
+	
+	.l-g4 {
+		 width: 65.6566%;
+		 @include grid-col;
+		 margin-right: 3.0303%;
+	}
+	.l-g5 {
+		 width: 82.8283%;
+		 @include grid-col;
+		 margin-right: 3.0303%;
+	}
+	.l-last {
+	  float: right;
+	  margin-right: 0;
+	}
+	
+}

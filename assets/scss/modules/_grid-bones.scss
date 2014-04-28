@@ -1,0 +1,259 @@
+/******************************************************************
+
+Stylesheet: Bones Grid
+
+The grid below is a custom built thingy I modeled a bit after
+Gridset. It's VERY basic and probably shouldn't be used on
+your client projects. The idea is you learn how to roll your
+own grids. It's better in the long run and allows you full control
+over your project's layout.
+
+******************************************************************/
+
+@mixin grid-col {
+  float: left;
+  padding-right: 0.75em;
+  background: #eee;
+  border: 1px solid #ddd;
+  p {
+	  background: white;
+  }
+
+}
+
+// the last column
+.last-col {
+  float: right !important;
+  margin-right: 0 !important;
+}
+
+
+
+/*
+Simple Golden Ratio
+*/
+.goldlarge {
+	width: 61.803398875%;
+	@include grid-col;
+}
+.goldsmall {
+	width: 38.196601125%;
+	@include grid-col;
+}
+
+
+/*
+Small - 4 column
+*/
+@media (max-width: 47.938em) {
+
+	.s-all {
+		@include grid-col;
+		width: 100%;
+		padding-right: 0;
+	}
+		
+	.s-1of2 {
+		@include grid-col;
+		width: 50%;
+	}
+		
+	.s-1of3 {
+		@include grid-col;
+		width: 33.33%;
+	}
+		
+	.s-2of3 {
+		@include grid-col;
+		width: 66.66%;
+	}
+		
+	.s-1of4 {
+		@include grid-col;
+		width: 25%;
+	}
+		
+	.s-3of4 {
+		@include grid-col;
+		width: 75%;
+	}
+
+}
+
+
+/* 
+Medium - 5 column 
+*/
+@media (min-width: 48em) and (max-width: 63.938em) {
+
+	.m-all {
+		@include grid-col;
+		width: 100%;
+		padding-right: 0;
+	}
+		
+	.m-1of2 {
+		@include grid-col;
+		width: 50%;
+	}
+		
+	.m-1of3 {
+		@include grid-col;
+		width: 33.33%;
+	}
+		
+	.m-2of3 {
+		@include grid-col;
+		width: 66.66%;
+	}
+		
+	.m-1of4 {
+		@include grid-col;
+		width: 25%;
+	}
+		
+	.m-3of4 {
+		@include grid-col;
+		width: 75%;
+	}
+		
+	.m-1of5 {
+		@include grid-col;
+		width: 20%;
+	}
+		
+	.m-2of5 {
+		@include grid-col;
+		width: 40%;
+	}
+		
+	.m-3of5 {
+		@include grid-col;
+		width: 60%;
+	}
+		
+	.m-4of5 {
+		@include grid-col;
+		width: 80%;
+	}
+	
+}
+
+
+/* 
+Large - 12 column 
+*/
+@media (min-width: 64em) {
+
+	.l-all  {
+	@include grid-col;
+	width: 100%;
+	padding-right: 0;
+	}
+	
+	.l-1of2 {
+	@include grid-col;
+	width: 50%;
+	}
+	
+	.l-1of3 {
+	@include grid-col;
+	width: 33.33%;
+	}
+	
+	.l-2of3 {
+	@include grid-col;
+	width: 66.66%;
+	}
+	
+	.l-1of4 {
+	@include grid-col;
+	width: 25%;
+	}
+	
+	.l-3of4 {
+	@include grid-col;
+	width: 75%;
+	}
+	
+	.l-1of5 {
+	@include grid-col;
+	width: 20%;
+	}
+	
+	.l-2of5 {
+	@include grid-col;
+	width: 40%;
+	}
+	
+	.l-3of5 {
+	@include grid-col;
+	width: 60%;
+	}
+	
+	.l-4of5 {
+	@include grid-col;
+	width: 80%;
+	}
+	
+	.l-1of6 {
+	@include grid-col;
+	width: 16.6666666667%;
+	}
+	
+	.l-1of7 {
+	@include grid-col;
+	width: 14.2857142857%;
+	}
+	
+	.l-2of7 {
+	@include grid-col;
+	width: 28.5714286%;
+	}
+	
+	.l-3of7 {
+	@include grid-col;
+	width: 42.8571429%;
+	}
+	
+	.l-4of7 {
+	@include grid-col;
+	width: 57.1428572%;
+	}
+	
+	.l-5of7 {
+	@include grid-col;
+	width: 71.4285715%;
+	}
+	
+	.l-6of7 {
+	@include grid-col;
+	width: 85.7142857%;
+	}
+	
+	.l-1of8 {
+	@include grid-col;
+	width: 12.5%;
+	}
+	
+	.l-1of9 {
+	@include grid-col;
+	width: 11.1111111111%;
+	}
+	
+	.l-1of10 {
+	@include grid-col;
+	width: 10%;
+	}
+	
+	.l-1of11 {
+	@include grid-col;
+	width: 9.09090909091%;
+	}
+	
+	.l-1of12 {
+	@include grid-col;
+	width: 8.33%;
+	}
+	
+}

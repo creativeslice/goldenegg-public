@@ -1,0 +1,153 @@
+/******************************************************************
+
+Stylesheet: 4 columns derived from the Golden Ratio
+
+******************************************************************/
+
+@mixin grid-col {
+  float: left;
+  padding: 0 .5em;
+  background: #eee;
+  border: 1px solid #ddd;
+  p {
+	  background: white;
+  }
+
+}
+
+// the first column
+.first-col {
+  padding-left: 0 !important;
+}
+
+// the last column
+.last-col {
+  float: right !important;
+  padding-right: 0 !important;
+}
+
+
+/*
+Simple Golden Ratio
+*/
+.goldlarge {
+	width: 61.803398875%;
+	@include grid-col;
+}
+.goldsmall {
+	width: 38.196601125%;
+	@include grid-col;
+}
+
+
+
+/*
+Small - 2 column
+*/
+@media (max-width: 47.938em) {
+
+	.s-all  {
+		@include grid-col;
+		width: 100%;
+	}
+	.s-g1 {
+		 width: 61.5908%;
+		 @include grid-col;
+	}
+	.s-g2 {
+		 width: 38.253%;
+		 @include grid-col;
+	}
+
+}
+
+
+/* 
+Medium - 3 column 
+*/
+@media (min-width: 48em) and (max-width: 63.938em) {
+
+	.m-all  {
+		@include grid-col;
+		width: 100%;
+	}
+	.m-g1 {
+		 width: 50%;
+		 @include grid-col;
+	}
+	.m-g1-g2 {
+		 width: 69.0983%;
+		 @include grid-col;
+	}
+	.m-g2 {
+		 width: 19.0983%;
+		 @include grid-col;
+	}
+	.m-g2-g3 {
+		 width: 50%;
+		 @include grid-col;
+	}
+	.m-g3 {
+		 width: 30.9017%;
+		 @include grid-col;
+	}
+
+}
+
+
+/* 
+Large - 4 column 
+*/
+@media (min-width: 64em) {
+
+	.l-all  {
+		@include grid-col;
+		width: 100%;
+	}
+
+	.l-g1 {
+		 width: 44.7214%;
+		 @include grid-col;
+	}
+	
+	.l-g1-g2 {
+		 width: 55.2786%;
+		 @include grid-col;
+	}
+	
+	.l-g1-g3 {
+		 width: 72.3607%;
+		 @include grid-col;
+	}
+	
+	.l-g2 {
+		 width: 10.5573%;
+		 @include grid-col;
+	}
+	
+	.l-g2-g3 {
+		 width: 27.6393%;
+		 @include grid-col;
+	}
+	
+	.l-g2-g4 {
+		 width: 55.2786%;
+		 @include grid-col;
+	}
+	
+	.l-g3 {
+		width: 17.082%;
+		@include grid-col;
+	}
+	
+	.l-g3-g4 {
+		width: 44.7214%;
+		@include grid-col;
+	}
+	
+	.l-g4 {
+		width: 27.6393%;
+		@include grid-col;
+	}
+
+}

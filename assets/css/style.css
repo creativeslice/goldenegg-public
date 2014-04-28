@@ -481,18 +481,19 @@ BOX SIZING
 /* @include box-sizing(border-box); */
 /******************************************************************
 
-Stylesheet: Grid Stylesheet
+Stylesheet: Grid
 
 ******************************************************************/
-.goldsmall {
-  width: 38.1966%;
-  float: left;
-  padding: 0 0.5em;
-  background: #eee;
-  border: 1px solid #ddd; }
-  .goldsmall p {
-    background: white; }
+.first-col {
+  padding-left: 0 !important; }
 
+.last-col {
+  float: right !important;
+  padding-right: 0 !important; }
+
+/*
+Simple Golden Ratio
+*/
 .goldlarge {
   width: 61.8034%;
   float: left;
@@ -502,178 +503,14 @@ Stylesheet: Grid Stylesheet
   .goldlarge p {
     background: white; }
 
-.first-col {
-  padding-left: 0 !important; }
-
-.last-col {
-  float: right !important;
-  padding-right: 0 !important; }
-
-/*
-Mobile Grid Styles
-These are the widths for the mobile grid.
-There are four types, but you can add or customize
-them however you see fit.
-*/
-@media (max-width: 47.938em) {
-  .s-all {
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd;
-    width: 100%; }
-    .s-all p {
-      background: white; }
-  .s-g1 {
-    width: 61.5908%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .s-g1 p {
-      background: white; }
-  .s-g2 {
-    width: 38.253%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .s-g2 p {
-      background: white; } }
-
-/* Portrait tablet to landscape */
-@media (min-width: 48em) and (max-width: 63.938em) {
-  .m-all {
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd;
-    width: 100%; }
-    .m-all p {
-      background: white; }
-  .m-g1 {
-    width: 50%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .m-g1 p {
-      background: white; }
-  .m-g1-g2 {
-    width: 69.0983%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .m-g1-g2 p {
-      background: white; }
-  .m-g2 {
-    width: 19.0983%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .m-g2 p {
-      background: white; }
-  .m-g2-g3 {
-    width: 50%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .m-g2-g3 p {
-      background: white; }
-  .m-g3 {
-    width: 30.9017%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .m-g3 p {
-      background: white; } }
-
-/* Large */
-@media (min-width: 64em) {
-  .l-all {
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd;
-    width: 100%; }
-    .l-all p {
-      background: white; }
-  .l-g1 {
-    width: 44.7214%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .l-g1 p {
-      background: white; }
-  .l-g1-g2 {
-    width: 55.2786%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .l-g1-g2 p {
-      background: white; }
-  .l-g1-g3 {
-    width: 72.3607%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .l-g1-g3 p {
-      background: white; }
-  .l-g2 {
-    width: 10.5573%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .l-g2 p {
-      background: white; }
-  .l-g2-g3 {
-    width: 27.6393%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .l-g2-g3 p {
-      background: white; }
-  .l-g2-g4 {
-    width: 55.2786%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .l-g2-g4 p {
-      background: white; }
-  .l-g3 {
-    width: 17.082%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .l-g3 p {
-      background: white; }
-  .l-g3-g4 {
-    width: 44.7214%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .l-g3-g4 p {
-      background: white; }
-  .l-g4 {
-    width: 27.6393%;
-    float: left;
-    padding: 0 0.5em;
-    background: #eee;
-    border: 1px solid #ddd; }
-    .l-g4 p {
-      background: white; } }
+.goldsmall {
+  width: 38.1966%;
+  float: left;
+  padding: 0 0.5em;
+  background: #eee;
+  border: 1px solid #ddd; }
+  .goldsmall p {
+    background: white; }
 
 /******************************************************************
 Stylesheet: Comment Styles

@@ -1,10 +1,9 @@
 /******************************************************************
 
-Stylesheet: Grid Stylesheet
+Stylesheet: Grid
 
 ******************************************************************/
 
-// using a mixin since we can't use placeholder selectors
 @mixin grid-col {
   float: left;
   padding: 0 .5em;
@@ -16,21 +15,7 @@ Stylesheet: Grid Stylesheet
 
 }
 
-
-// simple golden grid layout
-.goldsmall {
-	width: 38.196601125%;
-	@include grid-col;
-}
-
-.goldlarge {
-	width: 61.803398875%;
-	@include grid-col;
-}
-
-
-
-// the last column
+// the first column
 .first-col {
   padding-left: 0 !important;
 }
@@ -42,113 +27,15 @@ Stylesheet: Grid Stylesheet
 }
 
 
-
-
 /*
-Mobile Grid Styles
-These are the widths for the mobile grid.
-There are four types, but you can add or customize
-them however you see fit.
+Simple Golden Ratio
 */
-@media (max-width: 47.938em) {
+.goldlarge {
+	width: 61.803398875%;
+	@include grid-col;
+}
+.goldsmall {
+	width: 38.196601125%;
+	@include grid-col;
+}
 
-	.s-all  {
-		@include grid-col;
-		width: 100%;
-	}
-	.s-g1 {
-		 width: 61.5908%;
-		 @include grid-col;
-	}
-	.s-g2 {
-		 width: 38.253%;
-		 @include grid-col;
-	}
-
-} // end mobile styles
-
-
-/* Portrait tablet to landscape */
-@media (min-width: 48em) and (max-width: 63.938em) {
-
-	.m-all  {
-		@include grid-col;
-		width: 100%;
-	}
-	.m-g1 {
-		 width: 50%;
-		 @include grid-col;
-	}
-	.m-g1-g2 {
-		 width: 69.0983%;
-		 @include grid-col;
-	}
-	.m-g2 {
-		 width: 19.0983%;
-		 @include grid-col;
-	}
-	.m-g2-g3 {
-		 width: 50%;
-		 @include grid-col;
-	}
-	.m-g3 {
-		 width: 30.9017%;
-		 @include grid-col;
-	}
-
-} // end tablet
-
-/* Large */
-@media (min-width: 64em) {
-
-	.l-all  {
-		@include grid-col;
-		width: 100%;
-	}
-
-	.l-g1 {
-		 width: 44.7214%;
-		 @include grid-col;
-	}
-	
-	.l-g1-g2 {
-		 width: 55.2786%;
-		 @include grid-col;
-	}
-	
-	.l-g1-g3 {
-		 width: 72.3607%;
-		 @include grid-col;
-	}
-	
-	.l-g2 {
-		 width: 10.5573%;
-		 @include grid-col;
-	}
-	
-	.l-g2-g3 {
-		 width: 27.6393%;
-		 @include grid-col;
-	}
-	
-	.l-g2-g4 {
-		 width: 55.2786%;
-		 @include grid-col;
-	}
-	
-	.l-g3 {
-		width: 17.082%;
-		@include grid-col;
-	}
-	
-	.l-g3-g4 {
-		width: 44.7214%;
-		@include grid-col;
-	}
-	
-	.l-g4 {
-		width: 27.6393%;
-		@include grid-col;
-	}
-
-} // end large styles
