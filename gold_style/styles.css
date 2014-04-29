@@ -1,0 +1,183 @@
+/*********************
+GENERAL STYLES
+*********************/
+
+body {
+	font-size: 100%;
+	line-height: 1.5;
+	color: #222;
+	background: #f2efe9;
+	font-family: sans-serif;
+}
+
+section {
+	border-top: 1px solid #ddd;
+	padding-top: 2em;
+	clear: both;
+}
+
+.labels {
+	display: block;
+	padding-right: 30%;
+	font-style: italic;
+	font-family: georgia, serif;
+}
+
+.goldlarge {
+	width: 61.803398875%;
+	float: right;
+}
+.goldsmall {
+	width: 38.196601125%;
+	float: left;
+	text-align: right;
+}
+
+
+/*********************
+PAGE HEADER
+*********************/
+
+header {
+	background: #f05c1f;
+	height: 90px;
+}
+
+#logo {
+	padding: 30px;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav a {
+	color: white;
+}
+
+
+/*********************
+TYPOGRAPHY
+*********************/
+
+p {
+	
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: Georgia, serif;
+}
+
+h1 {
+	font-size: 3em;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 2.2em;
+}
+
+h3 {
+	font-size: 1.8em;
+}
+
+h4 {
+	font-size: 1.625em;
+	font-weight: normal;
+	font-family: sans-serif;
+}
+
+h5 {
+	font-size: 1.25em;
+	font-family: sans-serif;
+}
+
+.nopadding {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+small {
+	margin-bottom: 30px;
+	display: block;
+	font-size: 12px;
+	color: #999;
+}
+
+/*********************
+BUTTONS & LINKS
+*********************/
+
+a, a:visited {
+	color: #f05c1f;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+button {
+	background: #f05c1f;
+	color: white;
+	border: 1px solid #f05c1f;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	padding: 6px 12px;
+	font-size: .9em;
+}
+
+button:hover, button.active {
+	background: black;
+	border-color: #333;
+}
+
+button.inactive {
+	background: #ccc;
+	border: 1px solid #999;
+}
+
+/*********************
+COLORS
+*********************/
+
+.color1 {
+	background: #005542;
+}
+.color2 {
+	background: #ffe587;
+}
+.color3 {
+	background: #f2efe9;
+}
+.color4 {
+	background: #333;
+}
+.color5 {
+	background: #999;
+}
+.color6 {
+	background: #ccc;
+}
+
+.colors li {
+	display: inline-block;
+	position: relative;
+	height: 90px;
+	width: 190px;
+	margin: 0 30px 30px 0;
+	box-shadow: 1px 1px 12px rgba(0,0,0,0.125);
+	border: 2px solid white;
+	border-bottom: 40px solid white;
+}
+
+.colors span {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	left: 0;
+	bottom: -30px;
+	font-size: 12px;
+	color: #999;
+}
