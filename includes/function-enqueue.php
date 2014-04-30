@@ -15,7 +15,7 @@ global $wp_styles; // call global $wp_styles variable to add conditional wrapper
 	// wp_register_script('jquery', ("//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"), false, '1.11.0', true);
 
 	// modernizr (without media query polyfill)
-	wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/assets/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
+	wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/assets/js/modernizr.custom.min.js', array(), '2.5.3', false );
 
 	// register main stylesheet
 	wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css', array(), '', 'all' );

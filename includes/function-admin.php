@@ -46,11 +46,11 @@ function wps_admin_bar() {
     $wp_admin_bar->remove_menu('support-forums');
     $wp_admin_bar->remove_menu('feedback');
     $wp_admin_bar->remove_menu('view-site');
-    $wp_admin_bar->remove_menu('new-content'); // Remove ALL New links from header menu
-    $wp_admin_bar->remove_menu('new-link'); // Remove New Link link from header menu
-    $wp_admin_bar->remove_menu('new-media'); // Remove New Media link from header menu
-    $wp_admin_bar->remove_menu('new-user'); // Remove New User link from header menu
-    $wp_admin_bar->remove_menu('comments'); // Remove comments header menu
+    $wp_admin_bar->remove_menu('new-content');		// Remove ALL New links from header menu
+    $wp_admin_bar->remove_menu('new-link');			// Remove New Link link from header menu
+    $wp_admin_bar->remove_menu('new-media');		// Remove New Media link from header menu
+    $wp_admin_bar->remove_menu('new-user');			// Remove New User link from header menu
+    $wp_admin_bar->remove_menu('comments');			// Remove Comments header menu
 }
 add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
 
@@ -59,18 +59,19 @@ add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
 
 // disable default dashboard widgets
 function disable_default_dashboard_widgets() {
-	remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
-	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); // Comments Widget
-	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
-	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
-	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
-	remove_meta_box('dashboard_primary', 'dashboard', 'core');         //
-	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       //
+	remove_meta_box('dashboard_right_now', 'dashboard', 'core');    	// Right Now Widget
+	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');	// Comments Widget
+	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core'); 	// Incoming Links Widget
+	remove_meta_box('dashboard_plugins', 'dashboard', 'core');			// Plugins Widget
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');		// Quick Press Widget
+	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');	// Recent Drafts Widget
+	remove_meta_box('dashboard_activity', 'dashboard', 'core');			// Activity Widget
+	remove_meta_box('dashboard_primary', 'dashboard', 'core');			// WordPress News Widget
 
 	// removing plugin dashboard boxes
-	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');         // Yoast's SEO Plugin Widget
-	remove_meta_box('tribe_dashboard_widget', 'dashboard', 'normal');  // Modern Tribe Plugin Widget
+	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');			// Yoast's SEO Plugin Widget
+	remove_meta_box('tribe_dashboard_widget', 'dashboard', 'normal');	// Modern Tribe Plugin Widget
+	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');		// Gravity Forms Plugin Widget
 }
 
 // removing the dashboard widgets
@@ -100,7 +101,7 @@ add_filter( 'login_headertitle', 'bones_login_title' );
 
 // Custom Backend Footer
 function bones_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Crafted by <a href="http://creativeslice.com" target="_blank">Creative Slice</a> with <a href="http://wordpress.org" target="_blank">WordPress</a>.</span>';
+	echo '<span id="footer-thankyou">Crafted by Creative Slice | Built on WordPress.</span>';
 }
 
 // adding it to the admin area
