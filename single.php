@@ -10,12 +10,10 @@
 
 				<?php get_template_part( 'post-formats/format', get_post_format() ); ?>
 
-			<?php endwhile; ?>
-
-			<?php else : ?>
-
+			<?php endwhile; else : ?>
+			
 				<?php get_template_part( 'includes/content', 'missing' ); ?>
-
+				
 			<?php endif; ?>
 
 		</div>

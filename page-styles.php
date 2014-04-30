@@ -176,7 +176,6 @@
 
 				</section>
 
-
 			</article>
 
 			<?php endwhile; endif; ?>

@@ -2,7 +2,7 @@
 
 <div id="content">
 
-	<div id="inner-content" class="wrap cf">
+	<div id="inner-content" class="wrap">
 
 		<div id="main" class="goldlarge" role="main">
 
@@ -25,9 +25,9 @@
 			</article>
 
 			<?php endwhile; else : ?>
-
+				
 				<?php get_template_part( 'includes/content', 'missing' ); ?>
-
+			
 			<?php endif; ?>
 
 		</div>
