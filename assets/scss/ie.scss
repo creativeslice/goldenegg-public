@@ -5,7 +5,7 @@ Stylesheet: IE Stylesheet
 ******************************************************************/
 
 // Sass variables
-@import "modules/variables";
+@import "modules/mixins";
 @import "modules/typography";
 
 // import everything inside media queries

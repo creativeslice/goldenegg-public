@@ -39,7 +39,7 @@ gulp.task('styles-login', function() {
 
 // JS
 gulp.task('scripts', function() {
-	return gulp.src(['js/src/*.js'])
+	return gulp.src(['js/src/**/*.js'])
 		.pipe(concat('scripts.js'))
 		.pipe(jsHint())
 		.pipe(stripDebug())

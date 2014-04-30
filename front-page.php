@@ -2,9 +2,9 @@
 
 <div id="content">
 
-	<div id="inner-content" class="wrap cf">
+	<div id="inner-content" class="wrap">
 
-		<div id="main" class="cf" role="main">
+		<div id="main" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
