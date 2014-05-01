@@ -4,6 +4,25 @@
 WP_HEAD CLEANUP
 *********************/
 
+function bones_cleanup() {
+
+  // launching operation cleanup
+  add_action( 'init', 'bones_head_cleanup' );
+  
+  // remove WP version from RSS
+  add_filter( 'the_generator', 'bones_rss_version' );
+
+  // cleaning up random code around images
+  add_filter( 'the_content', 'bones_filter_ptags_on_images' );
+  
+  // cleaning up excerpt
+  add_filter( 'excerpt_more', 'bones_excerpt_more' );
+
+}
+add_action( 'after_setup_theme', 'bones_cleanup' );
+
+
+
 function bones_head_cleanup() {
 	// Remove canonical links
 	// remove_action('wp_head', 'rel_canonical');
@@ -32,8 +51,7 @@ function bones_head_cleanup() {
 	add_filter( 'style_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
 	// remove Wp version from scripts
 	add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
-
-} /* end bones head cleanup */
+}
 
 // remove WP version from RSS
 function bones_rss_version() { return ''; }

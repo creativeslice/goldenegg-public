@@ -4,6 +4,18 @@
 SCRIPTS & ENQUEUEING
 *********************/
 
+function bones_enqueue() {
+
+  // enqueue base scripts and styles
+  add_action( 'wp_enqueue_scripts', 'bones_scripts_and_styles', 999 );
+
+}
+
+add_action( 'after_setup_theme', 'bones_enqueue' );
+
+
+
+
 // loading modernizr and jquery, and reply script
 function bones_scripts_and_styles() {
 global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet

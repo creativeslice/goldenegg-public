@@ -4,6 +4,20 @@
 THEME SUPPORT
 *********************/
 
+function bones_support() {
+
+  // adding sidebars to Wordpress
+  add_action( 'widgets_init', 'bones_register_sidebars' );
+  
+  // launching this stuff after theme setup
+  // bones_theme_support();
+
+}
+
+add_action( 'after_setup_theme', 'bones_support' );
+
+
+
 /************* OEMBED SIZE OPTIONS *************/
 
 if ( ! isset( $content_width ) ) {

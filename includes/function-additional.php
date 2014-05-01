@@ -1,5 +1,21 @@
 <?php
 
+/*********************
+LAUNCH BONES
+Let's get everything up and running.
+*********************/
+
+function bones_additional() {
+
+  // A better title
+  add_filter( 'wp_title', 'rw_title', 10, 3 );
+
+}
+
+add_action( 'after_setup_theme', 'bones_additional' );
+
+
+
 
 /*********************
 A BETTER TITLE
