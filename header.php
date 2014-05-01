@@ -13,9 +13,9 @@
 	<!--[if IE]><link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico"><![endif]-->
 	<meta name="msapplication-TileColor" content="#e7c12a">
 	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/img/mstile-310x310.png">
-
+	
 	<?php wp_head(); ?>
-
+	
 </head>
 
 <body <?php body_class(); ?>>
@@ -30,16 +30,16 @@
 
 				<nav role="navigation">
 				<?php wp_nav_menu(array(
-					'container' => false,                     // remove nav container
-					'container_class' => 'menu cf',           // class of container
-					'menu' => 'The Main Menu',  			  // nav name
-					'menu_class' => 'nav top-nav cf',         // adding custom nav class
-					'theme_location' => 'main-nav',           // where it's located in the theme
-					'before' => '',                           // before the menu
-					'after' => '',                            // after the menu
-					'link_before' => '',                      // before each link
-					'link_after' => '',                       // after each link
-					'depth' => 0                              // limit the depth of the nav
+					'container' => false,						// remove nav container
+					'container_class' => 'menu',				// class of container
+					'menu' => 'The Main Menu',					// nav name
+					'menu_class' => 'nav top-nav',				// adding custom nav class
+					'theme_location' => 'main-nav',				// where it's located in the theme
+					'before' => '',								// before the menu
+					'after' => '',								// after the menu
+					'link_before' => '',						// before each link
+					'link_after' => '',							// after each link
+					'depth' => 2								// limit the depth of the nav
 				)); ?>
 				</nav>
 

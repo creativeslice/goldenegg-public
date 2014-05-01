@@ -488,21 +488,6 @@ BUTTONS
   .button:active {
     background-color: #59862d; }
 
-/*********************
-OPACITY
-*********************/
-/* @include opacity(.8); */
-/*********************
-TRANSITION
-*********************/
-/*********************
-CSS3 GRADIENTS
-*********************/
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
-/*********************
-BOX SIZING
-*********************/
-/* @include box-sizing(border-box); */
 /******************************************************************
 
 Stylesheet: Grid
@@ -689,7 +674,7 @@ body {
   font-size: 100%;
   line-height: 1.5;
   color: #333;
-  background-color: #ccc; }
+  background-color: #999; }
 
 ::-moz-selection {
   background: #669933;
@@ -706,7 +691,7 @@ hr {
   height: 0;
   border: 0;
   border-top: 1px solid #eee;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #999;
   margin: 2em 0;
   padding: 0; }
 
@@ -726,9 +711,9 @@ a, a:visited {
   /* on click */
   /* mobile tap color */ }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #4f7728; }
+    color: #80bf40; }
   a:active, a:visited:active {
-    color: #36501b; }
+    color: #689933; }
   a:link, a:visited:link {
     -webkit-tap-highlight-color: rgba(102, 153, 51, 0.3); }
 
@@ -772,7 +757,7 @@ POSTS & CONTENT STYLES
 
 /* post meta */
 .byline {
-  color: #eee;
+  color: #999;
   font-style: italic;
   margin: 0; }
 
@@ -791,7 +776,7 @@ POSTS & CONTENT STYLES
     margin: 0 0 0 1.5em; }
   .entry-content table {
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid #999;
     margin-bottom: 1.5em; }
     .entry-content table caption {
       margin: 0 0 7px;
@@ -799,18 +784,18 @@ POSTS & CONTENT STYLES
       color: #eee;
       letter-spacing: 1px; }
   .entry-content tr {
-    border-bottom: 1px solid #ccc; }
+    border-bottom: 1px solid #999; }
     .entry-content tr:nth-child(even) {
       background-color: #eee; }
   .entry-content td {
     padding: 7px;
-    border-right: 1px solid #ccc; }
+    border-right: 1px solid #999; }
     .entry-content td:last-child {
       border-right: 0; }
   .entry-content th {
     background-color: #eee;
-    border-bottom: 1px solid #ccc;
-    border-right: 1px solid #ccc; }
+    border-bottom: 1px solid #999;
+    border-right: 1px solid #999; }
     .entry-content th:last-child {
       border-right: 0; }
   .entry-content blockquote {
@@ -884,7 +869,7 @@ PAGE NAVI STYLES
     float: left;
     display: inline;
     overflow: hidden;
-    border-right: 1px solid #ccc; }
+    border-right: 1px solid #999; }
   .pagination a, .pagination span {
     margin: 0;
     text-decoration: none;
@@ -977,7 +962,6 @@ HEADER STYLES
   /*********************
 NAVIGATION STYLES
 *********************/
-  /* end .nav */
   /*********************
 SIDEBARS & ASIDES
 *********************/
@@ -987,8 +971,7 @@ FOOTER STYLES
   .nav {
     border: 0;
     /* end .menu ul li */
-    /* highlight current page */
-    /* end current highlighters */ }
+    /* highlight current page */ }
     .nav ul {
       margin-top: 0; }
     .nav li {
@@ -998,9 +981,9 @@ FOOTER STYLES
 		plan your menus and drop-downs wisely.
 		*/
       /* showing sub-menus */ }
-      .nav li a {
+      .nav li a, .nav li a:visited {
         border-bottom: 0; }
-        .nav li a:hover, .nav li a:focus {
+        .nav li a:hover, .nav li a:focus, .nav li a:visited:hover, .nav li a:visited:focus {
           color: #fff;
           text-decoration: underline; }
       .nav li ul.sub-menu, .nav li ul.children {

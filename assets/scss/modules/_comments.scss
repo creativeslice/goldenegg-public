@@ -62,7 +62,7 @@ COMMENT STYLES
 			font-style: italic;
 
 			a {
-				color: $meta-gray;
+				color: $gray;
 				text-decoration: none;
 
 				&:hover {
@@ -209,7 +209,7 @@ COMMENT FORM STYLES
 }
 
 .logged-in-as {
-	color: $meta-gray;
+	color: $gray;
 	font-style: italic;
 	margin: 0;
 

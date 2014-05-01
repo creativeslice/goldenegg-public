@@ -12,9 +12,8 @@ $black:             #222;
 $white:             #fff;
 
 $light-gray:        #eee;
-$gray:              #ccc;
+$gray:              #999;
 $text-color:        #333;
-$meta-gray:         #999;
 $disabled-gray:     #ddd;
 
 $green: 	        #669933;
@@ -22,7 +21,7 @@ $orange: 	        #ff9933;
 $blue:              #2980b9;
 
 $link-color:        $green;
-$link-hover:        darken($link-color, 9%);
+$link-hover:        lighten($link-color, 10%);
 
 
 
@@ -49,15 +48,14 @@ BUTTONS
 		text-decoration: none;
 	}
 	
-	// clicking on the button
 	&:active {
-		top: 1px; // adds a tiny hop to the click
+		top: 1px;
 	}
 
 }
 
 .button {
-	@extend %btn; // here we load the btn defaults
+	@extend %btn;
 	background-color: $link-color;
 	
 	&:hover,
@@ -70,54 +68,4 @@ BUTTONS
 	}
 	
 }
-
-
-/*********************
-OPACITY
-*********************/
-/* @include opacity(.8); */
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  $opacity-ie: $opacity * 100;
-  filter: alpha(opacity=$opacity-ie); //IE8
-}
-
-/*********************
-TRANSITION
-*********************/
-
-@mixin transition($transition...) {
-  // defining prefixes so we can use them in mixins below
-  $prefixes:      ("-webkit-", "" );
-  @each $prefix in $prefixes {
-    #{$prefix}transition: $transition;
-  }
-}
-
-/*********************
-CSS3 GRADIENTS
-*********************/
-
-/* @include css-gradient(#dfdfdf,#f8f8f8); */
-@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
-	background-color: $to;
-	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
-	background-image: -webkit-linear-gradient(top, $from, $to);
-	background-image: -moz-linear-gradient(top, $from, $to);
-	background-image: -o-linear-gradient(top, $from, $to);
-	background-image: linear-gradient(to bottom, $from, $to);
-}
-
-/*********************
-BOX SIZING
-*********************/
-
-/* @include box-sizing(border-box); */
-@mixin box-sizing($type: border-box) {
-	-webkit-box-sizing: $type;
-	-moz-box-sizing:    $type;
-	-ms-box-sizing:     $type;
-	box-sizing:         $type;
-}
-
 
