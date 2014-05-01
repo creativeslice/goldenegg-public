@@ -58,15 +58,15 @@ BUTTONS
 
 .button {
 	@extend %btn; // here we load the btn defaults
-	background-color: $green;
+	background-color: $link-color;
 	
 	&:hover,
 	&:focus {
-		background-color: lighten($green, 10%);
+		background-color: lighten($link-color, 10%);
 	}
 	
 	&:active {
-		background-color: darken($green, 5%);
+		background-color: darken($link-color, 5%);
 	}
 	
 }

@@ -3,7 +3,7 @@
 				<div id="inner-footer" class="wrap cf">
 
 					<nav role="navigation">
-						<?php wp_nav_menu(array(
+					<?php wp_nav_menu(array(
     					'container' => '',                              // remove nav container
     					'container_class' => 'footer-links cf',         // class of container
     					'menu' => __( 'Footer Links', 'bonestheme' ),   // nav name
@@ -14,7 +14,7 @@
 						'link_before' => '',                            // before each link
 						'link_after' => '',                             // after each link
 						'depth' => 0                            		// limit the depth of the nav
-						)); ?>
+					)); ?>
 					</nav>
 
 					<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>.</p>

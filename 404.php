@@ -4,7 +4,7 @@
 
 	<div id="inner-content" class="wrap">
 
-		<div id="main" class="cf" role="main">
+		<div id="main" role="main">
 
 			<article id="post-not-found" class="hentry">
 

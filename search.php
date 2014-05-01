@@ -2,7 +2,7 @@
 
 <div id="content">
 
-	<div id="inner-content" class="wrap cf">
+	<div id="inner-content" class="wrap">
 
 		<div id="main" class="goldlarge" role="main">
 			<h1 class="archive-title"><span>Search Results for:</span> <?php echo esc_attr(get_search_query()); ?></h1>
@@ -13,12 +13,12 @@
 
 				<header class="article-header">
 
-					<h3 class="search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+					<h3 class="search-title"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 
 				</header>
 
 				<section class="entry-content">
-					<?php the_excerpt( '<span class="read-more">' . __( 'Read more &raquo;', 'bonestheme' ) . '</span>' ); ?>
+					<?php the_excerpt( '<span class="read-more">Read more &raquo;</span>' ); ?>
 				</section>
 
 			</article>

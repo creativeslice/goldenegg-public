@@ -1,8 +1,9 @@
 <?php
 
-
-/* Custom TinyMCE styling
--------------------------------------------------------------------------------------- */
+/*********************
+CUSTOM TinyMCE
+Styling WYSIWYG buttons & dropdowns
+*********************/
  
 // Callback function to insert 'styleselect' into the $buttons array
 function my_mce_buttons_2( $buttons ) {

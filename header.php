@@ -29,7 +29,7 @@
 				<div id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></div>
 
 				<nav role="navigation">
-					<?php wp_nav_menu(array(
+				<?php wp_nav_menu(array(
 					'container' => false,                     // remove nav container
 					'container_class' => 'menu cf',           // class of container
 					'menu' => 'The Main Menu',  			  // nav name
@@ -40,8 +40,7 @@
 					'link_before' => '',                      // before each link
 					'link_after' => '',                       // after each link
 					'depth' => 0                              // limit the depth of the nav
-					)); ?>
-
+				)); ?>
 				</nav>
 
 			</div>

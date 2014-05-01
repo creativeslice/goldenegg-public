@@ -2,7 +2,7 @@
 
 <div id="content" class="wrap">
 
-	<div id="inner-content" class="cf">
+	<div id="inner-content">
 
 		<div id="main" class="goldlarge" role="main">
 
@@ -17,8 +17,10 @@
 
 				</header>
 
-				<section class="entry-content cf">
+				<section class="entry-content">
+				
 					<?php the_content(); ?>
+					
 				</section>
 
 			</article>

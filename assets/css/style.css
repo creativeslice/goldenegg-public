@@ -1,9 +1,8 @@
 /*! Built by Creative Slice in Tucson, AZ! http://creativeslice.com */
 /******************************************************************
+
 Site Name: Golden Egg Starter Theme
 Author: Creative Slice
-
-Stylesheet: Main Stylesheet
 
 ******************************************************************/
 /*********************
@@ -690,8 +689,7 @@ body {
   font-size: 100%;
   line-height: 1.5;
   color: #333;
-  background-color: #ccc;
-  -webkit-font-smoothing: antialiased; }
+  background-color: #ccc; }
 
 ::-moz-selection {
   background: #669933;
@@ -705,7 +703,7 @@ body {
 
 hr {
   display: block;
-  height: 0px;
+  height: 0;
   border: 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #ccc;
@@ -729,6 +727,8 @@ a, a:visited {
   /* mobile tap color */ }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
     color: #4f7728; }
+  a:active, a:visited:active {
+    color: #36501b; }
   a:link, a:visited:link {
     -webkit-tap-highlight-color: rgba(102, 153, 51, 0.3); }
 
@@ -738,43 +738,33 @@ HEADER STYLES
 .header {
   background-color: #222; }
   .header #logo {
-    margin: 0.75em 0; }
-    .header #logo a {
-      color: #fff; }
+    margin: 1em; }
 
 /*********************
 NAVIGATION STYLES
 *********************/
 .nav {
-  border-bottom: 0;
   margin: 0;
-  /* end .menu li */
-  /* highlight current page */
-  /* end current highlighters */ }
-  .nav li a {
+  /* highlight current page */ }
+  .nav li a, .nav li a:visited {
     display: block;
     color: #fff;
     text-decoration: none;
-    padding: 0.75em; }
-  .nav li ul.sub-menu li a, .nav li ul.children li a {
+    padding: 1em; }
+  .nav li ul.sub-menu li a, .nav li ul.sub-menu li a:visited, .nav li ul.children li a, .nav li ul.children li a:visited {
     padding-left: 30px; }
 
-/* end .nav */
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-#content {
-  margin-top: 1em; }
 
 .hentry {
   background-color: #fff;
-  margin-bottom: 1.5em; }
+  margin-bottom: 1em; }
   .hentry header {
-    padding: 1.5em; }
+    padding: 1em; }
   .hentry footer {
-    padding: 1.5em; }
-    .hentry footer p {
-      margin: 0; }
+    padding: 1em; }
 
 /* end .hentry */
 .single-title, .page-title, .entry-title {
@@ -782,7 +772,7 @@ POSTS & CONTENT STYLES
 
 /* post meta */
 .byline {
-  color: #999;
+  color: #eee;
   font-style: italic;
   margin: 0; }
 
@@ -806,7 +796,7 @@ POSTS & CONTENT STYLES
     .entry-content table caption {
       margin: 0 0 7px;
       font-size: 0.75em;
-      color: #999;
+      color: #eee;
       letter-spacing: 1px; }
   .entry-content tr {
     border-bottom: 1px solid #ccc; }
@@ -826,9 +816,9 @@ POSTS & CONTENT STYLES
   .entry-content blockquote {
     margin: 0 0 1.5em 1em;
     padding: 0 0 0 1em;
-    border-left: 3px solid #2980b9;
+    border-left: 3px solid #669933;
     font-style: italic;
-    color: #999; }
+    color: #eee; }
   .entry-content dd {
     margin-left: 0;
     font-size: 0.9em;
@@ -878,7 +868,7 @@ POSTS & CONTENT STYLES
 PAGE NAVI STYLES
 ******************************************************************/
 .pagination, .wp-prev-next {
-  margin: 1.5em 0; }
+  margin: 1em 0; }
 
 .pagination {
   text-align: center; }
@@ -887,8 +877,7 @@ PAGE NAVI STYLES
     background-color: #fff;
     white-space: nowrap;
     padding: 0;
-    clear: both;
-    border-radius: 3px; }
+    clear: both; }
   .pagination li {
     padding: 0;
     margin: 0;
@@ -917,14 +906,12 @@ PAGE NAVI STYLES
       background-color: #fff;
       color: #333; }
 
-/* end .bones_page_navi */
 /* fallback previous & next links */
 .wp-prev-next .prev-link {
   float: left; }
 .wp-prev-next .next-link {
   float: right; }
 
-/* end .wp-prev-next */
 /*********************
 SIDEBARS & ASIDES
 *********************/
@@ -937,8 +924,7 @@ FOOTER STYLES
 .footer {
   clear: both;
   background-color: #222;
-  color: #eee;
-  /* end .footer-links */ }
+  color: #eee; }
 
 /*********************
 SMALL

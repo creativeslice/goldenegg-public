@@ -40,7 +40,7 @@ NAVIGATION STYLES
 		float: left;
 		position: relative;
 
-		a {
+		a, a:visited {
 			border-bottom: 0;
 
 			&:hover, &:focus {
@@ -112,9 +112,9 @@ NAVIGATION STYLES
 	li.current_page_item,
 	li.current-page-ancestor {
 		a {}
-	}  /* end current highlighters */
+	}
 
-} /* end .nav */
+}
 
 /*********************
 SIDEBARS & ASIDES
@@ -139,7 +139,6 @@ FOOTER STYLES
 		}
 
 	} /* end .footer-links */
-
 
 	.copyright {}
 
