@@ -64,11 +64,11 @@ Adding WordPress Functions & Theme Support
 *********************/
 function bones_theme_support() {
 
-	// wp thumbnails (sizes handled in functions.php)
-	add_theme_support( 'post-thumbnails' );
+	// Featured Image
+	// add_theme_support( 'post-thumbnails', array( 'post', 'press', 'calendar' ) ); // Posts, Press & Calendar
 
 	// default thumb size
-	set_post_thumbnail_size(125, 125, true);
+	// set_post_thumbnail_size(120, 120, true);
 
 	// This feature enables post and comment RSS feed links to head
 	// add_theme_support('automatic-feed-links');
@@ -105,8 +105,8 @@ function bones_theme_support() {
 	// registering menus
 	register_nav_menus(
 		array(
-			'main-nav' => 'The Main Menu',   // main nav in header
-			'footer-links' => 'Footer Links', // secondary nav in footer
+			'main-nav' => 'The Main Menu',		// main nav in header
+			'footer-links' => 'Footer Links',	// secondary nav in footer
 		)
 	);
 }
