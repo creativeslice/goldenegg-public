@@ -35,9 +35,8 @@ function my_mce_before_init_insert_formats( $init_array ) {
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
 
 
+/************* REMOVING TOP ADMIN MENU ITEMS *****************/
 
-/* Remove top admin menu items (WordPress icon)
--------------------------------------------------------------------------------------- */
 function wps_admin_bar() {
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('wp-logo');
@@ -54,6 +53,25 @@ function wps_admin_bar() {
     $wp_admin_bar->remove_menu('comments');			// Remove Comments header menu
 }
 add_action( 'wp_before_admin_bar_render', 'wps_admin_bar' );
+
+
+/************* REMOVING LEFT MENU ITEMS *****************/
+
+add_action( 'admin_menu', 'custom_remove_menu_pages' );
+function custom_remove_menu_pages() {
+	remove_menu_page('link-manager.php');		// Links
+	// remove_menu_page('edit.php');			// Posts
+	// remove_menu_page('edit-comments.php');	// Comments
+	if (! current_user_can('manage_options') ) remove_menu_page('tools.php');	// Tools
+}
+
+/**
+ * Remove the admin bar for non-admins
+ */
+add_filter( 'show_admin_bar', 'remove_admin_bar_nonadmin' );
+function remove_admin_bar_nonadmin( $content ) {
+	return ( current_user_can('edit_others_posts') ) ? true : false;
+}
 
 
 /************* REMOVING DASHBOARD WIDGETS *****************/
@@ -73,15 +91,15 @@ function disable_default_dashboard_widgets() {
 	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');			// Yoast's SEO Plugin Widget
 	remove_meta_box('tribe_dashboard_widget', 'dashboard', 'normal');	// Modern Tribe Plugin Widget
 	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');		// Gravity Forms Plugin Widget
+	remove_meta_box('bbp-dashboard-right-now', 'dashboard', 'core');	// bbPress Plugin Widget
 }
 
-// removing the dashboard widgets
 add_action('admin_menu', 'disable_default_dashboard_widgets');
 
 
 /************* CUSTOM LOGIN PAGE *****************/
 
-// calling your own login css so you can style it
+// calling your own login css
 function bones_login_css() {
 	wp_enqueue_style( 'bones_login_css', get_template_directory_uri() . '/assets/css/login.css', false );
 }
@@ -102,10 +120,9 @@ add_filter( 'login_headertitle', 'bones_login_title' );
 
 // Custom Backend Footer
 function bones_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Crafted by Creative Slice | Built on WordPress.</span>';
+	echo '<span id="footer-thankyou">Crafted with WordPress by Creative Slice</span>';
 }
 
-// adding it to the admin area
 add_filter('admin_footer_text', 'bones_custom_admin_footer');
 
 ?>

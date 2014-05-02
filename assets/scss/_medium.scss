@@ -44,17 +44,13 @@ NAVIGATION STYLES
 			border-bottom: 0;
 
 			&:hover, &:focus {
-				color: $white;
-				text-decoration: underline;
 			}
 		}
 
 		&:first-child {}
 		&:last-child {}
 
-		/*
-		plan your menus and drop-downs wisely.
-		*/
+		/* sub-menus and drop-downs */
 		ul.sub-menu,
 		ul.children {
 			margin-top: 0;
@@ -138,7 +134,7 @@ FOOTER STYLES
 
 		}
 
-	} /* end .footer-links */
+	}
 
 	.copyright {}
 

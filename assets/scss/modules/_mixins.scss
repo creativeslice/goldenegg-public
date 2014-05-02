@@ -5,16 +5,22 @@ Stylesheet: Mixins
 ******************************************************************/
 
 /*********************
+FONT STACKS
+*********************/
+$sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+
+
+/*********************
 COLORS
 *********************/
 
 $black:             #222;
 $white:             #fff;
 
-$light-gray:        #eee;
+$light-gray:        #ddd;
 $gray:              #999;
 $text-color:        #333;
-$disabled-gray:     #ddd;
 
 $green: 	        #669933;
 $orange: 	        #ff9933;

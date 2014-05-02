@@ -22,7 +22,7 @@ hr {
 	height: 0;
 	border: 0;
 	border-top: 1px solid $light-gray;
-	border-bottom: 1px solid $gray;
+	border-bottom: 1px solid $white;
 	margin: 2em 0;
 	padding: 0;
 }
@@ -43,7 +43,6 @@ LINK STYLES
 a, a:visited {
 	color: $link-color;
 
-	/* on hover */
 	&:hover, &:focus {
 		color: $link-hover;
 	}
@@ -64,7 +63,7 @@ HEADER STYLES
 *********************/
 
 .header {
-	background-color: $black;
+	background: $black;
 	#logo {
 		margin: 1em;
 	}
@@ -81,27 +80,21 @@ NAVIGATION STYLES
 
 		a, a:visited {
 			display: block;
-			color: $white;
+			color: $light-gray;
 			text-decoration: none;
 			padding: 1em;
 
 			&:hover, &:focus {
-
+				color: white;
 			}
 		}
-
-		&:first-child {}
-
-		&:last-child {}
 
 		ul.sub-menu,
 		ul.children {
 
 			li {
-
 				a, a:visited {
 					padding-left: 30px;
-
 				}
 
 			}
@@ -127,22 +120,15 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
+}
 
+#main {
+	background: $white;
 }
 
 .hentry {
-	background-color: $white;
-	margin-bottom: 1em;
 
-	header {
-		padding: 1em;
-	}
-
-	footer {
-		padding: 1em;
-	}
-
-} /* end .hentry */
+}
 
 .single-title,
 .page-title,
@@ -159,7 +145,6 @@ POSTS & CONTENT STYLES
 
 /* entry content */
 .entry-content {
-	padding: 1em;
 
 	p {
 		margin: 1em 0;
@@ -187,12 +172,6 @@ POSTS & CONTENT STYLES
 		width: 100%;
 		border: 1px solid $gray;
 		margin-bottom: 1.5em;
-		caption {
-			margin: 0 0 7px;
-			font-size: 0.75em;
-			color: $light-gray;
-			letter-spacing: 1px;
-		}
 	}
 
 	tr {
@@ -204,7 +183,7 @@ POSTS & CONTENT STYLES
 	}
 
 	td {
-		padding: 7px;
+		padding: .5em;
 		border-right: 1px solid $gray;
 
 		&:last-child {
@@ -227,25 +206,22 @@ POSTS & CONTENT STYLES
 		padding: 0 0 0 1em;
 		border-left: 3px solid $link-color;
 		font-style: italic;
-		color: $light-gray;
-
+		color: $gray;
 		&:before {}
-
 	}
 
 	dl {}
-
 	dt {}
 
 	dd {
 		margin-left: 0;
 		font-size: 0.9em;
-		color: #787878;
+		color: $gray;
 		margin-bottom: 1.5em;
 	}
 
 	img {
-		margin: 0 0 1.5em 0;
+		margin: 0;
 		max-width: 100%;
 		height: auto;
 	}
@@ -272,7 +248,7 @@ POSTS & CONTENT STYLES
 
 .wp-caption {
 	max-width: 100%;
-	background: #eee;
+	background: $light-gray;
 	padding: 5px;
 
 	/* images inside wp-caption */
@@ -283,12 +259,12 @@ POSTS & CONTENT STYLES
 	}
 
 	p.wp-caption-text {
-		font-size: 0.85em;
+		font-size: 0.9em;
 		margin: 4px 0 7px;
 		text-align: center;
 	}
 
-} /* end .wp-caption */
+}
 
 /* image gallery styles */
 .gallery {
@@ -309,11 +285,6 @@ POSTS & CONTENT STYLES
 
 /* gallery caption styles */
 .gallery-caption {}
-
-.size-full {}
-.size-large {}
-.size-medium {}
-.size-thumbnail {}
 
 
 /******************************************************************
@@ -357,7 +328,7 @@ PAGE NAVI STYLES
 		color: $blue;
 
 		&:hover, &:focus {
-			background-color: $blue;
+			background-color: $link-color;
 			color: $white;
 		}
 	}
@@ -370,6 +341,7 @@ PAGE NAVI STYLES
     		background-color: $white;
     		color: $text-color;
     	}
+    	
     }
 
 }
@@ -396,6 +368,7 @@ SIDEBARS & ASIDES
 
 .sidebar {
 	background: $light-gray;
+	
 }
 
 

@@ -5,12 +5,45 @@ Stylesheet: IE Stylesheet
 ******************************************************************/
 /******************************************************************
 
-Stylesheet: Variables
+Stylesheet: Mixins
 
 ******************************************************************/
 /*********************
+FONT STACKS
+*********************/
+/*********************
 COLORS
 *********************/
+/*********************
+BUTTONS
+*********************/
+.button {
+  display: inline-block;
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 2em;
+  padding: 0 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out; }
+  .button:hover, .button:focus {
+    color: #fff;
+    text-decoration: none; }
+  .button:active {
+    top: 1px; }
+
+.button {
+  background-color: #669933; }
+  .button:hover, .button:focus {
+    background-color: #80bf40; }
+  .button:active {
+    background-color: #59862d; }
+
 /******************************************************************
 
 Stylesheet: Typography
@@ -21,15 +54,45 @@ FONT FACE
 *********************/
 /*  @font-face {
       font-family: 'Font Name';
-      src: url('library/fonts/font-name.eot');
-      src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
-             url('library/fonts/font-name.woff') format('woff'),
-             url('library/fonts/font-name.ttf') format('truetype'),
-             url('library/fonts/font-name.svg#font-name') format('svg');
+      src: url('../assets/fonts/font-name.eot');
+      src: url('../assets/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('../assets/fonts/font-name.woff') format('woff'),
+             url('../assets/fonts/font-name.ttf') format('truetype'),
+             url('../assets/fonts/font-name.svg#font-name') format('svg');
       font-weight: normal;
       font-style: normal;
   }
 */
+/******************************************************************
+H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+  text-rendering: optimizelegibility; }
+  h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
+    text-decoration: none; }
+
+h1, .h1 {
+  font-size: 2.5em;
+  line-height: 1.333em; }
+
+h2, .h2 {
+  font-size: 1.75em;
+  line-height: 1.4em;
+  margin-bottom: 0.375em; }
+
+h3, .h3 {
+  font-size: 1.125em; }
+
+h4, .h4 {
+  font-size: 1.1em;
+  font-weight: 700; }
+
+h5, .h5 {
+  font-size: 0.846em;
+  line-height: 2.09em;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+
 p {
   -ms-word-break: break-all;
   -ms-word-wrap: break-all;
@@ -57,21 +120,19 @@ Stylesheet: SMALL
 POSTS & CONTENT STYLES
 *********************/
 /* entry content */
-.entry-content {
-  /* at this larger size, we can start to align images */ }
-  .entry-content .alignleft, .entry-content img.alignleft {
-    margin-right: 1.5em;
-    display: inline;
-    float: left; }
-  .entry-content .alignright, .entry-content img.alignright {
-    margin-left: 1.5em;
-    display: inline;
-    float: right; }
-  .entry-content .aligncenter, .entry-content img.aligncenter {
-    margin-right: auto;
-    margin-left: auto;
-    display: block;
-    clear: both; }
+.entry-content .alignleft, .entry-content img.alignleft {
+  margin-right: 1.5em;
+  display: inline;
+  float: left; }
+.entry-content .alignright, .entry-content img.alignright {
+  margin-left: 1.5em;
+  display: inline;
+  float: right; }
+.entry-content .aligncenter, .entry-content img.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  clear: both; }
 
 /* end .entry-content */
 /******************************************************************
@@ -97,22 +158,16 @@ NAVIGATION STYLES
 .nav {
   border: 0;
   /* end .menu ul li */
-  /* highlight current page */
-  /* end current highlighters */ }
+  /* highlight current page */ }
   .nav ul {
     margin-top: 0; }
   .nav li {
     float: left;
     position: relative;
-    /*
-		plan your menus and drop-downs wisely.
-		*/
+    /* sub-menus and drop-downs */
     /* showing sub-menus */ }
-    .nav li a {
+    .nav li a, .nav li a:visited {
       border-bottom: 0; }
-      .nav li a:hover, .nav li a:focus {
-        color: #fff;
-        text-decoration: underline; }
     .nav li ul.sub-menu, .nav li ul.children {
       margin-top: 0;
       border: 1px solid #ccc;
@@ -135,7 +190,6 @@ NAVIGATION STYLES
       overflow: visible;
       visibility: visible; }
 
-/* end .nav */
 /*********************
 SIDEBARS & ASIDES
 *********************/
@@ -143,16 +197,12 @@ SIDEBARS & ASIDES
 /*********************
 FOOTER STYLES
 *********************/
-.footer {
-  /* end .footer-links */ }
 
 /******************************************************************
 
 Stylesheet: LARGE
 
 ******************************************************************/
-.wrap {
-  width: 1040px; }
 
 /******************************************************************
 ADDITIONAL IE FIXES

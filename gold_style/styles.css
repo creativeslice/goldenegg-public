@@ -2,12 +2,31 @@
 GENERAL STYLES
 *********************/
 
+.color1 {
+	background: #005542; /* Green */
+}
+.color2 {
+	background: #ffe587; /* Yellow */
+}
+.color3 {
+	background: #f2efe9; /* Tan */
+}
+.color4 {
+	background: #333333; /* Dark Gray */
+}
+.color5 {
+	background: #999999; /* Gray */
+}
+.color6 {
+	background: #cccccc; /* Light Gray */
+}
+
+
 body {
 	font-size: 100%;
 	line-height: 1.5;
-	color: #222;
+	color: #333;
 	background: #f2efe9;
-	font-family: sans-serif;
 }
 
 section {
@@ -25,34 +44,60 @@ section {
 
 .goldlarge {
 	width: 61.803398875%;
+	width: 72%;
 	float: right;
 }
 .goldsmall {
 	width: 38.196601125%;
+	width: 28%;
 	float: left;
 	text-align: right;
 }
-
 
 /*********************
 PAGE HEADER
 *********************/
 
 header {
-	background: #f05c1f;
-	height: 90px;
+	background: white;
 }
 
 #logo {
-	padding: 30px;
+	margin: 0 auto;
+	width: 290px;
 }
 
+#logo img {
+	width: 287px;
+	height: auto;
+	padding: 30px 0;
+}
+
+nav {
+	border-top: 1px solid black;
+	border-bottom: 4px solid black;
+	text-align: center;
+}
 nav li {
 	display: inline-block;
 }
 
 nav a {
-	color: white;
+	color: black;
+	font-weight: bold;
+	font-family: 'Berling Nova Sans', sans-serif;
+	text-transform: uppercase;
+	display: block;
+	padding: 8px 12px;
+	font-size: .85em;
+	letter-spacing: 1px;
+	margin-bottom: -4px;
+	border-bottom: 4px solid transparent;
+	text-decoration: none;
+}
+
+nav a:hover {
+	border-bottom: 4px solid #ffe587; /* Yellow */
 }
 
 
@@ -60,17 +105,84 @@ nav a {
 TYPOGRAPHY
 *********************/
 
+@font-face{ 
+	font-family: 'Berling Nova Sans';
+	src: url('fonts/berlingnovasanspro-regular.eot');
+	src: url('fonts/berlingnovasanspro-regular.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/berlingnovasanspro-regular.woff') format('woff'),
+	     url('fonts/berlingnovasanspro-regular.ttf') format('truetype'),
+	     url('fonts/berlingnovasanspro-regular.svg#berlingnovasanspro-regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{ 
+	font-family: 'Berling Nova Sans';
+	src: url('fonts/berlingnovasanspro-extrabold.eot');
+	src: url('fonts/berlingnovasanspro-extrabold.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/berlingnovasanspro-extrabold.woff') format('woff'),
+	     url('fonts/berlingnovasanspro-extrabold.ttf') format('truetype'),
+	     url('fonts/berlingnovasanspro-extrabold.svg#berlingnovasanspro-extrabold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face{ 
+	font-family: 'Berling Nova Text';
+	src: url('fonts/berlingnovatextpro.eot');
+	src: url('fonts/berlingnovatextpro.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/berlingnovatextpro.woff') format('woff'),
+	     url('fonts/berlingnovatextpro.ttf') format('truetype'),
+	     url('fonts/berlingnovatextpro.svg#berlingnovatextpro') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{ 
+	font-family: 'Berling Nova Text';
+	src: url('fonts/berlingnovatextpro-italic.eot');
+	src: url('fonts/berlingnovatextpro-italic.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/berlingnovatextpro-italic.woff') format('woff'),
+	     url('fonts/berlingnovatextpro-italic.ttf') format('truetype'),
+	     url('fonts/berlingnovatextpro-italic.svg#berlingnovatextpro-italic') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face{ 
+	font-family: 'Berling Nova Text';
+	src: url('fonts/berlingnovatextpro-bold.eot');
+	src: url('fonts/berlingnovatextpro-bold.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/berlingnovatextpro-bold.woff') format('woff'),
+	     url('fonts/berlingnovatextpro-bold.ttf') format('truetype'),
+	     url('fonts/berlingnovatextpro-bold.svg#berlingnovatextpro-bold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face{ 
+	font-family: 'Berling Nova Text';
+	src: url('fonts/berlingnovatextpro-bolditalic.eot');
+	src: url('fonts/berlingnovatextpro-bolditalic.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/berlingnovatextpro-bolditalic.woff') format('woff'),
+	     url('fonts/berlingnovatextpro-bolditalic.ttf') format('truetype'),
+	     url('fonts/berlingnovatextpro-bolditalic.svg#berlingnovatextpro-bolditalic') format('svg');
+	font-weight: bold;
+	font-style: italic;
+}
+
+body {
+	font-family: 'Berling Nova Text', Georgia, serif;
+}
 p {
 	
 }
 
 h1, h2, h3, h4, h5 {
-	font-family: Georgia, serif;
+	font-weight: normal;
 }
 
 h1 {
 	font-size: 3em;
-	font-weight: normal;
 }
 
 h2 {
@@ -78,18 +190,19 @@ h2 {
 }
 
 h3 {
-	font-size: 1.8em;
+	font-size: 1.7em;
+	line-height: 1.4em;
 }
 
 h4 {
 	font-size: 1.625em;
-	font-weight: normal;
-	font-family: sans-serif;
+	font-weight: bold;
+	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
 }
 
 h5 {
 	font-size: 1.25em;
-	font-family: sans-serif;
+	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
 }
 
 .nopadding {
@@ -98,7 +211,7 @@ h5 {
 }
 
 small {
-	margin-bottom: 30px;
+	margin: 8px 0 36px 0;
 	display: block;
 	font-size: 12px;
 	color: #999;
@@ -109,57 +222,85 @@ BUTTONS & LINKS
 *********************/
 
 a, a:visited {
-	color: #f05c1f;
-	text-decoration: none;
+	color: #00775c;
 }
 
 a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 
 button {
-	background: #f05c1f;
+	background: #005542; /* Green */
+	border: none;
 	color: white;
-	border: 1px solid #f05c1f;
-	border-bottom: 1px solid rgba(0,0,0,0.3);
-	border-radius: 4px;
 	padding: 6px 12px;
-	font-size: .9em;
+	font-size: 14px;
+	letter-spacing: 1px;
+	height: 36px;
+	margin-right: 20px;
+	position: relative;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
+	box-shadow: 2px 1px 6px rgba(0,0,0,.4);
+}
+
+button:after {
+	content: "";
+	position: absolute;
+	display: block;
+	bottom: 0;
+    right: -12px;
+    border-top: 18px dotted transparent;
+    border-left: 12px solid #005542; /* Green */
+    border-bottom: 18px solid transparent;
 }
 
 button:hover, button.active {
 	background: black;
-	border-color: #333;
+}
+button:hover:after, button.active:after {
+	border-left-color: black;
 }
 
 button.inactive {
 	background: #ccc;
-	border: 1px solid #999;
+}
+button.inactive:after {
+	border-left-color: #ccc;
 }
 
 /*********************
-COLORS
+TICKER
 *********************/
 
-.color1 {
-	background: #005542;
+.ticker-dark {
+	background: black;
+	color: white;
+	padding: .5em 1em;
 }
-.color2 {
-	background: #ffe587;
+.ticker-dark em {
+	color: #999999; /* Gray */
+	padding: 0 .2em;
 }
-.color3 {
-	background: #f2efe9;
+
+.ticker-dark span {
+	margin: 0 1em;
 }
-.color4 {
-	background: #333;
+
+.ticker-dark .up {
+	color: green;
 }
-.color5 {
-	background: #999;
+
+.ticker-dark .down {
+	color: red;
 }
-.color6 {
-	background: #ccc;
-}
+
+
+/*********************
+COLORS BLOCKS
+*********************/
 
 .colors li {
 	display: inline-block;
@@ -180,4 +321,14 @@ COLORS
 	bottom: -30px;
 	font-size: 12px;
 	color: #999;
+}
+
+
+/*********************
+TAN BLOCK
+*********************/
+
+.tan-block {
+	background: #ebe1c9;
+	padding: 1em 2em 2em 2em;
 }

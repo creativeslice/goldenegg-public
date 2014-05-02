@@ -6,11 +6,11 @@ Stylesheet: Grid
 
 @mixin grid-col {
   float: left;
-  padding: 0 .5em;
-  background: #eee;
-  border: 1px solid #ddd;
+  padding: 1em;
+  // background: #eee;
+  // border: 1px solid #ddd;
   p {
-	  background: white;
+	  // background: white;
   }
 
 }

@@ -1,18 +1,16 @@
 /******************************************************************
-Stylesheet: Login Stylesheet
+
+Stylesheet: Login Screen
 
 ******************************************************************/
 
 
 /* the form box */
 /*
-This is the Wordpress logo in the admin area.
-You'll have to load your own images and mess
-with the width and height.
+Logo above login form
 */
 .login h1 a {
-  background: url(../images/login-logo.png) no-repeat top center;
-  /* make sure to replace this! */
+  background: url(../img/login-logo.png) no-repeat top center;
   width: 326px;
   height: 67px;
   text-indent: -9999px;
@@ -51,10 +49,3 @@ but since we're referencing the id, it should be easy.
 */
 
 /* login button*/
-/*
-retina login logo
-*/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  .login h1 a {
-    background: url(../images/login-logo@2x.png) no-repeat top center;
-    /* make sure to replace this! */ } }

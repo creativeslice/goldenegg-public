@@ -456,6 +456,9 @@ Stylesheet: Mixins
 
 ******************************************************************/
 /*********************
+FONT STACKS
+*********************/
+/*********************
 COLORS
 *********************/
 /*********************
@@ -506,20 +509,12 @@ Simple Golden Ratio
 .goldlarge {
   width: 61.8034%;
   float: left;
-  padding: 0 0.5em;
-  background: #eee;
-  border: 1px solid #ddd; }
-  .goldlarge p {
-    background: white; }
+  padding: 1em; }
 
 .goldsmall {
   width: 38.1966%;
   float: left;
-  padding: 0 0.5em;
-  background: #eee;
-  border: 1px solid #ddd; }
-  .goldsmall p {
-    background: white; }
+  padding: 1em; }
 
 /******************************************************************
 Stylesheet: Comment Styles
@@ -531,7 +526,7 @@ COMMENT STYLES
 #comments-title {
   padding: 0.75em;
   margin: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #ddd;
   /* number of comments span */ }
 
 
@@ -544,7 +539,7 @@ COMMENT STYLES
   clear: both;
   overflow: hidden;
   padding: 1.5em;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
   /* vcard */
   /* end .commentlist .vcard */
   /* end children */
@@ -588,7 +583,7 @@ COMMENT STYLES
   .comment.odd {
     background-color: #fff; }
   .comment.even {
-    background: #eee; }
+    background: #ddd; }
 
 /* comment meta */
 
@@ -618,7 +613,7 @@ COMMENT FORM STYLES
 ******************************************************************/
 .comment-respond {
   padding: 1.5em;
-  border-top: 1px solid #eee; }
+  border-top: 1px solid #ddd; }
 
 #reply-title {
   margin: 0; }
@@ -635,7 +630,7 @@ COMMENT FORM STYLES
 
 .form-allowed-tags {
   padding: 1.5em;
-  background-color: #eee;
+  background-color: #ddd;
   font-size: 0.9em; }
 
 /* comment submit button */
@@ -690,8 +685,8 @@ hr {
   display: block;
   height: 0;
   border: 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #999;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #fff;
   margin: 2em 0;
   padding: 0; }
 
@@ -707,7 +702,6 @@ LINK STYLES
 *********************/
 a, a:visited {
   color: #669933;
-  /* on hover */
   /* on click */
   /* mobile tap color */ }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
@@ -721,7 +715,7 @@ a, a:visited {
 HEADER STYLES
 *********************/
 .header {
-  background-color: #222; }
+  background: #222; }
   .header #logo {
     margin: 1em; }
 
@@ -733,9 +727,11 @@ NAVIGATION STYLES
   /* highlight current page */ }
   .nav li a, .nav li a:visited {
     display: block;
-    color: #fff;
+    color: #ddd;
     text-decoration: none;
     padding: 1em; }
+    .nav li a:hover, .nav li a:focus, .nav li a:visited:hover, .nav li a:visited:focus {
+      color: white; }
   .nav li ul.sub-menu li a, .nav li ul.sub-menu li a:visited, .nav li ul.children li a, .nav li ul.children li a:visited {
     padding-left: 30px; }
 
@@ -743,15 +739,10 @@ NAVIGATION STYLES
 POSTS & CONTENT STYLES
 *********************/
 
-.hentry {
-  background-color: #fff;
-  margin-bottom: 1em; }
-  .hentry header {
-    padding: 1em; }
-  .hentry footer {
-    padding: 1em; }
+#main {
+  background: #fff; }
 
-/* end .hentry */
+
 .single-title, .page-title, .entry-title {
   margin: 0; }
 
@@ -762,72 +753,65 @@ POSTS & CONTENT STYLES
   margin: 0; }
 
 /* entry content */
-.entry-content {
-  padding: 1em; }
-  .entry-content p {
-    margin: 1em 0; }
-  .entry-content ul, .entry-content ol {
-    margin: 0 0 0 2em; }
-  .entry-content ul {
-    list-style: disc; }
-  .entry-content ol {
-    list-style: decimal; }
-  .entry-content li > ul, .entry-content li > ol {
-    margin: 0 0 0 1.5em; }
-  .entry-content table {
-    width: 100%;
-    border: 1px solid #999;
-    margin-bottom: 1.5em; }
-    .entry-content table caption {
-      margin: 0 0 7px;
-      font-size: 0.75em;
-      color: #eee;
-      letter-spacing: 1px; }
-  .entry-content tr {
-    border-bottom: 1px solid #999; }
-    .entry-content tr:nth-child(even) {
-      background-color: #eee; }
-  .entry-content td {
-    padding: 7px;
-    border-right: 1px solid #999; }
-    .entry-content td:last-child {
-      border-right: 0; }
-  .entry-content th {
-    background-color: #eee;
-    border-bottom: 1px solid #999;
-    border-right: 1px solid #999; }
-    .entry-content th:last-child {
-      border-right: 0; }
-  .entry-content blockquote {
-    margin: 0 0 1.5em 1em;
-    padding: 0 0 0 1em;
-    border-left: 3px solid #669933;
-    font-style: italic;
-    color: #eee; }
-  .entry-content dd {
-    margin-left: 0;
-    font-size: 0.9em;
-    color: #787878;
-    margin-bottom: 1.5em; }
-  .entry-content img {
-    margin: 0 0 1.5em 0;
-    max-width: 100%;
-    height: auto; }
-  .entry-content .size-auto, .entry-content .size-full, .entry-content .size-large, .entry-content .size-medium, .entry-content .size-thumbnail {
-    max-width: 100%;
-    height: auto; }
-  .entry-content pre {
-    background: #222;
-    color: #eee;
-    font-size: 0.9em;
-    padding: 1.5em;
-    margin: 0 0 1.5em;
-    border-radius: 3px; }
+.entry-content p {
+  margin: 1em 0; }
+.entry-content ul, .entry-content ol {
+  margin: 0 0 0 2em; }
+.entry-content ul {
+  list-style: disc; }
+.entry-content ol {
+  list-style: decimal; }
+.entry-content li > ul, .entry-content li > ol {
+  margin: 0 0 0 1.5em; }
+.entry-content table {
+  width: 100%;
+  border: 1px solid #999;
+  margin-bottom: 1.5em; }
+.entry-content tr {
+  border-bottom: 1px solid #999; }
+  .entry-content tr:nth-child(even) {
+    background-color: #ddd; }
+.entry-content td {
+  padding: 0.5em;
+  border-right: 1px solid #999; }
+  .entry-content td:last-child {
+    border-right: 0; }
+.entry-content th {
+  background-color: #ddd;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999; }
+  .entry-content th:last-child {
+    border-right: 0; }
+.entry-content blockquote {
+  margin: 0 0 1.5em 1em;
+  padding: 0 0 0 1em;
+  border-left: 3px solid #669933;
+  font-style: italic;
+  color: #999; }
+.entry-content dd {
+  margin-left: 0;
+  font-size: 0.9em;
+  color: #999;
+  margin-bottom: 1.5em; }
+.entry-content img {
+  margin: 0;
+  max-width: 100%;
+  height: auto; }
+.entry-content .size-auto, .entry-content .size-full, .entry-content .size-large, .entry-content .size-medium, .entry-content .size-thumbnail {
+  max-width: 100%;
+  height: auto; }
+.entry-content pre {
+  background: #222;
+  color: #ddd;
+  font-size: 0.9em;
+  padding: 1.5em;
+  margin: 0 0 1.5em;
+  border-radius: 3px; }
 
 /* end .entry-content */
 .wp-caption {
   max-width: 100%;
-  background: #eee;
+  background: #ddd;
   padding: 5px;
   /* images inside wp-caption */ }
   .wp-caption img {
@@ -835,19 +819,14 @@ POSTS & CONTENT STYLES
     margin-bottom: 0;
     width: 100%; }
   .wp-caption p.wp-caption-text {
-    font-size: 0.85em;
+    font-size: 0.9em;
     margin: 4px 0 7px;
     text-align: center; }
 
-/* end .wp-caption */
 /* image gallery styles */
 
 /* end .gallery */
 /* gallery caption styles */
-
-
-
-
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -882,7 +861,7 @@ PAGE NAVI STYLES
     display: block;
     color: #2980b9; }
     .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
-      background-color: #2980b9;
+      background-color: #669933;
       color: #fff; }
   .pagination .current {
     cursor: default;
@@ -901,7 +880,7 @@ PAGE NAVI STYLES
 SIDEBARS & ASIDES
 *********************/
 .sidebar {
-  background: #eee; }
+  background: #ddd; }
 
 /*********************
 FOOTER STYLES
@@ -909,7 +888,7 @@ FOOTER STYLES
 .footer {
   clear: both;
   background-color: #222;
-  color: #eee; }
+  color: #ddd; }
 
 /*********************
 SMALL
@@ -925,21 +904,19 @@ POSTS & CONTENT STYLES
 *********************/
   /* entry content */
   /* end .entry-content */
-  .entry-content {
-    /* at this larger size, we can start to align images */ }
-    .entry-content .alignleft, .entry-content img.alignleft {
-      margin-right: 1.5em;
-      display: inline;
-      float: left; }
-    .entry-content .alignright, .entry-content img.alignright {
-      margin-left: 1.5em;
-      display: inline;
-      float: right; }
-    .entry-content .aligncenter, .entry-content img.aligncenter {
-      margin-right: auto;
-      margin-left: auto;
-      display: block;
-      clear: both; } }
+  .entry-content .alignleft, .entry-content img.alignleft {
+    margin-right: 1.5em;
+    display: inline;
+    float: left; }
+  .entry-content .alignright, .entry-content img.alignright {
+    margin-left: 1.5em;
+    display: inline;
+    float: right; }
+  .entry-content .aligncenter, .entry-content img.aligncenter {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    clear: both; } }
 
 /*********************
 MEDIUM
@@ -977,15 +954,10 @@ FOOTER STYLES
     .nav li {
       float: left;
       position: relative;
-      /*
-		plan your menus and drop-downs wisely.
-		*/
+      /* sub-menus and drop-downs */
       /* showing sub-menus */ }
       .nav li a, .nav li a:visited {
         border-bottom: 0; }
-        .nav li a:hover, .nav li a:focus, .nav li a:visited:hover, .nav li a:visited:focus {
-          color: #fff;
-          text-decoration: underline; }
       .nav li ul.sub-menu, .nav li ul.children {
         margin-top: 0;
         border: 1px solid #ccc;
@@ -1006,9 +978,7 @@ FOOTER STYLES
       .nav li:hover ul {
         top: auto;
         overflow: visible;
-        visibility: visible; }
-  .footer {
-    /* end .footer-links */ } }
+        visibility: visible; } }
 
 /*********************
 LARGE
@@ -1018,9 +988,7 @@ LARGE
 
 Stylesheet: LARGE
 
-******************************************************************/
-  .wrap {
-    width: 1040px; } }
+******************************************************************/ }
 
 /*********************
 PRINT STYLESHEET
