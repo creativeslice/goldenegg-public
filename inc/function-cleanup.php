@@ -19,6 +19,7 @@ function bones_cleanup() {
   add_filter( 'excerpt_more', 'bones_excerpt_more' );
 
 }
+
 add_action( 'after_setup_theme', 'bones_cleanup' );
 
 
@@ -44,6 +45,7 @@ function bones_head_cleanup() {
 	// start link
 	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
 	// links for adjacent posts
+	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0); 
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 	// WP version
 	remove_action( 'wp_head', 'wp_generator' );
@@ -52,6 +54,7 @@ function bones_head_cleanup() {
 	// remove Wp version from scripts
 	add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
 }
+
 
 // remove WP version from RSS
 function bones_rss_version() { return ''; }
@@ -65,8 +68,21 @@ function bones_remove_wp_ver_css_js( $src ) {
 
 
 /*********************
-RANDOM CLEANUP ITEMS
+FRONTEND CLEANUP ITEMS
 *********************/
+
+
+/* Turn off comments for media attachments
+-------------------------------------------------------------------------------------- */
+function filter_media_comment_status( $open, $post_id ) {
+	$post = get_post( $post_id );
+	if( $post->post_type == 'attachment' ) {
+		return false;
+	}
+	return $open;
+}
+add_filter( 'comments_open', 'filter_media_comment_status', 10 , 2 );
+
 
 // remove the p from around imgs
 function bones_filter_ptags_on_images($content){
