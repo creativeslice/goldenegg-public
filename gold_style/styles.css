@@ -9,16 +9,19 @@ GENERAL STYLES
 	background: #ffe587; /* Yellow */
 }
 .color3 {
-	background: #f2efe9; /* Tan */
+	background: #faf3e3; /* Light Tan */
 }
 .color4 {
-	background: #333333; /* Dark Gray */
+	background: #f2efe9; /* Light Gray */
 }
 .color5 {
-	background: #999999; /* Gray */
+	background: #333333; /* Dark Gray */
 }
 .color6 {
-	background: #cccccc; /* Light Gray */
+	background: #999999; /* Gray */
+}
+.color7 {
+	background: #825633; /* Bronze */
 }
 
 
@@ -29,29 +32,110 @@ body {
 	background: #f2efe9;
 }
 
-section {
-	border-top: 1px solid #ddd;
-	padding-top: 2em;
-	clear: both;
+/*********************
+TYPOGRAPHY
+*********************/
+
+body {
+	font-family: Georgia, serif;
 }
 
-.labels {
+ul, ol {
+	margin-left: 1.125em;
+}
+p, ul, ol {
+	font-size: 1.125em;
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight: normal;
+	font-family: 'Berling Nova Display', Georgia, serif;
+	line-height: 1.2em;
+}
+
+h1 {
+	font-size: 3.5em; /* 56px */
+}
+
+h2 {
+	font-size: 2.625em; /* 42px */
+}
+
+h3 {
+	font-size: 2em; /* 32px */
+}
+
+h4 {
+	font-size: 1.5em; /* 24px */
+	font-size: 1.125em; /* 18px */
+	padding-bottom: .375em;
+	border-bottom: 1px solid #999;
+	font-weight: bold;
+	letter-spacing: 1px;
+	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
+}
+
+h5 {
+	font-size: .9em; /* 14px */
+	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
+}
+
+/*********************
+BUTTONS & LINKS
+*********************/
+
+a, a:visited {
+	color: #005542; /* Green */
+	text-decoration: none;
+}
+
+a:hover {
+	color: #00775c;
+	text-decoration: underline;
+}
+
+
+button {
+	background: #005542; /* Green */
+	border: none;
+	color: white;
+	padding: .5em 1em;
+	font-size: .75em; /* 12px */
+	letter-spacing: 1px;
+	height: 2.7em;
+	margin-right: 2em;
+	position: relative;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
+	box-shadow: -1px 2px 6px rgba(0,0,0,.4);
+}
+
+button:after {
+	content: "";
+	position: absolute;
 	display: block;
-	padding-right: 30%;
-	font-style: italic;
-	font-family: georgia, serif;
+	bottom: 0;
+  right: -1em;
+  border-top: 1.35em dotted transparent;
+  border-left: 1em solid #005542; /* Green */
+  border-bottom: 1.35em solid transparent;
 }
 
-.goldlarge {
-	width: 61.803398875%;
-	width: 72%;
-	float: right;
+button:hover, button.active {
+	background: #00775c;
+	color: #ffc;
 }
-.goldsmall {
-	width: 38.196601125%;
-	width: 28%;
-	float: left;
-	text-align: right;
+button:hover:after, button.active:after {
+	border-left-color: #00775c;
+}
+
+button.inactive {
+	background: #ccc;
+	box-shadow: none;
+}
+button.inactive:after {
+	border-left-color: #ccc;
 }
 
 /*********************
@@ -78,6 +162,10 @@ nav {
 	border-bottom: 4px solid black;
 	text-align: center;
 }
+nav ul {
+	font-size: .75em;
+	margin-left: 0;
+}
 nav li {
 	display: inline-block;
 }
@@ -88,187 +176,78 @@ nav a {
 	font-family: 'Berling Nova Sans', sans-serif;
 	text-transform: uppercase;
 	display: block;
-	padding: 8px 12px;
-	font-size: .85em;
+	padding: .75em 1.25em;
 	letter-spacing: 1px;
 	margin-bottom: -4px;
 	border-bottom: 4px solid transparent;
 	text-decoration: none;
+	transition: .2s;
 }
 
 nav a:hover {
 	border-bottom: 4px solid #ffe587; /* Yellow */
-}
-
-
-/*********************
-TYPOGRAPHY
-*********************/
-
-@font-face{ 
-	font-family: 'Berling Nova Sans';
-	src: url('fonts/berlingnovasanspro-regular.eot');
-	src: url('fonts/berlingnovasanspro-regular.eot?#iefix') format('embedded-opentype'),
-	     url('fonts/berlingnovasanspro-regular.woff') format('woff'),
-	     url('fonts/berlingnovasanspro-regular.ttf') format('truetype'),
-	     url('fonts/berlingnovasanspro-regular.svg#berlingnovasanspro-regular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face{ 
-	font-family: 'Berling Nova Sans';
-	src: url('fonts/berlingnovasanspro-extrabold.eot');
-	src: url('fonts/berlingnovasanspro-extrabold.eot?#iefix') format('embedded-opentype'),
-	     url('fonts/berlingnovasanspro-extrabold.woff') format('woff'),
-	     url('fonts/berlingnovasanspro-extrabold.ttf') format('truetype'),
-	     url('fonts/berlingnovasanspro-extrabold.svg#berlingnovasanspro-extrabold') format('svg');
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face{ 
-	font-family: 'Berling Nova Text';
-	src: url('fonts/berlingnovatextpro.eot');
-	src: url('fonts/berlingnovatextpro.eot?#iefix') format('embedded-opentype'),
-	     url('fonts/berlingnovatextpro.woff') format('woff'),
-	     url('fonts/berlingnovatextpro.ttf') format('truetype'),
-	     url('fonts/berlingnovatextpro.svg#berlingnovatextpro') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face{ 
-	font-family: 'Berling Nova Text';
-	src: url('fonts/berlingnovatextpro-italic.eot');
-	src: url('fonts/berlingnovatextpro-italic.eot?#iefix') format('embedded-opentype'),
-	     url('fonts/berlingnovatextpro-italic.woff') format('woff'),
-	     url('fonts/berlingnovatextpro-italic.ttf') format('truetype'),
-	     url('fonts/berlingnovatextpro-italic.svg#berlingnovatextpro-italic') format('svg');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face{ 
-	font-family: 'Berling Nova Text';
-	src: url('fonts/berlingnovatextpro-bold.eot');
-	src: url('fonts/berlingnovatextpro-bold.eot?#iefix') format('embedded-opentype'),
-	     url('fonts/berlingnovatextpro-bold.woff') format('woff'),
-	     url('fonts/berlingnovatextpro-bold.ttf') format('truetype'),
-	     url('fonts/berlingnovatextpro-bold.svg#berlingnovatextpro-bold') format('svg');
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face{ 
-	font-family: 'Berling Nova Text';
-	src: url('fonts/berlingnovatextpro-bolditalic.eot');
-	src: url('fonts/berlingnovatextpro-bolditalic.eot?#iefix') format('embedded-opentype'),
-	     url('fonts/berlingnovatextpro-bolditalic.woff') format('woff'),
-	     url('fonts/berlingnovatextpro-bolditalic.ttf') format('truetype'),
-	     url('fonts/berlingnovatextpro-bolditalic.svg#berlingnovatextpro-bolditalic') format('svg');
-	font-weight: bold;
-	font-style: italic;
-}
-
-body {
-	font-family: 'Berling Nova Text', Georgia, serif;
-}
-p {
-	
-}
-
-h1, h2, h3, h4, h5 {
-	font-weight: normal;
-}
-
-h1 {
-	font-size: 3em;
-}
-
-h2 {
-	font-size: 2.2em;
-}
-
-h3 {
-	font-size: 1.7em;
-	line-height: 1.4em;
-}
-
-h4 {
-	font-size: 1.625em;
-	font-weight: bold;
-	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
-}
-
-h5 {
-	font-size: 1.25em;
-	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
-}
-
-.nopadding {
-	padding: 0 !important;
-	margin: 0 !important;
-}
-
-small {
-	margin: 8px 0 36px 0;
-	display: block;
-	font-size: 12px;
-	color: #999;
-}
-
-/*********************
-BUTTONS & LINKS
-*********************/
-
-a, a:visited {
-	color: #00775c;
-}
-
-a:hover {
+	color: #666666; /* Gray */
 	text-decoration: none;
 }
 
 
-button {
-	background: #005542; /* Green */
-	border: none;
-	color: white;
-	padding: 6px 12px;
-	font-size: 14px;
-	letter-spacing: 1px;
-	height: 36px;
-	margin-right: 20px;
-	position: relative;
+/*********************
+SIDEBAR
+*********************/
+
+.sidebar-block {
+	background: #faf3e3; /* Light Tan */
+	border: 1px solid #e6dfd0;
+	padding: 2em;
+	margin: 0 1em 1em 0;
+}
+
+.sidebar-block h3 {
+	margin: 0;
+}
+
+.sidebar-block h5 {
 	font-weight: bold;
-	text-transform: uppercase;
-	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
-	box-shadow: 2px 1px 6px rgba(0,0,0,.4);
+	margin: 0 0 .25em 0;
 }
 
-button:after {
-	content: "";
-	position: absolute;
-	display: block;
-	bottom: 0;
-    right: -12px;
-    border-top: 18px dotted transparent;
-    border-left: 12px solid #005542; /* Green */
-    border-bottom: 18px solid transparent;
+.sidebar-block .headline {
+	border-bottom: 1px solid #e6dfd0;
+	padding-bottom: 1em;
 }
 
-button:hover, button.active {
-	background: black;
-}
-button:hover:after, button.active:after {
-	border-left-color: black;
+.sidebar-block .date {
+	margin-top: 2em;
 }
 
-button.inactive {
-	background: #ccc;
+.sidebar-block p {
+	margin: 0;
+	font-size: 1em;
+	color: #666;
 }
-button.inactive:after {
-	border-left-color: #ccc;
+
+.sidebar-block ul {
+	list-style: none;
+	margin: 0;
+}
+.sidebar-block li {
+	padding: .25em 0;
+}
+
+.sidebar-block span {
+	font-size: 1.5em;
+	float: left;
+	margin: -.125em .25em 0 0;
+}
+
+.sidebar-block .active a {
+	color: black;
+	margin-left: -.8em;
+	text-decoration: none !important;
+}
+
+.sidebar-block .active a:before {
+	content: '« ';
 }
 
 /*********************
@@ -277,11 +256,15 @@ TICKER
 
 .ticker-dark {
 	background: black;
+	background: url(assets/px_by_Gre3g.png) repeat;
+	border-top: 2px solid black;
+	border-bottom: 2px solid white;
 	color: white;
-	padding: .5em 1em;
+	text-shadow: -1px -1px 0 black;
+	padding: .625em 1em;
 }
 .ticker-dark em {
-	color: #999999; /* Gray */
+	color: #bbb;
 	padding: 0 .2em;
 }
 
@@ -290,7 +273,7 @@ TICKER
 }
 
 .ticker-dark .up {
-	color: green;
+	color: #00bb91;
 }
 
 .ticker-dark .down {
@@ -299,28 +282,12 @@ TICKER
 
 
 /*********************
-COLORS BLOCKS
+ICONS
 *********************/
 
-.colors li {
-	display: inline-block;
-	position: relative;
-	height: 90px;
-	width: 190px;
-	margin: 0 30px 30px 0;
-	box-shadow: 1px 1px 12px rgba(0,0,0,0.125);
-	border: 2px solid white;
-	border-bottom: 40px solid white;
-}
-
-.colors span {
-	position: absolute;
-	width: 100%;
-	text-align: center;
-	left: 0;
-	bottom: -30px;
-	font-size: 12px;
-	color: #999;
+#icons .goldlarge span {
+	font-size: 1.5em;
+	margin: 1em;
 }
 
 
@@ -330,5 +297,81 @@ TAN BLOCK
 
 .tan-block {
 	background: #ebe1c9;
-	padding: 1em 2em 2em 2em;
+	padding: .5em 2em 2em 2em;
+	color: #666;
+}
+
+.tan-block h3 {
+	color: black;
+}
+
+.white-block {
+	display: inline-block;
+	vertical-align: top;
+	background: white;
+	box-shadow: 1px 1px 6px rgba(0,0,0,.1);
+	padding: .5em;
+	margin: 0 1em 1em 0;
+	width: 180px;
+	text-align: center;
+	line-height: 1.2em;
+}
+
+.white-block .image {
+	background: #eee;
+	height: 150px;
+	width: 100%;
+	display: block;
+}
+.white-block .heading {
+	font-weight: bold;
+	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
+	display: block;
+	color: black;
+	margin: .5em .2em .2em .2em;
+}
+
+.white-block .subheading {
+	font-style: italic;
+	color: #666;
+	font-size: .875em;
+}
+
+.white-block a.heading, a.white-block .heading {
+	color: #005542; /* Green */
+}
+
+a.white-block:hover {
+	background: #ffc;
+	text-decoration: none;
+	box-shadow: none;
+}
+
+
+/*********************
+GREEN BLOCK
+*********************/
+
+.bronze-block {
+	background: #825633; /* Bronze */
+	padding: .5em 2em 2em 2em;
+	color: white;
+}
+
+.green-block button {
+	border: 1px solid white;
+}
+.green-block button:after {
+	border: none;
+}
+
+
+/*********************
+DARK BLOCK
+*********************/
+
+.dark-block {
+	background: #1a1815;
+	padding: .5em 2em 2em 2em;
+	color: #faf3e3; /* Light Tan */
 }

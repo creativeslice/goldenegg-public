@@ -1,8 +1,25 @@
 <?php
 
 /*********************
+Checks for required plugin
+*********************/
+
+add_action( 'admin_init', 'acf_theme_require_plugins' );
+
+function acf_theme_require_plugins() {
+	if( ! class_exists( 'acf' ) ) {
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+		add_action( 'admin_notices', 'acf_theme_plugin_message' );
+	}
+}
+
+function acf_theme_plugin_message() {
+	echo '<div class="update-nag">This theme requires the <a href="http://wordpress.org/plugins/advanced-custom-fields/">Advanced Custom Fields</a> plugin to be installed and activated.</div>';
+}
+
+
+/*********************
 CUSTOM TinyMCE
-Styling WYSIWYG buttons & dropdowns
 *********************/
  
 // Callback function to insert 'styleselect' into the $buttons array

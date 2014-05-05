@@ -5,27 +5,27 @@ RECENTLY UPDATED CONTENT
 Dashboard widget
 *********************/
 
-function recently_updated_posts_dashboard_widget() {
+function recently_updated_content_dashboard_widget() {
 
 	wp_add_dashboard_widget(
-		'recently_updated_posts',				// Widget slug
+		'recently_updated_content',				// Widget slug
 		'Recently Updated Content',				// Title
-		'recently_updated_posts_function'		// Display function
+		'recently_updated_content_function'		// Display function
 	);
 }
 
-add_action( 'wp_dashboard_setup', 'recently_updated_posts_dashboard_widget' );
+add_action( 'wp_dashboard_setup', 'recently_updated_content_dashboard_widget' );
 
 
 /**
  * Create the function to output the contents of our Dashboard Widget.
  */
 
-function recently_updated_posts_function() {
+function recently_updated_content_function() {
 
 	global $current_user; get_currentuserinfo(); // Get the logged in user info
 
-	echo "How lovely to see you, <b>" . $current_user->user_login . "</b>!<br />Below you can see all content updated in the past 30 day.";
+	echo "How lovely to see you, <b>" . $current_user->display_name . "</b>!<br />Below you can see all content updated in the past 30 days.";
 
 
 	// Get the posts from the last 30 days only
@@ -37,7 +37,7 @@ function recently_updated_posts_function() {
 	add_filter( 'posts_where', 'filter_where' );
 
 	// The Query
-	$modified_posts_query = new WP_Query( array(  'post_type' => array( 'post', 'page', 'press', 'calendar', 'promos' ),
+	$modified_posts_query = new WP_Query( array(  'post_type' => array( 'post', 'page', 'press' ),
 		'posts_per_page' => '-1',
 		'orderby' => 'modified',
 		'order'=> 'DESC',
@@ -83,7 +83,7 @@ function recently_updated_posts_function() {
 				<tr id="post-<?php the_ID(); ?>">
 					<td class="modified-number"><?php echo $count . '.'; ?></td>
 					<td class="modified-title"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong> | <a href="<?php echo get_edit_post_link(); ?>">Edit</a></td>
-					<td class="modified-date"><?php the_modified_date('Y-m-d'); ?> at <?php the_modified_date('H:i'); ?></td>
+					<td class="modified-date"><?php the_modified_date('M j, Y'); ?> at <?php the_modified_date('H:i'); ?></td>
 					<td class="modified-user"><?php the_modified_author(); ?></td>
 				</tr>
 

@@ -1,0 +1,183 @@
+/*********************
+FONT FACE
+*********************/
+
+@font-face{
+	font-family: 'Berling Nova Sans';
+	src: url('../fonts/berlingnovasanspro-regular.eot');
+	src: url('../fonts/berlingnovasanspro-regular.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/berlingnovasanspro-regular.woff') format('woff'),
+	     url('../fonts/berlingnovasanspro-regular.ttf') format('truetype'),
+	     url('../fonts/berlingnovasanspro-regular.svg#berlingnovasanspro-regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face{
+	font-family: 'Berling Nova Sans';
+	src: url('../fonts/berlingnovasanspro-extrabold.eot');
+	src: url('../fonts/berlingnovasanspro-extrabold.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/berlingnovasanspro-extrabold.woff') format('woff'),
+	     url('../fonts/berlingnovasanspro-extrabold.ttf') format('truetype'),
+	     url('../fonts/berlingnovasanspro-extrabold.svg#berlingnovasanspro-extrabold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'Berling Nova Display';
+	src: url('../fonts/berlingnovadisplaypro.eot');
+	src: url('../fonts/berlingnovadisplaypro.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/berlingnovadisplaypro.woff') format('woff'),
+	     url('../fonts/berlingnovadisplaypro.ttf') format('truetype'),
+	     url('../fonts/berlingnovadisplaypro.svg#berlingnovadisplaypro') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'Berling Nova Display';
+	src: url('../fonts/berlingnovadisplaypro-italic.eot');
+	src: url('../fonts/berlingnovadisplaypro-italic.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/berlingnovadisplaypro-italic.woff') format('woff'),
+	     url('../fonts/berlingnovadisplaypro-italic.ttf') format('truetype'),
+	     url('../fonts/berlingnovadisplaypro-italic.svg#berlingnovadisplaypro-italic') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?-inm9hx');
+	src:url('../fonts/icomoon.eot?#iefix-inm9hx') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-inm9hx') format('woff'),
+		url('../fonts/icomoon.ttf?-inm9hx') format('truetype'),
+		url('../fonts/icomoon.svg?-inm9hx#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-greenberg:before {
+	content: "\47";
+}
+.icon-grid:before {
+	content: "\67";
+}
+.icon-search:before {
+	content: "\73";
+}
+.icon-calendar:before {
+	content: "\63";
+}
+.icon-envelope:before {
+	content: "\65";
+}
+.icon-menu:before {
+	content: "\6d";
+}
+.icon-close:before {
+	content: "\78";
+}
+.icon-facebook:before {
+	content: "\66";
+}
+.icon-twitter:before {
+	content: "\74";
+}
+.icon-feed:before {
+	content: "\72";
+}
+.icon-linkedin:before {
+	content: "\6c";
+}
+
+
+
+/*********************
+LAYOUT STYLES
+*********************/
+
+section {
+	border-top: 1px solid #ddd;
+	padding-top: 2em;
+	clear: both;
+	display: block;
+}
+
+section:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+.labels {
+	display: block;
+	padding-right: 30%;
+	font-style: italic;
+	font-family: georgia, serif;
+}
+
+.goldlarge {
+	width: 61.803398875%;
+	width: 72%;
+	float: right;
+}
+.goldsmall {
+	width: 38.196601125%;
+	width: 28%;
+	float: left;
+	text-align: right;
+}
+
+.nopadding {
+	margin: 0 !important;
+}
+
+small {
+	margin: 8px 0 36px 0;
+	display: block;
+	font-size: 12px;
+	color: #999;
+}
+
+/*********************
+COLORS BLOCKS
+*********************/
+
+.colors li {
+	display: inline-block;
+	position: relative;
+	height: 90px;
+	width: 190px;
+	margin: 0 30px 30px 0;
+	box-shadow: 1px 1px 12px rgba(0,0,0,0.125);
+	border: 2px solid white;
+	border-bottom: 40px solid white;
+}
+
+.colors span {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	left: 0;
+	bottom: -30px;
+	font-size: 13px;
+	color: #666;
+	font-family: sans-serif;
+}
