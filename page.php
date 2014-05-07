@@ -17,17 +17,17 @@
 				</header>
 
 				<section class="entry-content" itemprop="articleBody">
-					
+
 					<?php the_content(); ?>
-					
+
 				</section>
 
 			</article>
 
 			<?php endwhile; else : ?>
-				
+
 				<?php get_template_part( 'includes/content', 'missing' ); ?>
-			
+
 			<?php endif; ?>
 
 		</div>

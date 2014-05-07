@@ -27,7 +27,7 @@
 
 			<?php endwhile; ?>
 				
-				<?php bones_page_navi(); ?>
+				<?php do_action('egg/page_navi'); ?>
 			
 			<?php else : ?>
 				

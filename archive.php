@@ -46,7 +46,7 @@
 				<header class="article-header">
 
 					<h3 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-					
+
 					<?php get_template_part( 'includes/content', 'byline' ); ?>
 
 				</header>
@@ -62,8 +62,8 @@
 			</article>
 
 			<?php endwhile; ?>
-			
-				<?php bones_page_navi(); ?>
+
+				<?php do_action('egg/page_navi'); ?>
 				
 			<?php else : ?>
 			
