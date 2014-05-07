@@ -26,7 +26,7 @@
 
 			<?php endwhile; else : ?>
 				
-				<?php get_template_part( 'includes/content', 'missing' ); ?>
+				<?php get_template_part( 'partials/content', 'missing' ); ?>
 			
 			<?php endif; ?>
 

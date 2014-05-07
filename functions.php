@@ -7,6 +7,8 @@ require_once( 'inc/function-enqueue.php' );
 require_once( 'inc/function-post-types.php' );
 require_once( 'inc/function-theme-support.php' );
 
-// require_once( 'inc/src/seo_meta_data.php' );
+// require_once( 'inc/recently_updated_content.php' );
+// require_once( 'inc/seo_meta_data.php' );
+// require_once( 'inc/xml_sitemap.php' );
 
 ?>
