@@ -1,6 +1,12 @@
 /*********************
 GENERAL STYLES
 *********************/
+body {
+	font-size: 100%;
+	line-height: 1.5;
+	color: #333;
+	background: #f2efe9;
+}
 
 .color1 {
 	background: #005542; /* Green */
@@ -24,13 +30,6 @@ GENERAL STYLES
 	background: #825633; /* Bronze */
 }
 
-
-body {
-	font-size: 100%;
-	line-height: 1.5;
-	color: #333;
-	background: #f2efe9;
-}
 
 /*********************
 TYPOGRAPHY
@@ -80,8 +79,13 @@ h5 {
 	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
 }
 
+h6 {
+	font-size: .9em; /* 14px */
+	font-family: 'Berling Nova Sans', Helvetica, sans-serif;
+}
+
 /*********************
-BUTTONS & LINKS
+LINKS & BUTTONS
 *********************/
 
 a, a:visited {
@@ -116,10 +120,10 @@ button:after {
 	position: absolute;
 	display: block;
 	bottom: 0;
-  right: -1em;
-  border-top: 1.35em dotted transparent;
-  border-left: 1em solid #005542; /* Green */
-  border-bottom: 1.35em solid transparent;
+	right: -1em;
+	border-top: 1.35em dotted transparent;
+	border-left: 1em solid #005542; /* Green */
+	border-bottom: 1.35em solid transparent;
 }
 
 button:hover, button.active {
@@ -137,6 +141,7 @@ button.inactive {
 button.inactive:after {
 	border-left-color: #ccc;
 }
+
 
 /*********************
 PAGE HEADER
@@ -250,6 +255,7 @@ SIDEBAR
 	content: '« ';
 }
 
+
 /*********************
 TICKER
 *********************/
@@ -288,6 +294,7 @@ ICONS
 #icons .goldlarge span {
 	font-size: 1.5em;
 	margin: 1em;
+	line-height: 2em;
 }
 
 
