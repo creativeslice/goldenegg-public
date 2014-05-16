@@ -9,39 +9,17 @@ GENERAL STYLES
 *********************/
 
 body {}
-
-/*********************
-LAYOUT & GRID STYLES
-*********************/
-
-.wrap {
-	// width: 760px;
-}
-
-/*********************
-HEADER STYLES
-*********************/
-
-.header {
-	#logo {}
-}
-
 	
 /*********************
 NAVIGATION STYLES
 *********************/
 
 .nav {
-	border: 0;
-	ul {
-		margin-top:0;
-	}
 	li {
 		float: left;
 		position: relative;
 
 		a, a:visited {
-			border-bottom: 0;
 
 			&:hover, &:focus {
 			}
@@ -54,7 +32,7 @@ NAVIGATION STYLES
 		ul.sub-menu,
 		ul.children {
 			margin-top: 0;
-			border: 1px solid #ccc;
+			border: 1px solid $gray;
 			border-top: 0;
 			position: absolute;
 			overflow: hidden;
@@ -68,21 +46,11 @@ NAVIGATION STYLES
 					border-right: 0;
 					display: block;
 					width: 180px;
-					border-bottom: 1px solid #ccc;
 
 					&:hover,
 					&:focus {}
 
 					&:link {}
-				}
-
-				&:first-child {}
-
-				&:last-child {
-
-					a {
-						border-bottom: 0;
-					}
 				}
 			}
 

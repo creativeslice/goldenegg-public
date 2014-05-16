@@ -405,10 +405,8 @@ FONT FACE
 /******************************************************************
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  text-rendering: optimizelegibility; }
-  h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
-    text-decoration: none; }
+h1 a, h1 a:visited, .h1 a, .h1 a:visited, h2 a, h2 a:visited, .h2 a, .h2 a:visited, h3 a, h3 a:visited, .h3 a, .h3 a:visited, h4 a, h4 a:visited, .h4 a, .h4 a:visited, h5 a, h5 a:visited, .h5 a, .h5 a:visited {
+  text-decoration: none; }
 
 h1, .h1 {
   font-size: 2.5em;
@@ -416,19 +414,19 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 1.75em;
-  line-height: 1.4em;
+  line-height: 1.25em;
   margin-bottom: 0.375em; }
 
 h3, .h3 {
-  font-size: 1.125em; }
+  font-size: 1.5em; }
 
 h4, .h4 {
-  font-size: 1.1em;
+  font-size: 1.25em;
   font-weight: 700; }
 
 h5, .h5 {
-  font-size: 0.846em;
-  line-height: 2.09em;
+  font-size: 1.125em;
+  line-height: 2em;
   text-transform: uppercase;
   letter-spacing: 2px; }
 
@@ -467,7 +465,7 @@ BUTTONS
 .button {
   display: inline-block;
   position: relative;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
   color: #fff;
   font-size: 0.9em;
@@ -496,25 +494,74 @@ BUTTONS
 Stylesheet: Grid
 
 ******************************************************************/
-.first-col {
-  padding-left: 0 !important; }
+.onecol {
+  width: 5.8011%; }
 
-.last-col {
-  float: right !important;
-  padding-right: 0 !important; }
+/* 4.85%;  } */
+.twocol {
+  width: 14.36464%; }
 
-/*
-Simple Golden Ratio
-*/
-.goldlarge {
-  width: 61.8034%;
+/* 13.45%; } */
+.threecol {
+  width: 22.92818%; }
+
+/* 22.05%; } */
+.fourcol {
+  width: 31.49171%; }
+
+/* 30.75%; } */
+.fivecol {
+  width: 40.05525%; }
+
+/* 39.45%; } */
+.sixcol {
+  width: 48.61878%; }
+
+/* 48%;    } */
+.sevencol {
+  width: 57.18232%; }
+
+/* 56.75%; } */
+.eightcol {
+  width: 65.74586%; }
+
+/* 65.4%;  } */
+.ninecol {
+  width: 74.30939%; }
+
+/* 74.05%; } */
+.tencol {
+  width: 82.87293%; }
+
+/* 82.7%;  } */
+.elevencol {
+  width: 91.43646%; }
+
+/* 91.35%; } */
+.twelvecol {
+  width: 100%; }
+
+/* 100%;   } */
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+  position: relative;
   float: left;
-  padding: 1em; }
+  margin-left: 2.76243%; }
 
 .goldsmall {
   width: 38.1966%;
-  float: left;
-  padding: 1em; }
+  position: relative;
+  float: left; }
+
+.goldlarge {
+  width: 61.8034%;
+  position: relative;
+  float: left; }
+
+.firstcol {
+  margin-left: 0; }
+
+.lastcol {
+  float: right; }
 
 /******************************************************************
 Stylesheet: Comment Styles
@@ -669,7 +716,8 @@ body {
   font-size: 100%;
   line-height: 1.5;
   color: #333;
-  background-color: #999; }
+  background-color: white;
+  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 ::-moz-selection {
   background: #669933;
@@ -709,7 +757,7 @@ a, a:visited {
   a:active, a:visited:active {
     color: #689933; }
   a:link, a:visited:link {
-    -webkit-tap-highlight-color: rgba(102, 153, 51, 0.3); }
+    -webkit-tap-highlight-color: rgba(102, 153, 51, 0.5); }
 
 /*********************
 HEADER STYLES
@@ -788,11 +836,6 @@ POSTS & CONTENT STYLES
   border-left: 3px solid #669933;
   font-style: italic;
   color: #999; }
-.entry-content dd {
-  margin-left: 0;
-  font-size: 0.9em;
-  color: #999;
-  margin-bottom: 1.5em; }
 .entry-content img {
   margin: 0;
   max-width: 100%;
@@ -804,9 +847,8 @@ POSTS & CONTENT STYLES
   background: #222;
   color: #ddd;
   font-size: 0.9em;
-  padding: 1.5em;
-  margin: 0 0 1.5em;
-  border-radius: 3px; }
+  padding: 1em;
+  margin: 0 0 1em; }
 
 /* end .entry-content */
 .wp-caption {
@@ -822,11 +864,6 @@ POSTS & CONTENT STYLES
     font-size: 0.9em;
     margin: 4px 0 7px;
     text-align: center; }
-
-/* image gallery styles */
-
-/* end .gallery */
-/* gallery caption styles */
 
 /******************************************************************
 PAGE NAVI STYLES
@@ -869,12 +906,6 @@ PAGE NAVI STYLES
     .pagination .current:hover, .pagination .current:focus {
       background-color: #fff;
       color: #333; }
-
-/* fallback previous & next links */
-.wp-prev-next .prev-link {
-  float: left; }
-.wp-prev-next .next-link {
-  float: right; }
 
 /*********************
 SIDEBARS & ASIDES
@@ -931,12 +962,6 @@ Stylesheet: MEDIUM
 GENERAL STYLES
 *********************/
   /*********************
-LAYOUT & GRID STYLES
-*********************/
-  /*********************
-HEADER STYLES
-*********************/
-  /*********************
 NAVIGATION STYLES
 *********************/
   /*********************
@@ -946,21 +971,16 @@ SIDEBARS & ASIDES
 FOOTER STYLES
 *********************/
   .nav {
-    border: 0;
     /* end .menu ul li */
     /* highlight current page */ }
-    .nav ul {
-      margin-top: 0; }
     .nav li {
       float: left;
       position: relative;
       /* sub-menus and drop-downs */
       /* showing sub-menus */ }
-      .nav li a, .nav li a:visited {
-        border-bottom: 0; }
       .nav li ul.sub-menu, .nav li ul.children {
         margin-top: 0;
-        border: 1px solid #ccc;
+        border: 1px solid #999;
         border-top: 0;
         position: absolute;
         overflow: hidden;
@@ -971,10 +991,7 @@ FOOTER STYLES
           padding-left: 10px;
           border-right: 0;
           display: block;
-          width: 180px;
-          border-bottom: 1px solid #ccc; }
-        .nav li ul.sub-menu li:last-child a, .nav li ul.children li:last-child a {
-          border-bottom: 0; }
+          width: 180px; }
       .nav li:hover ul {
         top: auto;
         overflow: visible;

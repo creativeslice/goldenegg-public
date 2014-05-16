@@ -4,38 +4,45 @@ Stylesheet: Grid
 
 ******************************************************************/
 
-@mixin grid-col {
+.onecol    { width: 5.801104972%;  }       /* 4.85%;  } */
+.twocol    { width: 14.364640883%; }       /* 13.45%; } */
+.threecol  { width: 22.928176794%; }       /* 22.05%; } */
+.fourcol   { width: 31.491712705%; }       /* 30.75%; } */
+.fivecol   { width: 40.055248616%; }       /* 39.45%; } */
+.sixcol    { width: 48.618784527%; }       /* 48%;    } */
+.sevencol  { width: 57.182320438000005%; } /* 56.75%; } */
+.eightcol  { width: 65.74585634900001%; }  /* 65.4%;  } */
+.ninecol   { width: 74.30939226%; }        /* 74.05%; } */
+.tencol    { width: 82.87292817100001%; }  /* 82.7%;  } */
+.elevencol { width: 91.436464082%; }       /* 91.35%; } */
+.twelvecol { width: 99.999999993%; }       /* 100%;   } */
+
+// layout & column defaults
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+  position: relative;
   float: left;
-  padding: 1em;
-  // background: #eee;
-  // border: 1px solid #ddd;
-  p {
-	  // background: white;
-  }
-
-}
-
-// the first column
-.first-col {
-  padding-left: 0 !important;
-}
-
-// the last column
-.last-col {
-  float: right !important;
-  padding-right: 0 !important;
+  margin-left: 2.762430939%;
 }
 
 
-/*
-Simple Golden Ratio
-*/
-.goldlarge {
-	width: 61.803398875%;
-	@include grid-col;
-}
+// golden grid layout
 .goldsmall {
 	width: 38.196601125%;
-	@include grid-col;
+	position: relative;
+	float: left;
 }
 
+.goldlarge {
+	width: 61.803398875%;
+	position: relative;
+	float: left;
+}
+
+// first and last
+.firstcol {
+  margin-left: 0;
+}
+
+.lastcol {
+  float: right;
+}

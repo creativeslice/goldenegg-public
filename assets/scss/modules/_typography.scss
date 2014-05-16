@@ -25,8 +25,7 @@ H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-	text-rendering: optimizelegibility;
-	a {
+	a, a:visited {
 		text-decoration: none;
 	}
 }
@@ -38,22 +37,22 @@ h1, .h1 {
 
 h2, .h2 {
 	font-size: 1.75em;
-	line-height: 1.4em;
+	line-height: 1.25em;
 	margin-bottom: 0.375em;
 }
 
 h3, .h3 {
-	font-size: 1.125em;
+	font-size: 1.5em;
 }
 
 h4, .h4 {
-	font-size: 1.1em;
+	font-size: 1.25em;
 	font-weight: 700;
 }
 
 h5, .h5 {
-	font-size: 0.846em;
-	line-height: 2.09em;
+	font-size: 1.125em;
+	line-height: 2em;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }

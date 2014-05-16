@@ -12,7 +12,8 @@ body {
 	font-size: 100%;
 	line-height: 1.5;
 	color: $text-color;
-	background-color: $gray;
+	background-color: white;
+	font-family: $sans-serif;
 }
 
 ::selection { background: $link-color; color: white !important; text-shadow: none; }
@@ -54,7 +55,7 @@ a, a:visited {
 
 	/* mobile tap color */
 	&:link {
-		-webkit-tap-highlight-color : rgba( $link-color, 0.3 );
+		-webkit-tap-highlight-color : rgba( $link-color, 0.5 );
 	}
 }
 
@@ -210,16 +211,6 @@ POSTS & CONTENT STYLES
 		&:before {}
 	}
 
-	dl {}
-	dt {}
-
-	dd {
-		margin-left: 0;
-		font-size: 0.9em;
-		color: $gray;
-		margin-bottom: 1.5em;
-	}
-
 	img {
 		margin: 0;
 		max-width: 100%;
@@ -239,9 +230,8 @@ POSTS & CONTENT STYLES
 		background: $black;
 		color: $light-gray;
 		font-size: 0.9em;
-		padding: 1.5em;
-		margin: 0 0 1.5em;
-		border-radius: 3px;
+		padding: 1em;
+		margin: 0 0 1em;
 	}
 
 } /* end .entry-content */
@@ -265,26 +255,6 @@ POSTS & CONTENT STYLES
 	}
 
 }
-
-/* image gallery styles */
-.gallery {
-
-	dl {
-
-		a {}
-
-		img {}
-
-	}
-
-	dt {}
-
-	dd {}
-
-} /* end .gallery */
-
-/* gallery caption styles */
-.gallery-caption {}
 
 
 /******************************************************************
@@ -346,21 +316,6 @@ PAGE NAVI STYLES
 
 }
 
-/* fallback previous & next links */
-.wp-prev-next {
-
-	ul {}
-	
-	.prev-link {
-		float: left;
-	}
-	
-	.next-link {
-		float: right;
-	}
-
-}
-
 
 /*********************
 SIDEBARS & ASIDES
@@ -368,7 +323,6 @@ SIDEBARS & ASIDES
 
 .sidebar {
 	background: $light-gray;
-	
 }
 
 
