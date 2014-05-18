@@ -40,7 +40,9 @@
 
 			<div id="inner-header" class="wrap cf">
 
-				<div id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></div>
+				<div id="logo"><a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>">
+					<?php bloginfo('name'); ?>
+				</a></div>
 
 				<nav role="navigation">
 				<?php wp_nav_menu(array(
