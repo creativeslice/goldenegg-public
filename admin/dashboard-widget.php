@@ -1,32 +1,15 @@
 <?php
 /**
- * Golden Egg Custom Dashboard Widget
- *
- * @author    Jacob Snyder <jake@jcow.com>
- * @license   GPL-2.0+
- * @link      http://goldenegg.io/
- * @copyright 2014 Creative Slice
- */
-
-/**
  * Example dashboard widget for admin
- *
- * @author  Jake Snyder
- * @since	1.0.0
- * @return	void
  */
 add_action( 'wp_dashboard_setup', 'custom_dashboar_widgets' );
-	function custom_dashboar_widgets()
-	{
-		wp_add_dashboard_widget( 'instructions_dashboard_widget', 'Website Instructions', array(__CLASS__, 'instructions_dashboard_widget') );
-	}
+function custom_dashboar_widgets()
+{
+	wp_add_dashboard_widget( 'instructions_dashboard_widget', 'Website Instructions', array(__CLASS__, 'instructions_dashboard_widget') );
+}
 
 	/**
 	 * Create a basic instructions area on the Dashboard
-	 *
-	 * @author  Jake Snyder
-	 * @since	1.0.0
-	 * @return	void
 	 */
 	function instructions_dashboard_widget()
 	{

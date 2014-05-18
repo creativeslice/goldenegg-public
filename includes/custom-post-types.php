@@ -1,28 +1,22 @@
 <?php
 /**
- * Golden Egg Custom Post Types
- *
- * @license   GPL-2.0+
- * @link      http://goldenegg.io/
- * @copyright 2014 Creative Slice
+ * Custom Post Types
  */
 
 /**
  * Flush rewrite rules for custom post types
  *
- * @since	1.0.0
  * @return	void
  */
 add_action( 'after_switch_theme', 'egg_flush_rewrite_rules' );
-	function egg_flush_rewrite_rules()
-	{
-		flush_rewrite_rules();
-	}
+function egg_flush_rewrite_rules()
+{
+	flush_rewrite_rules();
+}
 
 /**
  * Examples
  *
- * @since	1.0.0
  * @return	void
  */
 add_action( 'init', 'custom_register_post_type');

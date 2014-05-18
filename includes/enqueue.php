@@ -1,29 +1,23 @@
 <?php
 /**
- * Golden Egg Enqueue Scripts & Styles
- *
- * @license   GPL-2.0+
- * @link      http://goldenegg.io/
- * @copyright 2014 Creative Slice
+ * Enqueue Scripts & Styles
  */
 
 /**
  * Add enqueue scripts/styles
  *
- * @since	1.0.0
  * @return	void
  */
 add_action( 'after_setup_theme', 'egg_enqueue' );
-	function egg_enqueue()
-	{
-		add_action( 'wp_enqueue_scripts', 'egg_styles', 999 );
-		add_action( 'wp_enqueue_scripts', 'egg_scripts', 999 );
-	}
+function egg_enqueue()
+{
+	add_action( 'wp_enqueue_scripts', 'egg_styles', 999 );
+	add_action( 'wp_enqueue_scripts', 'egg_scripts', 999 );
+}
 
 	/**
 	 * Load in the base styles
 	 *
-	 * @since	1.0.0
 	 * @return	void
 	 */
 	function egg_styles()
@@ -47,7 +41,6 @@ add_action( 'after_setup_theme', 'egg_enqueue' );
 	/**
 	 * Load in the base scripts
 	 *
-	 * @since	1.0.0
 	 * @return	void
 	 */
 	function egg_scripts()

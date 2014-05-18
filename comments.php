@@ -12,7 +12,7 @@ if ( have_comments() ) : ?>
 			'style'             => 'div',
 			'short_ping'        => true,
 			'avatar_size'       => 40,
-			'callback'          => array('Egg_Comments', 'comments'),
+			'callback'          => 'egg_comments',
 			'type'              => 'all',
 			'reply_text'        => 'Reply',
 			'page'              => '',

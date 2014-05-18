@@ -1,10 +1,6 @@
 <?php
 /**
  * Golden Egg Recently Updated Content Admin Dashboard Widget
- *
- * @license   GPL-2.0+
- * @link      http://goldenegg.io/
- * @copyright 2014 Creative Slice
  */
 
 /**
@@ -15,14 +11,13 @@
  * @return	void
  */
 add_action( 'wp_dashboard_setup', 'recently_updated_content_dashboard_widget' );
-	function recently_updated_content_dashboard_widget()
-	{
-		wp_add_dashboard_widget(
-			'recently_updated_content',				// Widget slug
-			'Recently Updated Content',				// Title
-			'recently_updated_content_function'		// Display function
-		);
-	}
+function recently_updated_content_dashboard_widget()
+{
+	$widget_id   = 'recently_updated_content'; // Widget slug
+	$widget_name = 'Recently Updated Content'; // Title
+	$callback    = 'recently_updated_content_function';
+	wp_add_dashboard_widget( $widget_id, $widget_name, $callback );
+}
 
 	/**
 	 * Create the function to output the contents of our Dashboard Widget.
