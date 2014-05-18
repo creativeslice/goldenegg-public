@@ -204,6 +204,12 @@ Stylesheet: LARGE
 
 ******************************************************************/
 
+#mobilemenu {
+  display: none; }
+
+.top-nav {
+  display: block; }
+
 /******************************************************************
 ADDITIONAL IE FIXES
 These fixes are now ONLY seen by IE, so you don't have to worry

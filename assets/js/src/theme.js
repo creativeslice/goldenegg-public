@@ -75,6 +75,15 @@ var timeToWaitForLast = 100;
 */
 jQuery(document).ready(function($) {
 
-
+	/**
+	 * Mobile menu show/hide
+	 */
+	$('#mobilemenu').click(function(e) {
+		e.preventDefault();
+		var $this = $(this);
+		$this.toggleClass('active');
+		$('span', this).toggleClass('icon-menu').toggleClass('icon-close');
+		$('.top-nav').slideToggle(200);
+	});
 
 }); /* end of as page load scripts */
