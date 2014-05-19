@@ -783,6 +783,15 @@ NAVIGATION STYLES
   .nav li ul.sub-menu li a, .nav li ul.sub-menu li a:visited, .nav li ul.children li a, .nav li ul.children li a:visited {
     padding-left: 30px; }
 
+#mobilemenu {
+  display: block;
+  float: right;
+  text-align: right;
+  text-decoration: none; }
+
+.top-nav {
+  display: none; }
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -1005,7 +1014,14 @@ LARGE
 
 Stylesheet: LARGE
 
-******************************************************************/ }
+******************************************************************/
+  /*********************
+NAVIGATION STYLES
+*********************/
+  #mobilemenu {
+    display: none; }
+  .top-nav {
+    display: block !important; } }
 
 /*********************
 PRINT STYLESHEET

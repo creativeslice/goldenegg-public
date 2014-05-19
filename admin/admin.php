@@ -9,6 +9,7 @@ add_action( 'admin_head',                 'egg_admin_favicon', 11 );
 add_action( 'welcome_panel',              'egg_dashboard_welcome_cleanup' );
 add_action( 'admin_menu',                 'egg_remove_menu_pages' );
 add_action( 'wp_before_admin_bar_render', 'egg_customize_admin_bar' );
+add_action( 'admin_init',                 'egg_dependencies' );
 
 // filters
 add_filter( 'show_admin_bar',             'egg_admin_bar_permissions' );
@@ -26,17 +27,19 @@ function egg_dependencies()
 		add_action( 'admin_notices', 'egg_acf_dependency_message' );
 	}
 }
-	/**
-	 * Add a nag for required dependencies that are missing
-	 */
-	function egg_acf_dependency_message()
-	{
-		?>
-		<div class="update-nag">
-			This theme requires the <a href="http://wordpress.org/plugins/advanced-custom-fields/">Advanced Custom Fields</a> plugin to be installed and activated.
-		</div>
-		<?php
-	}
+
+/**
+ * Add a nag for required dependencies that are missing
+ */
+function egg_acf_dependency_message()
+{
+	?>
+	<div class="update-nag">
+		This theme requires the <a href="http://wordpress.org/plugins/advanced-custom-fields/">Advanced Custom Fields</a> plugin to be installed and activated.
+	</div>
+	<?php
+}
+
 
 /**
  * Disable default dashboard widgets.

@@ -120,6 +120,15 @@ Stylesheet: LARGE
 
 ******************************************************************/
 
+/*********************
+NAVIGATION STYLES
+*********************/
+#mobilemenu {
+  display: none; }
+
+.top-nav {
+  display: block !important; }
+
 /******************************************************************
 
 ADDITIONAL IE FIXES
