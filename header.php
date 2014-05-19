@@ -27,12 +27,18 @@
 			<div id="inner-header" class="wrap cf">
 
 				<div id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></div>
-
+				
+				<a href="#" id="mobilemenu">
+					<span class="icon-menu" aria-hidden="true"></span>
+					<span class="screen-reader-text">menu</span>
+				</a>
+				
 				<nav role="navigation">
 				<?php wp_nav_menu(array(
 					'container' => false,						// remove nav container
 					'container_class' => 'menu',				// class of container
 					'menu' => 'The Main Menu',					// nav name
+					'menu_id' => 'top-nav',				        // adding custom nav id
 					'menu_class' => 'nav top-nav',				// adding custom nav class
 					'theme_location' => 'main-nav',				// where it's located in the theme
 					'before' => '',								// before the menu

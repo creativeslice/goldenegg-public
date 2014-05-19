@@ -15,7 +15,7 @@ var gulp = require('gulp'),
 gulp.task('styles', function() {
 	return gulp.src('scss/style.scss')
 		.pipe(sass({ style: 'expanded' }))
-		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(gulp.dest('css'))
 		.pipe(minifycss())
 		.pipe(rename({suffix: '.min'}))
@@ -32,7 +32,7 @@ gulp.task('styles-ie', function() {
 gulp.task('styles-login', function() {
 	return gulp.src('scss/login.scss')
 		.pipe(sass({ style: 'expanded' }))
-		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(gulp.dest('css'))
 		.pipe(notify({ message: 'Admin styles task complete' }));
 });
@@ -67,11 +67,10 @@ gulp.task('prod', function() {
 	gulp.start('styles', 'scripts', 'clean-prod');
 });
 
-
-// gulp watch
+// gulp watch (does not compile styles-ie or styles-login)
 gulp.task('watch', function() {
 
-	gulp.watch('scss/**/*.scss', ['styles', 'styles-ie']);
+	gulp.watch('scss/**/*.scss', ['styles']);
 
 	gulp.watch('js/**/*.js', ['scripts']);
 });
