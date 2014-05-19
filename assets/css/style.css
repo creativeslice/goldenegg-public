@@ -1001,7 +1001,7 @@ Stylesheet: LARGE
   #mobilemenu {
     display: none; }
   .top-nav {
-    display: block; } }
+    display: block !important; } }
 
 /*********************
 PRINT STYLESHEET

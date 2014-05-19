@@ -208,7 +208,7 @@ Stylesheet: LARGE
   display: none; }
 
 .top-nav {
-  display: block; }
+  display: block !important; }
 
 /******************************************************************
 ADDITIONAL IE FIXES
