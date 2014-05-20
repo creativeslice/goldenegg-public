@@ -6,6 +6,7 @@ body {
 	line-height: 1.5;
 	color: #333;
 	background: #f2efe9;
+	text-align: center;
 }
 
 .color1 {
@@ -29,7 +30,9 @@ body {
 .color7 {
 	background: #825633; /* Bronze */
 }
-
+.color8 {
+	background: #ffffff; /* White */
+}
 
 /*********************
 TYPOGRAPHY
@@ -39,9 +42,14 @@ body {
 	font-family: Georgia, serif;
 }
 
+#typography {
+	text-align: left;
+}
+
 ul, ol {
 	margin-left: 1.125em;
 }
+
 p, ul, ol {
 	font-size: 1.125em;
 }
@@ -137,6 +145,8 @@ button:hover:after, button.active:after {
 button.inactive {
 	background: #ccc;
 	box-shadow: none;
+	color: white !important;
+	cursor: default;
 }
 button.inactive:after {
 	border-left-color: #ccc;
@@ -205,6 +215,7 @@ SIDEBAR
 	border: 1px solid #e6dfd0;
 	padding: 2em;
 	margin: 0 1em 1em 0;
+	text-align: left;
 }
 
 .sidebar-block h3 {
@@ -260,6 +271,9 @@ SIDEBAR
 TICKER
 *********************/
 
+#ticker {
+
+}
 .ticker-dark {
 	background: black;
 	background: url(assets/px_by_Gre3g.png) repeat;
@@ -291,12 +305,23 @@ TICKER
 ICONS
 *********************/
 
-#icons .goldlarge span {
-	font-size: 1.5em;
-	margin: 1em;
-	line-height: 2em;
+#icons {
+	margin: 2em;
+}
+#icons span {
+	font-size: 32px;
+	line-height: 2.5em;
+	padding: 1em;
+	color: black;
 }
 
+/*********************
+ARTICLE
+*********************/
+
+#article {
+	text-align: left;
+}
 
 /*********************
 TAN BLOCK
