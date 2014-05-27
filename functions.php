@@ -29,6 +29,7 @@ require_once( 'includes/egg-functions.php' );
 require_once( 'includes/theme-support.php' );
 require_once( 'includes/enqueue.php' );
 require_once( 'includes/custom-post-types.php' );
+require_once( 'includes/relative-urls.php' );
 #require_once( 'includes/nice-search.php' );
 
 /**
