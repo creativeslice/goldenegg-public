@@ -1,28 +1,33 @@
 <?php
 /**
- * Root relative URLs
- *
- * WordPress likes to use absolute URLs on everything - let's clean that up.
- * Inspired by http://www.456bereastreet.com/archive/201010/how_to_make_wordpress_urls_root_relative/
- *
- * You can enable/disable this feature in functions.php (or lib/config.php if you're using Roots):
- * add_theme_support('soil-relative-urls');
- */
- function soil_root_relative_url($input) {
-  preg_match('|https?://([^/]+)(/.*)|i', $input, $matches);
-  if (!isset($matches[1]) || !isset($matches[2])) {
-    return $input;
-  } elseif (($matches[1] === $_SERVER['SERVER_NAME']) || $matches[1] === $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']) {
-    return wp_make_link_relative($input);
-  } else {
-    return $input;
-  }
+* Root relative URLs
+*
+* WordPress likes to use absolute URLs on everything - let's clean that up.
+* Inspired by http://www.456bereastreet.com/archive/201010/how_to_make_wordpress_urls_root_relative/
+*
+* You can enable/disable this feature in functions.php (or lib/config.php if you're using Roots):
+* add_theme_support('soil-relative-urls');
+*/
+if(!function_exists(add_filters)){
+	function add_filters($tags, $function) {
+		foreach($tags as $tag) {
+			add_filter($tag, $function);
+		}
+	}
 }
-
+function soil_root_relative_url($input) {
+	preg_match('|https?://([^/]+)(/.*)|i', $input, $matches);
+	if (!isset($matches[1]) || !isset($matches[2])) {
+		return $input;
+	} elseif (($matches[1] === $_SERVER['SERVER_NAME']) || $matches[1] === $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']) {
+			return wp_make_link_relative($input);
+	} else {
+			return $input;
+	}
+}
 function soil_enable_root_relative_urls() {
-  return !(is_admin() || in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php')));
+	return !(is_admin() || in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php')));
 }
-
 if (soil_enable_root_relative_urls()) {
   $root_rel_filters = array(
     'bloginfo_url',
@@ -42,11 +47,5 @@ if (soil_enable_root_relative_urls()) {
     'script_loader_src',
     'style_loader_src'
   );
-
   add_filters($root_rel_filters, 'soil_root_relative_url');
-}
-function add_filters($tags, $function) {
-  foreach($tags as $tag) {
-    add_filter($tag, $function);
-  }
 }
