@@ -1,11 +1,4 @@
 <?php
-if(!function_exists(add_filters)){
-	function add_filters($tags, $function) {
-	  foreach($tags as $tag) {
-	    add_filter($tag, $function);
-	  }
-	}
-}
 function roots_rewrites() {
   /**
    * Define helper constants
@@ -59,9 +52,11 @@ function roots_rewrites() {
         'style_loader_src'
       );
 
-      add_filters($tags, 'roots_clean_urls');
+	  foreach ( $tags as $tag )
+	  {
+		  add_filter($tag, 'roots_clean_urls');
+	  }
     }
   }
 }
-
 add_action('after_setup_theme', 'roots_rewrites');
