@@ -2,7 +2,7 @@
 /**
  * Set up the login changes
  */
-add_action( 'admin_init', 'egg_login_init' );
+add_action( 'login_init', 'egg_login_init' );
 function egg_login_init()
 {
 	// actions
