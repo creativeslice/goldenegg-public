@@ -5,7 +5,7 @@
 	<div id="inner-content" class="wrap">
 
 		<div id="main" class="goldlarge" role="main">
-			<h1 class="archive-title"><span>Search Results for:</span> <?php echo esc_html(get_search_query()); ?></h1>
+			<h1 class="archive-title"><span>Search Results for:</span> <?php echo get_search_query(); ?></h1>
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
