@@ -116,6 +116,12 @@ NAVIGATION STYLES
 	float: right;
 	text-align: right;
 	text-decoration: none;
+	color: $link-color;
+	cursor: pointer;
+	font-size: 1.125em;
+	&:hover, &:focus {
+		color: $link-hover;
+	}
 }
 
 .top-nav {

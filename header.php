@@ -27,10 +27,10 @@
 
 				<div id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></div>
 
-				<a href="/" id="mobilemenu">
+				<span id="mobilemenu">
 					<span class="icon-menu" aria-hidden="true"></span>
-					<span class="screen-reader-text">menu</span>
-				</a>
+					<span class="screen-reader-text">MENU</span>
+				</span>
 
 				<nav role="navigation">
 				<?php wp_nav_menu(array(
