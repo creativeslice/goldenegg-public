@@ -48,12 +48,12 @@ BUTTONS
 	border-radius: 4px;
 	cursor: pointer;
 	transition: background-color 0.2s ease-in-out;
-	
+
 	&:hover, &:focus {
 		color: $white;
 		text-decoration: none;
 	}
-	
+
 	&:active {
 		top: 1px;
 	}
@@ -63,15 +63,15 @@ BUTTONS
 .button {
 	@extend %btn;
 	background-color: $link-color;
-	
+
 	&:hover,
 	&:focus {
 		background-color: lighten($link-color, 10%);
 	}
-	
+
 	&:active {
 		background-color: darken($link-color, 5%);
 	}
-	
+
 }
 

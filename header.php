@@ -13,9 +13,8 @@
 	<!--[if IE]><link rel="shortcut icon" href="<?php echo bloginfo('template_directory'); ?>/assets/img/favicon.ico"><![endif]-->
 	<meta name="msapplication-TileColor" content="#e7c12a">
 	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/img/mstile-310x310.png">
-	
+
 	<?php wp_head(); ?>
-	
 </head>
 
 <body <?php body_class(); ?>>
@@ -27,12 +26,12 @@
 			<div id="inner-header" class="wrap cf">
 
 				<div id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></div>
-				
-				<a href="#" id="mobilemenu">
+
+				<a href="/" id="mobilemenu">
 					<span class="icon-menu" aria-hidden="true"></span>
 					<span class="screen-reader-text">menu</span>
 				</a>
-				
+
 				<nav role="navigation">
 				<?php wp_nav_menu(array(
 					'container' => false,						// remove nav container

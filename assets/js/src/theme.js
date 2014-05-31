@@ -85,7 +85,17 @@ jQuery(document).ready(function($) {
 		$('span', this).toggleClass('icon-menu').toggleClass('icon-close');
 		$('.top-nav').slideToggle(200);
 	});
-	
+
+	/**
+	 * Adds the screen reader text to the icon's title so it will show on hover
+	 */
+	$('span[aria-hidden=true]').each(function() {
+		var $this = $(this);
+		var $screentext = $this.siblings('.screen-reader-text');
+		if ( $screentext.length )
+			$this.attr('title', $screentext.text());
+	});
+
 	/**
 	 * Expand blocks
 	 */
@@ -94,6 +104,5 @@ jQuery(document).ready(function($) {
 		$(this).toggleClass('active');
 		$(this).next('.expandcontent').slideToggle(200);
 	});
-	
 
 }); /* end of as page load scripts */

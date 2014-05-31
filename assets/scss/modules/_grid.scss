@@ -19,11 +19,10 @@ Stylesheet: Grid
 
 // layout & column defaults
 .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
-  position: relative;
-  float: left;
-  margin-left: 2.762430939%;
+	position: relative;
+	float: left;
+	margin-left: 2.762430939%;
 }
-
 
 // golden grid layout
 .goldsmall {
@@ -40,9 +39,9 @@ Stylesheet: Grid
 
 // first and last
 .firstcol {
-  margin-left: 0;
+	margin-left: 0;
 }
 
 .lastcol {
-  float: right;
+	float: right;
 }

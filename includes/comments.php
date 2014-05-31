@@ -14,7 +14,7 @@ function egg_comments( $comment, $args, $depth )
 	<div id="comment-<?php comment_ID(); ?>" <?php comment_class('cf'); ?>>
 		<article  class="cf">
 			<header class="comment-author vcard">
-				<?php echo get_avatar($comment,$size='32',$default='<path_to_url>' ); ?>
+				<?php echo get_avatar($comment,$size='32',$default=get_template_directory_uri().'/assets/img/mysteryman.jpg' ); ?>
 				<?php printf( '<cite class="fn">%1$s</cite> %2$s', get_comment_author_link(), edit_comment_link( '(Edit)','  ','') ) ?>
 				<time datetime="<?php echo comment_time('Y-m-j'); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time( 'F jS, Y' ); ?> </a></time>
 			</header>

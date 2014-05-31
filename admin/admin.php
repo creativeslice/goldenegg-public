@@ -55,13 +55,13 @@ function egg_disable_dashboard_widgets()
 	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');	// Recent Drafts Widget
 	remove_meta_box('dashboard_activity', 'dashboard', 'core');			// Activity Widget
 	remove_meta_box('dashboard_primary', 'dashboard', 'core');			// WordPress News Widget
-	
+
 	// removing plugin dashboard boxes
 	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');			// Yoast's SEO Plugin Widget
 	remove_meta_box('tribe_dashboard_widget', 'dashboard', 'normal');	// Modern Tribe Plugin Widget
 	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');		// Gravity Forms Plugin Widget
 	remove_meta_box('bbp-dashboard-right-now', 'dashboard', 'core');	// bbPress Plugin Widget
-	
+
 }
 
 /**
@@ -82,10 +82,10 @@ function egg_admin_favicon()
  */
 function egg_dashboard_welcome_cleanup()
 {
-	#global $pagenow;
+	global $pagenow;
 
-	#if ( 'index.php' == $pagenow )
-	#{
+	if ( 'index.php' == $pagenow )
+	{
 		?>
 		<style type="text/css">
 			.welcome-panel-column h4,
@@ -93,7 +93,7 @@ function egg_dashboard_welcome_cleanup()
 			.hide-if-no-customize {display: none !important;}
 		</style>
 		<?php
-	#}
+	}
 }
 
 /**
