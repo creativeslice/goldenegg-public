@@ -11,9 +11,9 @@
 				<?php get_template_part( '/partials/post-formats/format', get_post_format() ); ?>
 
 			<?php endwhile; else : ?>
-			
+
 				<?php get_template_part( '/partials/content', 'missing' ); ?>
-				
+
 			<?php endif; ?>
 
 		</div>

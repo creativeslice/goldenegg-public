@@ -36,7 +36,7 @@ require_once( 'includes/enqueue.php' );
 /**
  * CUSTOM FUNCTIONS
  */
- 
+
 /**
  * Customize which post types are used for SEO fields and XML sitemap plugins:
  *
