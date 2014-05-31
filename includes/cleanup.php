@@ -4,15 +4,9 @@
  *
  * @return	void
  */
-add_action( 'init', 'egg_init' );
-function egg_init()
-{
-	// actions
-	add_action( 'after_setup_theme',          'egg_cleanup' );
 
-	// filters
-	add_filter( 'comments_open',              'egg_filter_media_comment_status', 10 , 2 );
-}
+add_action( 'after_setup_theme',          'egg_cleanup' );
+add_filter( 'comments_open',              'egg_filter_media_comment_status', 10 , 2 );
 
 /**
  * Launch some basic cleanup
@@ -34,9 +28,8 @@ function egg_cleanup()
 /**
  * Cleanup the head output
  *
- * @return	void
  */
-function head_cleanup() {
+function egg_head_cleanup() {
 	// Remove canonical links
 	// remove_action('wp_head', 'rel_canonical');
 	// Remove shortlink from head and header
