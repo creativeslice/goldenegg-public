@@ -552,9 +552,6 @@ BASE ELEMENTS
 p {
   margin: 0 0 1em; }
 
-b, strong {
-  font-weight: bold; }
-
 dfn, cite, em, i {
   font-style: italic; }
 
@@ -582,31 +579,11 @@ code, kbd, tt, var {
   font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; }
 
 abbr, acronym {
-  border-bottom: 1px dotted #666;
   cursor: help; }
 
 mark, ins {
   background: #fff9c0;
   text-decoration: none; }
-
-sup, sub {
-  font-size: 75%;
-  height: 0;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline; }
-
-sup {
-  bottom: 1ex; }
-
-sub {
-  top: 0.5ex; }
-
-small {
-  font-size: 75%; }
-
-big {
-  font-size: 125%; }
 
 /******************************************************************
 ENTRY CONTENT
@@ -628,8 +605,6 @@ ENTRY CONTENT
   height: auto;
   margin: 0;
   max-width: 100%; }
-.entry-content figure {
-  margin: 0; }
 .entry-content table {
   margin: 0 0 1em;
   width: 100%; }
