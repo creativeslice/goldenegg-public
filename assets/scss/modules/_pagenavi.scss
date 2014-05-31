@@ -45,18 +45,18 @@ PAGE NAVI STYLES
 		color: $blue;
 
 		&:hover, &:focus {
-			background-color: $link-color;
+			background-color: $link_color;
 			color: $white;
 		}
 	}
 
     .current{
     	cursor: default;
-    	color: $text-color;
+    	color: $text_color;
 
     	&:hover, &:focus {
     		background-color: $white;
-    		color: $text-color;
+    		color: $text_color;
     	}
     	
     }

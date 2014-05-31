@@ -17,7 +17,7 @@ COLORS
 /*********************
 BUTTONS
 *********************/
-.button {
+.search-submit, .form-submit input, .button {
   display: inline-block;
   position: relative;
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -30,17 +30,17 @@ BUTTONS
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out; }
-  .button:hover, .button:focus {
+  .search-submit:hover, .form-submit input:hover, .button:hover, .search-submit:focus, .form-submit input:focus, .button:focus {
     color: #fff;
     text-decoration: none; }
-  .button:active {
+  .search-submit:active, .form-submit input:active, .button:active {
     top: 1px; }
 
-.button {
+.search-submit, .form-submit input, .button {
   background-color: #669933; }
-  .button:hover, .button:focus {
+  .search-submit:hover, .search-submit:focus, .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus {
     background-color: #80bf40; }
-  .button:active {
+  .search-submit:active, .form-submit input:active, .button:active {
     background-color: #59862d; }
 
 /******************************************************************
@@ -89,7 +89,7 @@ NAVIGATION STYLES
     /* showing sub-menus */ }
     .nav li ul.sub-menu, .nav li ul.children {
       margin-top: 0;
-      border: 1px solid #999;
+      border: 1px solid #909CB5;
       border-top: 0;
       position: absolute;
       overflow: hidden;

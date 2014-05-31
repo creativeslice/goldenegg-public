@@ -26,8 +26,8 @@ FONT BASE
 body {
 	font-size: 100%;
 	line-height: 1.5;
-	color: $text-color;
-	font-family: $sans-serif;
+	color: $text_color;
+	font-family: $sans_serif;
 }
 
 /******************************************************************
@@ -108,7 +108,7 @@ dfn, cite, em, i {
 blockquote {
 	margin: 0 0 1em 1em;
 	padding: 0 0 0 1em;
-	border-left: 3px solid $link-color;
+	border-left: 3px solid $link_color;
 	font-style: italic;
 	color: $gray;
 	&:before {}
@@ -120,7 +120,7 @@ address {
 
 pre {
 	background: $black;
-	color: $light-gray;
+	color: $gray_light;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 0.9em;
 	margin: 0 0 1em;

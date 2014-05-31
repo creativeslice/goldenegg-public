@@ -7,7 +7,7 @@ Stylesheet: Mixins
 /*********************
 FONT STACKS
 *********************/
-$sans-serif:        "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sans_serif:        "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 
 
@@ -15,19 +15,26 @@ $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 COLORS
 *********************/
 
+$alert_blue:        #d9edf7;
+$alert_green:       #dff0d8;
+$alert_red:         #f2dede;
+$alert_yellow:      #fcf8e3;
+
 $black:             #222;
 $white:             #fff;
 
-$light-gray:        #ddd;
 $gray:              #999;
-$text-color:        #333;
+$gray_light:        #EEF0F4;
+$gray_dark:         #58585b;
+$gray_disabled:     #595d65;
+$text_color:        #333;
 
 $green: 	        #669933;
 $orange: 	        #ff9933;
 $blue:              #2980b9;
 
-$link-color:        $green;
-$link-hover:        lighten($link-color, 10%);
+$link_color:        $green;
+$link_hover:        lighten($link_color, 10%);
 
 
 
@@ -38,7 +45,7 @@ BUTTONS
 %btn {
 	display: inline-block;
 	position: relative;
-	font-family: $sans-serif;
+	font-family: $sans_serif;
 	text-decoration: none;
 	color: $white;
 	font-size: .9em;
@@ -60,17 +67,19 @@ BUTTONS
 
 }
 
+.search-submit,
+.form-submit input,
 .button {
 	@extend %btn;
-	background-color: $link-color;
+	background-color: $link_color;
 
 	&:hover,
 	&:focus {
-		background-color: lighten($link-color, 10%);
+		background-color: lighten($link_color, 10%);
 	}
 
 	&:active {
-		background-color: darken($link-color, 5%);
+		background-color: darken($link_color, 5%);
 	}
 
 }
