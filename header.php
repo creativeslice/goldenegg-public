@@ -8,8 +8,8 @@
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<link rel="apple-touch-icon" href="<?php echo bloginfo('template_directory'); ?>/assets/img/apple-touch-icon.png">
-	<link rel="icon" href="<?php echo bloginfo('template_directory'); ?>/assets/img/favicon.png">
+	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/apple-touch-icon.png">
+	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.png">
 	<!--[if IE]><link rel="shortcut icon" href="<?php echo bloginfo('template_directory'); ?>/assets/img/favicon.ico"><![endif]-->
 	<meta name="msapplication-TileColor" content="#e7c12a">
 	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/img/mstile-310x310.png">
@@ -25,7 +25,9 @@
 
 			<div id="inner-header" class="wrap cf">
 
-				<div id="logo"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/login-logo.png" alt="<?php bloginfo('name'); ?>" title="Home"></a></div>
+				<div id="logo"><a href="<?php echo home_url(); ?>">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" title="Home" />
+				</a></div>
 
 				<span id="mobilemenu">
 					<span class="icon-menu" aria-hidden="true"></span>
