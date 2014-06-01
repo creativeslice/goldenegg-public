@@ -25,8 +25,8 @@
 
 			<div id="inner-header" class="wrap cf">
 
-				<div id="logo"><a href="<?php echo home_url(); ?>">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" title="Home" />
+				<div id="logo"><a href="<?php echo home_url(); ?>" title="Home">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" />
 				</a></div>
 
 				<span id="mobilemenu">
