@@ -385,48 +385,6 @@ span.amp {
 
 /******************************************************************
 
-Stylesheet: Icons
-
-******************************************************************/
-/************************************************
-Better support for screen readers with icons
-see header.php for an example usage
-************************************************/
-.screen-reader-text {
-  left: -9999em !important;
-  position: absolute !important;
-  top: -9999em !important; }
-
-/************************************************
-Icon font example from http://icomoon.io/app/
-************************************************/
-@font-face {
-  font-family: 'egg';
-  src: url('../icons/egg.eot?3dvse6');
-  src: url('../icons/egg.eot?#iefix3dvse6') format('embedded-opentype'), url('../icons/egg.woff?3dvse6') format('woff'), url('../icons/egg.ttf?3dvse6') format('truetype'), url('../icons/egg.svg?3dvse6#egg') format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-[class^="icon-"], [class*=" icon-"] {
-  font-family: 'egg';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.icon-menu:before {
-  content: "\e600"; }
-
-.icon-close:before {
-  content: "\e601"; }
-
-/******************************************************************
-
 Stylesheet: Mixins
 
 ******************************************************************/
@@ -465,6 +423,83 @@ BUTTONS
     background-color: #80bf40; }
   .button:active {
     background-color: #59862d; }
+
+/******************************************************************
+
+Stylesheet: Icons
+
+******************************************************************/
+/************************************************
+Better support for screen readers with icons
+see header.php for an example usage
+************************************************/
+.screen-reader-text {
+  left: -9999em !important;
+  position: absolute !important;
+  top: -9999em !important; }
+
+/*********************
+FONT FACE
+*********************/
+/* @font-face {
+  font-family: 'Font Name';
+  src: url('../fonts/font-name.eot');
+  src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font-name.woff') format('woff'),
+         url('../fonts/font-name.ttf') format('truetype'),
+         url('../fonts/font-name.svg#font-name') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} 
+*/
+/************************************************
+Icon font example from http://icomoon.io/app/
+************************************************/
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot?6hys4');
+  src: url('../fonts/icomoon.eot?#iefix6hys4') format('embedded-opentype'), url('../fonts/icomoon.woff?6hys4') format('woff'), url('../fonts/icomoon.ttf?6hys4') format('truetype'), url('../fonts/icomoon.svg?6hys4#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-search:before {
+  content: "\6f"; }
+
+.icon-phone:before {
+  content: "\50"; }
+
+.icon-menu:before {
+  content: "\3d"; }
+
+.icon-close:before {
+  content: "\78"; }
+
+.icon-play:before {
+  content: "\70"; }
+
+.icon-arrow-up:before {
+  content: "\5e"; }
+
+.icon-arrow-right:before {
+  content: "\3e"; }
+
+.icon-arrow-down:before {
+  content: "\76"; }
+
+.icon-arrow-left:before {
+  content: "\3c"; }
 
 /******************************************************************
 
@@ -597,66 +632,6 @@ ENTRY CONTENT
   height: auto; }
 
 /* end .entry-content */
-/*********************
-FONT FACE
-*********************/
-/* @font-face {
-  font-family: 'Font Name';
-  src: url('../fonts/font-name.eot');
-  src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/font-name.woff') format('woff'),
-         url('../fonts/font-name.ttf') format('truetype'),
-         url('../fonts/font-name.svg#font-name') format('svg');
-  font-weight: normal;
-  font-style: normal;
-} 
-*/
-@font-face {
-  font-family: 'icomoon';
-  src: url('../fonts/icomoon.eot?6hys4');
-  src: url('../fonts/icomoon.eot?#iefix6hys4') format('embedded-opentype'), url('../fonts/icomoon.woff?6hys4') format('woff'), url('../fonts/icomoon.ttf?6hys4') format('truetype'), url('../fonts/icomoon.svg?6hys4#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal; }
-
-[class^="icon-"], [class*=" icon-"] {
-  font-family: 'icomoon';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.icon-search:before {
-  content: "\6f"; }
-
-.icon-phone:before {
-  content: "\50"; }
-
-.icon-menu:before {
-  content: "\3d"; }
-
-.icon-close:before {
-  content: "\78"; }
-
-.icon-play:before {
-  content: "\70"; }
-
-.icon-arrow-up:before {
-  content: "\5e"; }
-
-.icon-arrow-right:before {
-  content: "\3e"; }
-
-.icon-arrow-down:before {
-  content: "\76"; }
-
-.icon-arrow-left:before {
-  content: "\3c"; }
-
 /******************************************************************
 
 Stylesheet: Grid
