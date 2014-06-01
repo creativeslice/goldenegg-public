@@ -89,7 +89,7 @@ NAVIGATION STYLES
     /* showing sub-menus */ }
     .nav li ul.sub-menu, .nav li ul.children {
       margin-top: 0;
-      border: 1px solid #909CB5;
+      border: 1px solid #999;
       border-top: 0;
       position: absolute;
       overflow: hidden;
