@@ -14,11 +14,11 @@ IMPORTING MODULES
 // normalize: http://necolas.github.io/normalize.css/
 @import "modules/normalize";
 
-// import icons
-@import "modules/icons";
-
 // import mixins
 @import "modules/mixins";
+
+// import icons
+@import "modules/fontface";
 
 // typography
 @import "modules/typography";

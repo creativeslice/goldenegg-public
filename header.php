@@ -25,12 +25,12 @@
 
 			<div id="inner-header" class="wrap cf">
 
-				<div id="logo"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></div>
+				<div id="logo"><a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/login-logo.png" alt="<?php bloginfo('name'); ?>" title="Home"></a></div>
 
-				<a href="/" id="mobilemenu">
+				<span id="mobilemenu">
 					<span class="icon-menu" aria-hidden="true"></span>
-					<span class="screen-reader-text">menu</span>
-				</a>
+					<span class="screen-reader-text">MENU</span>
+				</span>
 
 				<nav role="navigation">
 				<?php wp_nav_menu(array(
