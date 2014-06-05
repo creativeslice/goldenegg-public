@@ -17,9 +17,9 @@
 add_filter( 'request', function( $query_vars ) {
 
 	// Check if pagename starts with "assets/'
-	if ( isset( $query_vars['pagename'] ) && 0 === stripos( $query_vars['pagename'], 'assets/' ) ) {
+	if (! empty($query_vars['error']) && isset( $_SERVER['REQUEST_URI'] ) && false !== stripos( $_SERVER['REQUEST_URI'], '/assets/' ) ) {
 
-		$file = trailingslashit( get_template_directory() ) . $query_vars['pagename'];
+		$file = trailingslashit( get_template_directory() ) . $_SERVER['REQUEST_URI'];
 
 		if ( file_exists( $file ) ) {
 
