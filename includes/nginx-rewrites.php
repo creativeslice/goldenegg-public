@@ -5,8 +5,13 @@
  * Version: 0.1
  * Author: Chris Marslender
  * Author URI: http://chrismarslender.com
+ * Contributer: Jake Snyder (added $_SERVER['REQUEST_URI'])
+ * Author URI: http://jupitercow.com
  *
  * Uses a lot of code from wp-includes/ms-files.php (the old multisite file redirection stuff)
+ *
+ * Can be useful on servers where the other assets-rewrites don't work and on nginx servers. 
+ * It doesn't currently rewrite plugins directories, but can be updated if needed.
  */
 
 /**
@@ -100,7 +105,7 @@ function egg_assets_rewrites()
 		if (! is_admin() )
 		{
 			$tags = array(
-				'plugins_url',
+				#'plugins_url',
 				'bloginfo',
 				'stylesheet_directory_uri',
 				'template_directory_uri',

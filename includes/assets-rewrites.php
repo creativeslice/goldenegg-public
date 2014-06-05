@@ -2,6 +2,7 @@
 
 /**
  * rewrites urls like /wp-content/themes/goldenegg/assets/* to /assets/*
+ * and /wp-content/plugins/* to /plugins/*
  */
 
 add_action( 'after_setup_theme', 'egg_assets_rewrites' );
