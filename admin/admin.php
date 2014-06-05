@@ -102,9 +102,9 @@ function egg_dashboard_welcome_cleanup()
 function egg_remove_menu_pages()
 {
 	remove_menu_page('link-manager.php');
+	remove_menu_page('edit-comments.php');		// Comments
 	if (! current_user_can('manage_options') ) remove_menu_page('tools.php');
 }
-
 
 /**
  * Remove top admin menu items

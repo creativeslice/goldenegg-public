@@ -18,6 +18,7 @@ define( 'EGG_DEVELOPER_URL', 'http://creativeslice.com/' );
 // Admin
 require_once( 'admin/admin.php' );
 require_once( 'admin/login.php' );
+#require_once( 'admin/disable-comments.php' );
 #require_once( 'admin/tinymce.php' );
 #require_once( 'admin/dashboard-widget.php' ); 			// A basic example, should be customized before use
 #require_once( 'admin/recently-updated-content.php' ); 	// Shows recently updated content. Requires customization before use
@@ -28,7 +29,6 @@ require_once( 'includes/theme-support.php' );
 require_once( 'includes/enqueue.php' );
 require_once( 'includes/page-navi.php' );
 require_once( 'includes/comments.php' );
-#require_once( 'includes/disable-pingback.php' );
 #require_once( 'includes/related-posts.php' );
 #require_once( 'includes/custom-post-types.php' );
 #require_once( 'includes/assets-rewrites.php' );
@@ -37,8 +37,7 @@ require_once( 'includes/comments.php' );
 /**
  * CUSTOM FUNCTIONS
  **/
-
-/**
+ /**
  * Customize which post types are used for SEO fields and XML sitemap plugins:
  *
  * https://bitbucket.org/jupitercow/sewn-in-xml-sitemap
@@ -55,3 +54,4 @@ function custom_seo_post_types( $post_types ) {
     return $post_types;
 }
 /**/
+?>
