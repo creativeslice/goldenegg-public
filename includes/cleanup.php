@@ -6,8 +6,6 @@
  */
 
 add_action( 'after_setup_theme',          'egg_cleanup' );
-add_filter( 'comments_open',              'egg_filter_media_comment_status', 10 , 2 );
-
 /**
  * Launch some basic cleanup
  *
@@ -39,8 +37,6 @@ function egg_head_cleanup() {
 	remove_action( 'wp_head', 'feed_links_extra', 3 );
 	// post and comment feeds
 	remove_action( 'wp_head', 'feed_links', 2 );
-	// EditURI link
-	remove_action( 'wp_head', 'rsd_link' );
 	// windows live writer
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 	// index link
@@ -101,17 +97,4 @@ function egg_remove_wp_ver_css_js( $src )
 	if ( strpos( $src, 'ver=' ) )
 		$src = remove_query_arg( 'ver', $src );
 	return $src;
-}
-
-/**
- * Turn off comments on media posts
- *
- * @return	bool Modified status for comments.
- */
-function egg_filter_media_comment_status( $open, $post_id )
-{
-	$post = get_post( $post_id );
-	if ( 'attachment' == $post->post_type ) return false;
-
-	return $open;
 }

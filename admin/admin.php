@@ -48,7 +48,6 @@ function egg_disable_dashboard_widgets()
 {
 
 	remove_meta_box('dashboard_right_now', 'dashboard', 'core');    	// Right Now Widget
-	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');	// Comments Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core'); 	// Incoming Links Widget
 	remove_meta_box('dashboard_plugins', 'dashboard', 'core');			// Plugins Widget
 	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');		// Quick Press Widget
@@ -102,7 +101,6 @@ function egg_dashboard_welcome_cleanup()
 function egg_remove_menu_pages()
 {
 	remove_menu_page('link-manager.php');
-	remove_menu_page('edit-comments.php');		// Comments
 	if (! current_user_can('manage_options') ) remove_menu_page('tools.php');
 }
 
@@ -125,7 +123,6 @@ function egg_customize_admin_bar()
 	$wp_admin_bar->remove_menu('new-link');
 	$wp_admin_bar->remove_menu('new-media');
 	$wp_admin_bar->remove_menu('new-user');
-	$wp_admin_bar->remove_menu('comments');
 }
 
 /**
