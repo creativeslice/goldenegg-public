@@ -53,18 +53,18 @@ POSTS & CONTENT STYLES
 *********************/
 /* entry content */
 .entry-content .alignleft, .entry-content img.alignleft {
-  margin-right: 1.5em;
   display: inline;
-  float: left; }
+  float: left;
+  margin-right: 1.5em; }
 .entry-content .alignright, .entry-content img.alignright {
-  margin-left: 1.5em;
   display: inline;
-  float: right; }
+  float: right;
+  margin-left: 1.5em; }
 .entry-content .aligncenter, .entry-content img.aligncenter {
-  margin-right: auto;
-  margin-left: auto;
+  clear: both;
   display: block;
-  clear: both; }
+  margin-right: auto;
+  margin-left: auto; }
 
 /* end .entry-content */
 /******************************************************************
