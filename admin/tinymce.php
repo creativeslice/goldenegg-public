@@ -4,7 +4,13 @@
  *
  * @return	void
  */
+
+// actions
 add_action( 'init', 'egg_tinymce' );
+
+// filters
+add_filter( 'tiny_mce_before_init', 'egg_mce_show_buttons_2' );
+
 function egg_tinymce()
 {
 	// filters
@@ -46,4 +52,8 @@ function egg_tiny_mce_before_init( $settings )
 	// Insert the array, JSON ENCODED, into 'style_formats'
 	$settings['block_formats'] = "Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5";
 	return $settings;
+}
+function egg_mce_show_buttons_2( $in ) {
+	$in['wordpress_adv_hidden'] = FALSE;
+	return $in;
 }
