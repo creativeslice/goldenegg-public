@@ -12,20 +12,20 @@ POSTS & CONTENT STYLES
 .entry-content {
 
 	.alignleft, img.alignleft {
-		margin-right: 1.5em;
 		display: inline;
 		float: left;
+		margin-right: 1.5em;
 	}
 	.alignright, img.alignright {
-		margin-left: 1.5em;
 		display: inline;
 		float: right;
+		margin-left: 1.5em;
 	}
 	.aligncenter, img.aligncenter {
+		clear: both;
+		display: block;
 		margin-right: auto;
 		margin-left: auto;
-		display: block;
-		clear: both;
 	}
 
 } /* end .entry-content */

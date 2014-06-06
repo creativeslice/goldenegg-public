@@ -13,11 +13,6 @@ over your project's layout.
 @mixin grid-col {
 	float: left;
 	padding-right: 0.75em;
-	background: #eee;
-	border: 1px solid #ddd;
-	p {
-		background: white;
-	}
 }
 
 /* the last column */
@@ -232,10 +227,50 @@ Large - 12 column
 		@include grid-col;
 		width: 11.1111111111%;
 	}
+	
+	.l-2of9 {
+		@include grid-col;
+		width: 22.2222222222%;
+	}
+	
+	.l-4of9 {
+		@include grid-col;
+		width: 44.4444444444%;
+	}
+	
+	.l-5of9 {
+		@include grid-col;
+		width: 55.5555556%;
+	}
+	
+	.l-7of9 {
+		@include grid-col;
+		width: 77.7777778%;
+	}
+	
+	.l-8of9 {
+		@include grid-col;
+		width: 88.8888889%;
+	}
 
 	.l-1of10 {
 		@include grid-col;
 		width: 10%;
+	}
+
+	.l-3of10 {
+		@include grid-col;
+		width: 30%;
+	}
+
+	.l-7of10 {
+		@include grid-col;
+		width: 70%;
+	}
+
+	.l-9of10 {
+		@include grid-col;
+		width: 90%;
 	}
 
 	.l-1of11 {

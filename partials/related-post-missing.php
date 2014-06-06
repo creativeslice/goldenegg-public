@@ -1,1 +1,1 @@
-<li class="entry-related-missing">No Related Posts.</li>
+<li class="related-content-missing">No Related Posts.</li>
