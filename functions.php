@@ -28,7 +28,6 @@ require_once( 'includes/cleanup.php' );
 require_once( 'includes/theme-support.php' );
 require_once( 'includes/enqueue.php' );
 require_once( 'includes/page-navi.php' );
-require_once( 'includes/comments.php' );
 require_once( 'includes/related-posts.php' );
 #require_once( 'includes/custom-post-types.php' );		// Create custom post types
 #require_once( 'includes/assets-rewrites.php' );		// Rewrite theme assets to /assets and plugins to /plugins
