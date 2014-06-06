@@ -8,9 +8,9 @@ add_action( 'init', 'egg_tinymce' );
 function egg_tinymce()
 {
 	// filters
-	add_filter( 'mce_buttons',                array(__CLASS__, 'mce_buttons') );
-	add_filter( 'mce_buttons_2',              array(__CLASS__, 'mce_buttons_2') );
-	add_filter( 'tiny_mce_before_init',       array(__CLASS__, 'tiny_mce_before_init') );
+	add_filter( 'mce_buttons',                'egg_mce_buttons' );
+	add_filter( 'mce_buttons_2',              'egg_mce_buttons_2' );
+	add_filter( 'tiny_mce_before_init',       'egg_tiny_mce_before_init' );
 }
 
 /**
@@ -33,12 +33,7 @@ function egg_mce_buttons_2( $buttons )
 {
 	// Remove items
 	$remove  = array('styleselect', 'underline', 'forecolor', 'alignjustify', 'pastetext', 'removeformat', 'wp_help');
-	$buttons = array_diff($buttons,$remove);
-
-	// Add in the style selector
-	array_unshift( $buttons, 'styleselect' );
-
-	return $buttons;
+	return array_diff($buttons, $remove);
 }
 
 /**
