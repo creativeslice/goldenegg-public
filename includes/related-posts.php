@@ -9,17 +9,19 @@ add_action( 'egg/related_posts', 'egg_related_posts' );
 /**
  * Related Posts
  *
- * Usage:	do_action('egg/related_posts');		// Show default number of posts (3)
- *			do_action('egg/related_posts', 5);	// Show 5 posts
+ * Usage:	do_action('egg/related_posts');				// Show default number of posts (3)
+ *			do_action('egg/related_posts', 'limit=5');	// Show 5 posts
  *
  * @return	void
  */
-function egg_related_posts( $limit=3 )
+function egg_related_posts( $limit )
 {
 	global $post;
 
+	if (! $limit ) $limit = 3;
+
 	echo '<ul id="related-posts">';
-	$tags = wp_get_post_tags( $post->ID, 'fields=ids' );
+	$tags = wp_get_post_tags( $post->ID, 'fields=slugs' );
 
 	if ( $tags )
 	{
