@@ -33,7 +33,7 @@ require_once( 'includes/related-posts.php' );
 #require_once( 'includes/custom-post-types.php' );		// Create custom post types
 #require_once( 'includes/assets-rewrites.php' );		// Rewrite theme assets to /assets and plugins to /plugins
 #require_once( 'includes/nice-search.php' );			// Clean search urls
-#require_once( 'includes/disable-pingbacks.php' );		// Disable XMLRPC, pingbacks, trackbacks
+#require_once( 'includes/disable-pingback.php' );		// Disable XMLRPC, pingbacks, trackbacks
 #require_once( 'includes/disable-feeds.php' );			// Disable site feeds
 
 /**
