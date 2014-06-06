@@ -9,41 +9,39 @@ add_action( 'egg/related_posts', 'egg_related_posts' );
 /**
  * Related Posts
  *
- * Usage: do_action('egg/related_posts');
- *
- * Based on Bones by Eddie Machado
+ * Usage:	do_action('egg/related_posts');		// Show default number of posts (3)
+ *			do_action('egg/related_posts', 5);	// Show 5 posts
  *
  * @return	void
  */
-function egg_related_posts()
+function egg_related_posts( $limit=3 )
 {
 	global $post;
 
-	echo '<ul id="bones-related-posts">';
-	$tags = wp_get_post_tags( $post->ID );
+	echo '<ul id="related-posts">';
+	$tags = wp_get_post_tags( $post->ID, 'fields=ids' );
+
 	if ( $tags )
 	{
-		foreach( $tags as $tag )
-		{
-			$tag_arr .= $tag->slug . ',';
-		}
+		$tag = implode(',', $tags);
 		$args = array(
-			'tag'          => $tag_arr,
-			'numberposts'  => 5, /* you can change this to show more */
-			'post__not_in' => array($post->ID)
+			'tag'            => $tag,
+			'posts_per_page' => $limit,
+			'post__not_in'   => array($post->ID),
 		);
-		$related_posts = get_posts( $args );
-		if ( $related_posts )
+		$related_posts = new WP_Query( $args );
+
+		if ( $related_posts->have_posts() )
 		{
-			foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
-				<li class="related_post"><a class="entry-unrelated" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
-			<?php endforeach;
+			while ( $related_posts->have_posts() ) : $related_posts->the_post();
+				get_template_part( 'partials/related-post' );
+			endwhile;
 		}
 		else
 		{
-			echo '<li class="no_related_post">No Related Posts Yet!</li>';
+			get_template_part( 'partials/related-post', 'missing' );
 		}
+		wp_reset_postdata();
 	}
-	wp_reset_postdata();
 	echo '</ul>';
 }
