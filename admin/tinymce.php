@@ -74,7 +74,7 @@ function egg_add_magic_button() {
 	add_filter('mce_buttons', 'egg_register_magic_button');
 }
 function egg_add_tinymce_button_plugin($plugin_array) {
-   	$plugin_array['egg_magic_button'] = get_template_directory_uri().'/assets/js/tinymce-functions.js'; 
+   	$plugin_array['egg_magic_button'] = get_template_directory_uri().'/admin/assets/js/tinymce-functions.js'; 
    	return $plugin_array;
 }
 function egg_register_magic_button($buttons) {
@@ -90,7 +90,7 @@ function egg_add_no_wrap() {
 	add_filter('mce_buttons', 'egg_register_no_wrap');
 }
 function egg_add_tinymce_no_wrap_plugin($plugin_array) {
-   	$plugin_array['egg_no_wrap'] = get_template_directory_uri().'/assets/js/tinymce-functions.js'; 
+   	$plugin_array['egg_no_wrap'] = get_template_directory_uri().'/admin/assets/js/tinymce-functions.js'; 
    	return $plugin_array;
 }
 function egg_register_no_wrap($buttons) {

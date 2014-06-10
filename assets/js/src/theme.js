@@ -76,6 +76,18 @@ var timeToWaitForLast = 100;
 jQuery(document).ready(function($) {
 
 	/**
+	 * Sets classes and elements which will be modified by Colorbox; takes settings (view options at: http://www.jacklmoore.com/colorbox/)
+	 */ 
+	var colorbox_params = {
+		rel: 'gal',
+        maxWidth: '96%',
+        maxHeight: '90%',
+        fixed: true
+    };
+	$('a.group1').colorbox(colorbox_params);
+	$('.gallery a').colorbox(colorbox_params);
+    $('a[href$=\".jpg\"], a[href$=\".png\"], a[href$=\".bmp\"]').colorbox(colorbox_params);
+	/**
 	 * Mobile menu show/hide
 	 */
 	$('#mobilemenu').click(function(e) {

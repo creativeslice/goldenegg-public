@@ -6,8 +6,8 @@
 (function() {
     tinymce.PluginManager.add('egg_magic_button', function( editor, url ) {
         editor.addButton( 'egg_magic_button', {
-            text: 'Create Button',
-            icon: false,
+        	title: 'Convert link to a Button',
+			icon: 'backcolor',
             onclick: function() {
   				var ed = tinyMCE.activeEditor;
   				var parentNode = ed.dom.getParent(ed.selection.getNode());
@@ -23,6 +23,18 @@
 					    child = child.nextSibling;
 					}
 				}
+            }
+        });
+    });
+})();
+(function() {
+    tinymce.PluginManager.add('egg_no_wrap', function( editor, url ) {
+            editor.addButton( 'egg_no_wrap', {
+            title: 'No-Wrap',
+			icon: 'nonbreaking',
+            onclick: function() {
+	            var orig_text = tinyMCE.activeEditor.selection.getContent();
+				tinyMCE.activeEditor.selection.setContent("<span class='nowrap'>" + orig_text + "</span>");
             }
         });
     });

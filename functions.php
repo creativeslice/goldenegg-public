@@ -18,7 +18,7 @@ define( 'EGG_DEVELOPER_URL', 'http://creativeslice.com/' );
 // Admin
 require_once( 'admin/admin.php' );
 require_once( 'admin/login.php' );
-require_once( 'admin/tinymce.php' );
+#require_once( 'admin/tinymce.php' );
 #require_once( 'admin/dashboard-widget.php' ); 			// A basic example, should be customized before use
 #require_once( 'admin/recently-updated-content.php' ); 	// Shows recently updated content. Requires customization before use
 #require_once( 'admin/disable-comments.php' );          // Completely remove comments from the admin area
