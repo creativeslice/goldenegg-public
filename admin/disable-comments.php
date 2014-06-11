@@ -18,7 +18,7 @@ add_filter( 'manage_media_columns',               'egg_remove_comments_list_colu
 /**
  * Remove from wpadmin menu (TOP BAR)
  */
-function egg_remove_admin_bar_comments()
+function egg_remove_comments_admin_bar()
 {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('comments');
@@ -58,7 +58,7 @@ function egg_remove_comments_quick_edit()
 /**
  * Remove Comments Widget from dashboard and metaboxes from Pages & Posts
  */
-function remove_my_comment_metaboxes()
+function egg_remove_comments_metaboxes()
 {
 	remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'core');	// Comments Widget
 	remove_meta_box( 'commentstatusdiv','post','normal' );              // Comments Status Metabox
