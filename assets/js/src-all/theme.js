@@ -76,6 +76,16 @@ var timeToWaitForLast = 100;
 jQuery(document).ready(function($) {
 
 	/**
+	 * Initiates Flexslider; Flexslider requires a single containing element, <div>, then, a <ul class=”slides”><li><img src='this.jpg'></li></ul> (view options at: https://github.com/woothemes/FlexSlider/wiki/FlexSlider-Properties)
+	 */ 	
+	var flexslider_params = {
+		//slideshowSpeed:4500,
+		//animation:'slide',
+		//direction:'vertical'
+	} 
+	$('.flexslider').flexslider(flexslider_params);
+
+	/**
 	 * Sets classes and elements which will be modified by Colorbox; takes settings (view options at: http://www.jacklmoore.com/colorbox/)
 	 */ 
 	var colorbox_params = {
