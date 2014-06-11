@@ -73,9 +73,45 @@ var timeToWaitForLast = 100;
 /*
  * Put all your regular jQuery in here.
 */
+
 jQuery(document).ready(function($) {
 
+	getHeadroom();
 	getMixitUp();
+	getFlexslider();
+	getColorbox();
+	
+	/**
+	 * Initiates Headroom.js
+	 * Header must have an id, the id is referenced below
+	 * CSS can be defined in _headroom.scss 
+	 */
+	function getHeadroom(){
+		$("#headroom").headroom({					//define header id here
+			// scroll tolerance in px before state changes
+			"tolerance": 0,
+	 
+			// vertical offset in px before element is first unpinned
+			"offset": 147, /* set this to height of your header */
+	 
+			"classes": {
+				// when element is initialised
+				"initial": "animated",
+	 
+				// when scrolling up
+				"pinned": "slideDown",
+	 
+				// when scrolling down
+				"unpinned": "slideUp",
+	 
+				// when above offset
+				"top": "headroom--top",
+	 
+				// when below offset
+				"notTop": "headroom--not-top"
+			}
+		});
+	};	
 
 	/**
 	 * Initiates MixitUp
@@ -85,27 +121,37 @@ jQuery(document).ready(function($) {
 	}
 
 	/**
-	 * Initiates Flexslider; Flexslider requires a single containing element, <div>, then, a <ul class=”slides”><li><img src='this.jpg'></li></ul> (view options at: https://github.com/woothemes/FlexSlider/wiki/FlexSlider-Properties)
-	 */ 	
-	var flexslider_params = {
-		//slideshowSpeed:4500,
-		//animation:'slide',
-		//direction:'vertical'
-	} 
-	$('.flexslider').flexslider(flexslider_params);
+	 * Initiates Headroom
+	 */
+	 
 
+	/**
+	 * Initiates Flexslider; Flexslider requires a single containing element, <div>, then, a <ul class=”slides”><li><img src='this.jpg'></li></ul> (view options at: https://github.com/woothemes/FlexSlider/wiki/FlexSlider-Properties)
+	 */ 
+	function getFlexslider(){
+		var flexslider_params = {
+			//slideshowSpeed:4500,
+			//animation:'slide',
+			//direction:'vertical'
+		} 
+		$('.flexslider').flexslider(flexslider_params);
+	}
+	
 	/**
 	 * Sets classes and elements which will be modified by Colorbox; takes settings (view options at: http://www.jacklmoore.com/colorbox/)
 	 */ 
-	var colorbox_params = {
-		rel: 'gal',
-        maxWidth: '96%',
-        maxHeight: '90%',
-        fixed: true
-    };
-	$('a.group1').colorbox(colorbox_params);
-	$('.gallery a').colorbox(colorbox_params);
-    $('a[href$=\".jpg\"], a[href$=\".png\"], a[href$=\".bmp\"]').colorbox(colorbox_params);
+	function getColorbox(){ 
+		var colorbox_params = {
+			rel: 'gal',
+	        maxWidth: '96%',
+	        maxHeight: '90%',
+	        fixed: true
+	    };
+		$('a.group1').colorbox(colorbox_params);
+		$('.gallery a').colorbox(colorbox_params);
+	    $('a[href$=\".jpg\"], a[href$=\".png\"], a[href$=\".bmp\"]').colorbox(colorbox_params);
+	}
+
 	/**
 	 * Mobile menu show/hide
 	 */
