@@ -1,0 +1,17 @@
+#headroom{
+	position:fixed;
+	width:100%;
+}
+.slideUp{
+	
+//	display:none;
+}
+.headroom {
+    transition: transform 200ms linear;
+}
+.slideDown {	//pinned
+    transform: translateY(0%);
+}
+.slideUp {		//unpinned
+    transform: translateY(-100%);
+}
