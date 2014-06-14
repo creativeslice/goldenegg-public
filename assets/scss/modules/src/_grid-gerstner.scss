@@ -88,12 +88,12 @@ Medium - 4 column
 		 @include grid-col;
 		 margin-right: 2.6042%;
 	}
-	
+
 	.m-last {
 	  float: right;
 	  margin-right: 0;
 	}
-	
+
 }
 
 
@@ -113,19 +113,19 @@ Large - 6 column
 		 @include grid-col;
 		 margin-right: 3.0303%;
 	}
-	
+
 	.l-g2 {
 		 width: 31.3131%;
 		 @include grid-col;
 		 margin-right: 3.0303%;
 	}
-	
+
 	.l-g3 {
 		 width: 48.4848%;
 		 @include grid-col;
 		 margin-right: 3.0303%;
 	}
-	
+
 	.l-g4 {
 		 width: 65.6566%;
 		 @include grid-col;
@@ -140,5 +140,5 @@ Large - 6 column
 	  float: right;
 	  margin-right: 0;
 	}
-	
+
 }

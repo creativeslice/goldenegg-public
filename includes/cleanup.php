@@ -4,19 +4,8 @@
  *
  * @return	void
  */
-add_action( 'init', 'egg_init' );
-function egg_init()
-{
-	// actions
-	add_action( 'after_setup_theme',          'egg_cleanup' );
-	add_action( 'wp_before_admin_bar_render', 'egg_customize_admin_bar' );
 
-	// filters
-	add_filter( 'comments_open',              'egg_filter_media_comment_status', 10 , 2 );
-	add_filter( 'show_admin_bar',             'egg_admin_bar_permissions' );
-	add_filter( 'gettext',                    'egg_replace_howdy', 10, 3 );
-}
-
+add_action( 'after_setup_theme',          'egg_cleanup' );
 /**
  * Launch some basic cleanup
  *
@@ -37,9 +26,10 @@ function egg_cleanup()
 /**
  * Cleanup the head output
  *
- * @return	void
  */
-function head_cleanup() {
+function egg_head_cleanup() {
+	// Remove canonical links
+	// remove_action('wp_head', 'rel_canonical');
 	// Remove shortlink from head and header
 	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
 	remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
@@ -47,8 +37,6 @@ function head_cleanup() {
 	remove_action( 'wp_head', 'feed_links_extra', 3 );
 	// post and comment feeds
 	remove_action( 'wp_head', 'feed_links', 2 );
-	// EditURI link
-	remove_action( 'wp_head', 'rsd_link' );
 	// windows live writer
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 	// index link
@@ -63,9 +51,9 @@ function head_cleanup() {
 	// WP version
 	remove_action( 'wp_head', 'wp_generator' );
 	// remove WP version from css
-	add_filter( 'style_loader_src',           'egg_remove_wp_ver_css_js', 9999 );
+	add_filter( 'style_loader_src', 'egg_remove_wp_ver_css_js', 9999 );
 	// remove Wp version from scripts
-	add_filter( 'script_loader_src',          'egg_remove_wp_ver_css_js', 9999 );
+	add_filter( 'script_loader_src', 'egg_remove_wp_ver_css_js', 9999 );
 }
 
 /**
@@ -89,7 +77,7 @@ function egg_filter_ptags_on_images( $content )
 }
 
 /**
- * Updates the [É] for Read More links
+ * Updates the [â€¦] for Read More links
  *
  * @return	bool Modified status for comments.
  */
@@ -109,63 +97,4 @@ function egg_remove_wp_ver_css_js( $src )
 	if ( strpos( $src, 'ver=' ) )
 		$src = remove_query_arg( 'ver', $src );
 	return $src;
-}
-
-/**
- * Turn off comments on media posts
- *
- * @return	bool Modified status for comments.
- */
-function egg_filter_media_comment_status( $open, $post_id )
-{
-	$post = get_post( $post_id );
-	if ( 'attachment' == $post->post_type ) return false;
-
-	return $open;
-}
-
-/**
- * Remove top admin menu items
- *
- * @return	void
- */
-function egg_customize_admin_bar()
-{
-	global $wp_admin_bar;
-	$wp_admin_bar->remove_menu('wp-logo');
-	$wp_admin_bar->remove_menu('about');
-	$wp_admin_bar->remove_menu('wporg');
-	$wp_admin_bar->remove_menu('documentation');
-	$wp_admin_bar->remove_menu('support-forums');
-	$wp_admin_bar->remove_menu('feedback');
-	$wp_admin_bar->remove_menu('view-site');
-	$wp_admin_bar->remove_menu('new-content');
-	$wp_admin_bar->remove_menu('new-link');
-	$wp_admin_bar->remove_menu('new-media');
-	$wp_admin_bar->remove_menu('new-user');
-	$wp_admin_bar->remove_menu('comments');
-}
-
-/**
- * Force the admin bar on for editors and admins and off for below
- *
- * @return	array Modified settings
- */
-function egg_admin_bar_permissions( $content )
-{
-	return ( current_user_can('edit_others_posts') ) ? true : false;
-}
-
-/**
- * Replace howdy in the admin bar
- *
- * @return	string Modified welcome message.
- */
-function egg_replace_howdy( $translated, $text, $domain )
-{
-	if ( false !== strpos($translated, "Howdy") )
-	{
-		return str_replace("Howdy", "Welcome back", $translated);
-	}
-	return $translated;
 }

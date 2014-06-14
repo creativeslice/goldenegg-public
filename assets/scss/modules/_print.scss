@@ -15,12 +15,12 @@ Stylesheet: Print
 a, a:visited {
 	color: #444 !important;
 	text-decoration: underline;
-	
+
 	// show links on printed pages
 	&:after {
 	  content: " (" attr(href) ")";
 	}
-	
+
 	// show title too
 	abbr[title]:after {
 	  content: " (" attr(title) ")";

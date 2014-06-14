@@ -7,7 +7,6 @@
  * Sets up the widget
  *
  * @author  Stanislav Kostadinov
- * @since	1.0.0
  * @return	void
  */
 add_action( 'wp_dashboard_setup', 'recently_updated_content_dashboard_widget' );

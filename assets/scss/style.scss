@@ -14,11 +14,20 @@ IMPORTING MODULES
 // normalize: http://necolas.github.io/normalize.css/
 @import "modules/normalize";
 
+// import mixins
+@import "modules/mixins";
+
+// import icons
+@import "modules/fontface";
+
 // typography
 @import "modules/typography";
 
-// import mixins
-@import "modules/mixins";
+// wordpress content images
+@import "modules/wpimage";
+
+// forms
+@import "modules/forms";
 
 // the grid
 @import "modules/grid";
@@ -26,43 +35,21 @@ IMPORTING MODULES
 // comments
 @import "modules/comments";
 
+// pagenavi
+@import "modules/pagenavi";
+
+// colorbox
+// @import "modules/colorbox";
+
+// flexslider
+//@import "modules/flexslider";
+
 
 /*********************
 BASE (MOBILE) SIZE
 *********************/
 
 @import "base";
-
-
-/*********************
-SMALL
-*********************/
-
-@media only screen and (min-width: 30em) { // 480px
-
-	@import "small";
-
-}
-
-
-/*********************
-MEDIUM
-*********************/
-@media only screen and (min-width: 48em) { // 768px
-
-	@import "medium";
-
-}
-
-
-/*********************
-LARGE
-*********************/
-@media only screen and (min-width: 64em) {	// 1024px
-
-	@import "large";
-
-}
 
 
 /*********************

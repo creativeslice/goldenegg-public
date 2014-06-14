@@ -1,8 +1,8 @@
 <?php
 /**
- * Set up the login changes
+ * Customize the login screen
  */
-add_action( 'admin_init', 'egg_login_init' );
+add_action( 'login_init', 'egg_login_init' );
 function egg_login_init()
 {
 	// actions

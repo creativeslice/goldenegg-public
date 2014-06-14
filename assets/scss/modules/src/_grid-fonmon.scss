@@ -54,7 +54,7 @@ Small - 2 column
 		 width: 62%;
 		 @include grid-col;
 	}
-	
+
 	.s-g2 {
 		 width: 34.9697%;
 		 @include grid-col;
@@ -88,18 +88,18 @@ Medium - 3 column
 		 @include grid-col;
 		 margin-right: 2.3153%;
 	}
-	
+
 	.m-g2 {
 		 width: 44.6544%;
 		 @include grid-col;
 		 margin-right: 2.6728%;
 	}
-	
+
 	.m-last {
 	  float: right;
 	  margin-right: 0;
 	}
-	
+
 }
 
 
@@ -130,7 +130,7 @@ Large - 5 column
 		 width: 71.8687%;
 		 @include grid-col;
 	}
-	
+
 	.l-g2 {
 		 width: 12.5926%;
 		 @include grid-col;
@@ -143,10 +143,10 @@ Large - 5 column
 		 width: 43.8384%;
 		 @include grid-col;
 	}
-	
+
 	.l-last {
 	  float: right;
 	  margin-right: 0;
 	}
-	
+
 }

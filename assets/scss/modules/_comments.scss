@@ -1,5 +1,7 @@
 /******************************************************************
+
 Stylesheet: Comment Styles
+
 ******************************************************************/
 
 /******************************************************************
@@ -10,7 +12,7 @@ COMMENT STYLES
 #comments-title {
 	padding: 0.75em;
 	margin: 0;
-	border-top: 1px solid $light-gray;
+	border-top: 1px solid $gray_light;
 
 	/* number of comments span */
 	span {}
@@ -37,7 +39,7 @@ COMMENT STYLES
 	clear: both;
 	overflow: hidden;
 	padding: 1.5em;
-	border-bottom: 1px solid $light-gray;
+	border-bottom: 1px solid $gray_light;
 
 	.comment-author {
 		padding: 7px;
@@ -131,7 +133,7 @@ COMMENT STYLES
 		background-color: $white;
 	}
 	&.even {
-		background: $light-gray;
+		background: $gray_light;
 	}
 	&.parent {}
 	&.comment {}
@@ -174,7 +176,7 @@ COMMENT STYLES
 
 /* comment reply link */
 .comment-reply-link {
-	@extend .blue-btn;
+	@extend .btn;
 	font-size: 0.9em;
 	float: right;
 
@@ -201,7 +203,7 @@ COMMENT FORM STYLES
 .comment-respond {
 	@extend .cf;
 	padding: 1.5em;
-	border-top: 1px solid $light-gray;
+	border-top: 1px solid $gray_light;
 }
 
 #reply-title {
@@ -214,7 +216,7 @@ COMMENT FORM STYLES
 	margin: 0;
 
 	a {
-		color: $text-color;
+		color: $text_color;
 	}
 }
 
@@ -224,13 +226,13 @@ COMMENT FORM STYLES
 
 .form-allowed-tags {
 	padding: 1.5em;
-	background-color: $light-gray;
+	background-color: $gray_light;
 	font-size: 0.9em;
 }
 
 /* comment submit button */
 #submit {
-	@extend .blue-btn;
+	@extend .btn;
 	float: right;
 	font-size: 1em;
 }

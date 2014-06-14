@@ -4,9 +4,10 @@ Stylesheet: Login Screen
 
 ******************************************************************/
 
-body.login {}
-
-#login {} /* the form box */
+body.login {
+	background: #eee;
+	background-image: linear-gradient(#fff, #ddd);
+}
 
 /*
 Logo above login form
@@ -26,13 +27,12 @@ form {
 	padding: 26px 24px 46px;
 	font-weight: normal;
 	background: white;
-	border: 1px solid #E5E5E5;
-	border-radius: 3px;
+	border: 1px solid #eee;
+	border-radius: 4px;
 	box-shadow: none;
 }
 
 body form .input {
-	font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
 	font-weight: 200;
 	font-size: 24px;
 	width: 97%;
@@ -43,12 +43,17 @@ body form .input {
 	border: 1px solid #E5E5E5;
 	background: #FBFBFB;
 	outline: none;
-	box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+	box-shadow: inset 1px 1px 3px rgba(black, .1);
 }
 
-/*
-You'll have to override some of the default styles
-but since we're referencing the id, it should be easy.
-*/
-#wp-submit {} /* login button*/
+
+#wp-submit {
+	background: #669933;
+	border: darken(#669933, 20%);
+	font-weight: bold;
+	text-transform: uppercase;
+	&:hover {
+		background: darken(#669933, 10%);
+	}
+}
 

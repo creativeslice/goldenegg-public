@@ -11,27 +11,17 @@ over your project's layout.
 ******************************************************************/
 
 @mixin grid-col {
-  float: left;
-  padding-right: 0.75em;
-  background: #eee;
-  border: 1px solid #ddd;
-  p {
-	  background: white;
-  }
-
+	float: left;
+	padding-right: 0.75em;
 }
 
-// the last column
+/* the last column */
 .last-col {
-  float: right !important;
-  margin-right: 0 !important;
+	float: right !important;
+	padding-right: 0 !important;
 }
 
-
-
-/*
-Simple Golden Ratio
-*/
+/* Simple Golden Ratio */
 .goldlarge {
 	width: 61.803398875%;
 	@include grid-col;
@@ -41,10 +31,7 @@ Simple Golden Ratio
 	@include grid-col;
 }
 
-
-/*
-Small - 4 column
-*/
+/* Small - 4 column */
 @media (max-width: 47.938em) {
 
 	.s-all {
@@ -52,31 +39,25 @@ Small - 4 column
 		width: 100%;
 		padding-right: 0;
 	}
-		
+
+	.s-2of4,
 	.s-1of2 {
 		@include grid-col;
-		width: 50%;
-	}
-		
+		width: 50%; }
+
 	.s-1of3 {
 		@include grid-col;
-		width: 33.33%;
-	}
-		
+		width: 33.33%; }
 	.s-2of3 {
 		@include grid-col;
-		width: 66.66%;
-	}
-		
+		width: 66.66%; }
+
 	.s-1of4 {
 		@include grid-col;
-		width: 25%;
-	}
-		
+		width: 25%; }
 	.s-3of4 {
 		@include grid-col;
-		width: 75%;
-	}
+		width: 75%; }
 
 }
 
@@ -91,52 +72,39 @@ Medium - 5 column
 		width: 100%;
 		padding-right: 0;
 	}
-		
+
+	.m-2of4,
 	.m-1of2 {
 		@include grid-col;
-		width: 50%;
-	}
-		
+		width: 50%; }
+
 	.m-1of3 {
 		@include grid-col;
-		width: 33.33%;
-	}
-		
+		width: 33.33%; }
 	.m-2of3 {
 		@include grid-col;
-		width: 66.66%;
-	}
-		
+		width: 66.66%; }
+
 	.m-1of4 {
 		@include grid-col;
-		width: 25%;
-	}
-		
+		width: 25%; }
 	.m-3of4 {
 		@include grid-col;
-		width: 75%;
-	}
-		
+		width: 75%; }
+
 	.m-1of5 {
 		@include grid-col;
-		width: 20%;
-	}
-		
+		width: 20%; }
 	.m-2of5 {
 		@include grid-col;
-		width: 40%;
-	}
-		
+		width: 40%; }
 	.m-3of5 {
 		@include grid-col;
-		width: 60%;
-	}
-		
+		width: 60%; }
 	.m-4of5 {
 		@include grid-col;
-		width: 80%;
-	}
-	
+		width: 80%; }
+
 }
 
 
@@ -146,114 +114,175 @@ Large - 12 column
 @media (min-width: 64em) {
 
 	.l-all  {
-	@include grid-col;
-	width: 100%;
-	padding-right: 0;
+		@include grid-col;
+		width: 100%;
+		padding-right: 0;
 	}
-	
+
+	.l-2of4, .l-3of6, .l-4of8, .l-5of10, .l-6of12,
 	.l-1of2 {
-	@include grid-col;
-	width: 50%;
+		@include grid-col;
+		width: 50%;
 	}
-	
+
+	.l-2of6, .l-4of12,
 	.l-1of3 {
-	@include grid-col;
-	width: 33.33%;
+		@include grid-col;
+		width: 33.33%;
 	}
-	
+
+	.l-4of6, .l-8of12,
 	.l-2of3 {
-	@include grid-col;
-	width: 66.66%;
+		@include grid-col;
+		width: 66.66%;
 	}
-	
+
+	.l-2of8, .l-3of12,
 	.l-1of4 {
-	@include grid-col;
-	width: 25%;
+		@include grid-col;
+		width: 25%;
 	}
-	
+
+	.l-6of8, .l-9of12,
 	.l-3of4 {
-	@include grid-col;
-	width: 75%;
+		@include grid-col;
+		width: 75%;
 	}
-	
+
+	.l-2of10,
 	.l-1of5 {
-	@include grid-col;
-	width: 20%;
-	}
-	
+		@include grid-col;
+		width: 20%;}
+	.l-4of10,
 	.l-2of5 {
-	@include grid-col;
-	width: 40%;
-	}
-	
+		@include grid-col;
+		width: 40%; }
+	.l-6of10,
 	.l-3of5 {
-	@include grid-col;
-	width: 60%;
-	}
-	
+		@include grid-col;
+		width: 60%; }
+	.l-8of10,
 	.l-4of5 {
-	@include grid-col;
-	width: 80%;
-	}
-	
+		@include grid-col;
+		width: 80%; }
+
+	.l-2of12,
 	.l-1of6 {
-	@include grid-col;
-	width: 16.6666666667%;
-	}
-	
+		@include grid-col;
+		width: 16.6666666667%; }
+	.l-10of12,
+	.l-5of6 {
+		@include grid-col;
+		width: 83.3333333%; }
+
 	.l-1of7 {
-	@include grid-col;
-	width: 14.2857142857%;
-	}
-	
+		@include grid-col;
+		width: 14.2857142857%; }
 	.l-2of7 {
-	@include grid-col;
-	width: 28.5714286%;
-	}
-	
+		@include grid-col;
+		width: 28.5714286%; }
 	.l-3of7 {
-	@include grid-col;
-	width: 42.8571429%;
-	}
-	
+		@include grid-col;
+		width: 42.8571429%; }
 	.l-4of7 {
-	@include grid-col;
-	width: 57.1428572%;
-	}
-	
+		@include grid-col;
+		width: 57.1428572%; }
 	.l-5of7 {
-	@include grid-col;
-	width: 71.4285715%;
-	}
-	
+		@include grid-col;
+		width: 71.4285715%; }
+
 	.l-6of7 {
-	@include grid-col;
-	width: 85.7142857%;
+		@include grid-col;
+		width: 85.7142857%;
 	}
-	
+
 	.l-1of8 {
-	@include grid-col;
-	width: 12.5%;
-	}
-	
+		@include grid-col;
+		width: 12.5%; }
+	.l-3of8 {
+		@include grid-col;
+		width: 37.5%; }
+	.l-5of8 {
+		@include grid-col;
+		width: 62.5%; }
+	.l-7of8 {
+		@include grid-col;
+		width: 87.5%; }
+
 	.l-1of9 {
-	@include grid-col;
-	width: 11.1111111111%;
-	}
-	
+		@include grid-col;
+		width: 11.1111111111%; }
+	.l-2of9 {
+		@include grid-col;
+		width: 22.2222222222%; }
+	.l-4of9 {
+		@include grid-col;
+		width: 44.4444444444%; }
+	.l-5of9 {
+		@include grid-col;
+		width: 55.5555556%; }
+	.l-7of9 {
+		@include grid-col;
+		width: 77.7777778%;}
+	.l-8of9 {
+		@include grid-col;
+		width: 88.8888889%;}
+
 	.l-1of10 {
-	@include grid-col;
-	width: 10%;
-	}
-	
+		@include grid-col;
+		width: 10%; }
+	.l-3of10 {
+		@include grid-col;
+		width: 30%; }
+	.l-7of10 {
+		@include grid-col;
+		width: 70%; }
+	.l-9of10 {
+		@include grid-col;
+		width: 90%; }
+
 	.l-1of11 {
-	@include grid-col;
-	width: 9.09090909091%;
-	}
-	
+		@include grid-col;
+		width: 9.09090909091%; }
+	.l-2of11 {
+		@include grid-col;
+		width: 18.1818182%; }
+	.l-3of11 {
+		@include grid-col;
+		width: 27.2727273%; }
+	.l-4of11 {
+		@include grid-col;
+		width: 36.3636364%; }
+	.l-5of11 {
+		@include grid-col;
+		width: 45.4545455%; }
+	.l-6of11 {
+		@include grid-col;
+		width: 54.5454545%; }
+	.l-7of11 {
+		@include grid-col;
+		width: 63.6363636%; }
+	.l-8of11 {
+		@include grid-col;
+		width: 72.7272727%; }
+	.l-9of11 {
+		@include grid-col;
+		width: 81.8181818%; }
+	.l-10of11 {
+		@include grid-col;
+		width: 90.9090909%; }
+
 	.l-1of12 {
-	@include grid-col;
-	width: 8.33%;
-	}
-	
+		@include grid-col;
+		width: 8.33%; }
+	.l-5of12 {
+		@include grid-col;
+		width: 41.6666667%; }
+	.l-7of12 {
+		@include grid-col;
+		width: 58.3333333%; }
+	.l-11of12 {
+		@include grid-col;
+		width: 91.6666667%; }
+
 }
