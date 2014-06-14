@@ -4,9 +4,10 @@ Stylesheet: IE Stylesheet
 
 ******************************************************************/
 
-// Remove the media queries
+/*********************
+REMOVES MEDIA QUERIES
+*********************/
 $ignore-mqs: true;
-$old-ie: true;
 
 
 /*********************
@@ -16,17 +17,29 @@ IMPORTING MODULES
 // normalize: http://necolas.github.io/normalize.css/
 @import "modules/normalize";
 
-// variables and mixins
+// import mixins
 @import "modules/mixins";
+
+// import icons
+@import "modules/fontface";
 
 // typography
 @import "modules/typography";
 
-// the site and page navigation
-@import "modules/nav";
+// wordpress content images
+@import "modules/wpimage";
 
-// the grid and other layout
-@import "modules/layout";
+// forms
+@import "modules/forms";
+
+// the grid
+@import "modules/grid";
+
+// comments
+@import "modules/comments";
+
+// pagenavi
+@import "modules/pagenavi";
 
 
 /*********************
@@ -39,6 +52,7 @@ BASE
 /*********************
 PRINT STYLESHEET
 *********************/
+
 @media print {
 	@import "modules/print";
 }
