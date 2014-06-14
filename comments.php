@@ -5,7 +5,7 @@
  *
  * @return	string Empty string
  */
-function egg_comments( $comment, $args, $depth )
+function egg_comment( $comment, $args, $depth )
 {
 	$GLOBALS['comment'] = $comment; ?>
 	<div id="comment-<?php comment_ID(); ?>" <?php comment_class('cf'); ?>>
