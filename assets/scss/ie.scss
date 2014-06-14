@@ -4,19 +4,47 @@ Stylesheet: IE Stylesheet
 
 ******************************************************************/
 
-// Sass variables
+// Remove the media queries
+$ignore-mqs: true;
+$old-ie: true;
+
+
+/*********************
+IMPORTING MODULES
+*********************/
+
+// normalize: http://necolas.github.io/normalize.css/
+@import "modules/normalize";
+
+// variables and mixins
 @import "modules/mixins";
+
+// typography
+@import "modules/typography";
+
+// the site and page navigation
+@import "modules/nav";
+
+// the grid and other layout
+@import "modules/layout";
+
+
+/*********************
+BASE
+*********************/
+
+@import "base";
+
+
+/*********************
+PRINT STYLESHEET
+*********************/
+@media print {
+	@import "modules/print";
+}
 
 
 /******************************************************************
-
 ADDITIONAL IE FIXES
-
 ******************************************************************/
 
-/*
-For example, you can use something like:
-
-.no-textshadow .class { ... }
-
-*/
