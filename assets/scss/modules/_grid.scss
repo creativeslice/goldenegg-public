@@ -4,44 +4,157 @@ Stylesheet: Grid
 
 ******************************************************************/
 
-.onecol    { width: 5.801104972%;  }       /* 4.85%;  } */
-.twocol    { width: 14.364640883%; }       /* 13.45%; } */
-.threecol  { width: 22.928176794%; }       /* 22.05%; } */
-.fourcol   { width: 31.491712705%; }       /* 30.75%; } */
-.fivecol   { width: 40.055248616%; }       /* 39.45%; } */
-.sixcol    { width: 48.618784527%; }       /* 48%;    } */
-.sevencol  { width: 57.182320438000005%; } /* 56.75%; } */
-.eightcol  { width: 65.74585634900001%; }  /* 65.4%;  } */
-.ninecol   { width: 74.30939226%; }        /* 74.05%; } */
-.tencol    { width: 82.87292817100001%; }  /* 82.7%;  } */
-.elevencol { width: 91.436464082%; }       /* 91.35%; } */
-.twelvecol { width: 99.999999993%; }       /* 100%;   } */
-
-// layout & column defaults
-.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
-	position: relative;
+@mixin grid-col {
 	float: left;
-	margin-left: 2.762430939%;
+	padding-right: 0.75em;
 }
 
-// golden grid layout
-.goldsmall {
-	width: 38.196601125%;
-	position: relative;
-	float: left;
+// the last column
+.lastcol,
+.last-col {
+	float: right !important;
+	padding-right: 0 !important;
 }
 
+// Simple Golden Ratio
 .goldlarge {
 	width: 61.803398875%;
-	position: relative;
-	float: left;
+	@include grid-col;
+}
+.goldsmall {
+	width: 38.196601125%;
+	@include grid-col;
 }
 
-// first and last
-.firstcol {
-	margin-left: 0;
+@include breakpoint(small)
+{
+	.s-all {
+		@include grid-col;
+		width: 100%;
+		padding-right: 0;
+	}
+
+	.s-1of6 {
+		@include grid-col;
+		width: 16.6666667%;
+	}
+	.s-2of6 {
+		@include grid-col;
+		width: 33.3333333%;
+	}
+	.s-3of6 {
+		@include grid-col;
+		width: 50%;
+	}
+	.s-4of6 {
+		@include grid-col;
+		width: 66.6666667%;
+	}
+	.s-5of6 {
+		@include grid-col;
+		width: 83.3333333%;
+	}
 }
 
-.lastcol {
-	float: right;
+@include breakpoint(medium)
+{
+	.m-all {
+		@include grid-col;
+		width: 100%;
+		padding-right: 0;
+	}
+
+	.m-1of8 {
+		@include grid-col;
+		width: 12.5%;
+	}
+	.m-2of8 {
+		@include grid-col;
+		width: 25%;
+	}
+	.m-3of8 {
+		@include grid-col;
+		width: 37.5%;
+	}
+	.m-4of8 {
+		@include grid-col;
+		width: 50%;
+	}
+	.m-5of8 {
+		@include grid-col;
+		width: 62.5%;
+	}
+	.m-6of8 {
+		@include grid-col;
+		width: 75%;
+	}
+	.m-7of8 {
+		@include grid-col;
+		width: 87.5%;
+	}
+}
+
+@include breakpoint(large)
+{
+	.l-all  {
+		@include grid-col;
+		width: 100%;
+		padding-right: 0;
+	}
+
+	.onecol,
+	.l-1of12 {
+		@include grid-col;
+		width: 8.33%;
+	}
+	.twocol,
+	.l-2of12 {
+		@include grid-col;
+		width: 16.6666666667%;
+	}
+	.threecol,
+	.l-3of12 {
+		@include grid-col;
+		width: 25%;
+	}
+	.fourcol,
+	.l-4of12 {
+		@include grid-col;
+		width: 33.33%;
+	}
+	.fivecol,
+	.l-5of12 {
+		@include grid-col;
+		width: 41.6666667%;
+	}
+	.sixcol,
+	.l-6of12 {
+		@include grid-col;
+		width: 50%;
+	}
+	.sevencol,
+	.l-7of12 {
+		@include grid-col;
+		width: 58.3333333%;
+	}
+	.eightcol,
+	.l-8of12 {
+		@include grid-col;
+		width: 66.66%;
+	}
+	.ninecol,
+	.l-9of12 {
+		@include grid-col;
+		width: 75%;
+	}
+	.tencol,
+	.l-10of12 {
+		@include grid-col;
+		width: 83.3333333%;
+	}
+	.elevencol,
+	.l-11of12 {
+		@include grid-col;
+		width: 91.6666667%;
+	}
 }
