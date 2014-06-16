@@ -47,7 +47,11 @@ function egg_enqueue()
 	{
 		/* call jQuery from Google and move to footer * /
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', ("//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"), false, '1.11.0', true);
+		wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'), false, '1.11.0', true);
+
+		/* move core jQuery to footer * /
+		wp_deregister_script('jquery');
+		wp_register_script('jquery', includes_url( '/wp-includes/js/jquery/jquery.js' ), false, null, true);
 
 		/* modernizr (without media query polyfill) */
 		wp_register_script( 'egg-modernizr', get_stylesheet_directory_uri() . '/assets/js/modernizr.custom.min.js', array(), '2.5.3', false );
@@ -67,3 +71,21 @@ function egg_enqueue()
 			'egg-js'
 		) );
 	}
+
+/**
+ * Remove jQuery Migrate
+ *
+ * Be absolutely sure, you are ok to do this, and test your code afterwards.
+ *
+ * @return	void
+ */
+add_filter( 'wp_default_scripts', 'egg_dequeue_jquery_migrate' );
+function egg_dequeue_jquery_migrate( &$scripts )
+{
+	if (! is_admin() )
+	{
+		$scripts->remove( 'jquery');
+		$scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2' );
+	}
+}
+/**/
