@@ -74,6 +74,11 @@ NAVIGATION STYLES
 	margin: 0;
 
 	li {
+		@include breakpoint(medium)
+		{
+			float: left;
+			position: relative;
+		}
 
 		a, a:visited {
 			display: block;
@@ -87,14 +92,42 @@ NAVIGATION STYLES
 
 		ul.sub-menu,
 		ul.children {
+			@include breakpoint(medium)
+			{
+				margin-top: 0;
+				border: 1px solid $gray;
+				border-top: 0;
+				position: absolute;
+				overflow: hidden;
+				visibility: hidden;
+				z-index: 8999;
+			}
 
 			li {
 				a, a:visited {
+					@include breakpoint(medium)
+					{
+						padding-left: 10px;
+						border-right: 0;
+						display: block;
+						width: 180px;
+					}
+
 					padding-left: 30px;
 				}
 
 			}
 
+		}
+
+		@include breakpoint(medium)
+		{
+			/* showing sub-menus */
+			&:hover ul {
+				top: auto;
+				overflow: visible;
+				visibility:visible;
+			}
 		}
 
 	}
@@ -127,6 +160,17 @@ NAVIGATION STYLES
 	display: none;
 }
 
+@include breakpoint(medium)
+{
+	#mobilemenu {
+		display: none;
+	}
+
+	.top-nav {
+		display: block !important;
+	}
+}
+
 
 /*********************
 POSTS & CONTENT STYLES
@@ -156,26 +200,6 @@ POSTS & CONTENT STYLES
 }
 
 .entry-content {}
-
-.wp-caption {
-	max-width: 100%;
-	background: $gray_light;
-	padding: 5px;
-
-	/* images inside wp-caption */
-	img {
-		max-width: 100%;
-		margin-bottom: 0;
-		width: 100%;
-	}
-
-	p.wp-caption-text {
-		font-size: 0.9em;
-		margin: 4px 0 7px;
-		text-align: center;
-	}
-
-}
 
 
 /*********************

@@ -84,3 +84,33 @@ BUTTONS
 
 }
 
+
+/*********************
+BREAKPOINTS
+*********************/
+
+// FOR OLD IE
+$old-ie:			false !default;
+$ignore-mqs:		false !default;
+
+// BREAK POINTS
+$small:             "screen and (min-width: 30em)";            
+$medium:            "screen and (min-width: 48em)";
+$large:             "screen and (min-width: 64em)";
+
+@mixin breakpoint($point) {
+	@if $ignore-mqs {
+		@content; // output all content passed in
+	}
+	@else {
+		@if $point == large {
+			@media #{$large} { @content; }  // output large screen content
+		}
+		@if $point == medium {
+			@media #{$medium} { @content; } // output medium screen content
+		}
+		@if $point == small {
+			@media #{$small} { @content; }  // output small screen content
+		}
+	}
+}

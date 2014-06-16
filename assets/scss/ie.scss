@@ -4,24 +4,61 @@ Stylesheet: IE Stylesheet
 
 ******************************************************************/
 
-// Sass variables
+/*********************
+REMOVES MEDIA QUERIES
+*********************/
+$ignore-mqs: true;
+
+
+/*********************
+IMPORTING MODULES
+*********************/
+
+// normalize: http://necolas.github.io/normalize.css/
+@import "modules/normalize";
+
+// import mixins
 @import "modules/mixins";
 
-// import everything inside media queries
-@import "small";
-@import "medium";
-@import "large";
+// import icons
+@import "modules/fontface";
+
+// typography
+@import "modules/typography";
+
+// wordpress content images
+@import "modules/wpimage";
+
+// forms
+@import "modules/forms";
+
+// the grid
+@import "modules/grid";
+
+// comments
+@import "modules/comments";
+
+// pagenavi
+@import "modules/pagenavi";
+
+
+/*********************
+BASE
+*********************/
+
+@import "base";
+
+
+/*********************
+PRINT STYLESHEET
+*********************/
+
+@media print {
+	@import "modules/print";
+}
 
 
 /******************************************************************
-
 ADDITIONAL IE FIXES
-
 ******************************************************************/
 
-/*
-For example, you can use something like:
-
-.no-textshadow .class { ... }
-
-*/

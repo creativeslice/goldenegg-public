@@ -424,6 +424,9 @@ BUTTONS
   .search-submit:active, .form-submit input:active, .button:active {
     background-color: #59862d; }
 
+/*********************
+BREAKPOINTS
+*********************/
 /******************************************************************
 
 Stylesheet: Icons
@@ -618,20 +621,63 @@ ENTRY CONTENT
   font-weight: bold; }
 .entry-content dd {
   margin: 0 1em 1em; }
-.entry-content img {
-  height: auto;
-  margin: 0;
-  max-width: 100%; }
 .entry-content table {
   margin: 0 0 1em;
   width: 100%; }
 .entry-content th {
   font-weight: bold; }
+
+/* end .entry-content */
+/******************************************************************
+
+Stylesheet: WP Images
+
+******************************************************************/
+/******************************************************************
+ENTRY CONTENT
+******************************************************************/
+.entry-content img {
+  height: auto;
+  margin: 0;
+  max-width: 100%; }
 .entry-content .size-auto, .entry-content .size-full, .entry-content .size-large, .entry-content .size-medium, .entry-content .size-thumbnail {
   max-width: 100%;
   height: auto; }
+@media screen and (min-width: 30em) {
+  .entry-content .alignleft, .entry-content img.alignleft {
+    display: inline;
+    float: left;
+    margin-right: 1.5em; }
+  .entry-content .alignright, .entry-content img.alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.5em; }
+  .entry-content .aligncenter, .entry-content img.aligncenter {
+    clear: both;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: auto; } }
 
 /* end .entry-content */
+/******************************************************************
+CAPTIONS
+******************************************************************/
+.wp-caption {
+  max-width: 100%;
+  background: #EEF0F4;
+  padding: 5px;
+  /* images inside wp-caption */ }
+  .wp-caption img {
+    max-width: 100%;
+    margin-bottom: 0;
+    width: 100%; }
+  .wp-caption p.wp-caption-text {
+    font-size: 0.9em;
+    margin: 4px 0 7px;
+    text-align: center; }
+
 /******************************************************************
 
 Stylesheet: Form Styles
@@ -703,74 +749,132 @@ select {
 Stylesheet: Grid
 
 ******************************************************************/
-.onecol {
-  width: 5.8011%; }
-
-/* 4.85%;  } */
-.twocol {
-  width: 14.36464%; }
-
-/* 13.45%; } */
-.threecol {
-  width: 22.92818%; }
-
-/* 22.05%; } */
-.fourcol {
-  width: 31.49171%; }
-
-/* 30.75%; } */
-.fivecol {
-  width: 40.05525%; }
-
-/* 39.45%; } */
-.sixcol {
-  width: 48.61878%; }
-
-/* 48%;    } */
-.sevencol {
-  width: 57.18232%; }
-
-/* 56.75%; } */
-.eightcol {
-  width: 65.74586%; }
-
-/* 65.4%;  } */
-.ninecol {
-  width: 74.30939%; }
-
-/* 74.05%; } */
-.tencol {
-  width: 82.87293%; }
-
-/* 82.7%;  } */
-.elevencol {
-  width: 91.43646%; }
-
-/* 91.35%; } */
-.twelvecol {
-  width: 100%; }
-
-/* 100%;   } */
-.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
-  position: relative;
-  float: left;
-  margin-left: 2.76243%; }
-
-.goldsmall {
-  width: 38.1966%;
-  position: relative;
-  float: left; }
+.lastcol, .last-col {
+  float: right !important;
+  padding-right: 0 !important; }
 
 .goldlarge {
   width: 61.8034%;
-  position: relative;
-  float: left; }
+  float: left;
+  padding-right: 0.75em; }
 
-.firstcol {
-  margin-left: 0; }
+.goldsmall {
+  width: 38.1966%;
+  float: left;
+  padding-right: 0.75em; }
 
-.lastcol {
-  float: right; }
+@media screen and (min-width: 30em) {
+  .s-all {
+    float: left;
+    padding-right: 0.75em;
+    width: 100%;
+    padding-right: 0; }
+  .s-1of6 {
+    float: left;
+    padding-right: 0.75em;
+    width: 16.66667%; }
+  .s-2of6 {
+    float: left;
+    padding-right: 0.75em;
+    width: 33.33333%; }
+  .s-3of6 {
+    float: left;
+    padding-right: 0.75em;
+    width: 50%; }
+  .s-4of6 {
+    float: left;
+    padding-right: 0.75em;
+    width: 66.66667%; }
+  .s-5of6 {
+    float: left;
+    padding-right: 0.75em;
+    width: 83.33333%; } }
+
+@media screen and (min-width: 48em) {
+  .m-all {
+    float: left;
+    padding-right: 0.75em;
+    width: 100%;
+    padding-right: 0; }
+  .m-1of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 12.5%; }
+  .m-2of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 25%; }
+  .m-3of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 37.5%; }
+  .m-4of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 50%; }
+  .m-5of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 62.5%; }
+  .m-6of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 75%; }
+  .m-7of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 87.5%; } }
+
+@media screen and (min-width: 64em) {
+  .l-all {
+    float: left;
+    padding-right: 0.75em;
+    width: 100%;
+    padding-right: 0; }
+  .onecol, .l-1of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 8.33%; }
+  .twocol, .l-2of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 16.66667%; }
+  .threecol, .l-3of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 25%; }
+  .fourcol, .l-4of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 33.33%; }
+  .fivecol, .l-5of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 41.66667%; }
+  .sixcol, .l-6of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 50%; }
+  .sevencol, .l-7of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 58.33333%; }
+  .eightcol, .l-8of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 66.66%; }
+  .ninecol, .l-9of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 75%; }
+  .tencol, .l-10of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 83.33333%; }
+  .elevencol, .l-11of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 91.66667%; } }
 
 /******************************************************************
 
@@ -959,169 +1063,6 @@ PAGE NAVI STYLES
       background-color: #fff;
       color: #333; }
 
-/*
-    Colorbox Core Style:
-    The following CSS is consistent between example themes and should not be altered.
-*/
-#colorbox, #cboxOverlay, #cboxWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  overflow: hidden; }
-
-#cboxWrapper {
-  max-width: none; }
-
-#cboxOverlay {
-  position: fixed;
-  width: 100%;
-  height: 100%; }
-
-#cboxMiddleLeft, #cboxBottomLeft {
-  clear: left; }
-
-#cboxContent {
-  position: relative; }
-
-#cboxLoadedContent {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch; }
-
-#cboxTitle {
-  margin: 0; }
-
-#cboxLoadingOverlay, #cboxLoadingGraphic {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; }
-
-#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
-  cursor: pointer; }
-
-.cboxPhoto {
-  float: left;
-  margin: auto;
-  border: 0;
-  display: block;
-  max-width: none;
-  -ms-interpolation-mode: bicubic; }
-
-.cboxIframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: 0;
-  padding: 0;
-  margin: 0; }
-
-#colorbox, #cboxContent, #cboxLoadedContent {
-  box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box; }
-
-/* 
-    User Style:
-    Change the following styles to modify the appearance of Colorbox.  They are
-    ordered & tabbed in a way that represents the nesting of the generated HTML.
-*/
-#cboxOverlay {
-  background: #fff; }
-
-#colorbox {
-  outline: 0; }
-
-#cboxContent {
-  margin-top: 32px;
-  overflow: visible;
-  background: #000; }
-
-.cboxIframe {
-  background: #fff; }
-
-#cboxError {
-  padding: 50px;
-  border: 1px solid #ccc; }
-
-#cboxLoadedContent {
-  background: #000;
-  padding: 1px; }
-
-#cboxLoadingGraphic {
-  background: url(../img/colorbox-loading.gif) no-repeat center center; }
-
-#cboxLoadingOverlay {
-  background: #000; }
-
-#cboxTitle {
-  position: absolute;
-  top: -22px;
-  left: 0;
-  color: #000; }
-
-#cboxCurrent {
-  position: absolute;
-  top: -22px;
-  right: 205px;
-  text-indent: -9999px; }
-
-/* these elements are buttons, and may need to have additional styles reset to avoid unwanted base styles */
-#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  overflow: visible;
-  text-indent: -9999px;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: -20px;
-  background: url(../img/colorbox-controls.png) no-repeat 0 0; }
-
-/* avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating) */
-#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {
-  outline: 0; }
-
-#cboxPrevious {
-  background-position: 0px 0px;
-  right: 44px; }
-
-#cboxPrevious:hover {
-  background-position: 0px -25px; }
-
-#cboxNext {
-  background-position: -25px 0px;
-  right: 22px; }
-
-#cboxNext:hover {
-  background-position: -25px -25px; }
-
-#cboxClose {
-  background-position: -50px 0px;
-  right: 0; }
-
-#cboxClose:hover {
-  background-position: -50px -25px; }
-
-.cboxSlideshow_on #cboxPrevious, .cboxSlideshow_off #cboxPrevious {
-  right: 66px; }
-
-.cboxSlideshow_on #cboxSlideshow {
-  background-position: -75px -25px;
-  right: 44px; }
-
-.cboxSlideshow_on #cboxSlideshow:hover {
-  background-position: -100px -25px; }
-
-.cboxSlideshow_off #cboxSlideshow {
-  background-position: -100px 0px;
-  right: 44px; }
-
-.cboxSlideshow_off #cboxSlideshow:hover {
-  background-position: -75px -25px; }
-
 /*********************
 BASE (MOBILE) SIZE
 *********************/
@@ -1190,14 +1131,40 @@ NAVIGATION STYLES
 .nav {
   margin: 0;
   /* highlight current page */ }
+  @media screen and (min-width: 48em) {
+    .nav li {
+      float: left;
+      position: relative; } }
   .nav li a, .nav li a:visited {
     display: block;
     text-decoration: none;
     padding: 1em 1em 1em 0; }
     .nav li a:hover, .nav li a:focus, .nav li a:visited:hover, .nav li a:visited:focus {
       color: white; }
+  @media screen and (min-width: 48em) {
+    .nav li ul.sub-menu, .nav li ul.children {
+      margin-top: 0;
+      border: 1px solid #999;
+      border-top: 0;
+      position: absolute;
+      overflow: hidden;
+      visibility: hidden;
+      z-index: 8999; } }
   .nav li ul.sub-menu li a, .nav li ul.sub-menu li a:visited, .nav li ul.children li a, .nav li ul.children li a:visited {
     padding-left: 30px; }
+    @media screen and (min-width: 48em) {
+      .nav li ul.sub-menu li a, .nav li ul.sub-menu li a:visited, .nav li ul.children li a, .nav li ul.children li a:visited {
+        padding-left: 10px;
+        border-right: 0;
+        display: block;
+        width: 180px; } }
+  @media screen and (min-width: 48em) {
+    .nav li {
+      /* showing sub-menus */ }
+      .nav li:hover ul {
+        top: auto;
+        overflow: visible;
+        visibility: visible; } }
 
 #mobilemenu {
   display: block;
@@ -1212,6 +1179,12 @@ NAVIGATION STYLES
 
 .top-nav {
   display: none; }
+
+@media screen and (min-width: 48em) {
+  #mobilemenu {
+    display: none; }
+  .top-nav {
+    display: block !important; } }
 
 /*********************
 POSTS & CONTENT STYLES
@@ -1230,20 +1203,6 @@ POSTS & CONTENT STYLES
   margin: 0; }
 
 
-.wp-caption {
-  max-width: 100%;
-  background: #EEF0F4;
-  padding: 5px;
-  /* images inside wp-caption */ }
-  .wp-caption img {
-    max-width: 100%;
-    margin-bottom: 0;
-    width: 100%; }
-  .wp-caption p.wp-caption-text {
-    font-size: 0.9em;
-    margin: 4px 0 7px;
-    text-align: center; }
-
 /*********************
 SIDEBARS & ASIDES
 *********************/
@@ -1259,99 +1218,6 @@ FOOTER STYLES
   clear: both;
   background-color: #222;
   color: #EEF0F4; }
-
-/*********************
-SMALL
-*********************/
-@media only screen and (min-width: 30em) {
-  /******************************************************************
-
-Stylesheet: SMALL
-
-******************************************************************/
-  /*********************
-POSTS & CONTENT STYLES
-*********************/
-  /* entry content */
-  /* end .entry-content */
-  .entry-content .alignleft, .entry-content img.alignleft {
-    display: inline;
-    float: left;
-    margin-right: 1.5em; }
-  .entry-content .alignright, .entry-content img.alignright {
-    display: inline;
-    float: right;
-    margin-left: 1.5em; }
-  .entry-content .aligncenter, .entry-content img.aligncenter {
-    clear: both;
-    display: block;
-    margin-right: auto;
-    margin-left: auto; } }
-
-/*********************
-MEDIUM
-*********************/
-@media only screen and (min-width: 48em) {
-  /******************************************************************
-
-Stylesheet: MEDIUM
-
-******************************************************************/
-  /*********************
-GENERAL STYLES
-*********************/
-  /*********************
-NAVIGATION STYLES
-*********************/
-  /*********************
-SIDEBARS & ASIDES
-*********************/
-  /*********************
-FOOTER STYLES
-*********************/
-  .nav {
-    /* end .menu ul li */
-    /* highlight current page */ }
-    .nav li {
-      float: left;
-      position: relative;
-      /* sub-menus and drop-downs */
-      /* showing sub-menus */ }
-      .nav li ul.sub-menu, .nav li ul.children {
-        margin-top: 0;
-        border: 1px solid #999;
-        border-top: 0;
-        position: absolute;
-        overflow: hidden;
-        visibility: hidden;
-        z-index: 8999;
-        /* highlight sub-menu current page */ }
-        .nav li ul.sub-menu li a, .nav li ul.children li a {
-          padding-left: 10px;
-          border-right: 0;
-          display: block;
-          width: 180px; }
-      .nav li:hover ul {
-        top: auto;
-        overflow: visible;
-        visibility: visible; } }
-
-/*********************
-LARGE
-*********************/
-@media only screen and (min-width: 64em) {
-  /******************************************************************
-
-Stylesheet: LARGE
-
-******************************************************************/
-  /*********************
-NAVIGATION STYLES
-*********************/
-  #mobilemenu {
-    display: none; }
-  .top-nav {
-    display: block !important; } }
 
 /*********************
 PRINT STYLESHEET

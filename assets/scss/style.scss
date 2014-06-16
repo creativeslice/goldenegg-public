@@ -23,6 +23,9 @@ IMPORTING MODULES
 // typography
 @import "modules/typography";
 
+// wordpress content images
+@import "modules/wpimage";
+
 // forms
 @import "modules/forms";
 
@@ -40,42 +43,13 @@ IMPORTING MODULES
 
 // flexslider
 //@import "modules/flexslider";
+
+
 /*********************
 BASE (MOBILE) SIZE
 *********************/
 
 @import "base";
-
-
-/*********************
-SMALL
-*********************/
-
-@media only screen and (min-width: 30em) { // 480px
-
-	@import "small";
-
-}
-
-
-/*********************
-MEDIUM
-*********************/
-@media only screen and (min-width: 48em) { // 768px
-
-	@import "medium";
-
-}
-
-
-/*********************
-LARGE
-*********************/
-@media only screen and (min-width: 64em) {	// 1024px
-
-	@import "large";
-
-}
 
 
 /*********************

@@ -157,12 +157,6 @@ ENTRY CONTENT
 		margin: 0 1em 1em;
 	}
 
-	img {
-		height: auto;
-		margin: 0;
-		max-width: 100%;
-	}
-
 	table {
 		margin: 0 0 1em;
 		width: 100%;
@@ -171,15 +165,5 @@ ENTRY CONTENT
 	th {
 		font-weight: bold;
 	}
-
-	.size-auto,
-	.size-full,
-	.size-large,
-	.size-medium,
-	.size-thumbnail {
-		max-width: 100%;
-		height: auto;
-	}
-
 
 } /* end .entry-content */

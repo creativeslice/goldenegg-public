@@ -1,0 +1,73 @@
+/******************************************************************
+
+Stylesheet: WP Images
+
+******************************************************************/
+
+/******************************************************************
+ENTRY CONTENT
+******************************************************************/
+
+.entry-content {
+
+	img {
+		height: auto;
+		margin: 0;
+		max-width: 100%;
+	}
+
+	.size-auto,
+	.size-full,
+	.size-large,
+	.size-medium,
+	.size-thumbnail {
+		max-width: 100%;
+		height: auto;
+	}
+
+	@include breakpoint(small)
+	{
+		.alignleft, img.alignleft {
+			display: inline;
+			float: left;
+			margin-right: 1.5em;
+		}
+		.alignright, img.alignright {
+			display: inline;
+			float: right;
+			margin-left: 1.5em;
+		}
+		.aligncenter, img.aligncenter {
+			clear: both;
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+} /* end .entry-content */
+
+/******************************************************************
+CAPTIONS
+******************************************************************/
+
+.wp-caption {
+	max-width: 100%;
+	background: $gray_light;
+	padding: 5px;
+
+	/* images inside wp-caption */
+	img {
+		max-width: 100%;
+		margin-bottom: 0;
+		width: 100%;
+	}
+
+	p.wp-caption-text {
+		font-size: 0.9em;
+		margin: 4px 0 7px;
+		text-align: center;
+	}
+}
