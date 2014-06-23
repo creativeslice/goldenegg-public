@@ -6,7 +6,7 @@
 		$permalink = get_permalink();
 		$email_share_link  = 'mailto:?subject=' . urlencode($title) . '&body=' . $permalink;
 		$twitter_share_link  = 'http://twitter.com/share?text=' . urlencode($title) . '&url=' . $permalink . '&hashtags=creativeslice';
-		$linkedin_share_link = 'http://www.linkedin.com/shareArticle?mini=true&url=' . $permalink . '&title=' . urlencode($title) . '&summary=' . urlencode(get_post_field('post_excerpt', $post_id)) . '&source=' . home_url('/');
+		$linkedin_share_link = 'http://www.linkedin.com/shareArticle?mini=true&url=' . $permalink . '&title=' . urlencode($title) . '&summary=' . urlencode(get_post_field('post_excerpt', $post->ID)) . '&source=' . home_url('/');
 		$facebook_share_link  = 'https://facebook.com/sharer.php?u=' . $permalink;
 	?>
 	
