@@ -42,7 +42,7 @@ body {
 	font-family: Georgia, serif;
 }
 
-#typography {
+.typography {
 	text-align: left;
 }
 
@@ -319,7 +319,7 @@ ICONS
 ARTICLE
 *********************/
 
-#article {
+.article {
 	text-align: left;
 }
 
