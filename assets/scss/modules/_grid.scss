@@ -64,33 +64,49 @@ Stylesheet: Grid
 		padding-right: 0;
 	}
 
-	.m-1of8 {
+	.m-1of12 {
 		@include grid-col;
-		width: 12.5%;
+		width: 8.33%;
 	}
-	.m-2of8 {
+	.m-2of12 {
+		@include grid-col;
+		width: 16.6666666667%;
+	}
+	.m-3of12 {
 		@include grid-col;
 		width: 25%;
 	}
-	.m-3of8 {
+	.m-4of12 {
 		@include grid-col;
-		width: 37.5%;
+		width: 33.33%;
 	}
-	.m-4of8 {
+	.m-5of12 {
+		@include grid-col;
+		width: 41.6666667%;
+	}
+	.m-6of12 {
 		@include grid-col;
 		width: 50%;
 	}
-	.m-5of8 {
+	.m-7of12 {
 		@include grid-col;
-		width: 62.5%;
+		width: 58.3333333%;
 	}
-	.m-6of8 {
+	.m-8of12 {
+		@include grid-col;
+		width: 66.66%;
+	}
+	.m-9of12 {
 		@include grid-col;
 		width: 75%;
 	}
-	.m-7of8 {
+	.m-10of12 {
 		@include grid-col;
-		width: 87.5%;
+		width: 83.3333333%;
+	}
+	.m-11of12 {
+		@include grid-col;
+		width: 91.6666667%;
 	}
 }
 
