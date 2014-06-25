@@ -36,7 +36,7 @@
 			array(
 				'title' => 'Pinterest',
 				'icon'  => 'pinterest',
-				'url'   => 'https://pinterest.com/pin/create/bookmarklet/?' . ($image ? 'media='.$image.'&' : '') . 'url=' . $permalink . (apply_filters('egg/share_video', false) ? '&is_video=true' : '') . '&description=' . urlencode($title),
+				'url'   => 'https://pinterest.com/pin/create/bookmarklet/?' . ($image ? 'media='.$image.'&' : '') . 'url=' . $permalink . (apply_filters('egg/share_is_video', false) ? '&is_video=true' : '') . '&description=' . urlencode($title),
 			),
 		);
 	?>
@@ -44,7 +44,7 @@
 	<?php foreach ( $links as $link ) : ?>
 	<a class="share-<?php echo $link['icon']; ?>" href="<?php echo $link['url']; ?>" title="Share via <?php echo $link['title']; ?>" target="_blank">
 		<span class="icon-<?php echo $link['icon']; ?>" aria-hidden="true"></span>
-		<span class="screen-reader-text">Share via Email: <?php echo $title; ?></span>
+		<span class="screen-reader-text">Share via <?php echo $link['title']; ?>: <?php echo $title; ?></span>
 	</a>
 	<?php endforeach; ?>
 
