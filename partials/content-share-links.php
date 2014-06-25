@@ -6,7 +6,10 @@
 		$title     = get_the_title();
 		$permalink = get_permalink();
 		$hastag    = strtolower( str_replace(' ', '', get_option('blogname')) );
-		$image     = apply_filters( 'egg/share_image', (has_post_thumbnail() ? the_post_thumbnail() : '') );
+
+		$thumb_url = wp_get_attachment_image_src( get_post_thumbnail_id() );
+		$image     = apply_filters( 'egg/share_image', ($thumb_url ? $thumb_url[0] : '') );
+
 		$links = array(
 			array(
 				'title' => 'Email',
