@@ -3,7 +3,11 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 	<header class="article-header">
-		<h1 class="entry-title single-title" itemprop="headline"><?php the_title(); ?></h1>
+		<h1 class="entry-title single-title" itemprop="headline">
+			<?php if (! is_single() ) : ?><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php endif; ?>
+				<?php the_title(); ?>
+			<?php if (! is_single() ) : ?></a><?php endif; ?>
+		</h1>
 		<p class="byline vcard">
 			<?php printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
 		</p>
@@ -15,6 +19,7 @@
 
 	<footer class="article-footer">
 		<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+		<?php get_template_part( 'partials/share-links' ); ?>
 	</footer>
 
 	<?php comments_template(); ?>

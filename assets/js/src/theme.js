@@ -56,5 +56,20 @@ jQuery(document).ready(function($) {
 			$this.attr('title', $screentext.text());
 	});
 
+	/**
+	 * Share links
+	 */
+	$('.share-links').each(function() {
+		// Select the text area on click
+		$(this).on('click', '.share-url', function () {
+			$(this).select();
+		});
+
+		// Open share links in new window
+		$('a', this).click(function(e) {
+			e.preventDefault();
+			window.open($(this).attr('href'), 'Share', 'height=470, width=550, top='+($(window).height()/2 - 225) +', left='+$(window).width()/2 +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+		});
+	});
 
 }); /* end of as page load scripts */
