@@ -51,7 +51,7 @@ function egg_enqueue()
 
 		/* move core jQuery to footer * /
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', includes_url( '/wp-includes/js/jquery/jquery.js' ), false, null, true);
+		wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, true);
 
 		/* modernizr (without media query polyfill) */
 		wp_register_script( 'egg-modernizr', get_stylesheet_directory_uri() . '/assets/js/modernizr.custom.min.js', array(), '2.5.3', false );

@@ -19,7 +19,9 @@ LAYOUT STYLES
 	/* box-shadow: 0px 3px 9px rgba(0,0,0,0.2); */
 }
 
-.style-header a, .style-header a:visited, .style-header a:hover {
+.style-header a, 
+.style-header a:visited, 
+.style-header a:hover {
 	background: gray;
 	color: white;
 	float: left;
