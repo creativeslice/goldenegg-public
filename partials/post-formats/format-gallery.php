@@ -13,7 +13,7 @@
 
 	<footer class="article-footer">
 		<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-		<?php get_template_part( 'partials/share-links' ); ?>
+		<?php get_template_part( 'partials/content-share-links' ); ?>
 	</footer>
 
 	<?php comments_template(); ?>
