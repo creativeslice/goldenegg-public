@@ -451,14 +451,14 @@ FONT FACE
 Icon font example from http://icomoon.io/app/
 ************************************************/
 @font-face {
-  font-family: 'icomoon';
-  src: url('../fonts/icomoon.eot?6hys4');
-  src: url('../fonts/icomoon.eot?#iefix6hys4') format('embedded-opentype'), url('../fonts/icomoon.woff?6hys4') format('woff'), url('../fonts/icomoon.ttf?6hys4') format('truetype'), url('../fonts/icomoon.svg?6hys4#icomoon') format('svg');
+  font-family: 'egg';
+  src: url('../fonts/egg.eot?-1d3v7n');
+  src: url('../fonts/egg.eot?#iefix-1d3v7n') format('embedded-opentype'), url('../fonts/egg.woff?-1d3v7n') format('woff'), url('../fonts/egg.ttf?-1d3v7n') format('truetype'), url('../fonts/egg.svg?-1d3v7n#egg') format('svg');
   font-weight: normal;
   font-style: normal; }
 
 [class^="icon-"], [class*=" icon-"] {
-  font-family: 'icomoon';
+  font-family: 'egg';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -478,7 +478,7 @@ Icon font example from http://icomoon.io/app/
 .icon-menu:before {
   content: "\3d"; }
 
-.icon-close:before {
+.icon-cancel-circle:before {
   content: "\78"; }
 
 .icon-play:before {
@@ -495,6 +495,24 @@ Icon font example from http://icomoon.io/app/
 
 .icon-arrow-left:before {
   content: "\3c"; }
+
+.icon-email:before {
+  content: "\e600"; }
+
+.icon-googleplus:before {
+  content: "\e601"; }
+
+.icon-facebook:before {
+  content: "\e602"; }
+
+.icon-twitter:before {
+  content: "\e603"; }
+
+.icon-linkedin:before {
+  content: "\e604"; }
+
+.icon-pinterest:before {
+  content: "\e605"; }
 
 /******************************************************************
 
