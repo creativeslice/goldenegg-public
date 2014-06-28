@@ -31,11 +31,15 @@ function egg_wp_title( $title ) {
         $title .= single_cat_title() . ' - ' . get_bloginfo('name');
 	
 	} else {
-		$meta_title = get_post_meta( $post->ID, 'seo_textfield', true );
-		if ( !empty( $meta_title ) ) {
-			$title .= $meta_title;
+		if ( !empty( $post->ID ) ) { // no post id for pages like 404
+			$meta_title = get_post_meta( $post->ID, 'seo_textfield', true );
+			if ( !empty( $meta_title ) ) {
+				$title .= $meta_title;
+			} else {
+				$title .= the_title() . ' - ' . get_bloginfo('name');
+			}
 		} else {
-			$title .= the_title() . ' - ' . get_bloginfo('name');
+			$title = get_bloginfo('name');
 		}
 	}
 
@@ -60,12 +64,14 @@ function egg_seo_description() {
 		}
 	
 	} else {
-		$meta_description = get_post_meta( $post->ID, 'seo_textarea', true );
-		if ( !empty( $meta_description ) ) {
-			$description .= $meta_description;
-			return '<meta property="og:description" name="description" content="' . $description . '">';
-		} else {
-			return false;
+		if ( !empty( $post->ID ) ) {
+			$meta_description = get_post_meta( $post->ID, 'seo_textarea', true );
+			if ( !empty( $meta_description ) ) {
+				$description .= $meta_description;
+				return '<meta property="og:description" name="description" content="' . $description . '">';
+			} else {
+				return false;
+			}
 		}
 	}
 }
@@ -88,8 +94,6 @@ function seo_get_custom_field( $value ) {
 function seo_add_custom_meta_box() {
 	add_meta_box( 'seo-meta-box', __( 'SEO Meta Data', 'cslice' ), 'seo_meta_box_output', 'post', 'normal', 'high' );
 	add_meta_box( 'seo-meta-box', __( 'SEO Meta Data', 'cslice' ), 'seo_meta_box_output', 'page', 'normal', 'high' );
-	add_meta_box( 'seo-meta-box', __( 'SEO Meta Data', 'cslice' ), 'seo_meta_box_output', 'programs', 'normal', 'high' );
-	add_meta_box( 'seo-meta-box', __( 'SEO Meta Data', 'cslice' ), 'seo_meta_box_output', 'schools', 'normal', 'high' );
 }
 add_action( 'add_meta_boxes', 'seo_add_custom_meta_box' );
 
