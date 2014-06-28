@@ -4,8 +4,6 @@
  *
  * @link http://txfx.net/wordpress-plugins/nice-search/
  * 
- * You can enable/disable this feature in functions.php (or lib/config.php if you're using Roots):
- * add_theme_support('soil-nice-search');
  */
 add_action( 'template_redirect', 'egg_nice_search_redirect' );
 function egg_nice_search_redirect()
@@ -23,3 +21,16 @@ function egg_nice_search_redirect()
 		exit();
 	}
 }
+
+
+// Order search results by post type
+/*
+add_filter('posts_orderby', 'group_by_post_type', 10, 2);
+function group_by_post_type($orderby, $query) {
+    global $wpdb;
+    if ($query->is_search) {
+        return $wpdb->posts . '.post_type DESC';
+    }
+    return $orderby;
+}
+*/

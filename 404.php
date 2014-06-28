@@ -2,7 +2,7 @@
 
 <div id="content">
 
-	<div id="inner-content" class="wrap">
+	<div class="wrap">
 
 		<div id="main" role="main">
 
@@ -13,11 +13,13 @@
 				</header>
 
 				<section class="entry-content">
-					<p>The article you were looking for was not found, but maybe try looking again!</p>
+					<p>The page you were looking for may have moved:</p>
+					<p><?php get_search_form(); ?></p>
 				</section>
 
-				<section class="search">
-					<p><?php get_search_form(); ?></p>
+				<section class="site-map">
+					<h2>All Pages:</h2>
+					<ul><?php wp_list_pages('title_li=&depth=5'); ?></ul>
 				</section>
 
 			</article>

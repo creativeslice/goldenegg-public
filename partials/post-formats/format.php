@@ -8,9 +8,7 @@
 				<?php the_title(); ?>
 			<?php if (! is_single() ) : ?></a><?php endif; ?>
 		</h1>
-		<p class="byline vcard">
-			<?php printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-		</p>
+		<?php get_template_part( '/partials/content', 'byline' ); ?>
 	</header>
 
 	<section class="entry-content cf" itemprop="articleBody">
@@ -18,7 +16,7 @@
 	</section>
 
 	<footer class="article-footer">
-		<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+		<?php the_tags( '<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>' ); ?>
 		<?php get_template_part( 'partials/content-share-links' ); ?>
 	</footer>
 

@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<div id="content" class="wrap">
+<div id="content">
 
-	<div id="inner-content">
+	<div class="wrap">
 
 		<div id="main" class="goldlarge" role="main">
 

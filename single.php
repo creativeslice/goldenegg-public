@@ -2,7 +2,7 @@
 
 <div id="content">
 
-	<div id="inner-content" class="wrap">
+	<div class="wrap">
 
 		<div id="main" class="goldlarge" role="main">
 
