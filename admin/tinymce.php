@@ -7,8 +7,8 @@
 
 // actions
 add_action( 'init', 'egg_tinymce' );
-add_action('admin_head', 'egg_add_magic_button');
-add_action('admin_head', 'egg_add_no_wrap');
+#add_action('admin_head', 'egg_add_magic_button');
+#add_action('admin_head', 'egg_add_no_wrap');
 
 // filters
 add_filter( 'tiny_mce_before_init', 'egg_mce_show_buttons_2' );

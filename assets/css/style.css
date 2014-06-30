@@ -1280,6 +1280,8 @@ FOOTER STYLES
   clear: both;
   background-color: #222;
   color: #EEF0F4; }
+  .footer .copyright {
+    clear: both; }
 
 /*********************
 PRINT STYLESHEET
