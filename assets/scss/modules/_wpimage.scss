@@ -12,9 +12,11 @@ ENTRY CONTENT
 
 	img {
 		height: auto;
-		margin: 0;
+		margin: 0 0 $default_margin;
 		max-width: 100%;
 	}
+
+} /* end .entry-content */
 
 	.size-auto,
 	.size-full,
@@ -27,27 +29,32 @@ ENTRY CONTENT
 
 	@include breakpoint(small)
 	{
-		.alignleft, img.alignleft {
+		.alignleft, img.alignleft, figure.alignleft, dl.alignleft {
 			display: inline;
 			float: left;
-			margin-right: 1.5em;
+			margin-left: 0em;
+			margin-right: $default_margin;
 		}
-		.alignright, img.alignright {
+		.alignright, img.alignright, figure.alignright, dl.alignright {
 			display: inline;
 			float: right;
-			margin-left: 1.5em;
+			margin-left: $default_margin;
+			margin-right: 0em;
 		}
-		.aligncenter, img.aligncenter {
+		.aligncenter, img.aligncenter, figure.aligncenter, dl.aligncenter {
 			clear: both;
 			display: block;
 			margin-right: auto;
 			margin-left: auto;
-			width: 100%;
-			height: auto;
 		}
 	}
 
-} /* end .entry-content */
+	.alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img  {
+		margin-left: 0;
+		margin-right: 0;
+		width: 100% !important;
+		height: auto;
+	}
 
 /******************************************************************
 CAPTIONS
@@ -56,7 +63,21 @@ CAPTIONS
 .wp-caption {
 	max-width: 100%;
 	background: $gray_light;
-	padding: 5px;
+	font-size: 0.75em;
+	padding: 0.333333333em 0;
+	text-align: center;
+
+
+	&.alignleft {
+		margin-right: $default_margin;
+	}
+	&.alignright {
+		margin-left: $default_margin;
+	}
+	&.aligncenter {
+		margin-right: auto;
+		margin-left: auto;
+	}
 
 	/* images inside wp-caption */
 	img {

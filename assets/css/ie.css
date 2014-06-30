@@ -561,11 +561,16 @@ h5, .h5 {
   letter-spacing: 2px;
   margin: 0.88889em 0; }
 
-/* Don't use this. It breaks ALL words in IE11 and IOS.
+/******************************************************************
+PARAGRAPH PAGE BREAKS
+
+Currently this configuration has a bad effect on IE11, but are here 
+as a reference for pagebreak customization
+****************************************************************** /
+
 p {
   -ms-word-break: break-all;
    -ms-word-wrap: break-all;
-      word-break: break-word;
       word-break: break-word;
   // cleaning up the ragged lines and breaks
   -webkit-hyphens: auto;
@@ -582,32 +587,33 @@ p {
        -o-font-feature-settings: "liga", "dlig";
           font-feature-settings: "liga", "dlig";
 }
-*/
+
+
 /******************************************************************
 BASE ELEMENTS
 ******************************************************************/
 p {
-  margin: 0 0 1em; }
+  margin: 0 0 1.5em; }
 
 dfn, cite, em, i {
   font-style: italic; }
 
 blockquote {
-  margin: 0 0 1em 1em;
+  margin: 0 0 1.5em 1em;
   padding: 0 0 0 1em;
   border-left: 3px solid #669933;
   font-style: italic;
   color: #999; }
 
 address {
-  margin: 0 0 1em; }
+  margin: 0 0 1.5em; }
 
 pre {
   background: #222;
   color: #EEF0F4;
   font-family: "Courier 10 Pitch", Courier, monospace;
   font-size: 0.9em;
-  margin: 0 0 1em;
+  margin: 0 0 1.5em;
   max-width: 100%;
   padding: 1em;
   overflow: auto; }
@@ -623,7 +629,7 @@ mark, ins {
 ENTRY CONTENT
 ******************************************************************/
 .entry-content ul, .entry-content ol {
-  margin: 0 0 1em 2em; }
+  margin: 0 0 1.5em 2em; }
 .entry-content ul {
   list-style: disc; }
 .entry-content ol {
@@ -634,14 +640,17 @@ ENTRY CONTENT
 .entry-content dt {
   font-weight: bold; }
 .entry-content dd {
-  margin: 0 1em 1em; }
+  margin: 0 1em 1.5em; }
 .entry-content table {
-  margin: 0 0 1em;
+  margin: 0 0 1.5em;
   width: 100%; }
 .entry-content th {
   font-weight: bold; }
 
 /* end .entry-content */
+/******************************************************************
+CUSTOM
+******************************************************************/
 /******************************************************************
 
 Stylesheet: WP Images
@@ -652,36 +661,55 @@ ENTRY CONTENT
 ******************************************************************/
 .entry-content img {
   height: auto;
-  margin: 0;
+  margin: 0 0 1.5em;
   max-width: 100%; }
-.entry-content .size-auto, .entry-content .size-full, .entry-content .size-large, .entry-content .size-medium, .entry-content .size-thumbnail {
+
+/* end .entry-content */
+.size-auto, .size-full, .size-large, .size-medium, .size-thumbnail {
   max-width: 100%;
   height: auto; }
-.entry-content .alignleft, .entry-content img.alignleft {
+
+.alignleft, img.alignleft, figure.alignleft, dl.alignleft {
   display: inline;
   float: left;
+  margin-left: 0em;
   margin-right: 1.5em; }
-.entry-content .alignright, .entry-content img.alignright {
+
+.alignright, img.alignright, figure.alignright, dl.alignright {
   display: inline;
   float: right;
-  margin-left: 1.5em; }
-.entry-content .aligncenter, .entry-content img.aligncenter {
+  margin-left: 1.5em;
+  margin-right: 0em; }
+
+.aligncenter, img.aligncenter, figure.aligncenter, dl.aligncenter {
   clear: both;
   display: block;
   margin-right: auto;
-  margin-left: auto;
-  width: 100%;
+  margin-left: auto; }
+
+.alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100% !important;
   height: auto; }
 
-/* end .entry-content */
 /******************************************************************
 CAPTIONS
 ******************************************************************/
 .wp-caption {
   max-width: 100%;
   background: #EEF0F4;
-  padding: 5px;
+  font-size: 0.75em;
+  padding: 0.33333em 0;
+  text-align: center;
   /* images inside wp-caption */ }
+  .wp-caption.alignleft {
+    margin-right: 1.5em; }
+  .wp-caption.alignright {
+    margin-left: 1.5em; }
+  .wp-caption.aligncenter {
+    margin-right: auto;
+    margin-left: auto; }
   .wp-caption img {
     max-width: 100%;
     margin-bottom: 0;
@@ -758,20 +786,6 @@ select {
 Stylesheet: Grid
 
 ******************************************************************/
-.lastcol, .last-col {
-  float: right !important;
-  padding-right: 0 !important; }
-
-.goldlarge {
-  width: 61.8034%;
-  float: left;
-  padding-right: 0.75em; }
-
-.goldsmall {
-  width: 38.1966%;
-  float: left;
-  padding-right: 0.75em; }
-
 .s-all {
   float: left;
   padding-right: 0.75em;
@@ -803,6 +817,16 @@ Stylesheet: Grid
   padding-right: 0.75em;
   width: 83.33333%; }
 
+.goldlarge {
+  width: 61.8034%;
+  float: left;
+  padding-right: 0.75em; }
+
+.goldsmall {
+  width: 38.1966%;
+  float: left;
+  padding-right: 0.75em; }
+
 .m-all {
   float: left;
   padding-right: 0.75em;
@@ -827,7 +851,7 @@ Stylesheet: Grid
 .m-4of12 {
   float: left;
   padding-right: 0.75em;
-  width: 33.33%; }
+  width: 33.33333%; }
 
 .m-5of12 {
   float: left;
@@ -847,7 +871,7 @@ Stylesheet: Grid
 .m-8of12 {
   float: left;
   padding-right: 0.75em;
-  width: 66.66%; }
+  width: 66.66667%; }
 
 .m-9of12 {
   float: left;
@@ -888,7 +912,7 @@ Stylesheet: Grid
 .fourcol, .l-4of12 {
   float: left;
   padding-right: 0.75em;
-  width: 33.33%; }
+  width: 33.33333%; }
 
 .fivecol, .l-5of12 {
   float: left;
@@ -908,7 +932,7 @@ Stylesheet: Grid
 .eightcol, .l-8of12 {
   float: left;
   padding-right: 0.75em;
-  width: 66.66%; }
+  width: 66.66667%; }
 
 .ninecol, .l-9of12 {
   float: left;
@@ -924,6 +948,10 @@ Stylesheet: Grid
   float: left;
   padding-right: 0.75em;
   width: 91.66667%; }
+
+.lastcol, .last-col {
+  float: right !important;
+  padding-right: 0 !important; }
 
 /******************************************************************
 

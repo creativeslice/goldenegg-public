@@ -22,6 +22,15 @@ function egg_tinymce()
 }
 
 /**
+ * Editor Styles
+ */
+add_action( 'admin_init', 'egg_editor_styles' );
+function egg_editor_styles()
+{
+	add_editor_style( get_template_directory_uri() . '/assets/css/editor.css' );
+}
+
+/**
  * Customize TinyMCE buttons in row 1
  *
  * @return	array Modified buttons in row 1

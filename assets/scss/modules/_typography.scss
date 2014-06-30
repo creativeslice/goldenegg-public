@@ -4,6 +4,7 @@ Stylesheet: Typography
 
 ******************************************************************/
 
+
 /******************************************************************
 FONT BASE
 ******************************************************************/
@@ -14,6 +15,7 @@ body {
 	color: $text_color;
 	font-family: $sans_serif;
 }
+
 
 /******************************************************************
 H1, H2, H3, H4, H5 STYLES
@@ -57,11 +59,16 @@ h5, .h5 {
 	margin: 0.888888889em 0;		// 16px
 }
 
-/* Don't use this. It breaks ALL words in IE11 and IOS.
+/******************************************************************
+PARAGRAPH PAGE BREAKS
+
+Currently this configuration has a bad effect on IE11, but are here 
+as a reference for pagebreak customization
+****************************************************************** /
+
 p {
   -ms-word-break: break-all;
    -ms-word-wrap: break-all;
-      word-break: break-word;
       word-break: break-word;
   // cleaning up the ragged lines and breaks
   -webkit-hyphens: auto;
@@ -78,14 +85,14 @@ p {
        -o-font-feature-settings: "liga", "dlig";
           font-feature-settings: "liga", "dlig";
 }
-*/
+
 
 /******************************************************************
 BASE ELEMENTS
 ******************************************************************/
 
 p {
-	margin: 0 0 1em;
+	margin: 0 0 $default_margin;
 }
 
 dfn, cite, em, i {
@@ -93,7 +100,7 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 0 1em 1em;
+	margin: 0 0 $default_margin 1em;
 	padding: 0 0 0 1em;
 	border-left: 3px solid $link_color;
 	font-style: italic;
@@ -102,7 +109,7 @@ blockquote {
 }
 
 address {
-	margin: 0 0 1em;
+	margin: 0 0 $default_margin;
 }
 
 pre {
@@ -110,7 +117,7 @@ pre {
 	color: $gray_light;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 0.9em;
-	margin: 0 0 1em;
+	margin: 0 0 $default_margin;
 	max-width: 100%;
 	padding: 1em;
 	overflow: auto;
@@ -125,6 +132,7 @@ mark, ins {
 	text-decoration: none;
 }
 
+
 /******************************************************************
 ENTRY CONTENT
 ******************************************************************/
@@ -132,7 +140,7 @@ ENTRY CONTENT
 .entry-content {
 
 	ul, ol {
-		margin: 0 0 1em 2em;
+		margin: 0 0 $default_margin 2em;
 	}
 
 	ul {
@@ -156,11 +164,11 @@ ENTRY CONTENT
 	}
 
 	dd {
-		margin: 0 1em 1em;
+		margin: 0 1em $default_margin;
 	}
 
 	table {
-		margin: 0 0 1em;
+		margin: 0 0 $default_margin;
 		width: 100%;
 	}
 
@@ -169,3 +177,8 @@ ENTRY CONTENT
 	}
 
 } /* end .entry-content */
+
+
+/******************************************************************
+CUSTOM
+******************************************************************/

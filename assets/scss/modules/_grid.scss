@@ -9,168 +9,186 @@ Stylesheet: Grid
 	padding-right: 0.75em;
 }
 
-// the last column
-.lastcol,
-.last-col {
-	float: right !important;
-	padding-right: 0 !important;
+@mixin all   {
+	@include grid-col;
+	width: 100%;
+	padding-right: 0;
 }
 
-// Simple Golden Ratio
-.goldlarge {
-	width: 61.803398875%;
+@mixin one {
 	@include grid-col;
+	width: 8.33%;
 }
-.goldsmall {
-	width: 38.196601125%;
+@mixin two {
 	@include grid-col;
+	width: 16.6666666667%;
+}
+@mixin three {
+	@include grid-col;
+	width: 25%;
+}
+@mixin four {
+	@include grid-col;
+	width: 33.3333333333%;
+}
+@mixin five {
+	@include grid-col;
+	width: 41.6666666667%;
+}
+@mixin six {
+	@include grid-col;
+	width: 50%;
+}
+@mixin seven {
+	@include grid-col;
+	width: 58.3333333333%;
+}
+@mixin eight {
+	@include grid-col;
+	width: 66.6666666667%;
+}
+@mixin nine {
+	@include grid-col;
+	width: 75%;
+}
+@mixin ten {
+	@include grid-col;
+	width: 83.3333333333%;
+}
+@mixin eleven {
+	@include grid-col;
+	width: 91.6666666667%;
 }
 
 @include breakpoint(small)
 {
 	.s-all {
-		@include grid-col;
-		width: 100%;
-		padding-right: 0;
+		@include all;
 	}
 
 	.s-1of6 {
-		@include grid-col;
-		width: 16.6666667%;
+		@include two;
 	}
 	.s-2of6 {
-		@include grid-col;
-		width: 33.3333333%;
+		@include four;
 	}
 	.s-3of6 {
-		@include grid-col;
-		width: 50%;
+		@include six;
 	}
 	.s-4of6 {
-		@include grid-col;
-		width: 66.6666667%;
+		@include eight;
 	}
 	.s-5of6 {
-		@include grid-col;
-		width: 83.3333333%;
+		@include ten;
 	}
 }
 
 @include breakpoint(medium)
 {
-	.m-all {
+	// Simple Golden Ratio
+	.goldlarge {
+		width: 61.803398875%;
 		@include grid-col;
-		width: 100%;
-		padding-right: 0;
+	}
+	.goldsmall {
+		width: 38.196601125%;
+		@include grid-col;
+	}
+
+	.m-all {
+		@include all;
 	}
 
 	.m-1of12 {
-		@include grid-col;
-		width: 8.33%;
+		@include one;
 	}
 	.m-2of12 {
-		@include grid-col;
-		width: 16.6666666667%;
+		@include two;
 	}
 	.m-3of12 {
-		@include grid-col;
-		width: 25%;
+		@include three;
 	}
 	.m-4of12 {
-		@include grid-col;
-		width: 33.33%;
+		@include four;
 	}
 	.m-5of12 {
-		@include grid-col;
-		width: 41.6666667%;
+		@include five;
 	}
 	.m-6of12 {
-		@include grid-col;
-		width: 50%;
+		@include six;
 	}
 	.m-7of12 {
-		@include grid-col;
-		width: 58.3333333%;
+		@include seven;
 	}
 	.m-8of12 {
-		@include grid-col;
-		width: 66.66%;
+		@include eight;
 	}
 	.m-9of12 {
-		@include grid-col;
-		width: 75%;
+		@include nine;
 	}
 	.m-10of12 {
-		@include grid-col;
-		width: 83.3333333%;
+		@include ten;
 	}
 	.m-11of12 {
-		@include grid-col;
-		width: 91.6666667%;
+		@include eleven;
 	}
 }
 
 @include breakpoint(large)
 {
 	.l-all  {
-		@include grid-col;
-		width: 100%;
-		padding-right: 0;
+		@include all;
 	}
 
 	.onecol,
 	.l-1of12 {
-		@include grid-col;
-		width: 8.33%;
+		@include one;
 	}
 	.twocol,
 	.l-2of12 {
-		@include grid-col;
-		width: 16.6666666667%;
+		@include two;
 	}
 	.threecol,
 	.l-3of12 {
-		@include grid-col;
-		width: 25%;
+		@include three;
 	}
 	.fourcol,
 	.l-4of12 {
-		@include grid-col;
-		width: 33.33%;
+		@include four;
 	}
 	.fivecol,
 	.l-5of12 {
-		@include grid-col;
-		width: 41.6666667%;
+		@include five;
 	}
 	.sixcol,
 	.l-6of12 {
-		@include grid-col;
-		width: 50%;
+		@include six;
 	}
 	.sevencol,
 	.l-7of12 {
-		@include grid-col;
-		width: 58.3333333%;
+		@include seven;
 	}
 	.eightcol,
 	.l-8of12 {
-		@include grid-col;
-		width: 66.66%;
+		@include eight;
 	}
 	.ninecol,
 	.l-9of12 {
-		@include grid-col;
-		width: 75%;
+		@include nine;
 	}
 	.tencol,
 	.l-10of12 {
-		@include grid-col;
-		width: 83.3333333%;
+		@include ten;
 	}
 	.elevencol,
 	.l-11of12 {
-		@include grid-col;
-		width: 91.6666667%;
+		@include eleven;
 	}
+}
+
+// the last column
+.lastcol,
+.last-col {
+	float: right !important;
+	padding-right: 0 !important;
 }
