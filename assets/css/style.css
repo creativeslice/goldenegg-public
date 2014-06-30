@@ -569,24 +569,28 @@ h5, .h5 {
   letter-spacing: 2px;
   margin: 0.88889em 0; }
 
+/* Don't use this. It breaks ALL words in IE11 and IOS.
 p {
   -ms-word-break: break-all;
-  -ms-word-wrap: break-all;
-  word-break: break-word;
-  word-break: break-word;
+   -ms-word-wrap: break-all;
+      word-break: break-word;
+      word-break: break-word;
+  // cleaning up the ragged lines and breaks
   -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
+     -moz-hyphens: auto;
+          hyphens: auto;
+  // sets a minimum number of characters before and after the break
   -webkit-hyphenate-before: 2;
-  -webkit-hyphenate-after: 3;
-  hyphenate-lines: 3;
+   -webkit-hyphenate-after: 3;
+           hyphenate-lines: 3;
+  // enabling fancy ligatures when available
   -webkit-font-feature-settings: "liga", "dlig";
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -ms-font-feature-settings: "liga", "dlig";
-  -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig"; }
-
+     -moz-font-feature-settings: "liga=1, dlig=1";
+      -ms-font-feature-settings: "liga", "dlig";
+       -o-font-feature-settings: "liga", "dlig";
+          font-feature-settings: "liga", "dlig";
+}
+*/
 /******************************************************************
 BASE ELEMENTS
 ******************************************************************/
@@ -814,34 +818,50 @@ Stylesheet: Grid
     padding-right: 0.75em;
     width: 100%;
     padding-right: 0; }
-  .m-1of8 {
+  .m-1of12 {
     float: left;
     padding-right: 0.75em;
-    width: 12.5%; }
-  .m-2of8 {
+    width: 8.33%; }
+  .m-2of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 16.66667%; }
+  .m-3of12 {
     float: left;
     padding-right: 0.75em;
     width: 25%; }
-  .m-3of8 {
+  .m-4of12 {
     float: left;
     padding-right: 0.75em;
-    width: 37.5%; }
-  .m-4of8 {
+    width: 33.33%; }
+  .m-5of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 41.66667%; }
+  .m-6of12 {
     float: left;
     padding-right: 0.75em;
     width: 50%; }
-  .m-5of8 {
+  .m-7of12 {
     float: left;
     padding-right: 0.75em;
-    width: 62.5%; }
-  .m-6of8 {
+    width: 58.33333%; }
+  .m-8of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 66.66%; }
+  .m-9of12 {
     float: left;
     padding-right: 0.75em;
     width: 75%; }
-  .m-7of8 {
+  .m-10of12 {
     float: left;
     padding-right: 0.75em;
-    width: 87.5%; } }
+    width: 83.33333%; }
+  .m-11of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 91.66667%; } }
 
 @media screen and (min-width: 64em) {
   .l-all {
@@ -1096,13 +1116,13 @@ body {
   background-color: white; }
 
 ::-moz-selection {
-  background: #669933;
-  color: white !important;
+  background: #ff9;
+  color: black !important;
   text-shadow: none; }
 
 ::selection {
-  background: #669933;
-  color: white !important;
+  background: #ff9;
+  color: black !important;
   text-shadow: none; }
 
 hr {

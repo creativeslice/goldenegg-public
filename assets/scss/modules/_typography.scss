@@ -57,6 +57,7 @@ h5, .h5 {
 	margin: 0.888888889em 0;		// 16px
 }
 
+/* Don't use this. It breaks ALL words in IE11 and IOS.
 p {
   -ms-word-break: break-all;
    -ms-word-wrap: break-all;
@@ -77,6 +78,7 @@ p {
        -o-font-feature-settings: "liga", "dlig";
           font-feature-settings: "liga", "dlig";
 }
+*/
 
 /******************************************************************
 BASE ELEMENTS
