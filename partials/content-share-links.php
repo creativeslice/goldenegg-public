@@ -3,12 +3,12 @@
 	<em>Share:</em>
 
 	<?php 
-		$title     = get_the_title();
-		$permalink = get_permalink();
-		$hastag    = strtolower( str_replace(' ', '', get_option('blogname')) );
-
-		$thumb_url = wp_get_attachment_image_src( get_post_thumbnail_id() );
-		$image     = apply_filters( 'egg/share_image', ($thumb_url ? $thumb_url[0] : '') );
+		$title		= get_the_title();
+		$permalink	= get_permalink();
+		$hastag		= strtolower( str_replace(' ', '', get_option('blogname')) );
+		$twitter	= 'creativeslice';
+		$thumb_url	= wp_get_attachment_image_src( get_post_thumbnail_id() );
+		$image		= apply_filters( 'egg/share_image', ($thumb_url ? $thumb_url[0] : '') );
 
 		$links = array(
 			array(
@@ -19,7 +19,7 @@
 			array(
 				'title' => 'Twitter',
 				'icon'  => 'twitter',
-				'url'   => 'http://twitter.com/share?text=' . urlencode($title) . '&url=' . $permalink . ($hastag ? '&hashtags=' . $hastag : ''),
+				'url'   => 'http://twitter.com/share?text=' . urlencode($title) . '&url=' . $permalink . ($hastag ? '&hashtags=' . $hastag : '') . ($twitter ? '&via=' . $twitter : ''),
 			),
 			array(
 				'title' => 'Linkedin',
