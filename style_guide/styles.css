@@ -207,6 +207,13 @@ nav a:hover {
 
 
 /*********************
+TYPOGRAPHY
+*********************/
+.typography {
+	background: white;
+}
+
+/*********************
 SIDEBAR
 *********************/
 
@@ -214,7 +221,7 @@ SIDEBAR
 	background: #faf3e3; /* Light Tan */
 	border: 1px solid #e6dfd0;
 	padding: 2em;
-	margin: 0 1em 1em 0;
+	margin: 1em 0;
 	text-align: left;
 }
 
@@ -305,13 +312,13 @@ TICKER
 ICONS
 *********************/
 
-#icons {
+.icons {
 	margin: 2em;
 }
-#icons span {
-	font-size: 32px;
-	line-height: 2.5em;
-	padding: 1em;
+.icons span {
+	font-size: 28px;
+	line-height: 2em;
+	padding: .5em;
 	color: black;
 }
 
