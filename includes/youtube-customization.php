@@ -3,11 +3,12 @@
 /*********************
 YOUTUBE CUSTOMIZATION
 Customize embedding youtube
-
 *********************/
 
 add_filter( 'embed_oembed_html', 'egg_set_youtube_params', 10, 4 );
+
 function egg_set_youtube_params($html, $url, $args, $id) {
+
 // PARAMETER OPTIONS
 	$iframe_args['width'] = '540';
 	$iframe_args['height'] = '260';
@@ -18,7 +19,24 @@ function egg_set_youtube_params($html, $url, $args, $id) {
 	$video_args['autoplay'] = '0';
 	$video_args['modestbranding'] = '1';
 	$video_args['autohide'] = '2';
-	// $video_args['show_info'] = '0';
+	// $video_args['cc_load_policy'] = '1';
+	// $video_args['color'] = 'white';
+	// $video_args['controls'] = '2';
+	// $video_args['disablekb'] = '1';
+	// $video_args['enabejsapi'] = '1';
+	// $video_args['end'] = '0';
+	// $video_args['fs'] = '0';
+	// $video_args['iv_load_policy'] = '3';
+	// $video_args['list'] = '0';
+	// $video_args['listType'] = '0';
+	// $video_args['loop'] = '1';
+	// $video_args['origin'] = '0';
+	// $video_args['playerapiid'] = '0';
+	// $video_args['playlist'] = '0';
+	// $video_args['playsinline'] = '0';
+	// $video_args['showinfo'] = '0';
+	// $video_args['start'] = '0';
+	// $video_args['theme'] = '0';
 // END PARAMETER OPTIONS
 
 	if(count(@$video_args)>0){
