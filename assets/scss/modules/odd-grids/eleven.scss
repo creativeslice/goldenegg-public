@@ -1,0 +1,40 @@
+@mixin 1of11 {
+	@include grid-col;
+	width: 9.09090909091%;
+}
+@mixin 2of11 {
+	@include grid-col;
+	width: 18.1818181818%;
+}
+@mixin 3of11 {
+	@include grid-col;
+	width: 27.2727272727%;
+}
+@mixin 4of11 {
+	@include grid-col;
+	width: 36.3636363636%;
+}
+@mixin 5of11 {
+	@include grid-col;
+	width: 45.4545454545%;
+}
+@mixin 6of11 {
+	@include grid-col;
+	width: 54.5454545455%;
+}
+@mixin 7of11 {
+	@include grid-col;
+	width: 63.6363636364%;
+}
+@mixin 8of11 {
+	@include grid-col;
+	width: 72.7272727273%;
+}
+@mixin 9of11 {
+	@include grid-col;
+	width: 81.8181818182%;
+}
+@mixin 10of11 {
+	@include grid-col;
+	width: 90.9090909091%;
+}

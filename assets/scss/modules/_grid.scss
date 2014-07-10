@@ -60,28 +60,27 @@ Stylesheet: Grid
 	width: 91.6666666667%;
 }
 
-@include breakpoint(small)
-{
-	.s-all {
-		@include all;
-	}
 
-	.s-1of6 {
-		@include two;
-	}
-	.s-2of6 {
-		@include four;
-	}
-	.s-3of6 {
-		@include six;
-	}
-	.s-4of6 {
-		@include eight;
-	}
-	.s-5of6 {
-		@include ten;
-	}
+.s-all {
+	@include all;
 }
+
+.s-1of6 {
+	@include two;
+}
+.s-2of6 {
+	@include four;
+}
+.s-3of6 {
+	@include six;
+}
+.s-4of6 {
+	@include eight;
+}
+.s-5of6 {
+	@include ten;
+}
+
 
 @include breakpoint(medium)
 {
@@ -134,6 +133,7 @@ Stylesheet: Grid
 	}
 }
 
+
 @include breakpoint(large)
 {
 	.l-all  {
@@ -185,6 +185,7 @@ Stylesheet: Grid
 		@include eleven;
 	}
 }
+
 
 // the last column
 .lastcol,
