@@ -121,11 +121,6 @@ jQuery(document).ready(function($) {
 	}
 
 	/**
-	 * Initiates Headroom
-	 */
-
-
-	/**
 	 * Initiates Flexslider; Flexslider requires a single containing element, <div>, then, a <ul class=”slides”><li><img src='this.jpg'></li></ul> (view options at: https://github.com/woothemes/FlexSlider/wiki/FlexSlider-Properties)
 	 */ 
 	function getFlexslider(){
@@ -148,6 +143,7 @@ jQuery(document).ready(function($) {
 	        fixed: true,
 	        inline:true
 	    };
+	    // clean up on deployment and keep only specific selectors
 		$('a.group1').colorbox(colorbox_params);
 		$('.gallery a').colorbox(colorbox_params);
 	    $('a[href$=\".jpg\"], a[href$=\".png\"], a[href$=\".bmp\"]').colorbox(colorbox_params);
