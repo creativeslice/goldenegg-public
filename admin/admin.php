@@ -10,12 +10,42 @@ add_action( 'welcome_panel',              'egg_dashboard_welcome_cleanup' );
 add_action( 'admin_menu',                 'egg_remove_menu_pages' );
 add_action( 'wp_before_admin_bar_render', 'egg_customize_admin_bar' );
 add_action( 'admin_init',                 'egg_dependencies' );
+add_action( 'wp_head', 					  'style_admin_bar' );
+add_action( 'wp_before_admin_bar_render', 'custom_adminbar_titles' );
 
 // filters
 add_filter( 'show_admin_bar',             'egg_admin_bar_permissions' );
 add_filter( 'gettext',                    'egg_replace_howdy', 10, 3 );
 add_filter( 'admin_footer_text',          'egg_admin_footer' );
 add_filter( 'screen_options_show_screen', 'egg_remove_screen_options' );
+
+// Modify the admin bar
+
+function custom_adminbar_titles( ) {
+	if(is_admin()){ 
+		$title = "Home";
+	}
+	else{
+		$title = "Admin Area";
+	}
+    global $wp_admin_bar;
+        $wp_admin_bar->add_menu( array(
+                'id'    => 'site-name',
+                'title' => $title,
+            )
+        );
+}
+
+function style_admin_bar() {
+    echo "<style type='text/css'>
+    #wpadminbar #wp-admin-bar-site-name>.ab-item:before {
+		content: '\\f226';
+		top: 2px;
+	}
+	</style>";
+}
+
+
 
 /**
  * Check for dependencies
@@ -112,6 +142,8 @@ function egg_remove_menu_pages()
 function egg_customize_admin_bar()
 {
 	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('search');
+	$wp_admin_bar->remove_menu('my-account');
 	$wp_admin_bar->remove_menu('wp-logo');
 	$wp_admin_bar->remove_menu('about');
 	$wp_admin_bar->remove_menu('wporg');
