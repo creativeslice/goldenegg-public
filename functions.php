@@ -39,3 +39,4 @@ require_once( 'includes/related-posts.php' );
 #require_once( 'includes/xml-sitemap.php' );			// XML Sitemap
 #require_once( 'includes/cleanup-plugins.php' );		// Cleanup commonly used plugins
 #require_once( 'includes/assets-rewrites.php' );		// Rewrite theme assets to /assets and plugins to /plugins. Does not work on nginx servers.
+#require_once( 'includes/one-time-code.php' );
