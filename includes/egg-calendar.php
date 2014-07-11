@@ -2,12 +2,26 @@
 /**
  * egg-calendar
  * time is processed as UTC - displayed in local timezone
+ * LINKABLE CALENDARS REQUIRE REWRITE FUNCTION:
+ *			 // url rewrite for calendar - flush_rewrites
+ *			function add_query_vars($aVars) {
+ *				$aVars[] = "calendar_date";
+ *				return $aVars;
+ *			}
+ *			add_filter('query_vars', 'add_query_vars');
+ *			function add_rewrite_rules($aRules) {
+ *				$aNewRules = array('about-us/calendar/([^/]+)/?$' => 'index.php?pagename=about-us/calendar&calendar_date=$matches[1]');
+ *				$aRules = $aNewRules + $aRules;
+ *				return $aRules;
+ *			}
+ *			add_filter('rewrite_rules_array', 'add_rewrite_rules');
+ *
  */
-
+	
 class calendar{
 	/** VARIABLES **/
  	const DEFAULT_START_TYPE = 'selected';								// Options: 'selected' starts on selected time; 'natural' starts at beginning of range;
- 	const DEFAULT_RANGE_UNITS = 'MONTH';									// Options use time constants defined below
+ 	const DEFAULT_RANGE_UNITS = 'MONTH';								// Options use time constants defined below
  	const DEFAULT_RANGE = '1';											// Sets range of time shown in range units (i.e., 1 WEEK)
 	const DEFAULT_INCREMENT = 'DAY';									// Time constant less than range
 	
@@ -18,20 +32,20 @@ class calendar{
  	const HOUR = 3600;
  	const DAY = 86400;
  	const WEEK = 604800;
-	const MONTH = 2419200; // 28 day; range redefined for specific month
+	const MONTH = 2419200; 												// 28 days - range is redefined later for specific month 
 	const YEAR = 31536000;		
- 	private static $days = array( 'Sunday' , 'Monday' , 'Tuesday' , 'Wednesday' , 'Thursday' , 'Friday' , 'Saturday' );
-	private static $months = array( '01' => 'January' , '02' => 'February' , '03' => 'March' , '04' => 'April' , '05' => 'May' , '06' => 'June' , '07' => 'July' , '08' => 'August' , '09' => 'September' , '10' => 'October' , '11' => 'November', '12' => 'December' );
 
 	/** CONSTRUCTOR
 	 * $selected_time is time-of-interest (or today) in unixtimestamp
 	 * $start sets the initial time for the range
 	 */  
 	public function  __construct( $selected_time = null ){ 
+		date_default_timezone_set ('UTC');
+
 		if( $selected_time ){
 			$this->selected->unixstamp = $selected_time;	
 		}else{
-			$this->selected->unixstamp = strtotime( 'today', time() ); // 12:00 am of today
+			$this->selected->unixstamp = strtotime( 'today', time() ); 	// 12:00 am of today
 		}
 		$this->now->unixstamp = time();	
 	} 
@@ -51,7 +65,7 @@ class calendar{
 				$this->range_units = self::DEFAULT_RANGE_UNITS;							
 			}
 		}
-		if( !$this->range_multiple ){
+		if( !@$this->range_multiple ){
 			$this->range_multiple = self::DEFAULT_RANGE;
 		}
 		if( 'MONTH' == $this->range_units ){
@@ -70,9 +84,7 @@ class calendar{
 		}
 		$this->range_in_seconds = $this->range_unit_in_seconds * $this->range_multiple;
 		$this->start_of_range = $this->get_start_of_increment( $this->range_units , $this->selected->unixstamp);
-//print_r($this);
-//		$this->increment_array[] = $this->range_units;
-		if( count( $this->increment_array ) > 0 ){
+		if( count( @$this->increment_array ) > 0 ){
 			$sorted_increment_array = array();
 			foreach( $this->increment_array as $increment_name ){
 
@@ -94,15 +106,14 @@ class calendar{
 			$this->increment_array = $sorted_increment_array ;
 		}
 		else{
-			$default_incr = constant('self::'.DEFAULT_INCREMENT);
+			@$default_incr = constant('self::'.DEFAULT_INCREMENT);
 			$key = constant('self::'.$default_incr);
 			$this->increment_array = array ( $key=> array( 'seconds'=>$key, 'name'=>$default_incr ) );
 		}
-		if( !$this->start_type || ( $this->start_type != 'natural' && $this->start_type != 'selected' ) ){
+		if( !@$this->start_type || ( $this->start_type != 'natural' && $this->start_type != 'selected' ) ){
 			$this->start_type = self::DEFAULT_START_TYPE;
 		}
 		$this->build_calendar_array();
-		$this->output_calendar();
 	}
 	public function get_start_of_increment( $increment, $selected_time ){
 		if( 'DAY' == $increment ){
@@ -180,6 +191,7 @@ class calendar{
 		$sel->day_of_month = date( 'd', $stamp );
 		$sel->month = date( 'm', $stamp );
 		$sel->year = date( 'Y', $stamp ); 
+		$sel->start_of_month = mktime( 0, 0 ,0, $sel->month, 1, $sel->year);
 		$sel->days_in_month = $this->get_total_days( $sel ) ;
 		$sel->time = date( 'G:i e', $stamp );
 		return $sel;
@@ -193,36 +205,129 @@ class calendar{
         }
 		return $days_in_month[$time_obj->month];
     }
+    public function month_link(){
+    	$m = new stdClass();
+		if($this->selected->month == 12 ){
+			$next_month = 01;
+			$next_monthY =  $this->selected->year + 1;
+		}
+		else{
+			$next_month = $this->selected->month + 1;
+			$next_monthY =  $this->selected->year;			
+		}
+		if($this->selected->month == 01 ){
+			$prev_month = 12;
+			$prev_monthY = $this->selected->year - 1;
+		}
+		else{
+			$prev_month = $this->selected->month - 1;
+			$prev_monthY = $this->selected->year;			
+		}
+		$m->next_url = $next_monthY. "-" . sprintf("%02s", $next_month);
+		$m->next_text = date('F', mktime(0, 0, 0, $next_month, 10)); 
+		$m->prev_url = $prev_monthY. "-" . sprintf("%02s", $prev_month);
+		$m->prev_text = date('F', mktime(0, 0, 0, $prev_month, 10)); ;
+		return $m;
+    }
+    public function day_link(){
+    	$m = new stdClass();
+		if($this->selected->month == 12 ){
+			$next_month = 01;
+			$next_monthY =  $this->selected->year + 1;
+		}
+		else{
+			$next_month = $this->selected->month + 1;
+			$next_monthY =  $this->selected->year;			
+		}
+		if($this->selected->month == 01 ){
+			$prev_month = 12;
+			$prev_monthY = $this->selected->year - 1;
+		}
+		else{
+			$prev_month = $this->selected->month - 1;
+			$prev_monthY = $this->selected->year;			
+		}
+		$m->next_url = $next_monthY. "-" . sprintf("%02s", $next_month);
+		$m->next_text = date('F', mktime(0, 0, 0, $next_month, 10)); 
+		$m->prev_url = $prev_monthY. "-" . sprintf("%02s", $prev_month);
+		$m->prev_text = date('F', mktime(0, 0, 0, $prev_month, 10)); ;
+		return $m;
+    }
 	/** OUTPUT **/
-	function output_calendar( ){
-		$out .= "<div class='cal-".$cal->range_units."'>\n";
+	function output_month( ){
+		$m = $this->month_link();
+		@$out .= "
+	<div class='cal-container'>
+		<h3>".  date('F Y', $this->selected->start_of_month ) ."  </h3>
+		<div class='cal-prev'><a href='/about-us/calendar/".$m->prev_url."'>" .$m->prev_text ."</a></div>
+		<div class='cal-next'><a href='/about-us/calendar/".$m->next_url."'>" .$m->next_text ."</a></div>
+		<div class='cal-".$this->range_units."'>\n";
 		foreach($this->calendar_array as $unit_name=>$unit_array){
 			$counter = 0;
 			$out .=" <div class='cal-WEEK'> \n";
 			$first_day = date ( 'w' , $this->start_of_range);
 			$empty_days = 0;
 			while($empty_days < $first_day){
-				$out .= " <div class='cal-EMPTYDAY'></div>\n";				
+				$out .= "     <div class='cal-EMPTYDAY'></div>\n";				
 				$empty_days++;
 			}
 			foreach($unit_array as $timestamp=>$timestamp_array){
 				$counter++;
-				if( date ('w', $timestamp) < 1 ){
-					$out .="<div class='cal-WEEK'> \n";
+				if( date ('w', $timestamp) < 1 && 1 != date( 'd', $timestamp ) ){
+					$out .="  <div class='cal-WEEK'> \n";
 				}
-				$out .=" <div class='cal-".$unit_name."' data-timestamp='".$timestamp."'>".date ('D M j Y ', $timestamp);
-				if( $events = get_event( $timestamp) ){
+				$unit_class = "cal-".$unit_name;
+				if( $timestamp < $this->now->start_of_day ){  $unit_class .= " cal-past-".$unit_name; }
+				if( $timestamp == $this->now->start_of_day ){  $unit_class .= " cal-current-".$unit_name; }
+				$out .="     <div class='". $unit_class ."' data-timestamp='".$timestamp." '>".date ('D M j Y ', $timestamp);
+				/*
+				 * GET get_events() from Gist or Greenberg
+				if( @$events = get_events( $timestamp ) ){
 					foreach( $events as $event_time=>$event_arr){
-						$out .= "\n<div class='cal-EVENT'>".$event_arr->post_title."</div>";
+						$out .= "\n        <div class='cal-EVENT'><a href='".$event_arr->guid."'>".$event_arr->post_title."</a></div>";
 					}
-				}
+				}*/
 				$out .="</div>\n";
 				if(  date ( 'w' , $timestamp ) == 6 || $counter == count($unit_array)){
-					$out .= "</div><!--/cal-WEEK-->\n";
+					$out .= "  </div><!--/cal-WEEK-->\n";
 				}
 			}
 		}
-		$out .= "</MONTH>\n";
+		$out .= "</div><!--/cal-".$this->range_units."-->
+		</div><!--/cal-container-->\n";
+		
 		echo $out;
 	}
+	function output_day( ){
+		$d = $this->day_link();
+		@$out .= "
+	<div class='cal-container'>
+		<h3>".  date('D M j, Y', $this->selected->unixstamp ) ."  </h3>
+		<div class='cal-prev'><a href='/about-us/calendar/".$m->prev_url."'>" .$m->prev_text ."</a></div>
+		<div class='cal-next'><a href='/about-us/calendar/".$m->next_url."'>" .$m->next_text ."</a></div>
+		<div class='cal-".$this->range_units."'>\n";
+		foreach($this->calendar_array as $unit_name=>$unit_array){
+			$counter = 0;
+			$out .=" <div class='cal-DAY'> \n";
+			foreach($unit_array as $timestamp=>$timestamp_array){
+				$counter++;
+				$unit_class = "cal-".$unit_name;
+				$out .="     <div class='". $unit_class ."' data-timestamp='".$timestamp." '>".date ('H:i ', $timestamp);
+				/*if( $events = get_events( $timestamp ) ){
+					foreach( $events as $event_time=>$event_arr){
+						$out .= "\n        <div class='cal-EVENT'><a href='".$event_arr->guid."'>".$event_arr->post_title."</a></div>";
+					}
+				}*/
+				$out .="</div>\n";
+				if(  date ( 'w' , $timestamp ) == 6 || $counter == count($unit_array)){
+					$out .= "  </div><!--/cal-DAY-->\n";
+				}
+			}
+		}
+		$out .= "</div><!--/cal-".$this->range_units."-->
+		</div><!--/cal-container-->\n";
+		
+		echo $out;
+	}
+
 }
