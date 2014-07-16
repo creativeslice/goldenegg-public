@@ -34,10 +34,6 @@ var timeToWaitForLast = 100;
 */
 jQuery(document).ready(function($) {
 
-
-	/**
-	 * Mobile menu show/hide
-	 */
 	$('#mobilemenu').click(function(e) {
 		e.preventDefault();
 		var $this = $(this);
@@ -55,21 +51,4 @@ jQuery(document).ready(function($) {
 		if ( $screentext.length )
 			$this.attr('title', $screentext.text());
 	});
-
-	/**
-	 * Share links
-	 */
-	$('.share-links').each(function() {
-		// Select the text area on click
-		$(this).on('click', '.share-url', function () {
-			$(this).select();
-		});
-
-		// Open share links in new window
-		$('a', this).click(function(e) {
-			e.preventDefault();
-			window.open($(this).attr('href'), 'Share', 'height=470, width=550, top='+($(window).height()/2 - 225) +', left='+$(window).width()/2 +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
-		});
-	});
-
 }); /* end of as page load scripts */
