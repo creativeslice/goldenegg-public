@@ -144,9 +144,9 @@ jQuery(document).ready(function($) {
 	        inline:true
 	    };
 	    // clean up on deployment and keep only specific selectors
-		$('a.group1').colorbox(colorbox_params);
+		$('.colorbox').colorbox(colorbox_params);
 		$('.gallery a').colorbox(colorbox_params);
-	    $('a[href$=\".jpg\"], a[href$=\".png\"], a[href$=\".bmp\"]').colorbox(colorbox_params);
+	    $('a[href$=\".jpg\"], a[href$=\".png\"]').colorbox(colorbox_params);
 	}
 
 	/**
