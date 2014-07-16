@@ -797,32 +797,36 @@ select {
 Stylesheet: Grid
 
 ******************************************************************/
-@media screen and (min-width: 30em) {
-  .s-all {
-    float: left;
-    padding-right: 0.75em;
-    width: 100%;
-    padding-right: 0; }
-  .s-1of6 {
-    float: left;
-    padding-right: 0.75em;
-    width: 16.66667%; }
-  .s-2of6 {
-    float: left;
-    padding-right: 0.75em;
-    width: 33.33333%; }
-  .s-3of6 {
-    float: left;
-    padding-right: 0.75em;
-    width: 50%; }
-  .s-4of6 {
-    float: left;
-    padding-right: 0.75em;
-    width: 66.66667%; }
-  .s-5of6 {
-    float: left;
-    padding-right: 0.75em;
-    width: 83.33333%; } }
+.s-all {
+  float: left;
+  padding-right: 0.75em;
+  width: 100%;
+  padding-right: 0; }
+
+.s-1of6 {
+  float: left;
+  padding-right: 0.75em;
+  width: 16.66667%; }
+
+.s-2of6 {
+  float: left;
+  padding-right: 0.75em;
+  width: 33.33333%; }
+
+.s-3of6 {
+  float: left;
+  padding-right: 0.75em;
+  width: 50%; }
+
+.s-4of6 {
+  float: left;
+  padding-right: 0.75em;
+  width: 66.66667%; }
+
+.s-5of6 {
+  float: left;
+  padding-right: 0.75em;
+  width: 83.33333%; }
 
 @media screen and (min-width: 48em) {
   .goldlarge {
@@ -953,7 +957,6 @@ COMMENT STYLES
   border-top: 1px solid #EEF0F4;
   /* number of comments span */ }
 
-
 .commentlist {
   margin: 0;
   list-style-type: none; }
@@ -1010,8 +1013,6 @@ COMMENT STYLES
     background: #EEF0F4; }
 
 /* comment meta */
-
-
 /* comment content */
 .comment_content p {
   margin: 0.7335em 0 1.5em;
@@ -1067,9 +1068,7 @@ COMMENT FORM STYLES
   margin: 0 0 1.1em; }
 
 /* cancel comment reply link */
-
 /* logged in comments */
-
 /* allowed tags */
 #allowed_tags {
   margin: 1.5em 10px 0.7335em 0; }
@@ -1252,19 +1251,15 @@ NAVIGATION STYLES
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-
 #main {
   background: #fff;
   padding-right: 1em; }
-
-
 
 /* post meta */
 .byline {
   color: #999;
   font-style: italic;
   margin: 0; }
-
 
 /*********************
 SIDEBARS & ASIDES
