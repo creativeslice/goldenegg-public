@@ -72,16 +72,6 @@ function add_scripts(){
 	<div class="wrap">
 
 		<div id="main" class="goldlarge" role="main">
-
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-			<article <?php post_class( 'cf' ); ?>>
-			<?php endwhile; endif; ?>
-				<header class="article-header">
-					<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
-				</header>
-			</article>
-		<div>
 		<div style='height:100px'></div>
 			<div>
 				<h2>Headroom is Loaded</h2>
@@ -128,6 +118,10 @@ function add_scripts(){
 				      </a>
 				 </div>
 			</div>
+			<h2> Fade-in</h2>
+			<div class='fade-block' style='background-color: grey; height:50px; width:80%;  '> This will fade in </div>
+			<hr>
+			
 		</div>
 	</div>
 	<script type='text/javascript'>
@@ -168,6 +162,54 @@ jQuery(document).ready(function($) {
 		}
 	});
 	
+	/**
+	 * FADE-IN
+	 * Give target div class='fade-block'
+	 * Class='transition-in' is added on document ready
+	 * Class='transition-in' is removed when target element's pct (defined below) hits trigger point 
+	 * Test: insert <div class='fade-block' style='background-color: grey; height:50px; width:80%;  '> This will fade in </div>
+	**/
+	var egg;
+    egg = {};
+    egg.fadeIn = {
+	    below_fold: function(el) {
+	      var el_offset, el_top, pct, scroll_bottom, scroll_top, window_height;
+	      window_height = $(window).height();
+	      scroll_top = $(window).scrollTop();
+	      scroll_bottom = scroll_top + window_height;
+	      el_offset = el.offset();
+	      el_top = el_offset.top;
+	      pct = ((el_top - scroll_top) / window_height).toFixed(2);
+	      if (pct > .90) {
+	        return true;
+	      } else {
+	        return false;
+	      }
+	    },
+	    hide: function(el) {
+	      if (this.below_fold(el)) {
+	        return el.addClass('transition-in');
+	      }
+	    },
+	    init: function(el) {
+	      var self;
+	      self = this;
+	      el.each(function() {
+	        return self.hide($(this));
+	      });
+	      return $(window).on('scroll', function() {
+	        return el.each(function() {
+	          if (!self.below_fold($(this))) {
+	            return $(this).removeClass('transition-in');
+	          }
+	        });
+	      });
+	    }
+	  };
+	if (!Modernizr.touch) {
+		  egg.fadeIn.init($('.fade-block'));
+    }
+
 	/**
 	 * Initiates Flexslider; Flexslider requires a single containing element, <div>, then, a <ul class=”slides”><li><img src='this.jpg'></li></ul> 
 	 * view options at: https://github.com/woothemes/FlexSlider/wiki/FlexSlider-Properties

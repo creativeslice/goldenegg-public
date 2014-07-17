@@ -1249,6 +1249,18 @@ NAVIGATION STYLES
   display: block !important; }
 
 /*********************
+FADE ELEMENTS
+*********************/
+.fade-block {
+  transition-delay: 0s;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-property: opacity transform; }
+  .fade-block.transition-in {
+    opacity: 0;
+    transform: translateY(5em); }
+
+/*********************
 POSTS & CONTENT STYLES
 *********************/
 #main {
