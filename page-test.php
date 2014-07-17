@@ -121,13 +121,20 @@ function add_scripts(){
 			<h2> Fade-in</h2>
 			<div class='fade-block' style='background-color: grey; height:50px; width:80%;  '> This will fade in </div>
 			<hr>
+			<div style='height:600px'></div>
+			<h2>LazyLoader (images)</h2>
+		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee1.jpg"; ?>" />
+		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee2.jpg"; ?>" />
+		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee3.jpg"; ?>" />
+			<hr>
 			
 		</div>
 	</div>
 	<script type='text/javascript'>
 	
 jQuery(document).ready(function($) {
-
+	
+	$("img.lazy").lazyload();
 		var colorbox_params = {
 			rel: 'gal',
 	        maxWidth: '96%',
