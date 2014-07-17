@@ -162,6 +162,7 @@ jQuery(document).ready(function($) {
 		$this.toggleClass('active');
 		$('span', this).toggleClass('icon-menu').toggleClass('icon-close');
 		$('.top-nav').slideToggle(200);
+		//$('.search-field').focus();
 	});
 
 	/**
