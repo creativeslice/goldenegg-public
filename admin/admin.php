@@ -37,7 +37,7 @@ function custom_adminbar_titles( ) {
 }
 
 function style_admin_bar() { // changes admin area left icon to odometer
-	if ( current_user_can('manage_options') ){
+	if ( is_user_logged_in() ){
 	    echo "<style type='text/css'>
 	    #wpadminbar #wp-admin-bar-site-name>.ab-item:before {
 			content: '\\f226';
