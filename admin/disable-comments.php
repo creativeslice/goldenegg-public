@@ -4,17 +4,19 @@
  */
 
 // actions
-add_action( 'wp_before_admin_bar_render',         'egg_remove_comments_admin_bar' );
-add_action( 'admin_menu',                         'egg_remove_comments_admin_menu', 999 );
-add_action( 'admin_head-edit.php',                'egg_remove_comments_quick_edit' );
-add_action( 'admin_menu',                         'egg_remove_comments_metaboxes' );
+add_action( 'wp_before_admin_bar_render',       'egg_remove_comments_admin_bar' );
+add_action( 'admin_menu',                       'egg_remove_comments_admin_menu', 999 );
+add_action( 'admin_head-edit.php',              'egg_remove_comments_quick_edit' );
+add_action( 'admin_menu',                       'egg_remove_comments_metaboxes' );
 
 // filters
-add_filter( 'manage_edit-page_columns',           'egg_remove_comments_list_columns', 10, 1 );	
-add_filter( 'manage_edit-post_columns',           'egg_remove_comments_list_columns', 10, 1 );
-add_filter( 'manage_media_columns',               'egg_remove_comments_list_columns', 10, 1 );	
+add_filter( 'manage_edit-page_columns',         'egg_remove_comments_list_columns', 10, 1 );	
+add_filter( 'manage_edit-post_columns',         'egg_remove_comments_list_columns', 10, 1 );
+add_filter( 'manage_media_columns',             'egg_remove_comments_list_columns', 10, 1 );	
 #add_filter( 'manage_edit-CUSTOMPOSTTYPE_columns', 'egg_remove_comments_list_columns', 10, 1 );
-
+add_filter( 'wp_head', 							'egg_remove_wp_widget_recent_comments_style', 1 );
+add_action( 'wp_head',							'egg_remove_recent_comments_style', 1 );
+  
 /**
  * Remove from wpadmin menu (TOP BAR)
  */
@@ -75,3 +77,20 @@ function egg_remove_comments_list_columns( $columns )
 	unset($columns['comments']);
 	return $columns;
 }
+
+
+// remove injected CSS for recent comments widget
+function egg_remove_wp_widget_recent_comments_style() {
+	if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
+		remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
+	}
+}
+
+// remove injected CSS from recent comments widget
+function egg_remove_recent_comments_style() {
+	global $wp_widget_factory;
+	if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
+		remove_action( 'wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style') );
+	}
+}
+
