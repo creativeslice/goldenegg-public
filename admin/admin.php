@@ -143,7 +143,6 @@ function egg_customize_admin_bar()
 {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('search');
-	// $wp_admin_bar->remove_menu('my-account');
 	$wp_admin_bar->remove_menu('wp-logo');
 	$wp_admin_bar->remove_menu('about');
 	$wp_admin_bar->remove_menu('wporg');
@@ -155,6 +154,9 @@ function egg_customize_admin_bar()
 	$wp_admin_bar->remove_menu('new-link');
 	$wp_admin_bar->remove_menu('new-media');
 	$wp_admin_bar->remove_menu('new-user');
+	if(!is_admin()){ 
+		$wp_admin_bar->remove_menu('my-account');
+	}
 }
 
 /**
