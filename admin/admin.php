@@ -19,7 +19,7 @@ add_filter( 'gettext',                    'egg_replace_howdy', 10, 3 );
 add_filter( 'admin_footer_text',          'egg_admin_footer' );
 add_filter( 'screen_options_show_screen', 'egg_remove_screen_options' );
 
-// Modify the admin bar
+// Modify the admin bar left label
 
 function custom_adminbar_titles( ) {
 	if(is_admin()){ 
@@ -36,7 +36,7 @@ function custom_adminbar_titles( ) {
         );
 }
 
-function style_admin_bar() {
+function style_admin_bar() { // changes admin area left icon to odometer
     echo "<style type='text/css'>
     #wpadminbar #wp-admin-bar-site-name>.ab-item:before {
 		content: '\\f226';
@@ -143,7 +143,7 @@ function egg_customize_admin_bar()
 {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('search');
-	$wp_admin_bar->remove_menu('my-account');
+	// $wp_admin_bar->remove_menu('my-account');
 	$wp_admin_bar->remove_menu('wp-logo');
 	$wp_admin_bar->remove_menu('about');
 	$wp_admin_bar->remove_menu('wporg');

@@ -5,7 +5,7 @@
 
 	<div class="wrap">
 
-		<div id="main" class="goldlarge" role="main">
+		<div id="main" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -52,15 +52,9 @@ $cal->output_month();
 
 			</article>
 
-			<?php endwhile; else : ?>
-
-				<?php get_template_part( 'partials/content', 'missing' ); ?>
-
-			<?php endif; ?>
+			<?php endwhile; endif; ?>
 
 		</div>
-
-		<?php get_sidebar(); ?>
 
 	</div>
 

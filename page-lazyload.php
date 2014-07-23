@@ -1,6 +1,5 @@
 <?php get_header(); // Template Name: LazyDemo ?>
 
-
 <div id="content">
 
 	<div class="wrap">
@@ -20,14 +19,12 @@
 
 			</article>
 
-			<?php endwhile; else : ?>
+			<?php endwhile; endif; ?>
+	
 
-				<?php get_template_part( 'partials/content', 'missing' ); ?>
-
-			<?php endif; ?>
-			<div style='height: 1000px;'></div>
+<div style='height: 1000px;'></div>
 		 
-			<?php if( have_rows('lazyload') ): ?>
+<?php if( have_rows('lazyload') ): ?>
  
 	<div class="lazyimages">
  
@@ -38,21 +35,21 @@
 		$text = get_sub_field('text');
  
 		?> 
-				<!-- LAZYLOAD TUUPOLA<img class="lazy" data-original="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />-->
-				<!--<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />-->
-				<img data-lazy-src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" style='min-height:100px; width:1px; display:block;'/>
+		<!-- LAZYLOAD TUUPOLA<img class="lazy" data-original="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />-->
+		<!--<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />-->
+		<img data-lazy-src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" style='min-height:100px; width:1px; display:block;'/>
 				
-		 
-			<?php if( $text ): ?>
-				<span><?php echo $text;?></span>
-			<?php endif; ?>
+		<?php if( $text ): ?>
+		<span><?php echo $text;?></span>
+		<?php endif; ?>
+		
 	<?php endwhile; ?>
+	
 	</div>
  
 <?php endif; ?>
-		</div>
 
-	
+		</div>
 
 	</div>
 

@@ -2,9 +2,9 @@
 <html dir="ltr" lang="en-US">
 
 <head>
-	<title><?php wp_title(''); ?></title>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title><?php wp_title(''); ?></title>
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -36,7 +36,7 @@
 
 				<nav role="navigation">
 				<?php wp_nav_menu(array(
-					'container' => false,							// remove nav container
+					'container' => false,						// remove nav container
 					'menu' => 'The Main Menu',					// nav name
 					'menu_id' => 'top-nav',				        // adding custom nav id
 					'menu_class' => 'nav top-nav',				// adding custom nav class

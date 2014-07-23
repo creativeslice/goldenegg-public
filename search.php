@@ -31,13 +31,9 @@
 				<?php endif; ?>
 
 			<?php endwhile; ?>
-
 				<?php do_action('egg/page_navi'); ?>
-
 			<?php else : ?>
-			
 				<?php get_template_part( 'partials/content', 'missing' ); ?>
-				
 			<?php endif; ?>
 
 		</div>
