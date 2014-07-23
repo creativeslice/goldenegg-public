@@ -28,12 +28,10 @@ var waitForFinalEvent = (function () {
 // how long to wait before deciding the resize has stopped, in ms. Around 50-100 should work ok.
 var timeToWaitForLast = 100;
 
-
 /*
  * Put all your regular jQuery in here.
 */
 jQuery(document).ready(function($) {
-	$("img.lazy").lazyload();
 	$('#mobilemenu').click(function(e) {
 		e.preventDefault();
 		var $this = $(this);

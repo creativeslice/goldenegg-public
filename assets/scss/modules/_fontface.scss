@@ -36,18 +36,18 @@ Icon font example from http://icomoon.io/app/
 ************************************************/
 
 @font-face {
-	font-family: 'egg';
-	src:url('../fonts/egg.eot?-1d3v7n');
-	src:url('../fonts/egg.eot?#iefix-1d3v7n') format('embedded-opentype'),
-		url('../fonts/egg.woff?-1d3v7n') format('woff'),
-		url('../fonts/egg.ttf?-1d3v7n') format('truetype'),
-		url('../fonts/egg.svg?-1d3v7n#egg') format('svg');
+	font-family: 'egg_ico';
+	src:url('../fonts/egg_icons.eot?-1d3v7n');
+	src:url('../fonts/egg_icons.eot?#iefix-1d3v7n') format('embedded-opentype'),
+		url('../fonts/egg_icons.woff?-1d3v7n') format('woff'),
+		url('../fonts/egg_icons.ttf?-1d3v7n') format('truetype'),
+		url('../fonts/egg_icons.svg?-1d3v7n#egg_icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'egg';
+	font-family: 'egg_ico';
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
