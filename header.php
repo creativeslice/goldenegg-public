@@ -36,8 +36,7 @@
 
 				<nav role="navigation">
 				<?php wp_nav_menu(array(
-					'container' => false,						// remove nav container
-					'container_class' => 'menu',				// class of container
+					'container' => false,							// remove nav container
 					'menu' => 'The Main Menu',					// nav name
 					'menu_id' => 'top-nav',				        // adding custom nav id
 					'menu_class' => 'nav top-nav',				// adding custom nav class

@@ -4,8 +4,7 @@
 
 					<nav role="navigation">
 					<?php wp_nav_menu(array(
-    					'container' => '',                              // remove nav container
-    					'container_class' => 'footer-links',         	// class of container
+    					'container' => false,							// remove nav container
     					'menu' => 'Footer Links',   					// nav name
     					'menu_class' => 'nav footer-nav',            	// adding custom nav class
     					'theme_location' => 'footer-links',             // where it's located in the theme

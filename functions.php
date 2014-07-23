@@ -25,14 +25,12 @@ require_once( 'admin/tinymce.php' );
 
 // Front end
 require_once( 'includes/cleanup.php' );
-require_once( 'includes/lazy-load.php' );
-
 require_once( 'includes/theme-support.php' );
 require_once( 'includes/enqueue.php' );
 require_once( 'includes/page-navi.php' );
 require_once( 'includes/related-posts.php' );
 #require_once( 'includes/youtube-customization.php' );	// Customize iframe and youtube parameters
-require_once( 'includes/egg-calendar.2.php' );			// Flexible calendar (monthly, weekly, daily)
+#require_once( 'includes/egg-calendar.2.php' );			// Flexible calendar (monthly, weekly, daily)
 #require_once( 'includes/custom-post-types.php' );		// Create custom post types
 #require_once( 'includes/nice-search.php' );			// Clean search urls
 #require_once( 'includes/disable-pingback.php' );		// Disable XMLRPC, pingbacks, trackbacks
@@ -41,4 +39,5 @@ require_once( 'includes/egg-calendar.2.php' );			// Flexible calendar (monthly, 
 #require_once( 'includes/xml-sitemap.php' );			// XML Sitemap
 #require_once( 'includes/cleanup-plugins.php' );		// Cleanup commonly used plugins
 #require_once( 'includes/assets-rewrites.php' );		// Rewrite theme assets to /assets and plugins to /plugins. Does not work on nginx servers.
+#require_once( 'includes/lazy-load.php' );				// Lazy load fade in divs as you scroll to them
 #require_once( 'includes/one-time-code.php' );
