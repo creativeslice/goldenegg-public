@@ -16,7 +16,7 @@ add_filter( 'manage_media_columns',             'egg_remove_comments_list_column
 #add_filter( 'manage_edit-CUSTOMPOSTTYPE_columns', 'egg_remove_comments_list_columns', 10, 1 );
 add_filter( 'wp_head', 							'egg_remove_wp_widget_recent_comments_style', 1 );
 add_action( 'wp_head',							'egg_remove_recent_comments_style', 1 );
-  
+
 /**
  * Remove from wpadmin menu (TOP BAR)
  */

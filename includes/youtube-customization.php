@@ -6,12 +6,11 @@ Customize embedding youtube
 *********************/
 
 add_filter( 'embed_oembed_html', 'egg_set_youtube_params', 10, 4 );
-
 function egg_set_youtube_params($html, $url, $args, $id) {
 
 // PARAMETER OPTIONS
-	$iframe_args['width'] = '540';
-	$iframe_args['height'] = '260';
+	$iframe_args['width'] = '600';
+	$iframe_args['height'] = '337';
 	$iframe_args['frameborder'] = '0';
 	$iframe_args['allowfullscreen'] = 'allowfullscreen';
 	

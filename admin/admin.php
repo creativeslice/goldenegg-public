@@ -155,7 +155,7 @@ function egg_customize_admin_bar()
 	$wp_admin_bar->remove_menu('new-media');
 	$wp_admin_bar->remove_menu('new-user');
 	if(!is_admin()){ 
-		$wp_admin_bar->remove_menu('my-account');
+		$wp_admin_bar->remove_menu('my-account'); // removes my account bar from top right
 	}
 }
 

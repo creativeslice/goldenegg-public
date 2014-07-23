@@ -25,7 +25,8 @@ function egg_enqueue()
 		global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet
 
 		// register main stylesheet
-		wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css', array(), '', 'all' );
+		wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?72314', array(), '', 'all' );
+		// wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' );
 
 		// ie-only style sheet
 		wp_register_style( 'egg-ie-only', get_stylesheet_directory_uri() . '/assets/css/ie.css', array(), '' );

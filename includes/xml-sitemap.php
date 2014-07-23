@@ -10,7 +10,7 @@ function cslice_create_sitemap() {
 	$postsForSitemap = get_posts( array(
 		'numberposts' => -1,
 		'orderby'     => 'modified',
-		'post_type'   => array('post','page','programs', 'schools', 'jobs'),
+		'post_type'   => array('post','page'),
 		'order'       => 'DESC'
 	) );
 

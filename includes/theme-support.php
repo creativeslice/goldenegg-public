@@ -17,17 +17,6 @@ if ( ! isset( $content_width ) )
 add_image_size( 'custom-thumb-600', 600, 150, true );
 add_image_size( 'custom-thumb-300', 300, 100, true );
 
-/**
- * Customize the names in select new images sizes from media manager
- * /
-add_filter( 'image_size_names_choose', 'custom_image_sizes' );
-function bones_custom_image_sizes( $sizes )
-{
-	return array_merge( $sizes, array(
-		'custom-thumb-600' => __('600px by 150px'),
-		'custom-thumb-300' => __('300px by 100px'),
-	) );
-}
 
 /**
  * Example widgetized areas
@@ -96,7 +85,7 @@ function custom_theme_support()
 	register_nav_menus(
 		array(
 			'main-nav'     => 'The Main Menu',  // main nav in header
-			'footer-links' => 'Footer Links',   // secondary nav in footer
+			'footer-links' => 'Footer Links',   // links in footer
 		)
 	);
 }

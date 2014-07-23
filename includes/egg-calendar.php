@@ -113,7 +113,9 @@ class calendar{
 		if( !@$this->start_type || ( $this->start_type != 'natural' && $this->start_type != 'selected' ) ){
 			$this->start_type = self::DEFAULT_START_TYPE;
 		}
-		$this->build_calendar_array();
+		$this->build_empty_calendar_array();
+// commented out for dev		
+//$this->build_calendar_array();
 	}
 	public function get_start_of_increment( $increment, $selected_time ){
 		if( 'DAY' == $increment ){
@@ -136,7 +138,7 @@ class calendar{
 		}		
 	}
 	public function level_array(){
-		$leval_array = array();
+		$level_array = array();
 		$array = $this->increment_array;
 		arsort($array);
 		foreach( $array as $key=>$arr){	
@@ -181,6 +183,74 @@ class calendar{
 		}
 		$this->calendar_array = $temp;
 		return $temp;
+	}
+	public function build_empty_calendar_array( ){
+		$level_array = $this->level_array();
+		$x = count($level_array) - 1;
+		$temp = array();
+		for ($i = $x; $i>=0; $i--){
+			$minor = $level_array[$i]['name'];
+
+			if( $i >= 1){
+				$major = $level_array[$i-1]['name'];
+			}
+			else{
+				$major = $this->range_units;	
+			}
+			$multiple = $this->get_multiple( $major, $minor );
+			$start_time = $this->start_of_range;
+			$level_increment = $level_array[$i]['seconds'];
+			$counter = 0;
+			$unittemp = array();
+			while ( $counter < $multiple  ){
+				$id = $start_time + ($counter * $level_increment); 
+				if( $i == $x ){
+					$unittemp[] = '';
+				}else{
+							$unittemp[] = $temp ;
+				}
+				$counter++;
+			}
+			$temp = array( $level_array[$i]['name'] => $unittemp );
+		}
+		$this->calendar_array = $temp;
+		return $temp;
+	}
+
+	public function build_calendar_output(){
+		$calendar = $this->calendar_array;
+		$level_array = $this->increment_array;
+		ksort($level_array);
+		$min_level = array_shift( $level_array );
+		global $increment;
+		$increment = $min_level['seconds'];
+		$newTimestamp = $this->start_of_range;  // starting index.
+		$newCalendar = array(); 
+
+		function walk_calendar_array( $calendar , &$newCalendar , &$newTimestamp ){
+			global $increment;
+		    foreach($calendar as $sourceKey => $sourceValue) {
+		        if (is_array($sourceValue)) {
+		        	if( is_numeric( $sourceKey ) ){
+			            $key = $newTimestamp;
+			        }else{
+				        $key = $sourceKey;
+			        }
+		            $newCalendar[ $key ] = array();
+		            walk_calendar_array($sourceValue, $newCalendar[ $key ], $newTimestamp);
+		        }
+		        else {
+		        	if( is_numeric( $sourceKey ) ){
+		        		
+				        $newCalendar[$newTimestamp] = date ('M d D Y H:i ',  $newTimestamp );   
+				     
+						$newTimestamp = $newTimestamp + $increment;
+					}
+		        }
+		    }
+		}
+		walk_calendar_array( $calendar , $newCalendar , $newTimestamp ); // re-index the array 
+		$this->outputCalendar = $newCalendar;
 	}
 	public function get_date( $stamp ){
 		$sel = new stdClass;
@@ -262,7 +332,7 @@ class calendar{
 		<div class='cal-prev'><a href='/about-us/calendar/".$m->prev_url."'>" .$m->prev_text ."</a></div>
 		<div class='cal-next'><a href='/about-us/calendar/".$m->next_url."'>" .$m->next_text ."</a></div>
 		<div class='cal-".$this->range_units."'>\n";
-		foreach($this->calendar_array as $unit_name=>$unit_array){
+		foreach($this->outputCalendar as $unit_name=>$unit_array){
 			$counter = 0;
 			$out .=" <div class='cal-WEEK'> \n";
 			$first_day = date ( 'w' , $this->start_of_range);

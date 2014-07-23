@@ -29,7 +29,7 @@ function recently_updated_content_dashboard_widget()
 	{
 		global $current_user; get_currentuserinfo(); // Get the logged in user info
 
-		echo "How lovely to see you, <b>" . $current_user->display_name . "</b>!<br />Below you can see all content updated in the past 30 days.";
+		echo "Hello, <b>" . $current_user->display_name . "</b>!<br />Below you can see all content updated in the past 30 days.";
 
 		// Get the posts from the last 30 days only
 		function filter_where( $where = '' ) {
@@ -40,7 +40,7 @@ function recently_updated_content_dashboard_widget()
 		add_filter( 'posts_where', 'filter_where' );
 
 		// The Query
-		$modified_posts_query = new WP_Query( array(  'post_type' => array( 'post', 'page', 'press' ),
+		$modified_posts_query = new WP_Query( array(  'post_type' => array( 'post', 'page' ),
 			'posts_per_page' => '-1',
 			'orderby' => 'modified',
 			'order'=> 'DESC',
