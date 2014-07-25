@@ -93,7 +93,7 @@ gulp.task('prod', function() {
 	gulp.start('styles', 'scripts', 'clean-prod');
 });
 
-// gulp watch (does not compile styles-ie or styles-login)
+// gulp watch (does not compile styles-ie, styles-login, or styles-editor)
 gulp.task('watch', function() {
 	gulp.watch('scss/**/*.scss', ['styles']);
 	gulp.watch('js/**/*.js', ['scripts']);

@@ -9,6 +9,15 @@ Stylesheet: Grid
 	padding-right: 0.75em;
 }
 
+@mixin goldlarge {
+	@include grid-col;
+	width: 61.803398875%;
+}
+@mixin goldsmall {
+	@include grid-col;
+	width: 38.196601125%;
+}
+
 @mixin all   {
 	@include grid-col;
 	width: 100%;
@@ -86,48 +95,57 @@ Stylesheet: Grid
 {
 	// Simple Golden Ratio
 	.goldlarge {
-		width: 61.803398875%;
-		@include grid-col;
+		@include goldlarge;
 	}
 	.goldsmall {
-		width: 38.196601125%;
-		@include grid-col;
+		@include goldsmall;
 	}
 
 	.m-all {
 		@include all;
 	}
 
+	.onecol,
 	.m-1of12 {
 		@include one;
 	}
+	.twocol,
 	.m-2of12 {
 		@include two;
 	}
+	.threecol,
 	.m-3of12 {
 		@include three;
 	}
+	.fourcol,
 	.m-4of12 {
 		@include four;
 	}
+	.fivecol,
 	.m-5of12 {
 		@include five;
 	}
+	.sixcol,
 	.m-6of12 {
 		@include six;
 	}
+	.sevencol,
 	.m-7of12 {
 		@include seven;
 	}
+	.eightcol,
 	.m-8of12 {
 		@include eight;
 	}
+	.ninecol,
 	.m-9of12 {
 		@include nine;
 	}
+	.tencol,
 	.m-10of12 {
 		@include ten;
 	}
+	.elevencol,
 	.m-11of12 {
 		@include eleven;
 	}
@@ -140,56 +158,52 @@ Stylesheet: Grid
 		@include all;
 	}
 
-	.onecol,
 	.l-1of12 {
 		@include one;
 	}
-	.twocol,
 	.l-2of12 {
 		@include two;
 	}
-	.threecol,
 	.l-3of12 {
 		@include three;
 	}
-	.fourcol,
 	.l-4of12 {
 		@include four;
 	}
-	.fivecol,
 	.l-5of12 {
 		@include five;
 	}
-	.sixcol,
 	.l-6of12 {
 		@include six;
 	}
-	.sevencol,
 	.l-7of12 {
 		@include seven;
 	}
-	.eightcol,
 	.l-8of12 {
 		@include eight;
 	}
-	.ninecol,
 	.l-9of12 {
 		@include nine;
 	}
-	.tencol,
 	.l-10of12 {
 		@include ten;
 	}
-	.elevencol,
 	.l-11of12 {
 		@include eleven;
 	}
 }
 
 
+// the first column
+.firstcol,
+.first-col {
+	clear: left;
+}
+
+
 // the last column
 .lastcol,
 .last-col {
-	float: right !important;
-	padding-right: 0 !important;
+	float: right;
+	padding-right: 0;
 }
