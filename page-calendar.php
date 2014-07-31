@@ -15,36 +15,19 @@
 					<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
 				</header>
 <?php
-echo "<style>
 
-.cal-WEEK {  border:solid 1px grey; }
-.cal-DAY, .cal-EMPTYDAY {display:inline-block; vertical-align:top; width: 13%; height: 100px;}
-.cal-current-DAY { background-color:#A9A7AD;  }
-.cal-past-DAY, .cal-past-DAY a { background-color: #d7d7d8; color:grey}
-.cal-prev { display:inline-block; }
-.cal-next{ float:right; display:inline-block;}
-</style>";
-
-if(isset($wp_query->query_vars['calendar_date'])) {
-	$cal_date = urldecode($wp_query->query_vars['calendar_date']);
-	$selected_date = strtotime( $cal_date );
-}
-else{
-	$selected_date = time();
-}
-$cal = new calendar( $selected_date );
-
-// set parameters: 
-$cal->range_units = 'month';
-//$cal->range_multiple = '1';
-$cal->increment_array = array('week','day', 'hour');
-
-
+$args = array(
+	'selected_time'=>NULL,
+	'start_type'=>'selected',
+	'add_style'=>1,
+	'debug'=>1
+);
+$cal = new calendar( $args );
 $cal->init();
-$cal->build_calendar_output();
-print_r($cal->outputCalendar);
+
 $cal->output_month();
-			
+print_r($cal);
+unset($cal);
 ?>
 				<section class="entry-content" itemprop="articleBody">
 					<?php the_content(); ?>
