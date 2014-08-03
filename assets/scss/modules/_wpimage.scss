@@ -5,7 +5,7 @@ Stylesheet: WP Images
 ******************************************************************/
 
 /******************************************************************
-ENTRY CONTENT
+ENTRY CONTENT IMAGES
 ******************************************************************/
 
 .entry-content {
@@ -27,34 +27,33 @@ ENTRY CONTENT
 		height: auto;
 	}
 
-	@include breakpoint(small)
-	{
-		.alignleft, img.alignleft, figure.alignleft, dl.alignleft {
-			display: inline;
-			float: left;
-			margin-left: 0em;
-			margin-right: $default_margin;
-		}
-		.alignright, img.alignright, figure.alignright, dl.alignright {
-			display: inline;
-			float: right;
-			margin-left: $default_margin;
-			margin-right: 0em;
-		}
-		.aligncenter, img.aligncenter, figure.aligncenter, dl.aligncenter {
-			clear: both;
-			display: block;
-			margin-right: auto;
-			margin-left: auto;
-		}
+@include breakpoint(small) {
+	.alignleft, img.alignleft, figure.alignleft, dl.alignleft {
+		display: inline;
+		float: left;
+		margin-left: 0em;
+		margin-right: $default_margin;
 	}
+	.alignright, img.alignright, figure.alignright, dl.alignright {
+		display: inline;
+		float: right;
+		margin-left: $default_margin;
+		margin-right: 0em;
+	}
+	.aligncenter, img.aligncenter, figure.aligncenter, dl.aligncenter {
+		clear: both;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
 
-	.alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img  {
-		margin-left: 0;
-		margin-right: 0;
-		width: 100% !important;
-		height: auto;
-	}
+.alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img  {
+	margin-left: 0;
+	margin-right: 0;
+	width: 100% !important;
+	height: auto;
+}
 
 /******************************************************************
 CAPTIONS
@@ -66,7 +65,6 @@ CAPTIONS
 	font-size: 0.75em;
 	padding: 0.333333333em 0;
 	text-align: center;
-
 
 	&.alignleft {
 		margin-right: $default_margin;
@@ -91,4 +89,42 @@ CAPTIONS
 		margin: 4px 0 7px;
 		text-align: center;
 	}
+}
+
+/******************************************************************
+HTML5 IMAGE GALLERY
+******************************************************************/
+
+.gallery {
+	text-align: justify;
+	.gallery-item {
+		margin: 0;
+		width: 50%;
+		display: inline-block;
+		vertical-align: top;
+		padding: .5em;
+		// outline: none;
+	}
+	img {
+		display: block;
+		transform: translateZ(0);
+	}
+	.gallery-caption {
+		text-align: left;
+		padding: .25em 0;
+	}
+	&:after{
+	    content: '';
+	    display: inline-block;
+	    width: 100%;
+	}
+@include breakpoint(medium) {
+	.gallery-item {
+		width: 25%;
+	}
+	img:hover {
+		opacity: .7;
+		transition: opacity .2s ease;
+	}
+}
 }
