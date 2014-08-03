@@ -20,7 +20,7 @@ require_once( 'admin/admin.php' );
 require_once( 'admin/login.php' );
 require_once( 'admin/tinymce.php' );
 #require_once( 'admin/dashboard-widget.php' ); 			// A basic example to show instructions
-#require_once( 'admin/recently-updated-content.php' ); 	// Shows recently updated content. Requires customization before use
+#require_once( 'admin/recently-updated-content.php' ); 	// Shows recently updated content. REQUIRES customization
 #require_once( 'admin/disable-comments.php' );          // Completely remove comments from the admin area
 
 // Front end
@@ -39,9 +39,23 @@ require_once( 'includes/related-posts.php' );
 #require_once( 'includes/cleanup-plugins.php' );		// Cleanup commonly used plugins
 #require_once( 'includes/assets-rewrites.php' );		// Rewrite theme assets to /assets and plugins to /plugins. Does not work on nginx servers.
 
-
 // In Development
 
 #require_once( 'includes/lazy-load.php' );				// Lazy load content
 #require_once( 'includes/one-time-code.php' );
-require_once( 'includes/egg-calendar.php' );			// Flexible calendar (monthly, weekly, daily)
+#require_once( 'includes/egg-calendar.php' );			// Flexible calendar (monthly, weekly, daily)
+
+
+/**
+ * SEWN IN SIMPLE SEO + XML SITEMAP
+ * Customize what post types are added to the XML sitemap
+ *
+ * @param   array   $post_types List of post types to be added to the XML Sitemap
+ * @return  array   $post_types Modified list of post types
+ */
+add_filter( 'customize_wordpress_seo/post_types', 'custom_seo_post_types' );
+function custom_seo_post_types( $post_types )
+{
+    $post_types[] = "page";
+    return $post_types;
+}
