@@ -62,7 +62,9 @@ function add_scripts(){
 	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/jquery.headroom.js'></script>
 	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/jquery.flexslider.js'></script>
 	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/jquery.colorbox.js'></script>
-	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/jquery.mixitup.js'></script>";
+	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/jquery.mixitup.js'></script>
+	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/jquery.lazyload.js'></script>";
+
 	}
 
 ?>
@@ -123,9 +125,9 @@ function add_scripts(){
 			<hr>
 			<div style='height:600px'></div>
 			<h2>LazyLoader (images)</h2>
-		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee1.jpg"; ?>" />
-		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee2.jpg"; ?>" />
-		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee3.jpg"; ?>" />
+		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/lazy1.jpg"; ?>" />
+		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/lazy2.jpg"; ?>" />
+		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/lazy3.jpg"; ?>" />
 			<hr>
 			
 		</div>
