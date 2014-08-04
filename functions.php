@@ -28,7 +28,7 @@ require_once( 'includes/cleanup.php' );
 require_once( 'includes/theme-support.php' );
 require_once( 'includes/enqueue.php' );
 require_once( 'includes/page-navi.php' );
-require_once( 'includes/related-posts.php' );
+#require_once( 'includes/related-posts.php' );
 #require_once( 'includes/youtube-customization.php' );	// Customize iframe and youtube parameters
 #require_once( 'includes/custom-post-types.php' );		// Create custom post types
 #require_once( 'includes/nice-search.php' );			// Clean search urls
@@ -37,25 +37,10 @@ require_once( 'includes/related-posts.php' );
 #require_once( 'includes/seo-meta-data.php' );			// SEO Meta Data
 #require_once( 'includes/xml-sitemap.php' );			// XML Sitemap
 #require_once( 'includes/cleanup-plugins.php' );		// Cleanup commonly used plugins
-#require_once( 'includes/assets-rewrites.php' );		// Rewrite theme assets to /assets and plugins to /plugins. Does not work on nginx servers.
+#require_once( 'includes/assets-rewrites.php' );		// Rewrite theme assets to /assets and plugins to /plugins. DOES NOT WORK ON NGINX SERVERS LIKE WPENGINE
 
 // In Development
 
 #require_once( 'includes/lazy-load.php' );				// Lazy load content
 #require_once( 'includes/one-time-code.php' );
 #require_once( 'includes/egg-calendar.php' );			// Flexible calendar (monthly, weekly, daily)
-
-
-/**
- * SEWN IN SIMPLE SEO + XML SITEMAP
- * Customize what post types are added to the XML sitemap
- *
- * @param   array   $post_types List of post types to be added to the XML Sitemap
- * @return  array   $post_types Modified list of post types
- */
-add_filter( 'customize_wordpress_seo/post_types', 'custom_seo_post_types' );
-function custom_seo_post_types( $post_types )
-{
-    $post_types[] = "page";
-    return $post_types;
-}
