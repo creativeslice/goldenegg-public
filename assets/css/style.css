@@ -395,6 +395,9 @@ FONT STACKS
 COLORS
 *********************/
 /*********************
+REUSABLE ITEMS
+*********************/
+/*********************
 BUTTONS
 *********************/
 .search-submit, .form-submit input, .button {
@@ -403,10 +406,10 @@ BUTTONS
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
   color: #fff;
-  font-size: 0.9em;
+  font-size: 0.875em;
   font-weight: bold;
   line-height: 2em;
-  padding: 0 1em;
+  padding: 1em;
   border-radius: 4px;
   cursor: pointer;
   -webkit-transition: background-color 0.2s ease-in-out;
@@ -665,7 +668,7 @@ Stylesheet: WP Images
 
 ******************************************************************/
 /******************************************************************
-ENTRY CONTENT
+ENTRY CONTENT IMAGES
 ******************************************************************/
 .entry-content img {
   height: auto;
@@ -725,6 +728,37 @@ CAPTIONS
     font-size: 0.9em;
     margin: 4px 0 7px;
     text-align: center; }
+
+/******************************************************************
+HTML5 IMAGE GALLERY
+******************************************************************/
+.gallery {
+  text-align: justify; }
+  .gallery .gallery-item {
+    margin: 0;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.5em; }
+  .gallery img {
+    display: block;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0); }
+  .gallery .gallery-caption {
+    text-align: left;
+    padding: 0.25em 0; }
+  .gallery:after {
+    content: '';
+    display: inline-block;
+    width: 100%; }
+  @media screen and (min-width: 48em) {
+    .gallery .gallery-item {
+      width: 25%; }
+    .gallery img:hover {
+      opacity: 0.7;
+      -webkit-transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease; } }
 
 /******************************************************************
 
@@ -830,59 +864,59 @@ Stylesheet: Grid
 
 @media screen and (min-width: 48em) {
   .goldlarge {
-    width: 61.8034%;
     float: left;
-    padding-right: 0.75em; }
+    padding-right: 0.75em;
+    width: 61.8034%; }
   .goldsmall {
-    width: 38.1966%;
     float: left;
-    padding-right: 0.75em; }
+    padding-right: 0.75em;
+    width: 38.1966%; }
   .m-all {
     float: left;
     padding-right: 0.75em;
     width: 100%;
     padding-right: 0; }
-  .m-1of12 {
+  .onecol, .m-1of12 {
     float: left;
     padding-right: 0.75em;
     width: 8.33%; }
-  .m-2of12 {
+  .twocol, .m-2of12 {
     float: left;
     padding-right: 0.75em;
     width: 16.66667%; }
-  .m-3of12 {
+  .threecol, .m-3of12 {
     float: left;
     padding-right: 0.75em;
     width: 25%; }
-  .m-4of12 {
+  .fourcol, .m-4of12 {
     float: left;
     padding-right: 0.75em;
     width: 33.33333%; }
-  .m-5of12 {
+  .fivecol, .m-5of12 {
     float: left;
     padding-right: 0.75em;
     width: 41.66667%; }
-  .m-6of12 {
+  .sixcol, .m-6of12 {
     float: left;
     padding-right: 0.75em;
     width: 50%; }
-  .m-7of12 {
+  .sevencol, .m-7of12 {
     float: left;
     padding-right: 0.75em;
     width: 58.33333%; }
-  .m-8of12 {
+  .eightcol, .m-8of12 {
     float: left;
     padding-right: 0.75em;
     width: 66.66667%; }
-  .m-9of12 {
+  .ninecol, .m-9of12 {
     float: left;
     padding-right: 0.75em;
     width: 75%; }
-  .m-10of12 {
+  .tencol, .m-10of12 {
     float: left;
     padding-right: 0.75em;
     width: 83.33333%; }
-  .m-11of12 {
+  .elevencol, .m-11of12 {
     float: left;
     padding-right: 0.75em;
     width: 91.66667%; } }
@@ -893,54 +927,57 @@ Stylesheet: Grid
     padding-right: 0.75em;
     width: 100%;
     padding-right: 0; }
-  .onecol, .l-1of12 {
+  .l-1of12 {
     float: left;
     padding-right: 0.75em;
     width: 8.33%; }
-  .twocol, .l-2of12 {
+  .l-2of12 {
     float: left;
     padding-right: 0.75em;
     width: 16.66667%; }
-  .threecol, .l-3of12 {
+  .l-3of12 {
     float: left;
     padding-right: 0.75em;
     width: 25%; }
-  .fourcol, .l-4of12 {
+  .l-4of12 {
     float: left;
     padding-right: 0.75em;
     width: 33.33333%; }
-  .fivecol, .l-5of12 {
+  .l-5of12 {
     float: left;
     padding-right: 0.75em;
     width: 41.66667%; }
-  .sixcol, .l-6of12 {
+  .l-6of12 {
     float: left;
     padding-right: 0.75em;
     width: 50%; }
-  .sevencol, .l-7of12 {
+  .l-7of12 {
     float: left;
     padding-right: 0.75em;
     width: 58.33333%; }
-  .eightcol, .l-8of12 {
+  .l-8of12 {
     float: left;
     padding-right: 0.75em;
     width: 66.66667%; }
-  .ninecol, .l-9of12 {
+  .l-9of12 {
     float: left;
     padding-right: 0.75em;
     width: 75%; }
-  .tencol, .l-10of12 {
+  .l-10of12 {
     float: left;
     padding-right: 0.75em;
     width: 83.33333%; }
-  .elevencol, .l-11of12 {
+  .l-11of12 {
     float: left;
     padding-right: 0.75em;
     width: 91.66667%; } }
 
+.firstcol, .first-col {
+  clear: left; }
+
 .lastcol, .last-col {
-  float: right !important;
-  padding-right: 0 !important; }
+  float: right;
+  padding-right: 0; }
 
 /******************************************************************
 
