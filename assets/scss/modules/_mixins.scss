@@ -10,9 +10,6 @@ FONT STACKS
 $sans_serif:        "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 
-
-$default_margin:    1.5em;
-
 /*********************
 COLORS
 *********************/
@@ -39,6 +36,23 @@ $link_color:        $green;
 $link_hover:        lighten($link_color, 10%);
 
 
+/*********************
+REUSABLE ITEMS
+*********************/
+
+$default_margin:    1.5em;
+
+// INLINE-BLOCK
+// inline-block support for legacy browsers
+@mixin inline-block($position: middle) {
+	display: inline-block;
+	vertical-align: $position;
+	@include old-ie {
+		zoom: 1;
+		*display: inline;
+	}
+}
+
 
 /*********************
 BUTTONS
@@ -50,10 +64,10 @@ BUTTONS
 	font-family: $sans_serif;
 	text-decoration: none;
 	color: $white;
-	font-size: .9em;
+	font-size: .875em;
 	font-weight: bold;
 	line-height: 2em;
-	padding: 0 1em;
+	padding: 1em;
 	border-radius: 4px;
 	cursor: pointer;
 	transition: background-color 0.2s ease-in-out;
@@ -83,7 +97,6 @@ BUTTONS
 	&:active {
 		background-color: darken($link_color, 5%);
 	}
-
 }
 
 
@@ -96,15 +109,19 @@ $old-ie:			false !default;
 $ignore-mqs:		false !default;
 
 // BREAK POINTS
-$small:             "screen and (min-width: 30em)";            
-$medium:            "screen and (min-width: 48em)";
-$large:             "screen and (min-width: 64em)";
+$small:				"screen and (min-width: 30em)"; // 480px
+$medium:			"screen and (min-width: 48em)";	// 768px
+$large:				"screen and (min-width: 64em)";	// 1024px
+$xlarge:			"screen and (min-width: 90em)";	// 1440px
 
 @mixin breakpoint($point) {
 	@if $ignore-mqs {
 		@content; // output all content passed in
 	}
 	@else {
+		@if $point == xlarge {
+			@media #{$xlarge} { @content; }	// output xlarge screen content
+		}
 		@if $point == large {
 			@media #{$large} { @content; }  // output large screen content
 		}

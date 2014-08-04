@@ -21,6 +21,9 @@ FONT STACKS
 COLORS
 *********************/
 /*********************
+REUSABLE ITEMS
+*********************/
+/*********************
 BUTTONS
 *********************/
 .search-submit, .form-submit input, .button {
@@ -29,10 +32,10 @@ BUTTONS
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
   color: #fff;
-  font-size: 0.9em;
+  font-size: 0.875em;
   font-weight: bold;
   line-height: 2em;
-  padding: 0 1em;
+  padding: 1em;
   border-radius: 4px;
   cursor: pointer;
   -webkit-transition: background-color 0.2s ease-in-out;
