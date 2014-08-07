@@ -1,6 +1,6 @@
 #Egg-Calendar#
 
-Class **calendar** returns a calendar as a nested array of timestamp keys across a defined range of time units (i.e., 2 Months of weeks; 2 weeks of days).
+**Calendar** returns a nested array of timestamp keys across a defined range of time units. For example: 2 Months of weeks, or 2 weeks of days.
   
 The class is intended to be flexible enough for a broad range of calendar demands within CreativeSlice.
 The output, for example, from a request of 2014-08 returns the following array:
