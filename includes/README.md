@@ -42,11 +42,10 @@ $args = array(
 ###Output Option 1:###
 
 ```php
-<?php $cal->output_month(); ?> 
-```
-Or:
-```php
-<?php $cal->output_week(); ?>
+<?php 
+  $cal->output_month();  
+  $cal->output_week(); 
+?>
 ```
 ###Output Option 2:###
 Copy the $cal->output_month() function to the page
