@@ -25,17 +25,17 @@ $defaults = array(
 );
 ?>
 ```
-* **range**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Options: use a natural language range like '2 Weeks' or '7 Days'
+* **range** - Options: use a natural language range like '2 Weeks' or '7 Days'
 
-* **selected_time**&nbsp;&nbsp;&nbsp;&nbsp;- Options: 'selected', 'natural' | 'selected' starts on selected time; 'natural' starts at beginning of range;
+* **selected_time** - Option: Date String - default is current time (i.e this month, this week, this day); 
 
-* **start_type**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sets range of time shown in range units (i.e., 1 WEEK)
+* **start_type** Options: 'selected', 'natural' | 'selected' starts on selected time; 'natural' starts at beginning of range;
 
-* **increment_array**&nbsp;- Units to display, less than the Range. i.e, array('DAY','WEEK') for a range of '1 Month'.
+* **increment_array** - Options: 'WEEK', 'DAY , 'HOUR' | Units to display, less than the Range. i.e, array('DAY','WEEK') for a range of '1 Month'.
 
-* **debug**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Set debug to '1' for error messages; 0 for production
+* **debug** - Set debug to '1' for error messages; 0 for production
 
-* **add_style**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Set add_style to '1' for styles in development; 0 for prodcution;
+* **add_style** - Set add_style to '1' for styles in development; 0 for prodcution;
 
 ##Outputting to the Page##
 ###Output Option 1:###
@@ -47,7 +47,7 @@ Or:
 ```php
 <?php $cal->output_week(); ?>
 ```
-###Output Option 2 (Recommended):###
+###Output Option 2:###
 Copy the $cal->output_month() function to the page
 ```php
 
