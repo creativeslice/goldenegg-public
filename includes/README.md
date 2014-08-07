@@ -40,8 +40,10 @@ $args = array(
 
 ##Getting Events##
 ```php
-<?php $events = get_events(); ?>
+<?php $events = get_events(); 
+
 // returns chronologically ordered array of timestamped event posts. Timestamp is from ACF date field.
+
 Array (
   [1407182400] => stdClass Object
         (
@@ -57,6 +59,7 @@ Array (
             	•••
         )
 )
+?>
 ```
 
 ##Outputting to the Page##
