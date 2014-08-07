@@ -70,9 +70,9 @@ $defaults = array(
 
 * **increment_array**&nbsp;- Units to display (less than the Range; i.e., 'DAY','WEEK' )
 
-* **debug**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp- Set debug to '1' for error messages; 0 for production
+* **debug**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Set debug to '1' for error messages; 0 for production
 
-* **add_style**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp- Set add_style to '1' for styles in development; 0 for prodcution;
+* **add_style**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Set add_style to '1' for styles in development; 0 for prodcution;
 
 ##Notes##
 **Calendar** uses the Wordpress General Settings for Timezone and returns timestamps (called here WPLOCAL) that are UnixTime offset by the Wordpress timezone_offset. If a Wordpress Timezone is not set, **Calendar** outputs true UnixTime referenced to UTC. 
