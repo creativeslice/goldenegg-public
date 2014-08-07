@@ -57,7 +57,7 @@ Copy the $cal->output_month() function to the page
 
 **Calendar** returns a nested array of timestamp keys across a defined range of time units, such as 2 Months of weeks, or 2 weeks of days.
 
-For example, a request for '2014-08' returns the following:
+For example, a request for '1 Month' for '2014-08' returns the following:
 ```
   		[WEEK] => Array
   			(
