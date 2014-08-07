@@ -26,6 +26,7 @@ $args = array(
   'debug'           =>  1, 
   'add_style'       =>  1											
 );
+$cal = new calendar( $args ); 
 ?>
 ```
 * **range** - Options: use a natural language range like '2 Weeks' or '7 Days'
@@ -42,9 +43,15 @@ $args = array(
 
 ##Getting Events##
 ```php
-<?php $events = get_events(); 
+<?php 
 
-// returns chronologically ordered array of timestamped event posts. Timestamp is from ACF date field.
+  $events = get_events( $start_date , $number_of_days_to_search , $event_category );
+  
+  // @$start_date : string format, 20140807 for August 7 2014. (default is current time)
+  // @$number_of_days_to_search : number of days beyond start_date which to search (default is 1 day)  
+  // @$event_category : optional category restriction
+  
+  // returns chronologically ordered array of timestamped event posts. Timestamp is from ACF date field.
 
 Array (
   [1407182400] => stdClass Object
