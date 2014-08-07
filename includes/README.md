@@ -13,7 +13,7 @@
 ?>
 ```  
 
-##Arguments##
+##Calendar Arguments##
 
 ```php
 <?php
