@@ -62,17 +62,17 @@ $defaults = array(
 );
 ?>
 ```
-**@range**                Natural language range, i.e. '2 Weeks' or '7 Days'
+* **range**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Natural language range, i.e. '2 Weeks' or '7 Days'
 
-**@selected_time**        Options: 'selected' starts on selected time; 'natural' starts at beginning of range;
+* **selected_time**&nbsp;&nbsp;- Options: 'selected' starts on selected time; 'natural' starts at beginning of range;
 
-**@start_type**           Sets range of time shown in range units (i.e., 1 WEEK)
+* **start_type**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Sets range of time shown in range units (i.e., 1 WEEK)
 
-**@increment_array**      Units to display (less than the Range; i.e., 'DAY','WEEK' )
+* **increment_array**&nbsp;- Units to display (less than the Range; i.e., 'DAY','WEEK' )
 
-**@debug**                Set debug to '1' for error messages; 0 for production
+* **debug**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Set debug to '1' for error messages; 0 for production
 
-**@add_style**            Set add_style to '1' for styles in development; 0 for prodcution;
+* **add_style**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Set add_style to '1' for styles in development; 0 for prodcution;
 
 ##Notes##
 **Calendar** uses the Wordpress General Settings for Timezone and returns timestamps (called here WPLOCAL) that are UnixTime offset by the Wordpress timezone_offset. If a Wordpress Timezone is not set, **Calendar** outputs true UnixTime referenced to UTC. 
