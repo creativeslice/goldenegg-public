@@ -29,7 +29,7 @@ $defaults = array(
 
 * **selected_time** - Option: Date String - default is current time (i.e this month, this week, this day); 
 
-* **start_type** Options: 'selected', 'natural' | 'selected' starts on selected time; 'natural' starts at beginning of range;
+* **start_type** - Options: 'selected', 'natural' | 'selected' starts on selected time; 'natural' starts at beginning of range;
 
 * **increment_array** - Options: 'WEEK', 'DAY , 'HOUR' | Units to display, less than the Range. i.e, array('DAY','WEEK') for a range of '1 Month'.
 
