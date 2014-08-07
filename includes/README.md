@@ -2,14 +2,6 @@
 
 **Calendar** returns a nested array of timestamp keys across a defined range of time units, such as 2 Months of weeks, or 2 weeks of days.
 
-##Calling the Calendar##
-```
-<?php
-  $cal = new calendar();
-  $cal->init();
-?>
-
-```  
 For example, a request for '2014-08' returns the following:
 ```
   		[WEEK] => Array														// 'WEEK' is an array of the month's (5) weeks
@@ -38,6 +30,11 @@ For example, a request for '2014-08' returns the following:
   					•••
   			)
 ```
+
+##Calling the Calendar##
+```php
+<?php $cal = new calendar(); $cal->init(); ?>
+```  
 
 ##Arguments##
 
