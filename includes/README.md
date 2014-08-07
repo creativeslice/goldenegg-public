@@ -37,7 +37,7 @@ $defaults = array(
 
 * **add_style**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Set add_style to '1' for styles in development; 0 for prodcution;
 
-##Page Output##
+##Outputting to the Page##
 ###Output Option 1:###
 
 ```php
