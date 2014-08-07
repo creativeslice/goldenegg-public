@@ -36,9 +36,33 @@ For example, a request for '2014-08' returns the following:
 <?php $cal = new calendar(); $cal->init(); ?>
 ```  
 
-##Arguments##
+##Arguments & Defaults##
 
-##NOTES##  
+```php
+<?php
+$defaults = array(
+  'range'           =>  '1 Month',
+  'selected_time'   =>  NULL,										
+  'start_type'      =>  'selected',									
+  'increment_array' =>  array('WEEK','DAY'),						
+  'debug'           =>  1, 
+  'add_style'       =>  1											
+);
+?>
+```
+**@range**                Natural language range, i.e. '2 Weeks' or '7 Days'
+
+**@selected_time**        Options: 'selected' starts on selected time; 'natural' starts at beginning of range;
+
+**@start_type**           Sets range of time shown in range units (i.e., 1 WEEK)
+
+**@increment_array**      Units to display (less than the Range; i.e., 'DAY','WEEK' )
+
+**@debug**                Set debug to '1' for error messages; 0 for production
+
+**@add_style**            Set add_style to '1' for styles in development; 0 for prodcution;
+
+##Notes##
 **Calendar** uses the Wordpress General Settings for Timezone and returns timestamps (called here WPLOCAL) that are UnixTime offset by the Wordpress timezone_offset. If a Wordpress Timezone is not set, **Calendar** outputs true UnixTime referenced to UTC. 
 
 WPLOCAL timestamps are: *the number of seconds that have elapsed since 00:00:00 Wordpress Local TimeZone, Thursday, 1 January 1970.*
