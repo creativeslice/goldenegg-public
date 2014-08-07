@@ -2,8 +2,9 @@
 
 Class **calendar** returns a calendar as a nested array of timestamp keys across a defined range of time units (i.e., 2 Months of weeks; 2 weeks of days).
   
-   The class is intended to be flexible enough for a broad range of calendar demands within CreativeSlice.
-   The output, for example, from a request of 2014-08 returns the following array:
+The class is intended to be flexible enough for a broad range of calendar demands within CreativeSlice.
+The output, for example, from a request of 2014-08 returns the following array:
+```
   		[WEEK] => Array														// 'WEEK' is an array of the month's (5) weeks
   			(
   				[1406419200] => Array										// a WPLOCAL timestamp of 12:00 AM of the first Sunday of Week 1 (WPLOCAL defined below)
@@ -29,6 +30,7 @@ Class **calendar** returns a calendar as a nested array of timestamp keys across
   					)
   					•••
   			)
+```
   
    To protect against timezone conflicts, this Calendar Class sets the PHP timezone to UTC-0. The Class uses the Wordpress General Settings for a Wordpress Timezone. If a 
    The Class then returns timestamps that are UnixTime offset by the Wordpress timezone_offset. This timestamp will be called here WPLOCAL. (If a Timezone is not set, the 
