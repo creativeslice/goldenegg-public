@@ -36,7 +36,7 @@ For example, a request for '2014-08' returns the following:
   // [1406419200] => Jul 27 Sun 2014 00:00	The key is a WPLOCAL timestamp of 12:00 AM of the day
   // [1406505600] => Jul 28 Mon 2014 00:00	The value is a Date String for reference (modifiable by developer).
   // [1407024000] is a WPLOCAL timestamp of 12:00 AM of the first Sunday of Week 2 
-
+  //    ••• are arrays omitted for space
 ```
 
 ##Calling the Calendar##
