@@ -62,11 +62,11 @@ $defaults = array(
 );
 ?>
 ```
-* **range**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Natural language range, i.e. '2 Weeks' or '7 Days'
+* **range**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Natural language range, i.e. '2 Weeks' or '7 Days'
 
 * **selected_time**&nbsp;&nbsp;- Options: 'selected' starts on selected time; 'natural' starts at beginning of range;
 
-* **start_type**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sets range of time shown in range units (i.e., 1 WEEK)
+* **start_type**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sets range of time shown in range units (i.e., 1 WEEK)
 
 * **increment_array**&nbsp;- Units to display (less than the Range; i.e., 'DAY','WEEK' )
 
