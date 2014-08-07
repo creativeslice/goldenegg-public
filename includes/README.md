@@ -78,7 +78,7 @@ $defaults = array(
 **Option 1:**
 
 ```php
-<?php $cal->output_month(); ?>
+<?php $cal->output_month(); ?>   or  <?php $cal->output_week(); ?>
 ```
 
 
