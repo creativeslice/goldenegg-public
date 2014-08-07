@@ -2,7 +2,7 @@
 
 
 
-##Example##
+##Example with Events##
 ```php
 <?php 
   $events = get_events();
