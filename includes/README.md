@@ -78,7 +78,11 @@ $defaults = array(
 **Option 1:**
 
 ```php
-<?php $cal->output_month(); /** or $cal->output_week(); */ ?>
+<?php $cal->output_month(); ?> 
+```
+Or:
+```php
+<?php $cal->output_week(); ?>
 ```
 
 
