@@ -38,17 +38,35 @@ $args = array(
 
 * **add_style** - Set add_style to '1' for styles in development; 0 for prodcution;
 
+##Getting Events##
+```php
+<?php $events = get_events(); ?>
+// returns chronologically ordered array of timestamped event posts. Timestamp is from ACF date field.
+Array (
+  [1407182400] => stdClass Object
+        (
+            [ID] => 14113
+            [post_author] => 9
+            [post_date] => 2014-07-30 15:02:42
+            	•••
+        )
+  [1407787200] => stdClass Object
+        (
+            [ID] => 14113
+            [post_author] => 9
+            	•••
+        )
+)
+```
+
 ##Outputting to the Page##
 ###Output Option 1:###
 
 ```php
-<?php 
-  $cal->output_month();  
-  $cal->output_week(); 
-?>
+<?php $cal->output_month(); $cal->output_week(); ?>
 ```
 ###Output Option 2:###
-Copy the $cal->output_month() function to the page
+Copy the $cal->output_month() function to the template-page.php:
 ```php
 
 ```
