@@ -1,0 +1,40 @@
+#Egg-Calendar#
+
+Class **calendar** returns a calendar as a nested array of timestamp keys across a defined range of time units (i.e., 2 Months of weeks; 2 weeks of days).
+  
+   The class is intended to be flexible enough for a broad range of calendar demands within CreativeSlice.
+   The output, for example, from a request of 2014-08 returns the following array:
+  		[WEEK] => Array														// 'WEEK' is an array of the month's (5) weeks
+  			(
+  				[1406419200] => Array										// a WPLOCAL timestamp of 12:00 AM of the first Sunday of Week 1 (WPLOCAL defined below)
+  					(
+  						[DAY] => Array										// 'DAY' is an array of the week's (7) days
+  							(
+  								[1406419200] => Jul 27 Sun 2014 00:00		// a WPLOCAL timestamp of 12:00 AM of the day
+  								[1406505600] => Jul 28 Mon 2014 00:00		// The Value of the lowest level pair is a Date String but can be modified by developer.
+  								[1406659200] => Jul 29 Tue 2014 00:00
+  								[1406678400] => Jul 30 Wed 2014 00:00
+  								[1406764800] => Jul 31 Thu 2014 00:00
+  								[1406851200] => Aug 01 Fri 2014 00:00
+  								[1406937600] => Aug 02 Sat 2014 00:00
+  							)
+  					)
+  				[1407024000] => Array										// a WPLOCAL timestamp of 12:00 AM of the first Sunday of Week 2 
+  					(
+  						[DAY] => Array
+  							(
+  								[1407024000] => Aug 03 Sun 2014 00:00
+  									•••
+  							)
+  					)
+  					•••
+  			)
+  
+   To protect against timezone conflicts, this Calendar Class sets the PHP timezone to UTC-0. The Class uses the Wordpress General Settings for a Wordpress Timezone. If a 
+   The Class then returns timestamps that are UnixTime offset by the Wordpress timezone_offset. This timestamp will be called here WPLOCAL. (If a Timezone is not set, the 
+   Calendar outputs true UnixTime referenced to UTC.) 
+   
+   WPLOCAL timestamps will look like Unix Timestamp, but technically are not, and thus might be confusing. WPLOCAL can be defined as:
+   the number of seconds that have elapsed since 00:00:00 Wordpress Local TimeZone, Thursday, 1 January 1970.
+  /
+
