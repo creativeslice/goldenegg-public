@@ -86,10 +86,9 @@ Or:
 ```
 ###Output Option 2 (Recommended):###
 Copy the $cal->output_month() function to the page
+```php
 
-'''php
-
-'''
+```
 
 ##Notes##
 **Calendar** uses the Wordpress General Settings for Timezone and returns timestamps (called here WPLOCAL) that are UnixTime offset by the Wordpress timezone_offset. If a Wordpress Timezone is not set, **Calendar** outputs true UnixTime referenced to UTC. 
