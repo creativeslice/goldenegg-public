@@ -2,13 +2,15 @@
 
 
 
-##Calling the Calendar##
+##Example##
 ```php
-<?php $cal = new calendar(); $cal->init(); ?>
-```  
-  or with arguments:
-```php
-<?php $args = array( 'range'=>'2 Weeks' ); $cal = new calendar( $args ); $cal->init(); ?>
+<?php 
+  $events = get_events();
+  $args = array( 'range'=>'2 Weeks' ); 
+  $cal = new calendar( $args ); 
+  $cal->init(); 
+  $cal->output_month();
+?>
 ```  
 
 ##Arguments##
