@@ -68,7 +68,7 @@ $defaults = array(
 
 * **start_type**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sets range of time shown in range units (i.e., 1 WEEK)
 
-* **increment_array**&nbsp;- Units to display (less than the Range; i.e., 'DAY','WEEK' )
+* **increment_array**&nbsp;- Units to display (less than the Range; i.e., array('DAY','WEEK') for a range :'1 Month')
 
 * **debug**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Set debug to '1' for error messages; 0 for production
 
