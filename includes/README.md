@@ -32,8 +32,8 @@ The output, for example, from a request of 2014-08 returns the following array:
   			)
 ```
   
-To protect against timezone conflicts, **Calendar** sets the PHP timezone to UTC-0 and then uses the Wordpress General Settings for a Wordpress Timezone. **Calendar** then returns timestamps that are UnixTime offset by the Wordpress timezone_offset. This returned timestamp will be called here WPLOCAL. (If a Timezone is not set, **Calendar** outputs true UnixTime referenced to UTC.) 
+**Calendar** uses the Wordpress General Settings for Timezone and returns timestamps (called here WPLOCAL) that are UnixTime offset by the Wordpress timezone_offset. If a Wordpress Timezone is not set, **Calendar** outputs true UnixTime referenced to UTC. 
 
-WPLOCAL timestamps will look like Unix Timestamp, but technically are not, and thus might be confusing. WPLOCAL can be defined as: *the number of seconds that have elapsed since 00:00:00 Wordpress Local TimeZone, Thursday, 1 January 1970.*
+WPLOCAL timestamps are: *the number of seconds that have elapsed since 00:00:00 Wordpress Local TimeZone, Thursday, 1 January 1970.*
 
 
