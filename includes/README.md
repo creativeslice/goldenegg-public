@@ -43,6 +43,10 @@ For example, a request for '2014-08' returns the following:
 ```php
 <?php $cal = new calendar(); $cal->init(); ?>
 ```  
+  or with arguments:
+```php
+<?php $args = array( 'range'=>'2 Weeks' ); $cal = new calendar( $args ); $cal->init(); ?>
+```  
 
 ##Arguments & Defaults##
 
