@@ -30,7 +30,15 @@ For example, a request for '2014-08' returns the following:
   					•••
   			)
 ```
-  
+##Calling the Calendar##
+```
+$cal = new calendar();
+$cal->init();
+
+```
+##Arguments##
+
+##NOTES##  
 **Calendar** uses the Wordpress General Settings for Timezone and returns timestamps (called here WPLOCAL) that are UnixTime offset by the Wordpress timezone_offset. If a Wordpress Timezone is not set, **Calendar** outputs true UnixTime referenced to UTC. 
 
 WPLOCAL timestamps are: *the number of seconds that have elapsed since 00:00:00 Wordpress Local TimeZone, Thursday, 1 January 1970.*
