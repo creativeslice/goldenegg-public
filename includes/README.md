@@ -11,11 +11,12 @@
 <?php $args = array( 'range'=>'2 Weeks' ); $cal = new calendar( $args ); $cal->init(); ?>
 ```  
 
-##Arguments & Defaults##
+##Arguments##
 
 ```php
 <?php
-$defaults = array(
+// args shown below with defaults
+$args = array(
   'range'           =>  '1 Month',
   'selected_time'   =>  NULL,										
   'start_type'      =>  'selected',									
