@@ -4,14 +4,14 @@
 
 For example, a request for '2014-08' returns the following:
 ```
-  		[WEEK] => Array														// 'WEEK' is an array of the month's (5) weeks
+  		[WEEK] => Array
   			(
-  				[1406419200] => Array										// a WPLOCAL timestamp of 12:00 AM of the first Sunday of Week 1 (WPLOCAL defined below)
+  				[1406419200] => Array
   					(
-  						[DAY] => Array										// 'DAY' is an array of the week's (7) days
+  						[DAY] => Array
   							(
-  								[1406419200] => Jul 27 Sun 2014 00:00		// a WPLOCAL timestamp of 12:00 AM of the day
-  								[1406505600] => Jul 28 Mon 2014 00:00		// The Value of the lowest level pair is a Date String but can be modified by developer.
+  								[1406419200] => Jul 27 Sun 2014 00:00
+  								[1406505600] => Jul 28 Mon 2014 00:00
   								[1406659200] => Jul 29 Tue 2014 00:00
   								[1406678400] => Jul 30 Wed 2014 00:00
   								[1406764800] => Jul 31 Thu 2014 00:00
@@ -19,7 +19,7 @@ For example, a request for '2014-08' returns the following:
   								[1406937600] => Aug 02 Sat 2014 00:00
   							)
   					)
-  				[1407024000] => Array										// a WPLOCAL timestamp of 12:00 AM of the first Sunday of Week 2 
+  				[1407024000] => Array
   					(
   						[DAY] => Array
   							(
@@ -29,6 +29,14 @@ For example, a request for '2014-08' returns the following:
   					)
   					•••
   			)
+  			
+  // [WEEK] is an array of the month's (5) weeks
+  // [1406419200] is a WPLOCAL timestamp of 12:00 AM of the first Sunday of Week 1 (WPLOCAL defined below)
+  // [DAY] is an array of the week's (7) days
+  // [1406419200] => Jul 27 Sun 2014 00:00	The key is a WPLOCAL timestamp of 12:00 AM of the day
+  // [1406505600] => Jul 28 Mon 2014 00:00	The value is a Date String for reference (modifiable by developer).
+  // [1407024000] is a WPLOCAL timestamp of 12:00 AM of the first Sunday of Week 2 
+
 ```
 
 ##Calling the Calendar##
