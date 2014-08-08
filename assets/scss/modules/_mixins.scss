@@ -116,7 +116,12 @@ $xlarge:			"screen and (min-width: 90em)";	// 1440px
 
 @mixin breakpoint($point) {
 	@if $ignore-mqs {
-		@content; // output all content passed in
+		@if $old-ie and $point == xlarge {
+			
+		}
+		@else {
+			@content; // output all content passed in
+		}
 	}
 	@else {
 		@if $point == xlarge {
