@@ -370,7 +370,6 @@ HTML5 IMAGE GALLERY
   .gallery img {
     display: block;
     -webkit-transform: translateZ(0);
-    -ms-transform: translateZ(0);
     transform: translateZ(0); }
   .gallery .gallery-caption {
     text-align: left;
