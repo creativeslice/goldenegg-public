@@ -43,7 +43,7 @@ require_once( 'includes/custom-post-types.php' );		// Create custom post types
 
 #require_once( 'includes/lazy-load.php' );				// Lazy load content
 #require_once( 'includes/one-time-code.php' );
-#require_once( 'includes/egg-calendar.php' );			// Flexible calendar (monthly, weekly, daily)
+require_once( 'includes/egg-calendar.php' );			// Flexible calendar (monthly, weekly, daily)
 
 /**
  * Customize what post types are added to the XML sitemap

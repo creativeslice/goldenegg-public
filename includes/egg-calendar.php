@@ -76,10 +76,12 @@ class calendar{
 	public function  __construct( $args = NULL ){
 	
 		$defaults = array(
-			'selected_time'=>NULL,										// Options: 'selected' starts on selected time; 'natural' starts at beginning of range;
-			'start_type'=>'selected',													// Sets range of time shown in range units (i.e., 1 WEEK)
+			'range'=>'1 Month',											// Sets range of time shown in range units (i.e., 1 WEEK)
+			'selected_time'=>NULL,										
+			'start_type'=>'selected',									// 'selected' starts on selected time; 'natural' starts at beginning of range;
 			'increment_array'=>array('WEEK','DAY'),						// Units to display (less than the Range; i.e., 'DAY','WEEK' )
-			'add_style'=>0												// For development only; use stylesheets for production
+			'debug'=>1,													// Set debug to '1' for error messages; change to 0 for production
+			'add_style'=>1												// Set add_style to '1' for development; change to 0 for prodcution; use stylesheets for production
 		);
 		$args = wp_parse_args( $args, $defaults );
 		foreach($args as $key=>$val_pair){
@@ -101,7 +103,9 @@ class calendar{
 		// Adds Timezone of Offset to Calendar Object for Debugging/Reference
 		if( ! $this->wp_timezone = get_option('timezone_string') ){
 			$this->wp_timezone = get_option('gmt_offset');
-		}		
+			
+		}	
+		$this->echo_message( 'WP Timezone: ' . $this->wp_timezone );	
 		$this->get_times();
 	} 
 	
@@ -130,6 +134,14 @@ class calendar{
 			$this->range_units = 'MONTH';
 			if($this->debug == 1){
 				$msg = "Your range argument is missing a Time Unit. 'Month' is assumed.";
+				$this->echo_message( $msg );				
+			}
+		}
+		if($this->range_units == 'MONTHS'){
+			if($this->debug == 1){
+				$this->range = '1';
+				$this->range_units = 'MONTH';
+				$msg = "Multiple months aren't yet supported. '1 Month' is assumed.";
 				$this->echo_message( $msg );				
 			}
 		}
@@ -206,24 +218,41 @@ class calendar{
 			$key = constant('self::'.$default_incr);
 			$this->increment_array = array ( $key=> array( 'seconds'=>$key, 'name'=>$default_incr ) );
 		}
-		if( !@$this->start_type || ( $this->start_type != 'natural' && $this->start_type != 'selected' ) ){
-			$this->start_type = 'selected';
+		if( !@$this->start_type || ( $this->start_type != 'NATURAL' && $this->start_type != 'SELECTED' ) ){
+			$this->start_type = 'SELECTED';
 		}
 		$level_array = $this->level_array();
 		$lowest_key = count($level_array) - 1;
-		if('natural' == $this->start_type){
-			$this->start_of_range = $this->get_start_of_increment( $this->range_units , $this->selected->wplocalstamp);
-		}
-		if('selected' == $this->start_type){
+		if('NATURAL' == $this->start_type){
 			if($this->range_units == 'MONTH'){
-				$selected_time = $this->selected->wplocalstamp;
+				$selected_time = $this->selected->wplocalstamp = $this->selected->start_of_month;
+				$this->selected = $this->get_date( $this->selected->wplocalstamp );
 				if( $this->selected->day_of_week != 7){
-					$start_of_month = $selected_time - ( ($this->selected->day_of_week)* self::DAY);
+					$start_of_month = $selected_time - ( ($this->selected->day_of_week) * self::DAY);
 				}	
 				else{
 					$start_of_month = $selected_time;
 				}			
 				$start_of_increment = strtotime( 'today', $start_of_month );
+				$this->start_of_range = $start_of_increment;				
+			}	
+			elseif($this->range_units == 'WEEKS'){
+			
+				$this->start_of_range = $this->get_start_of_increment( 'WEEK' , $this->selected->wplocalstamp);	
+				print_r($this);			
+			}
+		}
+		if('SELECTED' == $this->start_type){
+			if($this->range_units == 'MONTH'){
+				$selected_time = $this->selected->wplocalstamp;
+				if( $this->selected->day_of_week != 7){
+					$start_of_week = $selected_time - ( ($this->selected->day_of_week)* self::DAY);
+				echo $start_of_week."<<<>>";
+				}	
+				else{
+					$start_of_week = $selected_time;
+				}			
+				$start_of_increment = strtotime( 'today', $start_of_week );
 				$this->start_of_range = $start_of_increment;					
 			}
 			else{
@@ -351,7 +380,7 @@ class calendar{
 		if (date_i18n('w', $end) == 0) {            // 0 = Sunday
 		   $end_week++;
 		}
-		if ($end_week < $start_week) { // Month wraps
+		if ($end_week < $start_week) { 								// Month wraps
 			return ((52 + $end_week) - $start_week) + 1;
 		}
 		return ($end_week - $start_week) + 1;
@@ -383,71 +412,115 @@ class calendar{
 		return $w;
     }
 	/** OUTPUT **/
+	function get_months(){
+		if(@$this->outputCalendar['MONTH']){
+			return $this->outputCalendar['MONTH'];
+		}
+		else{
+			echo $this->echo_message('This calendar does not have Months. Try get_weeks().');
+		}
+			
+	}
+	function get_title_month(){
+		 return date('F Y', $this->selected->start_of_month );
+	}
+	function get_weeks( $month = NULL ){
+		if(!$month){ $month = $this->outputCalendar; }
+		if($month['WEEK']){
+			foreach($month['WEEK'] as $week){
+				$weekObj = new calWeek($week, $this);
+				$weeks[] = $weekObj; 
+			}
+			return $weeks;
+		}
+		else{
+			echo $this->echo_message('This calendar does not have Weeks. Try get_days().');
+		}
+			
+	}
+	function get_days( $week = NULL ){
+		if( @$week ){
+			return $week['DAY'];
+		}
+		else{
+			echo $this->echo_message('Please supply a $week as array.');
+		}
+			
+	}
+	public function get_week_header(){ ?>
+	
+		<div class='cal-week-header'>
+			<div class='cal-day-header desktop'>Sunday</div>
+			<div class='cal-day-header mobile'>Sun</div>
+			<div class='cal-day-header desktop'>Monday</div>
+			<div class='cal-day-header mobile'>Mon</div>
+			<div class='cal-day-header desktop'>Tuesday</div>
+			<div class='cal-day-header mobile'>Tue</div>
+			<div class='cal-day-header desktop'>Wednesday</div>
+			<div class='cal-day-header mobile'>Wed</div>
+			<div class='cal-day-header desktop'>Thursday</div>
+			<div class='cal-day-header mobile'>Thu</div>
+			<div class='cal-day-header desktop'>Friday</div>
+			<div class='cal-day-header mobile'>Fri</div>
+			<div class='cal-day-header desktop'>Saturday</div>
+			<div class='cal-day-header mobile'>Sat</div>
+		</div>			
+<?php	}
+
 	function output_month( ){
 		global $events;
-		global $cal_type;
+		if($events){ $event_arr = $events->events; print_r($event_arr);}?>
+		
+		<h2><?php echo $this->get_title_month(); ?></h2>
+		
+		<div class='cal-month'>
+			
+<?php
+		$this->get_month_link(); 
+		$this->get_week_header();
+		$weeks = $this->get_weeks();
+		foreach($weeks as $week): ?>
+		
+			<div class='cal-week'>
+		
+			<?php $days = $week->get_days();
+			foreach($days as $day ): ?>
+			
+				<div class='<?php echo $day->div_class; ?>' data-timestamp='<?php echo $day->timestamp; ?>'>
+					
+					<?php echo date ('D M j', $day->timestamp); 
+					
+					if( @$event_arr ):
+						foreach($event_arr as $event_time=>$event):
+							if ($event_time <= $timestamp + 86400 ):
+								if( $event_time < time() ){ $class = 'filmtime past'; }else{ $class = 'filmtime'; } ?>
+						<div class='<?php echo $class; ?>' data-timestamp='<?php echo $event_time; ?>'>
+							<a href='<?php echo get_permalink($event); ?>'><?php echo get_the_title($event); ?></a>
+						</div>	
+								<?php unset($event_arr[$event_time]); ?>
+							<?php endif; ?>
+						<?php endforeach; ?>
+					<?php endif; ?>
+					
+				</div>
+					
+			<?php endforeach; ?>
+			
+			</div><!--/cal-week-->
+		
+		<?php endforeach; ?>
+		
+		</div><!--/cal-range_units-->
+	
+	
+<?php
+	}
+    public function get_month_link(){
+    	// gets query type from URL
+	    global $cal_type;
 		if(@$cal_type){
 			$query = "/?cal_type=".$cal_type;
 		}
-		if($events){ $event_arr = $events; }
-		$m = $this->month_link();
-		@$out .= "
-	<div class='cal-container'>
-		<h2>".  date('F Y', $this->selected->start_of_month ) ."  </h2>
-		<div class='cal-prev'><a href='/calendar/".$m->prev_url.$query."'>" .$m->prev_text ."</a></div>
-		<div class='cal-next'><a href='/calendar/".$m->next_url.$query."'>" .$m->next_text ."</a></div>
-		<div class='cal-".$this->range_units."'>\n
-			<div class='cal-WEEK-header'>
-				<div class='cal-DAY-header-desktop'>Sunday</div>
-				<div class='cal-DAY-header-mobile'>Sun</div>
-				<div class='cal-DAY-header-desktop'>Monday</div>
-				<div class='cal-DAY-header-mobile'>Mon</div>
-				<div class='cal-DAY-header-desktop'>Tuesday</div>
-				<div class='cal-DAY-header-mobile'>Tue</div>
-				<div class='cal-DAY-header-desktop'>Wednesday</div>
-				<div class='cal-DAY-header-mobile'>Wed</div>
-				<div class='cal-DAY-header-desktop'>Thursday</div>
-				<div class='cal-DAY-header-mobile'>Thu</div>
-				<div class='cal-DAY-header-desktop'>Friday</div>
-				<div class='cal-DAY-header-mobile'>Fri</div>
-				<div class='cal-DAY-header-desktop'>Saturday</div>
-				<div class='cal-DAY-header-mobile'>Sat</div>
-			</div>";
-		foreach($this->outputCalendar['WEEK'] as $weekstamp => $unit_array){
-			$counter = 0;
-			$out .=" <div class='cal-WEEK'> \n";
-			foreach($unit_array['DAY'] as $timestamp => $dayText ){
-				if($timestamp < $this->selected->start_of_month || $this->selected->end_of_month <= $timestamp){
-					$out .= " <div class='cal-EMPTYDAY'></div>\n";				
-				}
-				else{
-					$counter++;
-					$unit_name = 'DAY';
-					$unit_class = "cal-".$unit_name;
-					if( $timestamp < $this->now->start_of_day ){  $unit_class .= " cal-past-".$unit_name; }
-					if( $timestamp == $this->now->start_of_day ){  $unit_class .= " cal-current-".$unit_name; }
-					$out .="     <div class='". $unit_class ."' data-timestamp='".$timestamp." '>".date ('D M j', $timestamp);
-					if( @$event_arr ){
-
-						foreach($event_arr as $event_time=>$event){
-							if ($event_time <= $timestamp + 86400 ){
-								if( $event_time < time() ){ $class = 'filmtime-past'; }else{ $class = 'filmtime'; }
-								$out .= "<div class='".$class."' data-timestamp='".$event_time." '>\n<a href='".get_permalink($event)."'>".get_the_title($event)."</a>\n</div>\n";	
-								unset($event_arr[$event_time]);
-							}
-						}						
-					}
-					$out .="</div>\n";
-				}
-			}
-			$out .= "  </div><!--/cal-WEEK-->\n";
-		}
-		$out .= "</div><!--/cal-".$this->range_units."-->
-		</div><!--/cal-container-->\n";
-		
-		echo $out;
-	}
-    public function month_link(){
     	$m = new stdClass();
 		if($this->selected->month == 12 ){
 			$next_month = 01;
@@ -468,114 +541,225 @@ class calendar{
 		$m->next_url = $next_monthY. "-" . sprintf("%02s", $next_month);
 		$m->next_text = date('F', mktime(0, 0, 0, $next_month, 10)); 
 		$m->prev_url = $prev_monthY. "-" . sprintf("%02s", $prev_month);
-		$m->prev_text = date('F', mktime(0, 0, 0, $prev_month, 10)); ;
-		return $m;
-    }
+		$m->prev_text = date('F', mktime(0, 0, 0, $prev_month, 10));?>
+		<div class='cal-nav'>
+			<div class='cal-prev'><a href='/calendar/<?php echo $m->prev_url.@$query; ?>'><?php echo $m->prev_text; ?></a></div>
+			<div class='cal-next'><a href='/calendar/<?php echo $m->next_url.@$query; ?>'><?php echo $m->next_text; ?></a></div>
+		</div>
+<?php
+	}
     public function add_style(){
 	    echo "<style>
-				.cal-WEEK {  border:solid 1px grey; }
-				.cal-DAY, .cal-EMPTYDAY {display:inline-block; vertical-align:top; width: 13%; height: 100px;}
-				.cal-current-DAY { background-color:#A9A7AD;  }
-				.cal-past-DAY, .cal-past-DAY a { background-color: #d7d7d8; color:grey}
+	    		.cal-nav{  }
+	    		.cal-month { display: table; width: 100%; }
+				.cal-week {  border:solid 1px grey; }
+				.cal-day, .cal-emptyday {display:inline-block; vertical-align:top; width: 13%; height: 100px;}
+				.cal-emptyday { color: transparent;}
+				.cal-day.current { background-color:#A9A7AD;  }
+				.cal-day.past, .cal-day.past a { background-color: #d7d7d8; color:grey}
 				.cal-prev { display:inline-block; }
-				.cal-next{ float:right; display:inline-block;}
+				.cal-next{ float:right; }
 				.cal-error-message{ height: 50px; background-color: #d0d0d0; color: red; }
+				.cal-week-header {
+				    display: table-row;
+				    font-size: 0.875em;
+				    font-family: 'Futura W01 Bold', 'Arial Black', 'Arial Bold', sans-serif;
+				    text-transform: uppercase;
+				    background: #e8e5de;
+				    text-align: center; }
+				 .cal-day-header.desktop {
+				 	vertical-align: top;
+				 	width: 14%;
+				    display: table-cell;
+				    border-right: 1px solid white;
+				    padding: 4px; }
+			    .cal-day-header.mobile { display: none; }
+			    .cal-month .cal-week {
+			      display: table-row; }
+			    .cal-month .cal-day {
+			      vertical-align: top;
+			      display: table-cell;
+			      width: 14%;
+			      border: 1px solid grey;
+			      height: 8em; }
+			    .cal-month .cal-emptyday {
+			      vertical-align: top;
+			      display: table-cell;
+			      border: 1px solid white;
+			      background: #f9f8f6; }
+			     
+
 			</style>";
     }
     public function echo_message( $msg ){
     	$debug_backtrace = debug_backtrace();
-        echo "<div class='cal-error-message'>".$msg."<br>See line #".$debug_backtrace[0]['line']."</div>";
+        echo "<div class='cal-error-message'>".$msg."<br>See line #".$debug_backtrace[0]['line']."<hr></div>";
     }
     public function __destruct(){
 	    // Resets timezone to initial PHP timezone setting - just to be a good neighbor 
 		date_default_timezone_set( $this->initial_timezone ); 		
     }
 }
+class calWeek{
+	public function  __construct( $week, $cal ){
+		foreach($week['DAY'] as $timestamp=>$dayText){
+			$day = new calDay($timestamp);
+			$day->div_class = 'cal-day ';	
+			if( $timestamp < $cal->selected->start_of_month || $cal->selected->end_of_month <= $timestamp){
+				$day->div_class .= 'cal-emptyday';
+			}
+			else{
+				if( $timestamp < $cal->now->start_of_day ){ $day->div_class .= " past"; }
+				if( $timestamp == $cal->now->start_of_day ){ $day->div_class .= " current"; } 
+			}		
+			$this->days[] = $day;				
+		}
+	}
+	public function get_days(){
+		if( $this->days ){	
+			return $this->days;
+		}
+		else{
+			echo $this->echo_message('Please supply a $week as array.');
+		}
+			
+	}
+
+}
+class calDay{
+	public function  __construct( $timestamp ){
+		$this->timestamp = $timestamp;
+	}
+	public function the_timestamp(){
+		return $this->timestamp;
+	}
+	public function the_class(){
+		return $this->div_class;
+	}
+	public function get_days(){
+		if( $this->days ){
+			return $this->days;
+		}
+		else{
+			echo $this->echo_message('Please supply a $week as array.');
+		}
+			
+	}
+
+}
 
 /************* EVENTS **********************************/
 // Returns all events, recurring and fixed, sorted chronologically from today
+// @requested_date is as string
 // Date is in Ymd format, i.e 20140702
 // Default gets events for the current day
-function get_events( $stamp , $max_limit = 0, $event_cat = NULL){
-	global $wpdb;
-	$day = date( 'Ymd', $stamp);
-	$max_time = date( 'Ymd', ($stamp + $max_limit * 86400 ) );
-	$single_events = array();
-	$recurring_events = array();
-	$sql = "SELECT DISTINCT $wpdb->posts.* 
-				    FROM $wpdb->posts";
-	if($event_cat){
-		$sql .= " INNER JOIN
-          {$wpdb->term_relationships} ON {$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id
-        INNER JOIN
-          {$wpdb->term_taxonomy} ON {$wpdb->term_taxonomy}.term_taxonomy_id = {$wpdb->term_relationships}.term_taxonomy_id
-        INNER JOIN
-          {$wpdb->terms} ON {$wpdb->terms}.term_id = {$wpdb->term_taxonomy}.term_id ";
-	}
-	$sql .="		INNER JOIN $wpdb->postmeta
-					ON $wpdb->posts.ID = $wpdb->postmeta.post_id
-				    WHERE $wpdb->posts.ID = $wpdb->postmeta.post_id 
-				    AND $wpdb->postmeta.meta_key LIKE 'event_dates_%_date' 
-				    AND $wpdb->postmeta.meta_value >= $day
-				    AND $wpdb->postmeta.meta_value <= $max_time
-				    AND $wpdb->posts.post_type = 'event'";
-	if($event_cat){
-		$sql .= " AND $wpdb->terms.slug = '$event_cat'";		
-	}
-	$sql .="	    ORDER BY $wpdb->postmeta.meta_value ASC";
-    $sing_events = $wpdb->get_results($sql, OBJECT);
-	foreach( $sing_events as $se_key=>$se_post ){
-		$count = 0;
-		while ( $event_date = get_post_meta($se_post->ID, "event_dates_". $count ."_date", true) ){
-			$event_time = get_post_meta($se_post->ID, "event_dates_". $count ."_start_time", true);
-			$eventstamp = strtotime($event_date) + $event_time * 3600;
-			$single_events[$eventstamp] = $se_post;
-			$count++;
-		}
-	}
-	if( $max_limit > 1 ){
-		$media_query = array( 'key' => 'recurring_day'); 
-	}
-	else{
-		$media_query = array(
-						'key' => 'recurring_day',
-						'value' => date ( 'w' , $stamp),
-						'compare' => '=',
-						'type' => 'numeric',
-			       );
-	}		
-	$recurring_query = new WP_Query( array (
-					    'post_type' => 'events',
-					    'meta_key' => 'recurring_day',
-					    'orderby' => 'meta_value_num',
-					    'order' => 'ASC',
-					    'meta_query' => array( $media_query )
-					));	
-	if( $max_limit > 1 ){
-		$recurring_count = floor($max_limit/ 7);
-		foreach($recurring_query->posts as $re_key => $re_post){
-			$recurring_day = get_field( 'recurring_day', $re_post->ID );
-			$dif_num = $recurring_day - date('w');
-			if( $dif_num < 0 ){ $dif_num = $dif_num + 7;}
-			$i = 0;		
-			while($i < $recurring_count){
-				$recurring_timestamp = strtotime( 'today 12:00am +' . $dif_num .' day');
-				$recurring_events[$recurring_timestamp] = $re_post;
-				$dif_num = $dif_num +7;
-				$i++;
-			}			
-		}
+function my_posts_where( $where ){
+		$where = str_replace("meta_key = 'event_dates_%_event_date'", "meta_key LIKE 'event_dates_%_event_date'", $where);
+		return $where;
+	} 
+add_filter("posts_where", "my_posts_where");
 
+class eggEvents{
+
+	function get_events( $day = NULL, $max_limit = 0, $event_cat = NULL){
+		global $wpdb;
+		if( !$day ){ $day = date('Ymd', current_time('timestamp')  ); }
+		$stamp = strtotime( $day );
+		$max_time = date( 'Ymd', ( $stamp + $max_limit * 86400 ) );
+
+		$single_events = array();
+		$recurring_events = array();
+		
+		$args = array(
+			'numberposts' => -1,
+			'post_type' => 'event',
+			'meta_query' => array(
+				array(
+					'key' => 'event_dates_%_event_date',
+					'value' => $day,
+					'type' => 'NUMERIC',
+					'compare'=> '>'
+					
+				),
+				array(
+					'key' => 'event_dates_%_event_date',
+					'value' => $max_time,
+					'type' => 'NUMERIC',
+					'compare'=> '<'
+					
+				)
+			)
+		);
+		// get results
+		$the_query = new WP_Query( $args );
+		if( $the_query->have_posts() ){
+			$count = 0;
+			while ( $the_query->have_posts() ) { 
+				$the_query->the_post(); 
+				if( get_field('event_dates') ){
+					while( has_sub_field('event_date') ){ 
+						$date = get_sub_field('event_date');
+	// do something with sub field...
+	echo $date;
+					}
+				}
+ 
+				$fields = get_sub_field( 'event_date' );
+				echo "date:".$fields;
+				print_r($fields);
+			/*	while ( $event_date = get_post_meta(get_the_id(), "event_dates_". $count ."_event_date", true) ){
+					$event_time = get_post_meta(get_the_id(), "event_dates_". $count ."_start_time", true);
+					$eventstamp = strtotime($event_date) + $event_time * 3600;
+					$single_events[$eventstamp] = get_the_id();
+					$count++;
+				}*/
+			}
+		}
+		if( $max_limit > 1 ){
+			$media_query = array( 'key' => 'recurring_day'); 
+		}
+		else{
+			$media_query = array(
+							'key' => 'recurring_day',
+							'value' => date ( 'w' , $stamp),
+							'compare' => '=',
+							'type' => 'numeric',
+				       );
+		}		
+		$recurring_query = new WP_Query( array (
+						    'post_type' => 'events',
+						    'meta_key' => 'recurring_day',
+						    'orderby' => 'meta_value_num',
+						    'order' => 'ASC',
+						    'meta_query' => array( $media_query )
+						));	
+		if( $max_limit > 1 ){
+			$recurring_count = floor($max_limit/ 7);
+			foreach($recurring_query->posts as $re_key => $re_post){
+				$recurring_day = get_field( 'recurring_day', $re_post->ID );
+				$dif_num = $recurring_day - date('w');
+				if( $dif_num < 0 ){ $dif_num = $dif_num + 7;}
+				$i = 0;		
+				while($i < $recurring_count){
+					$recurring_timestamp = strtotime( 'today 12:00am +' . $dif_num .' day');
+					$recurring_events[$recurring_timestamp] = $re_post;
+					$dif_num = $dif_num +7;
+					$i++;
+				}			
+			}
+	
+		}
+		else{
+			foreach($recurring_query->posts as $re_key => $re_post){
+				$recurring_day = get_field( 'recurring_day', $re_post->ID );
+				$recurring_events[$stamp] = $re_post;					
+			}	
+		}
+		$all_events = $single_events + $recurring_events;
+		ksort($all_events);
+		$this->events = $all_events;
+		print_r($this);
 	}
-	else{
-		foreach($recurring_query->posts as $re_key => $re_post){
-			$recurring_day = get_field( 'recurring_day', $re_post->ID );
-			$recurring_events[$stamp] = $re_post;					
-		}	
-	}
-	$all_events = $single_events + $recurring_events;
-	ksort($all_events);
-	return $all_events;
 }
 
 /**
