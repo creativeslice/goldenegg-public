@@ -22,7 +22,7 @@
 
 	<div id="container">
 
-		<header class="header" role="banner" id='headroom'>
+		<header class="header" role="banner" id='header'>
 
 			<div id="inner-header" class="wrap cf">
 
@@ -59,7 +59,7 @@
 	add_action('wp_footer', 'add_scripts', 999	);
 function add_scripts(){
 	echo "
-	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/jquery.headroom.js'></script>
+	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/headroom.js'></script>
 	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/jquery.flexslider.js'></script>
 	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/jquery.colorbox.js'></script>
 	<script type='text/javascript' src='".get_template_directory_uri()."/assets/js/modules/jquery.mixitup.js'></script>
@@ -152,24 +152,7 @@ jQuery(document).ready(function($) {
 	 * Header must have an id, the id is referenced below
 	 * CSS can be defined in _headroom.scss 
 	 */
-	$("#headroom").headroom({					//define header id here
-		// scroll tolerance in px before state changes
-		"tolerance": 0,
-		// vertical offset in px before element is first unpinned
-		"offset": 147, /* set this to height of your header */
-		"classes": {
-			// when element is initialised
-			"initial": "animated",
-			// when scrolling up
-			"pinned": "slideDown",
-			// when scrolling down
-			"unpinned": "slideUp",
-			// when above offset
-			"top": "headroom--top",
-			// when below offset
-			"notTop": "headroom--not-top"
-		}
-	});
+	$("#header").headroom();
 	
 	/**
 	 * FADE-IN
@@ -272,24 +255,15 @@ jQuery(document).ready(function($) {
 	width: 100px;
 	background-color:green;
 }
-#headroom {
-  position: fixed;
-  width: 100%; }
-
 .headroom {
-  -webkit-transition: -webkit-transform 200ms linear;
-  transition: transform 200ms linear; }
-
-.slideDown {
-  -webkit-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  transform: translateY(0%); }
-
-.slideUp {
-  -webkit-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  transform: translateY(-100%); }
-/*
+    transition: transform 200ms linear;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}/*
  * jQuery FlexSlider v2.2.0
  * http://www.woothemes.com/flexslider/
  *

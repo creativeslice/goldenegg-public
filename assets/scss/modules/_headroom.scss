@@ -1,6 +1,6 @@
 @include breakpoint(large) {
 
-	#headroom{
+	.header{
 	    position:fixed;
 	    width:100%;
 	    background: red;

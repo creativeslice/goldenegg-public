@@ -1001,7 +1001,6 @@ COMMENT STYLES
   border-top: 1px solid #EEF0F4;
   /* number of comments span */ }
 
-
 .commentlist {
   margin: 0;
   list-style-type: none; }
@@ -1058,8 +1057,6 @@ COMMENT STYLES
     background: #EEF0F4; }
 
 /* comment meta */
-
-
 /* comment content */
 .comment_content p {
   margin: 0.7335em 0 1.5em;
@@ -1115,9 +1112,7 @@ COMMENT FORM STYLES
   margin: 0 0 1.1em; }
 
 /* cancel comment reply link */
-
 /* logged in comments */
-
 /* allowed tags */
 #allowed_tags {
   margin: 1.5em 10px 0.7335em 0; }
@@ -1301,19 +1296,15 @@ FADE ELEMENTS
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-
 #main {
   background: #fff;
   padding-right: 1em; }
-
-
 
 /* post meta */
 .byline {
   color: #999;
   font-style: italic;
   margin: 0; }
-
 
 /*********************
 SIDEBARS & ASIDES

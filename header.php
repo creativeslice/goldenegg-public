@@ -21,7 +21,7 @@
 
 	<div id="container">
 
-		<header class="header" role="banner" id='headroom'>  
+		<header class="header headroom" role="banner" >  
 
 			<div id="inner-header" class="wrap cf">
 
