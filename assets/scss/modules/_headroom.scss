@@ -1,17 +1,17 @@
-#headroom{
-	position:fixed;
-	width:100%;
-}
-.slideUp{
+@include breakpoint(large) {
+
+	#headroom{
+	    position:fixed;
+	    width:100%;
+	    background: red;
+	    transition: transform .2s linear;
+	}
 	
-//	display:none;
-}
-.headroom {
-    transition: transform 200ms linear;
-}
-.slideDown {	//pinned
-    transform: translateY(0%);
-}
-.slideUp {		//unpinned
-    transform: translateY(-100%);
+	.slideDown {    //pinned
+	   transform: translateY(0%);
+	}
+	.slideUp {        //unpinned
+	   transform: translateY(-100%);
+	}
+
 }
