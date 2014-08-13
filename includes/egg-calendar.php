@@ -377,12 +377,16 @@ class calendar{
 		$end = mktime(0, 0, 0, $month, date_i18n('t', $start), $year);
 		$start_week = date_i18n('W', $start);
 		$end_week = date_i18n('W', $end);
-		if (date_i18n('w', $end) == 0) {            // 0 = Sunday
+		if (date_i18n('w', $start) == 0) {            // 0 = Sunday		
+		   $end_week--;
+		}
+		if (date_i18n('w', $end) == 0) {            // 0 = Sunday		
 		   $end_week++;
 		}
 		if ($end_week < $start_week) { 								// Month wraps
 			return ((52 + $end_week) - $start_week) + 1;
 		}
+		$num_weeks = ($end_week - $start_week) + 1;
 		return ($end_week - $start_week) + 1;
 	}
 	public function get_date( $wplocalstamp ){
@@ -469,33 +473,46 @@ class calendar{
 
 	function output_month( ){
 		global $events;
-		if($events){ $event_arr = $events->events; print_r($event_arr);}?>
+		if($events){ $event_arr = $events->events; print_r($event_arr);} ?>
 		
-		<h2><?php echo $this->get_title_month(); ?></h2>
+		<h1 class="month-title"><?php echo $this->get_title_month(); ?></h1>
 		
-		<div class='cal-month'>
+		<div class='cal-container'>
 			
-<?php
-		$this->get_month_link(); 
-		$this->get_week_header();
+<?php	$this->get_month_link(); ?>
+			<div class='cal-month'>
+		
+<?php	$this->get_week_header();
 		$weeks = $this->get_weeks();
 		foreach($weeks as $week): ?>
 		
 			<div class='cal-week'>
 		
 			<?php $days = $week->get_days();
-			foreach($days as $day ): ?>
+			foreach($days as $day ): $timestamp = $day->timestamp;?>
 			
-				<div class='<?php echo $day->div_class; ?>' data-timestamp='<?php echo $day->timestamp; ?>'>
+				<div class='<?php echo $day->div_class; ?>' data-timestamp='<?php echo $timestamp; ?>'>
 					
-					<?php echo date ('D M j', $day->timestamp); 
+					<?php echo date ('M j', $timestamp); 
 					
 					if( @$event_arr ):
 						foreach($event_arr as $event_time=>$event):
-							if ($event_time <= $timestamp + 86400 ):
-								if( $event_time < time() ){ $class = 'filmtime past'; }else{ $class = 'filmtime'; } ?>
+							if ($event_time <= $timestamp + 86399 && $event_time <= $this->selected->end_of_month && $event_time >= $this->selected->start_of_month):
+								if( $event_time < current_time( 'timestamp' ) ){ $class = 'event past'; }else{ $class = 'event'; } ?>
 						<div class='<?php echo $class; ?>' data-timestamp='<?php echo $event_time; ?>'>
-							<a href='<?php echo get_permalink($event); ?>'><?php echo get_the_title($event); ?></a>
+						<?php 
+							if(get_field('_recurring_day', $event->ID)){
+								$starts_on = strtotime( get_field('starts_on', $event->ID) );
+								$ends_on = strtotime( get_field('ends_on', $event->ID) );
+								if( $starts_on <= $timestamp && $ends_on >= $timestamp ){
+									echo "<a href='". add_query_arg( 'event_time', $event_time, get_permalink( $event->ID ) ) . "'>". get_the_title($event) . "</a>";
+								}
+							}
+							else{ 
+									echo "<a href='". get_permalink( $event->ID ) . "'>". get_the_title($event) . "</a>";
+							}
+						?>
+						<?php ?>
 						</div>	
 								<?php unset($event_arr[$event_time]); ?>
 							<?php endif; ?>
@@ -510,8 +527,8 @@ class calendar{
 		
 		<?php endforeach; ?>
 		
-		</div><!--/cal-range_units-->
-	
+		</div><!--/cal-month-->
+	</div>
 	
 <?php
 	}
@@ -697,22 +714,12 @@ class eggEvents{
 			while ( $the_query->have_posts() ) { 
 				$the_query->the_post(); 
 				if( get_field('event_dates') ){
-					while( has_sub_field('event_date') ){ 
-						$date = get_sub_field('event_date');
-	// do something with sub field...
-	echo $date;
+					while ( $event_date = get_post_meta(get_the_ID(), "event_dates_". $count ."_event_date", true) ){ 
+						$eventstamp = strtotime( $event_date );
+						$single_events[$eventstamp] = get_the_id();
+						$count++;
 					}
 				}
- 
-				$fields = get_sub_field( 'event_date' );
-				echo "date:".$fields;
-				print_r($fields);
-			/*	while ( $event_date = get_post_meta(get_the_id(), "event_dates_". $count ."_event_date", true) ){
-					$event_time = get_post_meta(get_the_id(), "event_dates_". $count ."_start_time", true);
-					$eventstamp = strtotime($event_date) + $event_time * 3600;
-					$single_events[$eventstamp] = get_the_id();
-					$count++;
-				}*/
 			}
 		}
 		if( $max_limit > 1 ){
@@ -758,7 +765,6 @@ class eggEvents{
 		$all_events = $single_events + $recurring_events;
 		ksort($all_events);
 		$this->events = $all_events;
-		print_r($this);
 	}
 }
 
