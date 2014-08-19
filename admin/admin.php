@@ -127,6 +127,49 @@ function egg_dashboard_welcome_cleanup()
 	}
 }
 
+add_filter('manage_edit-event_columns', 'event_table_head');
+function event_table_head( $columns ) {
+    $columns['event_date']  = 'Event Date';
+    return $columns;
+}
+function my_columns_filter( $columns ) {
+    unset($columns['date']);
+    $columns['event_date'] = 'event_date';
+print_r($columns);
+    return $columns;
+}
+add_filter( 'manage_event_posts_columns', 'my_columns_filter', 10, 1 );
+
+
+add_action( 'manage_event_posts_custom_column', 'event_table_content', 10, 2 );
+function event_table_content( $column_name, $post_id ) {
+    if ($column_name == 'event_date') {
+		if( get_field('event_dates', $post_id ) ){
+			$count = 0;
+			while ( $event_date = get_post_meta( $post_id , "event_dates_". $count ."_event_date", true) ){ 
+				$eventstamp = strtotime( $event_date );
+				if($count >0 ){ echo ",  "; }
+				echo date_i18n('M j, Y  g:i a', $eventstamp );
+				$count++;
+			}
+		}
+	}
+}
+
+add_action( 'pre_get_posts', 'event_column_orderby' );  
+function event_column_orderby( $query ) {  
+    if( ! is_admin() )  
+        return;  
+		$orderby = $query->get( 'orderby');  
+		$query->set('orderby', 'meta_value');
+		$query->set('order', 'desc');
+		$query->set('meta_key', 'event_dates_%_event_date');
+//print_r($query);   
+	
+} 
+
+
+
 /**
  * Remove some admin pages that we never want
  */
