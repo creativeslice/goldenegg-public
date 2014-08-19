@@ -535,6 +535,7 @@ class calendar{
     public function get_month_link(){
     	// gets query type from URL
 	    global $cal_type;
+	    global $wp_query;
 		if(@$cal_type){
 			$query = "/?cal_type=".$cal_type;
 		}
@@ -558,10 +559,20 @@ class calendar{
 		$m->next_url = $next_monthY. "-" . sprintf("%02s", $next_month);
 		$m->next_text = date('F', mktime(0, 0, 0, $next_month, 10)); 
 		$m->prev_url = $prev_monthY. "-" . sprintf("%02s", $prev_month);
-		$m->prev_text = date('F', mktime(0, 0, 0, $prev_month, 10));?>
+		$m->prev_text = date('F', mktime(0, 0, 0, $prev_month, 10));
+		if($cat = urldecode($wp_query->query_vars['custom_cat'])){
+			$prev_url = '/event-cat/'.$cat.'/'.$m->prev_url.@$query;
+			$next_url = '/event-cat/'.$cat.'/'.$m->next_url.@$query;
+		}
+		else{
+			$prev_url = '/calendar/'.$m->prev_url.@$query;
+			$next_url = '/calendar/'.$m->next_url.@$query;
+		}
+		?>
+		
 		<div class='cal-nav'>
-			<div class='cal-prev'><a href='/calendar/<?php echo $m->prev_url.@$query; ?>'><?php echo $m->prev_text; ?></a></div>
-			<div class='cal-next'><a href='/calendar/<?php echo $m->next_url.@$query; ?>'><?php echo $m->next_text; ?></a></div>
+			<div class='cal-prev'><a href='<?php echo $prev_url; ?>'><?php echo $m->prev_text; ?></a></div>
+			<div class='cal-next'><a href='<?php echo $next_url; ?>'><?php echo $m->next_text; ?></a></div>
 		</div>
 <?php
 	}
@@ -719,6 +730,7 @@ class eggEvents{
 		}
 		// get results
 		$the_query = new WP_Query( $args );
+		//print_r($the_query);
 		if( $the_query->have_posts() ){
 			foreach ( $the_query->posts as $spost ) {
 				$count = 0;
@@ -787,6 +799,7 @@ add_filter('query_vars', 'add_query_vars');
 // Adds a url query to pass date requests in the URL (i.e., example.net/?var1=value1&calendar_date=2014-08
 function add_query_vars($aVars) {
 	$aVars[] = "calendar_date";
+	$aVars[] = "custom_cat";
 	return $aVars;
 }
 
@@ -795,6 +808,7 @@ function add_query_vars($aVars) {
 function add_rewrite_rules($aRules) {
 	$aNewRules = array('calendar/([^/]+)/?$' => 'index.php?pagename=calendar&calendar_date=$matches[1]');
 	$aRules = $aNewRules + $aRules;
+	$bNewRules = array('event-cat/([^/]*)/([^/]*)/?' => 'index.php?category_name=event&custom_cat=$matches[1]&calendar_date=$matches[2]');
+	$aRules = $bNewRules + $aRules;
 	return $aRules;
 }
-
