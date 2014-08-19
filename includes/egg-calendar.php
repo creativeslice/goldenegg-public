@@ -239,7 +239,6 @@ class calendar{
 			elseif($this->range_units == 'WEEKS'){
 			
 				$this->start_of_range = $this->get_start_of_increment( 'WEEK' , $this->selected->wplocalstamp);	
-				print_r($this);			
 			}
 		}
 		if('SELECTED' == $this->start_type){
@@ -473,7 +472,7 @@ class calendar{
 
 	function output_month( ){
 		global $events;
-		if($events){ $event_arr = $events->events; print_r($event_arr);} ?>
+		if($events){ $event_arr = $events->events; } ?>
 		
 		<h1 class="month-title"><?php echo $this->get_title_month(); ?></h1>
 		
@@ -496,20 +495,21 @@ class calendar{
 					<?php echo date ('M j', $timestamp); 
 					
 					if( @$event_arr ):
+					//print_r($event_arr);
 						foreach($event_arr as $event_time=>$event):
 							if ($event_time <= $timestamp + 86399 && $event_time <= $this->selected->end_of_month && $event_time >= $this->selected->start_of_month):
 								if( $event_time < current_time( 'timestamp' ) ){ $class = 'event past'; }else{ $class = 'event'; } ?>
 						<div class='<?php echo $class; ?>' data-timestamp='<?php echo $event_time; ?>'>
 						<?php 
-							if(get_field('_recurring_day', $event->ID)){
-								$starts_on = strtotime( get_field('starts_on', $event->ID) );
-								$ends_on = strtotime( get_field('ends_on', $event->ID) );
+							if(get_field('_recurring_day', $event)){
+								$starts_on = strtotime( get_field('starts_on', $event) );
+								$ends_on = strtotime( get_field('ends_on', $event) );
 								if( $starts_on <= $timestamp && $ends_on >= $timestamp ){
-									echo "<a href='". add_query_arg( 'event_time', $event_time, get_permalink( $event->ID ) ) . "'>". get_the_title($event) . "</a>";
+									echo "<a href='". add_query_arg( 'event_time', $event_time, get_permalink( $event ) ) . "'>". get_the_title($event) . "</a>";
 								}
 							}
 							else{ 
-									echo "<a href='". get_permalink( $event->ID ) . "'>". get_the_title($event) . "</a>";
+									echo "<a href='". get_permalink( $event ) . "'>". get_the_title($event) . "</a>";
 							}
 						?>
 						<?php ?>
@@ -707,16 +707,25 @@ class eggEvents{
 				)
 			)
 		);
+		if($event_cat){ 
+			$args['tax_query'] = array(
+				array(
+					'taxonomy' => 'event_cat',
+					'field' => 'slug',
+					'terms' => $event_cat
+				)
+			);	
+			
+		}
 		// get results
 		$the_query = new WP_Query( $args );
 		if( $the_query->have_posts() ){
-			$count = 0;
-			while ( $the_query->have_posts() ) { 
-				$the_query->the_post(); 
-				if( get_field('event_dates') ){
-					while ( $event_date = get_post_meta(get_the_ID(), "event_dates_". $count ."_event_date", true) ){ 
+			foreach ( $the_query->posts as $spost ) {
+				$count = 0;
+				if( get_field('event_dates', $spost->ID ) ){
+					while ( $event_date = get_post_meta( $spost->ID , "event_dates_". $count ."_event_date", true) ){ 
 						$eventstamp = strtotime( $event_date );
-						$single_events[$eventstamp] = get_the_id();
+						$single_events[$eventstamp] = $spost->ID;
 						$count++;
 					}
 				}
