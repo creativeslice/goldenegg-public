@@ -560,7 +560,7 @@ class calendar{
 		$m->next_text = date('F', mktime(0, 0, 0, $next_month, 10)); 
 		$m->prev_url = $prev_monthY. "-" . sprintf("%02s", $prev_month);
 		$m->prev_text = date('F', mktime(0, 0, 0, $prev_month, 10));
-		if($cat = urldecode($wp_query->query_vars['custom_cat'])){
+		if(	$cat    = get_query_var(@$wp_query->query_vars['taxonomy'])){
 			$prev_url = '/event-cat/'.$cat.'/'.$m->prev_url.@$query;
 			$next_url = '/event-cat/'.$cat.'/'.$m->next_url.@$query;
 		}
@@ -808,7 +808,7 @@ function add_query_vars($aVars) {
 function add_rewrite_rules($aRules) {
 	$aNewRules = array('calendar/([^/]+)/?$' => 'index.php?pagename=calendar&calendar_date=$matches[1]');
 	$aRules = $aNewRules + $aRules;
-	$bNewRules = array('event-cat/([^/]*)/([^/]*)/?' => 'index.php?category_name=event&custom_cat=$matches[1]&calendar_date=$matches[2]');
+	$bNewRules = array('event-cat/([^/]*)/([^/]*)/?' => 'index.php?event_cat=$matches[1]&calendar_date=$matches[2]');
 	$aRules = $bNewRules + $aRules;
 	return $aRules;
 }
