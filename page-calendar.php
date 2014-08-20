@@ -26,7 +26,6 @@ $args = array(
 	'debug'=>1
 );
 $cal = new calendar( $args );
-$cal->init();
 $cal->output_month();
 //print_r($cal);
 unset($cal);

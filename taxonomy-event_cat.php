@@ -22,7 +22,6 @@ if(isset($wp_query->query_vars['calendar_date'])) {
 		'debug'=>1
 	);
 	$cal = new calendar( $args );
-	$cal->init();
 	$cal->output_month();
 	unset($cal);
 }

@@ -8,7 +8,6 @@
   $events = get_events();
   $args = array( 'range'=>'2 Weeks' ); 
   $cal = new calendar( $args ); 
-  $cal->init(); 
   $cal->output_month();
 ?>
 ```  

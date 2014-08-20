@@ -107,6 +107,7 @@ class calendar{
 		}	
 		$this->echo_message( 'WP Timezone: ' . $this->wp_timezone );	
 		$this->get_times();
+		$this->init();
 	} 
 	
 	/**
