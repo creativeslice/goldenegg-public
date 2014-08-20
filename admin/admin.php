@@ -149,7 +149,7 @@ function event_table_content( $column_name, $post_id ) {
 				$eventstamps[] = strtotime( $event_date );
 				$count++;
 			}
-			krsort($eventstamps);
+			arsort($eventstamps);
 			$date = current ($eventstamps);
 			echo date_i18n('M j, Y  g:i a', $date );
 			if($count > 1 ){ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *has multiple dates";	}
@@ -181,11 +181,12 @@ function event_resort( $post ){
 		foreach($wp_query->posts as $key =>	 $post){
 			if( get_field('event_dates', $post->ID ) ){
 				$count = 0;
+				$eventstamps = array();
 				while ( $event_date = get_post_meta( $post->ID , "event_dates_". $count ."_event_date", true) ){ 
 					$eventstamps[] = strtotime( $event_date );
 					$count++;
 				}
-				krsort($eventstamps);
+				arsort($eventstamps);
 				$date = current ($eventstamps);
 				$new_posts[$date] = $post;
 			}
