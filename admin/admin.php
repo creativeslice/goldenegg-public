@@ -159,8 +159,8 @@ function columns_filter( $columns ) {
 }
 add_filter( 'manage_event_posts_columns', 'columns_filter', 10, 1 );
 
-function sortby_date( $vars ) {
-      if( array_key_exists('orderby', $vars )) {
+function sort_order( $query ) {
+      if( array_key_exists('orderby', $query )) {
            if('EventDate' == $vars['orderby']) {
                 $vars['orderby'] = 'meta_value';
                 $vars['meta_key'] = 'event_dates_%_event_date';
@@ -168,8 +168,26 @@ function sortby_date( $vars ) {
       }
       return $vars;
 }
-add_filter('request', 'sortby_date');
+function my_change_sort_order( $query ) {
+	if($query->get( 'post_type') == 'event'){
+		$query->set('orderby', 'meta_value');
+		$query->set('order', 'desc');
+		$query->set('meta_key', 'event_dates_%_event_date');
+	}
+    return $query;
+}
+add_action('pre_get_posts', 'my_change_sort_order');
 
+function origmy_change_sort_order($query) {
+    if ( is_post_type_archive('systems')) {
+		$query->set( 'order', 'ASC' );
+		$query->set( 'orderby', 'menu_order' );
+    } elseif( is_archive() ) {
+    	$query->set( 'order', 'DESC' );
+		$query->set( 'orderby', 'ID' );
+	}
+};
+//add_action( 'pre_get_posts', 'my_change_sort_order');
 
 /**
  * Remove some admin pages that we never want
