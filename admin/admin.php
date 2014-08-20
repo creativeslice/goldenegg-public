@@ -144,12 +144,15 @@ function event_table_content( $column_name, $post_id ) {
     if ($column_name == 'event_date') {
 		if( get_field('event_dates', $post_id ) ){
 			$count = 0;
+			$eventstamps = array();
 			while ( $event_date = get_post_meta( $post_id , "event_dates_". $count ."_event_date", true) ){ 
-				$eventstamp = strtotime( $event_date );
-				if($count >0 ){ echo ",  "; }
-				echo date_i18n('M j, Y  g:i a', $eventstamp );
+				$eventstamps[] = strtotime( $event_date );
 				$count++;
 			}
+			krsort($eventstamps);
+			$date = current ($eventstamps);
+			echo date_i18n('M j, Y  g:i a', $date );
+			if($count > 1 ){ echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *has multiple dates";	}
 		}
 	}
 }
@@ -159,35 +162,42 @@ function columns_filter( $columns ) {
 }
 add_filter( 'manage_event_posts_columns', 'columns_filter', 10, 1 );
 
-function sort_order( $query ) {
-      if( array_key_exists('orderby', $query )) {
-           if('EventDate' == $vars['orderby']) {
-                $vars['orderby'] = 'meta_value';
-                $vars['meta_key'] = 'event_dates_%_event_date';
-           }
-      }
-      return $vars;
-}
+add_action('pre_get_posts', 'my_change_sort_order');
 function my_change_sort_order( $query ) {
 	if($query->get( 'post_type') == 'event'){
 		$query->set('orderby', 'meta_value');
 		$query->set('order', 'desc');
 		$query->set('meta_key', 'event_dates_%_event_date');
+		return $query;
 	}
-    return $query;
 }
-add_action('pre_get_posts', 'my_change_sort_order');
 
-function origmy_change_sort_order($query) {
-    if ( is_post_type_archive('systems')) {
-		$query->set( 'order', 'ASC' );
-		$query->set( 'orderby', 'menu_order' );
-    } elseif( is_archive() ) {
-    	$query->set( 'order', 'DESC' );
-		$query->set( 'orderby', 'ID' );
+// event_resort loops through the event posts for the admin table and where an event has multiple dates, the latest date is used and the array is resorted using the latest date.
+add_filter('wp' , 'event_resort');
+function event_resort( $post ){
+	global $wp_query;
+	if( is_admin() && $wp_query->get( 'post_type') == 'event'){
+		$new_posts = array();
+		foreach($wp_query->posts as $key =>	 $post){
+			if( get_field('event_dates', $post->ID ) ){
+				$count = 0;
+				while ( $event_date = get_post_meta( $post->ID , "event_dates_". $count ."_event_date", true) ){ 
+					$eventstamps[] = strtotime( $event_date );
+					$count++;
+				}
+				krsort($eventstamps);
+				$date = current ($eventstamps);
+				$new_posts[$date] = $post;
+			}
+		}
+		krsort($new_posts);
+		unset($wp_query->posts);
+		foreach($new_posts as $post){
+			$wp_query->posts[] = $post;
+			
+		}
 	}
-};
-//add_action( 'pre_get_posts', 'my_change_sort_order');
+}
 
 /**
  * Remove some admin pages that we never want

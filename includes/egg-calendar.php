@@ -246,7 +246,6 @@ class calendar{
 				$selected_time = $this->selected->wplocalstamp;
 				if( $this->selected->day_of_week != 7){
 					$start_of_week = $selected_time - ( ($this->selected->day_of_week)* self::DAY);
-				echo $start_of_week."<<<>>";
 				}	
 				else{
 					$start_of_week = $selected_time;

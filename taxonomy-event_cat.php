@@ -24,12 +24,12 @@ if(isset($wp_query->query_vars['calendar_date'])) {
 	$cal = new calendar( $args );
 	$cal->init();
 	$cal->output_month();
-	//print_r($cal);
 	unset($cal);
 }
 else{
-	$day = strtotime( 'first day of ' . date_i18n( 'F Y'));
-	$selected_date = date_i18n('Ymd' , $day);	
+	echo "Taxonomy-event.cat.php:
+	<br> Get Event Category Calendar by adding date:
+	<a href='".$_SERVER["REQUEST_URI"] ."/2015-01'>event-cat/category-name/2015-01</a>";
 }
 ?>
 
