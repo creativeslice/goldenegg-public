@@ -120,7 +120,6 @@ function egg_admin_favicon()
 function egg_dashboard_welcome_cleanup()
 {
 	global $pagenow;
-
 	if ( 'index.php' == $pagenow )
 	{
 		?>
@@ -212,8 +211,7 @@ function event_resort( $post ){
 		krsort($new_posts);
 		unset($wp_query->posts);
 		foreach($new_posts as $post){
-			$wp_query->posts[] = $post;
-			
+			$wp_query->posts[] = $post;			
 		}
 	}
 }
