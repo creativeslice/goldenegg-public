@@ -90,7 +90,7 @@ class calendar{
 			}
 			else{
 				foreach($val_pair as $arrkey => $value){
-					$this->$key->$arrkey = strtoupper($value);
+					@$this->$key->$arrkey = strtoupper($value);
 				}
 			}
 		}
@@ -156,12 +156,12 @@ class calendar{
 	public function get_times(){
 		global $wp_query;
 		if(isset($wp_query->query_vars['calendar_date'])) {
-			$this->selected->wplocalstamp = strtotime( urldecode($wp_query->query_vars['calendar_date']) );
+			@$this->selected->wplocalstamp = strtotime( urldecode($wp_query->query_vars['calendar_date']) );
 		}
 		else{
-			$this->selected->wplocalstamp = current_time('timestamp');
+			@$this->selected->wplocalstamp = current_time('timestamp');
 		}
-		$this->now->wplocalstamp = current_time('timestamp');
+		@$this->now->wplocalstamp = current_time('timestamp');
 		$this->selected = $this->get_date( $this->selected->wplocalstamp );
 		$this->now = $this->get_date( $this->now->wplocalstamp );
 	}

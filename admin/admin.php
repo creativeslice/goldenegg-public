@@ -128,18 +128,16 @@ function egg_dashboard_welcome_cleanup()
 }
 
 add_filter('manage_edit-event_columns', 'event_table_head');
+add_filter('manage_edit-event_sortable_columns', 'sortable_event_table' );
 function event_table_head( $columns ) {
     $columns['event_date']  = 'Event Date';
     return $columns;
 }
-function my_columns_filter( $columns ) {
-    unset($columns['date']);
-    $columns['event_date'] = 'event_date';
-print_r($columns);
+function sortable_event_table( $columns ) {
+    $columns['event_date']  = 'Event Date';
+    unset($columns['title']);
     return $columns;
 }
-add_filter( 'manage_event_posts_columns', 'my_columns_filter', 10, 1 );
-
 
 add_action( 'manage_event_posts_custom_column', 'event_table_content', 10, 2 );
 function event_table_content( $column_name, $post_id ) {
@@ -155,19 +153,22 @@ function event_table_content( $column_name, $post_id ) {
 		}
 	}
 }
+function columns_filter( $columns ) {
+    unset($columns['date']);
+    return $columns;
+}
+add_filter( 'manage_event_posts_columns', 'columns_filter', 10, 1 );
 
-add_action( 'pre_get_posts', 'event_column_orderby' );  
-function event_column_orderby( $query ) {  
-    if( ! is_admin() )  
-        return;  
-		$orderby = $query->get( 'orderby');  
-		$query->set('orderby', 'meta_value');
-		$query->set('order', 'desc');
-		$query->set('meta_key', 'event_dates_%_event_date');
-//print_r($query);   
-	
-} 
-
+function sortby_date( $vars ) {
+      if( array_key_exists('orderby', $vars )) {
+           if('EventDate' == $vars['orderby']) {
+                $vars['orderby'] = 'meta_value';
+                $vars['meta_key'] = 'event_dates_%_event_date';
+           }
+      }
+      return $vars;
+}
+add_filter('request', 'sortby_date');
 
 
 /**
