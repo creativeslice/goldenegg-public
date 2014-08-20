@@ -12,12 +12,18 @@ add_action( 'wp_before_admin_bar_render', 'egg_customize_admin_bar' );
 add_action( 'admin_init',                 'egg_dependencies' );
 add_action( 'wp_head', 					  'style_admin_bar' );
 add_action( 'wp_before_admin_bar_render', 'custom_adminbar_titles' );
+add_action( 'manage_event_posts_custom_column', 'event_table_content', 10, 2 );
+add_action( 'pre_get_posts', 			  'my_change_sort_order');
 
 // filters
 add_filter( 'show_admin_bar',             'egg_admin_bar_permissions' );
 add_filter( 'gettext',                    'egg_replace_howdy', 10, 3 );
 add_filter( 'admin_footer_text',          'egg_admin_footer' );
 add_filter( 'screen_options_show_screen', 'egg_remove_screen_options' );
+add_filter( 'manage_edit-event_columns',  'event_table_head');
+add_filter( 'manage_edit-event_sortable_columns', 'sortable_event_table' );
+add_filter( 'manage_event_posts_columns', 'columns_filter', 10, 1 );
+add_filter( 'wp' , 						  'event_resort');
 
 // Modify the admin bar left label
 
@@ -127,19 +133,33 @@ function egg_dashboard_welcome_cleanup()
 	}
 }
 
-add_filter('manage_edit-event_columns', 'event_table_head');
-add_filter('manage_edit-event_sortable_columns', 'sortable_event_table' );
+/**
+ * Add Table Head 'Event Date'
+ */
 function event_table_head( $columns ) {
     $columns['event_date']  = 'Event Date';
     return $columns;
 }
+
+/**
+ * Remove Publich date from Table 'Events'
+ */
+function columns_filter( $columns ) {
+    unset($columns['date']);
+    return $columns;
+}
+
+/**
+ * Disable sort by Title for 'Event Table'
+ */
 function sortable_event_table( $columns ) {
-    $columns['event_date']  = 'Event Date';
     unset($columns['title']);
     return $columns;
 }
 
-add_action( 'manage_event_posts_custom_column', 'event_table_content', 10, 2 );
+/**
+ * 'Event Date' content set as latest date of multiple dates 
+ */
 function event_table_content( $column_name, $post_id ) {
     if ($column_name == 'event_date') {
 		if( get_field('event_dates', $post_id ) ){
@@ -156,13 +176,10 @@ function event_table_content( $column_name, $post_id ) {
 		}
 	}
 }
-function columns_filter( $columns ) {
-    unset($columns['date']);
-    return $columns;
-}
-add_filter( 'manage_event_posts_columns', 'columns_filter', 10, 1 );
 
-add_action('pre_get_posts', 'my_change_sort_order');
+/**
+ * Changes default sort order - same sort is performed again on meta_values to correct for multiple dates - thus this could be removed but is the standard practice so will keep as fall back just in case 
+ */
 function my_change_sort_order( $query ) {
 	if($query->get( 'post_type') == 'event'){
 		$query->set('orderby', 'meta_value');
@@ -172,8 +189,9 @@ function my_change_sort_order( $query ) {
 	}
 }
 
-// event_resort loops through the event posts for the admin table and where an event has multiple dates, the latest date is used and the array is resorted using the latest date.
-add_filter('wp' , 'event_resort');
+/**
+ * 'Event_Resort()' loops through the event posts for the event admin table and corrects for multiple dates: the latest event date is used and the array is resorted latest on top.
+ */
 function event_resort( $post ){
 	global $wp_query;
 	if( is_admin() && $wp_query->get( 'post_type') == 'event'){
