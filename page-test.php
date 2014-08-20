@@ -112,10 +112,10 @@ function add_scripts(){
 			<div>
 				<h2>Colorbox</h2>
 				<div class="gallery">
-				      <a class='gal' href="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee1.jpg"; ?>">
+				      <a class='gal' href="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee1.jpg"; ?>" title='Captions are placed in the anchor element that wraps the img. It is a title attribute.'>
 					      <img src="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee1.jpg"; ?>" />
 				      </a>
-				      <a class='gal' href="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee2.jpg"; ?>">     
+				      <a class='gal' href="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee2.jpg"; ?>" title='Captions are placed in the anchor element that wraps the img. It is a title attribute.'>     
 				      	<img src="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee2.jpg"; ?>" />
 				      </a>
 				 </div>
