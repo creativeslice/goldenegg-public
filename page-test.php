@@ -112,7 +112,7 @@ function add_scripts(){
 			<div>
 				<h2>Colorbox</h2>
 				<div class="gallery">
-				      <a class='gal' href="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee1.jpg"; ?>" title='Captions are placed in the anchor element that wraps the img. It is a title attribute.'>
+				      <a class='gal' id='gaClose_1' href="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee1.jpg"; ?>" title='Captions are placed in the anchor element that wraps the img. It is a title attribute.'>
 					      <img src="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee1.jpg"; ?>" />
 				      </a>
 				      <a class='gal' href="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/ohoopee2.jpg"; ?>" title='Captions are placed in the anchor element that wraps the img. It is a title attribute.'>     
@@ -133,9 +133,20 @@ function add_scripts(){
 		</div>
 	</div>
 	<script type='text/javascript'>
+
 	
 jQuery(document).ready(function($) {
-	
+
+	// Google Analytics Event Tracking - captures colorbox close
+	var gaClosed = 0;
+	$(document).bind('cbox_closed', function() {
+		if ( $( $.fn.colorbox.element() ).attr('id').match('gaClose_1') && gaClosed == 0){
+			_gaq.push(['_trackEvent', 'Promotion', 'Close', 'Promotion 1']);
+			// function is bound multiple times; gaClosed limits firing to once per page load. 
+			gaClosed = 1;
+		}
+	});
+
 	$("img.lazy").lazyload();
 		var colorbox_params = {
 			rel: 'gal',
