@@ -86,23 +86,26 @@ jQuery(document).ready(function($) {
 	 *		</div>
 	 * 	<?php endif; ?> 
 	 */
-		
-	if( $('#popup_message').length ){
-		$('a').on('click', function(e){
-			e.preventDefault();
-			$(window).unbind('beforeunload', closeHandler );
+	if( $('#popup-message').length ){
+		$('a').not( '.external' ).on('click', function(e){
 			var target = $(this).attr('href');
-			var modal = $("<div>", {class: "colorboxModal"}).text( $('#popup_message').html() );			
-			var cancelBtn = $('<button/>').attr({ type: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html('Cancel');
-			var continueBtn = $('<button/>').attr({ type: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');	
-			var buttonDiv = $("<div>", {class: "modal-buttons"}).append( cancelBtn, continueBtn );	
-			
-			modal.append( buttonDiv );	
-		   	$.colorbox( {html: modal , width:"400px", height:"400px"});			   	
+			if( !target.match(/^#/) ){
+				e.preventDefault();
+				$(window).unbind('beforeunload', closeHandler );
+				var modal = $("<div>", {class: "colorboxModal"}).text( $('#popup-message').html() );			
+				var cancelBtn = $('<button/>').attr({ type: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html('Cancel');
+				var continueBtn = $('<button/>').attr({ type: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');	
+				modal.append( cancelBtn, continueBtn );	
+			   	$.colorbox( {html: modal , width:"400px", height:"400px"});			   	
+			 }
 		});
+		$('a.external').on('click', function(e){
+			$(window).unbind('beforeunload', closeHandler );
+		})
+
 		// fallback for closing or reloading tab
 		var closeHandler = function() {
-			return $('#popup_message').html();
+			return $('#popup-message').html();
 		}
 		$(window).bind('beforeunload', closeHandler );
 	}

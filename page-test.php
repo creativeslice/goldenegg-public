@@ -78,6 +78,7 @@ function add_scripts(){
 			<div>
 				<h2>Headroom is Loaded</h2>
 			</div>
+			<a href='' class='external'>External</a>
 			<div>
 				<h2>MixItUp</h2>
 				<button class="filter" data-filter="all" type='button'>Show All</button>
@@ -94,6 +95,7 @@ function add_scripts(){
 			<hr>
 			<div>
 				<h2>Flexslider</h2>
+				<a class="scrolltop local" href="#container">SCROLL TO THE TOP &nbsp; <span class="icon-arrow-up"></span></a>
 				<div class="flexslider">
 				  <ul class='slides' >
 				    <li>
@@ -131,7 +133,7 @@ function add_scripts(){
 			<hr>
 
 			<?php if(get_field('popup_message')) : ?>
-			<div style='display:none' id='popup_message'>
+			<div style='display:none' id='popup-message'>
 				<?php  echo get_field('popup_message'); ?>
 			</div>
 			<?php endif; ?>
