@@ -32,6 +32,31 @@ var timeToWaitForLast = 100;
  * Put all your regular jQuery in here.
 */
 jQuery(document).ready(function($) {
+
+	if( $('#popup_message').length ){
+		$('a').on('click', function(e){
+			e.preventDefault();
+			$(window).unbind('beforeunload', closeHandler );
+			var target = $(this).attr('href');
+			var modal = $("<div>", {class: "colorboxModal"}).text( $('#popup_message').html() );
+			
+			var cancelBtn = $('<button/>').attr({ type: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html('Cancel');
+			var continueBtn = $('<button/>').attr({ type: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');	
+			var buttonDiv = $("<div>", {class: "modal-buttons"}).append( cancelBtn, continueBtn );	
+			
+			modal.append( buttonDiv );	
+		   	$.colorbox( {html: modal , width:"400px", height:"400px"});	
+		   	
+		});
+
+		// fallback for closing or reloading tab
+		var closeHandler = function() {
+			return $('#popup_message').html();
+		}
+		$(window).bind('beforeunload', closeHandler );
+
+	}
+
 	$('#mobilemenu').click(function(e) {
 		e.preventDefault();
 		var $this = $(this);

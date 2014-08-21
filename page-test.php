@@ -129,6 +129,13 @@ function add_scripts(){
 		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/lazy2.jpg"; ?>" />
 		      <img class="lazy" data-original="<?php echo get_template_directory_uri()."/assets/js/modules/test-img/lazy3.jpg"; ?>" />
 			<hr>
+
+			<?php if(get_field('popup_message')) : ?>
+			<div style='display:none' id='popup_message'>
+				<?php  echo get_field('popup_message'); ?>
+			</div>
+			<?php endif; ?>
+
 			
 		</div>
 	</div>
@@ -137,6 +144,7 @@ function add_scripts(){
 	
 jQuery(document).ready(function($) {
 
+	
 	// Google Analytics Event Tracking - captures colorbox close
 	var gaClosed = 0;
 	$(document).bind('cbox_closed', function() {
