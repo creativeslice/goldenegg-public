@@ -75,6 +75,37 @@ var timeToWaitForLast = 100;
 */
 
 jQuery(document).ready(function($) {
+
+	/**
+	 * Calls colorbox on navigation away
+	 * Page must have custom field 'popup_message' that output to page like so:
+	 *
+	 *  <?php if(get_field('popup_message')) : ?>
+	 *  	<div style='display:none' id='popup_message'>
+	 *  <?php  echo get_field('popup_message'); ?>
+	 *		</div>
+	 * 	<?php endif; ?> 
+	 */
+		
+	if( $('#popup_message').length ){
+		$('a').on('click', function(e){
+			e.preventDefault();
+			$(window).unbind('beforeunload', closeHandler );
+			var target = $(this).attr('href');
+			var modal = $("<div>", {class: "colorboxModal"}).text( $('#popup_message').html() );			
+			var cancelBtn = $('<button/>').attr({ type: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html('Cancel');
+			var continueBtn = $('<button/>').attr({ type: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');	
+			var buttonDiv = $("<div>", {class: "modal-buttons"}).append( cancelBtn, continueBtn );	
+			
+			modal.append( buttonDiv );	
+		   	$.colorbox( {html: modal , width:"400px", height:"400px"});			   	
+		});
+		// fallback for closing or reloading tab
+		var closeHandler = function() {
+			return $('#popup_message').html();
+		}
+		$(window).bind('beforeunload', closeHandler );
+	}
 	
 	/**
 	 * Initiates Headroom.js
