@@ -93,8 +93,8 @@ jQuery(document).ready(function($) {
 				e.preventDefault();
 				$(window).unbind('beforeunload', closeHandler );
 				var modal = $("<div>", {class: "colorboxModal"}).text( $('#popup-message').html() );			
-				var cancelBtn = $('<button/>').attr({ type: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html('Cancel');
-				var continueBtn = $('<button/>').attr({ type: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');	
+				var cancelBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html('Cancel');
+				var continueBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');	
 				modal.append( cancelBtn, continueBtn );	
 			   	$.colorbox( {html: modal , width:"400px", height:"400px"});			   	
 			 }
