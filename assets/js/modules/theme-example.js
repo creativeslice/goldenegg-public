@@ -92,11 +92,11 @@ jQuery(document).ready(function($) {
 			if( !target.match(/^#/) ){
 				e.preventDefault();
 				$(window).unbind('beforeunload', closeHandler );
-				var modal = $("<div>", {class: "colorboxModal"}).text( $('#popup-message').html() );			
+				var modal = $("<div>", {class: "colorboxContent"}).text( $('#popup-message').html() );			
 				var cancelBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html('Cancel');
-				var continueBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');	
-				modal.append( cancelBtn, continueBtn );	
-			   	$.colorbox( {html: modal , width:"400px", height:"400px"});	
+				var continueBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');		
+				$.colorbox( {html: modal , width:"400px", height:"400px"});
+				$('#cboxLoadedContent').append( cancelBtn, continueBtn );	
 			   	$('#colorbox').attr('class','popup-message');		   	
 			 }
 		});
@@ -109,7 +109,7 @@ jQuery(document).ready(function($) {
 			return $('#popup-message').html();
 		}
 		$(window).bind('beforeunload', closeHandler );
-	}
+	};
 	
 	/**
 	 * Initiates Headroom.js
