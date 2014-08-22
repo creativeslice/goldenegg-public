@@ -33,29 +33,6 @@ var timeToWaitForLast = 100;
 */
 jQuery(document).ready(function($) {
 
-	if( $('#popup-message').length ){
-		$('a').not( '.external' ).on('click', function(e){
-			var target = $(this).attr('href');
-			if( !target.match(/^#/) ){
-				e.preventDefault();
-				$(window).unbind('beforeunload', closeHandler );
-				var modal = $("<div>", {class: "colorboxModal"}).text( $('#popup-message').html() );			
-				var cancelBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html('Cancel');
-				var continueBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');	
-				modal.append( cancelBtn, continueBtn );	
-			   	$.colorbox( {html: modal , width:"400px", height:"400px"});			   	
-			 }
-		});
-		$('a.external').on('click', function(e){
-			$(window).unbind('beforeunload', closeHandler );
-		})
-
-		// fallback for closing or reloading tab
-		var closeHandler = function() {
-			return $('#popup-message').html();
-		}
-		$(window).bind('beforeunload', closeHandler );
-	}
 	$('#mobilemenu').click(function(e) {
 		e.preventDefault();
 		var $this = $(this);
