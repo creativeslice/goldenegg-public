@@ -133,8 +133,9 @@ function add_scripts(){
 			<hr>
 
 			<?php if(get_field('popup_message')) : ?>
-			<div style='display:none' id='popup-message'>
-				<?php  echo get_field('popup_message'); ?>
+			<div style='display:none' id='popup-message' data-message='<?php the_field('popup_message'); ?>'
+			data-continue='<?php the_field('popup_continue_button'); ?>' 
+			data-cancel='<?php the_field('popup_cancel_button'); ?>' > 
 			</div>
 			<?php endif; ?>
 

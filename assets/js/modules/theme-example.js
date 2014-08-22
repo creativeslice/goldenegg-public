@@ -92,9 +92,9 @@ jQuery(document).ready(function($) {
 			if( !target.match(/^#/) ){
 				e.preventDefault();
 				$(window).unbind('beforeunload', closeHandler );
-				var modal = $("<div>", {class: "colorboxContent"}).text( $('#popup-message').html() );			
-				var cancelBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html('Cancel');
-				var continueBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');		
+				var modal = $("<div>", {class: "colorbox-content"}).text( $('#popup-message').data('message') );			
+				var cancelBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html( $('#popup-message').data('cancel') );
+				var continueBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html( $('#popup-message').data('continue') );		
 				$.colorbox( {html: modal , width:"400px", height:"400px"});
 				$('#cboxLoadedContent').append( cancelBtn, continueBtn );	
 			   	$('#colorbox').attr('class','popup-message');		   	
