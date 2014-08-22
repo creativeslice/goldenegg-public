@@ -96,7 +96,8 @@ jQuery(document).ready(function($) {
 				var cancelBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html('Cancel');
 				var continueBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html('Continue');	
 				modal.append( cancelBtn, continueBtn );	
-			   	$.colorbox( {html: modal , width:"400px", height:"400px"});			   	
+			   	$.colorbox( {html: modal , width:"400px", height:"400px"});	
+			   	$('#colorbox').attr('class','popup-message');		   	
 			 }
 		});
 		$('a.external').on('click', function(e){
