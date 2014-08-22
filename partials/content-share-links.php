@@ -14,7 +14,7 @@
 			array(
 				'title' => 'Email',
 				'icon'  => 'email',
-				'url'   => 'mailto:?subject=' . urlencode($title) . '&body=You should read ' . urlencode($title) . ' at ' . get_option('blogname') . ': ' . $permalink,
+				'url'   => 'mailto:?subject=' . rawurlencode($title) . '&body=You should read ' . urlencode($title) . ' at ' . get_option('blogname') . ': ' . $permalink,
 			),
 			array(
 				'title' => 'Twitter',
