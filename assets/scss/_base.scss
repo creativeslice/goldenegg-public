@@ -31,7 +31,7 @@ LAYOUT & GRID STYLES
 .wrap {
 	width: 96%;
 	margin: 0 auto;
-	max-width: 1024px;
+	max-width: 1200px;
 }
 
 /*********************
@@ -61,7 +61,7 @@ HEADER STYLES
 *********************/
 
 .header {
-	background: $black;
+	background: #eee;
 	#logo {
 		margin: 1em 1em 1em 0;
 	}
@@ -87,7 +87,6 @@ NAVIGATION STYLES
 			padding: 1em 1em 1em 0;
 
 			&:hover, &:focus {
-				color: white;
 			}
 		}
 
@@ -222,9 +221,8 @@ SIDEBARS & ASIDES
 *********************/
 
 .sidebar {
-	background: $black;
-	color: $white;
-	padding: 0 1em;
+	background: #ddd;
+	padding: 1em;
 }
 
 
@@ -234,17 +232,10 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	background-color: $black;
-	color: $gray_light;
+	background-color: #ccc;
 
-	.footer-links {
-
-		ul {
-
-			li {}
-
-		}
-
+	.footer-nav {
+		li {}
 	}
 
 	.copyright {

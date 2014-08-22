@@ -4,7 +4,7 @@
 
 	<div class="wrap">
 
-		<div id="main" class="goldlarge" role="main">
+		<div id="main" role="main">
 		
 			<h1 class="archive-title"><span>Search Results for:</span> <?php echo get_search_query(); ?></h1>
 
@@ -37,8 +37,6 @@
 			<?php endif; ?>
 
 		</div>
-
-		<?php get_sidebar(); ?>
 
 	</div>
 

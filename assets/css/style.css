@@ -408,7 +408,7 @@ BUTTONS
   color: #fff;
   font-size: 0.875em;
   font-weight: bold;
-  line-height: 2em;
+  line-height: 1em;
   padding: 1em;
   border-radius: 4px;
   cursor: pointer;
@@ -1205,7 +1205,7 @@ LAYOUT & GRID STYLES
 .wrap {
   width: 96%;
   margin: 0 auto;
-  max-width: 1024px; }
+  max-width: 1200px; }
 
 /*********************
 LINK STYLES
@@ -1225,7 +1225,7 @@ a, a:visited {
 HEADER STYLES
 *********************/
 .header {
-  background: #222; }
+  background: #eee; }
   .header #logo {
     margin: 1em 1em 1em 0; }
 
@@ -1243,8 +1243,6 @@ NAVIGATION STYLES
     display: block;
     text-decoration: none;
     padding: 1em 1em 1em 0; }
-    .nav li a:hover, .nav li a:focus, .nav li a:visited:hover, .nav li a:visited:focus {
-      color: white; }
   @media screen and (min-width: 48em) {
     .nav li ul.sub-menu, .nav li ul.children {
       margin-top: 0;
@@ -1329,17 +1327,15 @@ POSTS & CONTENT STYLES
 SIDEBARS & ASIDES
 *********************/
 .sidebar {
-  background: #222;
-  color: #fff;
-  padding: 0 1em; }
+  background: #ddd;
+  padding: 1em; }
 
 /*********************
 FOOTER STYLES
 *********************/
 .footer {
   clear: both;
-  background-color: #222;
-  color: #EEF0F4; }
+  background-color: #ccc; }
   .footer .copyright {
     clear: both; }
 
