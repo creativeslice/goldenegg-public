@@ -4,7 +4,7 @@
 
 	<div class="wrap">
 
-		<div id="main" class="goldlarge" role="main">
+		<div id="main" role="main">
 
 			<?php if ( is_category() ) : ?>
 				<h1 class="archive-title">
@@ -62,8 +62,6 @@
 			<?php endif; ?>
 
 		</div>
-
-		<?php get_sidebar(); ?>
 
 	</div>
 
