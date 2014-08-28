@@ -676,23 +676,34 @@ class calDay{
 
 }
 
-/************* EVENTS **********************************/
-// Returns all events, recurring and fixed, sorted chronologically from today
-// @requested_date is as string
-// Date is in Ymd format, i.e 20140702
-// Default gets events for the current day
 function my_posts_where( $where ){
 		$where = str_replace("meta_key = 'event_dates_%_event_date'", "meta_key LIKE 'event_dates_%_event_date'", $where);
 		return $where;
 	} 
 add_filter("posts_where", "my_posts_where");
 
+/**
+  * EVENTS Class 
+  *
+  * Returns all events, recurring and fixed, sorted chronologically from today
+  * 
+  * @start_date string 	optional - this marks the beginning of the time frame of interest in the form 'YYYYMMDD'; default is current time;
+  * @max_limit integer 	optional - number of days to search from $start_date
+  * @event_cat string 	optional - category slug to limit search to
+  * 
+  * @return array of key = event's timestamp and value = event's post id; array is sorted with recurring events populated for each occurence. 
+  * 			Array (
+  *					[1399507200] => 209
+  *					[1405555200] => 212
+  *				)
+  * 
+  */
 class eggEvents{
 
-	function get_events( $day = NULL, $max_limit = 0, $event_cat = NULL){
+	function get_events( $start_date = NULL, $max_limit = 0, $event_cat = NULL){
 		global $wpdb;
-		if( !$day ){ $day = date('Ymd', current_time('timestamp')  ); }
-		$stamp = strtotime( $day );
+		if( !$start_date ){ $start_date = date('Ymd', current_time('timestamp')  ); }
+		$stamp = strtotime( $start_date );
 		$max_time = date( 'Ymd', ( $stamp + $max_limit * 86400 ) );
 
 		$single_events = array();
