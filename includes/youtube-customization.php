@@ -3,14 +3,33 @@
 /*********************
 YOUTUBE CUSTOMIZATION
 Customize embedding youtube
+
+CSS:
+.video-container {
+    position: relative;
+    // padding-bottom: 56.25%;
+    padding-bottom: 51.5%;
+    padding-top: 35px;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 1em;
+    iframe {
+	    position: absolute;
+	    top:0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+    }
+}
+
 *********************/
 
 add_filter( 'embed_oembed_html', 'egg_set_youtube_params', 10, 4 );
 function egg_set_youtube_params($html, $url, $args, $id) {
-
 // PARAMETER OPTIONS
-	$iframe_args['width'] = '600';
-	$iframe_args['height'] = '337';
+	$iframe_args['width'] = '100%';
+	$iframe_args['height'] = '100%';
 	$iframe_args['frameborder'] = '0';
 	$iframe_args['allowfullscreen'] = 'allowfullscreen';
 	
@@ -65,7 +84,7 @@ function egg_set_youtube_params($html, $url, $args, $id) {
     $url_string = parse_url($url, PHP_URL_QUERY);
     parse_str($url_string, $id);
     if (isset($id['v'])) {
-   	     return '<iframe width="'.$iframe_args['width'].'" height="'.$iframe_args['height'].'" src="http://www.youtube.com/embed/'.$id['v'].@$query_str.'" frameborder="'.@$iframe_args["frameborder"].'" '.@$iframe_args["allowfullscreen"].'></iframe>';
+   	     return '<div class="video-container"><iframe width="'.$iframe_args['width'].'" height="'.$iframe_args['height'].'" src="http://www.youtube.com/embed/'.$id['v'].@$query_str.'" frameborder="'.@$iframe_args["frameborder"].'" '.@$iframe_args["allowfullscreen"].'></iframe></div>';
     }
     return $html;
 }
