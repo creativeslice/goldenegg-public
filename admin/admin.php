@@ -12,18 +12,12 @@ add_action( 'wp_before_admin_bar_render', 'egg_customize_admin_bar' );
 add_action( 'admin_init',                 'egg_dependencies' );
 add_action( 'wp_head', 					  'style_admin_bar' );
 add_action( 'wp_before_admin_bar_render', 'custom_adminbar_titles' );
-add_action( 'manage_event_posts_custom_column', 'event_table_content', 10, 2 );
-add_action( 'pre_get_posts', 			  'my_change_sort_order');
 
 // filters
 add_filter( 'show_admin_bar',             'egg_admin_bar_permissions' );
 add_filter( 'gettext',                    'egg_replace_howdy', 10, 3 );
 add_filter( 'admin_footer_text',          'egg_admin_footer' );
 add_filter( 'screen_options_show_screen', 'egg_remove_screen_options' );
-add_filter( 'manage_edit-event_columns',  'event_table_head');
-add_filter( 'manage_edit-event_sortable_columns', 'sortable_event_table' );
-add_filter( 'manage_event_posts_columns', 'columns_filter', 10, 1 );
-add_filter( 'wp' , 						  'event_resort');
 
 // Modify the admin bar left label
 
