@@ -112,9 +112,7 @@ jQuery(document).ready(function($) {
 	};
 	
 	/**
-	 * Initiates Headroom.js
-	 * Header must have an id, the id is referenced below
-	 * CSS can be defined in _headroom.scss 
+	 * Initiates Colorbox
 	 */
 	var colorbox_params = {
 			rel: 'gal',
