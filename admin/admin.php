@@ -205,17 +205,18 @@ function event_resort( $post ){
 				}
 				arsort($eventstamps);
 				$date = current ($eventstamps);
-				$new_posts[$date] = $post;
+				$new_posts[$date][] = $post;
 			}
 		}
 		krsort($new_posts);
-		unset($wp_query->posts);
-		foreach($new_posts as $post){
-			$wp_query->posts[] = $post;			
+		$wp_query->posts = array();
+		foreach($new_posts as $postArr){
+			foreach($postArr as $post){
+				array_push( $wp_query->posts, $post);
+			}			
 		}
 	}
 }
-
 /**
  * Remove some admin pages that we never want
  */
