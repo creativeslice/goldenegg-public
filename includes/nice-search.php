@@ -22,15 +22,16 @@ function egg_nice_search_redirect()
 	}
 }
 
+
 /**
- * Uncomment add_filter('relevanssi_excerpt_content') to modify the Relevanssi Search results
- * Requires Relevanssi Plugin
+ * Relevanssi Search Plugin with Custom Fields
+ *
  * Requires in Relevanss Settings:
  *    (1) Selecting Post Types to Index
  *    (2) Custom Fields to Index = 'visible'
  *    (3) Save and Index
  */
-//add_filter('relevanssi_excerpt_content', 'excerpt_function', 10, 3);
+// add_filter('relevanssi_excerpt_content', 'excerpt_function', 10, 3);
 
 /**
  * Modifies the Relevanssi results
@@ -54,6 +55,7 @@ function excerpt_function($content, $post, $query){
     }
     return $content;
 }
+
 
 /**
  * [list_searcheable_acf generates array of all custom fields]

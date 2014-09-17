@@ -20,19 +20,19 @@ function egg_flush_rewrite_rules()
 add_action( 'init', 'custom_register_post_type');
 function custom_register_post_type()
 { 
-	register_post_type( 'custom_type',
+	register_post_type( 'custom_type', // use singular name here: 'type' instead of 'types'
 		array( 'labels' => 
 			array(
 				'name'					=> 'Custom Types',
-				'singular_name'			=> 'Custom Post',
-				'all_items'				=> 'All Posts',
+				'singular_name'			=> 'Custom Type',
+				'all_items'				=> 'All Types',
 				'add_new'				=> 'Add New',
-				'add_new_item'			=> 'Add New Post',
+				'add_new_item'			=> 'Add New Type',
 				'edit'					=> 'Edit',
-				'edit_item'				=> 'Edit Post',
-				'new_item'				=> 'New Post',
-				'view_item'				=> 'View Post',
-				'search_items'			=> 'Search Post',
+				'edit_item'				=> 'Edit Type',
+				'new_item'				=> 'New Type',
+				'view_item'				=> 'View Type',
+				'search_items'			=> 'Search Type',
 				'not_found'				=> 'Nothing found in the Database.',
 				'not_found_in_trash'	=> 'Nothing found in Trash',
 				'parent_item_colon'		=> ''

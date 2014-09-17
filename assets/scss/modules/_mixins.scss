@@ -14,11 +14,6 @@ $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 COLORS
 *********************/
 
-$alert_blue:        #d9edf7;
-$alert_green:       #dff0d8;
-$alert_red:         #f2dede;
-$alert_yellow:      #fcf8e3;
-
 $black:             #222;
 $white:             #fff;
 
@@ -41,6 +36,8 @@ REUSABLE ITEMS
 *********************/
 
 $default_margin:    1.5em;
+$ease:				.2s ease-in-out;
+$easeslow:			.6s ease-in;
 
 // INLINE-BLOCK
 // inline-block support for legacy browsers
@@ -63,7 +60,7 @@ BUTTONS
 	position: relative;
 	font-family: $sans_serif;
 	text-decoration: none;
-	color: $white;
+	color: white;
 	font-size: .875em;
 	font-weight: bold;
 	line-height: 1em;
@@ -73,7 +70,7 @@ BUTTONS
 	transition: background-color 0.2s ease-in-out;
 
 	&:hover, &:focus {
-		color: $white;
+		color: white;
 		text-decoration: none;
 	}
 

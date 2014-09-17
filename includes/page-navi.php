@@ -1,6 +1,6 @@
 <?php
 /**
- * Adds some custom functions and actions to use those functions
+ * Adds custom page navigation
  */
 
 // actions

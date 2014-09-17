@@ -1,0 +1,139 @@
+/*********************
+HEADER STYLES
+*********************/
+
+.header {
+	background: #eee;
+	#logo {
+		margin: 1em 1em 1em 0;
+	}
+}
+
+
+/*********************
+HEADROOM STYLES
+*********************/
+/*
+@include breakpoint(large) {
+
+	#headroom{
+	    position:fixed;
+	    width:100%;
+	    background: red;
+	    transition: transform .2s linear;
+	}
+	
+	.slideDown {
+	   transform: translateY(0%);
+	}
+	.slideUp {
+	   transform: translateY(-100%);
+	}
+}
+*/
+
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+.main-nav {
+	margin: 0;
+
+	li {
+		@include breakpoint(medium)
+		{
+			float: left;
+			position: relative;
+		}
+
+		a, a:visited {
+			display: block;
+			text-decoration: none;
+			padding: 1em 1em 1em 0;
+
+			&:hover, &:focus {
+			}
+		}
+
+		ul.sub-menu,
+		ul.children {
+			@include breakpoint(medium)
+			{
+				margin-top: 0;
+				border: 1px solid $gray;
+				background: white;
+				border-top: 0;
+				position: absolute;
+				overflow: hidden;
+				visibility: hidden;
+				z-index: 8999;
+			}
+
+			li {
+				a, a:visited {
+					@include breakpoint(medium)
+					{
+						padding-left: 10px;
+						border-right: 0;
+						display: block;
+						width: 180px;
+					}
+
+					padding-left: 30px;
+				}
+
+			}
+
+		}
+
+		@include breakpoint(medium)
+		{
+			/* showing sub-menus */
+			&:hover ul {
+				top: auto;
+				overflow: visible;
+				visibility:visible;
+			}
+		}
+
+	}
+
+	/* highlight current page */
+	li.current-menu-item,
+	li.current_page_item,
+	li.current-page-ancestor {
+
+		a {}
+
+	}
+
+}
+
+#mobilemenu {
+	display: block;
+	float: right;
+	text-align: right;
+	text-decoration: none;
+	color: $link_color;
+	cursor: pointer;
+	font-size: 1.125em;
+	&:hover, &:focus {
+		color: $link_hover;
+	}
+}
+
+.top-nav {
+	display: none;
+}
+
+@include breakpoint(medium)
+{
+	#mobilemenu {
+		display: none;
+	}
+
+	.top-nav {
+		display: block !important;
+	}
+}

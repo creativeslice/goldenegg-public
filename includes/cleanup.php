@@ -66,6 +66,7 @@ function egg_rss_version()
 	return '';
 }
 
+
 /**
  * Remove the p from around imgs
  *
@@ -75,6 +76,7 @@ function egg_filter_ptags_on_images( $content )
 {
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
+
 
 /**
  * Updates the […] for Read More links
@@ -86,6 +88,7 @@ function egg_excerpt_more( $more )
 	global $post;
 	return "&hellip;" . '  <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="Read ' . get_the_title($post->ID).'">Read more &raquo;</a>';
 }
+
 
 /**
  * Remove WP version from scripts

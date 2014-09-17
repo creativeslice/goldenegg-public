@@ -4,9 +4,7 @@
 
 	<header class="article-header">
 		<h1 class="entry-title single-title" itemprop="headline">
-			<?php if (! is_single() ) : ?><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php endif; ?>
-				<?php the_title(); ?>
-			<?php if (! is_single() ) : ?></a><?php endif; ?>
+			<?php the_title(); ?>
 		</h1>
 		<?php get_template_part( '/partials/content', 'byline' ); ?>
 	</header>

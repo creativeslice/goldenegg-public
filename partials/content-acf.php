@@ -55,6 +55,7 @@ elseif(get_row_layout() == "image_text_block"): ?>
 	<?php endwhile; ?>
 </section>
 
+
 <?php
 /**
  * LAYOUT:	Gallery Block (flexslider example)

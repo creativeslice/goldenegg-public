@@ -75,41 +75,6 @@ var timeToWaitForLast = 100;
 */
 
 jQuery(document).ready(function($) {
-
-	/**
-	 * Calls colorbox on navigation away
-	 * Page must have custom field 'popup_message' that output to page like so:
-	 *
-	 *  <?php if(get_field('popup_message')) : ?>
-	 *  	<div style='display:none' id='popup_message'>
-	 *  <?php  echo get_field('popup_message'); ?>
-	 *		</div>
-	 * 	<?php endif; ?> 
-	 */
-	if( $('#popup-message').length ){
-		$('a').not( '.external' ).on('click', function(e){
-			var target = $(this).attr('href');
-			if( !target.match(/^#/) ){
-				e.preventDefault();
-				$(window).unbind('beforeunload', closeHandler );
-				var modal = $("<div>", {class: "colorbox-content"}).text( $('#popup-message').data('message') );			
-				var cancelBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ $.colorbox.close(); }).html( $('#popup-message').data('cancel') );
-				var continueBtn = $('<a/>').attr({ class: 'button', name:'closeColorbox'}).on("click", function(){ window.location = target; }).html( $('#popup-message').data('continue') );		
-				$.colorbox( {html: modal , width:"400px", height:"400px"});
-				$('#cboxLoadedContent').append( cancelBtn, continueBtn );	
-			   	$('#colorbox').attr('class','popup-message');		   	
-			 }
-		});
-		$('a.external').on('click', function(e){
-			$(window).unbind('beforeunload', closeHandler );
-		})
-
-		// fallback for closing or reloading tab
-		var closeHandler = function() {
-			return $('#popup-message').html();
-		}
-		$(window).bind('beforeunload', closeHandler );
-	};
 	
 	/**
 	 * Initiates Colorbox
@@ -124,6 +89,7 @@ jQuery(document).ready(function($) {
 	$('.colorbox').colorbox(colorbox_params);
 	$('.gallery a').colorbox(colorbox_params);
 	$('a[href$=\".jpg\"], a[href$=\".png\"]').colorbox(colorbox_params);
+	
 	
 	/**
 	 * Initiates Headroom.js
@@ -148,6 +114,7 @@ jQuery(document).ready(function($) {
 			"notTop": "headroom--not-top"
 		}
 	});
+	
 	
 	/**
 	 * FADE-IN
@@ -219,6 +186,7 @@ jQuery(document).ready(function($) {
 			} 
 	$('.flexslider').flexslider(flexslider_params);
 
+
 	/**
 	 * Initiates MixitUp
 	 *		DIVS INITIATING FILTER
@@ -235,6 +203,8 @@ jQuery(document).ready(function($) {
 	 *		</div>
 	 */
 	$('#Container').mixItUp();		
+	
+	
 	/**
 	 * Mobile menu show/hide
 	 */
@@ -247,6 +217,7 @@ jQuery(document).ready(function($) {
 		//$('.search-field').focus();
 	});
 
+
 	/**
 	 * Adds the screen reader text to the icon's title so it will show on hover
 	 */
@@ -257,6 +228,7 @@ jQuery(document).ready(function($) {
 			$this.attr('title', $screentext.text());
 	});
 
+
 	/**
 	 * Expand blocks
 	 */
@@ -265,6 +237,8 @@ jQuery(document).ready(function($) {
 		$(this).toggleClass('active');
 		$(this).next('.expandcontent').slideToggle(200);
 	});
+	
+	
 	/**
 	 * Share links
 	 */

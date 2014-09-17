@@ -31,7 +31,7 @@ BUTTONS
   position: relative;
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
-  color: #fff;
+  color: white;
   font-size: 0.875em;
   font-weight: bold;
   line-height: 1em;
@@ -39,9 +39,9 @@ BUTTONS
   border-radius: 4px;
   cursor: pointer;
   -webkit-transition: background-color 0.2s ease-in-out;
-          transition: background-color 0.2s ease-in-out; }
+  transition: background-color 0.2s ease-in-out; }
   .search-submit:hover, .form-submit input:hover, .button:hover, .search-submit:focus, .form-submit input:focus, .button:focus {
-    color: #fff;
+    color: white;
     text-decoration: none; }
   .search-submit:active, .form-submit input:active, .button:active {
     top: 1px; }
@@ -262,6 +262,12 @@ mark, ins {
   background: #fff9c0;
   text-decoration: none; }
 
+/* post meta */
+.byline {
+  color: #999;
+  font-style: italic;
+  margin: 0; }
+
 /******************************************************************
 ENTRY CONTENT
 ******************************************************************/
@@ -370,7 +376,8 @@ HTML5 IMAGE GALLERY
   .gallery img {
     display: block;
     -webkit-transform: translateZ(0);
-            transform: translateZ(0); }
+    -ms-transform: translateZ(0);
+    transform: translateZ(0); }
   .gallery .gallery-caption {
     text-align: left;
     padding: 0.25em 0; }
@@ -383,7 +390,7 @@ HTML5 IMAGE GALLERY
   .gallery img:hover {
     opacity: 0.7;
     -webkit-transition: opacity 0.2s ease;
-            transition: opacity 0.2s ease; }
+    transition: opacity 0.2s ease; }
 
 /******************************************************************
 

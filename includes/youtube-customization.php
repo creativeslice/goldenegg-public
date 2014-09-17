@@ -7,8 +7,8 @@ Customize embedding youtube
 CSS:
 .video-container {
     position: relative;
-    // padding-bottom: 56.25%;
-    padding-bottom: 51.5%;
+    padding-bottom: 56.25%;
+    // padding-bottom: 51.5%; for no-frame videos
     padding-top: 35px;
     height: 0;
     width: 100%;
@@ -37,6 +37,8 @@ function egg_set_youtube_params($html, $url, $args, $id) {
 	$video_args['autoplay'] = '0';
 	$video_args['modestbranding'] = '1';
 	$video_args['autohide'] = '2';
+	$video_args['show_info'] = '0';
+
 	// $video_args['cc_load_policy'] = '1';
 	// $video_args['color'] = 'white';
 	// $video_args['controls'] = '2';
@@ -52,7 +54,6 @@ function egg_set_youtube_params($html, $url, $args, $id) {
 	// $video_args['playerapiid'] = '0';
 	// $video_args['playlist'] = '0';
 	// $video_args['playsinline'] = '0';
-	// $video_args['showinfo'] = '0';
 	// $video_args['start'] = '0';
 	// $video_args['theme'] = '0';
 // END PARAMETER OPTIONS
