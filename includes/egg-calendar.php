@@ -103,7 +103,6 @@ class calendar{
 		// Adds Timezone of Offset to Calendar Object for Debugging/Reference
 		if( ! $this->wp_timezone = get_option('timezone_string') ){
 			$this->wp_timezone = get_option('gmt_offset');
-			
 		}	
 		$this->echo_message( 'WP Timezone: ' . $this->wp_timezone );	
 		$this->get_times();
@@ -495,27 +494,26 @@ class calendar{
 					<?php echo date ('M j', $timestamp); 
 					
 					if( @$event_arr ):
-					//print_r($event_arr);
-						foreach($event_arr as $event_time=>$event):
-							if ($event_time <= $timestamp + 86399 && $event_time <= $this->selected->end_of_month && $event_time >= $this->selected->start_of_month):
-								if( $event_time < current_time( 'timestamp' ) ){ $class = 'event past'; }else{ $class = 'event'; } ?>
-						<div class='<?php echo $class; ?>' data-timestamp='<?php echo $event_time; ?>'>
-						<?php 
-							if(get_field('_recurring_day', $event)){
-								$starts_on = strtotime( get_field('starts_on', $event) );
-								$ends_on = strtotime( get_field('ends_on', $event) );
-								if( $starts_on <= $timestamp && $ends_on >= $timestamp ){
-									echo "<a href='". add_query_arg( 'event_time', $event_time, get_permalink( $event ) ) . "'>". get_the_title($event) . "</a>";
+						foreach($event_arr as $event_time=>$events):
+							foreach($events as $events_key=>$event):					
+								if ($event_time <= $timestamp + 86399 && $event_time <= $this->selected->end_of_month && $event_time >= $this->selected->start_of_month):
+									if( $event_time < current_time( 'timestamp' ) ){ $class = 'event past'; }else{ $class = 'event'; } ?>
+							<div class='<?php echo $class; ?>' data-timestamp='<?php echo $event_time; ?>'>
+							<?php 
+								if(get_field('_recurring_day', $event)){
+									if( $event_time <= $timestamp && $event_time >= $timestamp ){
+										echo "<a href='". add_query_arg( 'event_time', $event_time, get_permalink( $event ) ) . "'>". get_the_title($event) . "</a>";
+									}
 								}
-							}
-							else{ 
-									echo "<a href='". get_permalink( $event ) . "'>". get_the_title($event) . "</a>";
-							}
-						?>
-						<?php ?>
-						</div>	
-								<?php unset($event_arr[$event_time]); ?>
-							<?php endif; ?>
+								else{ 
+										echo "<a href='". get_permalink( $event ) . "'>". get_the_title($event) . "</a>";
+								}
+							?>
+							<?php ?>
+							</div>	
+									<?php unset($event_arr[$event_time]); ?>
+								<?php endif; ?>
+							<?php endforeach; ?>
 						<?php endforeach; ?>
 					<?php endif; ?>
 					
@@ -748,7 +746,7 @@ class eggEvents{
 				if( get_field('event_dates', $spost->ID ) ){
 					while ( $event_date = get_post_meta( $spost->ID , "event_dates_". $count ."_event_date", true) ){ 
 						$eventstamp = strtotime( $event_date );
-						$single_events[$eventstamp] = $spost->ID;
+						$single_events[$eventstamp][] = $spost->ID;
 						$count++;
 					}
 				}
@@ -766,13 +764,14 @@ class eggEvents{
 				       );
 		}		
 		$recurring_query = new WP_Query( array (
-						    'post_type' => 'events',
+						    'post_type' => 'event',
 						    'meta_key' => 'recurring_day',
 						    'orderby' => 'meta_value_num',
 						    'order' => 'ASC',
 						    'meta_query' => array( $media_query )
 						));	
 		if( $max_limit > 1 ){
+			// $recurring count is the number of times the recurring day occurs in the period of interest
 			$recurring_count = floor($max_limit/ 7);
 			foreach($recurring_query->posts as $re_key => $re_post){
 				$recurring_day = get_field( 'recurring_day', $re_post->ID );
@@ -781,17 +780,16 @@ class eggEvents{
 				$i = 0;		
 				while($i < $recurring_count){
 					$recurring_timestamp = strtotime( 'today 12:00am +' . $dif_num .' day');
-					$recurring_events[$recurring_timestamp] = $re_post;
+					$recurring_events[$recurring_timestamp][] = $re_post->ID;
 					$dif_num = $dif_num +7;
 					$i++;
 				}			
 			}
-	
 		}
 		else{
 			foreach($recurring_query->posts as $re_key => $re_post){
 				$recurring_day = get_field( 'recurring_day', $re_post->ID );
-				$recurring_events[$stamp] = $re_post;					
+				$recurring_events[$stamp][] = $re_post;					
 			}	
 		}
 		$all_events = $single_events + $recurring_events;

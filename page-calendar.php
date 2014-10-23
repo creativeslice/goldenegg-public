@@ -13,11 +13,12 @@
 				<header class="article-header">
 					<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
 				</header>
-				
+				<?php
+
+				?>
 				<?php // Show Calendar
 				$events = new eggEvents;
 				$events->get_events('','30' );
-				// print_r($events);
 				$args = array(
 					'range'			=> '1 month',
 					'selected_time'	=> NULL,
