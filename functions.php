@@ -30,7 +30,7 @@ require_once( 'includes/enqueue.php' );
 require_once( 'includes/page-navi.php' );
 #require_once( 'includes/related-content.php' );		// Associated content and related posts
 #require_once( 'includes/youtube-customization.php' );	// Customize iframe and youtube parameters
-#require_once( 'includes/custom-post-types.php' );		// Create custom post types
+require_once( 'includes/custom-post-types.php' );		// Create custom post types
 #require_once( 'includes/nice-search.php' );			// Clean search urls and Relevanssi custom fields
 #require_once( 'includes/disable-pingback.php' );		// Disable XMLRPC, pingbacks, trackbacks
 #require_once( 'includes/disable-feeds.php' );			// Disable site feeds
@@ -39,7 +39,7 @@ require_once( 'includes/page-navi.php' );
 // In Development
 #require_once( 'includes/10up-lazy-load.php' );			// Lazy load images based on 10up plugin
 #require_once( 'includes/one-time-code.php' );
-#require_once( 'includes/egg-calendar.php' );			// Flexible calendar (monthly, weekly, daily)
+require_once( 'includes/egg-calendar.php' );			// Flexible calendar (monthly, weekly, daily)
 
 
 /**

@@ -496,7 +496,7 @@ class calendar{
 					if( @$event_arr ):
 						foreach($event_arr as $event_time=>$events):
 							foreach($events as $events_key=>$event):					
-								if ($event_time <= $timestamp + 86399 && $event_time <= $this->selected->end_of_month && $event_time >= $this->selected->start_of_month):
+								if ($event_time <= $timestamp + 86399 && $event_time < $this->selected->end_of_month && $event_time >= $this->selected->start_of_month):
 									if( $event_time < current_time( 'timestamp' ) ){ $class = 'event past'; }else{ $class = 'event'; } ?>
 							<div class='<?php echo $class; ?>' data-timestamp='<?php echo $event_time; ?>'>
 							<?php 
@@ -703,7 +703,6 @@ class eggEvents{
 		if( !$start_date ){ $start_date = date('Ymd', current_time('timestamp')  ); }
 		$stamp = strtotime( $start_date );
 		$max_time = date( 'Ymd', ( $stamp + $max_limit * 86400 ) );
-
 		$single_events = array();
 		$recurring_events = array();
 		
