@@ -60,48 +60,48 @@ function custom_register_post_type()
 	
 }
 
-	/* Custom Taxonomy (Category) */
-	register_taxonomy( 'custom_cat',
-		array('custom_type'), // match name of register_post_type( 'custom_type'
-		array('hierarchical' => true, // if this is true, it acts like categories
-			'labels' => array(
-				'name'					=> 'Categories',
-				'singular_name'			=> 'Category',
-				'search_items'			=> 'Search Categories',
-				'all_items'				=> 'All Categories',
-				'parent_item'			=> 'Parent Category',
-				'parent_item_colon'		=> 'Parent Category:',
-				'edit_item'				=> 'Edit Category',
-				'update_item'			=> 'Update Category',
-				'add_new_item'			=> 'Add New Category',
-				'new_item_name'			=> 'New Category Name',
-			),
-			'show_admin_column' 	=> true,
-			'show_ui' 				=> true,
-			'query_var' 			=> true,
-			'rewrite' 				=> array( 'slug' => 'custom-slug' ),
-		)
-	);
+/* Custom Taxonomy (Category) */
+register_taxonomy( 'custom_cat',
+	array('custom_type'), // match name of register_post_type( 'custom_type'
+	array('hierarchical' => true, // if this is true, it acts like categories
+		'labels' => array(
+			'name'					=> 'Categories',
+			'singular_name'			=> 'Category',
+			'search_items'			=> 'Search Categories',
+			'all_items'				=> 'All Categories',
+			'parent_item'			=> 'Parent Category',
+			'parent_item_colon'		=> 'Parent Category:',
+			'edit_item'				=> 'Edit Category',
+			'update_item'			=> 'Update Category',
+			'add_new_item'			=> 'Add New Category',
+			'new_item_name'			=> 'New Category Name',
+		),
+		'show_admin_column' 	=> true,
+		'show_ui' 				=> true,
+		'query_var' 			=> true,
+		'rewrite' 				=> array( 'slug' => 'custom-slug' ),
+	)
+);
 
-	/* Custom Taxonomy (Tag) */
-	register_taxonomy( 'custom_tag',
-		array('custom_type'), // match name of register_post_type( 'custom_type'
-		array('hierarchical' => false, // if this is false, it acts like tags
-			'labels' => array(
-				'name' 					=> 'Tags',
-				'singular_name'			=> 'Tag',
-				'search_items'			=> 'Search Tags',
-				'all_items'				=> 'All Tags',
-				'parent_item'			=> 'Parent Tag',
-				'parent_item_colon'		=> 'Parent Tag:',
-				'edit_item'				=> 'Edit Tag',
-				'update_item'			=> 'Update Tag',
-				'add_new_item'			=> 'Add New Tag',
-				'new_item_name'			=> 'New Tag Name',
-			),
-			'show_admin_column' 	=> true,
-			'show_ui' 				=> true,
-			'query_var' 			=> true,
-		)
-	);
+/* Custom Taxonomy (Tag) */
+register_taxonomy( 'custom_tag',
+	array('custom_type'), // match name of register_post_type( 'custom_type'
+	array('hierarchical' => false, // if this is false, it acts like tags
+		'labels' => array(
+			'name' 					=> 'Tags',
+			'singular_name'			=> 'Tag',
+			'search_items'			=> 'Search Tags',
+			'all_items'				=> 'All Tags',
+			'parent_item'			=> 'Parent Tag',
+			'parent_item_colon'		=> 'Parent Tag:',
+			'edit_item'				=> 'Edit Tag',
+			'update_item'			=> 'Update Tag',
+			'add_new_item'			=> 'Add New Tag',
+			'new_item_name'			=> 'New Tag Name',
+		),
+		'show_admin_column' 	=> true,
+		'show_ui' 				=> true,
+		'query_var' 			=> true,
+	)
+);
 	

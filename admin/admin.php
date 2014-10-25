@@ -90,10 +90,7 @@ function egg_disable_dashboard_widgets()
 	remove_meta_box('dashboard_primary', 'dashboard', 'core');			// WordPress News Widget
 
 	// removing plugin dashboard boxes
-	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');			// Yoast's SEO Plugin Widget
-	remove_meta_box('tribe_dashboard_widget', 'dashboard', 'normal');	// Modern Tribe Plugin Widget
-	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');		// Gravity Forms Plugin Widget
-	remove_meta_box('bbp-dashboard-right-now', 'dashboard', 'core');	// bbPress Plugin Widget
+	// remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');		// Gravity Forms Plugin Widget
 }
 
 
@@ -160,8 +157,11 @@ function egg_customize_admin_bar()
 	$wp_admin_bar->remove_menu('new-link');
 	$wp_admin_bar->remove_menu('new-media');
 	$wp_admin_bar->remove_menu('new-user');
+	$wp_admin_bar->remove_menu('themes');
+	$wp_admin_bar->remove_menu('customize');
+	$wp_admin_bar->remove_menu('widgets');
 	if(!is_admin()){ 
-		$wp_admin_bar->remove_menu('my-account'); // removes my account bar from top right
+		$wp_admin_bar->remove_menu('my-account'); // removes my account bar from top right 
 	}
 }
 
