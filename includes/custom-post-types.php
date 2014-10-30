@@ -20,11 +20,11 @@ function egg_flush_rewrite_rules()
 add_action( 'init', 'custom_register_post_type');
 function custom_register_post_type()
 { 
-	register_post_type( 'custom_type', // use singular name here: 'type' instead of 'types'
+	register_post_type( 'custom_type', // use singular name here: 'custom_type' NOT 'custom_types'
 		array( 'labels' => 
 			array(
-				'name'					=> 'Custom Types',
-				'singular_name'			=> 'Custom Type',
+				'name'					=> 'Types',
+				'singular_name'			=> 'Type',
 				'all_items'				=> 'All Types',
 				'add_new'				=> 'Add New',
 				'add_new_item'			=> 'Add New Type',
@@ -44,7 +44,7 @@ function custom_register_post_type()
 			'show_ui'				=> true,
 			'query_var'				=> true,
 			'menu_position'			=> 8,
-			'menu_icon'				=> 'dashicons-format-aside', /* http://melchoyce.github.io/dashicons/ */
+			'menu_icon'				=> 'dashicons-format-aside', /* https://developer.wordpress.org/resource/dashicons/#menu */
 			'rewrite'				=> array( 'slug' => 'custom_type', 'with_front' => false ),
 			'has_archive'			=> 'custom_type',
 			'capability_type'		=> 'post',
