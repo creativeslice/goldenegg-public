@@ -689,11 +689,20 @@ add_filter("posts_where", "my_posts_where");
   * @max_limit integer 	optional - number of days to search from $start_date
   * @event_cat string 	optional - category slug to limit search to
   * 
-  * @return array of key = event's timestamp and value = event's post id; array is sorted with recurring events populated for each occurence. 
-  * 			Array (
-  *					[1399507200] => 209
-  *					[1405555200] => 212
-  *				)
+  * @return array of key = event's timestamp and value = array of event's post id; array is sorted with recurring events populated for each occurence. 
+  * 			Array(
+  *				    [1409529600] => Array
+  *				        (
+  *				            [0] => 299
+  *				        )
+  *				
+  *				    [1410912000] => Array
+  *				        (
+  *				            [0] => 296
+  *				            [1] => 298
+  *				        )
+  *
+  *					)
   * 
   */
 class eggEvents{
