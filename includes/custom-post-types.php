@@ -20,11 +20,11 @@ function egg_flush_rewrite_rules()
 add_action( 'init', 'custom_register_post_type');
 function custom_register_post_type()
 { 
-	register_post_type( 'custom_type', // use singular name here: 'type' instead of 'types'
+	register_post_type( 'custom_type', // use singular name here: 'custom_type' NOT 'custom_types'
 		array( 'labels' => 
 			array(
-				'name'					=> 'Custom Types',
-				'singular_name'			=> 'Custom Type',
+				'name'					=> 'Types',
+				'singular_name'			=> 'Type',
 				'all_items'				=> 'All Types',
 				'add_new'				=> 'Add New',
 				'add_new_item'			=> 'Add New Type',
@@ -44,7 +44,7 @@ function custom_register_post_type()
 			'show_ui'				=> true,
 			'query_var'				=> true,
 			'menu_position'			=> 8,
-			'menu_icon'				=> 'dashicons-format-aside', /* http://melchoyce.github.io/dashicons/ */
+			'menu_icon'				=> 'dashicons-format-aside', /* https://developer.wordpress.org/resource/dashicons/#menu */
 			'rewrite'				=> array( 'slug' => 'custom_type', 'with_front' => false ),
 			'has_archive'			=> 'custom_type',
 			'capability_type'		=> 'post',
@@ -60,48 +60,48 @@ function custom_register_post_type()
 	
 }
 
-	/* Custom Taxonomy (Category) */
-	register_taxonomy( 'custom_cat',
-		array('custom_type'), // match name of register_post_type( 'custom_type'
-		array('hierarchical' => true, // if this is true, it acts like categories
-			'labels' => array(
-				'name'					=> 'Categories',
-				'singular_name'			=> 'Category',
-				'search_items'			=> 'Search Categories',
-				'all_items'				=> 'All Categories',
-				'parent_item'			=> 'Parent Category',
-				'parent_item_colon'		=> 'Parent Category:',
-				'edit_item'				=> 'Edit Category',
-				'update_item'			=> 'Update Category',
-				'add_new_item'			=> 'Add New Category',
-				'new_item_name'			=> 'New Category Name',
-			),
-			'show_admin_column' 	=> true,
-			'show_ui' 				=> true,
-			'query_var' 			=> true,
-			'rewrite' 				=> array( 'slug' => 'custom-slug' ),
-		)
-	);
+/* Custom Taxonomy (Category) */
+register_taxonomy( 'custom_cat',
+	array('custom_type'), // match name of register_post_type( 'custom_type'
+	array('hierarchical' => true, // if this is true, it acts like categories
+		'labels' => array(
+			'name'					=> 'Categories',
+			'singular_name'			=> 'Category',
+			'search_items'			=> 'Search Categories',
+			'all_items'				=> 'All Categories',
+			'parent_item'			=> 'Parent Category',
+			'parent_item_colon'		=> 'Parent Category:',
+			'edit_item'				=> 'Edit Category',
+			'update_item'			=> 'Update Category',
+			'add_new_item'			=> 'Add New Category',
+			'new_item_name'			=> 'New Category Name',
+		),
+		'show_admin_column' 	=> true,
+		'show_ui' 				=> true,
+		'query_var' 			=> true,
+		'rewrite' 				=> array( 'slug' => 'custom-slug' ),
+	)
+);
 
-	/* Custom Taxonomy (Tag) */
-	register_taxonomy( 'custom_tag',
-		array('custom_type'), // match name of register_post_type( 'custom_type'
-		array('hierarchical' => false, // if this is false, it acts like tags
-			'labels' => array(
-				'name' 					=> 'Tags',
-				'singular_name'			=> 'Tag',
-				'search_items'			=> 'Search Tags',
-				'all_items'				=> 'All Tags',
-				'parent_item'			=> 'Parent Tag',
-				'parent_item_colon'		=> 'Parent Tag:',
-				'edit_item'				=> 'Edit Tag',
-				'update_item'			=> 'Update Tag',
-				'add_new_item'			=> 'Add New Tag',
-				'new_item_name'			=> 'New Tag Name',
-			),
-			'show_admin_column' 	=> true,
-			'show_ui' 				=> true,
-			'query_var' 			=> true,
-		)
-	);
+/* Custom Taxonomy (Tag) */
+register_taxonomy( 'custom_tag',
+	array('custom_type'), // match name of register_post_type( 'custom_type'
+	array('hierarchical' => false, // if this is false, it acts like tags
+		'labels' => array(
+			'name' 					=> 'Tags',
+			'singular_name'			=> 'Tag',
+			'search_items'			=> 'Search Tags',
+			'all_items'				=> 'All Tags',
+			'parent_item'			=> 'Parent Tag',
+			'parent_item_colon'		=> 'Parent Tag:',
+			'edit_item'				=> 'Edit Tag',
+			'update_item'			=> 'Update Tag',
+			'add_new_item'			=> 'Add New Tag',
+			'new_item_name'			=> 'New Tag Name',
+		),
+		'show_admin_column' 	=> true,
+		'show_ui' 				=> true,
+		'query_var' 			=> true,
+	)
+);
 	

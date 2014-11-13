@@ -38,37 +38,25 @@ function egg_nice_search_redirect()
  *
  * @return [string] modified content of the resulting post and its custom fields
  */
-function excerpt_function($content, $post, $query){
-    $relevanssi_index_post_types = list_searcheable_acf();
-    if(!empty($relevanssi_index_post_types)){
-        $meta_values = '';
-        foreach($relevanssi_index_post_types AS $custom_post_type){ 
-            $meta_value = get_post_meta( $post->ID, $custom_post_type, true);
-            // CreativeSlice Custom: the returned content only includes fields where the search term exists (includes post_content)
-            if(!empty($meta_value) && strpos($meta_value, $query) ){
-                $meta_values .= $meta_value.' ';
-            }
-        }
-    }
-    if(!empty($meta_values)){
-        $content .= preg_replace("/\n\r|\r\n|\n|\r/", " ", $meta_values);
-    }
-    return $content;
-}
 
+// Get Relevanssi to display excerpts from your custom fields
+add_filter('relevanssi_excerpt_content', 'excerpt_function', 10, 3);
 
-/**
- * [list_searcheable_acf generates array of all custom fields]
- * @return [array] [list of custom fields]
- */
-function list_searcheable_acf(){
-	global $wpdb;
-	$sql= "select distinct(meta_key) from wp_postmeta where meta_value LIKE '%field\_%'";
-	$sql_out = $wpdb->get_results($sql);
-	foreach($sql_out as $key=>$arr){
-		$ptn = "/^_/";
-		$field_names[] = preg_replace($ptn, '',$arr->meta_key );
+function excerpt_function($content, $post, $query) {
+	global $wpdb; $fields = $wpdb->get_col("SELECT DISTINCT(meta_key) FROM $wpdb->postmeta");
+
+	foreach($fields as $key => $field){ 
+		$field_value = get_post_meta($post->ID, $field, TRUE); $content .= ' ' . ( is_array($field_value) ? implode(' ', $field_value) : $field_value ); 
 	}
-  return $field_names;
+	
+	// Remove random terms from showing in the search. These are related to the names of the ACF field names
+	$wordlist = array('acf_id_1', 'acf_id_2', 'acf_id_3', 'acf_id_4');
+	foreach ($wordlist as &$word) {
+	    $word = '/\b' . preg_quote($word, '/') . '\b/';
+	}
+	
+	$content = preg_replace($wordlist, '', $content);
+	
+	// The excerpt ready with bits removed from it
+	return $content; 
 }
-?>
