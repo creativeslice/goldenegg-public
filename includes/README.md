@@ -50,23 +50,20 @@ $cal = new calendar( $args );
   // @$number_of_days_to_search : number of days beyond start_date which to search (default is 1 day)  
   // @$event_category : optional category restriction
   
-  // returns chronologically ordered array of timestamped event posts. Timestamp is from ACF date field.
-
-Array (
-  [1407182400] => stdClass Object
-        (
-            [ID] => 14113
-            [post_author] => 9
-            [post_date] => 2014-07-30 15:02:42
-            	•••
-        )
-  [1407787200] => stdClass Object
-        (
-            [ID] => 14113
-            [post_author] => 9
-            	•••
-        )
-)
+  // @return array of key = event's timestamp and value = array of event's post id; array is sorted with recurring events populated for each occurence. 
+   			Array(
+  				    [1409529600] => Array
+  				        (
+  				            [0] => 299
+  				        )
+  				
+  				    [1410912000] => Array
+  				        (
+  				            [0] => 296
+  				            [1] => 298
+  				        )
+  
+  					)
 ?>
 ```
 
