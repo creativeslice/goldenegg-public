@@ -20,9 +20,9 @@ add_action( 'egg/related_posts', 'egg_related_posts' );
  */ 
 function get_associated( $main_post_id , $assoc_type ){	
 	$main_type = get_post_type( $main_post_id );
-	if( $assoc_type == 'location' ){ $assoc_type = 'locations'; } // only needed for ACF Locations plugin
+	if( $assoc_type == 'location' ){ $assoc_type = 'locations'; }
 	$run_query = true;
-	$childrenArray = get_field( 'haschildren_'.$assoc_type , $main_post_id );
+	$childrenArray = get_field( 'associated_'.$assoc_type , $main_post_id );
 	if(!$childrenArray){
 		$run_query = false;
 	}
@@ -37,7 +37,7 @@ function get_associated( $main_post_id , $assoc_type ){
 	'post_type' => $assoc_type,
 		'meta_query' => array(
 			array(
-				'key' => 'haschildren_'.$main_type,
+				'key' => 'associated_'.$main_type,
 				'value' => '"'.$main_post_id.'"',
 				'compare' => 'LIKE'			
 			)
@@ -46,11 +46,12 @@ function get_associated( $main_post_id , $assoc_type ){
 	// if there are no children and the post_in is empty, the query returns all records - this avoids runnning the query for that condition.
 	if($run_query){
 		$query_parent = new WP_Query( $args_parent );
+		$sort_by_children = true;
 	}
 	$query_child = new WP_Query( $args_child );
 	$query_result = new WP_Query( $args_child );
-	if(count($query_parent->posts)>0){ 
-		if(count($query_child->posts)>0){
+	if(count(@$query_parent->posts)>0){ 
+		if(count(@$query_child->posts)>0){
 			foreach($query_child->posts as $key=>$post){
 				$excludes[] = $post->ID;
 			}
@@ -65,11 +66,21 @@ function get_associated( $main_post_id , $assoc_type ){
 			$query_result->posts = $query_parent->posts; 
 		}
 	}
-	elseif( count( $query_child->posts )>0 ){ 
+	elseif( count( @$query_child->posts )>0 ){ 
 		$query_result->posts = $query_child->posts;
 	}
 	else{
 	 return false;
+	}
+	if(@$sort_by_children){
+		$posts_sub = array();
+		foreach($query_result->posts as $key=>$post){
+			$id = $post->ID;
+			$new_key = array_search( $id, $childrenArray );
+			$posts_sub[$new_key] = $post;
+		}
+		$query_result->posts = $posts_sub;
+		ksort($posts_sub);
 	}
 	$query_result->post_count = count($query_result->posts);
 	return $query_result;
