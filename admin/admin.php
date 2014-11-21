@@ -21,6 +21,22 @@ add_filter( 'admin_footer_text',          'egg_admin_footer' );
 
 
 /**
+ * Disable the auto generated email sent to the admin after a successful core update:
+ */
+function egg_bypass_auto_update_email( $send, $type, $core_update, $result ) {
+    // The conditional below does not send an email for any type. Delete the "|| $type == 'type'" for the type you wish to receieve 
+	// if ( ! empty( $type ) && ( $type == 'success' || $type == 'manual' || $type == 'critical' || $type == 'fail' ) ) {
+    if ( ! empty( $type ) && $type == 'success' ) {
+        return false;
+    }
+    // return the send function 
+    return true;
+}
+
+add_filter( 'auto_core_update_send_email', 'egg_bypass_auto_update_email', 10, 4 );
+
+
+/**
  * Modify the admin bar left label
  */
 function custom_adminbar_titles( ) {
