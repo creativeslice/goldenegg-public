@@ -1,4 +1,4 @@
-var environment = 'development', // 'production'
+var environment = 'development', // 'production development'
 	gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -12,7 +12,7 @@ var environment = 'development', // 'production'
 	clean = require('gulp-clean'),
 	cache = require('gulp-cache'),
 	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
-
+	
 // CSS
 gulp.task('styles', function() {
 	return gulp.src('scss/style.scss')
@@ -59,7 +59,7 @@ gulp.task('scripts', function() {
 			.pipe(stripDebug())
 			.pipe(uglify())
 			.pipe(gulp.dest('js'))
-			.pipe(notify({ message: 'Scripts task complete' }));
+			.pipe(notify({ message: 'Production scripts task complete' }));
 	}
 	else
 	{
@@ -93,7 +93,7 @@ gulp.task('prod', function() {
 	gulp.start('styles', 'scripts', 'clean-prod');
 });
 
-// gulp watch (does not compile styles-ie, styles-login, or styles-editor)
+// gulp watch (does not compile styles-ie or styles-login)
 gulp.task('watch', function() {
 	gulp.watch('scss/**/*.scss', ['styles']);
 	gulp.watch('js/**/*.js', ['scripts']);

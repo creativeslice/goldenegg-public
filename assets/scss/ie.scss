@@ -7,70 +7,21 @@ Stylesheet: IE Stylesheet
 /*********************
 REMOVES MEDIA QUERIES
 *********************/
-$ignore-mqs: true;
+// $ignore-mqs: true;
+
+/*********************
+IGNORE MEDIA QUERIES
+*********************/
+
+$old-ie: true;
 
 
 /*********************
 IMPORTING MODULES
 *********************/
 
-// normalize: http://necolas.github.io/normalize.css/
-@import "modules/normalize";
-
-// import mixins
-@import "modules/mixins";
-
-// import icons
-@import "modules/fontface";
-
-// typography
-@import "modules/typography";
-
-// wordpress content images
-@import "modules/wpimage";
-
-// forms
-@import "modules/forms";
-
-// the grid
-@import "modules/grid";
-
-// header
-@import "modules/header";
-
-// comments
-@import "modules/comments";
-
-// pagenavi
-@import "modules/pagenavi";
-
-// colorbox
-//@import "modules/colorbox";
-
-// flexslider
-//@import "modules/flexslider";
-
-// mixitup
-//@import "modules/mixitup";
-
-
-/*********************
-BASE
-*********************/
-
-@import "base";
-
-
-/*********************
-PRINT STYLESHEET
-*********************/
-
-@media print {
-	@import "modules/print";
-}
-
+@import "style";
 
 /******************************************************************
 ADDITIONAL IE FIXES
 ******************************************************************/
-

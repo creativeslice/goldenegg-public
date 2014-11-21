@@ -10,8 +10,8 @@ body.login {
   background-image: linear-gradient(#fff, #ddd); }
 
 /*
-Logo above login form
-*/
+ * Logo above login form
+ */
 .login h1 a {
   background: url(../img/login-logo.png) no-repeat top center;
   width: 326px;
