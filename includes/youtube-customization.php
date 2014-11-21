@@ -33,20 +33,21 @@ function egg_set_youtube_params($html, $url, $args, $id) {
 	$iframe_args['frameborder'] = '0';
 	$iframe_args['allowfullscreen'] = 'allowfullscreen';
 	
-	$video_args['rel'] = '0';
-	$video_args['autoplay'] = '0';
-	$video_args['modestbranding'] = '1';
-	$video_args['autohide'] = '2';
+	$video_args['wmode'] = 'transparent';
 	$video_args['show_info'] = '0';
-
-	// $video_args['cc_load_policy'] = '1';
-	// $video_args['color'] = 'white';
-	// $video_args['controls'] = '2';
+	$video_args['color'] = 'black';
+	$video_args['feature'] = 'oembed';
+	// $video_args['autohide'] = '0';
+	$video_args['rel'] = '0';
+	$video_args['iv_load_policy'] = '3';
+	$video_args['autoplay'] = '0';
+	$video_args['controls'] = '2';
+	
+	// $video_args['modestbranding'] = '1';
 	// $video_args['disablekb'] = '1';
 	// $video_args['enabejsapi'] = '1';
 	// $video_args['end'] = '0';
 	// $video_args['fs'] = '0';
-	// $video_args['iv_load_policy'] = '3';
 	// $video_args['list'] = '0';
 	// $video_args['listType'] = '0';
 	// $video_args['loop'] = '1';
@@ -85,7 +86,7 @@ function egg_set_youtube_params($html, $url, $args, $id) {
     $url_string = parse_url($url, PHP_URL_QUERY);
     parse_str($url_string, $id);
     if (isset($id['v'])) {
-   	     return '<div class="video-container"><iframe width="'.$iframe_args['width'].'" height="'.$iframe_args['height'].'" src="http://www.youtube.com/embed/'.$id['v'].@$query_str.'" frameborder="'.@$iframe_args["frameborder"].'" '.@$iframe_args["allowfullscreen"].'></iframe></div>';
+   	     return '<div class="video-container"><iframe width="'.$iframe_args['width'].'" height="'.$iframe_args['height'].'" src="//www.youtube.com/embed/'.$id['v'].@$query_str.'" frameborder="'.@$iframe_args["frameborder"].'" '.@$iframe_args["allowfullscreen"].'></iframe></div>';
     }
     return $html;
 }

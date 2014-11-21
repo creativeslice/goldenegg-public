@@ -7,8 +7,7 @@ jQuery(document).ready(function($) {
 		e.preventDefault();
 		var $this = $(this);
 		$this.toggleClass('active');
-		$('span', this).toggleClass('icon-menu').toggleClass('icon-close');
-		$('.top-nav').slideToggle(200);
+		$('.main-nav').slideToggle(200);
 	});
 
 	/**
