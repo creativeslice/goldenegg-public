@@ -29,7 +29,7 @@
 			array(
 				'title' => 'Facebook',
 				'icon'  => 'facebook',
-				'url'   => 'http://www.facebook.com/sharer.php?s=100&p[url]=' . $permalink . ($image ? '&p[images][0]=' . $image : '') . '&p[title]=' . urlencode($title) . '&p[summary]=' . urlencode(get_the_excerpt()),
+				'url'   => 'http://www.facebook.com/sharer.php?m2w&s=100&p[url]=' . $permalink . ($image ? '&p[images][0]=' . $image : '') . '&p[title]=' . urlencode($title) . '&p[summary]=' . urlencode(get_the_excerpt()),
 			),
 			array(
 				'title' => 'Google+',
