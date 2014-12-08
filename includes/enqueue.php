@@ -56,14 +56,14 @@ function egg_scripts()
 	 * Conditionally Enqueue Google
      * Load jquery from Google CDN (protocol relative) with local fallback when not available
 	 */
-	$google_url = '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';    
+	$google_url = 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';    
 	$register_google = false;
     if ( false === ( get_transient('jquery_url') ) ) { // Google connection has not been verified in the last 5 minutes			
 	    // checks Google CDN Connection  
         $resp = wp_remote_head( $google_url );
         if ( !is_wp_error($resp) || ( is_array( $resp ) && 200 == $resp['response']['code'])) { // Connection Verified
 	        $register_google = true;
-	        set_transient('jquery_url', $url, 5); 	// Have exceeded the transient time and will reset to 5 minutes
+	        set_transient('jquery_url', $url, 5*60); 	// Have exceeded the transient time and will reset to 5 minutes
         }
     }
     else{	// Google connection was verified within the last 5 minutes and will   
