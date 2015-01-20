@@ -19,5 +19,36 @@ jQuery(document).ready(function($) {
 		if ( $screentext.length )
 			$this.attr('title', $screentext.text());
 	});
-
+	function goTo(href) {
+	    $('#main').fadeTo('fast', 0.5);
+	    $.ajax({
+	        url: href,
+	        success: function(data) {
+	            $('#main').fadeOut('fast', function(){
+	                $(this).html(data).fadeTo('fast', 1);
+	            });
+	            // update the page title
+	            var title = $('#main').find('h1').text();
+	            $('head').find('title').text(title);
+	        }
+	    });
+	}
+	if (typeof history.pushState !== "undefined") {
+	    var historyCount = 0;
+	
+	    $('a[href*="goldenegg.dev"]').on('click',function(){
+//alert('clicked');
+	        var href = $(this).attr('href');
+	        goTo(href);
+	        history.pushState(null, null, href);
+	        return false;
+	    });
+	
+	    window.onpopstate = function(){
+	        if(historyCount) {
+	            goTo(document.location);
+	        }
+	        historyCount = historyCount+1;
+	    };
+	}
 }); /* end of as page load scripts */
