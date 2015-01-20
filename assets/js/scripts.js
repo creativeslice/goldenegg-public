@@ -195,9 +195,10 @@ jQuery(document).ready(function($) {
 		    var historyCount = 0;
 		
 		    $('li.pushState a').on('click',function(){
-		        var href = $(this).attr('href');
-		        goTo(href);
-		        history.pushState(null, null, href);
+			    var pSUrl = href = $(this).attr('href');
+			    var href = $(this).attr('href').replace('http://goldenegg.dev/','').replace('/','');
+			    goTo('http://goldenegg.dev/ajaxRequest/'+href);
+		        history.pushState(null, null, pSUrl);
 		        return false;
 		    });
 		

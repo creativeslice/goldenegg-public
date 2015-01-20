@@ -2,7 +2,6 @@
 if($_SERVER['HTTP_X_REQUESTED_WITH']==''){ $isAjax = false; }else{ $isAjax = true; }	
 if(!$isAjax){ get_header(); }
  // Template Name: pushState ?>
-
 <div id="content">
 
 	<div class="wrap">
@@ -29,7 +28,6 @@ if(!$isAjax){ get_header(); }
 
 		</div>
 
-		<?php if(!$isAjax){ get_sidebar(); } ?>
 
 	</div>
 

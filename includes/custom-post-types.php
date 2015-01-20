@@ -104,4 +104,3 @@ register_taxonomy( 'custom_tag',
 		'query_var' 			=> true,
 	)
 );
-	
