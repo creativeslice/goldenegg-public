@@ -112,3 +112,11 @@ FOOTER STYLES
 	}
 
 }
+.fadeIn{
+	opacity: 1;
+	transition: opacity .5s; 
+}
+.fadeOut{
+	opacity: 0;
+	transition: opacity .5s; 
+}

@@ -1,11 +1,9 @@
 <?php
-if($_SERVER['HTTP_X_REQUESTED_WITH']==''):
-    get_header();
-endif;
+if($_SERVER['HTTP_X_REQUESTED_WITH']==''){ $isAjax = false; }else{ $isAjax = true; }	
+if(!$isAjax){ get_header(); }
  // Template Name: pushState ?>
 
 <div id="content">
-This is pushState Template (hardcoded);
 
 	<div class="wrap">
 
@@ -31,14 +29,10 @@ This is pushState Template (hardcoded);
 
 		</div>
 
-		<?php get_sidebar(); ?>
+		<?php if(!$isAjax){ get_sidebar(); } ?>
 
 	</div>
 
 </div>
 
-<?php
-if($_SERVER['HTTP_X_REQUESTED_WITH']==''):
-    get_footer();
-endif;
-?>
+<?php if(!$isAjax){ get_footer(); } ?>

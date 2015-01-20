@@ -1209,6 +1209,16 @@ FOOTER STYLES
   .footer .copyright {
     clear: both; }
 
+.fadeIn {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s; }
+
+.fadeOut {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s; }
+
 /*********************
 PRINT STYLESHEET
 *********************/
