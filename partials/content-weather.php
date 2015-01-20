@@ -37,6 +37,7 @@ body.night{
 </style>
 
 <a id='sunrise-sunset-toggle' onClick='toggle_sunrise_set()' style='cursor:pointer' data-state='<?php echo $state; ?>'><?php echo $text; ?></a>
+
 <script type='text/javascript'>
 	function toggle_sunrise_set(){
 		var $body = document.getElementsByTagName('body')[0];

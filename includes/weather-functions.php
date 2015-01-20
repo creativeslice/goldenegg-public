@@ -1,9 +1,10 @@
 <?php
 	/*
 	 * Sunrise-Set checks the time and sets class on body
+	 *
+	 * output the html using:      <?php get_template_part( 'partials/content', 'weather' );	?>
 	 */
-
-	add_action('wp_footer', 'toggle_sunrise_set');
+	 
 	add_filter( 'body_class', 'sunrise_set_class' );
 	
 	function is_sunrise_set_enabled(){
@@ -44,16 +45,7 @@
 		return $classes;
 	}
 	
-	/*
-	 * builds the toggle link in the footer
-	 */
-	function toggle_sunrise_set(){
-		
-		get_template_part( 'partials/content', 'weather' );		
-	} 
 
-	/************* WEATHER FUNCTIONS *****************/
-	
 	function ph_get_weather()
 	{
 		if ( false === ($weather_xml = get_transient('weather_xml')) )
