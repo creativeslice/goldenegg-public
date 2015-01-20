@@ -63,15 +63,15 @@ function egg_scripts()
         $resp = wp_remote_head( $google_url );
         if ( !is_wp_error($resp) || ( is_array( $resp ) && 200 == $resp['response']['code'])) { // Connection Verified
 	        $register_google = true;
-	        set_transient('jquery_url', $url, 5*60); 	// Have exceeded the transient time and will reset to 5 minutes
+	        set_transient('jquery_url', $google_url, 5*60); 	// Have exceeded the transient time and will reset to 5 minutes
         }
     }
-    else{	// Google connection was verified within the last 5 minutes and will   
+    else { // Google connection was verified within the last 5 minutes and will   
 	    $register_google = true;
     }
-    if( $register_google ){
+    if( $register_google ) {
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', $url, false, '1.11.1', $footer);
+		wp_register_script('jquery', $google_url, false, '1.11.1', $footer);
     }
    	/**
 	 * End Conditionally Enqueue Google
