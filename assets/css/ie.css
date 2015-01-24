@@ -712,7 +712,6 @@ ENTRY CONTENT IMAGES
 .alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
   margin-left: 0;
   margin-right: 0;
-  width: 100% !important;
   height: auto; }
 
 /******************************************************************
@@ -1088,6 +1087,15 @@ NAVIGATION STYLES
 .top-nav {
   display: block !important; }
 
+/*********************
+FOOTER STYLES
+*********************/
+.footer {
+  clear: both;
+  background-color: #ccc; }
+  .footer .copyright {
+    clear: both; }
+
 /******************************************************************
 
 Stylesheet: Page Navi Styles
@@ -1195,6 +1203,14 @@ FADE ELEMENTS
     opacity: 0;
     transform: translateY(5em); }
 
+.fadeIn {
+  opacity: 1;
+  transition: opacity 0.5s; }
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 0.5s; }
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -1208,15 +1224,6 @@ SIDEBARS & ASIDES
 .sidebar {
   background: #ddd;
   padding: 1em; }
-
-/*********************
-FOOTER STYLES
-*********************/
-.footer {
-  clear: both;
-  background-color: #ccc; }
-  .footer .copyright {
-    clear: both; }
 
 /*********************
 PRINT STYLESHEET

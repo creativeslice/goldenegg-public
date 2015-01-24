@@ -49,39 +49,15 @@ function egg_styles()
  */
 function egg_scripts()
 {
-	// Conditional to set a script in the footer; Modify the "if" as needed; Default is in the header;
-	if ( 1 == 1 ) { $footer = false; } else { $footer = true; }; 	
-	
-	/**
-	 * Conditionally Enqueue Google
-     * Load jquery from Google CDN (protocol relative) with local fallback when not available
-	 */
-	$google_url = 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';    
-	$register_google = false;
-    if ( false === ( get_transient('jquery_url') ) ) { // Google connection has not been verified in the last 5 minutes			
-	    // checks Google CDN Connection  
-        $resp = wp_remote_head( $google_url );
-        if ( !is_wp_error($resp) || ( is_array( $resp ) && 200 == $resp['response']['code'])) { // Connection Verified
-	        $register_google = true;
-	        set_transient('jquery_url', $google_url, 5*60); 	// Have exceeded the transient time and will reset to 5 minutes
-        }
-    }
-    else { // Google connection was verified within the last 5 minutes and will   
-	    $register_google = true;
-    }
-    if( $register_google ) {
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', $google_url, false, '1.11.1', $footer);
-    }
-   	/**
-	 * End Conditionally Enqueue Google
-	 */
-	 
-	// if the WP jQuery is required and should be in footer by condition above, is moved to footer here
-    if( $footer && !$register_google){
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, 'true' );
-	}
+
+	/* call jQuery from Google and move to footer * /
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'), false, '1.11.1', true);
+		
+	/* move core jQuery to footer * /
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, true);
+		
 	
 	/* modernizr (without media query polyfill) */
 	wp_register_script( 'egg-modernizr', get_stylesheet_directory_uri() . '/assets/js/modernizr.custom.min.js', array(), '2.5.3', false );

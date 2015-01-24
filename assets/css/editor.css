@@ -39,7 +39,7 @@ BUTTONS
   border-radius: 4px;
   cursor: pointer;
   -webkit-transition: background-color 0.2s ease-in-out;
-          transition: background-color 0.2s ease-in-out; }
+  transition: background-color 0.2s ease-in-out; }
   .search-submit:hover, .form-submit input:hover, .button:hover, .search-submit:focus, .form-submit input:focus, .button:focus {
     color: white;
     text-decoration: none; }
@@ -333,7 +333,6 @@ ENTRY CONTENT IMAGES
 .alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
   margin-left: 0;
   margin-right: 0;
-  width: 100% !important;
   height: auto; }
 
 /******************************************************************
@@ -376,7 +375,8 @@ HTML5 IMAGE GALLERY
   .gallery img {
     display: block;
     -webkit-transform: translateZ(0);
-            transform: translateZ(0); }
+    -ms-transform: translateZ(0);
+    transform: translateZ(0); }
   .gallery .gallery-caption {
     text-align: left;
     padding: 0.25em 0; }
@@ -389,7 +389,7 @@ HTML5 IMAGE GALLERY
   .gallery img:hover {
     opacity: 0.7;
     -webkit-transition: opacity 0.2s ease;
-            transition: opacity 0.2s ease; }
+    transition: opacity 0.2s ease; }
 
 /******************************************************************
 

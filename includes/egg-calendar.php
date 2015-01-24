@@ -1,4 +1,31 @@
 <?php 
+	
+	
+/**
+ * FILTERS
+ **/
+
+add_filter('rewrite_rules_array', 'add_rewrite_rules');
+add_filter('query_vars', 'add_query_vars');
+  
+// Adds a url query to pass date requests in the URL (i.e., example.net/?var1=value1&calendar_date=2014-08
+function add_query_vars($aVars) {
+	$aVars[] = "page_request";
+	$aVars[] = "custom_cat";
+	return $aVars;
+}
+
+// Rewrite Rule - redirects calendar/2014-08/ to page-calendar.php?calendar_date=2014-08
+// ON INSTALL SAVE Permalinks or flush_rewrite_rules();
+function add_rewrite_rules($aRules) {
+	$aNewRules = array('ajaxRequest/([^/]+)/?$' => 'index.php?pagename=pushStateBlank&page_request=$matches[1]');
+//	$aNewRules = array('ajaxRequest/?$' => 'index.php?pagename=ajax_post');
+	$aRules = $aNewRules + $aRules;
+	return $aRules;
+}
+
+
+
 /**
   * Returns a calendar as a nested array of timestamp keys across a defined range of time units (i.e., 2 Months of weeks; 2 weeks of days).
   *

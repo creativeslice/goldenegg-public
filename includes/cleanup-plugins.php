@@ -45,3 +45,32 @@ function dequeue_plugin_styles() {
  * Search Everything plugin head cleanup
  */
 // remove_action( 'wp_head', 'se_global_head', 10 );
+
+
+/**
+ * Deregister admin styles on the front end when using ACF forms
+ * /
+add_action( 'wp_print_styles', 'custom_acf_deregister_styles', 100 );
+function custom_acf_deregister_styles()
+{
+	if (! is_admin() ) wp_deregister_style( 'wp-admin' );
+}
+/**
+ * Deregister most of the ACF default styles
+ * /
+add_action( 'wp_print_styles', 'remove_acf_styles', 200 );
+function remove_acf_styles()
+{
+	$styles = array(
+		'acf',
+		'acf-field-group',
+		'acf-pro-field-group',
+		'acf-global',
+		'acf-input',
+		'acf-pro-input',
+		'acf-datepicker',
+	);
+	foreach( $styles as $v ) {
+		wp_deregister_style( $v ); 
+	}
+}
