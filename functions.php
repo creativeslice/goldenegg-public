@@ -28,7 +28,7 @@ require_once( 'includes/cleanup.php' );
 require_once( 'includes/theme-support.php' );
 require_once( 'includes/enqueue.php' );
 require_once( 'includes/page-navi.php' );
-#require_once( 'includes/weather-functions.php' );
+require_once( 'includes/weather-functions.php' );
 #require_once( 'includes/related-content.php' );		// Associated content and related posts
 #require_once( 'includes/youtube-customization.php' );	// Customize iframe and youtube parameters
 #equire_once( 'includes/custom-post-types.php' );		// Create custom post types
