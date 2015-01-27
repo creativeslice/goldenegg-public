@@ -16,26 +16,34 @@
 			return true;
 		}
 	}
+	function timeFromDouble( $double ){
+		$hour = floor( $double );
+		$minute = round( ($double - $hour) * 60 );
+		if($hour > 12 ){
+			$hour = $hour - 12;
+		}
+		$time = $hour . ":" .$minute; 
+		return $time;
+	}
 	function get_day_or_night(){
-		// Sunrise/set in 24 hour decimal ( 7:30 pm = 19.50 )
-		// Roadmap: pull in local sunrise/sunset calendar
-		$sunrise = 7.5;
-		$sunset = 19;
+		// Roadmap: could pull in lat long from the timezone location 
+		$offset = get_option('gmt_offset'); 
+		$sunrise = date_sunrise(time(), SUNFUNCS_RET_DOUBLE , 32.13 , -110.55 ,90 , $offset );
+		$sunset = date_sunset(time(), SUNFUNCS_RET_DOUBLE , 32.13 , -110.55 , 90 , $offset);
+		$phase_array['sunrise'] = timeFromDouble($sunrise);
+		$phase_array['sunset'] = timeFromDouble($sunset);
 		
 		// gets the wordpress current time
 		$timestamp = current_time( 'timestamp' );
-		$timestamp = 1418048881;
 		$hour = date_i18n( 'H' , $timestamp );
 		$minute_decimal = round( date_i18n( 'i' , $timestamp ) / 60 , 2);
 		$time = ( $hour + $minute_decimal );
-		
-		$time = 20;
 		if( $time > $sunrise && $time < $sunset ){
-			$phase = 'day';			
+			$phase_array['phase'] = 'day';			
 		}else{
-			$phase = 'night';
+			$phase_array['phase'] = 'night';
 		}		
-		return $phase;
+		return $phase_array;
 	}
 	// Hooks the body_class() function and adds the appropriate class if the this is enabled by the user
 	function sunrise_set_class( $classes ) {
@@ -44,9 +52,7 @@
 		}		
 		return $classes;
 	}
-	
-
-	function ph_get_weather()
+	function egg_get_weather()
 	{
 		if ( false === ($weather_xml = get_transient('weather_xml')) )
 		{

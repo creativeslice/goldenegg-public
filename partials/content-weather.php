@@ -1,7 +1,10 @@
 <?php
 		// $phase is 'day' or 'night'
-		$phase = get_day_or_night(); 
-		
+		$phase_array = get_day_or_night(); 
+		$sunrise = $phase_array['sunrise'];
+		$sunset = $phase_array['sunset'];
+		$phase = $phase_array['phase'];
+
 		// Text is text to show in the footer. Customize as necessary. Is output as javascript so avoid quotes: " 
 		$disableText = "Turn off the sunrise/sunset, please.";
 		$enableText = "Turn the sunrise/sunset back on. That's slick.";
@@ -16,11 +19,12 @@
 ?>
 <div class="weather">
 	<?php 
-	$weather_xml = ph_get_weather();
+	$weather_xml = egg_get_weather();
 	if ( $weather_xml ) : ?>
 		<?php if (! $weather_xml ) : ?>
 			<span class="no-weather">&nbsp; Weather not available</span>
 		<?php else : ?>
+			<?php if( count($phase_array)>0 ) : ?><span>Sunrise: <?php echo $sunrise; ?> | Sunset: <?php echo $sunset; ?></span><?php endif; ?>
 			<?php if (! empty($weather_xml->weather) ) : ?><span class=""><?php echo $weather_xml->weather; ?></span><?php endif; ?>
 		<?php endif;
 	endif; ?>
