@@ -71,6 +71,15 @@ FADE ELEMENTS
 	}
 }
 
+.fadeIn{
+	opacity: 1;
+	transition: opacity .5s; 
+}
+.fadeOut{
+	opacity: 0;
+	transition: opacity .5s; 
+}
+
 
 /*********************
 POSTS & CONTENT STYLES
@@ -92,31 +101,4 @@ SIDEBARS & ASIDES
 .sidebar {
 	background: #ddd;
 	padding: 1em;
-}
-
-
-/*********************
-FOOTER STYLES
-*********************/
-
-.footer {
-	clear: both;
-	background-color: #ccc;
-
-	.footer-nav {
-		li {}
-	}
-
-	.copyright {
-		clear: both;
-	}
-
-}
-.fadeIn{
-	opacity: 1;
-	transition: opacity .5s; 
-}
-.fadeOut{
-	opacity: 0;
-	transition: opacity .5s; 
 }

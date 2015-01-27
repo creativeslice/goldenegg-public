@@ -51,7 +51,7 @@ ENTRY CONTENT IMAGES
 .alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img  {
 	margin-left: 0;
 	margin-right: 0;
-	width: 100% !important;
+	// width: 100% !important;
 	height: auto;
 }
 
@@ -113,7 +113,7 @@ HTML5 IMAGE GALLERY
 		text-align: left;
 		padding: .25em 0;
 	}
-	&:after{
+	&:after {
 	    content: '';
 	    display: inline-block;
 	    width: 100%;

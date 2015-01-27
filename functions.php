@@ -36,9 +36,9 @@ require_once( 'includes/weather-functions.php' );
 #require_once( 'includes/disable-pingback.php' );		// Disable XMLRPC, pingbacks, trackbacks
 #require_once( 'includes/disable-feeds.php' );			// Disable site feeds
 #require_once( 'includes/cleanup-plugins.php' );		// Cleanup commonly used plugins
+#require_once( 'includes/10up-lazy-load.php' );			// Lazy load images based on 10up plugin
 
 // In Development
-#require_once( 'includes/10up-lazy-load.php' );			// Lazy load images based on 10up plugin
 #require_once( 'includes/egg-calendar.php' );			// Flexible calendar (monthly, weekly, daily)
 
 
@@ -74,26 +74,3 @@ function custom_sitemap_post_types( $post_types )
     return $post_types;
 }
 */
-
-/**
- * FILTERS
- **/
-
-add_filter('rewrite_rules_array', 'add_rewrite_rules');
-add_filter('query_vars', 'add_query_vars');
-  
-// Adds a url query to pass date requests in the URL (i.e., example.net/?var1=value1&calendar_date=2014-08
-function add_query_vars($aVars) {
-	$aVars[] = "page_request";
-	$aVars[] = "custom_cat";
-	return $aVars;
-}
-
-// Rewrite Rule - redirects calendar/2014-08/ to page-calendar.php?calendar_date=2014-08
-// ON INSTALL SAVE Permalinks or flush_rewrite_rules();
-function add_rewrite_rules($aRules) {
-	$aNewRules = array('ajaxRequest/([^/]+)/?$' => 'index.php?pagename=pushStateBlank&page_request=$matches[1]');
-//	$aNewRules = array('ajaxRequest/?$' => 'index.php?pagename=ajax_post');
-	$aRules = $aNewRules + $aRules;
-	return $aRules;
-}

@@ -159,8 +159,9 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
+  -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   height: 0; }
 
 /**
@@ -253,7 +254,8 @@ input {
  */
 input[type="checkbox"], input[type="radio"] {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */ }
@@ -274,6 +276,7 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
+  -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box; }
@@ -356,6 +359,7 @@ nav ul, nav ol {
 
 * {
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 .image-replacement, .ir {
@@ -409,7 +413,7 @@ BUTTONS
   border-radius: 4px;
   cursor: pointer;
   -webkit-transition: background-color 0.2s ease-in-out;
-          transition: background-color 0.2s ease-in-out; }
+  transition: background-color 0.2s ease-in-out; }
   .search-submit:hover, .form-submit input:hover, .button:hover, .search-submit:focus, .form-submit input:focus, .button:focus {
     color: white;
     text-decoration: none; }
@@ -702,7 +706,6 @@ ENTRY CONTENT IMAGES
 .alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
   margin-left: 0;
   margin-right: 0;
-  width: 100% !important;
   height: auto; }
 
 /******************************************************************
@@ -745,7 +748,8 @@ HTML5 IMAGE GALLERY
   .gallery img {
     display: block;
     -webkit-transform: translateZ(0);
-            transform: translateZ(0); }
+    -ms-transform: translateZ(0);
+    transform: translateZ(0); }
   .gallery .gallery-caption {
     text-align: left;
     padding: 0.25em 0; }
@@ -759,7 +763,7 @@ HTML5 IMAGE GALLERY
     .gallery img:hover {
       opacity: 0.7;
       -webkit-transition: opacity 0.2s ease;
-              transition: opacity 0.2s ease; } }
+      transition: opacity 0.2s ease; } }
 
 /******************************************************************
 
@@ -774,9 +778,10 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
   border: 0;
   border-radius: 3px;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   color: #333;
   display: block;
   font-size: 1em;
@@ -785,7 +790,7 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
   margin-bottom: 14px;
   padding: 0 12px;
   -webkit-transition: background-color 0.24s ease-in-out;
-          transition: background-color 0.24s ease-in-out;
+  transition: background-color 0.24s ease-in-out;
   vertical-align: middle;
   width: 100%; }
   input[type="text"]:focus, input[type="text"]:active, input[type="password"]:focus, input[type="password"]:active, input[type="datetime"]:focus, input[type="datetime"]:active, input[type="datetime-local"]:focus, input[type="datetime-local"]:active, input[type="date"]:focus, input[type="date"]:active, input[type="month"]:focus, input[type="month"]:active, input[type="time"]:focus, input[type="time"]:active, input[type="week"]:focus, input[type="week"]:active, input[type="number"]:focus, input[type="number"]:active, input[type="email"]:focus, input[type="email"]:active, input[type="url"]:focus, input[type="url"]:active, input[type="search"]:focus, input[type="search"]:active, input[type="tel"]:focus, input[type="tel"]:active, input[type="color"]:focus, input[type="color"]:active, select:focus, select:active, textarea:focus, textarea:active, .field:focus, .field:active {
@@ -1068,6 +1073,15 @@ NAVIGATION STYLES
   .top-nav {
     display: block !important; } }
 
+/*********************
+FOOTER STYLES
+*********************/
+.footer {
+  clear: both;
+  background-color: #ccc; }
+  .footer .copyright {
+    clear: both; }
+
 /******************************************************************
 
 Stylesheet: Page Navi Styles
@@ -1173,18 +1187,28 @@ FADE ELEMENTS
 *********************/
 .fade-block {
   -webkit-transition-delay: 0s;
-          transition-delay: 0s;
+  transition-delay: 0s;
   -webkit-transition-duration: 0.6s;
-          transition-duration: 0.6s;
+  transition-duration: 0.6s;
   -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-          transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   -webkit-transition-property: opacity -webkit-transform;
-          transition-property: opacity transform; }
+  transition-property: opacity transform; }
   .fade-block.transition-in {
     opacity: 0;
     -webkit-transform: translateY(5em);
-        -ms-transform: translateY(5em);
-            transform: translateY(5em); }
+    -ms-transform: translateY(5em);
+    transform: translateY(5em); }
+
+.fadeIn {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
+
+.fadeOut {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
 
 /*********************
 POSTS & CONTENT STYLES
@@ -1199,25 +1223,6 @@ SIDEBARS & ASIDES
 .sidebar {
   background: #ddd;
   padding: 1em; }
-
-/*********************
-FOOTER STYLES
-*********************/
-.footer {
-  clear: both;
-  background-color: #ccc; }
-  .footer .copyright {
-    clear: both; }
-
-.fadeIn {
-  opacity: 1;
-  -webkit-transition: opacity 0.5s;
-          transition: opacity 0.5s; }
-
-.fadeOut {
-  opacity: 0;
-  -webkit-transition: opacity 0.5s;
-          transition: opacity 0.5s; }
 
 /*********************
 PRINT STYLESHEET
@@ -1236,7 +1241,7 @@ Stylesheet: Print
     color: black !important;
     text-shadow: none !important;
     -webkit-filter: none !important;
-            filter: none !important;
+    filter: none !important;
     -ms-filter: none !important; }
   a, a:visited {
     color: #444 !important;
