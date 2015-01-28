@@ -80,7 +80,7 @@
 			<table class='form-table'>
 				<tbody>
 					<tr>
-						Find your local Weather Station ID from <a href='http://www.nws.noaa.gov/om/osd/portal.shtml'>NOAA</a> in the Automated Surface Stations and enter it below:
+						Find your local Weather Station ID from <a target="_blank" href='http://www.nws.noaa.gov/om/osd/portal.shtml'>NOAA</a> in the Automated Surface Stations and enter it below:
 					</tr>
 					<tr>
 						<th>Weather Station ID
