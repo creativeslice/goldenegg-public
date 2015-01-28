@@ -21,7 +21,6 @@
 				</div>
 
 			</footer>
-<?php get_template_part( 'partials/content', 'weather' );	?>
 		</div>
 		<?php wp_footer(); ?>
 	</body>

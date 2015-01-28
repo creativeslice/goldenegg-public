@@ -4,7 +4,7 @@
 	 *
 	 * output the html using:      <?php get_template_part( 'partials/content', 'weather' );	?>
 	 */
-	$weather_station = get_option('weather-station');		
+	$weather_station = get_option('weather_station');		
 		
 	add_filter( 'body_class', 'sunrise_set_class' );
 	
@@ -29,7 +29,6 @@
 	function get_day_or_night(){
 		$weather_lat = get_option('weather_lat');		
 		$weather_lon = get_option('weather_lon');		
-	
 		// Roadmap: could pull in lat long from the timezone location 
 		$offset = get_option('gmt_offset'); 
 		$sunrise = date_sunrise(time(), SUNFUNCS_RET_DOUBLE , $weather_lat , $weather_lon ,90 , $offset );
@@ -65,12 +64,7 @@
 			$weather_content = file_get_contents($file);
 			$weather_arr = @simplexml_load_string($weather_content);
 			$weather_xml     = json_encode( $weather_arr );
-print_r($weather_arr);
-			$weather_lat = $weather_arr['latitude'];
-			$weather_lon = $weather_arr['longitude'];
 			set_transient( 'weather_xml', $weather_xml, 30 * MINUTE_IN_SECONDS );
-			set_transient( 'weather_lat', $weather_lat, 30 * MINUTE_IN_SECONDS );
-			set_transient( 'weather_lon', $weather_lon, 30 * MINUTE_IN_SECONDS );
 		}
  		return json_decode($weather_xml);
 	}
@@ -82,7 +76,7 @@ print_r($weather_arr);
 	}
 	function weather_settings(){
 		global $weather_station; ?>
-		<form  name='weather-station' action='' method='POST'>
+		<form  name='weather_station_form' action='' method='POST'>
 			<table class='form-table'>
 				<tbody>
 					<tr>
@@ -92,7 +86,7 @@ print_r($weather_arr);
 						<th>Weather Station ID
 						</th>
 						<td>
-							<input type='text' name='weather-station' value='<?php echo $weather_station; ?>'>
+							<input type='text' name='weather_station' value='<?php echo $weather_station; ?>'>
 						</td>
 					</tr>
 				</tbody>
@@ -106,9 +100,16 @@ print_r($weather_arr);
 	add_action( 'admin_menu', 'weather_admin_functions' );
 	function weather_admin_functions(){
 		global $weather_station;
-		if(isset( $_POST['weather-station'] )){
-			$weather_station = $_POST['weather-station'];		
-			update_option('weather-station', $_POST['weather-station'], '', '' );
+		if(isset( $_POST['weather_station'] )){
+			$weather_station = $_POST['weather_station'];		
+			$file            = "http://w1.weather.gov/xml/current_obs/display.php?stid=$weather_station";
+			$weather_content = file_get_contents($file);
+			$weather_arr = @simplexml_load_string($weather_content);
+			$weather_lat = (string)$weather_arr->latitude;
+			$weather_lon = (string)$weather_arr->longitude;
+			update_option( 'weather_lat', $weather_lat );
+			update_option( 'weather_lon', $weather_lon );
+			update_option('weather_station', $_POST['weather_station'], '', '' );
 		}
 	}
 	?>
