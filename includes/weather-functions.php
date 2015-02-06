@@ -10,11 +10,16 @@
 	
 	function is_sunrise_set_enabled(){
 		// Cookie is set with javascript in toggle_sunrise_set()
-		if( 'disabled' == $_COOKIE['sunrise_set_state'] ){
-			return false;
+		if (isset($_COOKIE['sunrise_set_state'])){
+			if( 'disabled' == $_COOKIE['sunrise_set_state'] ){
+				return false;
+			}
+			else{
+				return true;
+			}
 		}
 		else{
-			return true;
+			return false;
 		}
 	}
 	function timeFromDouble( $double ){
@@ -51,9 +56,11 @@
 	// Hooks the body_class() function and adds the appropriate class if the this is enabled by the user
 	function sunrise_set_class( $classes ) {
 		if( is_sunrise_set_enabled() ){
-			$classes[] = get_day_or_night();
-		}		
-		return $classes;
+			$classes = get_day_or_night();
+			$bodyClass = array( $classes['phase']);		
+			return $bodyClass;
+		}
+		return array();
 	}
 	function egg_get_weather()
 	{

@@ -50,7 +50,7 @@ body.night{
 		// if functionality is currently enabled
 		if( 'enabled' == state ){
 			// the cookie is set to disabled
-			document.cookie = 'sunrise_set_state=disabled';
+			document.cookie = 'sunrise_set_state=disabled; path=/';
 			// the data-attribute of the toggling link is changed to 'disabled'
 			toggle.dataset.state = 'disabled';
 			// the correct phase (day or night) is removed from the body class 
@@ -60,7 +60,7 @@ body.night{
 		}
 		else{
 			$body.className+= ' <?php echo $phase; ?>';
-			document.cookie = 'sunrise_set_state=enabled';
+			document.cookie = 'sunrise_set_state=enabled; path=/';
 			toggle.dataset.state = 'enabled';
 			toggle.innerHTML = "<?php echo $disableText; ?>";  
 		}
