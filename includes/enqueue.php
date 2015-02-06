@@ -33,10 +33,7 @@ function egg_styles()
 	// ie-only style sheet
 	wp_register_style( 'egg-ie-only', get_stylesheet_directory_uri() . '/assets/css/ie.css', array(), '' );
 
-	wp_enqueue_style( array(
-		'egg-stylesheet',
-		'egg-ie-only'
-	) );
+	wp_enqueue_style( 'egg-stylesheet', 'egg-ie-only' );
 	
 	$wp_styles->add_data( 'egg-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 }
@@ -71,10 +68,7 @@ function egg_scripts()
 	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
 	
 	// enqueue styles and scripts
-	wp_enqueue_script( array(
-		'egg-modernizr',
-		'egg-js'
-	) );
+	wp_enqueue_script( 'egg-modernizr',	'egg-js' );
 }
 
 
