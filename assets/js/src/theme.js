@@ -19,48 +19,4 @@ jQuery(document).ready(function($) {
 		if ( $screentext.length )
 			$this.attr('title', $screentext.text());
 	});
-	if( !$('body').hasClass('wp-admin') ){
-		function goTo(href) {
-	//	    $('#main').fadeTo('fast', 0.5); //original
-		    $('#main').removeClass('fadeIn').addClass('fadeOut');
-		      $("html, body").animate({ scrollTop:0 },"slow");
-		    $.ajax({
-		        url: href,
-		        success: function(data) {
-			        //original 
-	/*           $('#main').fadeOut('fast', function(){
-		                $(this).html(data).fadeTo('fast', 1);
-		                setTimeout(function(){$("html, body").animate({ scrollTop:0 },"slow"); } , 50);
-		            });*/
-		            setTimeout(function(){
-			            $('#main').html(data);
-			            $('#main').removeClass('fadeOut').addClass('fadeIn');
-			           
-			        } , 500);
-		            
-		            // update the page title
-		            var title = $('#main').find('h1').text();
-		            $('head').find('title').text(title);
-		        }
-		    });
-		}
-		if (typeof history.pushState !== "undefined") {
-		    var historyCount = 0;
-		
-		    $('li.pushState a').on('click',function(){
-			    var pSUrl = href = $(this).attr('href');
-			    var href = $(this).attr('href').replace('http://goldenegg.dev/','').replace('/','');
-			    goTo('http://goldenegg.dev/ajaxRequest/'+href);
-		        history.pushState(null, null, pSUrl);
-		        return false;
-		    });
-		
-		    window.onpopstate = function(){
-			    if(historyCount) {
-		            goTo(document.location);
-		        }
-		        historyCount = historyCount+1;
-		    };
-		}
-	}
 }); /* end of as page load scripts */
