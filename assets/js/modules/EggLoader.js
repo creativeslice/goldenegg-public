@@ -147,7 +147,13 @@
 					if ($matches) {
 					    postid = $matches[2];
 					}
-					
+				
+								// check if google analytics is loaded
+				if (window._gat && window._gat._getTracker) {
+					// add ajax view to the analytics
+					_gaq.push(['_trackPageview', $href]);
+				}
+				
 				// replace the current page body class with the ajax page's body class
 				$('body').attr('class' , $classes );				
 				
