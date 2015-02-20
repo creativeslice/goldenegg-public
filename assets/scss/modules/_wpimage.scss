@@ -80,8 +80,9 @@ CAPTIONS
 	/* images inside wp-caption */
 	img {
 		max-width: 100%;
+		// width: 100%;
+		height: auto;
 		margin-bottom: 0;
-		width: 100%;
 	}
 
 	p.wp-caption-text {

@@ -29,7 +29,7 @@ form {
   border: 1px solid #eee;
   border-radius: 4px;
   -webkit-box-shadow: none;
-          box-shadow: none; }
+  box-shadow: none; }
 
 body form .input {
   font-weight: 200;
@@ -43,7 +43,7 @@ body form .input {
   background: #FBFBFB;
   outline: none;
   -webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1); }
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1); }
 
 #wp-submit {
   background: #669933;

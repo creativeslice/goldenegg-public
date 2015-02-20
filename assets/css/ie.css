@@ -733,8 +733,8 @@ CAPTIONS
     margin-left: auto; }
   .wp-caption img {
     max-width: 100%;
-    margin-bottom: 0;
-    width: 100%; }
+    height: auto;
+    margin-bottom: 0; }
   .wp-caption p.wp-caption-text {
     font-size: 0.9em;
     margin: 4px 0 7px;
