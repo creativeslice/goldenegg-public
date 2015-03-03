@@ -2,17 +2,47 @@
 /**
  * Plugin Name: File Redirects
  * Description: Serves content from wp-content/uploads from /assets/ (Or an alternate upload location - uses wp_upload_dir() to determine)
- * Version: 0.1
+ * Version: 0.2
  * Author: Chris Marslender
  * Author URI: http://chrismarslender.com
  * Contributer: Jake Snyder (added $_SERVER['REQUEST_URI'])
- * Author URI: http://jupitercow.com
+ * Contributer: Trip Grass (added WPEngine Instructions)
+ * Author URI: http://creativeslice.com
  *
  * Uses a lot of code from wp-includes/ms-files.php (the old multisite file redirection stuff)
  *
  * Can be useful on servers where the other assets-rewrites don't work and on nginx servers. 
  * It doesn't currently rewrite plugins directories, but can be updated if needed.
  */
+ 
+ /**
+ * On Apache add to htaccess (and restart server): 
+ 
+	<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /subfolder
+	RewriteRule ^index\.php$ - [L]
+	RewriteRule ^assets/css/(.*) wp-content/themes/creativeslice-2015/assets/css/$1 [QSA,L]
+	RewriteRule ^assets/js/(.*) wp-content/themes/creativeslice-2015/assets/js/$1 [QSA,L]
+	RewriteRule ^assets/img/(.*) wp-content/themes/creativeslice-2015/assets/img/$1 [QSA,L]
+	RewriteRule ^plugins/(.*) wp-content/plugins/$1 [QSA,L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . /index.php [L]
+	</IfModule>
+
+   On nginx have wpengine add to nginx.config file (before rules):
+   
+	location ~ ^/assets/(img|js|css|fonts)/(.*)$ {
+		try_files $uri $uri/ /wp-content/themes/goldenegg/assets/$1/$2;
+	}
+	location ~ ^/plugins/(.*)$ {
+		try_files $uri $uri/ /wp-content/plugins/$1;
+	}
+	
+ *	
+ */
+
 
 /**
  * Rewrite the urls
@@ -97,7 +127,8 @@ function egg_assets_rewrites()
 		if ( strpos($content, RELATIVE_PLUGIN_PATH) > 0 )
 			return str_replace('/' . RELATIVE_PLUGIN_PATH,  '/plugins', $content);
 		else
-			return str_replace('/' . THEME_PATH, '', $content);
+			$replace = str_replace('/' . THEME_PATH, '', $content);
+			return $replace;
 	}
 
 	if (! is_multisite() && !is_child_theme() )
