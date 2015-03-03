@@ -147,7 +147,16 @@
 					if ($matches) {
 					    postid = $matches[2];
 					}
-					
+				
+				// check if google analytics is loaded
+				if (typeof ga !== 'undefined') {
+					// add ajax view to the analytics
+					ga('send', 'pageview', document.location.pathname);
+				}
+				if (typeof _gaq !== 'undefined') {
+					_gaq.push(['_trackPageview', document.location.pathname]);
+				}
+				
 				// replace the current page body class with the ajax page's body class
 				$('body').attr('class' , $classes );				
 				
