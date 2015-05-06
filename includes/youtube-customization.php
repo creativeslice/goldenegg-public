@@ -6,21 +6,21 @@ Customize embedding youtube
 
 CSS:
 .video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    // padding-bottom: 51.5%; for no-frame videos
-    padding-top: 35px;
-    height: 0;
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 1em;
-    iframe {
-	    position: absolute;
-	    top:0;
-	    left: 0;
-	    width: 100%;
-	    height: 100%;
-    }
+	position: relative;
+	padding-top: 35px;
+	//padding-bottom: 56.25%;
+	padding-bottom: 51.5%; // for no-frame videos
+	height: 0;
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 2em;
+	iframe {
+		position: absolute;
+		top:0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 }
 
 *********************/

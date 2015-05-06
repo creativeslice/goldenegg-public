@@ -26,5 +26,12 @@ IMPORTING MODULES
 // typography
 @import "modules/wpimage";
 
-// the grid
-@import "modules/grid";
+
+/*********************
+CUSTOM EDITOR STYLES
+*********************/
+
+.nowrap {
+	border: 1px solid #eee;
+	display: inline-block;
+}

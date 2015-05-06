@@ -18,9 +18,9 @@ $black:             #222;
 $white:             #fff;
 
 $gray:              #999;
-$gray_light:        #EEF0F4;
-$gray_dark:         #58585b;
-$gray_disabled:     #595d65;
+$gray_light:        #eee;
+$gray_dark:         #666;
+$gray_disabled:     #777;
 $text_color:        #333;
 
 $green: 	        #669933;
@@ -60,39 +60,32 @@ BUTTONS
 	position: relative;
 	font-family: $sans_serif;
 	text-decoration: none;
-	color: white;
 	font-size: .875em;
 	font-weight: bold;
 	line-height: 1em;
 	padding: 1em;
 	border-radius: 4px;
 	cursor: pointer;
-	transition: background-color 0.2s ease-in-out;
+	transition: background-color $ease;
+}
 
-	&:hover, &:focus {
+.search-submit,
+.form-submit input,
+.button, .button:visited {
+	@extend %btn;
+	background-color: $link_color;
+	color: white;
+	
+	&:hover,
+	&:focus {
+		background-color: lighten($link_color, 10%);
 		color: white;
 		text-decoration: none;
 	}
 
 	&:active {
-		top: 1px;
-	}
-
-}
-
-.search-submit,
-.form-submit input,
-.button {
-	@extend %btn;
-	background-color: $link_color;
-
-	&:hover,
-	&:focus {
-		background-color: lighten($link_color, 10%);
-	}
-
-	&:active {
 		background-color: darken($link_color, 5%);
+		top: 1px;
 	}
 }
 

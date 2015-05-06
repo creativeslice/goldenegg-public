@@ -400,12 +400,11 @@ REUSABLE ITEMS
 /*********************
 BUTTONS
 *********************/
-.search-submit, .form-submit input, .button {
+.search-submit, .form-submit input, .button, .button:visited {
   display: inline-block;
   position: relative;
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
-  color: white;
   font-size: 0.875em;
   font-weight: bold;
   line-height: 1em;
@@ -414,25 +413,24 @@ BUTTONS
   cursor: pointer;
   -webkit-transition: background-color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out; }
-  .search-submit:hover, .form-submit input:hover, .button:hover, .search-submit:focus, .form-submit input:focus, .button:focus {
+
+.search-submit, .form-submit input, .button, .button:visited {
+  background-color: #669933;
+  color: white; }
+  .search-submit:hover, .search-submit:focus, .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
+    background-color: #80bf40;
     color: white;
     text-decoration: none; }
-  .search-submit:active, .form-submit input:active, .button:active {
+  .search-submit:active, .form-submit input:active, .button:active, .button:visited:active {
+    background-color: #59862d;
     top: 1px; }
-
-.search-submit, .form-submit input, .button {
-  background-color: #669933; }
-  .search-submit:hover, .search-submit:focus, .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus {
-    background-color: #80bf40; }
-  .search-submit:active, .form-submit input:active, .button:active {
-    background-color: #59862d; }
 
 /*********************
 BREAKPOINTS
 *********************/
 /******************************************************************
 
-Stylesheet: Icons
+Stylesheet: Fonts and Icons
 
 ******************************************************************/
 /************************************************
@@ -621,7 +619,7 @@ address {
 
 pre {
   background: #222;
-  color: #EEF0F4;
+  color: #eee;
   font-family: "Courier 10 Pitch", Courier, monospace;
   font-size: 0.9em;
   margin: 0 0 1.5em;
@@ -666,9 +664,6 @@ ENTRY CONTENT
 
 /* end .entry-content */
 /******************************************************************
-CUSTOM
-******************************************************************/
-/******************************************************************
 
 Stylesheet: WP Images
 
@@ -681,7 +676,6 @@ ENTRY CONTENT IMAGES
   margin: 0 0 1.5em;
   max-width: 100%; }
 
-/* end .entry-content */
 .size-auto, .size-full, .size-large, .size-medium, .size-thumbnail {
   max-width: 100%;
   height: auto; }
@@ -713,9 +707,9 @@ CAPTIONS
 ******************************************************************/
 .wp-caption {
   max-width: 100%;
-  background: #EEF0F4;
+  background: #eee;
   font-size: 0.75em;
-  padding: 0.33333em 0;
+  padding: 0.25em 0;
   text-align: center;
   /* images inside wp-caption */ }
   .wp-caption.alignleft {
@@ -746,10 +740,7 @@ HTML5 IMAGE GALLERY
     vertical-align: top;
     padding: 0.5em; }
   .gallery img {
-    display: block;
-    -webkit-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    transform: translateZ(0); }
+    display: block; }
   .gallery .gallery-caption {
     text-align: left;
     padding: 0.25em 0; }
@@ -760,10 +751,14 @@ HTML5 IMAGE GALLERY
   @media screen and (min-width: 48em) {
     .gallery .gallery-item {
       width: 25%; }
-    .gallery img:hover {
-      opacity: 0.7;
-      -webkit-transition: opacity 0.2s ease;
-      transition: opacity 0.2s ease; } }
+    .gallery img {
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0); }
+      .gallery img:hover {
+        opacity: 0.7;
+        -webkit-transition: opacity 0.2s ease-in-out;
+        transition: opacity 0.2s ease-in-out; } }
 
 /******************************************************************
 
@@ -990,7 +985,7 @@ HEADER STYLES
 .header {
   background: #eee; }
   .header #logo {
-    margin: 1em 1em 1em 0; }
+    margin: 1em; }
 
 /*********************
 HEADROOM STYLES
@@ -1159,6 +1154,9 @@ hr {
   border-bottom: 1px solid #fff;
   margin: 0 0 1em;
   padding: 0; }
+
+.nowrap {
+  display: inline-block; }
 
 /*********************
 LAYOUT & GRID STYLES

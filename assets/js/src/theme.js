@@ -2,13 +2,17 @@
  * Put all your regular jQuery in here.
 */
 jQuery(document).ready(function($) {
-
+	
+	/**
+	 * Mobile Menu toggle
+	 */
 	$('#mobilemenu').click(function(e) {
 		e.preventDefault();
 		var $this = $(this);
 		$this.toggleClass('active');
 		$('.main-nav').slideToggle(200);
 	});
+
 
 	/**
 	 * Adds the screen reader text to the icon's title so it will show on hover
@@ -19,4 +23,5 @@ jQuery(document).ready(function($) {
 		if ( $screentext.length )
 			$this.attr('title', $screentext.text());
 	});
+	
 }); /* end of as page load scripts */

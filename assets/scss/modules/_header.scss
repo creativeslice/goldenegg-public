@@ -5,7 +5,7 @@ HEADER STYLES
 .header {
 	background: #eee;
 	#logo {
-		margin: 1em 1em 1em 0;
+		margin: 1em;
 	}
 }
 
@@ -41,8 +41,7 @@ NAVIGATION STYLES
 	margin: 0;
 
 	li {
-		@include breakpoint(medium)
-		{
+		@include breakpoint(medium) {
 			float: left;
 			position: relative;
 		}
@@ -58,8 +57,7 @@ NAVIGATION STYLES
 
 		ul.sub-menu,
 		ul.children {
-			@include breakpoint(medium)
-			{
+			@include breakpoint(medium) {
 				margin-top: 0;
 				border: 1px solid $gray;
 				background: white;
@@ -72,8 +70,7 @@ NAVIGATION STYLES
 
 			li {
 				a, a:visited {
-					@include breakpoint(medium)
-					{
+					@include breakpoint(medium) {
 						padding-left: 10px;
 						border-right: 0;
 						display: block;
@@ -87,8 +84,7 @@ NAVIGATION STYLES
 
 		}
 
-		@include breakpoint(medium)
-		{
+		@include breakpoint(medium) {
 			/* showing sub-menus */
 			&:hover ul {
 				top: auto;
@@ -103,9 +99,9 @@ NAVIGATION STYLES
 	li.current-menu-item,
 	li.current_page_item,
 	li.current-page-ancestor {
-
-		a {}
-
+		a, a:visited {
+			
+		}
 	}
 
 }
@@ -127,8 +123,7 @@ NAVIGATION STYLES
 	display: none;
 }
 
-@include breakpoint(medium)
-{
+@include breakpoint(medium) {
 	#mobilemenu {
 		display: none;
 	}

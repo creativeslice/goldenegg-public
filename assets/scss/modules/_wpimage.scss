@@ -9,23 +9,21 @@ ENTRY CONTENT IMAGES
 ******************************************************************/
 
 .entry-content {
-
 	img {
 		height: auto;
 		margin: 0 0 $default_margin;
 		max-width: 100%;
 	}
+}
 
-} /* end .entry-content */
-
-	.size-auto,
-	.size-full,
-	.size-large,
-	.size-medium,
-	.size-thumbnail {
-		max-width: 100%;
-		height: auto;
-	}
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
 
 @include breakpoint(small) {
 	.alignleft, img.alignleft, figure.alignleft, dl.alignleft {
@@ -63,7 +61,7 @@ CAPTIONS
 	max-width: 100%;
 	background: $gray_light;
 	font-size: 0.75em;
-	padding: 0.333333333em 0;
+	padding: 0.25em 0;
 	text-align: center;
 
 	&.alignleft {
@@ -108,7 +106,6 @@ HTML5 IMAGE GALLERY
 	}
 	img {
 		display: block;
-		transform: translateZ(0);
 	}
 	.gallery-caption {
 		text-align: left;
@@ -123,9 +120,12 @@ HTML5 IMAGE GALLERY
 	.gallery-item {
 		width: 25%;
 	}
-	img:hover {
-		opacity: .7;
-		transition: opacity .2s ease;
+	img {
+		transform: translateZ(0);
+		&:hover {
+			opacity: .7;
+			transition: opacity $ease;
+		}
 	}
 }
 }

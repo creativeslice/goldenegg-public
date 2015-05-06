@@ -27,7 +27,7 @@ function egg_styles()
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet
 
 	// register main stylesheet
-	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?091714', array(), '', 'all' );
+	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?050615', array(), '', 'all' );
 	// wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' );
 
 	// ie-only style sheet
@@ -57,9 +57,6 @@ function egg_scripts()
 	wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, true);
 		
 	
-	/* modernizr (without media query polyfill) */
-	wp_register_script( 'egg-modernizr', get_stylesheet_directory_uri() . '/assets/js/modernizr.custom.min.js', array(), '2.5.3', false );
-
 	/* comment reply script for threaded comments */
 	if ( is_singular() && comments_open() && 1 == get_option('thread_comments') ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -69,7 +66,6 @@ function egg_scripts()
 	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
 	
 	// enqueue styles and scripts
-	wp_enqueue_script( 'egg-modernizr');
 	wp_enqueue_script( 'egg-js');
 }
 
