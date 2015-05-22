@@ -54,6 +54,9 @@ function egg_head_cleanup() {
 	add_filter( 'style_loader_src', 'egg_remove_wp_ver_css_js', 9999 );
 	// remove Wp version from scripts
 	add_filter( 'script_loader_src', 'egg_remove_wp_ver_css_js', 9999 );
+	// remove emoji script
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
 }
 
 /**
