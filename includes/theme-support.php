@@ -19,6 +19,16 @@ add_image_size( 'custom-thumb-300', 300, 100, true );
 
 
 /**
+ * Add responsive ".video-container" to embeds
+ */
+function alx_embed_html( $html ) {
+    return '<div class="video-container">' . $html . '</div>';
+}
+add_filter( 'embed_oembed_html', 'alx_embed_html', 10, 3 );
+add_filter( 'video_embed_html', 'alx_embed_html' ); // Jetpack
+
+
+/**
  * Example widgetized areas
  */
 add_action( 'widgets_init', 'custom_register_sidebars' );

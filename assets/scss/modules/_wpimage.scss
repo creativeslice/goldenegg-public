@@ -63,7 +63,7 @@ CAPTIONS
 	font-size: 0.75em;
 	padding: 0.25em 0;
 	text-align: center;
-
+	
 	&.alignleft {
 		margin-right: $default_margin;
 	}
@@ -89,6 +89,31 @@ CAPTIONS
 		text-align: center;
 	}
 }
+
+
+/******************************************************************
+RESPONSIVE VIDEO CONTAINER
+******************************************************************/
+
+.video-container { 
+	position: relative; 
+	padding-bottom: 56.25%; 
+	height: 0; 
+	overflow: hidden;
+	margin-bottom: 1em;
+}
+
+.video-container iframe, 
+.video-container object, 
+.video-container embed, 
+.video-container video { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+}
+
 
 /******************************************************************
 HTML5 IMAGE GALLERY

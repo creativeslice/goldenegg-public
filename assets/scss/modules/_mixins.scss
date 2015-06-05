@@ -96,35 +96,38 @@ BREAKPOINTS
 
 // FOR OLD IE
 $old-ie:			false !default;
-$ignore-mqs:		false !default;
 
 // BREAK POINTS
 $small:				"screen and (min-width: 30em)"; // 480px
 $medium:			"screen and (min-width: 48em)";	// 768px
 $large:				"screen and (min-width: 64em)";	// 1024px
-$xlarge:			"screen and (min-width: 90em)";	// 1440px
+$xlarge:			"screen and (min-width: 75em)";	// 1200px
+$xxlarge:			"screen and (min-width: 90em)";	// 1440px
 
 @mixin breakpoint($point) {
-	@if $ignore-mqs or $old-ie {
-		@if $old-ie and $point == xlarge {
-			
+	@if $old-ie {
+		@if ($point == xlarge or $point == xxlarge) {
+			// output nothing to IE stylesheet from xlarge or xxlarge
 		}
 		@else {
 			@content; // output all content passed in
 		}
 	}
 	@else {
+		@if $point == xxlarge {
+			@media #{$xxlarge} { @content; }	// output xxlarge screen content
+		}
 		@if $point == xlarge {
-			@media #{$xlarge} { @content; }	// output xlarge screen content
+			@media #{$xlarge} { @content; }		// output xlarge screen content
 		}
 		@if $point == large {
-			@media #{$large} { @content; }  // output large screen content
+			@media #{$large} { @content; }		// output large screen content
 		}
 		@if $point == medium {
-			@media #{$medium} { @content; } // output medium screen content
+			@media #{$medium} { @content; }		// output medium screen content
 		}
 		@if $point == small {
-			@media #{$small} { @content; }  // output small screen content
+			@media #{$small} { @content; }		// output small screen content
 		}
 	}
 }

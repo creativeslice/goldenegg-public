@@ -173,7 +173,6 @@ function egg_customize_admin_bar()
 	$wp_admin_bar->remove_menu('new-link');
 	$wp_admin_bar->remove_menu('new-media');
 	$wp_admin_bar->remove_menu('new-user');
-	$wp_admin_bar->remove_menu('themes');
 	$wp_admin_bar->remove_menu('customize');
     $wp_admin_bar->remove_menu('customize-themes');
     $wp_admin_bar->remove_menu('customize-widgets');

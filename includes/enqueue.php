@@ -27,7 +27,7 @@ function egg_styles()
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet
 
 	// register main stylesheet
-	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?050615', array(), '', 'all' );
+	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?060515', array(), '', 'all' );
 	// wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' );
 
 	// ie-only style sheet
@@ -50,14 +50,14 @@ function egg_scripts()
 
 	/* call jQuery from Google and move to footer * /
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'), false, '1.11.1', true);
+	wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'), false, '1.11.3', true);
 		
 	/* move core jQuery to footer * /
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, true);
 		
 	
-	/* comment reply script for threaded comments */
+	/* comment reply script for threaded comments * /
 	if ( is_singular() && comments_open() && 1 == get_option('thread_comments') ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

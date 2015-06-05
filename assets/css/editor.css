@@ -306,23 +306,22 @@ ENTRY CONTENT IMAGES
   max-width: 100%;
   height: auto; }
 
-.alignleft, img.alignleft, figure.alignleft, dl.alignleft {
-  display: inline;
-  float: left;
-  margin-left: 0em;
-  margin-right: 1.5em; }
-
-.alignright, img.alignright, figure.alignright, dl.alignright {
-  display: inline;
-  float: right;
-  margin-left: 1.5em;
-  margin-right: 0em; }
-
-.aligncenter, img.aligncenter, figure.aligncenter, dl.aligncenter {
-  clear: both;
-  display: block;
-  margin-right: auto;
-  margin-left: auto; }
+@media screen and (min-width: 30em) {
+  .alignleft, img.alignleft, figure.alignleft, dl.alignleft {
+    display: inline;
+    float: left;
+    margin-left: 0em;
+    margin-right: 1.5em; }
+  .alignright, img.alignright, figure.alignright, dl.alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.5em;
+    margin-right: 0em; }
+  .aligncenter, img.aligncenter, figure.aligncenter, dl.aligncenter {
+    clear: both;
+    display: block;
+    margin-right: auto;
+    margin-left: auto; } }
 
 .alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
   margin-left: 0;
@@ -356,6 +355,23 @@ CAPTIONS
     text-align: center; }
 
 /******************************************************************
+RESPONSIVE VIDEO CONTAINER
+******************************************************************/
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 1em; }
+
+.video-container iframe, .video-container object, .video-container embed, .video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+/******************************************************************
 HTML5 IMAGE GALLERY
 ******************************************************************/
 .gallery {
@@ -375,16 +391,17 @@ HTML5 IMAGE GALLERY
     content: '';
     display: inline-block;
     width: 100%; }
-  .gallery .gallery-item {
-    width: 25%; }
-  .gallery img {
-    -webkit-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    transform: translateZ(0); }
-    .gallery img:hover {
-      opacity: 0.7;
-      -webkit-transition: opacity 0.2s ease-in-out;
-      transition: opacity 0.2s ease-in-out; }
+  @media screen and (min-width: 48em) {
+    .gallery .gallery-item {
+      width: 25%; }
+    .gallery img {
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0); }
+      .gallery img:hover {
+        opacity: 0.7;
+        -webkit-transition: opacity 0.2s ease-in-out;
+        transition: opacity 0.2s ease-in-out; } }
 
 /*********************
 CUSTOM EDITOR STYLES
