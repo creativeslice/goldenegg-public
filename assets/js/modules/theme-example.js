@@ -164,28 +164,6 @@ jQuery(document).ready(function($) {
 		  egg.fadeIn.init($('.fade-block'));
     }
 
-	
-	/**
-	 * Initiates Flexslider; Flexslider requires a single containing element, <div>, then, a <ul class=”slides”><li><img src='this.jpg'></li></ul> 
-	 * view options at: https://github.com/woothemes/FlexSlider/wiki/FlexSlider-Properties
-	 *		SAMPLE HTML:
-	 *		<div class="flexslider">
-	 *		  <ul class="slides">
-	 *		    <li>
-	 *		      <img src="slide1.jpg" />
-	 *		    </li>
-	 *		  </ul>
-	 *		</div>
-	 *
-	 *		LOAD CSS 
-	 */ 
-	var flexslider_params = {
-			//slideshowSpeed:4500,
-			//animation:'slide',
-			//direction:'vertical'
-			} 
-	$('.flexslider').flexslider(flexslider_params);
-
 
 	/**
 	 * Initiates MixitUp

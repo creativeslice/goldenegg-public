@@ -17,16 +17,17 @@ COLORS
 $black:             #222;
 $white:             #fff;
 
-$gray:              #999;
-$gray_light:        #eee;
-$gray_dark:         #666;
+$gray:              #666;
+$gray_light:		#999;
+$gray_lighter:		#eee;
+$gray_dark:         #333;
 $gray_disabled:     #777;
-$text_color:        #333;
 
 $green: 	        #669933;
 $orange: 	        #ff9933;
 $blue:              #2980b9;
 
+$text_color:        $gray_dark;
 $link_color:        $green;
 $link_hover:        lighten($link_color, 10%);
 

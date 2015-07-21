@@ -30,20 +30,20 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-	font-size: 2.5em;				// 40px
-	line-height: 1.5em;				// 60px
-	margin: 0.4em 0;				// 16px
+	font-size: 2em;
+	line-height: 1.5em;
+	margin: 0.4em 0;
 }
 
 h2, .h2 {
-	font-size: 1.75em;				// 28px
-	line-height: 1.5em;				// 42px
-	margin: 0.571428571em 0;		// 16px
+	font-size: 1.5em;
+	line-height: 1.5em;
+	margin: 0.571428571em 0;		// 16px at medium
 }
 
 h3, .h3 {
-	font-size: 1.5em;				// 24px
-	margin: 0.666666667em 0;		// 16px
+	font-size: 1.375em;
+	margin: 0.666666667em 0;		// 16px at medium
 }
 
 h4, .h4 {
@@ -57,6 +57,20 @@ h5, .h5 {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	margin: 0.888888889em 0;		// 16px
+}
+
+@include breakpoint(medium) {
+h1, .h1 {
+	font-size: 2.5em;				// 40px
+}
+
+h2, .h2 {
+	font-size: 1.75em;				// 28px
+}
+
+h3, .h3 {
+	font-size: 1.5em;				// 24px
+}
 }
 
 /******************************************************************
@@ -144,7 +158,11 @@ ENTRY CONTENT
 ******************************************************************/
 
 .entry-content {
-
+	
+	.nowrap {
+		display: inline-block;
+	}
+	
 	ul, ol {
 		margin: 0 0 $default_margin 2em;
 	}

@@ -1,0 +1,29 @@
+/******************************************************************
+
+Stylesheet: ANIMATION
+
+******************************************************************/
+
+/*********************
+FADE ELEMENTS
+*********************/
+
+.fade-block {
+	transition-delay: 0s;
+	transition-duration: 0.6s;
+	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition-property: opacity transform;
+	&.transition-in {
+		opacity: 0;
+		transform:translateY(5em);
+	}
+}
+
+.fadeIn{
+	opacity: 1;
+	transition: opacity .5s; 
+}
+.fadeOut{
+	opacity: 0;
+	transition: opacity .5s; 
+}

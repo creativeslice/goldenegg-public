@@ -11,11 +11,19 @@ var environment = 'development', // 'production development'
 	notify = require('gulp-notify'),
 	clean = require('gulp-clean'),
 	cache = require('gulp-cache'),
+	plumber = require('gulp-plumber'),
 	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
+
+// Default error handler
+var onError = function( err ) {
+	console.log( 'An error occured:', err.message );
+	this.emit('end');
+}
 	
 // CSS
 gulp.task('styles', function() {
 	return gulp.src('scss/style.scss')
+		.pipe( plumber( { errorHandler: onError } ) )
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(gulp.dest('css'))

@@ -551,17 +551,17 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
     text-decoration: none; }
 
 h1, .h1 {
-  font-size: 2.5em;
+  font-size: 2em;
   line-height: 1.5em;
   margin: 0.4em 0; }
 
 h2, .h2 {
-  font-size: 1.75em;
+  font-size: 1.5em;
   line-height: 1.5em;
   margin: 0.57143em 0; }
 
 h3, .h3 {
-  font-size: 1.5em;
+  font-size: 1.375em;
   margin: 0.66667em 0; }
 
 h4, .h4 {
@@ -574,6 +574,15 @@ h5, .h5 {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0.88889em 0; }
+
+h1, .h1 {
+  font-size: 2.5em; }
+
+h2, .h2 {
+  font-size: 1.75em; }
+
+h3, .h3 {
+  font-size: 1.5em; }
 
 /******************************************************************
 PARAGRAPH PAGE BREAKS
@@ -617,14 +626,14 @@ blockquote {
   padding: 0 0 0 1em;
   border-left: 3px solid #669933;
   font-style: italic;
-  color: #999; }
+  color: #666; }
 
 address {
   margin: 0 0 1.5em; }
 
 pre {
   background: #222;
-  color: #eee;
+  color: #999;
   font-family: "Courier 10 Pitch", Courier, monospace;
   font-size: 0.9em;
   margin: 0 0 1.5em;
@@ -641,13 +650,15 @@ mark, ins {
 
 /* post meta */
 .byline {
-  color: #999;
+  color: #666;
   font-style: italic;
   margin: 0; }
 
 /******************************************************************
 ENTRY CONTENT
 ******************************************************************/
+.entry-content .nowrap {
+  display: inline-block; }
 .entry-content ul, .entry-content ol {
   margin: 0 0 1.5em 2em; }
 .entry-content ul {
@@ -713,7 +724,7 @@ CAPTIONS
 ******************************************************************/
 .wp-caption {
   max-width: 100%;
-  background: #eee;
+  background: #999;
   font-size: 0.75em;
   padding: 0.25em 0;
   text-align: center;
@@ -1051,17 +1062,19 @@ NAVIGATION STYLES
 .main-nav {
   margin: 0;
   /* highlight current page */ }
+  .main-nav li a, .main-nav li a:visited {
+    display: block;
+    text-decoration: none;
+    padding: 1em; }
+  .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited, .main-nav li ul.children li a, .main-nav li ul.children li a:visited {
+    padding-left: 30px; }
   .main-nav li {
     float: left;
     position: relative;
     /* showing sub-menus */ }
-    .main-nav li a, .main-nav li a:visited {
-      display: block;
-      text-decoration: none;
-      padding: 1em 1em 1em 0; }
     .main-nav li ul.sub-menu, .main-nav li ul.children {
       margin-top: 0;
-      border: 1px solid #999;
+      border: 1px solid #666;
       background: white;
       border-top: 0;
       position: absolute;
@@ -1072,8 +1085,7 @@ NAVIGATION STYLES
         padding-left: 10px;
         border-right: 0;
         display: block;
-        width: 180px;
-        padding-left: 30px; }
+        width: 180px; }
     .main-nav li:hover ul {
       top: auto;
       overflow: visible;
@@ -1086,17 +1098,17 @@ NAVIGATION STYLES
   text-decoration: none;
   color: #669933;
   cursor: pointer;
-  font-size: 1.125em; }
+  font-size: 32px; }
   #mobilemenu:hover, #mobilemenu:focus {
     color: #80bf40; }
 
-.top-nav {
+.main-nav {
   display: none; }
 
 #mobilemenu {
   display: none; }
 
-.top-nav {
+.main-nav {
   display: block !important; }
 
 /*********************
@@ -1176,19 +1188,16 @@ hr {
   display: block;
   height: 0;
   border: 0;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #999;
   border-bottom: 1px solid #fff;
   margin: 0 0 1em;
   padding: 0; }
-
-.nowrap {
-  display: inline-block; }
 
 /*********************
 LAYOUT & GRID STYLES
 *********************/
 .wrap {
-  width: 96%;
+  width: 94%;
   margin: 0 auto;
   max-width: 1200px; }
 
@@ -1207,37 +1216,16 @@ a, a:visited {
     -webkit-tap-highlight-color: rgba(102, 153, 51, 0.5); }
 
 /*********************
-FADE ELEMENTS
-*********************/
-.fade-block {
-  transition-delay: 0s;
-  transition-duration: 0.6s;
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition-property: opacity transform; }
-  .fade-block.transition-in {
-    opacity: 0;
-    transform: translateY(5em); }
-
-.fadeIn {
-  opacity: 1;
-  transition: opacity 0.5s; }
-
-.fadeOut {
-  opacity: 0;
-  transition: opacity 0.5s; }
-
-/*********************
 POSTS & CONTENT STYLES
 *********************/
 #main {
-  background: white;
-  padding-right: 1em; }
+  background: white; }
 
 /*********************
 SIDEBARS & ASIDES
 *********************/
 .sidebar {
-  background: #ddd;
+  background: #eee;
   padding: 1em; }
 
 /*********************
