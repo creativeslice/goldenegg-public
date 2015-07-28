@@ -15,11 +15,15 @@ var environment = 'development', // 'production development'
 	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
 
 // Default error handler
-var onError = function( err ) {
-	console.log( 'An error occured:', err.message );
+var onError = function( error ) {
+	notify.onError({
+		title:    "Gulp",
+		subtitle: "Failure!",
+		message:  "Error: <%= error.message %>"
+	})(error);
 	this.emit('end');
 }
-	
+
 // CSS
 gulp.task('styles', function() {
 	return gulp.src('scss/style.scss')
@@ -30,7 +34,6 @@ gulp.task('styles', function() {
 		.pipe(minifycss())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('css'))
-		.pipe(notify({ message: 'Styles task complete' }));
 });
 gulp.task('styles-ie', function() {
 	return gulp.src('scss/ie.scss')
