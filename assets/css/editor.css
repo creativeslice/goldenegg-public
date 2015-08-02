@@ -26,7 +26,7 @@ REUSABLE ITEMS
 /*********************
 BUTTONS
 *********************/
-.search-submit, .form-submit input, .button, .button:visited {
+.form-submit input, .search-submit, .search-submit:visited, .button, .button:visited {
   display: inline-block;
   position: relative;
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -40,14 +40,14 @@ BUTTONS
   -webkit-transition: background-color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out; }
 
-.search-submit, .form-submit input, .button, .button:visited {
+.form-submit input, .search-submit, .search-submit:visited, .button, .button:visited {
   background-color: #669933;
   color: white; }
-  .search-submit:hover, .search-submit:focus, .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
+  .form-submit input:hover, .form-submit input:focus, .search-submit:hover, .search-submit:focus, .search-submit:visited:hover, .search-submit:visited:focus, .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
     background-color: #8cc653;
     color: white;
     text-decoration: none; }
-  .search-submit:active, .form-submit input:active, .button:active, .button:visited:active {
+  .form-submit input:active, .search-submit:active, .search-submit:visited:active, .button:active, .button:visited:active {
     background-color: #4d7326;
     color: white; }
 

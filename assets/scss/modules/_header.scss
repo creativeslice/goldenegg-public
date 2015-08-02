@@ -10,14 +10,13 @@ HEADER STYLES
 		margin: 1em;
 	}
 	.search-form {
-		display: none;
+		display: none; // hide before pressing #search-toggle
 	}
 }
 
 #mobilemenu, #search-toggle {
 	display: block;
 	float: left;
-	text-align: right;
 	text-decoration: none;
 	color: $link_color;
 	cursor: pointer;
@@ -26,10 +25,10 @@ HEADER STYLES
 		color: $link_hover;
 	}
 }
-
 #search-toggle {
 	float: right;
 }
+
 
 @include breakpoint(medium) {
 	#mobilemenu {
@@ -112,6 +111,7 @@ NAVIGATION STYLES
 			background: $gray_lighter;
 			border-top: 0;
 			position: absolute;
+			z-index: 999;
 			overflow: hidden;
 			visibility: hidden;
 			opacity: 0;

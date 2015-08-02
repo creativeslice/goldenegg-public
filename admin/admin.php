@@ -173,14 +173,14 @@ function egg_customize_admin_bar()
 	$wp_admin_bar->remove_menu('new-link');
 	$wp_admin_bar->remove_menu('new-media');
 	$wp_admin_bar->remove_menu('new-user');
+	$wp_admin_bar->remove_menu('themes');
 	$wp_admin_bar->remove_menu('customize');
-    $wp_admin_bar->remove_menu('customize-themes');
-    $wp_admin_bar->remove_menu('customize-widgets');
+	$wp_admin_bar->remove_menu('widgets');
     //$wp_admin_bar->remove_menu('menus');
-    
-	/*
-	if(!is_admin()){ 
-		$wp_admin_bar->remove_menu('my-account'); // removes my account bar from top right 
+    /*
+	// removes top right account info. ERRORS if jQuery in footer
+	if(!is_admin()){
+		$wp_admin_bar->remove_menu('my-account'); 
 	}
 	*/
 }

@@ -24,12 +24,11 @@ function egg_enqueue()
  */
 function egg_styles()
 {
-	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet
+	global $wp_styles; // global variable $wp_styles ie stylesheet wrapper
 
 	// register main stylesheet
-	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?' . date("U"), array(), '', 'all' );
-	
-	// wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' );
+	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?' . date("U"), array(), '', 'all' ); // Dev
+	// wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' ); // Production
 
 	// ie-only style sheet
 	wp_register_style( 'egg-ie-only', get_stylesheet_directory_uri() . '/assets/css/ie.css', array(), '' );
@@ -64,8 +63,8 @@ function egg_scripts()
 	}
 	
 	/* Adding scripts file in the footer */
-	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . date("U"), array( 'jquery' ), '', true );
-	//wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
+	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . date("U"), array( 'jquery' ), '', true ); // Dev
+	//wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true ); // Production
 	
 	
 	// enqueue styles and scripts

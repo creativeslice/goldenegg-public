@@ -70,11 +70,12 @@ BUTTONS
 	transition: background-color $ease;
 }
 
-.search-submit,
 .form-submit input,
+.search-submit, .search-submit:visited,
 .button, .button:visited {
 	@extend %btn;
 	background-color: $link_color;
+	border: 1px solid $link_color;
 	color: white;
 	
 	&:hover,
