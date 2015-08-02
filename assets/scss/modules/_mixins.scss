@@ -65,7 +65,7 @@ BUTTONS
 	font-weight: bold;
 	line-height: 1em;
 	padding: 1em;
-	border-radius: 4px;
+	border-radius: 2px;
 	cursor: pointer;
 	transition: background-color $ease;
 }
@@ -79,14 +79,14 @@ BUTTONS
 	
 	&:hover,
 	&:focus {
-		background-color: lighten($link_color, 10%);
+		background-color: lighten($link_color, 15%);
 		color: white;
 		text-decoration: none;
 	}
 
 	&:active {
-		background-color: darken($link_color, 5%);
-		top: 1px;
+		background-color: darken($link_color, 10%);
+		color: white;
 	}
 }
 

@@ -4,43 +4,37 @@
 
 	<div class="wrap">
 
-		<div id="main" role="main">
+		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		<article <?php post_class( 'cf' ); ?>>
 
-			<article <?php post_class( 'cf' ); ?>>
+			<header class="article-header">
+				<h1 class="page-title"><?php the_title(); ?></h1>
+			</header>
 
-				<header class="article-header">
-					<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
-				</header>
-				<?php
+			<?php // Show Calendar
+			$events = new eggEvents;
+			$events->get_events('','30' );
+			$args = array(
+				'range'			=> '1 month',
+				'selected_time'	=> NULL,
+				'start_type'	=> 'natural',
+				'add_style'		=> 1,
+				'debug'			=> 1
+			);
+			$cal = new calendar( $args );
+			$cal->output_month();
+			// print_r($cal);
+			unset($cal);
+			?>
+			
+			<section class="entry-content">
+				<?php the_content(); ?>
+			</section>
 
-				?>
-				<?php // Show Calendar
-				$events = new eggEvents;
-				$events->get_events('','30' );
-				$args = array(
-					'range'			=> '1 month',
-					'selected_time'	=> NULL,
-					'start_type'	=> 'natural',
-					'add_style'		=> 1,
-					'debug'			=> 1
-				);
-				$cal = new calendar( $args );
-				$cal->output_month();
-				// print_r($cal);
-				unset($cal);
-				?>
-				
-				<section class="entry-content" itemprop="articleBody">
-					<?php the_content(); ?>
-				</section>
+		</article>
 
-			</article>
-
-			<?php endwhile; endif; ?>
-
-		</div>
+		<?php endwhile; endif; ?>
 
 	</div>
 

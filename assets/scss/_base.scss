@@ -24,7 +24,7 @@ hr {
 	border: 0;
 	border-top: 1px solid $gray_light;
 	border-bottom: 1px solid $white;
-	margin: 0 0 1em;
+	margin: 1em 0;
 	padding: 0;
 }
 
@@ -36,6 +36,10 @@ LAYOUT & GRID STYLES
 	width: 94%;
 	margin: 0 auto;
 	max-width: 1200px;
+}
+
+#container {
+	position: relative;
 }
 
 /*********************
@@ -79,5 +83,5 @@ SIDEBARS & ASIDES
 
 .sidebar {
 	background: $gray_lighter;
-	padding: 1em;
+	padding: 2em;
 }

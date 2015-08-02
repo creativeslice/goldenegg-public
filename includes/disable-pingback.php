@@ -4,17 +4,18 @@
  */
 
 // remove RSD link
-remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 						'rsd_link' );
 
 // actions
-add_action( 'xmlrpc_call',                        'egg_disable_xmlrpc' );
+add_action( 'xmlrpc_call',						'egg_disable_xmlrpc' );
 
 // filters
-add_filter( 'wp_headers',                         'egg_remove_pt_headers', 10, 1 );
-add_filter( 'rewrite_rules_array',                'egg_remove_pt_rewrites' );
-add_filter( 'bloginfo_url',                       'egg_remove_pt_pingback_url', 10, 2 );
-add_filter( 'pre_update_option_enable_xmlrpc',    '__return_false' );
-add_filter( 'pre_option_enable_xmlrpc',           '__return_zero' );
+add_filter( 'wp_headers',						'egg_remove_pt_headers', 10, 1 );
+add_filter( 'rewrite_rules_array',				'egg_remove_pt_rewrites' );
+add_filter( 'bloginfo_url',						'egg_remove_pt_pingback_url', 10, 2 );
+add_filter( 'pre_update_option_enable_xmlrpc',	'__return_false' );
+add_filter( 'pre_option_enable_xmlrpc',			'__return_zero' );
+
 
 /**
  * Disable XMLRPC call
@@ -31,6 +32,7 @@ function egg_disable_xmlrpc( $action )
 	}
 }
 
+
 /**
  * DISABLING PINGBACKS AND TRACKBACKS
  * Intercepts header and rewrites X-Pingback
@@ -45,7 +47,8 @@ function egg_remove_pt_headers( $headers )
 	}
 	return $headers;
 }
- 
+
+
 /**
  * Kill the rewrite rule
  */
@@ -60,7 +63,8 @@ function egg_remove_pt_rewrites( $rules )
 	}
 	return $rules;
 }
- 
+
+
 /**
  * Kill bloginfo( 'pingback_url' )
  */

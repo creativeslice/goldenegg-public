@@ -27,7 +27,8 @@ function egg_styles()
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet
 
 	// register main stylesheet
-	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?060515', array(), '', 'all' );
+	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?' . date("U"), array(), '', 'all' );
+	
 	// wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' );
 
 	// ie-only style sheet
@@ -63,7 +64,9 @@ function egg_scripts()
 	}
 	
 	/* Adding scripts file in the footer */
-	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
+	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . date("U"), array( 'jquery' ), '', true );
+	//wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
+	
 	
 	// enqueue styles and scripts
 	wp_enqueue_script( 'egg-js');

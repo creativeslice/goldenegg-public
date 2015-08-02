@@ -17,6 +17,7 @@ add_filter( 'manage_media_columns',             'egg_remove_comments_list_column
 add_filter( 'wp_head', 							'egg_remove_wp_widget_recent_comments_style', 1 );
 add_action( 'wp_head',							'egg_remove_recent_comments_style', 1 );
 
+
 /**
  * Remove from wpadmin menu (TOP BAR)
  */
@@ -26,6 +27,7 @@ function egg_remove_comments_admin_bar()
 	$wp_admin_bar->remove_menu('comments');
 }
 
+
 /**
  * Remove from admin menu (LEFT SIDEBAR)
  */
@@ -34,6 +36,7 @@ function egg_remove_comments_admin_menu()
 	remove_menu_page('edit-comments.php');
 	remove_submenu_page( 'options-general.php', 'options-discussion.php' );
 }
+
 
 /**
  * Remove ping option and comments option from Quick Edit
@@ -57,6 +60,7 @@ function egg_remove_comments_quick_edit()
 	<?php
 } 
 
+
 /**
  * Remove Comments Widget from dashboard and metaboxes from Pages & Posts
  */
@@ -69,6 +73,7 @@ function egg_remove_comments_metaboxes()
 	remove_meta_box( 'commentsdiv','page','normal' );                   // Comments Metabox
 }
 
+
 /**
  * Remove Comments Column from lists-table
  */
@@ -79,18 +84,18 @@ function egg_remove_comments_list_columns( $columns )
 }
 
 
-// remove injected CSS for recent comments widget
+// Remove injected CSS for recent comments widget
 function egg_remove_wp_widget_recent_comments_style() {
 	if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
 		remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
 	}
 }
 
-// remove injected CSS from recent comments widget
+
+// Remove injected CSS from recent comments widget
 function egg_remove_recent_comments_style() {
 	global $wp_widget_factory;
 	if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
 		remove_action( 'wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style') );
 	}
 }
-

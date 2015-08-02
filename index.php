@@ -4,30 +4,26 @@
 
 	<div class="wrap">
 
-		<div id="main" role="main">
+		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		<article <?php post_class( 'cf' ); ?>>
 
-			<article <?php post_class( 'cf' ); ?> role="article">
+			<header class="article-header">
+				<h1 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+				<?php get_template_part( 'partials/content', 'byline' ); ?>
+			</header>
 
-				<header class="article-header">
-					<h1 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-					<?php get_template_part( 'partials/content', 'byline' ); ?>
-				</header>
+			<section class="entry-content">
+				<?php the_content(); ?>
+			</section>
 
-				<section class="entry-content">
-					<?php the_content(); ?>
-				</section>
+		</article>
 
-			</article>
-
-			<?php endwhile; ?>
-				<?php do_action('egg/page_navi'); ?>
-			<?php else : ?>
-				<?php get_template_part( 'partials/content', 'missing' ); ?>
-			<?php endif; ?>
-
-		</div>
+		<?php endwhile; ?>
+			<?php do_action('egg/page_navi'); ?>
+		<?php else : ?>
+			<?php get_template_part( 'partials/content', 'missing' ); ?>
+		<?php endif; ?>
 
 	</div>
 

@@ -13,13 +13,15 @@ function egg_login_init()
 	add_filter( 'login_headertitle',     'egg_login_title' );
 }
 
+
 /**
- * Add theme log in css
+ * Add theme log in CSS
  */
 function egg_login_css()
 {
 	wp_enqueue_style( 'egg_admin_login', get_template_directory_uri() . '/assets/css/login.css', false );
 }
+
 
 /**
  * Change the logo link from wordpress.org to the site home
@@ -28,6 +30,7 @@ function egg_login_url()
 {
 	return home_url( '/' );
 }
+
 
 /**
  * Change the alt text on the logo to site name

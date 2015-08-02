@@ -1,4 +1,4 @@
-/*! Built by Creative Slice in Tucson, AZ! http://creativeslice.com */
+/*! Built by Creative Slice in Tucson, AZ / https://creativeslice.com */
 
 /******************************************************************
 
@@ -11,7 +11,7 @@ Author: Creative Slice
 IMPORTING MODULES
 *********************/
 
-// normalize: http://necolas.github.io/normalize.css/
+// normalize
 @import "modules/normalize";
 
 // import mixins
@@ -23,11 +23,8 @@ IMPORTING MODULES
 // typography
 @import "modules/typography";
 
-// wordpress content images
+// content images
 @import "modules/wpimage";
-
-// forms
-@import "modules/forms";
 
 // the grid
 @import "modules/grid";
@@ -40,6 +37,9 @@ IMPORTING MODULES
 
 // pagenavi
 @import "modules/pagenavi";
+
+// forms
+//@import "modules/forms";
 
 // comments
 // @import "modules/comments";

@@ -4,25 +4,21 @@
 
 	<div class="wrap">
 
-		<div id="main" role="main">
+		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		<article <?php post_class( 'cf' ); ?>>
 
-			<article <?php post_class( 'cf' ); ?>>
+			<header class="article-header">
+				<h1 class="page-title"><?php the_title(); ?></h1>
+			</header>
 
-				<header class="article-header">
-					<h1 class="page-title"><?php the_title(); ?></h1>
-				</header>
+			<section class="entry-content">
+				<?php the_content(); ?>
+			</section>
 
-				<section class="entry-content" itemprop="articleBody">
-					<?php the_content(); ?>
-				</section>
+		</article>
 
-			</article>
-
-			<?php endwhile; endif; ?>
-
-		</div>
+		<?php endwhile; endif; ?>
 
 	</div>
 

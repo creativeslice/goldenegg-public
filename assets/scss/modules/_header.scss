@@ -4,8 +4,36 @@ HEADER STYLES
 
 .header {
 	background: $gray_lighter;
+	border-bottom: 1px solid $gray_light;
+	text-align: center;
 	#logo {
 		margin: 1em;
+	}
+	.search-form {
+		display: none;
+	}
+}
+
+#mobilemenu, #search-toggle {
+	display: block;
+	float: left;
+	text-align: right;
+	text-decoration: none;
+	color: $link_color;
+	cursor: pointer;
+	font-size: 32px;
+	&:hover, &:focus {
+		color: $link_hover;
+	}
+}
+
+#search-toggle {
+	float: right;
+}
+
+@include breakpoint(medium) {
+	#mobilemenu {
+		display: none;
 	}
 }
 
@@ -39,6 +67,8 @@ NAVIGATION STYLES
 
 .main-nav {
 	margin: 0;
+	display: none;
+	clear: both;
 	li {
 		a, a:visited {
 			display: block;
@@ -68,22 +98,27 @@ NAVIGATION STYLES
 	}
 	
 @include breakpoint(medium) {
+	display: block !important;
+	clear: none;
 	li {
-		float: left;
+		display: inline-block;
+		vertical-align: top;
 		position: relative;
+		text-align: left;
 		ul.sub-menu,
 		ul.children {
 			margin-top: 0;
-			border: 1px solid $gray;
-			background: white;
+			border: 1px solid $gray_light;
+			background: $gray_lighter;
 			border-top: 0;
 			position: absolute;
 			overflow: hidden;
 			visibility: hidden;
-			z-index: 8999;
+			opacity: 0;
+			transition: visibility $ease, opacity $ease;
 			li {
 				a, a:visited {
-					padding-left: 10px;
+					padding-left: 1em;
 					border-right: 0;
 					display: block;
 					width: 180px;
@@ -95,33 +130,8 @@ NAVIGATION STYLES
 			top: auto;
 			overflow: visible;
 			visibility:visible;
+			opacity: 1;
 		}
 	}
 }
-}
-
-#mobilemenu {
-	display: block;
-	float: right;
-	text-align: right;
-	text-decoration: none;
-	color: $link_color;
-	cursor: pointer;
-	font-size: 32px;
-	&:hover, &:focus {
-		color: $link_hover;
-	}
-}
-
-.main-nav {
-	display: none;
-}
-
-@include breakpoint(medium) {
-	#mobilemenu {
-		display: none;
-	}
-	.main-nav {
-		display: block !important;
-	}
 }

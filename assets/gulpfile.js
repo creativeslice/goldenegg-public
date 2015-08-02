@@ -9,7 +9,6 @@ var environment = 'development', // 'production development'
 	jsHint = require('gulp-jshint'),
 	concat = require('gulp-concat'),
 	notify = require('gulp-notify'),
-	clean = require('gulp-clean'),
 	cache = require('gulp-cache'),
 	plumber = require('gulp-plumber'),
 	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
@@ -85,26 +84,12 @@ gulp.task('scripts', function() {
 	}
 });
 
-// CLEANUP
-gulp.task('clean-prod', function() {
-	// delete anything that shouldn't be on the server
-	return gulp.src(['scss', 'node_modules'], {read: false})
-	.pipe(clean());
-});
-
-
-// default: gulp
+// 'gulp'
 gulp.task('default', function() {
 	gulp.start('styles', 'styles-ie', 'styles-login', 'styles-editor', 'scripts');
 });
 
-// production: gulp
-// only run on the production server
-gulp.task('prod', function() {
-	gulp.start('styles', 'scripts', 'clean-prod');
-});
-
-// gulp watch (does not compile styles-ie or styles-login)
+// 'gulp watch' (does not compile styles-ie or styles-login)
 gulp.task('watch', function() {
 	gulp.watch('scss/**/*.scss', ['styles']);
 	gulp.watch('js/**/*.js', ['scripts']);

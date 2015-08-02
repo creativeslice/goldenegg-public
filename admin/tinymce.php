@@ -9,6 +9,8 @@
 add_action( 'init', 'egg_tinymce' );
 add_action('admin_head', 'egg_add_magic_button'); // adds .button class to links
 add_action('admin_head', 'egg_add_no_wrap'); // adds .nowrap span
+add_action('admin_head', 'egg_add_intro'); // adds .intro p class
+
 
 // filters
 add_filter( 'tiny_mce_before_init', 'egg_mce_show_buttons_2' );
@@ -21,6 +23,7 @@ function egg_tinymce()
 	add_filter( 'tiny_mce_before_init',       'egg_tiny_mce_before_init' );
 }
 
+
 /**
  * Editor Styles
  */
@@ -29,6 +32,7 @@ function egg_editor_styles()
 {
 	add_editor_style( get_template_directory_uri() . '/assets/css/editor.css' );
 }
+
 
 /**
  * Customize TinyMCE buttons in row 1
@@ -42,6 +46,7 @@ function egg_mce_buttons( $buttons )
 	return array_diff($buttons, $remove);
 }
 
+
 /**
  * Customize TinyMCE buttons in row 2
  *
@@ -50,9 +55,10 @@ function egg_mce_buttons( $buttons )
 function egg_mce_buttons_2( $buttons )
 {
 	// Remove items
-	$remove  = array('styleselect', 'underline', 'forecolor', 'alignjustify', 'pastetext', 'wp_help');
+	$remove  = array('styleselect', 'underline', 'forecolor', 'alignjustify', 'wp_help');
 	return array_diff($buttons, $remove);
 }
+
 
 /**
  * Callback function to filter the MCE settings
@@ -66,6 +72,7 @@ function egg_tiny_mce_before_init( $settings )
 	return $settings;
 }
 
+
 /**
  * Sets second mce toolbar view to 'show'
  */
@@ -73,6 +80,7 @@ function egg_mce_show_buttons_2( $in ) {
 	$in['wordpress_adv_hidden'] = FALSE;
 	return $in;
 }
+
 
 /**
  * Adds "Create Button" - which adds the 'button' class to the selected anchor node
@@ -91,6 +99,7 @@ function egg_register_magic_button($buttons) {
    return $buttons;
 }
 
+
 /**
  * Adds "No-Wrap" - which inserts the selection into a span element with class='nospan'
  */
@@ -104,5 +113,22 @@ function egg_add_tinymce_no_wrap_plugin($plugin_array) {
 }
 function egg_register_no_wrap($buttons) {
    array_push($buttons, "egg_no_wrap");
+   return $buttons;
+}
+
+
+/**
+ * Adds "Intro" - which inserts the selection into a <p> element with class='intro'
+ */
+function egg_add_intro() {
+	add_filter("mce_external_plugins", "egg_add_tinymce_intro_plugin");
+	add_filter('mce_buttons', 'egg_register_intro');
+}
+function egg_add_tinymce_intro_plugin($plugin_array) {
+   	$plugin_array['egg_intro'] = get_template_directory_uri().'/admin/assets/js/tinymce-functions.js'; 
+   	return $plugin_array;
+}
+function egg_register_intro($buttons) {
+   array_push($buttons, "egg_intro");
    return $buttons;
 }

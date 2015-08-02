@@ -4,10 +4,14 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	background-color: #ccc;
+	background-color: #eee;
+	text-align: center;
+	padding: 2em;
 
 	.footer-nav {
-		li {}
+		li {
+			//display: inline-block;
+		}
 	}
 
 	.copyright {

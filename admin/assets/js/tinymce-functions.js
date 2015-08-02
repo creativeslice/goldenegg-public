@@ -39,3 +39,15 @@
         });
     });
 })();
+(function() {
+    tinymce.PluginManager.add('egg_intro', function( editor, url ) {
+            editor.addButton( 'egg_intro', {
+            title: 'Introduction',
+			icon: 'forecolor',
+            onclick: function() {
+	            var orig_text = tinyMCE.activeEditor.selection.getContent();
+				tinyMCE.activeEditor.selection.setContent("<p class='intro'>" + orig_text + "</p>");
+            }
+        });
+    });
+})();

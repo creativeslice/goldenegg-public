@@ -11,11 +11,24 @@ if ( ! isset( $content_width ) )
 	$content_width = 640;
 }
 
+
 /**
  * Example custom thumbnail sizes
  * /
 add_image_size( 'custom-thumb-600', 600, 150, true );
 add_image_size( 'custom-thumb-300', 300, 100, true );
+
+
+/**
+ * Include analytics-tracking.php if WP_DEBUG is not true
+ */
+function egg_analytics()
+{
+	if ( ! defined('WP_DEBUG') || false === WP_DEBUG ) { 
+		get_template_part( 'partials/analytics', 'tracking' );
+	}
+}
+add_action( 'wp_footer', 'egg_analytics', 999 );
 
 
 /**
@@ -44,6 +57,7 @@ function custom_register_sidebars()
 		'after_title' => '</h4>',
 	));
 }
+
 
 /**
  * Updating WordPress Functions & Theme Support
