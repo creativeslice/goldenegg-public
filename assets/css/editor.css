@@ -42,6 +42,7 @@ BUTTONS
 
 .form-submit input, .search-submit, .search-submit:visited, .button, .button:visited {
   background-color: #669933;
+  border: 1px solid #669933;
   color: white; }
   .form-submit input:hover, .form-submit input:focus, .search-submit:hover, .search-submit:focus, .search-submit:visited:hover, .search-submit:visited:focus, .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
     background-color: #8cc653;

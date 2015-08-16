@@ -663,9 +663,9 @@ Stylesheet: WP Images
 ENTRY CONTENT IMAGES
 ******************************************************************/
 .entry-content img {
-  height: auto;
   margin: 0 0 1.5em;
-  max-width: 100%; }
+  max-width: 100%;
+  height: auto; }
 
 .size-auto, .size-full, .size-large, .size-medium, .size-thumbnail {
   max-width: 100%;
@@ -714,9 +714,9 @@ CAPTIONS
     max-width: 100%;
     height: auto;
     margin-bottom: 0; }
-  .wp-caption p.wp-caption-text {
-    font-size: 0.9em;
-    margin: 4px 0 7px;
+  .wp-caption .wp-caption-text {
+    font-size: 0.875em;
+    margin: 0.5em 0 1em;
     text-align: center; }
 
 /******************************************************************
@@ -760,9 +760,7 @@ HTML5 IMAGE GALLERY
     .gallery .gallery-item {
       width: 25%; }
     .gallery img {
-      -webkit-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      transform: translateZ(0); }
+      will-change: opacity; }
       .gallery img:hover {
         opacity: 0.7;
         -webkit-transition: opacity 0.2s ease-in-out;
@@ -770,168 +768,39 @@ HTML5 IMAGE GALLERY
 
 /******************************************************************
 
-Stylesheet: Grid
+Stylesheet: Golden Grid
 
 ******************************************************************/
-.s-all {
-  float: left;
-  padding-right: 0.75em;
-  width: 100%;
-  padding-right: 0; }
+.goldlarge {
+  display: block; }
 
-.s-1of6 {
-  float: left;
-  padding-right: 0.75em;
-  width: 16.66667%; }
-
-.s-2of6 {
-  float: left;
-  padding-right: 0.75em;
-  width: 33.33333%; }
-
-.s-3of6 {
-  float: left;
-  padding-right: 0.75em;
-  width: 50%; }
-
-.s-4of6 {
-  float: left;
-  padding-right: 0.75em;
-  width: 66.66667%; }
-
-.s-5of6 {
-  float: left;
-  padding-right: 0.75em;
-  width: 83.33333%; }
+.goldsmall {
+  display: block; }
 
 @media screen and (min-width: 48em) {
   .goldlarge {
     float: left;
-    padding-right: 0.75em;
     width: 61.8034%; }
   .goldsmall {
-    float: left;
-    padding-right: 0.75em;
-    width: 38.1966%; }
-  .m-all {
-    float: left;
-    padding-right: 0.75em;
-    width: 100%;
-    padding-right: 0; }
-  .onecol, .m-1of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 8.33%; }
-  .twocol, .m-2of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 16.66667%; }
-  .threecol, .m-3of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 25%; }
-  .fourcol, .m-4of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 33.33333%; }
-  .fivecol, .m-5of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 41.66667%; }
-  .sixcol, .m-6of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 50%; }
-  .sevencol, .m-7of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 58.33333%; }
-  .eightcol, .m-8of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 66.66667%; }
-  .ninecol, .m-9of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 75%; }
-  .tencol, .m-10of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 83.33333%; }
-  .elevencol, .m-11of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 91.66667%; } }
-
-@media screen and (min-width: 64em) {
-  .l-all {
-    float: left;
-    padding-right: 0.75em;
-    width: 100%;
-    padding-right: 0; }
-  .l-1of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 8.33%; }
-  .l-2of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 16.66667%; }
-  .l-3of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 25%; }
-  .l-4of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 33.33333%; }
-  .l-5of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 41.66667%; }
-  .l-6of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 50%; }
-  .l-7of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 58.33333%; }
-  .l-8of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 66.66667%; }
-  .l-9of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 75%; }
-  .l-10of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 83.33333%; }
-  .l-11of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 91.66667%; } }
+    float: right;
+    width: 38.1966%; } }
 
 .firstcol, .first-col {
-  clear: left; }
+  clear: left;
+  float: left; }
 
 .lastcol, .last-col {
-  float: right;
-  padding-right: 0; }
+  float: right; }
 
 /*********************
 HEADER STYLES
 *********************/
 .header {
   background: #eee;
-  border-bottom: 1px solid #999;
   text-align: center; }
-  .header #logo {
-    margin: 1em; }
-  .header .search-form {
-    display: none; }
+  .header #logo a {
+    display: inline-block;
+    padding: 2em; }
 
 #mobilemenu, #search-toggle {
   display: block;
@@ -939,9 +808,14 @@ HEADER STYLES
   text-decoration: none;
   color: #669933;
   cursor: pointer;
-  font-size: 32px; }
+  font-size: 24px; }
   #mobilemenu:hover, #mobilemenu:focus, #search-toggle:hover, #search-toggle:focus {
     color: #80bf40; }
+
+.search-form {
+  display: none;
+  margin: 1em;
+  text-align: center; }
 
 #search-toggle {
   float: right; }
@@ -950,27 +824,6 @@ HEADER STYLES
   #mobilemenu {
     display: none; } }
 
-/*********************
-HEADROOM STYLES
-*********************/
-/*
-@include breakpoint(large) {
-
-	#headroom{
-	    position:fixed;
-	    width:100%;
-	    background: red;
-	    transition: transform .2s linear;
-	}
-	
-	.slideDown {
-	   transform: translateY(0%);
-	}
-	.slideUp {
-	   transform: translateY(-100%);
-	}
-}
-*/
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -985,6 +838,8 @@ NAVIGATION STYLES
     padding: 1em; }
   .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited, .main-nav li ul.children li a, .main-nav li ul.children li a:visited {
     padding-left: 30px; }
+  .main-nav li.current-menu-item a, .main-nav li.current-menu-item a:visited, .main-nav li.current_page_item a, .main-nav li.current_page_item a:visited, .main-nav li.current-page-ancestor a, .main-nav li.current-page-ancestor a:visited {
+    color: #80bf40; }
   @media screen and (min-width: 48em) {
     .main-nav {
       display: block !important;
@@ -994,12 +849,10 @@ NAVIGATION STYLES
         vertical-align: top;
         position: relative;
         text-align: left;
-        /* showing sub-menus */ }
-        .main-nav li ul.sub-menu, .main-nav li ul.children {
+        /* showing sub-menus on hover */ }
+        .main-nav li ul.sub-menu {
           margin-top: 0;
-          border: 1px solid #999;
           background: #eee;
-          border-top: 0;
           position: absolute;
           z-index: 999;
           overflow: hidden;
@@ -1007,7 +860,7 @@ NAVIGATION STYLES
           opacity: 0;
           -webkit-transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;
           transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out; }
-          .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited, .main-nav li ul.children li a, .main-nav li ul.children li a:visited {
+          .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited {
             padding-left: 1em;
             border-right: 0;
             display: block;
@@ -1023,12 +876,17 @@ FOOTER STYLES
 *********************/
 .footer {
   clear: both;
-  border-top: 1px solid #999;
   background-color: #eee;
   text-align: center;
   padding: 2em; }
+  .footer .footer-nav li a {
+    display: block;
+    padding: 0.5em; }
   .footer .copyright {
     clear: both; }
+  @media screen and (min-width: 48em) {
+    .footer .footer-nav li {
+      display: inline-block; } }
 
 /******************************************************************
 
@@ -1039,8 +897,9 @@ Stylesheet: Page Navi Styles
 PAGE NAVI STYLES
 ******************************************************************/
 .pagination {
+  border-top: 1px solid #999;
   text-align: center;
-  margin: 1em 0; }
+  padding-top: 4em; }
   .pagination ul {
     display: inline-block;
     background-color: white;
@@ -1053,8 +912,10 @@ PAGE NAVI STYLES
     float: left;
     display: inline;
     overflow: hidden;
-    border-right: 1px solid #666; }
-  .pagination a, .pagination span {
+    border-right: 1px solid #999; }
+    .pagination li:last-child {
+      border: none; }
+  .pagination a, .pagination a:visited, .pagination span {
     margin: 0;
     text-decoration: none;
     padding: 0;
@@ -1065,12 +926,13 @@ PAGE NAVI STYLES
     min-width: 1em;
     display: block;
     color: #669933; }
-    .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
+    .pagination a:hover, .pagination a:focus, .pagination a:visited:hover, .pagination a:visited:focus, .pagination span:hover, .pagination span:focus {
       background-color: #669933;
       color: #fff; }
   .pagination .current {
     cursor: default;
-    color: #333; }
+    color: #333;
+    font-weight: bold; }
     .pagination .current:hover, .pagination .current:focus {
       background-color: #fff;
       color: #333; }
@@ -1136,9 +998,6 @@ a, a:visited {
 /*********************
 POSTS & CONTENT STYLES
 *********************/
-#main {
-  background: white; }
-
 /*********************
 SIDEBARS & ASIDES
 *********************/

@@ -1,6 +1,6 @@
 Golden Egg WordPress Starter Theme
 =========
 
-by Creative Slice http://creativeslice.com
+by Creative Slice https://creativeslice.com
 
 

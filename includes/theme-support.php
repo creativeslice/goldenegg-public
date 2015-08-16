@@ -87,7 +87,7 @@ function custom_theme_support()
 		)
 	);
 			
-	/* adding post format support */
+	/* adding post format support * /
 	add_theme_support( 'post-formats',
 		array(
 			'aside',             // title less blurb

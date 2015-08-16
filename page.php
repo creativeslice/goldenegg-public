@@ -5,6 +5,7 @@
 	<div class="wrap">
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		
 		<article <?php post_class( 'goldlarge cf' ); ?>>
 
 			<header class="article-header">
@@ -16,6 +17,7 @@
 			</section>
 		
 		</article>
+		
 		<?php endwhile; else : ?>
 			<?php get_template_part( 'partials/content', 'missing' ); ?>
 		<?php endif; ?>

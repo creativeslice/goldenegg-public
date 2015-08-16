@@ -16,6 +16,7 @@
  */
 while(has_sub_field("content_blocks")): ?>
 
+
 <?php
 /**
  * LAYOUT:	Text Block
@@ -24,7 +25,7 @@ while(has_sub_field("content_blocks")): ?>
  * field	content
  */
 if(get_row_layout() == "text_block"): ?>
-<section class='entry-content'>
+<section class="entry-content">
 	<?php the_sub_field('content'); ?>
 </section>
 
@@ -34,16 +35,30 @@ if(get_row_layout() == "text_block"): ?>
  * LAYOUT:	Image Text Repeater Block
  *
  * layout	image_text_block
- * fields	image_text_repeater > image / left_block / right_block
+ * fields	block > image / left_block / right_block
  */
 elseif(get_row_layout() == "image_text_block"): ?>
 <section>
-	<?php while(has_sub_field('image_text_repeater')): 
-	$image = wp_get_attachment_image_src(get_sub_field('image'), 'thumbnail'); ?>
+	<?php while(has_sub_field('block')) : 
+		$image = get_field('image')) : 
+		$url = $image['url'];
+		$title = $image['title'];
+		$alt = $image['alt'];
+		$caption = $image['caption'];
+		$size = 'medium';
+		$full = $image['sizes'][ $size ];
+		$width = $image['sizes'][ $size . '-width' ];
+		$height = $image['sizes'][ $size . '-height' ];
+	?>
 	<div class="entry-content">
 		<div class="left-block">
 		<?php if (get_sub_field('image')) { ?>
-			<img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title(get_sub_field('image')); ?>" />
+			<figure>
+				<img src="<?php echo $full; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
+			<?php if ($caption) { ?>
+				<figcaption class="wp-caption-text"><?php echo $caption; ?></figcaption>
+			<?php } ?>
+			</figure>
 		<?php } else {
 			the_sub_field('left_block'); 
 		} ?>
@@ -58,35 +73,25 @@ elseif(get_row_layout() == "image_text_block"): ?>
 
 <?php
 /**
- * LAYOUT:	Gallery Block (flexslider example)
+ * LAYOUT:	Flickity Slideshow w/ lazy loading
  *
- * layout	gallery
- * field	gallery
+ * layout	slideshow
+ * field	slideshow
  */
-elseif(get_row_layout() == "gallery_block"):
+elseif(get_row_layout() == "slideshow"):
 
-$images = get_field('gallery');
- 
-if( $images ): ?>
-    <div id="slider" class="flexslider">
-        <ul class="slides">
-            <?php foreach( $images as $image ): ?>
-                <li>
-                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-                    <p><?php echo $image['caption']; ?></p>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-    <div id="carousel" class="flexslider">
-        <ul class="slides">
-            <?php foreach( $images as $image ): ?>
-                <li>
-                    <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+if( $images = get_sub_field('slideshow') ): $total = count($images); ?>
+<section class="slideshow-block cf">
+    <p><span class="img-counter">1</span> of <?php echo $total; ?></p>
+    <ul class="slideshow">
+    <?php $i = 1; foreach( $images as $image ): ?>
+        <li class="slideshow-cell" data-slide-count="<?php echo $i; ?>">
+        	<img src="<?php echo get_template_directory_uri(); ?>/assets/img/nothing.gif" data-flickity-lazyload="<?php echo $image['sizes']['slideshow']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['sizes']['slideshow-width']; ?>" height="<?php echo $image['sizes']['slideshow-height']; ?>" />
+            <p class="caption"><?php echo $image['caption']; ?></p>
+        </li>
+    <?php $i++; endforeach; ?>
+    </ul>
+</section>
 <?php endif; ?>
 
 

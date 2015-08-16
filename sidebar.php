@@ -1,6 +1,7 @@
 <aside class="sidebar goldsmall" role="complementary">
 	
-	<?php if (@$post->post_parent)	{
+	<?php // find top ancestor for sidebar menu
+	if (@$post->post_parent)	{
 		$ancestors=get_post_ancestors($post->ID);
 		$root=count($ancestors)-1;
 		$topid = $ancestors[$root];

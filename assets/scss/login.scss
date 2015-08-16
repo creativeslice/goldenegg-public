@@ -3,6 +3,7 @@
 Stylesheet: Login Screen
 
 ******************************************************************/
+$login_accent: #669933; // green
 
 body.login {
 	background: #eee;
@@ -12,14 +13,19 @@ body.login {
 /*
  * Logo above login form
  */
-.login h1 a {
-	background: url(../img/login-logo.png) no-repeat top center;
-	width: 326px;
-	height: 67px;
-	text-indent: -9999px;
-	overflow: hidden;
-	padding-bottom: 15px;
-	display: block;
+.login {
+	h1 a {
+		background: url(../img/login-logo.png) no-repeat top center;
+		width: 326px;
+		height: 67px;
+		text-indent: -9999px;
+		overflow: hidden;
+		padding-bottom: 15px;
+		display: block;
+	}
+	.message {
+		border-color: $login_accent;
+	}
 }
 
 form {
@@ -46,14 +52,13 @@ body form .input {
 	box-shadow: inset 1px 1px 3px rgba(black, .1);
 }
 
-
 #wp-submit {
-	background: #669933; // green
-	border: darken(#669933, 20%);
+	background: $login_accent; // green
+	border-color: darken($login_accent, 3%) !important;
 	font-weight: bold;
 	text-transform: uppercase;
 	&:hover {
-		background: darken(#669933, 10%);
+		background: darken($login_accent, 6%);
 	}
 }
 

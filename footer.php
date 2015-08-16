@@ -1,8 +1,8 @@
-	<footer class="footer" role="contentinfo">
+	<footer class="footer">
 
 		<div class="wrap">
 
-			<nav role="navigation">
+			<nav>
 			<?php wp_nav_menu(array(
 				'container' => false,						// remove nav container
 				'menu' => 'Footer Links',					// nav name

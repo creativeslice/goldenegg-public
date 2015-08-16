@@ -4,13 +4,12 @@ HEADER STYLES
 
 .header {
 	background: $gray_lighter;
-	border-bottom: 1px solid $gray_light;
 	text-align: center;
 	#logo {
-		margin: 1em;
-	}
-	.search-form {
-		display: none; // hide before pressing #search-toggle
+		a {
+			display: inline-block;
+			padding: 2em;
+		}
 	}
 }
 
@@ -20,44 +19,27 @@ HEADER STYLES
 	text-decoration: none;
 	color: $link_color;
 	cursor: pointer;
-	font-size: 32px;
+	font-size: 24px;
 	&:hover, &:focus {
 		color: $link_hover;
 	}
 }
+
+.search-form {
+	display: none; // hide before pressing #search-toggle
+	margin: 1em;
+	text-align: center;
+}
+	
 #search-toggle {
 	float: right;
 }
 
-
 @include breakpoint(medium) {
-	#mobilemenu {
-		display: none;
-	}
+#mobilemenu {
+	display: none;
 }
-
-
-/*********************
-HEADROOM STYLES
-*********************/
-/*
-@include breakpoint(large) {
-
-	#headroom{
-	    position:fixed;
-	    width:100%;
-	    background: red;
-	    transition: transform .2s linear;
-	}
-	
-	.slideDown {
-	   transform: translateY(0%);
-	}
-	.slideUp {
-	   transform: translateY(-100%);
-	}
 }
-*/
 
 
 /*********************
@@ -92,7 +74,7 @@ NAVIGATION STYLES
 	li.current_page_item,
 	li.current-page-ancestor {
 		a, a:visited {
-			
+			color: $link_hover;
 		}
 	}
 	
@@ -104,12 +86,9 @@ NAVIGATION STYLES
 		vertical-align: top;
 		position: relative;
 		text-align: left;
-		ul.sub-menu,
-		ul.children {
+		ul.sub-menu {
 			margin-top: 0;
-			border: 1px solid $gray_light;
 			background: $gray_lighter;
-			border-top: 0;
 			position: absolute;
 			z-index: 999;
 			overflow: hidden;
@@ -125,7 +104,7 @@ NAVIGATION STYLES
 				}
 			}
 		}
-		/* showing sub-menus */
+		/* showing sub-menus on hover */
 		&:hover ul {
 			top: auto;
 			overflow: visible;

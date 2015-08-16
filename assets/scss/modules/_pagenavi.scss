@@ -9,8 +9,9 @@ PAGE NAVI STYLES
 ******************************************************************/
 
 .pagination {
+	border-top: 1px solid $gray_light;
 	text-align: center;
-	margin: 1em 0;
+	padding-top: 4em;
 	ul {
 		display: inline-block;
 		background-color: white;
@@ -25,10 +26,13 @@ PAGE NAVI STYLES
 		float: left;
 		display: inline;
 		overflow: hidden;
-		border-right: 1px solid #666;
+		border-right: 1px solid $gray_light;
+		&:last-child {
+			border: none;
+		}
 	}
 	
-	a, span {
+	a, a:visited, span {
 		margin: 0;
 		text-decoration: none;
 		padding: 0;
@@ -49,7 +53,7 @@ PAGE NAVI STYLES
 	.current{
 		cursor: default;
 		color: $text_color;
-	
+		font-weight: bold;
 		&:hover, &:focus {
 			background-color: $white;
 			color: $text_color;

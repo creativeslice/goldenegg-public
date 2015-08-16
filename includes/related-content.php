@@ -7,7 +7,6 @@
 add_action( 'egg/related_posts', 'egg_related_posts' );
 
 
-
 /** 
  * get_associated
  *
@@ -43,6 +42,7 @@ function get_associated( $main_post_id , $assoc_type ){
 			)
 		)
 	);
+	
 	// if there are no children and the post_in is empty, the query returns all records - this avoids runnning the query for that condition.
 	if($run_query){
 		$query_parent = new WP_Query( $args_parent );
@@ -70,7 +70,7 @@ function get_associated( $main_post_id , $assoc_type ){
 		$query_result->posts = $query_child->posts;
 	}
 	else{
-	 return false;
+		return false;
 	}
 	if(@$sort_by_children){
 		$posts_sub = array();

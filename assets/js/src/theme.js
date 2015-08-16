@@ -3,29 +3,8 @@
 */
 jQuery(document).ready(function($) {
 	
-	/**
-	 * Mobile Menu toggle
-	 */
-	$('#mobilemenu').click(function(e) {
-		e.preventDefault();
-		var $this = $(this);
-		$this.toggleClass('active');
-		$('.main-nav').slideToggle(200);
-	});
 	
 	
-	/**
-	 * Open search panel and focus cursor
-	 */
-	$('#search-toggle').click(function(e) {
-		e.preventDefault();
-		var $this = $(this);
-		$this.toggleClass('active');
-		$('.search-form').slideToggle(300);
-		$('.search-field')[0].focus();	
-	});
-
-
 	/**
 	 * Adds the screen reader text to the icon's title so it will show on hover
 	 */

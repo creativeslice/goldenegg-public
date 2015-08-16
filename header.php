@@ -20,7 +20,9 @@
 
 <body <?php body_class(); ?>>
 <div id="container">
-
+	
+	<?php get_search_form(); // hidden by default ?>
+	
 	<header class="header">  
 
 		<div id="inner-header" class="wrap cf">
@@ -35,8 +37,6 @@
 				<span class="icon-search" aria-hidden="true"></span>
 				<span class="screen-reader-text">SEARCH</span>
 			</span>
-			
-			<?php get_search_form(); ?>
 			
 			<span id="mobilemenu">
 				<span class="icon-menu" aria-hidden="true"></span>

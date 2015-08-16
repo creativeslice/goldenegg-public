@@ -10,9 +10,9 @@ ENTRY CONTENT IMAGES
 
 .entry-content {
 	img {
-		height: auto;
 		margin: 0 0 $default_margin;
 		max-width: 100%;
+		height: auto;
 	}
 }
 
@@ -83,9 +83,9 @@ CAPTIONS
 		margin-bottom: 0;
 	}
 
-	p.wp-caption-text {
-		font-size: 0.9em;
-		margin: 4px 0 7px;
+	.wp-caption-text {
+		font-size: 0.875em;
+		margin: .5em 0 1em;
 		text-align: center;
 	}
 }
@@ -146,7 +146,7 @@ HTML5 IMAGE GALLERY
 		width: 25%;
 	}
 	img {
-		transform: translateZ(0);
+		will-change: opacity; // transform
 		&:hover {
 			opacity: .7;
 			transition: opacity $ease;

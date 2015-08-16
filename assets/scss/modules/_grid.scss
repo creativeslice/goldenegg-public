@@ -1,209 +1,37 @@
 /******************************************************************
 
-Stylesheet: Grid
+Stylesheet: Golden Grid
 
 ******************************************************************/
 
-@mixin grid-col {
-	float: left;
-	padding-right: 0.75em;
+.goldlarge {
+	display: block;
+}
+.goldsmall {
+	display: block;
 }
 
-@mixin goldlarge {
-	@include grid-col;
+
+@include breakpoint(medium) {
+.goldlarge {
+	float: left;
 	width: 61.803398875%;
 }
-@mixin goldsmall {
-	@include grid-col;
+.goldsmall {
+	float: right;
 	width: 38.196601125%;
 }
-
-@mixin all   {
-	@include grid-col;
-	width: 100%;
-	padding-right: 0;
 }
-
-@mixin one {
-	@include grid-col;
-	width: 8.33%;
-}
-@mixin two {
-	@include grid-col;
-	width: 16.6666666667%;
-}
-@mixin three {
-	@include grid-col;
-	width: 25%;
-}
-@mixin four {
-	@include grid-col;
-	width: 33.3333333333%;
-}
-@mixin five {
-	@include grid-col;
-	width: 41.6666666667%;
-}
-@mixin six {
-	@include grid-col;
-	width: 50%;
-}
-@mixin seven {
-	@include grid-col;
-	width: 58.3333333333%;
-}
-@mixin eight {
-	@include grid-col;
-	width: 66.6666666667%;
-}
-@mixin nine {
-	@include grid-col;
-	width: 75%;
-}
-@mixin ten {
-	@include grid-col;
-	width: 83.3333333333%;
-}
-@mixin eleven {
-	@include grid-col;
-	width: 91.6666666667%;
-}
-
-
-.s-all {
-	@include all;
-}
-
-.s-1of6 {
-	@include two;
-}
-.s-2of6 {
-	@include four;
-}
-.s-3of6 {
-	@include six;
-}
-.s-4of6 {
-	@include eight;
-}
-.s-5of6 {
-	@include ten;
-}
-
-
-@include breakpoint(medium)
-{
-	// Simple Golden Ratio
-	.goldlarge {
-		@include goldlarge;
-	}
-	.goldsmall {
-		@include goldsmall;
-	}
-
-	.m-all {
-		@include all;
-	}
-
-	.onecol,
-	.m-1of12 {
-		@include one;
-	}
-	.twocol,
-	.m-2of12 {
-		@include two;
-	}
-	.threecol,
-	.m-3of12 {
-		@include three;
-	}
-	.fourcol,
-	.m-4of12 {
-		@include four;
-	}
-	.fivecol,
-	.m-5of12 {
-		@include five;
-	}
-	.sixcol,
-	.m-6of12 {
-		@include six;
-	}
-	.sevencol,
-	.m-7of12 {
-		@include seven;
-	}
-	.eightcol,
-	.m-8of12 {
-		@include eight;
-	}
-	.ninecol,
-	.m-9of12 {
-		@include nine;
-	}
-	.tencol,
-	.m-10of12 {
-		@include ten;
-	}
-	.elevencol,
-	.m-11of12 {
-		@include eleven;
-	}
-}
-
-
-@include breakpoint(large)
-{
-	.l-all  {
-		@include all;
-	}
-
-	.l-1of12 {
-		@include one;
-	}
-	.l-2of12 {
-		@include two;
-	}
-	.l-3of12 {
-		@include three;
-	}
-	.l-4of12 {
-		@include four;
-	}
-	.l-5of12 {
-		@include five;
-	}
-	.l-6of12 {
-		@include six;
-	}
-	.l-7of12 {
-		@include seven;
-	}
-	.l-8of12 {
-		@include eight;
-	}
-	.l-9of12 {
-		@include nine;
-	}
-	.l-10of12 {
-		@include ten;
-	}
-	.l-11of12 {
-		@include eleven;
-	}
-}
-
 
 // the first column
 .firstcol,
 .first-col {
 	clear: left;
+	float: left;
 }
-
 
 // the last column
 .lastcol,
 .last-col {
 	float: right;
-	padding-right: 0;
 }

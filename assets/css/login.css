@@ -20,6 +20,8 @@ body.login {
   overflow: hidden;
   padding-bottom: 15px;
   display: block; }
+.login .message {
+  border-color: #669933; }
 
 form {
   margin-left: 8px;
@@ -47,8 +49,8 @@ body form .input {
 
 #wp-submit {
   background: #669933;
-  border: #334d19;
+  border-color: #5e8e2f !important;
   font-weight: bold;
   text-transform: uppercase; }
   #wp-submit:hover {
-    background: #4d7326; }
+    background: #57822b; }
