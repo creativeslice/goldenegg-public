@@ -1,12 +1,12 @@
 /**
  * Theme Name:  GoldenEgg_starter_theme
- * Theme URI:   http://creativeslice.com
+ * Theme URI:   https://creativeslice.com/golden-egg/
  * Description: Starter theme for Creative Slice projects.
  * Author:      Creative Slice
  * Author URI:  http://creativeslice.com
  * Version:     1.9.2
  */
 
-.sticky {}          /* DO NOT EDIT THIS */
-.gallery-caption {} /* THESE ARE USELESS */
-.bypostauthor {}    /* THEY ARE ONLY TO KEEP THEME CHECK HAPPY */
+.sticky {}          /* THESE ARE USELESS, */
+.gallery-caption {} /* BUT */
+.bypostauthor {}    /* THEY KEEP THEME CHECK HAPPY */

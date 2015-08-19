@@ -35,6 +35,7 @@
 			<h1 class="archive-title">
 				<span>Yearly Archives:</span> <?php the_time('Y'); ?>
 			</h1>
+			
 		<?php endif; ?>
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
