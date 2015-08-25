@@ -22,7 +22,8 @@
 <h2>Hard Coded img_1000x700.jpg and img_600x400.jpg</h2>
 <?php $args = array (
 	'image'	=> get_template_directory_uri() . '/assets/img/img_1000x700.jpg',
-	'mobile'=> get_template_directory_uri() . '/assets/img/img_600x400.jpg',
+	'width' => 1000,
+	'height' => 700,
 	'lazy'	=> 'load'
 ); optimal_image( $args );
 ?>
@@ -30,9 +31,11 @@
 <hr>
 
 <h2>Featured Image</h2>
-<?php $queried_object = get_queried_object();
+<?php 
 	$args = array (
-	'post'	=> $queried_object,
+	'post'	=> $post,
+	'mobile'	=> 'thumbnail',
+	'desktop'	=> 'large',
 	'lazy'	=> 'load'
 ); optimal_image( $args );
 ?>
