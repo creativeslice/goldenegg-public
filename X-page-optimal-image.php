@@ -19,11 +19,16 @@
 				<hr>
 
 
+<h1>Requires <a target="_blank" href="https://bitbucket.org/tripgrass/optimal-image">Optimal Image plugin/function</a></h1>
+
 <h2>Hard Coded img_1000x700.jpg and img_600x400.jpg</h2>
 <?php $args = array (
-	'image'	=> get_template_directory_uri() . '/assets/img/img_1000x700.jpg',
-	'width' => 1000,
-	'height' => 700,
+	'image'	=> get_template_directory_uri() . '/assets/img/img_600x400.jpg',
+	'width' => 600,
+	'height' => 400,
+	'desktop_image'	=> get_template_directory_uri() . '/assets/img/img_1000x700.jpg',
+	'desktop_width' => 1000,
+	'desktop_height' => 700,
 	'lazy'	=> 'load'
 ); optimal_image( $args );
 ?>
@@ -31,11 +36,8 @@
 <hr>
 
 <h2>Featured Image</h2>
-<?php 
-	$args = array (
+<?php $args = array (
 	'post'	=> $post,
-	'mobile'	=> 'thumbnail',
-	'desktop'	=> 'large',
 	'lazy'	=> 'load'
 ); optimal_image( $args );
 ?>
