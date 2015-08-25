@@ -15,7 +15,7 @@
 			<section class="entry-content">
 				
 				<?php the_content(); ?>
-				
+
 				<hr>
 				
 				<h1>H1 Headline</h1>

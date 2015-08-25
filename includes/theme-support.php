@@ -67,8 +67,8 @@ function custom_register_sidebars()
 add_action( 'after_setup_theme', 'custom_theme_support' );
 function custom_theme_support()
 {
-	/* Featured Image * /
-	add_theme_support( 'post-thumbnails', array( 'post', 'press', 'calendar' ) ); // Posts, Press & Calendar
+	/* Featured Image */
+	add_theme_support( 'post-thumbnails', array( 'post', 'page', ) ); // Posts, Pages
 
 	/* default thumb size * /
 	set_post_thumbnail_size(120, 120, true);
