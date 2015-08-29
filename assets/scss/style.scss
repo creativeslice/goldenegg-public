@@ -11,8 +11,8 @@ Author: Creative Slice
 IMPORTING MODULES
 *********************/
 
-// normalize
-@import "modules/normalize";
+// sanitize (browser reset)
+@import "modules/sanitize";
 
 // import mixins
 @import "modules/mixins";
