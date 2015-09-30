@@ -24,35 +24,6 @@ COLORS
 REUSABLE ITEMS
 *********************/
 /*********************
-BUTTONS
-*********************/
-.form-submit input, .search-submit, .search-submit:visited, .button, .button:visited {
-  display: inline-block;
-  position: relative;
-  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-decoration: none;
-  font-size: 0.875em;
-  font-weight: bold;
-  line-height: 1em;
-  padding: 1em;
-  border-radius: 2px;
-  cursor: pointer;
-  -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out; }
-
-.form-submit input, .search-submit, .search-submit:visited, .button, .button:visited {
-  background-color: #669933;
-  border: 1px solid #669933;
-  color: white; }
-  .form-submit input:hover, .form-submit input:focus, .search-submit:hover, .search-submit:focus, .search-submit:visited:hover, .search-submit:visited:focus, .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
-    background-color: #8cc653;
-    color: white;
-    text-decoration: none; }
-  .form-submit input:active, .search-submit:active, .search-submit:visited:active, .button:active, .button:visited:active {
-    background-color: #4d7326;
-    color: white; }
-
-/*********************
 BREAKPOINTS
 *********************/
 /******************************************************************
@@ -225,7 +196,7 @@ address {
   margin: 0 0 1.5em; }
 
 pre {
-  background: #222;
+  background: #111;
   color: #999;
   font-family: "Courier 10 Pitch", Courier, monospace;
   font-size: 0.9em;
@@ -253,7 +224,7 @@ mark, ins {
   line-height: 0.75em;
   padding: 5px 12px 0 3px;
   font-family: "Georgia", Cambria, Times New Roman, Times, serif;
-  color: #222; }
+  color: #111; }
 
 /******************************************************************
 ENTRY CONTENT

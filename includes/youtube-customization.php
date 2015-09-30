@@ -37,13 +37,12 @@ function egg_set_youtube_params($html, $url, $args, $id) {
 	$video_args['show_info'] = '0';
 	$video_args['color'] = 'black';
 	$video_args['feature'] = 'oembed';
-	// $video_args['autohide'] = '0';
+	$video_args['autohide'] = '1';
 	$video_args['rel'] = '0';
 	$video_args['iv_load_policy'] = '3';
 	$video_args['autoplay'] = '0';
 	$video_args['controls'] = '2';
-	
-	// $video_args['modestbranding'] = '1';
+	$video_args['modestbranding'] = '1';
 	// $video_args['disablekb'] = '1';
 	// $video_args['enabejsapi'] = '1';
 	// $video_args['end'] = '0';

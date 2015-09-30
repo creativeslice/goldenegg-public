@@ -4,8 +4,6 @@
 
 	<div class="wrap">
 		
-		<a href="#" class="banana-link"><h6>Read More</h6></a>
-		
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		
 		<article <?php post_class( 'goldlarge cf' ); ?>>

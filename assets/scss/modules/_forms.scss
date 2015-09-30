@@ -26,8 +26,8 @@ input[type="color"],
 select,
 textarea,
 .field {
-	background-color: #eee;
-	border: 0;
+	background-color: $gray_lighter;
+	border: 1px solid $gray_light;;
 	border-radius: 3px;
 	box-sizing: border-box;
 	box-shadow: none;

@@ -10,20 +10,21 @@ FONT STACKS
 $sans_serif:        "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 
+
 /*********************
 COLORS
 *********************/
 
-$black:             #222;
+$black:             #111;
 $white:             #fff;
 
-$gray:              #666;
-$gray_light:		#999;
 $gray_lighter:		#eee;
+$gray_light:		#999;
+$gray:              #666;
 $gray_dark:         #333;
-$gray_disabled:     #777;
 
 $green: 	        #669933;
+$green_dark:		#1b801b;
 $orange: 	        #ff9933;
 $blue:              #2980b9;
 
@@ -36,7 +37,9 @@ $link_hover:        lighten($link_color, 10%);
 REUSABLE ITEMS
 *********************/
 
+$spacing:    		80px;
 $default_margin:    1.5em;
+
 $ease:				.2s ease-in-out;
 $easeslow:			.6s ease-in;
 
@@ -48,46 +51,6 @@ $easeslow:			.6s ease-in;
 	@include old-ie {
 		zoom: 1;
 		*display: inline;
-	}
-}
-
-
-/*********************
-BUTTONS
-*********************/
-
-%btn {
-	display: inline-block;
-	position: relative;
-	font-family: $sans_serif;
-	text-decoration: none;
-	font-size: .875em;
-	font-weight: bold;
-	line-height: 1em;
-	padding: 1em;
-	border-radius: 2px;
-	cursor: pointer;
-	transition: background-color $ease;
-}
-
-.form-submit input,
-.search-submit, .search-submit:visited,
-.button, .button:visited {
-	@extend %btn;
-	background-color: $link_color;
-	border: 1px solid $link_color;
-	color: white;
-	
-	&:hover,
-	&:focus {
-		background-color: lighten($link_color, 15%);
-		color: white;
-		text-decoration: none;
-	}
-
-	&:active {
-		background-color: darken($link_color, 10%);
-		color: white;
 	}
 }
 

@@ -1,6 +1,8 @@
 	<footer class="footer">
 
 		<div class="wrap">
+			
+			<?php get_template_part( '/partials/svg', 'emblem' ); ?>
 
 			<nav>
 			<?php wp_nav_menu(array(

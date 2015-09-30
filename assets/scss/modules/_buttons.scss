@@ -1,0 +1,44 @@
+/******************************************************************
+
+Stylesheet: Button Styles
+
+******************************************************************/
+
+/*********************
+BUTTONS
+*********************/
+
+%btn {
+	display: inline-block;
+	position: relative;
+	font-family: $sans_serif;
+	text-decoration: none;
+	font-size: .875em;
+	font-weight: bold;
+	line-height: 1em;
+	padding: 1em;
+	border-radius: 2px;
+	cursor: pointer;
+	transition: background-color $ease;
+}
+
+.form-submit input,
+.search-submit, .search-submit:visited,
+.button, .button:visited {
+	@extend %btn;
+	background-color: $link_color;
+	border: 1px solid $link_color;
+	color: white;
+	
+	&:hover,
+	&:focus {
+		background-color: lighten($link_color, 15%);
+		color: white;
+		text-decoration: none;
+	}
+
+	&:active {
+		background-color: darken($link_color, 10%);
+		color: white;
+	}
+}
