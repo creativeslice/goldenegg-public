@@ -12,6 +12,15 @@
 	*
 	* To get a weather option: <?php echo get_weather_option('sunrise'); ?>
 	* Options include: 'sunrise', 'sunset' and 'temp_f'
+	*
+	* 	Following is example code that could be included in the footer.php:
+	*
+	*		<a class="emblem <?php echo get_weather('class'); ?>" href="/contact/">
+	*		    <?php get_template_part( '/partials/logo', 'emblem' ); ?>
+	*		</a>
+	*		
+	*		<?php echo get_weather_option('temp_f'); ?>&deg;F and <em><?php echo custom_weather(); ?></em> in Tucson<br />
+	*		Sunrise <?php echo get_weather_option('sunrise'); ?> / Sunset <?php echo get_weather_option('sunset'); ?>
 	*/
 
 	class eggWeather{
