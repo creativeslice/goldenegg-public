@@ -1,8 +1,8 @@
 <?php
 	/*
 	Plugin Name: eggWeather
-	Description: CreativeSlice's Custom Weather Integration
-	Version: 1.0
+	Description: CreativeSlice's Custom Weather Integration using Yahoo yql
+	Version: 0.1
 	Author: Trip Grass
 	*
 	* To allow the modifying of the body class, ensure the body tag is like so: <body <?php body_class(); ?>>
@@ -11,9 +11,7 @@
 	* To customize the button, use the $defaults array 
 	*
 	* To get a weather option: <?php echo get_weather_option('sunrise'); ?>
-	* Options include: 'sunrise', 'sunset', 'weather', 'temp_f' and more
-	*
-	* To view all the options on the front-end as a UL: <?php echo list_eggOptions(); ?> 
+	* Options include: 'sunrise', 'sunset' and 'temp_f'
 	*/
 
 	class eggWeather{
@@ -22,14 +20,14 @@
 			
 			$defaults = array(
 				"enableCookie" => false,											// boolean
-				"buttonClass" => "button",										// string
-				"buttonId" => "sunrise-sunset-toggle",							// string
-				"disableText" => "Turn off the sunrise/sunset, please.",		// string
+				"buttonClass" => "button",											// string
+				"buttonId" => "sunrise-sunset-toggle",								// string
+				"disableText" => "Turn off the sunrise/sunset, please.",			// string
 				"enableText" => "Turn the sunrise/sunset back on. That's slick."	// string
 	        );
 	        $this->options = wp_parse_args( $options , $defaults );	
 
-			// adds page to admin menu in order to define the NOAA weather station
+			// adds page to admin menu in order to set the local city
 			add_action('admin_menu', array($this, 'create_theme_options_page') );
 		
 			// load admin functions on admin page only
@@ -38,7 +36,7 @@
 			// gets the weather station from transient
 			$this->weather_station = get_option('weather_station');		
 	
-			// sets up an XML object of the weather
+			// sets up an JSON object of the weather
 			$this->egg_get_weather();
 	
 			// adds the correct class to the body tag
@@ -78,20 +76,13 @@
 			return $time;
 		}
 		private function get_day_or_night(){
-			$this->lat = get_option('weather_lat');		
-			$this->lon = get_option('weather_lon');		
-			// Roadmap: could pull in lat long from the timezone location 
-			$offset = get_option('gmt_offset'); 
-			$sunrise = date_sunrise(time(), SUNFUNCS_RET_DOUBLE , $this->lat , $this->lon ,90 , $offset );
-			$sunset = date_sunset(time(), SUNFUNCS_RET_DOUBLE , $this->lat , $this->lon , 90 , $offset);
-			$this->sunrise = $this->timeFromDouble($sunrise);
-			$this->sunset = $this->timeFromDouble($sunset);
-			
 			// gets the wordpress current time
 			$timestamp = current_time( 'timestamp' );
 			$hour = date_i18n( 'H' , $timestamp );
 			$minute_decimal = round( date_i18n( 'i' , $timestamp ) / 60 , 2);
 			$time = ( $hour + $minute_decimal );
+			$sunrise = 	floatval( date('H', strtotime( $this->sunrise )) + "." + date('i', strtotime( $this->sunrise ))/60 );
+			$sunset = 	floatval( date('H', strtotime( $this->sunset )) + "." + date('i', strtotime( $this->sunset ))/60 );
 			if( $time > $sunrise && $time < $sunset ){
 				$this->phase = 'day';			
 			}else{
@@ -108,16 +99,27 @@
 		}
 	
 		public function egg_get_weather(){
-			if ( false === ($weather_xml = get_transient('weather_xml')) ){
-				$file            = "http://w1.weather.gov/xml/current_obs/display.php?stid=$this->weather_station";
-				$weather_content = @file_get_contents($file);
-				$weather_arr 	= @simplexml_load_string($weather_content);
-				$weather_xml    = json_encode( $weather_arr );
-				if( $weather_xml != 'false' ){
-					set_transient( 'weather_xml', $weather_xml, 30 * MINUTE_IN_SECONDS );
+			if ( 1==1 || false === ($weather_json = get_transient('weather_json')) ){
+
+				$BASE_URL = "http://query.yahooapis.com/v1/public/yql";
+				$yql_query = 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="'.$this->weather_station .'")';
+				$yql_query_url = $BASE_URL . "?q=" . urlencode($yql_query) . "&format=json&diagnostics=true";
+				$session = curl_init($yql_query_url);
+				curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+				$weather_json = curl_exec($session);
+				curl_close($session);
+				if( $weather_json != 'false' ){
+					set_transient( 'weather_json', $weather_json, 30 * MINUTE_IN_SECONDS );
 				}
 			}
-			$this->weather = json_decode($weather_xml);
+			$yql_results = json_decode($weather_json);
+
+			$w = $yql_results->query->results->channel;
+			$this->weather = new stdClass();
+			$this->weather->temp_f = $w->item->condition->temp;
+			$this->weather->yql_code = $w->item->condition->code;
+			$this->sunrise = $w->astronomy->sunrise;
+			$this->sunset = $w->astronomy->sunset;
 		}
 		
 		// Add Custom Admin Menu
@@ -128,6 +130,7 @@
 		public function weather_settings(){ ?>
 	
 			<form  name='weather_station_form' action='' method='POST'>
+				<h2>Weather Settings</h2>
 				<table class='form-table'>
 					<tbody>
 						<?php if(@$this->station_message) :?>
@@ -139,50 +142,51 @@
 						<?php endif; ?> 
 						
 						<tr>
-							<p>Find your local Weather Station ID from <a target="_blank" href='http://www.nws.noaa.gov/om/osd/portal.shtml'>NOAA</a> in the Automated Surface Stations and enter it below. For example, Tucson would be 'KDMA'.</p>
-						</tr>
-						<tr>
-							<th>Weather Station ID
+							<th>City, State
 							</th>
 							<td>
 								<input type='text' name='weather_station' value='<?php echo $this->weather_station; ?>'>
 							</td>
 						</tr>
-						<tr>
-							<th>Your Wordpress Timezone is:</th>
-							<td><a href='/wp-admin/options-general.php'><?php echo get_option('timezone_string'); ?></a></td>
-						</tr>
+						<?php if( get_option('timezone_string') ) : ?>
+							<tr>
+								<th>Your Wordpress Timezone is:</th>
+								<td><a href='/wp-admin/options-general.php'><?php echo get_option('timezone_string'); ?></a></td>
+							</tr>
+						<?php endif; ?>
 					</tbody>
 				</table>
 				<button type='submit' class='button button-primary' style=''>Save Settings</button>
 				
-				<?php if( 'object' == gettype($this->weather) ) : $weather = get_weather_option('icon_url_name'); ?>
+				<?php if( 'object' == gettype($this->weather) ) : $weather = get_weather('class'); ?>
 						
 						<div>
 							<h2>Current Settings for <?php echo strtoupper( $this->weather_station ); ?></h2>
-							<span>class : <?php echo strtok($weather, '.'); ?></span>
+
+							<span>Class Applied to Body: <?php echo strtok($weather, '.'); ?></span>
 							<br />
 							<?php echo get_weather_option('temp_f'); ?>&deg;F and <?php echo get_weather_option('weather'); ?> in Tucson<br />
-							Sunrise <?php echo get_weather_option('sunrise'); ?>am / Sunset <?php echo get_weather_option('sunset'); ?>pm
+							Sunrise <?php echo get_weather_option('sunrise'); ?> / Sunset <?php echo get_weather_option('sunset'); ?>
 						</div>
 						
 					<?php endif; ?>
 			</form>
 
 		<?php }
-	
+		
 		// adds the weather options to the transient on the admin page
 		public function weather_admin_functions(){
 			if(isset( $_POST['weather_station'] )){
-				$this->weather_station	= $_POST['weather_station'];		
-				$file            	= "http://w1.weather.gov/xml/current_obs/display.php?stid=$this->weather_station";
-				$weather_content 	= @file_get_contents($file);
-				$weather_arr 		= @simplexml_load_string($weather_content);
-				if( 'object' == gettype($weather_arr)){
-					$weather_lat 		= (string)$weather_arr->latitude;
-					$weather_lon 		= (string)$weather_arr->longitude;
-					update_option( 'weather_lat', $weather_lat );
-					update_option( 'weather_lon', $weather_lon );
+				$this->weather_station	= $_POST['weather_station'];
+				$BASE_URL = "http://query.yahooapis.com/v1/public/yql";
+				$yql_query = 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="'.$this->weather_station .'")';
+				$yql_query_url = $BASE_URL . "?q=" . urlencode($yql_query) . "&format=json&diagnostics=true";
+
+				$session = curl_init($yql_query_url);
+				curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+				$weather_json = curl_exec($session);
+				curl_close($session);		
+				if( 'object' == gettype($weather_json)){
 					update_option('weather_station', $_POST['weather_station'], '', '' );
 					$this->station_message = "Your station has been saved.  ";	
 				}
@@ -194,7 +198,7 @@
 			}
 			
 		}
-		
+
 		// just an easy way to see what options are available for output
 		public function list_options(){
 			if(count( $this->weather ) > 0 ){
@@ -289,165 +293,102 @@
 			}
 		}
 		// $type is 'class' or 'text' - empty is text
+		// https://developer.yahoo.com/weather/documentation.html#codes
 		function get_weather( $type = null ){
-			if( $this->weather && $icon_url = $this->weather->icon_url_name ){
-				switch ( $icon_url ){
+			if( $this->weather && $code = $this->weather->yql_code ){
 			        
-			        // Sun (sun)
-			        case 'few.png' 		:	// Few Clouds
-			        case 'skc.png' 		:	// Clear
-			            if( $type == 'class' ){
-				            return 'sun';
-				        }
-				        else{
-					        return 'sunny';
-				        }
-			            break;
-			            
-			        // Moon (moon)
-			        case 'nfew.png' 	:	// Few Clouds
-			        case 'nskc.png' 	:	// Clear
-			            if( $type == 'class' ){
-				            return 'moon';
-			            }
-				        else{
-					        return 'clear';
-				        }
-			            break;
-			
-			        // Cloud (cloud)
-			        case 'dust.png' 	:	// Dust
-			        case 'mist.png' 	:	// Mist
-			        case 'sn.png' 		:	// Snow
-			        case 'smoke.png' 	:	// Smoke
-			        case 'fg.png' 		:	// Fog
-			        case 'ovc.png' 		:	// Overcast
-			        case 'bkn.png' 		:	// Mostly Cloudy
-			            if( $type == 'class' ){
-				            return 'cloud';
-			            }
-				        else{
-					        return 'cloudy';
-				        }
-			            break;
-			            
-			        // Cloud Night (cloud2)
-			        case 'nsn.png' 		:	// Snow
-			        case 'nfg.png' 		:	// Fog
-			        case 'novc.png' 	:	// Overcast
-			        case 'nbkn.png' 	:	// Mostly Cloudy
-			            if( $type == 'class' ){
-				            return 'cloud2';
-			            }
-				        else{
-					        return 'cloudy';
-				        }
-			            break;
-			
-			        // Partial Cloud (cloudy)
-			        case 'sct.png' 		:	// Partly Cloudy
-			            if( $type == 'class' ){
-				            return 'cloudy';
-			            }
-				        else{
-					        return 'cloudy';
-				        }
-			            break;
-			            
-			        // Partial Cloud Night (cloud3)
-			        case 'nsct.png' 	:	// Partly Cloudy
-			            if( $type == 'class' ){
-				            return 'cloud3';
-			            }
-				        else{
-					        return 'cloudy';
-				        }
-			            break;
-			
-			        // Snow (snowy2)
-			        case 'ip.png' 		:	// Ice Pellets
-			        case 'mix.png' 		:	// Freezing Rain Snow
-			        case 'rasn.png' 	:	// Rain Snow
-			            if( $type == 'class' ){
-				            return 'snowy2';
-			            }
-				        else{
-					        return 'snowing';
-				        }
-			            break;
-			        
-			        // Snow Night (snowy)
-			        case 'nmix.png' 	:	// Freezing Rain Snow
-			        case 'nrasn.png' 	:	// Rain Snow
-			            if( $type == 'class' ){
-				            return 'snowing';
-			            }
-				        else{
-					        return 'snowing';
-				        }
-			            break;
-			
-			        // Rain (rainy2)
-			        case 'hi_shwrs.png' :	// Showers
-			        case 'ra.png' 		:	// Rain
-			        case 'ra1.png' 		:	// Light Rain
-			        case 'fzra.png' 	:	// Freezing rain
-			        case 'raip.png' 	:	// Rain Ice Pellets
-			        case 'shra.png' 	:	// Rain Showers
-			        case 'fzrara.png' 	:	// Freezing Rain Rain
-			            if( $type == 'class' ){
-				            return 'rainy2';
-			            }
-				        else{
-					        return 'raining';
-				        }
-			            break;
-			        
-			        // Rain Night (rainy)
-			        case 'hi_nshwrs.png':	// Showers
-			        case 'nra.png' 		:	// Rain
-			        case 'nra1.png' 	:	// Light Rain
-			            if( $type == 'class' ){
-				            return 'rainy';
-			            }
-				        else{
-					        return 'raining';
-				        }
-			            break;
-			
-			        // Lightning (lightning2)
-			        case 'tsra.png' 	:	// Thunderstorm
-			        case 'hi_tsra.png' 	:	// Thunderstorm
-			            if( $type == 'class' ){
-				            return 'lightning2';
-			            }
-				        else{
-					        return 'stormy';
-				        }
-			            break;
-			            
-			        // Lightning Night (lightning)
-			        case 'ntsra.png' 	:	// Thunderstorm
-			        case 'hi_ntsra.png'	:	// Thunderstorm
-			            if( $type == 'class' ){
-				            return 'lightning';
-			            }
-				        else{
-					        return 'stormy';
-				        }
-			            break;
-			
-			        // Wind (wind)
-			        case 'wind.png' 	:	// Windy
-			        case 'nwind.png' 	:	// Windy
-			            if( $type == 'class' ){
-				            return 'wind';
-			            }
-				        else{
-					        return 'windy';
-				        }
-			            break;
-			    }
+				if( in_array( $code , array( 0,1, 2 ))){
+					return "tropical-storm"; 
+				}
+				elseif( in_array( $code , array( 37, 38, 39,45, 47))){
+		            if( $type == 'class' ){
+			            return 'lightning';
+		            }
+			        else{
+				        return 'stormy';
+			        }
+				}
+				elseif( in_array( $code , array(32, 34, 36 ) )){
+		            if( $type == 'class' ){
+			            return 'sun';
+			        }
+			        else{
+				        return 'sunny';
+			        }
+				}				
+				elseif( in_array( $code , array(31,33 ) )){
+		            if( $type == 'class' ){
+			            return 'moon';
+		            }
+			        else{
+				        return 'clear';
+			        }
+
+				}
+				elseif( in_array( $code , array(19,20,21,22,26,28 ) )){
+		            if( $type == 'class' ){
+			            return 'cloud';
+		            }
+			        else{
+				        return 'cloudy';
+			        }
+				}
+				elseif( in_array( $code , array(27) )){
+		            if( $type == 'class' ){
+			            return 'cloud2';
+		            }
+			        else{
+				        return 'cloudy';
+			        }
+				}
+				elseif( in_array( $code , array(30,44 ) )){
+		            if( $type == 'class' ){
+			            return 'cloudy';
+		            }
+			        else{
+				        return 'cloudy';
+			        }
+				}
+				elseif( in_array( $code , array(29 ) )){
+		            if( $type == 'class' ){
+			            return 'cloud3';
+		            }
+			        else{
+				        return 'cloudy';
+			        }
+				}
+				elseif( in_array( $code , array(7,13,14,15,16,41,42,43,46 ) )){
+		            if( $type == 'class' ){
+			            return 'snowy2';
+		            }
+			        else{
+				        return 'snowing';
+			        }
+				}		        
+				elseif( in_array( $code , array(5,6,8,9,10,11,12,17,18,35,40 ) )){
+		            if( $type == 'class' ){
+			            return 'rainy2';
+		            }
+			        else{
+				        return 'raining';
+			        }
+				}		        
+				elseif( in_array( $code , array(3,4,37,38,39,45,47 ) )){
+		            if( $type == 'class' ){
+			            return 'lightning2';
+		            }
+			        else{
+				        return 'stormy';
+			        }
+				}		            
+				elseif( in_array( $code , array(23,24,25 ) )){
+		            if( $type == 'class' ){
+			            return 'wind';
+		            }
+			        else{
+				        return 'windy';
+			        }
+				}
 			}
 		}
 		
