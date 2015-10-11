@@ -122,13 +122,19 @@
 				}
 			}
 			$yql_results = json_decode($weather_json);
-
-			$w = $yql_results->query->results->channel;
 			$this->weather = new stdClass();
-			$this->weather->temp_f = $w->item->condition->temp;
-			$this->weather->yql_code = $w->item->condition->code;
-			$this->sunrise = $w->astronomy->sunrise;
-			$this->sunset = $w->astronomy->sunset;
+			if( is_object($yql_results->query->results ) ){
+				$w = $yql_results->query->results->channel;
+				$this->weather->temp_f = $w->item->condition->temp;
+				$this->weather->yql_code = $w->item->condition->code;
+				$this->sunrise = $w->astronomy->sunrise;
+				$this->sunset = $w->astronomy->sunset;
+			}
+			else{			
+				$this->sunrise = "";
+				$this->sunset = "";
+				$this->weather->temp_f = "";
+			}
 		}
 		
 		// Add Custom Admin Menu
@@ -194,8 +200,9 @@
 				$session = curl_init($yql_query_url);
 				curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
 				$weather_json = curl_exec($session);
-				curl_close($session);		
-				if( 'object' == gettype($weather_json)){
+				curl_close($session);
+				$yql_results = json_decode($weather_json);
+				if( is_object($yql_results->query->results ) ){
 					update_option('weather_station', $_POST['weather_station'], '', '' );
 					$this->station_message = "Your station has been saved.  ";	
 				}
@@ -304,7 +311,7 @@
 		// $type is 'class' or 'text' - empty is text
 		// https://developer.yahoo.com/weather/documentation.html#codes
 		function get_weather( $type = null ){
-			if( $this->weather && $code = $this->weather->yql_code ){
+			if( property_exists( $this->weather, 'yql_code') && $this->weather && $code = $this->weather->yql_code ){
 			        
 				if( in_array( $code , array( 0,1, 2 ))){
 					return "tropical-storm"; 
