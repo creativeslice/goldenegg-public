@@ -31,8 +31,8 @@
 				"enableCookie" => false,											// boolean
 				"buttonClass" => "button",											// string
 				"buttonId" => "sunrise-sunset-toggle",								// string
-				"disableText" => "Turn off the sunrise/sunset, please.",			// string
-				"enableText" => "Turn the sunrise/sunset back on. That's slick."	// string
+				"disableText" => "Turn off the sunrise/sunset.",					// string
+				"enableText" => "Turn the sunrise/sunset back on, please."			// string
 	        );
 	        $this->options = wp_parse_args( $options , $defaults );	
 
@@ -177,10 +177,8 @@
 						
 						<div>
 							<h2>Current Settings for <?php echo strtoupper( $this->weather_station ); ?></h2>
-
-							<span>Class Applied to Body: <?php echo strtok($weather, '.'); ?></span>
-							<br />
-							<?php echo get_weather_option('temp_f'); ?>&deg;F and <?php echo get_weather_option('weather'); ?> in Tucson<br />
+							Custom Description: <em><?php echo custom_weather(); ?></em><br />
+							<?php echo get_weather_option('temp_f'); ?>&deg;F and <?php echo strtok($weather, '.'); ?> in Tucson<br />
 							Sunrise <?php echo get_weather_option('sunrise'); ?> / Sunset <?php echo get_weather_option('sunset'); ?>
 						</div>
 						
