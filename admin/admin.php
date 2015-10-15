@@ -107,6 +107,7 @@ function egg_disable_dashboard_widgets()
 
 	// removing plugin dashboard boxes
 	// remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');		// Gravity Forms Plugin Widget
+	remove_meta_box('wpe_dify_news_feed', 'dashboard', 'normal');		// WPEngine News Widget
 }
 
 
