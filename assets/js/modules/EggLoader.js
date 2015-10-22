@@ -124,7 +124,7 @@
 		$.ajax({
             url:      $href,
             async:    true,
-            cache:    false,
+            cache:    true, // for testing set to: false
             dataType: 'html',
             beforeSend: function()
 			{
