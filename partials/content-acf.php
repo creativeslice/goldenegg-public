@@ -40,7 +40,7 @@ if(get_row_layout() == "text_block"): ?>
 elseif(get_row_layout() == "image_text_block"): ?>
 <section>
 	<?php while(has_sub_field('block')) : 
-		$image = get_field('image')) : 
+		$image = get_field('image');
 		$url = $image['url'];
 		$title = $image['title'];
 		$alt = $image['alt'];

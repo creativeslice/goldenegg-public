@@ -25,7 +25,7 @@
 		
 			<footer class="article-footer">
 				<?php the_tags( '<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>' ); ?>
-				<?php get_template_part( 'partials/content-share-links' ); ?>
+				<?php get_template_part( 'partials/content', 'share-links' ); ?>
 			</footer>
 		
 			<?php comments_template(); ?>
