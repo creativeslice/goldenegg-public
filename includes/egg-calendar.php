@@ -1,28 +1,218 @@
-<?php 
-	
-	
+<?php
+
 /**
- * FILTERS
- **/
-
-add_filter('rewrite_rules_array', 'add_rewrite_rules');
-add_filter('query_vars', 'add_query_vars');
-  
-// Adds a url query to pass date requests in the URL (i.e., example.net/?var1=value1&calendar_date=2014-08
-function add_query_vars($aVars) {
-	$aVars[] = "page_request";
-	$aVars[] = "custom_cat";
-	return $aVars;
+ * Events
+ */
+add_action( 'init', 'register_event_post_type');
+function register_event_post_type()
+{ 
+	register_post_type( 'event',
+		array( 'labels' => 
+			array(
+				'name'               => 'Events',
+				'singular_name'      => 'Event',
+				'all_items'          => 'All Events',
+				'add_new'            => 'Add New',
+				'add_new_item'       => 'Add New Event',
+				'edit'               => 'Edit',
+				'edit_item'          => 'Edit Event',
+				'new_item'           => 'New Event',
+				'view_item'          => 'View Event',
+				'search_items'       => 'Search Events',
+				'not_found'          => 'Nothing found in the Database.',
+				'not_found_in_trash' => 'Nothing found in Trash',
+				'parent_item_colon'  => ''
+			),
+			'description'         => 'Events post type',
+			'public'              => true,
+			'publicly_queryable'  => true,
+			'exclude_from_search' => true,
+			'show_ui'             => true,
+			'query_var'           => true,
+			'menu_position'       => 10,
+			'menu_icon'           => 'dashicons-calendar',
+			'rewrite'	      => array( 'slug' => 'calendar', 'with_front' => false ),
+			// 'has_archive'      => 'custom_type',
+			'capability_type'     => 'page',
+			'hierarchical'        => false,
+			'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'revisions')
+		)
+	);
 }
 
-// Rewrite Rule - redirects calendar/2014-08/ to page-calendar.php?calendar_date=2014-08
-// ON INSTALL SAVE Permalinks or flush_rewrite_rules();
-function add_rewrite_rules($aRules) {
-	$aNewRules = array('ajaxRequest/([^/]+)/?$' => 'index.php?pagename=pushStateBlank&page_request=$matches[1]');
-//	$aNewRules = array('ajaxRequest/?$' => 'index.php?pagename=ajax_post');
-	$aRules = $aNewRules + $aRules;
-	return $aRules;
+/**
+ * Event Categories
+ */
+register_taxonomy( 'event_cat', 
+	array('event'),
+	array('hierarchical' => true,
+		'labels' => array(
+			'name' 				=> 'Event Categories',
+			'singular_name' 	=> 'Event Category',
+			'search_items' 		=> 'Search Event Categories',
+			'all_items' 		=> 'All Event Categories',
+			'parent_item' 		=> 'Parent Event Category',
+			'parent_item_colon' => 'Parent Event Category:',
+			'edit_item' 		=> 'Edit Event Category',
+			'update_item' 		=> 'Update Event Category',
+			'add_new_item' 		=> 'Add New Event Category',
+			'new_item_name' 	=> 'New Event Category Name',
+		),
+		'show_admin_column' => true, 
+		'show_ui' 			=> true,
+		'query_var' 		=> true,
+		'rewrite' 			=> array( 'slug' => 'event-cat' ),
+	)
+);
+
+
+/* Adding custom columns to Events */
+add_filter( 'manage_edit-event_columns', 'my_edit_events_columns' ) ;
+function my_edit_events_columns( $columns ) {
+	$columns = array(
+		'cb' => '<input type="checkbox" />',
+		'title' => __( 'Event Title' ),
+		'event_date' => __( 'Event Dates' ),
+		'taxonomy-event_cat' => __( 'Event Categories')
+	);
+	return $columns;
 }
+
+add_action( 'manage_event_posts_custom_column', 'my_manage_events_columns', 10, 2 );
+function my_manage_events_columns( $column, $post_id ) {	
+	global $post;
+
+	switch( $column ) {
+
+		/* If displaying the 'event_date' column. */
+		case 'event_date' :
+
+			/* Get the dates. */
+			if( get_field( 'event_dates' , $post_id ) ){
+				$count = 0;
+				while ( $event_date = get_post_meta( $post_id , "event_dates_". $count ."_event_date", true) ){ 
+					$eventstamp = strtotime( $event_date );
+					$time = get_post_meta( $post_id , "event_dates_". $count ."_start_time", true);
+					$eventstamp = $eventstamp + $time * 60 * 60;
+					$dates[$eventstamp] = "";
+					$count++;
+				}
+			}
+
+			/* If no duration is found, output a default message. */
+			if ( count( @$dates ) > 0 ){
+				ksort( $dates );
+				$pastcount = 0;
+				$curcount = 0;
+				$past = "";
+				$current = "";
+				$currTime = current_time('timestamp');
+				foreach( $dates as $timestamp => $empty ){
+					if( $timestamp < $currTime ){
+						if( $pastcount == 1 ){ $past .= " / "; }else{ $pastcount = 1; }
+						$past .= date( get_option('date_format'), $timestamp );	
+					}
+					else{
+						if( $curcount == 1 ){ $current .= " / "; }else{ $curcount = 1; }
+						$current .= date( get_option('date_format'), $timestamp );
+					}
+				}
+				if( $curcount > 0 ){
+					echo $current;
+				}
+				if( $pastcount ){
+					if( $curcount > 0 ){ echo "<br>"; }
+					echo "Past Dates: <i>" . $past . "</i>";
+				}
+			}else{
+				echo __( '- No dates -' );
+			}
+			break;
+
+		/* Just break out of the switch statement for everything else. */
+		default :
+			break;
+	}
+}
+
+
+/* Change query order for Events
+----------------------------------------------------------------------------- */
+function populate_posts_data( $posts ) {
+	global $wpdb;
+	global $current_screen;
+	$currTime = current_time('timestamp');
+	// make admin conditional
+	if( 'event' == @$current_screen->post_type && 'edit' == @$current_screen->base ){
+		foreach ( $posts as $origKey => $event ) {
+			$currentDates = array();
+			$pastDates = array();
+			$count = 0;
+			if( get_field( 'event_dates' , $event->ID ) ){
+				while ( $event_date = get_post_meta( $event->ID , "event_dates_". $count ."_event_date", true) ){ 
+					$eventstamp = strtotime( $event_date );
+					$time = get_post_meta( $event->ID , "event_dates_". $count ."_start_time", true);
+					$eventstamp = $eventstamp + $time * 60 * 60;
+		
+					if( $eventstamp >= $currTime ){
+						$currentDates[$eventstamp] = $event->ID;
+					}
+					else{
+						$pastDates[$eventstamp] = $event->ID;						
+					}
+					$count++;
+				}
+				// the event is placed in Current or Old (not both) if there are any current or future events, it's current, otherwise Old
+				// if there's a current date get the earliest and add to $currEvents
+				if( count( $currentDates ) > 0 ){
+					ksort($currentDates);
+					$earliestDate = key( $currentDates );
+					// add to $currEvents array (timestamp => original posts key)
+					$currEvents[$earliestDate][] = $origKey;
+				}
+				elseif( count( $pastDates ) > 0 ){ // if there's no current date get the largest (the most recent) and add to $pastEvents
+					ksort($pastDates);
+					end( $pastDates );
+					// get last timestamp
+					$latestDate = key( $pastDates );
+					$pastEvents[$latestDate][] = $origKey;	
+				}
+			}			
+			else{  // the event has NO dates
+				$noDateEvents[] = $origKey;
+			}			
+		}
+		if( count( @$currEvents )> 0 ){
+			// sort newPosts earliest to latest
+			ksort( $currEvents );
+			foreach( $currEvents as $timestamp => $array_of_keys ){
+				foreach( $array_of_keys as $origKey ){
+					$newPosts[] = $posts[$origKey];
+				}
+			}
+		}
+		if( count( @$pastEvents )> 0 ){
+			// reverse sort oldPosts latest to earliest (end of list will start with most recent event and work backwards)
+			krsort( $pastEvents );
+			foreach( $pastEvents as $timestamp => $array_of_keys ){
+				foreach( $array_of_keys as $origKey ){
+					$newPosts[] = $posts[$origKey];
+				}
+			}
+		}
+		if( count( @$noDateEvents )> 0 ){
+			foreach( $noDateEvents as $origKey ){
+				$newPosts[] = $posts[$origKey];
+			}
+		}
+		return $newPosts;		
+	}
+	else{
+		return $posts;
+	}
+}
+add_filter( 'the_posts', 'populate_posts_data' );
+
 
 
 
@@ -734,34 +924,36 @@ add_filter("posts_where", "my_posts_where");
   */
 class eggEvents{
 
-	function get_events( $start_date = NULL, $max_limit = 0, $event_cat = NULL){
+	function get_events( $start_date = NULL, $max_limit = 0, $event_cat = NULL , $max_number = null , $includeEvents = null ){
 		global $wpdb;
 		if( !$start_date ){ $start_date = date('Ymd', current_time('timestamp')  ); }
 		$stamp = strtotime( $start_date );
 		$max_time = date( 'Ymd', ( $stamp + $max_limit * 86400 ) );
 		$single_events = array();
 		$recurring_events = array();
-		
+		$total_events = 0; 
 		$args = array(
 			'numberposts' => -1,
 			'post_type' => 'event',
 			'meta_query' => array(
 				array(
 					'key' => 'event_dates_%_event_date',
-					'value' => $day,
+					'value' => $start_date,
 					'type' => 'NUMERIC',
-					'compare'=> '>'
+					'compare'=> '>='
 					
-				),
+				)
+			)
+		);
+		if($max_limit ){
+			$args['meta_query'][] = 	
 				array(
 					'key' => 'event_dates_%_event_date',
 					'value' => $max_time,
 					'type' => 'NUMERIC',
 					'compare'=> '<'
-					
-				)
-			)
-		);
+				);
+		}
 		if($event_cat){ 
 			$args['tax_query'] = array(
 				array(
@@ -772,26 +964,30 @@ class eggEvents{
 			);	
 			
 		}
-		// get results
+		if($includeEvents){
+			$args['post__in'] = $includeEvents;
+		}
 		$the_query = new WP_Query( $args );
-		//print_r($the_query);
 		if( $the_query->have_posts() ){
 			foreach ( $the_query->posts as $spost ) {
 				$count = 0;
 				if( get_field('event_dates', $spost->ID ) ){
 					while ( $event_date = get_post_meta( $spost->ID , "event_dates_". $count ."_event_date", true) ){ 
 						$eventstamp = strtotime( $event_date );
-						$single_events[$eventstamp][] = $spost->ID;
+						$time = get_post_meta( $spost->ID , "event_dates_". $count ."_start_time", true);
+						//$eventstamp = $eventstamp + $time * 60 * 60;
+						$single_events[$eventstamp][] = array('post'=> $spost->ID , 'event_times' => $time);
 						$count++;
+						$total_events++;
 					}
 				}
 			}
 		}
-		if( $max_limit > 1 ){
-			$media_query = array( 'key' => 'recurring_day'); 
+/*		if( $max_limit > 1 ){
+			$meta_query = array( 'key' => 'recurring_day'); 
 		}
 		else{
-			$media_query = array(
+			$meta_query = array(
 							'key' => 'recurring_day',
 							'value' => date ( 'w' , $stamp),
 							'compare' => '=',
@@ -803,7 +999,7 @@ class eggEvents{
 						    'meta_key' => 'recurring_day',
 						    'orderby' => 'meta_value_num',
 						    'order' => 'ASC',
-						    'meta_query' => array( $media_query )
+						    'meta_query' => array( $meta_query )
 						));	
 		if( $max_limit > 1 ){
 			// $recurring count is the number of times the recurring day occurs in the period of interest
@@ -818,17 +1014,36 @@ class eggEvents{
 					$recurring_events[$recurring_timestamp][] = $re_post->ID;
 					$dif_num = $dif_num +7;
 					$i++;
+					$total_events++;
 				}			
 			}
 		}
 		else{
 			foreach($recurring_query->posts as $re_key => $re_post){
 				$recurring_day = get_field( 'recurring_day', $re_post->ID );
-				$recurring_events[$stamp][] = $re_post;					
+				$recurring_events[$stamp][] = $re_post;
+				$total_events++;					
 			}	
 		}
-		$all_events = $single_events + $recurring_events;
+		$all_events = $single_events + $recurring_events;*/
+		$all_events = $single_events;
 		ksort($all_events);
+		if (count($single_events)>0 && $max_number > 0){
+			$i = 0;
+			while($i<$max_number){
+				foreach( $all_events as $timestamp=>$event_array){
+					foreach( $event_array as $key=>$event_id ){
+						if($i < $max_number){
+							$new_array[$timestamp][] = $event_id;
+							if($i == $total_events -1 ){ $i = $max_number; }							
+							$i++;
+						}
+					} 
+				}
+			
+			}
+			$all_events = $new_array;
+		}
 		$this->events = $all_events;
 	}
 }
@@ -844,13 +1059,14 @@ add_filter('query_vars', 'add_query_vars');
 function add_query_vars($aVars) {
 	$aVars[] = "calendar_date";
 	$aVars[] = "custom_cat";
+	$aVars[] = "calendar_loc";
 	return $aVars;
 }
 
 // Rewrite Rule - redirects calendar/2014-08/ to page-calendar.php?calendar_date=2014-08
 // ON INSTALL SAVE Permalinks or flush_rewrite_rules();
 function add_rewrite_rules($aRules) {
-	$aNewRules = array('calendar/([^/]+)/?$' => 'index.php?pagename=calendar&calendar_date=$matches[1]');
+	$aNewRules = array('events/([^/]+)/?([^/]*)/?$' => 'index.php?pagename=events&calendar_loc=$matches[1]&calendar_date=$matches[2]');
 	$aRules = $aNewRules + $aRules;
 	$bNewRules = array('event-cat/([^/]*)/([^/]*)/?' => 'index.php?event_cat=$matches[1]&calendar_date=$matches[2]');
 	$aRules = $bNewRules + $aRules;

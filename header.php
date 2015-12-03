@@ -12,8 +12,6 @@
 	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/apple-touch-icon.png">
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.png">
 	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
-	
-	<!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     
     <?php wp_head(); ?>
 </head>

@@ -24,7 +24,7 @@ function egg_enqueue()
  */
 function egg_styles()
 {
-	global $wp_styles; // global variable $wp_styles ie stylesheet wrapper
+	global $wp_styles; // global variable $wp_styles ie stylesheet
 
 	// register main stylesheet
 	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?' . date("U"), array(), '', 'all' ); // Dev
@@ -47,7 +47,8 @@ function egg_styles()
  */
 function egg_scripts()
 {
-
+	global $wp_scripts; // global variable $wp_scripts for ie scripts
+	
 	/* call jQuery from Google and move to footer * /
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'), false, '1.11.3', true);
@@ -66,6 +67,9 @@ function egg_scripts()
 	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . date("U"), array( 'jquery' ), '', true ); // Dev
 	//wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true ); // Production
 	
+	// HTML5 shim for divs
+	wp_enqueue_script( 'patch-shim', '//html5shim.googlecode.com/svn/trunk/html5.js', false, null, false );
+	$wp_scripts->add_data( 'patch-shim', 'conditional', 'lt IE 9' );
 	
 	// enqueue styles and scripts
 	wp_enqueue_script( 'egg-js');
