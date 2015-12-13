@@ -54,6 +54,18 @@ $easeslow:			.6s ease-in;
 	}
 }
 
+// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+.clearfix, .cf {
+	zoom: 1;
+	&:before, &:after { 
+		content: ""; 
+		display: table; 
+	}
+	&:after { 
+		clear: both; 
+	}
+}
+
 
 /*********************
 BREAKPOINTS

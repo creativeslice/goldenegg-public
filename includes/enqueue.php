@@ -77,7 +77,7 @@ function egg_scripts()
 
 
 /**
- * Remove jQuery Migrate
+ * Remove jQuery Migrate and wp-embed scripts
  *
  * Be absolutely sure, you are ok to do this, and test your code afterwards.
  *
@@ -88,6 +88,7 @@ function egg_dequeue_jquery_migrate( &$scripts )
 {
 	if (! is_admin() )
 	{
+		$scripts->remove( 'wp-embed');
 		$scripts->remove( 'jquery');
 		$scripts->add( 'jquery', false, array( 'jquery-core' ), '1.10.2' );
 	}
