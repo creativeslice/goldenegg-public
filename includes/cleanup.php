@@ -34,9 +34,6 @@ function egg_head_cleanup()
 {
 	// Remove canonical links
 	// remove_action('wp_head', 'rel_canonical');
-	// Remove REST API links
-	remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
-	remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
 	// Remove shortlink from head and header
 	remove_action( 'wp_head', 				'wp_shortlink_wp_head', 10, 0 );
 	remove_action( 'template_redirect',		'wp_shortlink_header', 11, 0 );
@@ -64,6 +61,9 @@ function egg_head_cleanup()
 	// remove emoji script
 	remove_action( 'wp_head',				'print_emoji_detection_script', 7 );
 	remove_action( 'wp_print_styles',		'print_emoji_styles' );
+	// Remove REST API links
+	remove_action( 'wp_head', 				'rest_output_link_wp_head', 10 );
+	remove_action( 'wp_head', 				'wp_oembed_add_discovery_links', 10 );
 }
 
 
