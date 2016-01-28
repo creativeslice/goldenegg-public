@@ -6,6 +6,7 @@
  */
 add_action( 'after_setup_theme',			'egg_cleanup' );
 
+
 /**
  * Launch some basic cleanup
  *
@@ -23,7 +24,19 @@ function egg_cleanup()
 	add_filter( 'excerpt_more',				'egg_excerpt_more' );
 	// shorten excerpt
 	add_filter( 'excerpt_length',			'custom_excerpt_length', 999 );
+	// stop srcset images
+	add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
 }
+
+
+/**
+ * Stop WordPress from creating multiple SRCSET images
+ *
+ */
+function disable_srcset( $sources ) {
+	return false;
+}
+
 
 
 /**

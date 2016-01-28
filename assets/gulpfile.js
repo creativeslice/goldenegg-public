@@ -92,5 +92,5 @@ gulp.task('default', function() {
 // 'gulp watch' (does not compile styles-ie or styles-login)
 gulp.task('watch', function() {
 	gulp.watch('scss/**/*.scss', ['styles']);
-	gulp.watch('js/**/*.js', ['scripts']);
+	gulp.watch('js/src/**/*.js', ['scripts']);
 });
