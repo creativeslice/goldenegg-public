@@ -76,17 +76,21 @@ elseif(get_row_layout() == "image_text_block"): ?>
  * LAYOUT:	Flickity Slideshow w/ lazy loading
  *
  * layout	slideshow
- * field	slideshow
+ * field	images
  */
 elseif(get_row_layout() == "slideshow"):
 
-if( $images = get_sub_field('slideshow') ): $total = count($images); ?>
+if( $images = get_sub_field('images') ): $total = count($images); ?>
 <section class="slideshow-block cf">
     <p><span class="img-counter">1</span> of <?php echo $total; ?></p>
-    <ul class="slideshow">
+    <ul class="flickity-slideshow">
     <?php $i = 1; foreach( $images as $image ): ?>
         <li class="slideshow-cell" data-slide-count="<?php echo $i; ?>">
-        	<img src="<?php echo get_template_directory_uri(); ?>/assets/img/nothing.gif" data-flickity-lazyload="<?php echo $image['sizes']['slideshow']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['sizes']['slideshow-width']; ?>" height="<?php echo $image['sizes']['slideshow-height']; ?>" />
+        	<img src="<?php echo get_template_directory_uri(); ?>/assets/img/nothing.gif" 
+        		data-flickity-lazyload="<?php echo $image['sizes']['banner']; ?>" 
+				alt="<?php echo $image['alt']; ?>" 
+				width="<?php echo $image['sizes']['banner-width']; ?>" 
+				height="<?php echo $image['sizes']['banner-height']; ?>" />
             <p class="caption"><?php echo $image['caption']; ?></p>
         </li>
     <?php $i++; endforeach; ?>

@@ -32,11 +32,6 @@ var timeToWaitForLast = 100;
 /*
  * Here's an example so you can see how we're using the above function
  *
- * This is commented out so it won't work, but you can copy it and
- * remove the comments.
- *
- *
- *
  * If we want to only do it on a certain page, we can setup checks so we do it
  * as efficient as possible.
  *
@@ -181,6 +176,29 @@ jQuery(document).ready(function($) {
 	 *		</div>
 	 */
 	$('#Container').mixItUp();		
+	
+	
+	/**
+	 * Flickity Slideshow
+	 */
+	var $gallery = $('.flickity-slideshow').flickity({
+		lazyLoad: true,
+		cellAlign: 'center',
+		pageDots: true,
+		prevNextButtons: true,
+		//autoPlay: 6000,
+		imagesLoaded: true,
+		accessibility: false,
+		wrapAround: true
+	});
+	
+	// Slide Counter
+	function updateStatus() {
+        var $newCount = $('.flickity-slideshow .is-selected').data('slide-count');
+        $('.img-counter').html($newCount);
+	}
+	updateStatus();
+	$gallery.on( 'cellSelect', updateStatus );
 	
 	
 	/**

@@ -53,12 +53,13 @@ body form .input {
 }
 
 #wp-submit {
-	background: $login_accent; // green
+	background: $login_accent;
 	border-color: darken($login_accent, 3%) !important;
+	text-shadow: -1px -1px 0 darken($login_accent, 15%);
+	box-shadow: 0 1px 1px darken($login_accent, 15%);
 	font-weight: bold;
 	text-transform: uppercase;
 	&:hover {
 		background: darken($login_accent, 6%);
 	}
 }
-
