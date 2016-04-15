@@ -25,23 +25,21 @@ function egg_cleanup()
 	// shorten excerpt
 	add_filter( 'excerpt_length',			'custom_excerpt_length', 999 );
 	// stop srcset images
-	add_filter( 'wp_calculate_image_srcset', 'disable_srcset' );
+	add_filter( 'wp_calculate_image_srcset', '__return_false' );
 }
 
 
 /**
- * Stop WordPress from creating multiple SRCSET images
- *
+ * Update JPEG compression quality (WP sets it at 82 by default)
  */
-function disable_srcset( $sources ) {
-	return false;
+function custom_jpeg_quality( $quality, $context ) {
+	return 90;
 }
-
+add_filter( 'jpeg_quality', 'custom_jpeg_quality', 10, 2 );
 
 
 /**
  * Cleanup the head output
- *
  */
 function egg_head_cleanup()
 {

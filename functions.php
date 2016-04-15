@@ -39,9 +39,6 @@ require_once( 'includes/cleanup.php' );					// Cleanup WordPress scripts
 #require_once( 'includes/weather-functions.php' );		// Pulling in weather and caching it
 #require_once( 'includes/10up-lazy-load.php' );			// Lazy load images based on 10up plugin
 
-// In Development
-#require_once( 'includes/egg-calendar.php' );			// Flexible calendar (monthly, weekly, daily)
-
 
 /**
  * Adds ACF Options functionality
