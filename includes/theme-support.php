@@ -5,9 +5,8 @@
 
 /**
  * Add an oembed content width
- */
-if ( ! isset( $content_width ) )
-{
+ * /
+if ( ! isset( $content_width ) ) {
 	$content_width = 640;
 }
 
@@ -43,7 +42,7 @@ add_filter( 'video_embed_html', 'alx_embed_html' ); // Jetpack
 
 /**
  * Example widgetized areas
- */
+ * /
 add_action( 'widgets_init', 'custom_register_sidebars' );
 function custom_register_sidebars()
 {

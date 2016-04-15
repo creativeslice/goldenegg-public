@@ -1,16 +1,12 @@
 <?php
 /**
  * Cleanup WP functionality
- *
- * @return	void
  */
 add_action( 'after_setup_theme',			'egg_cleanup' );
 
 
 /**
  * Launch some basic cleanup
- *
- * @return	void
  */
 function egg_cleanup()
 {
@@ -30,12 +26,14 @@ function egg_cleanup()
 
 
 /**
- * Update JPEG compression quality (WP sets it at 82 by default)
+ * Update JPEG compression quality (WP 4.5 sets 82 by default)
+ *
+ * @return	quality percentage
  */
 function custom_jpeg_quality( $quality, $context ) {
 	return 90;
 }
-add_filter( 'jpeg_quality', 'custom_jpeg_quality', 10, 2 );
+add_filter( 'jpeg_quality', 				'custom_jpeg_quality', 10, 2 );
 
 
 /**
@@ -44,32 +42,32 @@ add_filter( 'jpeg_quality', 'custom_jpeg_quality', 10, 2 );
 function egg_head_cleanup()
 {
 	// Remove canonical links
-	// remove_action('wp_head', 'rel_canonical');
+	#remove_action('wp_head', 				'rel_canonical');
 	// Remove shortlink from head and header
 	remove_action( 'wp_head', 				'wp_shortlink_wp_head', 10, 0 );
 	remove_action( 'template_redirect',		'wp_shortlink_header', 11, 0 );
-	// category feeds
+	// Remove category feeds
 	remove_action( 'wp_head',				'feed_links_extra', 3 );
-	// post and comment feeds
+	// Remove post and comment feeds
 	remove_action( 'wp_head',				'feed_links', 2 );
-	// windows live writer
+	// Remove windows live writer
 	remove_action( 'wp_head',				'wlwmanifest_link' );
-	// index link
+	// Remove index link
 	remove_action( 'wp_head',				'index_rel_link' );
-	// previous link
+	// Remove previous link
 	remove_action( 'wp_head',				'parent_post_rel_link', 10, 0 );
-	// start link
+	// Remove start link
 	remove_action( 'wp_head',				'start_post_rel_link', 10, 0 );
-	// links for adjacent posts
+	// Remove links for adjacent posts
 	remove_action( 'wp_head',				'adjacent_posts_rel_link', 10, 0); 
 	remove_action( 'wp_head',				'adjacent_posts_rel_link_wp_head', 10, 0 );
-	// WP version
+	// Remove WP version from head
 	remove_action( 'wp_head',				'wp_generator' );
-	// remove WP version from css
+	// Remove WP version from css
 	add_filter( 'style_loader_src',			'egg_remove_wp_ver_css_js', 9999 );
-	// remove WP version from scripts
+	// Remove WP version from scripts
 	add_filter( 'script_loader_src',		'egg_remove_wp_ver_css_js', 9999 );
-	// remove emoji script
+	// Remove emoji script
 	remove_action( 'wp_head',				'print_emoji_detection_script', 7 );
 	remove_action( 'wp_print_styles',		'print_emoji_styles' );
 	// Remove REST API links
@@ -114,6 +112,8 @@ function egg_excerpt_more( $more )
 
 /**
  * Shorten excerpt length
+ *
+ * @return	Modified character length
  */
 function custom_excerpt_length( $length ) 
 {
