@@ -11,6 +11,7 @@ var environment = 'development', // 'production development'
 	notify = require('gulp-notify'),
 	cache = require('gulp-cache'),
 	plumber = require('gulp-plumber'),
+	livereload = require('gulp-livereload'),
 	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
 
 // Default error handler
@@ -33,6 +34,7 @@ gulp.task('styles', function() {
 		.pipe(minifycss())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('css'))
+		.pipe(livereload())
 });
 gulp.task('styles-ie', function() {
 	return gulp.src('scss/ie.scss')
@@ -80,6 +82,7 @@ gulp.task('scripts', function() {
 			.pipe(concat('scripts.js'))
 			.pipe(jsHint())
 			.pipe(gulp.dest('js'))
+			.pipe(livereload())
 			.pipe(notify({ message: 'Scripts task complete' }));
 	}
 });
@@ -91,6 +94,7 @@ gulp.task('default', function() {
 
 // 'gulp watch' (does not compile styles-ie or styles-login)
 gulp.task('watch', function() {
+	livereload.listen();
 	gulp.watch('scss/**/*.scss', ['styles']);
 	gulp.watch('js/src/**/*.js', ['scripts']);
 });
