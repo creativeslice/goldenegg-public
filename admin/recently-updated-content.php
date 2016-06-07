@@ -24,7 +24,7 @@ function recently_updated_content_dashboard_widget()
  */
 function recently_updated_content_function()
 {
-	global $current_user; get_currentuserinfo(); // Get the logged in user info
+	global $current_user; wp_get_current_user(); // Get the logged in user info
 
 	echo "Hello, <b>" . $current_user->display_name . "</b>!<br />Below you can see all content updated in the past 30 days.";
 
@@ -83,7 +83,7 @@ function recently_updated_content_function()
 				<tr id="post-<?php the_ID(); ?>">
 					<td class="modified-number"><?php echo $count . '.'; ?></td>
 					<td class="modified-title"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong> | <a href="<?php echo get_edit_post_link(); ?>">Edit</a></td>
-					<td class="modified-date"><?php the_modified_date('M j, Y'); ?> at <?php the_modified_date('H:i'); ?></td>
+					<td class="modified-date"><?php the_modified_date('M j'); ?> at <?php the_modified_date('H:i'); ?></td>
 					<td class="modified-user"><?php the_modified_author(); ?></td>
 				</tr>
 
