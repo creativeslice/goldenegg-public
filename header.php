@@ -2,18 +2,32 @@
 <html dir="ltr" lang="en-US">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
 	<title><?php wp_title( '/' ); ?></title>
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+	
+	<!-- Place a file called favicon.ico in the root directory -->
+	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon-16.png" sizes="16x16" type="image/png">
+	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon-48.png" sizes="48x48" type="image/png">
+	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon-62.png" sizes="62x62" type="image/png">
+	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon-192.png" sizes="192x192" type="image/png">
 	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/apple-touch-icon.png">
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.png">
-	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
     
     <?php wp_head(); ?>
+
+<!--[if lt IE 9]>
+	<link rel="stylesheet" id="egg-ie-only-css" href="<?php echo get_template_directory_uri(); ?>/assets/css/ie.css" type="text/css" media="all" />
+	<script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<?php // Include partials/analytics-tracking.php if WP_DEBUG is NOT true in wp-config
+if ( ! defined('WP_DEBUG') || false === WP_DEBUG ) {
+	get_template_part( 'partials/analytics', 'tracking' );
+} ?>
+
 </head>
 
 <body <?php body_class(); ?>>

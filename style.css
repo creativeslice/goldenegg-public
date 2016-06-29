@@ -4,9 +4,5 @@
  * Description: WordPress Starter theme for speedy websites.
  * Author:      Creative Slice
  * Author URI:  https://creativeslice.com
- * Version:     1.9.2
+ * Version:     1.9.3
  */
-
-.sticky {}          /* THESE ARE USELESS, */
-.gallery-caption {} /* BUT */
-.bypostauthor {}    /* THEY KEEP THEME CHECK HAPPY */

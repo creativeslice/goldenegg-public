@@ -23,7 +23,6 @@ BUTTONS
 }
 
 .form-submit input,
-.search-submit, .search-submit:visited,
 .button, .button:visited {
 	@extend %btn;
 	background-color: $link_color;

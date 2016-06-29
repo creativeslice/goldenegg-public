@@ -3,8 +3,6 @@
 */
 jQuery(document).ready(function($) {
 	
-	
-	
 	/**
 	 * Adds the screen reader text to the icon's title so it will show on hover
 	 */

@@ -1,5 +1,5 @@
 /*
- * Put all your regular jQuery in here.
+ * Navigation Specific JavaScript
 */
 jQuery(document).ready(function($) {
 	

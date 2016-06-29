@@ -50,6 +50,9 @@ body form .input {
 #wp-submit {
   background: #669933;
   border-color: #5e8e2f !important;
+  text-shadow: -1px -1px 0 #406020;
+  -webkit-box-shadow: 0 1px 1px #406020;
+  box-shadow: 0 1px 1px #406020;
   font-weight: bold;
   text-transform: uppercase; }
   #wp-submit:hover {

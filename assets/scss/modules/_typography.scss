@@ -138,16 +138,16 @@ mark, ins {
 	}
 }
 
+// keep phrase from breaking to 2nd line: class adding through wysiwyg
+.nowrap {
+	display: inline-block;
+}
+
 /******************************************************************
 ENTRY CONTENT
 ******************************************************************/
 
 .entry-content {
-	
-	// keep phrase from breaking to 2nd line: class adding through wysiwyg
-	.nowrap {
-		display: inline-block;
-	}
 	
 	ul, ol {
 		margin: 0 0 $default_margin 2em;

@@ -9,7 +9,7 @@
 add_action( 'init', 'egg_tinymce' );
 add_action('admin_head', 'egg_add_magic_button'); // adds .button class to links
 add_action('admin_head', 'egg_add_no_wrap'); // adds .nowrap span
-add_action('admin_head', 'egg_add_intro'); // adds .intro p class
+//add_action('admin_head', 'egg_add_intro'); // adds .intro p class
 
 
 // filters
@@ -68,7 +68,7 @@ function egg_mce_buttons_2( $buttons )
 function egg_tiny_mce_before_init( $settings )
 {
 	// Insert the array, JSON ENCODED, into 'style_formats'
-	$settings['block_formats'] = "Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5; Superscript=superscript; Subscript=subscript; blockquote=blockquote";
+	$settings['block_formats'] = "Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6; Superscript=superscript; Subscript=subscript; blockquote=blockquote";
 	return $settings;
 }
 

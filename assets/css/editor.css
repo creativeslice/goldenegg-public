@@ -23,6 +23,14 @@ COLORS
 /*********************
 REUSABLE ITEMS
 *********************/
+.clearfix, .cf {
+  zoom: 1; }
+  .clearfix:before, .clearfix:after, .cf:before, .cf:after {
+    content: "";
+    display: table; }
+  .clearfix:after, .cf:after {
+    clear: both; }
+
 /*********************
 BREAKPOINTS
 *********************/
@@ -226,11 +234,12 @@ mark, ins {
   font-family: "Georgia", Cambria, Times New Roman, Times, serif;
   color: #111; }
 
+.nowrap {
+  display: inline-block; }
+
 /******************************************************************
 ENTRY CONTENT
 ******************************************************************/
-.entry-content .nowrap {
-  display: inline-block; }
 .entry-content ul, .entry-content ol {
   margin: 0 0 1.5em 2em; }
 .entry-content ul {
@@ -253,115 +262,37 @@ ENTRY CONTENT
 /* end .entry-content */
 /******************************************************************
 
-Stylesheet: WP Images
+Stylesheet: Button Styles
 
 ******************************************************************/
-/******************************************************************
-ENTRY CONTENT IMAGES
-******************************************************************/
-.entry-content img {
-  margin: 0 0 1.5em;
-  max-width: 100%;
-  height: auto; }
-
-.size-auto, .size-full, .size-large, .size-medium, .size-thumbnail {
-  max-width: 100%;
-  height: auto; }
-
-@media screen and (min-width: 30em) {
-  .alignleft, img.alignleft, figure.alignleft, dl.alignleft {
-    display: inline;
-    float: left;
-    margin-left: 0em;
-    margin-right: 1.5em; }
-  .alignright, img.alignright, figure.alignright, dl.alignright {
-    display: inline;
-    float: right;
-    margin-left: 1.5em;
-    margin-right: 0em; }
-  .aligncenter, img.aligncenter, figure.aligncenter, dl.aligncenter {
-    clear: both;
-    display: block;
-    margin-right: auto;
-    margin-left: auto; } }
-
-.alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
-  margin-left: 0;
-  margin-right: 0;
-  height: auto; }
-
-/******************************************************************
-CAPTIONS
-******************************************************************/
-.wp-caption {
-  max-width: 100%;
-  background: #999;
-  font-size: 0.75em;
-  padding: 0.25em 0;
-  text-align: center;
-  /* images inside wp-caption */ }
-  .wp-caption.alignleft {
-    margin-right: 1.5em; }
-  .wp-caption.alignright {
-    margin-left: 1.5em; }
-  .wp-caption.aligncenter {
-    margin-right: auto;
-    margin-left: auto; }
-  .wp-caption img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 0; }
-  .wp-caption .wp-caption-text {
-    font-size: 0.875em;
-    margin: 0.5em 0 1em;
-    text-align: center; }
-
-/******************************************************************
-RESPONSIVE VIDEO CONTAINER
-******************************************************************/
-.video-container {
+/*********************
+BUTTONS
+*********************/
+.form-submit input, .button, .button:visited {
+  display: inline-block;
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  margin-bottom: 1em; }
+  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1em;
+  padding: 1em;
+  border-radius: 2px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out; }
 
-.video-container iframe, .video-container object, .video-container embed, .video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; }
-
-/******************************************************************
-HTML5 IMAGE GALLERY
-******************************************************************/
-.gallery {
-  text-align: justify; }
-  .gallery .gallery-item {
-    margin: 0;
-    width: 50%;
-    display: inline-block;
-    vertical-align: top;
-    padding: 0.5em; }
-  .gallery img {
-    display: block; }
-  .gallery .gallery-caption {
-    text-align: left;
-    padding: 0.25em 0; }
-  .gallery:after {
-    content: '';
-    display: inline-block;
-    width: 100%; }
-  @media screen and (min-width: 48em) {
-    .gallery .gallery-item {
-      width: 25%; }
-    .gallery img {
-      will-change: opacity; }
-      .gallery img:hover {
-        opacity: 0.7;
-        -webkit-transition: opacity 0.2s ease-in-out;
-        transition: opacity 0.2s ease-in-out; } }
+.form-submit input, .button, .button:visited {
+  background-color: #669933;
+  border: 1px solid #669933;
+  color: white; }
+  .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
+    background-color: #8cc653;
+    color: white;
+    text-decoration: none; }
+  .form-submit input:active, .button:active, .button:visited:active {
+    background-color: #4d7326;
+    color: white; }
 
 /*********************
 CUSTOM EDITOR STYLES

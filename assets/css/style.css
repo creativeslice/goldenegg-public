@@ -166,6 +166,14 @@ COLORS
 /*********************
 REUSABLE ITEMS
 *********************/
+.clearfix, .cf {
+  zoom: 1; }
+  .clearfix:before, .clearfix:after, .cf:before, .cf:after {
+    content: "";
+    display: table; }
+  .clearfix:after, .cf:after {
+    clear: both; }
+
 /*********************
 BREAKPOINTS
 *********************/
@@ -369,11 +377,12 @@ mark, ins {
   font-family: "Georgia", Cambria, Times New Roman, Times, serif;
   color: #111; }
 
+.nowrap {
+  display: inline-block; }
+
 /******************************************************************
 ENTRY CONTENT
 ******************************************************************/
-.entry-content .nowrap {
-  display: inline-block; }
 .entry-content ul, .entry-content ol {
   margin: 0 0 1.5em 2em; }
 .entry-content ul {
@@ -402,7 +411,7 @@ Stylesheet: Button Styles
 /*********************
 BUTTONS
 *********************/
-.form-submit input, .search-submit, .search-submit:visited, .button, .button:visited {
+.form-submit input, .button, .button:visited {
   display: inline-block;
   position: relative;
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -416,15 +425,15 @@ BUTTONS
   -webkit-transition: background-color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out; }
 
-.form-submit input, .search-submit, .search-submit:visited, .button, .button:visited {
+.form-submit input, .button, .button:visited {
   background-color: #669933;
   border: 1px solid #669933;
   color: white; }
-  .form-submit input:hover, .form-submit input:focus, .search-submit:hover, .search-submit:focus, .search-submit:visited:hover, .search-submit:visited:focus, .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
+  .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
     background-color: #8cc653;
     color: white;
     text-decoration: none; }
-  .form-submit input:active, .search-submit:active, .search-submit:visited:active, .button:active, .button:visited:active {
+  .form-submit input:active, .button:active, .button:visited:active {
     background-color: #4d7326;
     color: white; }
 

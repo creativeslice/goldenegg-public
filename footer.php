@@ -4,7 +4,6 @@
 			
 			<?php get_template_part( '/partials/svg', 'emblem' ); ?>
 
-			<nav>
 			<?php wp_nav_menu(array(
 				'container' => false,						// remove nav container
 				'menu' => 'Footer Links',					// nav name
@@ -16,9 +15,6 @@
 				'link_after' => '',							// after each link
 				'depth' => 0								// limit the depth of the nav
 			)); ?>
-			</nav>
-			
-			<hr>
 			
 			<p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. Website by <a target="_blank" href="https://creativeslice.com">Creative Slice</a></p>
 
@@ -26,7 +22,7 @@
 
 	</footer>
 	
-</div><!-- Closes #container -->
+</div><?php // Closes #container from header.php ?>
 
 <?php wp_footer(); ?>
 

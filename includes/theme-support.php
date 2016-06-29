@@ -19,25 +19,34 @@ add_image_size( 'custom-thumb-300', 300, 100, true );
 
 
 /**
- * Include analytics-tracking.php if WP_DEBUG is not true
+ * Add responsive ".video-container" to YouTube and Vimeo embeds
  */
-function egg_analytics()
-{
-	if ( ! defined('WP_DEBUG') || false === WP_DEBUG ) { 
-		get_template_part( 'partials/analytics', 'tracking' );
-	}
+function vnmFunctionality_embedWrapper($html, $url, $attr) {
+    if (strpos($html, 'youtube') !== false || strpos($html, 'vimeo') !== false) {
+        return '<div class="video-container">' . $html . '</div>';
+    }
+	return $html;
 }
-add_action( 'wp_footer', 'egg_analytics', 999 );
+add_filter( 'embed_oembed_html', 'vnmFunctionality_embedWrapper', 10, 3 );
+//add_filter( 'video_embed_html', 'vnmFunctionality_embedWrapper' ); // Jetpack
 
 
 /**
- * Add responsive ".video-container" to embeds
+ * Customize Search Box
  */
-function alx_embed_html( $html ) {
-    return '<div class="video-container">' . $html . '</div>';
+function egg_wpsearch($form) {
+$form = '<div class="search-form">
+<form role="search" method="get" class="wrap-inner" action="' . esc_url( home_url( '/' ) ) . '">
+        <label>
+            <span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
+            <input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search Term&hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" />
+        </label>
+        <input type="submit" class="search-submit button" value="'. esc_attr_x( 'Search', 'submit button' ) .'" />
+    </form>
+</div>';
+return $form;
 }
-add_filter( 'embed_oembed_html', 'alx_embed_html', 10, 3 );
-add_filter( 'video_embed_html', 'alx_embed_html' ); // Jetpack
+add_filter( 'get_search_form', 'egg_wpsearch' );
 
 
 /**
