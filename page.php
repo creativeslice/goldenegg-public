@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
-<div id="content">
+<div id="content" class="cf">
 
 	<div class="wrap">
 		
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		
-		<article <?php post_class( 'goldlarge cf' ); ?>>
+		<article class="goldlarge">
 
 			<header class="article-header">
 				<h1 class="page-title"><?php the_title(); ?></h1>

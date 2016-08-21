@@ -1,4 +1,4 @@
-<aside class="sidebar goldsmall" role="complementary">
+<aside class="sidebar goldsmall">
 	
 	<?php // find top ancestor for sidebar menu
 	if (@$post->post_parent)	{

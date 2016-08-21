@@ -17,8 +17,11 @@ IMPORTING MODULES
 // import mixins
 @import "modules/mixins";
 
-// import icons
+// import fonts
 @import "modules/fontface";
+
+// import icons
+//@import "modules/icons";
 
 // typography
 @import "modules/typography";
@@ -42,7 +45,7 @@ IMPORTING MODULES
 @import "modules/pagenavi";
 
 // forms
-//@import "modules/forms";
+@import "modules/forms";
 
 // comments
 // @import "modules/comments";

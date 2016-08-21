@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<div id="content" role="main">
+<div id="content">
 
-	<div class="wrap">
+	<div class="wrap-inner">
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -10,25 +10,27 @@
 		get_template_part( '/partials/post-formats/format', get_post_format() ); 
 		*/ ?>
 		
-		<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+		<article <?php post_class('cf'); ?>>
 		
 			<header class="article-header">
-				<h1 class="entry-title single-title" itemprop="headline">
+				<h1 class="entry-title single-title">
 					<?php the_title(); ?>
 				</h1>
 				<?php get_template_part( '/partials/content', 'byline' ); ?>
 			</header>
 		
-			<section class="entry-content cf" itemprop="articleBody">
+			<section class="entry-content cf">
 				<?php the_content(); ?>
 			</section>
 		
 			<footer class="article-footer">
 				<?php the_tags( '<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>' ); ?>
 				<?php get_template_part( 'partials/content', 'share-links' ); ?>
+				<span class="post-prev"><?php previous_post_link('%link', '&lsaquo;&nbsp;Previous'); ?></span>
+				<span class="post-next"><?php next_post_link('%link', 'Next&nbsp;&rsaquo;'); ?></span>
 			</footer>
 		
-			<?php comments_template(); ?>
+			<?php //comments_template(); ?>
 		
 		</article>	
 

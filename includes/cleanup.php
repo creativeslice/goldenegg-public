@@ -70,9 +70,12 @@ function egg_head_cleanup()
 	// Remove emoji script
 	remove_action( 'wp_head',				'print_emoji_detection_script', 7 );
 	remove_action( 'wp_print_styles',		'print_emoji_styles' );
+	add_filter( 'emoji_svg_url', 			'__return_false' );
 	// Remove REST API links
 	remove_action( 'wp_head', 				'rest_output_link_wp_head', 10 );
 	remove_action( 'wp_head', 				'wp_oembed_add_discovery_links', 10 );
+	// Remove DNS Prefetch
+	//remove_action( 'wp_head', 			'wp_resource_hints', 2 );
 }
 
 

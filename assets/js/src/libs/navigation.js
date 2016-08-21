@@ -5,9 +5,21 @@ jQuery(document).ready(function($) {
 	
 	
 	/**
+	 * Open search panel and focus cursor
+	 */
+	$('#search-toggle').click(function(e) {
+		e.preventDefault();
+		var $this = $(this);
+		$this.toggleClass('active');
+		$('.search-form').slideToggle(300);
+		$('.search-field')[0].focus();	
+	});
+	
+	
+	/**
 	 * Mobile menu toggle
 	 */
-	$('#mobilemenu').click(function(e) {
+	$('#menu-toggle').click(function(e) {
 		e.preventDefault();
 		var $this = $(this);
 		$this.toggleClass('active');
@@ -31,18 +43,6 @@ jQuery(document).ready(function($) {
 			}
 		});
 	}
-	
-	
-	/**
-	 * Open search panel and focus cursor
-	 */
-	$('#search-toggle').click(function(e) {
-		e.preventDefault();
-		var $this = $(this);
-		$this.toggleClass('active');
-		$('.search-form').slideToggle(300);
-		$('.search-field')[0].focus();	
-	});
 	
 	
 });

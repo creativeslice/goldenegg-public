@@ -8,12 +8,12 @@ Stylesheet: BASE
 GENERAL STYLES
 *********************/
 
-body {
-	background-color: white;
+html, body {
+	background-color: $gray_lighter;
 }
 
 ::selection { 
-	background: #ff9;
+	background: #ff9; // bright yellow
 	color: black !important;
 	text-shadow: none;
 }
@@ -36,6 +36,12 @@ LAYOUT & GRID STYLES
 	width: 94%;
 	margin: 0 auto;
 	max-width: 1200px;
+}
+
+.wrap-inner {
+	width: 94%;
+	margin: 0 auto;
+	max-width: 800px;
 }
 
 #container {
@@ -70,6 +76,9 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
+	background: white;
+@include breakpoint(medium) {
+}
 }
 
 
@@ -80,4 +89,24 @@ SIDEBARS & ASIDES
 .sidebar {
 	background: $gray_lighter;
 	padding: 2em;
+}
+
+
+/*********************
+SHARE LINKS
+*********************/
+
+.share-links {
+	a, a:visited {
+		fill: $link_color;
+		display: inline-block;
+		padding: .5em;
+		&:hover {
+			fill: $link_hover;
+		}
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+	}
 }

@@ -1,3 +1,7 @@
+/**
+ * Gulp Configuration
+ */
+
 var environment = 'development', // 'production development'
 	gulp = require('gulp'),
 	sass = require('gulp-sass'),
@@ -11,6 +15,10 @@ var environment = 'development', // 'production development'
 	notify = require('gulp-notify'),
 	cache = require('gulp-cache'),
 	plumber = require('gulp-plumber'),
+	svgmin = require('gulp-svgmin'), // required for svg icons
+	svgstore = require('gulp-svgstore'), // required for svg icons
+	gulpif = require('gulp-if'), // required for svg icons
+	cheerio = require('gulp-cheerio'), // required for svg icons
 	livereload = require('gulp-livereload'),
 	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
 
@@ -24,7 +32,10 @@ var onError = function( error ) {
 	this.emit('end');
 }
 
-// CSS
+
+/**
+ * CSS
+ */
 gulp.task('styles', function() {
 	return gulp.src('scss/style.scss')
 		.pipe( plumber( { errorHandler: onError } ) )
@@ -58,10 +69,12 @@ gulp.task('styles-editor', function() {
 		.pipe(notify({ message: 'Editor styles task complete' }));
 });
 
-// JS
+
+/**
+ * JAVASCRIPT
+ */
 gulp.task('scripts', function() {
-	if ( 'production' === environment )
-	{
+	if ( 'production' === environment ) {
 		return gulp.src([
 				'js/src/libs/*.js',
 				'js/src/**/*.js',
@@ -72,9 +85,7 @@ gulp.task('scripts', function() {
 			.pipe(uglify())
 			.pipe(gulp.dest('js'))
 			.pipe(notify({ message: 'Production scripts task complete' }));
-	}
-	else
-	{
+	} else {
 		return gulp.src([
 				'js/src/libs/*.js',
 				'js/src/**/*.js',
@@ -87,12 +98,39 @@ gulp.task('scripts', function() {
 	}
 });
 
+
+/**
+ * SVG ICONS
+ *
+ * compile using 'gulp icons'
+ *
+ */
+gulp.task('icons', function() {
+	return gulp.src('icons/src/*')
+		.pipe( gulpif('production'==environment, svgmin()) )
+		.pipe( svgstore({ inlineSvg: true }) )
+		.pipe( cheerio({
+			run: function( $, file ) {
+				$('svg').addClass('hide');
+				$('symbol[id!=logo]').find('path,g,polygon,circle,rect').removeAttr('fill');
+			},
+			parserOptions: { xmlMode: true },
+		}))
+		.pipe( rename('icons.svg') )
+		.pipe( gulp.dest('icons') )
+		.pipe( notify({
+			title: 'Images',
+			message: 'Icons complete'
+		}) );
+});
+
+
 // 'gulp'
 gulp.task('default', function() {
 	gulp.start('styles', 'styles-ie', 'styles-login', 'styles-editor', 'scripts');
 });
 
-// 'gulp watch' (does not compile styles-ie or styles-login)
+// 'gulp watch' (does not compile styles-ie or styles-login or icons)
 gulp.task('watch', function() {
 	livereload.listen();
 	gulp.watch('scss/**/*.scss', ['styles']);

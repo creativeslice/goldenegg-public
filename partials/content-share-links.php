@@ -33,7 +33,7 @@
 			),
 			array(
 				'title' => 'Google+',
-				'icon'  => 'googleplus',
+				'icon'  => 'google-plus',
 				'url'   => 'https://plus.google.com/share?url=' . $permalink,
 			),
 			array(
@@ -46,7 +46,9 @@
 
 	<?php foreach ( $links as $link ) : ?>
 	<a class="share-<?php echo $link['icon']; ?>" href="<?php echo $link['url']; ?>" title="Share via <?php echo $link['title']; ?>" target="_blank">
-		<span class="icon-<?php echo $link['icon']; ?>" aria-hidden="true"></span>
+		<svg title="<?php echo $link['icon']; ?>">
+			<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#<?php echo $link['icon']; ?>"></use>
+		</svg>
 		<span class="screen-reader-text">Share via <?php echo $link['title']; ?>: <?php echo $title; ?></span>
 	</a>
 	<?php endforeach; ?>

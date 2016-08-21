@@ -43,16 +43,6 @@ $default_margin:    1.5em;
 $ease:				.2s ease-in-out;
 $easeslow:			.6s ease-in;
 
-// INLINE-BLOCK
-// inline-block support for legacy browsers
-@mixin inline-block($position: middle) {
-	display: inline-block;
-	vertical-align: $position;
-	@include old-ie {
-		zoom: 1;
-		*display: inline;
-	}
-}
 
 // Contain floats: nicolasgallagher.com/micro-clearfix-hack/
 .clearfix, .cf {

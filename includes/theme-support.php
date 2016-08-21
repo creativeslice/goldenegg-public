@@ -19,6 +19,16 @@ add_image_size( 'custom-thumb-300', 300, 100, true );
 
 
 /**
+ * Force all galleries to link to file instead of attachment page
+ */
+function my_gallery_shortcode( $atts ) {
+    $atts['link'] = 'file';
+    return gallery_shortcode( $atts );
+}
+add_shortcode( 'gallery', 'my_gallery_shortcode' );
+
+
+/**
  * Add responsive ".video-container" to YouTube and Vimeo embeds
  */
 function vnmFunctionality_embedWrapper($html, $url, $attr) {

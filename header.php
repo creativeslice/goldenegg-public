@@ -19,7 +19,7 @@
     <?php wp_head(); ?>
 
 <!--[if lt IE 9]>
-	<link rel="stylesheet" id="egg-ie-only-css" href="<?php echo get_template_directory_uri(); ?>/assets/css/ie.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/ie.css" type="text/css" media="all" />
 	<script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
@@ -46,13 +46,15 @@ if ( ! defined('WP_DEBUG') || false === WP_DEBUG ) {
 			</div>
 			
 			<span id="search-toggle">
-				<span class="icon-search" aria-hidden="true"></span>
-				<span class="screen-reader-text">SEARCH</span>
+				<svg title="search">
+					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#search"></use>
+				</svg>
 			</span>
 			
-			<span id="mobilemenu">
-				<span class="icon-menu" aria-hidden="true"></span>
-				<span class="screen-reader-text">MENU</span>
+			<span id="menu-toggle">
+				<svg title="menu">
+					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#menu"></use>
+				</svg>
 			</span>
 
 			<nav role="navigation">

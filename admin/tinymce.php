@@ -11,12 +11,10 @@ add_action('admin_head', 'egg_add_magic_button'); // adds .button class to links
 add_action('admin_head', 'egg_add_no_wrap'); // adds .nowrap span
 //add_action('admin_head', 'egg_add_intro'); // adds .intro p class
 
-
 // filters
 add_filter( 'tiny_mce_before_init', 'egg_mce_show_buttons_2' );
 
-function egg_tinymce()
-{
+function egg_tinymce() {
 	// filters
 	add_filter( 'mce_buttons',                'egg_mce_buttons' );
 	add_filter( 'mce_buttons_2',              'egg_mce_buttons_2' );
@@ -28,8 +26,7 @@ function egg_tinymce()
  * Editor Styles
  */
 add_action( 'admin_init', 'egg_editor_styles' );
-function egg_editor_styles()
-{
+function egg_editor_styles() {
 	add_editor_style( get_template_directory_uri() . '/assets/css/editor.css' );
 }
 
@@ -39,9 +36,8 @@ function egg_editor_styles()
  *
  * @return	array Modified buttons in row 1
  */
-function egg_mce_buttons( $buttons )
-{
-	$remove = array('strikethrough', 'wp_more', 'wp_adv');
+function egg_mce_buttons( $buttons ) {
+	$remove = array('strikethrough', 'blockquote', 'wp_more', 'wp_adv');
 	//print_r($buttons);
 	return array_diff($buttons, $remove);
 }
@@ -52,11 +48,10 @@ function egg_mce_buttons( $buttons )
  *
  * @return	array Modified buttons in row 2
  */
-function egg_mce_buttons_2( $buttons )
-{
+function egg_mce_buttons_2( $buttons2 ) {
 	// Remove items
-	$remove  = array('styleselect', 'underline', 'forecolor', 'alignjustify', 'wp_help');
-	return array_diff($buttons, $remove);
+	$remove  = array('styleselect', 'underline', 'forecolor', 'pastetext', 'alignjustify', 'wp_help');
+	return array_diff($buttons2, $remove);
 }
 
 
@@ -65,8 +60,7 @@ function egg_mce_buttons_2( $buttons )
  *
  * @return	array Modified settings
  */
-function egg_tiny_mce_before_init( $settings )
-{
+function egg_tiny_mce_before_init( $settings ) {
 	// Insert the array, JSON ENCODED, into 'style_formats'
 	$settings['block_formats'] = "Paragraph=p;Heading 1=h1;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6; Superscript=superscript; Subscript=subscript; blockquote=blockquote";
 	return $settings;
@@ -84,7 +78,6 @@ function egg_mce_show_buttons_2( $in ) {
 
 /**
  * Adds "Create Button" - which adds the 'button' class to the selected anchor node
- * Will grab the parent node if only part of anchor is selected, or the child node if more than the anchor is selected
  */
 function egg_add_magic_button() {
 	add_filter("mce_external_plugins", "egg_add_tinymce_button_plugin");

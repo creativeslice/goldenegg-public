@@ -4,12 +4,12 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	background-color: $gray_lighter;
 	text-align: center;
-	padding: 2em;
+	padding: 2em 0;
 
 	.footer-nav {
 		li {
+			list-style: none;
 			a {
 				display: block;
 				padding: .5em;
