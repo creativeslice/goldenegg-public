@@ -8,13 +8,7 @@
 	
 	<title><?php wp_title( '/' ); ?></title>
 	
-	<!-- Place a file called favicon.ico in the root directory -->
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon-16.png" sizes="16x16" type="image/png">
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon-32.png" sizes="32x32" type="image/png">
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon-48.png" sizes="48x48" type="image/png">
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon-62.png" sizes="62x62" type="image/png">
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon-192.png" sizes="192x192" type="image/png">
-	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/apple-touch-icon.png">
+	<?php //get_template_part( 'partials/head', 'favicons' ); // Place a file called favicon.ico in the root directory ?>
     
     <?php wp_head(); ?>
 
@@ -22,11 +16,6 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/ie.css" type="text/css" media="all" />
 	<script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-
-<?php // Include partials/analytics-tracking.php if WP_DEBUG is NOT true in wp-config
-if ( ! defined('WP_DEBUG') || false === WP_DEBUG ) {
-	get_template_part( 'partials/analytics', 'tracking' );
-} ?>
 
 </head>
 
@@ -60,14 +49,8 @@ if ( ! defined('WP_DEBUG') || false === WP_DEBUG ) {
 			<nav role="navigation">
 			<?php wp_nav_menu(array(
 				'container' => false,						// remove nav container
-				'menu' => 'The Main Menu',					// nav name
-				'menu_id' => 'main-menu',					// adding custom nav id
 				'menu_class' => 'main-nav',					// adding custom nav class
 				'theme_location' => 'main-nav',				// where it's located in the theme
-				'before' => '',								// before the menu
-				'after' => '',								// after the menu
-				'link_before' => '',						// before each link
-				'link_after' => '',							// after each link
 				'depth' => 2								// limit the depth of the nav
 			)); ?>
 			</nav>

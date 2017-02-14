@@ -5,13 +5,6 @@ Stylesheet: Mixins
 ******************************************************************/
 
 /*********************
-FONT STACKS
-*********************/
-$sans_serif:        "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
-
-
-/*********************
 COLORS
 *********************/
 
@@ -54,6 +47,13 @@ $easeslow:			.6s ease-in;
 	&:after { 
 		clear: both; 
 	}
+}
+
+// Better support for screen readers with icons
+.screen-reader-text {
+	left: -9999em !important;
+	position: absolute !important;
+	top: -9999em !important;
 }
 
 

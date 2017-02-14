@@ -12,6 +12,13 @@ html, body {
 	background-color: $gray_lighter;
 }
 
+body {
+	font-size: 100%;
+	line-height: 1.5;
+	color: $text_color;
+	font-family: $sans_serif;
+}
+
 ::selection { 
 	background: #ff9; // bright yellow
 	color: black !important;
@@ -70,7 +77,6 @@ a, a:visited {
 	}
 }
 
-
 /*********************
 POSTS & CONTENT STYLES
 *********************/
@@ -80,6 +86,53 @@ POSTS & CONTENT STYLES
 @include breakpoint(medium) {
 }
 }
+
+
+/******************************************************************
+ENTRY CONTENT
+******************************************************************/
+
+.entry-content {
+
+	ul, ol {
+		margin: 0 0 $default_margin 2em;
+	}
+
+	ul {
+		list-style: disc;
+	}
+
+	ol {
+		list-style: decimal;
+	}
+
+	li {
+		& > ul,
+		& > ol {
+			margin-bottom: 0;
+			margin-left: 1em;
+		}
+	}
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		margin: 0 1em $default_margin;
+	}
+
+	table {
+		margin: 0 0 $default_margin;
+		width: 100%;
+	}
+
+	th {
+		font-weight: bold;
+	}
+
+}
+
 
 
 /*********************

@@ -4,17 +4,29 @@ Stylesheet: Typography
 
 ******************************************************************/
 
+/*********************
+FONT FACE
+*********************/
 
-/******************************************************************
-FONT BASE
-******************************************************************/
+/* @font-face {
+  font-family: 'Font Name';
+  src: url('../fonts/font-name.eot');
+  src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font-name.woff') format('woff'),
+         url('../fonts/font-name.ttf') format('truetype'),
+         url('../fonts/font-name.svg?#font-name') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} 
+*/
 
-body {
-	font-size: 100%;
-	line-height: 1.5;
-	color: $text_color;
-	font-family: $sans_serif;
-}
+/*********************
+FONT STACKS
+*********************/
+$sans_serif:        "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+
+
 
 
 /******************************************************************
@@ -142,48 +154,3 @@ mark, ins {
 .nowrap {
 	display: inline-block;
 }
-
-/******************************************************************
-ENTRY CONTENT
-******************************************************************/
-
-.entry-content {
-	
-	ul, ol {
-		margin: 0 0 $default_margin 2em;
-	}
-
-	ul {
-		list-style: disc;
-	}
-
-	ol {
-		list-style: decimal;
-	}
-
-	li {
-		& > ul,
-		& > ol {
-			margin-bottom: 0;
-			margin-left: 1em;
-		}
-	}
-
-	dt {
-		font-weight: bold;
-	}
-
-	dd {
-		margin: 0 1em $default_margin;
-	}
-
-	table {
-		margin: 0 0 $default_margin;
-		width: 100%;
-	}
-
-	th {
-		font-weight: bold;
-	}
-
-} /* end .entry-content */

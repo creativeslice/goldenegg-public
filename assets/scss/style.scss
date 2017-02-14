@@ -14,14 +14,8 @@ IMPORTING MODULES
 // sanitize (browser reset)
 @import "modules/sanitize";
 
-// import mixins
-@import "modules/mixins";
-
-// import fonts
-@import "modules/fontface";
-
-// import icons
-//@import "modules/icons";
+// import variables
+@import "modules/variables";
 
 // typography
 @import "modules/typography";
@@ -52,6 +46,9 @@ IMPORTING MODULES
 
 // colorbox
 // @import "modules/colorbox";
+
+// slick slider
+// @import "modules/slickslider";
 
 
 /*********************

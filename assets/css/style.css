@@ -158,9 +158,6 @@ Stylesheet: Mixins
 
 ******************************************************************/
 /*********************
-FONT STACKS
-*********************/
-/*********************
 COLORS
 *********************/
 /*********************
@@ -174,23 +171,19 @@ REUSABLE ITEMS
   .clearfix:after, .cf:after {
     clear: both; }
 
-/*********************
-BREAKPOINTS
-*********************/
-/******************************************************************
-
-Stylesheet: Fonts and Icons
-
-******************************************************************/
-/************************************************
-Better support for screen readers with icons
-see header.php for an example usage
-************************************************/
 .screen-reader-text {
   left: -9999em !important;
   position: absolute !important;
   top: -9999em !important; }
 
+/*********************
+BREAKPOINTS
+*********************/
+/******************************************************************
+
+Stylesheet: Typography
+
+******************************************************************/
 /*********************
 FONT FACE
 *********************/
@@ -205,20 +198,9 @@ FONT FACE
   font-style: normal;
 } 
 */
-/******************************************************************
-
-Stylesheet: Typography
-
-******************************************************************/
-/******************************************************************
-FONT BASE
-******************************************************************/
-body {
-  font-size: 100%;
-  line-height: 1.5;
-  color: #333;
-  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
+/*********************
+FONT STACKS
+*********************/
 /******************************************************************
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
@@ -313,29 +295,6 @@ mark, ins {
 .nowrap {
   display: inline-block; }
 
-/******************************************************************
-ENTRY CONTENT
-******************************************************************/
-.entry-content ul, .entry-content ol {
-  margin: 0 0 1.5em 2em; }
-.entry-content ul {
-  list-style: disc; }
-.entry-content ol {
-  list-style: decimal; }
-.entry-content li > ul, .entry-content li > ol {
-  margin-bottom: 0;
-  margin-left: 1em; }
-.entry-content dt {
-  font-weight: bold; }
-.entry-content dd {
-  margin: 0 1em 1.5em; }
-.entry-content table {
-  margin: 0 0 1.5em;
-  width: 100%; }
-.entry-content th {
-  font-weight: bold; }
-
-/* end .entry-content */
 /******************************************************************
 
 Stylesheet: Button Styles
@@ -707,6 +666,12 @@ GENERAL STYLES
 html, body {
   background-color: #eee; }
 
+body {
+  font-size: 100%;
+  line-height: 1.5;
+  color: #333;
+  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
 ::-moz-selection {
   background: #ff9;
   color: black !important;
@@ -762,6 +727,28 @@ POSTS & CONTENT STYLES
 #content {
   background: white; }
   @media screen and (min-width: 48em) { }
+
+/******************************************************************
+ENTRY CONTENT
+******************************************************************/
+.entry-content ul, .entry-content ol {
+  margin: 0 0 1.5em 2em; }
+.entry-content ul {
+  list-style: disc; }
+.entry-content ol {
+  list-style: decimal; }
+.entry-content li > ul, .entry-content li > ol {
+  margin-bottom: 0;
+  margin-left: 1em; }
+.entry-content dt {
+  font-weight: bold; }
+.entry-content dd {
+  margin: 0 1em 1.5em; }
+.entry-content table {
+  margin: 0 0 1.5em;
+  width: 100%; }
+.entry-content th {
+  font-weight: bold; }
 
 /*********************
 SIDEBARS & ASIDES

@@ -37,7 +37,7 @@ function egg_editor_styles() {
  * @return	array Modified buttons in row 1
  */
 function egg_mce_buttons( $buttons ) {
-	$remove = array('strikethrough', 'blockquote', 'wp_more', 'wp_adv');
+	$remove = array('blockquote', 'wp_more', 'wp_adv');
 	//print_r($buttons);
 	return array_diff($buttons, $remove);
 }
@@ -50,7 +50,7 @@ function egg_mce_buttons( $buttons ) {
  */
 function egg_mce_buttons_2( $buttons2 ) {
 	// Remove items
-	$remove  = array('styleselect', 'underline', 'forecolor', 'pastetext', 'alignjustify', 'wp_help');
+	$remove  = array('styleselect', 'strikethrough', 'underline', 'forecolor', 'pastetext', 'alignjustify', 'wp_help');
 	return array_diff($buttons2, $remove);
 }
 
