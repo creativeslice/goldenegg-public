@@ -8,8 +8,7 @@ add_action( 'after_setup_theme',			'egg_cleanup' );
 /**
  * Launch some basic cleanup
  */
-function egg_cleanup()
-{
+function egg_cleanup() {
 	// launching operation cleanup
 	add_action( 'init',						'egg_head_cleanup' );
 	// remove WP version from RSS
@@ -19,9 +18,11 @@ function egg_cleanup()
 	// cleaning up excerpt
 	add_filter( 'excerpt_more',				'egg_excerpt_more' );
 	// shorten excerpt
-	add_filter( 'excerpt_length',			'custom_excerpt_length', 999 );
+	#add_filter( 'excerpt_length',			'custom_excerpt_length', 999 );
 	// stop srcset images
 	add_filter( 'wp_calculate_image_srcset', '__return_false' );
+	// change thumbnail image quality
+	#add_filter( 'jpeg_quality', 			'custom_jpeg_quality', 10, 2 );
 }
 
 
@@ -33,14 +34,12 @@ function egg_cleanup()
 function custom_jpeg_quality( $quality, $context ) {
 	return 90;
 }
-add_filter( 'jpeg_quality', 				'custom_jpeg_quality', 10, 2 );
 
 
 /**
  * Cleanup the head output
  */
-function egg_head_cleanup()
-{
+function egg_head_cleanup() {
 	// Remove canonical links
 	#remove_action('wp_head', 				'rel_canonical');
 	// Remove shortlink from head and header
@@ -84,8 +83,7 @@ function egg_head_cleanup()
  *
  * @return	string Empty string
  */
-function egg_rss_version()
-{
+function egg_rss_version() {
 	return '';
 }
 
@@ -95,8 +93,7 @@ function egg_rss_version()
  *
  * @return	string Modified content
  */
-function egg_filter_ptags_on_images( $content )
-{
+function egg_filter_ptags_on_images( $content ) {
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
 
@@ -106,8 +103,7 @@ function egg_filter_ptags_on_images( $content )
  *
  * @return	bool Modified status for comments.
  */
-function egg_excerpt_more( $more )
-{
+function egg_excerpt_more( $more ) {
 	global $post;
 	return "&hellip;" . '  <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="Read ' . get_the_title($post->ID).'">Read more &raquo;</a>';
 }
@@ -118,9 +114,8 @@ function egg_excerpt_more( $more )
  *
  * @return	Modified character length
  */
-function custom_excerpt_length( $length ) 
-{
-	return 33;
+function custom_excerpt_length( $length ) {
+	return 33; // number of characters
 }
 
 
@@ -129,8 +124,7 @@ function custom_excerpt_length( $length )
  *
  * @return	bool Modified status for comments.
  */
-function egg_remove_wp_ver_css_js( $src )
-{
+function egg_remove_wp_ver_css_js( $src ) {
 	if ( strpos( $src, 'ver=' ) )
 		$src = remove_query_arg( 'ver', $src );
 	return $src;

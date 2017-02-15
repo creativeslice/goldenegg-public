@@ -13,9 +13,9 @@ if ( ! isset( $content_width ) ) {
 
 /**
  * Example custom thumbnail sizes
- * /
-add_image_size( 'custom-thumb-600', 600, 150, true );
-add_image_size( 'custom-thumb-300', 300, 100, true );
+ */
+#add_image_size( 'square', 200, 200, true );
+#add_image_size( 'banner', 1600, 960, true );
 
 
 /**
@@ -83,8 +83,7 @@ function custom_register_sidebars()
  * Use this to turn off/on and customize support for features as needed by your theme
  */
 add_action( 'after_setup_theme', 'custom_theme_support' );
-function custom_theme_support()
-{
+function custom_theme_support() {
 	/* Featured Image */
 	add_theme_support( 'post-thumbnails', array( 'post', 'page', ) ); // Posts, Pages
 
@@ -120,10 +119,8 @@ function custom_theme_support()
 		)
 	);
 
-	/* wp menus */
+	/* registering WP menus */
 	add_theme_support( 'menus' );
-
-	/* registering menus */
 	register_nav_menus(
 		array(
 			'main-nav'     => 'The Main Menu',  // main nav in header

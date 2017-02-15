@@ -9,31 +9,27 @@ add_action( 'admin_head',                 'egg_admin_favicon', 11 );
 add_action( 'welcome_panel',              'egg_dashboard_welcome_cleanup' );
 add_action( 'admin_menu',                 'egg_remove_menu_pages' );
 add_action( 'wp_before_admin_bar_render', 'egg_customize_admin_bar' );
-add_action( 'admin_init',                 'egg_dependencies' );
-add_action( 'wp_head', 					  'style_admin_bar' );
 add_action( 'wp_before_admin_bar_render', 'custom_adminbar_titles' );
+add_action( 'wp_head', 					  'style_admin_bar' );
+#add_action( 'admin_init',                 'egg_dependencies' );
 
 // filters
 add_filter( 'gettext',                    'egg_replace_howdy', 10, 3 );
 add_filter( 'admin_footer_text',          'egg_admin_footer' );
-// add_filter( 'show_admin_bar',             'egg_admin_bar_permissions' );
-// add_filter( 'screen_options_show_screen', 'egg_remove_screen_options' );
+add_filter( 'auto_core_update_send_email', 'egg_bypass_auto_update_email', 10, 4 );
+#add_filter( 'show_admin_bar',             'egg_admin_bar_permissions' );
+#add_filter( 'screen_options_show_screen', 'egg_remove_screen_options' );
 
 
 /**
  * Disable the auto generated email sent to the admin after a successful core update:
  */
 function egg_bypass_auto_update_email( $send, $type, $core_update, $result ) {
-    // The conditional below does not send an email for any type. Delete the "|| $type == 'type'" for the type you wish to receieve 
-	// if ( ! empty( $type ) && ( $type == 'success' || $type == 'manual' || $type == 'critical' || $type == 'fail' ) ) {
     if ( ! empty( $type ) && $type == 'success' ) {
         return false;
     }
-    // return the send function 
     return true;
 }
-
-add_filter( 'auto_core_update_send_email', 'egg_bypass_auto_update_email', 10, 4 );
 
 
 /**
@@ -73,10 +69,8 @@ function style_admin_bar() {
 /**
  * Check for dependencies
  */
-function egg_dependencies()
-{
-	if ( ! class_exists( 'acf' ) )
-	{
+function egg_dependencies() {
+	if ( ! class_exists( 'acf' ) ) {
 		add_action( 'admin_notices', 'egg_acf_dependency_message' );
 	}
 }
@@ -95,8 +89,7 @@ function egg_acf_dependency_message() { ?>
 /**
  * Disable default dashboard widgets.
  */
-function egg_disable_dashboard_widgets()
-{
+function egg_disable_dashboard_widgets() {
 	remove_meta_box('dashboard_right_now', 'dashboard', 'core');    	// Right Now Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core'); 	// Incoming Links Widget
 	remove_meta_box('dashboard_plugins', 'dashboard', 'core');			// Plugins Widget
@@ -114,13 +107,8 @@ function egg_disable_dashboard_widgets()
 /**
  * Add a developer favicon to admin area
  */
-function egg_admin_favicon()
-{
-	?>
+function egg_admin_favicon() { ?>
 	<link rel="icon" href="<?php echo get_template_directory_uri() . '/admin/assets/img/favicon.png'; ?>">
-	<!--[if IE]>
-		<link rel="shortcut icon" href="<?php echo get_template_directory_uri() . '/admin/assets/img/favicon.ico'; ?>">
-	<![endif]-->
 	<?php
 }
 
@@ -128,12 +116,9 @@ function egg_admin_favicon()
 /**
  * Remove some screen options from the dashboard
  */
-function egg_dashboard_welcome_cleanup()
-{
+function egg_dashboard_welcome_cleanup() {
 	global $pagenow;
-	if ( 'index.php' == $pagenow )
-	{
-		?>
+	if ( 'index.php' == $pagenow ) { ?>
 		<style type="text/css">
 			.welcome-panel-column h4,
 			.welcome-panel-last,
@@ -147,8 +132,7 @@ function egg_dashboard_welcome_cleanup()
 /**
  * Remove some admin pages that we never want
  */
-function egg_remove_menu_pages()
-{
+function egg_remove_menu_pages() {
 	remove_menu_page('link-manager.php');
 	if (! current_user_can('manage_options') ) remove_menu_page('tools.php');
 }
@@ -193,8 +177,7 @@ function egg_customize_admin_bar()
  *
  * @return	array Modified settings
  */
-function egg_admin_bar_permissions( $content )
-{
+function egg_admin_bar_permissions( $content ) {
 	return ( current_user_can('edit_others_posts') ) ? true : false;
 }
 
@@ -204,10 +187,8 @@ function egg_admin_bar_permissions( $content )
  *
  * @return	string Modified welcome message.
  */
-function egg_replace_howdy( $translated, $text, $domain )
-{
-	if ( false !== strpos($translated, "Howdy") )
-	{
+function egg_replace_howdy( $translated, $text, $domain ) {
+	if ( false !== strpos($translated, "Howdy") ) {
 		return str_replace("Howdy", "Welcome back", $translated);
 	}
 	return $translated;
@@ -217,10 +198,9 @@ function egg_replace_howdy( $translated, $text, $domain )
 /**
  * Customize admin footer
  */
-function egg_admin_footer()
-{
+function egg_admin_footer() {
 	?>
-	<span id="footer-thankyou">Crafted with WordPress by <a href="<?php echo EGG_DEVELOPER_URL; ?>" target="_blank"><?php echo EGG_DEVELOPER; ?></a></span>
+	<span id="footer-thankyou">Crafted with care by <a href="<?php echo EGG_DEVELOPER_URL; ?>" target="_blank"><?php echo EGG_DEVELOPER; ?></a></span>
 	<?php
 }
 
@@ -228,8 +208,7 @@ function egg_admin_footer()
 /**
  * Remove screen options from the dashboard
  */
-function egg_remove_screen_options()
-{
+function egg_remove_screen_options() {
 	global $pagenow;
 
 	if ( 'index.php' == $pagenow ) return false;

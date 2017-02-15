@@ -45,4 +45,16 @@ jQuery(document).ready(function($) {
 	}
 	
 	
+	/**
+	 * Scroll to Top
+	 */ 
+	$(topScroll = function() {
+		$('.scrollTop').click(function(e){
+			$('html, body').animate({ // html for ie, ff. body for chrome safari
+				scrollTop: 0
+			}, 500); 
+		});
+	});
+	
+	
 });

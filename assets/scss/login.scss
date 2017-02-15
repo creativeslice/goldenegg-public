@@ -4,10 +4,32 @@ Stylesheet: Login Screen
 
 ******************************************************************/
 $login_accent: #669933; // green
+$login_dark: #1b801b; // green dark
 
 body.login {
-	background: #eee;
-	background-image: linear-gradient(#fff, #ddd);
+	background: $login_accent;
+	background-image: linear-gradient(
+		45deg,
+		$login_dark, $login_accent
+	);
+	border-left: 15px solid white;
+	border-right: 15px solid white;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		border-top: 15px solid white;
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		border-bottom: 15px solid white;
+	}
 }
 
 /*
@@ -16,15 +38,21 @@ body.login {
 .login {
 	h1 a {
 		background: url(../img/login-logo.png) no-repeat top center;
-		width: 326px;
-		height: 67px;
+		width: 274px;
+		height: 64px;
 		text-indent: -9999px;
 		overflow: hidden;
-		padding-bottom: 15px;
+		padding-bottom: 0px;
 		display: block;
 	}
 	.message {
-		border-color: $login_accent;
+		border-color: black;
+	}
+	#nav a, #backtoblog a {
+		color: rgba(white, .7);
+		&:hover {
+			color: white;
+		}
 	}
 }
 
@@ -46,20 +74,20 @@ body form .input {
 	margin-top: 2px;
 	margin-right: 6px;
 	margin-bottom: 16px;
-	border: 1px solid #E5E5E5;
-	background: #FBFBFB;
+	border: 1px solid #eee;
+	background: #fefefe;
 	outline: none;
 	box-shadow: inset 1px 1px 3px rgba(black, .1);
 }
 
 #wp-submit {
 	background: $login_accent;
-	border-color: darken($login_accent, 3%) !important;
-	text-shadow: -1px -1px 0 darken($login_accent, 15%);
-	box-shadow: 0 1px 1px darken($login_accent, 15%);
+	border-color: $login_accent !important;
+	text-shadow: -1px -1px 0 rgba(black, .2);
+	box-shadow: 0 1px 3px rgba(black, .2);
 	font-weight: bold;
 	text-transform: uppercase;
 	&:hover {
-		background: darken($login_accent, 6%);
+		background: $login_dark;
 	}
 }

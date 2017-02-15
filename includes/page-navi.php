@@ -3,8 +3,6 @@
  * Adds custom page navigation
  */
 
-// actions
-add_action( 'egg/page_navi', 'egg_page_navi' );
 
 /**
  * Page Navi
@@ -13,10 +11,9 @@ add_action( 'egg/page_navi', 'egg_page_navi' );
  *
  * Based on Bones by Eddie Machado
  *
- * @return	void
  */
-function egg_page_navi()
-{
+add_action( 'egg/page_navi', 'egg_page_navi' );
+function egg_page_navi() {
 	global $wp_query;
 
 	$bignum = 999999999;
