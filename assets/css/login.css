@@ -6,23 +6,7 @@ Stylesheet: Login Screen
 body.login {
   background: #669933;
   background-image: -webkit-linear-gradient(45deg, #1b801b, #669933);
-  background-image: linear-gradient(45deg, #1b801b, #669933);
-  border-left: 15px solid white;
-  border-right: 15px solid white; }
-  body.login:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-top: 15px solid white; }
-  body.login:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: 15px solid white; }
+  background-image: linear-gradient(45deg, #1b801b, #669933); }
 
 /*
  * Logo above login form

@@ -12,24 +12,6 @@ body.login {
 		45deg,
 		$login_dark, $login_accent
 	);
-	border-left: 15px solid white;
-	border-right: 15px solid white;
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		border-top: 15px solid white;
-	}
-	&:after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		border-bottom: 15px solid white;
-	}
 }
 
 /*
