@@ -19,16 +19,6 @@ add_filter( 'admin_footer_text',          'egg_admin_footer' );
 add_filter( 'auto_core_update_send_email', 'egg_bypass_auto_update_email', 10, 4 );
 #add_filter( 'show_admin_bar',             'egg_admin_bar_permissions' );
 #add_filter( 'screen_options_show_screen', 'egg_remove_screen_options' );
-add_filter( 'tiny_mce_before_init',			'tinymce_allow_unsafe_link_target');
-
-
-/**
- * Disables a tinyMCE security feature: rel = noopener noreferrer
- */
-function tinymce_allow_unsafe_link_target( $mceInit ) {
-	$mceInit['allow_unsafe_link_target']=true;
-	return $mceInit;
-}
 
 
 /**

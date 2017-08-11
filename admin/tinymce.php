@@ -11,14 +11,22 @@ add_action('admin_head', 'egg_add_magic_button'); // adds .button class to links
 add_action('admin_head', 'egg_add_no_wrap'); // adds .nowrap span
 //add_action('admin_head', 'egg_add_intro'); // adds .intro p class
 
-// filters
-add_filter( 'tiny_mce_before_init', 'egg_mce_show_buttons_2' );
-
 function egg_tinymce() {
 	// filters
-	add_filter( 'mce_buttons',                'egg_mce_buttons' );
-	add_filter( 'mce_buttons_2',              'egg_mce_buttons_2' );
-	add_filter( 'tiny_mce_before_init',       'egg_tiny_mce_before_init' );
+	add_filter( 'mce_buttons',				'egg_mce_buttons' );
+	add_filter( 'mce_buttons_2',			'egg_mce_buttons_2' );
+	add_filter( 'tiny_mce_before_init', 	'egg_mce_show_row_2' );
+	add_filter( 'tiny_mce_before_init',		'egg_tiny_mce_before_init' );
+	add_filter( 'tiny_mce_before_init',		'tinymce_allow_unsafe_link_target');
+}
+
+
+/**
+ * Disables a tinyMCE security feature: rel = noopener noreferrer
+ */
+function tinymce_allow_unsafe_link_target( $mceInit ) {
+	$mceInit['allow_unsafe_link_target']=true;
+	return $mceInit;
 }
 
 
@@ -50,7 +58,7 @@ function egg_mce_buttons( $buttons ) {
  */
 function egg_mce_buttons_2( $buttons2 ) {
 	// Remove items
-	$remove  = array('styleselect', 'strikethrough', 'underline', 'forecolor', 'pastetext', 'alignjustify', 'wp_help');
+	$remove  = array('styleselect', 'strikethrough', 'underline', 'forecolor', 'alignjustify', 'wp_help');
 	return array_diff($buttons2, $remove);
 }
 
@@ -70,7 +78,7 @@ function egg_tiny_mce_before_init( $settings ) {
 /**
  * Sets second mce toolbar view to 'show'
  */
-function egg_mce_show_buttons_2( $in ) {
+function egg_mce_show_row_2( $in ) {
 	$in['wordpress_adv_hidden'] = FALSE;
 	return $in;
 }
