@@ -13,26 +13,18 @@ function egg_cleanup() {
 	add_action( 'init',						'egg_head_cleanup' );
 	// remove WP version from RSS
 	add_filter( 'the_generator',			'egg_rss_version' );
+	// hide author pages
+	add_action( 'template_redirect', 		'bwp_template_redirect' );
 	// cleaning up random code around images
 	add_filter( 'the_content',				'egg_filter_ptags_on_images' );
-	// cleaning up excerpt
-	add_filter( 'excerpt_more',				'egg_excerpt_more' );
-	// shorten excerpt
-	#add_filter( 'excerpt_length',			'custom_excerpt_length', 999 );
 	// stop srcset images
 	add_filter( 'wp_calculate_image_srcset', '__return_false' );
 	// change thumbnail image quality
 	#add_filter( 'jpeg_quality', 			'custom_jpeg_quality', 10, 2 );
-}
-
-
-/**
- * Update JPEG compression quality (WP 4.5 sets 82 by default)
- *
- * @return	quality percentage
- */
-function custom_jpeg_quality( $quality, $context ) {
-	return 90;
+	// cleaning up excerpt
+	add_filter( 'excerpt_more',				'egg_excerpt_more' );
+	// shorten excerpt
+	#add_filter( 'excerpt_length',			'custom_excerpt_length', 999 );
 }
 
 
@@ -79,12 +71,37 @@ function egg_head_cleanup() {
 
 
 /**
+ * Remove WP version from scripts
+ *
+ * @return	bool Modified status for comments.
+ */
+function egg_remove_wp_ver_css_js( $src ) {
+	if ( strpos( $src, 'ver=' ) )
+		$src = remove_query_arg( 'ver', $src );
+	return $src;
+}
+
+
+/**
  * Remove WP version from RSS
  *
  * @return	string Empty string
  */
 function egg_rss_version() {
 	return '';
+}
+
+
+/**
+ * Hide author pages
+ *
+  * @return	 redirect to home
+ */
+function bwp_template_redirect() {
+	if (is_author()) {
+		wp_redirect( home_url() ); 
+		exit;
+	}
 }
 
 
@@ -96,6 +113,18 @@ function egg_rss_version() {
 function egg_filter_ptags_on_images( $content ) {
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
+
+
+/**
+ * Update JPEG compression quality (WP 4.5 sets 82 by default)
+ *
+ * @return	quality percentage
+ */
+function custom_jpeg_quality( $quality, $context ) {
+	return 90;
+}
+
+
 
 
 /**
@@ -116,16 +145,4 @@ function egg_excerpt_more( $more ) {
  */
 function custom_excerpt_length( $length ) {
 	return 33; // number of characters
-}
-
-
-/**
- * Remove WP version from scripts
- *
- * @return	bool Modified status for comments.
- */
-function egg_remove_wp_ver_css_js( $src ) {
-	if ( strpos( $src, 'ver=' ) )
-		$src = remove_query_arg( 'ver', $src );
-	return $src;
 }
