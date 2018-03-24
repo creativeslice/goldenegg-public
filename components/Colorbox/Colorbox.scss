@@ -1,0 +1,151 @@
+/*********************
+Required Colorbox Styles
+*********************/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; }
+#cboxWrapper {max-width:none;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto; -webkit-overflow-scrolling: touch;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none; -ms-interpolation-mode:bicubic;}
+.cboxIframe{width:100%; height:100%; display:block; border:0; padding:0; margin:0;}
+#colorbox, #cboxContent, #cboxLoadedContent{box-sizing:content-box;}
+
+
+/*********************
+Custom Styles
+*********************/
+#cboxOverlay{
+	background: $black;
+}
+#colorbox{outline:0;}
+#cboxContent{margin-top:0px; overflow:visible; }
+.cboxIframe{background: $gray_light;}
+#cboxError{padding:50px; border:1px solid $red;}
+
+#cboxLoadedContent{
+	//border: 1px solid $gray_light;
+	box-shadow: $shadow;
+	background: $white;
+@include breakpoint(large) {
+	//padding: $spacing/2;
+}
+}
+
+#cboxLoadingGraphic{
+	background:url(../img/spinner.gif) no-repeat center center;
+}
+
+#cboxLoadingOverlay{
+	// background:black;
+}
+
+// Image 1 of 5 text
+#cboxCurrent {
+	color: $gray_light;
+	font-size: .75em;
+	margin-top: 2px;
+}
+
+#cboxTitle{ 
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	bottom: -40px;
+	left: 0;
+	color: $text_color;
+}
+
+
+/*********************
+Modal Navigation
+*********************/
+// avoid outlines on :active (mouseclick), but preserve outlines on :focus (tabbed navigating)
+#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {
+	outline:0;}
+
+
+#cboxPrevious, #cboxNext {
+	outline: 0;
+	border:0;
+	position:absolute; 
+	top: 50%;
+	height: 80px;
+	width: 80px;
+	margin-top: -40px;
+	font-size: .01px;
+	&:after {
+		content: '';
+		width: 24px;
+		height: 24px;
+		display: block;
+		transition: border $ease;
+		transform: rotate(45deg);
+	}
+	&:hover:after {
+		border-color: $black;
+	}
+}
+
+#cboxPrevious {
+	left: -0px;
+	&:after {
+		margin-left: 28px;
+		border-bottom: 2px solid $gray_light;
+		border-left: 2px solid $gray_light;
+	}
+@include breakpoint(large) {
+	left: -80px;
+}
+}
+
+#cboxNext {
+	right: -00px;
+	&:after {
+		margin-left: 24px;
+		border-top: 2px solid $gray_light;
+		border-right: 2px solid $gray_light;
+	}
+@include breakpoint(large) {
+	right: -80px;
+}
+}
+
+#cboxClose {
+	outline: 0;
+	width: 40px;
+	height: 40px;
+	position:absolute; 
+	top: 0px;
+	right: 0px;
+	font-size: .01px;
+	//background: $white;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 18px;
+		left: 2px;
+		width: 20px;
+		height: 20px;
+		border-right: 2px solid $white;
+		transform: rotate(-45deg);
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		top: 18px;
+		left: 16px;
+		width: 20px;
+		height: 20px;
+		border-right: 2px solid $white;
+		transform: rotate(225deg);
+	}
+	&:hover {
+		&:before, &:after {
+			border-color: $black;
+		}
+	}
+}

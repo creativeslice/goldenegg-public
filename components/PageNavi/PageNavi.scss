@@ -1,0 +1,72 @@
+
+// Next Previous 
+.postPrev, .postNext {
+	font-size: .875em;
+	text-transform: uppercase;
+	letter-spacing: .15em;
+	a, a:visited {
+		color: $gray;
+		&:hover {
+			color: $blue;
+		}
+	}
+}
+.postPrev {
+	float: left;
+}
+.postNext {
+	float: right;
+}
+
+
+/*************************************
+PAGE NAVI STYLES
+**************************************/
+
+.PageNavi {
+	text-align: center;
+	ul {
+		display: inline-block;
+		background-color: white;
+		white-space: nowrap;
+		padding: 0;
+		clear: both;
+	}
+	li {
+		padding: 0;
+		margin: 0;
+		float: left;
+		display: inline;
+		overflow: hidden;
+		border-right: 1px solid $gray_light;
+		&:last-child {
+			border: none;
+		}
+	}
+	a, a:visited, span {
+		margin: 0;
+		text-decoration: none;
+		padding: 0;
+		line-height: 1em;
+		font-size: 1em;
+		font-weight: normal;
+		padding: 0.75em;
+		min-width: 1em;
+		display: block;
+		color: $link_color;
+		&:hover, &:focus {
+			background-color: $link_color;
+			color: $white;
+		}
+	}
+	
+	.current{
+		cursor: default;
+		color: $text_color;
+		font-weight: bold;
+		&:hover, &:focus {
+			background-color: $white;
+			color: $text_color;
+		}
+	}
+}

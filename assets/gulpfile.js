@@ -15,10 +15,10 @@ var environment = 'development', // 'production development'
 	notify = require('gulp-notify'),
 	cache = require('gulp-cache'),
 	plumber = require('gulp-plumber'),
-	svgmin = require('gulp-svgmin'), // required for svg icons
-	svgstore = require('gulp-svgstore'), // required for svg icons
-	gulpif = require('gulp-if'), // required for svg icons
-	cheerio = require('gulp-cheerio'), // required for svg icons
+	svgmin = require('gulp-svgmin'), 		// required for svg icons
+	svgstore = require('gulp-svgstore'), 	// required for svg icons
+	gulpif = require('gulp-if'), 			// required for svg icons
+	cheerio = require('gulp-cheerio'), 		// required for svg icons
 	livereload = require('gulp-livereload'),
 	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
 
@@ -78,6 +78,7 @@ gulp.task('scripts', function() {
 		return gulp.src([
 				'js/src/libs/*.js',
 				'js/src/**/*.js',
+				'../components/**/*.js',
 			])
 			.pipe(concat('scripts.js'))
 			.pipe(jsHint())
@@ -89,6 +90,7 @@ gulp.task('scripts', function() {
 		return gulp.src([
 				'js/src/libs/*.js',
 				'js/src/**/*.js',
+				'../components/**/*.js',
 			])
 			.pipe(concat('scripts.js'))
 			.pipe(jsHint())
@@ -134,5 +136,7 @@ gulp.task('default', function() {
 gulp.task('watch', function() {
 	livereload.listen();
 	gulp.watch('scss/**/*.scss', ['styles']);
+	gulp.watch('../components/**/*.scss', ['styles']);
 	gulp.watch('js/src/**/*.js', ['scripts']);
+	gulp.watch('../components/**/*.js', ['scripts']);
 });

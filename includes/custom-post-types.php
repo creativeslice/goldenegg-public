@@ -12,7 +12,6 @@ function egg_flush_rewrite_rules() {
 
 /**
  * Custom Post Type Example
- *
  */
 add_action( 'init', 'custom_register_post_type');
 function custom_register_post_type() { 
@@ -45,7 +44,7 @@ function custom_register_post_type() {
 			'has_archive'			=> 'custom_type',
 			'capability_type'		=> 'post',
 			'hierarchical'			=> false,
-			'supports'				=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'comments', 'revisions', 'page-attributes')
+			'supports'				=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'revisions', 'page-attributes')
 		)
 	);
 

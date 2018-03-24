@@ -5,7 +5,6 @@ Stylesheet: Login Screen
 ******************************************************************/
 body.login {
   background: #669933;
-  background-image: -webkit-linear-gradient(45deg, #1b801b, #669933);
   background-image: linear-gradient(45deg, #1b801b, #669933); }
 
 /*
@@ -19,8 +18,10 @@ body.login {
   overflow: hidden;
   padding-bottom: 0px;
   display: block; }
+
 .login .message {
   border-color: black; }
+
 .login #nav a, .login #backtoblog a {
   color: rgba(255, 255, 255, 0.7); }
   .login #nav a:hover, .login #backtoblog a:hover {
@@ -34,7 +35,7 @@ form {
   border: 1px solid #eee;
   border-radius: 4px;
   -webkit-box-shadow: none;
-  box-shadow: none; }
+          box-shadow: none; }
 
 body form .input {
   font-weight: 200;
@@ -48,14 +49,14 @@ body form .input {
   background: #fefefe;
   outline: none;
   -webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1); }
+          box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1); }
 
 #wp-submit {
   background: #669933;
   border-color: #669933 !important;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   font-weight: bold;
   text-transform: uppercase; }
   #wp-submit:hover {

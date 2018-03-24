@@ -1,0 +1,68 @@
+.videoContainer { 
+	position: relative; 
+	padding-bottom: 56.25%; 
+	height: 0; 
+	overflow: hidden;
+	.playButton {
+		position: absolute;
+	    left: 0px;
+	    bottom: 0px;
+	    color: white;
+	    cursor: pointer;
+	    font-size: 14px;
+	    text-transform: uppercase;
+	    letter-spacing: .15em;
+	    padding: $spacing/4;
+		svg {
+			float: left;
+			width: 48px;
+			height: 48px;
+			margin: -14px 12px 0 0;
+			fill: rgba($white, .8);
+			transition: .25s all;
+		}
+	    &:hover svg {
+		    transform:scale(1.05);
+			fill: rgba($white, 1);
+	    }
+	}
+}
+
+.videoContainer iframe, 
+.videoContainer object, 
+.videoContainer embed, 
+.videoContainer video { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100% !important;
+	height: 100%; 
+}
+
+.videoContainerCENTERED .playButton {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -32px 0 0 -32px;
+    transition: .25s all;
+    fill: rgba($white, .8);
+    cursor: pointer;
+    &:hover {
+	    transform:scale(1.05);
+		fill: rgba($white, 1);
+    }
+}
+
+
+
+.videoContainer.playing .playButton,
+.videoContainer.playing .videoCover {
+	display: none;
+}
+
+
+@include breakpoint(large) {
+
+}

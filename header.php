@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	<title><?php wp_title( '/' ); ?></title>
-	
-	<?php //get_template_part( 'partials/head', 'favicons' ); // Place a file called favicon.ico in the root directory ?>
     
     <?php wp_head(); ?>
+    
+    <?php //get_template_part( 'components/Favicons/Favicons' ); ?>
 
 <!--[if lt IE 9]>
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/ie.css" type="text/css" media="all" />
@@ -26,7 +26,7 @@
 	
 	<header class="header">  
 
-		<div id="inner-header" class="wrap cf">
+		<div class="wrap cf">
 
 			<div id="logo">
 				<a href="<?php echo home_url(); ?>" title="Home">
@@ -40,20 +40,7 @@
 				</svg>
 			</span>
 			
-			<span id="menu-toggle">
-				<svg title="menu">
-					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#menu"></use>
-				</svg>
-			</span>
-
-			<nav role="navigation">
-			<?php wp_nav_menu(array(
-				'container' => false,						// remove nav container
-				'menu_class' => 'main-nav',					// adding custom nav class
-				'theme_location' => 'main-nav',				// where it's located in the theme
-				'depth' => 2								// limit the depth of the nav
-			)); ?>
-			</nav>
+			<?php get_template_part( 'components/HeaderMenu/HeaderMenu' ); ?>
 
 		</div>
 

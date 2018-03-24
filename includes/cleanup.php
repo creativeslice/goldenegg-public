@@ -106,6 +106,19 @@ function bwp_template_redirect() {
 
 
 /**
+ * Remove 'medium_large' image size since we have no control over it
+ *
+ * @return	null
+ */
+add_filter( 'intermediate_image_sizes', function( $sizes ) {
+    return array_filter( $sizes, function( $val ) {
+        return 'medium_large' !== $val;
+    } );
+} );
+
+
+
+/**
  * Remove the p from around imgs
  *
  * @return	string Modified content
@@ -123,8 +136,6 @@ function egg_filter_ptags_on_images( $content ) {
 function custom_jpeg_quality( $quality, $context ) {
 	return 90;
 }
-
-
 
 
 /**
@@ -146,3 +157,9 @@ function egg_excerpt_more( $more ) {
 function custom_excerpt_length( $length ) {
 	return 33; // number of characters
 }
+
+function excerpt($limit) {
+    return wp_trim_words(get_the_excerpt(), $limit); // number of words
+}
+
+

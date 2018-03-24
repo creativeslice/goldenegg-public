@@ -9,11 +9,9 @@ REMOVES MEDIA QUERIES
 /*********************
 IMPORTING MODULES
 *********************/
-/******************************************************************
-
-Stylesheet: Mixins
-
-******************************************************************/
+/*********************
+FONTS
+*********************/
 /*********************
 COLORS
 *********************/
@@ -74,11 +72,11 @@ h1, .h1 {
 h2, .h2 {
   font-size: 1.5em;
   line-height: 1.5em;
-  margin: 0.57143em 0; }
+  margin: 0.571428571em 0; }
 
 h3, .h3 {
   font-size: 1.375em;
-  margin: 0.66667em 0; }
+  margin: 0.666666667em 0; }
 
 h4, .h4 {
   font-size: 1.25em;
@@ -89,7 +87,7 @@ h5, .h5 {
   font-size: 1.125em;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin: 0.88889em 0; }
+  margin: 0.888888889em 0; }
 
 @media screen and (min-width: 48em) {
   h1, .h1 {
@@ -144,7 +142,7 @@ mark, ins {
 .intro:first-child:first-letter {
   float: left;
   font-size: 3.25em;
-  line-height: 0.75em;
+  line-height: .75em;
   padding: 5px 12px 0 3px;
   font-family: "Georgia", Cambria, Times New Roman, Times, serif;
   color: #111; }
@@ -160,12 +158,13 @@ Stylesheet: Button Styles
 /*********************
 BUTTONS
 *********************/
-.form-submit input, .button, .button:visited {
+.form-submit input,
+.button, .button:visited {
   display: inline-block;
   position: relative;
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
-  font-size: 0.875em;
+  font-size: .875em;
   font-weight: bold;
   line-height: 1em;
   padding: 1em;
@@ -174,15 +173,19 @@ BUTTONS
   -webkit-transition: background-color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out; }
 
-.form-submit input, .button, .button:visited {
+.form-submit input,
+.button, .button:visited {
   background-color: #669933;
   border: 1px solid #669933;
   color: white; }
-  .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
+  .form-submit input:hover, .form-submit input:focus,
+  .button:hover,
+  .button:focus, .button:visited:hover, .button:visited:focus {
     background-color: #8cc653;
     color: white;
     text-decoration: none; }
-  .form-submit input:active, .button:active, .button:visited:active {
+  .form-submit input:active,
+  .button:active, .button:visited:active {
     background-color: #4d7326;
     color: white; }
 

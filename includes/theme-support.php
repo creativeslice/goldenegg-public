@@ -12,10 +12,10 @@ if ( ! isset( $content_width ) ) {
 
 
 /**
- * Example custom thumbnail sizes
+ * Image sizes
  */
-#add_image_size( 'square', 200, 200, true );
-#add_image_size( 'banner', 1600, 960, true );
+#add_image_size( 'fhd', 1920, 1080, true );
+#add_image_size( 'hd', 1280, 720, true );
 
 
 /**
@@ -29,11 +29,11 @@ add_shortcode( 'gallery', 'my_gallery_shortcode' );
 
 
 /**
- * Add responsive ".video-container" to YouTube and Vimeo embeds
+ * Add responsive ".videoContainer" to YouTube and Vimeo embeds
  */
 function vnmFunctionality_embedWrapper($html, $url, $attr) {
     if (strpos($html, 'youtube') !== false || strpos($html, 'vimeo') !== false) {
-        return '<div class="video-container">' . $html . '</div>';
+        return '<div class="videoContainer">' . $html . '</div>';
     }
 	return $html;
 }
@@ -84,6 +84,7 @@ function custom_register_sidebars()
  */
 add_action( 'after_setup_theme', 'custom_theme_support' );
 function custom_theme_support() {
+	
 	/* Featured Image */
 	add_theme_support( 'post-thumbnails', array( 'post', 'page', ) ); // Posts, Pages
 
@@ -103,28 +104,13 @@ function custom_theme_support() {
 			'caption'
 		)
 	);
-			
-	/* adding post format support * /
-	add_theme_support( 'post-formats',
-		array(
-			'aside',             // title less blurb
-			'gallery',           // gallery of images
-			'link',              // quick link to other site
-			'image',             // an image
-			'quote',             // a quick quote
-			'status',            // a Facebook like status update
-			'video',             // video
-			'audio',             // audio
-			'chat'               // chat transcript
-		)
-	);
 
 	/* registering WP menus */
 	add_theme_support( 'menus' );
 	register_nav_menus(
 		array(
-			'main-nav'     => 'The Main Menu',  // main nav in header
-			'footer-links' => 'Footer Links',   // links in footer
+			'mainNav'     => 'Main Menu',  		// main nav in header
+			'footerLinks' => 'Footer Links',	// links in footer
 		)
 	);
 }

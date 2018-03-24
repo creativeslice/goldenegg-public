@@ -1,68 +1,38 @@
-/*! Built by Creative Slice in Tucson, AZ / https://creativeslice.com */
-
-/******************************************************************
-
-Site Name: Golden Egg Starter Theme
-Author: Creative Slice
-
-******************************************************************/
+/*! Crafted in Tucson by Creative Slice https://creativeslice.com */
 
 /*********************
 IMPORTING MODULES
 *********************/
-
-// sanitize (browser reset)
 @import "modules/sanitize";
-
-// import variables
 @import "modules/variables";
-
-// typography
 @import "modules/typography";
 
-// buttons
-@import "modules/buttons";
-
-// content images
-@import "modules/wpimage";
-
-// the grid
-@import "modules/grid";
-
-// header
 @import "modules/header";
-
-// footer
 @import "modules/footer";
 
-// pagenavi
-@import "modules/pagenavi";
-
-// forms
+@import "modules/images";
 @import "modules/forms";
+@import "modules/buttons";
 
-// comments
-// @import "modules/comments";
-
-// colorbox
-// @import "modules/colorbox";
-
-// slick slider
-// @import "modules/slickslider";
+@import "base";
 
 
 /*********************
-BASE (MOBILE) SIZE
+COMPONENTS
 *********************/
-
-@import "base";
+@import "../components/Colorbox/Colorbox";
+@import "../components/HeaderMenu/HeaderMenu";
+@import "../components/IframeVideo/IframeVideo";
+@import "../components/Lazysizes/Lazysizes";
+@import "../components/PageNavi/PageNavi";
+@import "../components/Sidebar/Sidebar";
+@import "../components/Slickslider/Slickslider";
+@import "../components/SocialShare/SocialShare";
 
 
 /*********************
 PRINT STYLESHEET
 *********************/
 @media print {
-
 	@import "modules/print";
-
 }
