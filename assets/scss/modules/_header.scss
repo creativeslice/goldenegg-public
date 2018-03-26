@@ -10,11 +10,15 @@ HEADER STYLES
 			padding: 2em;
 		}
 	}
+@include breakpoint(medium) {
+
+}
 }
 
-#menu-toggle, #search-toggle {
+// Show Search
+#searchToggle {
 	display: block;
-	float: left;
+	float: right;
 	cursor: pointer;
 	fill: $link_color;
 	svg {
@@ -30,88 +34,4 @@ HEADER STYLES
 	display: none; // hide before pressing #search-toggle
 	margin: 1em 0;
 	text-align: center;
-}
-	
-#search-toggle {
-	float: right;
-}
-
-@include breakpoint(medium) {
-#menu-toggle {
-	display: none;
-}
-}
-
-
-/*********************
-NAVIGATION STYLES
-*********************/
-
-.main-nav {
-	margin: 0;
-	display: none;
-	clear: both;
-	li {
-		a, a:visited {
-			display: block;
-			text-decoration: none;
-			padding: 1em;
-			&:hover, &:focus {
-			}
-		}
-		ul.sub-menu,
-		ul.children {
-			li {
-				a, a:visited {
-					padding-left: 30px;
-				}
-			}
-		}
-	}
-
-	/* highlight current page */
-	li.current-menu-item,
-	li.current_page_item,
-	li.current-page-ancestor {
-		a, a:visited {
-			color: $link_hover;
-		}
-	}
-	
-@include breakpoint(medium) {
-	display: block !important;
-	clear: none;
-	li {
-		display: inline-block;
-		vertical-align: top;
-		position: relative;
-		text-align: left;
-		ul.sub-menu {
-			margin-top: 0;
-			background: $gray_lighter;
-			position: absolute;
-			z-index: 999;
-			overflow: hidden;
-			visibility: hidden;
-			opacity: 0;
-			transition: visibility $ease, opacity $ease;
-			li {
-				a, a:visited {
-					padding-left: 1em;
-					border-right: 0;
-					display: block;
-					width: 180px;
-				}
-			}
-		}
-		
-		/* showing sub-menus on hover */
-		&:hover ul {
-			top: auto;
-			overflow: visible;
-			visibility:visible;
-			opacity: 1;
-		}
-	}
-}
 }

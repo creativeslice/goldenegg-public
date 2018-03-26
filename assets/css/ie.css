@@ -339,77 +339,21 @@ HEADER STYLES
     display: inline-block;
     padding: 2em; }
 
-#menu-toggle, #search-toggle {
+#searchToggle {
   display: block;
-  float: left;
+  float: right;
   cursor: pointer;
   fill: #669933; }
-  #menu-toggle svg, #search-toggle svg {
+  #searchToggle svg {
     width: 28px;
     height: 28px; }
-  #menu-toggle:hover, #menu-toggle:focus, #search-toggle:hover, #search-toggle:focus {
+  #searchToggle:hover, #searchToggle:focus {
     fill: #80bf40; }
 
 .search-form {
   display: none;
   margin: 1em 0;
   text-align: center; }
-
-#search-toggle {
-  float: right; }
-
-#menu-toggle {
-  display: none; }
-
-/*********************
-NAVIGATION STYLES
-*********************/
-.main-nav {
-  margin: 0;
-  display: none;
-  clear: both;
-  /* highlight current page */
-  display: block !important;
-  clear: none; }
-  .main-nav li a, .main-nav li a:visited {
-    display: block;
-    text-decoration: none;
-    padding: 1em; }
-  .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited,
-  .main-nav li ul.children li a,
-  .main-nav li ul.children li a:visited {
-    padding-left: 30px; }
-  .main-nav li.current-menu-item a, .main-nav li.current-menu-item a:visited,
-  .main-nav li.current_page_item a,
-  .main-nav li.current_page_item a:visited,
-  .main-nav li.current-page-ancestor a,
-  .main-nav li.current-page-ancestor a:visited {
-    color: #80bf40; }
-  .main-nav li {
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-    text-align: left;
-    /* showing sub-menus on hover */ }
-    .main-nav li ul.sub-menu {
-      margin-top: 0;
-      background: #eee;
-      position: absolute;
-      z-index: 999;
-      overflow: hidden;
-      visibility: hidden;
-      opacity: 0;
-      transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out; }
-      .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited {
-        padding-left: 1em;
-        border-right: 0;
-        display: block;
-        width: 180px; }
-    .main-nav li:hover ul {
-      top: auto;
-      overflow: visible;
-      visibility: visible;
-      opacity: 1; }
 
 /*********************
 FOOTER STYLES
@@ -964,8 +908,8 @@ MENU NAVIGATION
   position: relative;
   float: right;
   cursor: pointer;
-  fill: #fff;
-  margin: 1.75em 6% 0 0;
+  fill: #669933;
+  margin: 1em;
   display: none; }
   #menuToggle svg {
     width: 22px;
@@ -984,55 +928,33 @@ MENU NAVIGATION
 
 .menuFull {
   display: none;
-  display: block !important;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%; }
+  display: block !important; }
 
 .main-nav {
   margin: 0;
-  background: #2980b9;
+  background: #111;
   clear: both;
   text-align: center;
-  background: none;
-  float: right;
-  margin: 58px 10px 0 0; }
+  background: none; }
   .main-nav li a, .main-nav li a:visited {
     display: block;
     text-decoration: none;
     padding: 1em;
     color: #fff;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: .15em;
-    transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out; }
-    .main-nav li a:hover, .main-nav li a:focus, .main-nav li a:visited:hover, .main-nav li a:visited:focus {
-      opacity: .8; }
-  .main-nav li ul.sub-menu {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    padding-bottom: 4px; }
-    .main-nav li ul.sub-menu li {
-      max-width: 49%;
-      display: inline-block;
-      vertical-align: top; }
-      .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited {
-        text-transform: none;
-        letter-spacing: 0;
-        padding: .75em 1em;
-        line-height: 1.25em; }
-  .main-nav li.current-menu-item > a, .main-nav li.current-menu-item > a:visited,
-  .main-nav li.current_page_item > a,
-  .main-nav li.current_page_item > a:visited,
-  .main-nav li.current-page-ancestor > a,
-  .main-nav li.current-page-ancestor > a:visited {
-    opacity: .6; }
+    transition: all 0.2s ease-in-out; }
+  .main-nav li ul.sub-menu li {
+    max-width: 49%;
+    display: inline-block;
+    vertical-align: top; }
+    .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited {
+      text-transform: none;
+      letter-spacing: 0;
+      padding: .75em 1em;
+      line-height: 1.25em; }
   .main-nav li {
     display: inline-block;
     vertical-align: top;
     position: relative;
-    text-align: left;
     /* showing sub-menus on hover */ }
     .main-nav li ul.sub-menu {
       left: auto;
@@ -1051,7 +973,7 @@ MENU NAVIGATION
       .main-nav li ul.sub-menu li {
         max-width: none; }
         .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited {
-          padding-left: 14px;
+          padding-left: 1em;
           border-right: 0;
           display: block;
           width: 224px;

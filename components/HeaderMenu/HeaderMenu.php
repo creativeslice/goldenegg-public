@@ -13,8 +13,4 @@
 		'depth' => 2
 	)); ?>
 	
-	<div class="socialLinks">
-		<a href="https://twitter.com/" target="_blank" title="Twitter"><svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#twitter"></use></svg></a>
-	</div>
-	
 </nav>

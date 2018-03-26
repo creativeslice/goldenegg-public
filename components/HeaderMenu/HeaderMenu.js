@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 	/**
 	 * Open search panel and focus cursor
 	 */
-	$('#search-toggle').click(function(e) {
+	$('#searchToggle').click(function(e) {
 		e.preventDefault();
 		var $this = $(this);
 		$this.toggleClass('active');
@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
 	/**
 	 * Sub menu functionality for touch screen
 	 */
-	$('.main-nav').find('a').on('focus blur', function() {
+	$('.mainNav').find('a').on('focus blur', function() {
 		$( this ).parents('.menu-item, .page_item').toggleClass('focus');
 	});
 	if ( 'ontouchstart' in window ) {

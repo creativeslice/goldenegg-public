@@ -7,8 +7,8 @@ MENU NAVIGATION
 	position: relative;
 	float: right;
 	cursor: pointer;
-	fill: $white;
-	margin: 1.75em 6% 0 0;
+	fill: $link_color;
+	margin: 1em;
 	svg {
 		width: 22px;
 		height: 22px;
@@ -39,11 +39,6 @@ MENU NAVIGATION
 	display: none;
 @include breakpoint(large) {
 	display: block !important;
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	width: 100%;
 }
 }
 
@@ -51,7 +46,7 @@ MENU NAVIGATION
 // WP Menu
 .main-nav {
 	margin: 0;
-	background: $blue;
+	background: $black;
 	clear: both;
 	text-align: center;
 	li {
@@ -60,17 +55,11 @@ MENU NAVIGATION
 			text-decoration: none;
 			padding: 1em;
 			color: $white;
-			text-transform: uppercase;
-			font-size: 14px;
-			letter-spacing: .15em;
-			transition: opacity $ease, color $ease;
+			transition: all $ease;
 			&:hover, &:focus {
-				opacity: .8;
 			}
 		}
 		ul.sub-menu {
-			border-bottom: 1px solid rgba($white, .5);
-			padding-bottom: 4px;
 			li {
 				max-width: 49%;
 				display: inline-block;
@@ -88,18 +77,14 @@ MENU NAVIGATION
 	li.current_page_item,
 	li.current-page-ancestor {
 		> a, > a:visited {
-			opacity: .6;
 		}
 	}
 @include breakpoint(large) {
 	background: none;
-	float: right;
-	margin: 58px 10px 0 0;
 	li {
 		display: inline-block;
 		vertical-align: top;
 		position: relative;
-		text-align: left;
 		ul.sub-menu {
 			left: auto;
 			right: 0;
@@ -117,7 +102,7 @@ MENU NAVIGATION
 			li {
 				max-width: none;
 				a, a:visited {
-					padding-left: 14px;
+					padding-left: 1em;
 					border-right: 0;
 					display: block;
 					width: 224px;
@@ -140,23 +125,6 @@ MENU NAVIGATION
 			overflow: visible;
 			visibility: visible;
 			opacity: 1;
-		}
-	}
-}
-@include breakpoint(xlarge) {
-	float: left;
-	li ul.sub-menu {
-		right: auto;
-		left: 0;
-		top: auto;
-		&:after {
-			content: '';
-			position: absolute;
-			top: -7px;
-			left: 12px;
-			border-right: 8px solid transparent;
-			border-bottom: 8px solid $white;
-			border-left: 8px solid transparent;
 		}
 	}
 }

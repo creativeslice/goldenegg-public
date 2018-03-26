@@ -10,7 +10,7 @@
     
     <?php wp_head(); ?>
     
-    <?php //get_template_part( 'components/Favicons/Favicons' ); ?>
+    <?php //get_template_part( 'components/favicons/favicons' ); ?>
 
 <!--[if lt IE 9]>
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/ie.css" type="text/css" media="all" />
@@ -34,13 +34,11 @@
 				</a>
 			</div>
 			
-			<span id="search-toggle">
-				<svg title="search">
-					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#search"></use>
-				</svg>
+			<span id="searchToggle">
+				<svg title="search"><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#search"></use></svg>
 			</span>
 			
-			<?php get_template_part( 'components/HeaderMenu/HeaderMenu' ); ?>
+			<?php get_template_part( 'components/headerMenu/headerMenu' ); ?>
 
 		</div>
 
