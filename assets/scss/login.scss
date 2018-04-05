@@ -3,14 +3,14 @@
 Stylesheet: Login Screen
 
 ******************************************************************/
-$login_accent: #669933; // green
-$login_dark: #1b801b; // green dark
+$login_accent: #e8c200; // gold
+$login_dark: #000; // black
 
 body.login {
-	background: $login_accent;
+	background: #fefefe;
 	background-image: linear-gradient(
 		45deg,
-		$login_dark, $login_accent
+		#eee, #fff
 	);
 }
 
@@ -19,9 +19,10 @@ body.login {
  */
 .login {
 	h1 a {
-		background: url(../img/login-logo.png) no-repeat top center;
-		width: 274px;
-		height: 64px;
+		background: url(../img/logo.png) no-repeat top center;
+		background-size: contain;
+		width: 240px;
+		height: 60px;
 		text-indent: -9999px;
 		overflow: hidden;
 		padding-bottom: 0px;
@@ -31,9 +32,9 @@ body.login {
 		border-color: black;
 	}
 	#nav a, #backtoblog a {
-		color: rgba(white, .7);
+		color: rgba(black, .6);
 		&:hover {
-			color: white;
+			color: black;
 		}
 	}
 }

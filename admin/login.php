@@ -1,8 +1,8 @@
 <?php
+	
 /**
  * Customize the login screen
  */
- 
 add_action( 'login_init', 'egg_login_init' );
 function egg_login_init() {
 	
@@ -16,7 +16,7 @@ function egg_login_init() {
 
 
 /**
- * Add theme log in CSS
+ * Add theme login CSS
  */
 function egg_login_css() {
 	wp_enqueue_style( 'egg_admin_login', get_template_directory_uri() . '/assets/css/login.css', false );

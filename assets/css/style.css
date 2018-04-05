@@ -1,4 +1,4 @@
-/*! Crafted in Tucson by Creative Slice https://creativeslice.com */
+/*! Crafted by Creative Slice https://creativeslice.com */
 /*********************
 IMPORTING MODULES
 *********************/
@@ -1160,38 +1160,6 @@ PAGE NAVI STYLES
     .PageNavi .current:hover, .PageNavi .current:focus {
       background-color: #fff;
       color: #333; }
-
-.sideSmall {
-  width: 100%;
-  position: relative;
-  padding: 20px 0; }
-  @media screen and (min-width: 64em) {
-    .sideSmall {
-      width: 30%;
-      max-width: 320px;
-      float: left;
-      clear: left;
-      margin-top: 12vw;
-      padding: 1em 0; } }
-
-.headerMed + .sideSmall {
-  clear: none; }
-  .headerMed + .sideSmall .circleItem {
-    display: block;
-    margin: -60px auto 0 auto; }
-  @media screen and (min-width: 48em) {
-    .headerMed + .sideSmall .circleItem {
-      margin-top: -180px; } }
-  @media screen and (min-width: 64em) {
-    .headerMed + .sideSmall .circleItem {
-      margin-top: 0; } }
-
-@media screen and (min-width: 64em) {
-  .sideSmall + .contentMed {
-    margin-top: 10vw; } }
-
-.headerMed + .sideSmall + .contentMed {
-  margin-top: 0; }
 
 /******************************************************************
 

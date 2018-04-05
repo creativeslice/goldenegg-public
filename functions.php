@@ -17,7 +17,6 @@ require_once( 'admin/login.php' );
 require_once( 'admin/tinymce.php' );
 #require_once( 'admin/disable-comments.php' );          // Completely remove comments from the admin area
 #require_once( 'admin/recently-updated-content.php' ); 	// Shows recently updated content. REQUIRES customization
-#require_once( 'admin/dashboard-widget.php' ); 			// Widget example to show instructions
 
 // Front End
 require_once( 'includes/enqueue.php' );
