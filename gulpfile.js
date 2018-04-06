@@ -37,35 +37,35 @@ var onError = function( error ) {
  * CSS
  */
 gulp.task('styles', function() {
-	return gulp.src('scss/style.scss')
+	return gulp.src('assets/scss/style.scss')
 		.pipe( plumber( { errorHandler: onError } ) )
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-		.pipe(gulp.dest('css'))
+		.pipe(gulp.dest('assets/css'))
 		.pipe(minifycss())
 		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest('css'))
+		.pipe(gulp.dest('assets/css'))
 		.pipe(livereload())
 });
 gulp.task('styles-ie', function() {
-	return gulp.src('scss/ie.scss')
+	return gulp.src('assets/scss/ie.scss')
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('ie 7', 'ie 8'))
-		.pipe(gulp.dest('css'))
+		.pipe(gulp.dest('assets/css'))
 		.pipe(notify({ message: 'IE styles task complete' }));
 });
 gulp.task('styles-login', function() {
-	return gulp.src('scss/login.scss')
+	return gulp.src('assets/scss/login.scss')
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-		.pipe(gulp.dest('css'))
+		.pipe(gulp.dest('assets/css'))
 		.pipe(notify({ message: 'Admin styles task complete' }));
 });
 gulp.task('styles-editor', function() {
-	return gulp.src('scss/editor.scss')
+	return gulp.src('assets/scss/editor.scss')
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-		.pipe(gulp.dest('css'))
+		.pipe(gulp.dest('assets/css'))
 		.pipe(notify({ message: 'Editor styles task complete' }));
 });
 
@@ -76,25 +76,25 @@ gulp.task('styles-editor', function() {
 gulp.task('scripts', function() {
 	if ( 'production' === environment ) {
 		return gulp.src([
-				'js/src/libs/*.js',
-				'js/src/**/*.js',
-				'../components/**/*.js',
+				'assets/js/src/libs/*.js',
+				'assets/js/src/**/*.js',
+				'components/**/*.js',
 			])
 			.pipe(concat('scripts.js'))
 			.pipe(jsHint())
 			.pipe(stripDebug())
 			.pipe(uglify())
-			.pipe(gulp.dest('js'))
+			.pipe(gulp.dest('assets/js'))
 			.pipe(notify({ message: 'Production scripts task complete' }));
 	} else {
 		return gulp.src([
-				'js/src/libs/*.js',
-				'js/src/**/*.js',
-				'../components/**/*.js',
+				'assets/js/src/libs/*.js',
+				'assets/js/src/**/*.js',
+				'components/**/*.js',
 			])
 			.pipe(concat('scripts.js'))
 			.pipe(jsHint())
-			.pipe(gulp.dest('js'))
+			.pipe(gulp.dest('assets/js'))
 			.pipe(livereload())
 			.pipe(notify({ message: 'Scripts task complete' }));
 	}
@@ -108,7 +108,7 @@ gulp.task('scripts', function() {
  *
  */
 gulp.task('icons', function() {
-	return gulp.src('icons/src/*')
+	return gulp.src('assets/icons/src/*')
 		.pipe( gulpif('production'==environment, svgmin()) )
 		.pipe( svgstore({ inlineSvg: true }) )
 		.pipe( cheerio({
@@ -132,11 +132,12 @@ gulp.task('default', function() {
 	gulp.start('styles', 'styles-ie', 'styles-login', 'styles-editor', 'scripts');
 });
 
+
 // 'gulp watch' (does not compile styles-ie or styles-login or icons)
 gulp.task('watch', function() {
 	livereload.listen();
-	gulp.watch('scss/**/*.scss', ['styles']);
-	gulp.watch('../components/**/*.scss', ['styles']);
-	gulp.watch('js/src/**/*.js', ['scripts']);
-	gulp.watch('../components/**/*.js', ['scripts']);
+	gulp.watch('assets/scss/**/*.scss', ['styles']);
+	gulp.watch('components/**/*.scss', ['styles']);
+	gulp.watch('assets/js/src/**/*.js', ['scripts']);
+	gulp.watch('components/**/*.js', ['scripts']);
 });

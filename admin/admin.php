@@ -3,27 +3,11 @@
  * Make adjustments to the admin
  */
 
-// actions
-add_action( 'admin_menu',                 'egg_disable_dashboard_widgets' );
-add_action( 'admin_head',                 'egg_admin_favicon', 11 );
-add_action( 'welcome_panel',              'egg_dashboard_welcome_cleanup' );
-add_action( 'admin_menu',                 'egg_remove_menu_pages' );
-add_action( 'wp_before_admin_bar_render', 'egg_customize_admin_bar' );
-add_action( 'wp_before_admin_bar_render', 'custom_adminbar_titles' );
-add_action( 'wp_head', 					  'style_admin_bar' );
-#add_action( 'admin_init',                 'egg_dependencies' );
-
-// filters
-add_filter( 'gettext',                    'egg_replace_howdy', 10, 3 );
-add_filter( 'admin_footer_text',          'egg_admin_footer' );
-add_filter( 'auto_core_update_send_email', 'egg_bypass_auto_update_email', 10, 4 );
-#add_filter( 'show_admin_bar',             'egg_admin_bar_permissions' );
-#add_filter( 'screen_options_show_screen', 'egg_remove_screen_options' );
-
 
 /**
  * Disable the auto generated email sent to the admin after a successful core update:
  */
+add_filter( 'auto_core_update_send_email', 'egg_bypass_auto_update_email', 10, 4 );
 function egg_bypass_auto_update_email( $send, $type, $core_update, $result ) {
     if ( ! empty( $type ) && $type == 'success' ) {
         return false;
@@ -35,7 +19,8 @@ function egg_bypass_auto_update_email( $send, $type, $core_update, $result ) {
 /**
  * Modify the admin bar left label
  */
-function custom_adminbar_titles( ) {
+add_action( 'wp_before_admin_bar_render', 'egg_adminbar_titles' );
+function egg_adminbar_titles( ) {
 	if(is_admin()){ 
 		$title = "Home";
 	}
@@ -54,7 +39,8 @@ function custom_adminbar_titles( ) {
 /**
  * Change admin area left icon to odometer
  */
-function style_admin_bar() {
+add_action( 'wp_head', 'egg_style_admin_bar' );
+function egg_style_admin_bar() {
 	if ( is_user_logged_in() ){
 	    echo "<style type='text/css'>
 	    #wpadminbar #wp-admin-bar-site-name>.ab-item:before {
@@ -67,28 +53,19 @@ function style_admin_bar() {
 
 
 /**
- * Check for dependencies
+ * Remove Help Tab
  */
-function egg_dependencies() {
-	if ( ! class_exists( 'acf' ) ) {
-		add_action( 'admin_notices', 'egg_acf_dependency_message' );
-	}
+add_action('admin_head', 'egg_remove_help_tabs');
+function egg_remove_help_tabs() {
+	$screen = get_current_screen();
+	$screen->remove_help_tabs();
 }
-
-
-/**
- * Add a nag for required dependencies that are missing
- */
-function egg_acf_dependency_message() { ?>
-	<div class="update-nag">
-		This theme requires the <a href="http://wordpress.org/plugins/advanced-custom-fields/">Advanced Custom Fields</a> plugin to be installed and activated.
-	</div>
-<?php }
 
 
 /**
  * Disable default dashboard widgets.
  */
+add_action( 'admin_menu', 'egg_disable_dashboard_widgets' );
 function egg_disable_dashboard_widgets() {
 	remove_meta_box('dashboard_right_now', 'dashboard', 'core');    	// Right Now Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core'); 	// Incoming Links Widget
@@ -98,8 +75,7 @@ function egg_disable_dashboard_widgets() {
 	remove_meta_box('dashboard_activity', 'dashboard', 'core');			// Activity Widget
 	remove_meta_box('dashboard_primary', 'dashboard', 'core');			// WordPress News Widget
 
-	// removing plugin dashboard boxes
-	// remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');		// Gravity Forms Plugin Widget
+	// remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');	// Gravity Forms Plugin Widget
 	remove_meta_box('wpe_dify_news_feed', 'dashboard', 'normal');		// WPEngine News Widget
 }
 
@@ -107,15 +83,16 @@ function egg_disable_dashboard_widgets() {
 /**
  * Add a developer favicon to admin area
  */
+add_action( 'admin_head', 'egg_admin_favicon', 11 );
 function egg_admin_favicon() { ?>
 	<link rel="icon" href="<?php echo get_template_directory_uri() . '/admin/assets/img/favicon.png'; ?>">
-	<?php
-}
+<?php }
 
 
 /**
  * Remove some screen options from the dashboard
  */
+add_action( 'welcome_panel', 'egg_dashboard_welcome_cleanup' );
 function egg_dashboard_welcome_cleanup() {
 	global $pagenow;
 	if ( 'index.php' == $pagenow ) { ?>
@@ -130,8 +107,9 @@ function egg_dashboard_welcome_cleanup() {
 
 
 /**
- * Remove some admin pages that we never want
+ * Remove some admin pages like links
  */
+add_action( 'admin_menu', 'egg_remove_menu_pages' );
 function egg_remove_menu_pages() {
 	remove_menu_page('link-manager.php');
 	if (! current_user_can('manage_options') ) remove_menu_page('tools.php');
@@ -140,11 +118,9 @@ function egg_remove_menu_pages() {
 
 /**
  * Remove top admin menu items
- *
- * @return	void
  */
-function egg_customize_admin_bar()
-{
+add_action( 'wp_before_admin_bar_render', 'egg_customize_admin_bar' );
+function egg_customize_admin_bar() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('search');
 	$wp_admin_bar->remove_menu('wp-logo');
@@ -173,20 +149,11 @@ function egg_customize_admin_bar()
 
 
 /**
- * Force the admin bar on for editors and admins and off for below
- *
- * @return	array Modified settings
- */
-function egg_admin_bar_permissions( $content ) {
-	return ( current_user_can('edit_others_posts') ) ? true : false;
-}
-
-
-/**
  * Replace howdy in the admin bar
  *
  * @return	string Modified welcome message.
  */
+add_filter( 'gettext', 'egg_replace_howdy', 10, 3 );
 function egg_replace_howdy( $translated, $text, $domain ) {
 	if ( false !== strpos($translated, "Howdy") ) {
 		return str_replace("Howdy", "Welcome back", $translated);
@@ -198,19 +165,7 @@ function egg_replace_howdy( $translated, $text, $domain ) {
 /**
  * Customize admin footer
  */
-function egg_admin_footer() {
-	?>
+add_filter( 'admin_footer_text', 'egg_admin_footer' );
+function egg_admin_footer() { ?>
 	<span id="footer-thankyou">Crafted with care by <a href="<?php echo EGG_DEVELOPER_URL; ?>" target="_blank"><?php echo EGG_DEVELOPER; ?></a></span>
-	<?php
-}
-
-
-/**
- * Remove screen options from the dashboard
- */
-function egg_remove_screen_options() {
-	global $pagenow;
-
-	if ( 'index.php' == $pagenow ) return false;
-	return true;
-}
+<?php }
