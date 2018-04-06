@@ -1,9 +1,14 @@
+/******************************************************************
+
+Stylesheet: Variables
+
+******************************************************************/
 
 /*********************
 FONTS
 *********************/
-$sans_serif: 		'Helvetica', sans-serif;
-$serif:				'Georgia', serif;
+$sans_serif: 		"Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:				"Georgia", Cambria, Times New Roman, Times, serif;
 $headline: 			'DIN', sans-serif;
 
 
@@ -43,7 +48,7 @@ $ease:				.2s ease-in-out;
 $easeslow:			.6s ease-in;
 
 
-// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+// Contain floats
 .clearfix, .cf {
 	zoom: 1;
 	&:before, &:after { 
@@ -53,13 +58,6 @@ $easeslow:			.6s ease-in;
 	&:after { 
 		clear: both; 
 	}
-}
-
-// Better support for screen readers with icons
-.screen-reader-text {
-	left: -9999em !important;
-	position: absolute !important;
-	top: -9999em !important;
 }
 
 

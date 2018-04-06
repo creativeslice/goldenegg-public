@@ -4,10 +4,6 @@ Stylesheet: BASE
 
 ******************************************************************/
 
-/*********************
-GENERAL STYLES
-*********************/
-
 html, body {
 	background-color: $gray_lighter;
 }
@@ -45,7 +41,7 @@ LAYOUT & GRID STYLES
 	max-width: 1200px;
 }
 
-.wrap-inner {
+.wrapInner {
 	width: 94%;
 	margin: 0 auto;
 	max-width: 800px;
@@ -61,38 +57,32 @@ LINK STYLES
 
 a, a:visited {
 	color: $link_color;
-
 	&:hover, &:focus {
 		color: $link_hover;
 	}
-
-	/* on click */
 	&:active {
 		color: darken($link_hover, 10%);
 	}
-
-	/* mobile tap color */
 	&:link {
-		-webkit-tap-highlight-color: rgba( $link_color, 0.5 );
+		-webkit-tap-highlight-color: rgba( $link_color, 0.5 ); // mobile tap color
 	}
 }
 
 /*********************
-POSTS & CONTENT STYLES
+CONTENT STYLES
 *********************/
 
 #content {
-	background: white;
 @include breakpoint(medium) {
 }
 }
 
 
-/******************************************************************
+/*********************
 ENTRY CONTENT
-******************************************************************/
+*********************/
 
-.entry-content {
+.entryContent {
 
 	ul, ol {
 		margin: 0 0 $default_margin 2em;
@@ -142,24 +132,4 @@ SIDEBARS & ASIDES
 .sidebar {
 	background: $gray_lighter;
 	padding: 2em;
-}
-
-
-/*********************
-SHARE LINKS
-*********************/
-
-.share-links {
-	a, a:visited {
-		fill: $link_color;
-		display: inline-block;
-		padding: .5em;
-		&:hover {
-			fill: $link_hover;
-		}
-		svg {
-			width: 24px;
-			height: 24px;
-		}
-	}
 }

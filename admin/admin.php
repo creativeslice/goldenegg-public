@@ -167,5 +167,5 @@ function egg_replace_howdy( $translated, $text, $domain ) {
  */
 add_filter( 'admin_footer_text', 'egg_admin_footer' );
 function egg_admin_footer() { ?>
-	<span id="footer-thankyou">Crafted with care by <a href="<?php echo EGG_DEVELOPER_URL; ?>" target="_blank"><?php echo EGG_DEVELOPER; ?></a></span>
+	<span id="footer-thankyou">Built by <a href="https://creativeslice.com" target="_blank">Creative Slice</a></span>
 <?php }

@@ -4,10 +4,6 @@ Stylesheet: WP Images
 
 ******************************************************************/
 
-/******************************************************************
-ENTRY CONTENT IMAGES
-******************************************************************/
-
 .size-auto,
 .size-full,
 .size-large,
@@ -45,17 +41,13 @@ ENTRY CONTENT IMAGES
 	height: auto;
 }
 
-/******************************************************************
-CAPTIONS
-******************************************************************/
+/*********************
+WP CAPTIONS
+*********************/
 
 .wp-caption {
 	max-width: 100%;
-	background: $gray_light;
-	font-size: 0.75em;
-	padding: 0.25em 0;
 	text-align: center;
-	
 	&.alignleft {
 		margin-right: $default_margin;
 	}
@@ -83,33 +75,9 @@ CAPTIONS
 }
 
 
-/******************************************************************
-RESPONSIVE VIDEO CONTAINER
-******************************************************************/
-
-.video-container { 
-	position: relative; 
-	padding-bottom: 56.25%; 
-	height: 0; 
-	overflow: hidden;
-	margin-bottom: 1em;
-}
-
-.video-container iframe, 
-.video-container object, 
-.video-container embed, 
-.video-container video { 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	width: 100%; 
-	height: 100%; 
-}
-
-
-/******************************************************************
+/*********************
 HTML5 IMAGE GALLERY
-******************************************************************/
+*********************/
 
 .gallery {
 	text-align: justify;
@@ -138,11 +106,34 @@ HTML5 IMAGE GALLERY
 		width: 25%;
 	}
 	img {
-		will-change: opacity; // transform
+		will-change: opacity;
 		&:hover {
 			opacity: .7;
 			transition: opacity $ease;
 		}
 	}
 }
+}
+
+/*********************
+RESPONSIVE VIDEOS
+*********************/
+
+.videoContainer { 
+	position: relative; 
+	padding-bottom: 56.25%; 
+	height: 0; 
+	overflow: hidden;
+	margin-bottom: 1em;
+}
+
+.videoContainer iframe, 
+.videoContainer object, 
+.videoContainer embed, 
+.videoContainer video { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
 }

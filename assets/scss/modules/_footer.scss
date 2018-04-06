@@ -1,13 +1,15 @@
-/*********************
-FOOTER STYLES
-*********************/
+/******************************************************************
+
+Stylesheet: Footer
+
+******************************************************************/
 
 .footer {
 	clear: both;
 	text-align: center;
 	padding: 2em 0;
 
-	.footer-nav {
+	.footerNav {
 		li {
 			list-style: none;
 			a {
@@ -21,7 +23,7 @@ FOOTER STYLES
 		clear: both;
 	}
 @include breakpoint(medium) {
-	.footer-nav {
+	.footerNav {
 		li {
 			display: inline-block;
 		}

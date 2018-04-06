@@ -4,18 +4,18 @@
 	
 	<div class="wrap">
 
-		<article id="post-not-found" class="hentry">
+		<article>
 
-			<header class="article-header">
+			<header class="articleHeader">
 				<h1>Page Not Found</h1>
 			</header>
 
-			<section class="entry-content">
+			<section class="entryContent">
 				<p>The page you were looking for may have moved:</p>
 				<p><?php get_search_form(); ?></p>
 			</section>
 
-			<section class="site-map">
+			<section class="siteMap">
 				<h2>All Pages:</h2>
 				<ul><?php wp_list_pages('title_li=&depth=5'); ?></ul>
 			</section>

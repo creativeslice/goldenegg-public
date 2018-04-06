@@ -10,7 +10,6 @@
 
 			<header class="article-header">
 				<h1 class="entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-				<?php get_template_part( 'partials/content', 'byline' ); ?>
 			</header>
 
 			<section class="entry-content">
@@ -19,11 +18,11 @@
 
 		</article>
 
-		<?php endwhile; ?>
-			<?php do_action('egg/page_navi'); ?>
-		<?php else : ?>
-			<?php get_template_part( 'partials/content', 'missing' ); ?>
-		<?php endif; ?>
+		<?php endwhile; 
+			locate_template('components/pageNavi/pageNavi.php'); 
+		else : 
+			echo '<h1>Nothing Found Here</h1>';
+		endif; ?>
 
 	</div>
 

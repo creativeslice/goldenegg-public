@@ -3,7 +3,6 @@
  * Exclude Checkbox in Page Attributes
  */
 
-
 // Exclude from WP Menu
 function custom_wp_list_pages_excludes( $exclude_array ) {
     global $wpdb;

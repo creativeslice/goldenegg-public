@@ -1,18 +1,14 @@
 /******************************************************************
 
-Stylesheet: ANIMATION
+Stylesheet: Animation
 
 ******************************************************************/
-
-IMG[src=''], IMG:not([src]) { // hides border for images without src
-	opacity: 0;
-}
 
 /*********************
 FADE ELEMENTS
 *********************/
 
-.fade-block {
+.fadeBlock {
 	transition-delay: 0s;
 	transition-duration: 0.6s;
 	transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -27,6 +23,7 @@ FADE ELEMENTS
 	opacity: 1;
 	transition: opacity .5s; 
 }
+
 .fadeOut {
 	opacity: 0;
 	transition: opacity .5s; 
@@ -37,7 +34,7 @@ FADE ELEMENTS
 AJAX LOADING SPINNER
 *********************/
 
-.ajax-spinner, .img-wrap {
+.ajaxSpinner {
     border:3px solid $green;
     border-radius:30px;
     height:30px;
@@ -47,7 +44,6 @@ AJAX LOADING SPINNER
     position:absolute;
     top:50%;
     width:30px;
- 
     animation: pulsate 1s ease-out;
     animation-iteration-count:infinite;
 }

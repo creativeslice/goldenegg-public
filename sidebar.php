@@ -13,18 +13,12 @@
 	} 
 	?>
 
-	<ul class="side-menu">
+	<ul class="sideMenu">
 		<li class="<?php echo $current; ?>"><a href="<?php echo get_permalink($topid); ?>"><?php echo get_the_title($topid); ?></a>
 			<ul>
 				<?php wp_list_pages("title_li=&child_of=".$topid); ?>
 			</ul>
 		</li>
 	</ul>
-
-	<hr>
-
-	<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
-		<?php dynamic_sidebar( 'sidebar1' ); ?>
-	<?php endif; ?>
 
 </aside>

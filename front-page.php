@@ -2,25 +2,17 @@
 
 <div id="content">
 
-	<div class="wrap">
+	<article class="wrap">
 
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		<header class="articleHeader">
+			<h1><?php the_title(); ?></h1>
+		</header>
 
-		<article <?php post_class( 'cf' ); ?>>
+		<section class="entryContent">
+			<?php the_post(); the_content(); ?>
+		</section>
 
-			<header class="article-header">
-				<h1 class="page-title"><?php the_title(); ?></h1>
-			</header>
-
-			<section class="entry-content">
-				<?php the_content(); ?>
-			</section>
-
-		</article>
-
-		<?php endwhile; endif; ?>
-
-	</div>
+	</article>
 
 </div>
 

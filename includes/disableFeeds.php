@@ -1,7 +1,6 @@
 <?php
 /*
 Plugin Name: Sewn In Remove WordPress Feeds
-Plugin URI: http://bitbucket.org/jupitercow/no-feeds
 Description: Disable feeds in order to not leak information out through unused feeds.
 Version: 1.0.0
 Author: Jake Snyder

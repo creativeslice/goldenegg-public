@@ -20,10 +20,8 @@ add_filter( 'pre_option_enable_xmlrpc',			'__return_zero' );
 /**
  * Disable XMLRPC call
  */
-function egg_disable_xmlrpc( $action )
-{
-	if ( 'pingback.ping' === $action )
-	{
+function egg_disable_xmlrpc( $action ) {
+	if ( 'pingback.ping' === $action ) {
 		wp_die( 
 			'Pingbacks are not supported', 
 			'Not Allowed!', 
@@ -39,10 +37,8 @@ function egg_disable_xmlrpc( $action )
  * Does not modify $post['ping_status'] - could read 'open'
  * Does not modify $default_ping_status - could read 'open'
  */
-function egg_remove_pt_headers( $headers )
-{
-	if( isset( $headers['X-Pingback'] ) )
-	{
+function egg_remove_pt_headers( $headers ) {
+	if( isset( $headers['X-Pingback'] ) ) {
 		unset( $headers['X-Pingback'] );
 	}
 	return $headers;
@@ -52,12 +48,9 @@ function egg_remove_pt_headers( $headers )
 /**
  * Kill the rewrite rule
  */
-function egg_remove_pt_rewrites( $rules )
-{
-	foreach ( $rules as $rule => $rewrite )
-	{
-		if ( preg_match( '/trackback\/\?\$$/i', $rule ) )
-		{
+function egg_remove_pt_rewrites( $rules ) {
+	foreach ( $rules as $rule => $rewrite ) {
+		if ( preg_match( '/trackback\/\?\$$/i', $rule ) ) {
 			unset( $rules[$rule] );
 		}
 	}
@@ -68,10 +61,8 @@ function egg_remove_pt_rewrites( $rules )
 /**
  * Kill bloginfo( 'pingback_url' )
  */
-function egg_remove_pt_pingback_url( $output, $show )
-{
-	if ( 'pingback_url' == $show )
-	{
+function egg_remove_pt_pingback_url( $output, $show ) {
+	if ( 'pingback_url' == $show ) {
 		$output = '';
 	}
 	return $output;

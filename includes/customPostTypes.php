@@ -2,7 +2,6 @@
 
 /**
  * Flush rewrite rules for custom post types
- *
  */
 add_action( 'after_switch_theme', 'egg_flush_rewrite_rules' );
 function egg_flush_rewrite_rules() {

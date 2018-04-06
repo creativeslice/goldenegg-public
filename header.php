@@ -28,17 +28,15 @@
 
 		<div class="wrap cf">
 
-			<div id="logo">
-				<a href="<?php echo home_url(); ?>" title="Home">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" />
-				</a>
-			</div>
+			<a id="logo" href="<?php echo home_url(); ?>" title="Home">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" />
+			</a>
 			
 			<span id="searchToggle">
 				<svg title="search"><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#search"></use></svg>
 			</span>
 			
-			<?php get_template_part( 'components/headerMenu/headerMenu' ); ?>
+			<?php locate_template('components/headerMenu/headerMenu.php'); ?>
 
 		</div>
 

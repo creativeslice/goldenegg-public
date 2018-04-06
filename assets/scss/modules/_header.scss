@@ -1,14 +1,14 @@
-/*********************
-HEADER STYLES
-*********************/
+/******************************************************************
+
+Stylesheet: Header
+
+******************************************************************/
 
 .header {
 	text-align: center;
 	#logo {
-		a {
-			display: inline-block;
-			padding: 2em;
-		}
+		display: inline-block;
+		padding: 2em;
 	}
 @include breakpoint(medium) {
 
@@ -31,7 +31,7 @@ HEADER STYLES
 }
 
 .search-form {
-	display: none; // hide before pressing #search-toggle
+	display: none; // hide before pressing #searchToggle
 	margin: 1em 0;
 	text-align: center;
 }
