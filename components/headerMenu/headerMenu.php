@@ -5,12 +5,10 @@
 </span>
 
 <nav class="menuFull">
-	
-	<?php wp_nav_menu(array(
-		'container' => false,
-		'menu_class' => 'mainNav',
-		'theme_location' => 'mainNav',
-		'depth' => 2
-	)); ?>
-	
+<?php wp_nav_menu(array(
+	'container' => false,
+	'menu_class' => 'mainNav',
+	'theme_location' => 'mainNav',
+	'depth' => 2
+)); ?>
 </nav>

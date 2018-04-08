@@ -487,26 +487,6 @@ HTML5 IMAGE GALLERY
         -webkit-transition: opacity 0.2s ease-in-out;
         transition: opacity 0.2s ease-in-out; } }
 
-/*********************
-RESPONSIVE VIDEOS
-*********************/
-.videoContainer {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  margin-bottom: 1em; }
-
-.videoContainer iframe,
-.videoContainer object,
-.videoContainer embed,
-.videoContainer video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; }
-
 /******************************************************************
 
 Stylesheet: Forms
@@ -899,8 +879,8 @@ MENU NAVIGATION
   fill: #669933;
   margin: 1em; }
   #menuToggle svg {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     position: absolute;
     top: 0;
     right: 0; }
@@ -922,75 +902,75 @@ MENU NAVIGATION
     .menuFull {
       display: block !important; } }
 
-.main-nav {
+/*********************
+MAIN MENU
+*********************/
+.mainNav {
   margin: 0;
-  background: #111;
   clear: both;
   text-align: center; }
-  .main-nav li a, .main-nav li a:visited {
+  .mainNav li a, .mainNav li a:visited {
     display: block;
     text-decoration: none;
     padding: 1em;
-    color: #fff;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; }
-  .main-nav li ul.sub-menu li {
+  .mainNav li ul.sub-menu li {
     max-width: 49%;
     display: inline-block;
     vertical-align: top; }
-    .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited {
+    .mainNav li ul.sub-menu li a, .mainNav li ul.sub-menu li a:visited {
       text-transform: none;
       letter-spacing: 0;
-      padding: .75em 1em;
-      line-height: 1.25em; }
+      padding: .5em 1em; }
   @media screen and (min-width: 64em) {
-    .main-nav {
+    .mainNav {
       background: none; }
-      .main-nav li {
+      .mainNav li {
         display: inline-block;
         vertical-align: top;
-        position: relative;
-        /* showing sub-menus on hover */ }
-        .main-nav li ul.sub-menu {
+        position: relative; }
+        .mainNav li ul.sub-menu {
           left: auto;
           right: 0;
           margin-top: 0;
-          padding: 4px 0;
-          background: #fff;
-          -webkit-box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
-                  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
-          border-radius: 2px;
           position: absolute;
           z-index: 999;
           overflow: hidden;
           visibility: hidden;
           opacity: 0;
           -webkit-transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;
-          transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out; }
-          .main-nav li ul.sub-menu li {
+          transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;
+          padding: 4px 0;
+          background: #fff;
+          -webkit-box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+                  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+          border-radius: 2px; }
+          .mainNav li ul.sub-menu li {
             max-width: none; }
-            .main-nav li ul.sub-menu li a, .main-nav li ul.sub-menu li a:visited {
+            .mainNav li ul.sub-menu li a, .mainNav li ul.sub-menu li a:visited {
               padding-left: 1em;
               border-right: 0;
               display: block;
-              width: 224px;
-              color: #666;
+              width: 220px;
               border-top: 1px solid #999; }
-              .main-nav li ul.sub-menu li a:hover, .main-nav li ul.sub-menu li a:visited:hover {
-                color: #111; }
-          .main-nav li ul.sub-menu li:first-child a {
+          .mainNav li ul.sub-menu li:first-child a {
             border: none; }
-        .main-nav li:hover ul {
+        .mainNav li:hover ul {
           top: auto;
           overflow: visible;
           visibility: visible;
           opacity: 1; } }
 
+/*********************
+RESPONSIVE VIDEOS
+*********************/
 .videoContainer {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  margin-bottom: 1em; }
   .videoContainer .playButton {
     position: absolute;
     left: 0px;
@@ -1021,24 +1001,8 @@ MENU NAVIGATION
   position: absolute;
   top: 0;
   left: 0;
-  width: 100% !important;
+  width: 100%;
   height: 100%; }
-
-.videoContainerCENTERED .playButton {
-  width: 64px;
-  height: 64px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -32px 0 0 -32px;
-  -webkit-transition: .25s all;
-  transition: .25s all;
-  fill: rgba(255, 255, 255, 0.8);
-  cursor: pointer; }
-  .videoContainerCENTERED .playButton:hover {
-    -webkit-transform: scale(1.05);
-            transform: scale(1.05);
-    fill: white; }
 
 .videoContainer.playing .playButton,
 .videoContainer.playing .videoCover {
@@ -1139,10 +1103,12 @@ PAGE NAVI STYLES
 Stylesheet: Slick Slider
 
 ******************************************************************/
+/*********************
+CORE SLICK STYLES
+*********************/
 .draggable .slide {
   cursor: pointer; }
 
-/* Slick Slider */
 .slick-slider {
   display: none;
   -webkit-touch-callout: none;
@@ -1189,8 +1155,6 @@ Stylesheet: Slick Slider
   height: 100%;
   min-height: 1px;
   display: none; }
-  [dir="rtl"] .slick-slide {
-    float: right; }
   .slick-slide img {
     display: block; }
   .slick-slide.slick-loading img {
@@ -1212,24 +1176,29 @@ NAVIGATION
 .slick-prev, .slick-next {
   position: absolute;
   z-index: 9;
-  height: 68px;
-  width: 68px;
-  font-size: 56px;
-  padding: 6px;
-  line-height: 1em;
+  height: 48px;
+  width: 48px;
   cursor: pointer;
-  top: 50%;
-  margin-top: -30px;
+  top: 0;
   outline: none;
-  color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
   text-align: center;
-  background: rgba(255, 255, 255, 0.5); }
+  background: #669933;
+  font-size: .01px; }
+  .slick-prev:after, .slick-next:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    display: block;
+    margin: 0 auto;
+    border-bottom: 3px solid #fff;
+    border-left: 3px solid #fff;
+    -webkit-transition: border 0.2s ease-in-out;
+    transition: border 0.2s ease-in-out;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg); }
   .slick-prev:hover, .slick-next:hover {
     outline: none;
-    color: #111;
-    background: white; }
+    background: #4d7326; }
   .slick-prev:active, .slick-next:active {
     color: #80bf40; }
 
@@ -1240,6 +1209,10 @@ NAVIGATION
 .slick-next {
   right: 0;
   border-right: none; }
+  .slick-next:after {
+    border: none;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff; }
 
 .slick-dots {
   display: block !important;
@@ -1272,7 +1245,7 @@ NAVIGATION
       background: #666; }
     .slick-dots li.slick-active button {
       background: #fff;
-      border-color: #669933; }
+      border-color: #80bf40; }
   @media screen and (min-width: 75em) {
     .slick-dots {
       margin-right: 4%; } }

@@ -31,6 +31,9 @@ REUSABLE ITEMS
   .clearfix:after, .cf:after {
     clear: both; }
 
+.nowrap {
+  display: inline-block; }
+
 /*********************
 BREAKPOINTS
 *********************/
@@ -95,11 +98,45 @@ h6, .h6 {
   h3, .h3 {
     font-size: 1.5em; } }
 
-/******************************************************************
-BASE ELEMENTS
-******************************************************************/
-p {
+/*********************
+ENTRY CONTENT
+*********************/
+.entryContent p {
   margin: 0 0 1.5em; }
+
+.entryContent ul, .entryContent ol {
+  margin: 0 0 1.5em 2em; }
+
+.entryContent ul {
+  list-style: disc; }
+
+.entryContent ol {
+  list-style: decimal; }
+
+.entryContent li > ul,
+.entryContent li > ol {
+  margin-bottom: 0;
+  margin-left: 1em; }
+
+.entryContent dt {
+  font-weight: bold; }
+
+.entryContent dd {
+  margin: 0 1em 1.5em; }
+
+.entryContent table {
+  margin: 0 0 1.5em;
+  width: 100%; }
+
+.entryContent th {
+  font-weight: bold; }
+
+/*********************
+BASE ELEMENTS
+*********************/
+.byline {
+  font-size: .75em;
+  margin: 1em 0; }
 
 dfn, cite, em, i {
   font-style: italic; }
@@ -131,13 +168,6 @@ mark, ins {
   background: #fff9c0;
   text-decoration: none; }
 
-.byline {
-  font-size: .75em;
-  margin: 1em 0; }
-
-.nowrap {
-  display: inline-block; }
-
 /******************************************************************
 
 Stylesheet: Buttons
@@ -165,17 +195,17 @@ BUTTONS
 .button, .button:visited {
   background-color: #669933;
   border: 1px solid #669933;
-  color: white; }
+  color: #fff; }
   .form-submit input:hover, .form-submit input:focus,
   .button:hover,
   .button:focus, .button:visited:hover, .button:visited:focus {
-    background-color: #8cc653;
-    color: white;
+    background-color: #80bf40;
+    color: #fff;
     text-decoration: none; }
   .form-submit input:active,
   .button:active, .button:visited:active {
-    background-color: #4d7326;
-    color: white; }
+    background-color: #669933;
+    color: #fff; }
 
 /*********************
 CUSTOM EDITOR STYLES

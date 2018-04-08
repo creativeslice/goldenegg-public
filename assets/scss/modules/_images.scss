@@ -113,26 +113,3 @@ HTML5 IMAGE GALLERY
 	}
 }
 }
-
-/*********************
-RESPONSIVE VIDEOS
-*********************/
-
-.videoContainer { 
-	position: relative; 
-	padding-bottom: 56.25%; 
-	height: 0; 
-	overflow: hidden;
-	margin-bottom: 1em;
-}
-
-.videoContainer iframe, 
-.videoContainer object, 
-.videoContainer embed, 
-.videoContainer video { 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	width: 100%; 
-	height: 100%; 
-}
