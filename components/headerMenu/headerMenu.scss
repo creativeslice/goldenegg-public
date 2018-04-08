@@ -62,7 +62,8 @@ MAIN MENU
 			&:hover, &:focus {
 			}
 		}
-		ul.sub-menu {
+		ul.sub-menu,
+		ul.children {
 			li {
 				max-width: 49%;
 				display: inline-block;
@@ -87,9 +88,10 @@ MAIN MENU
 		display: inline-block;
 		vertical-align: top;
 		position: relative;
-		ul.sub-menu {
-			left: auto;
-			right: 0;
+		ul.sub-menu,
+		ul.children {
+			left: 0;
+			//right: 0;
 			margin-top: 0;
 			position: absolute;
 			z-index: 999;
@@ -97,10 +99,9 @@ MAIN MENU
 			visibility: hidden;
 			opacity: 0;
 			transition: visibility $ease, opacity $ease;
-			padding: 4px 0;
+			text-align: left;
 			background: $white;
 			box-shadow: $shadow;
-			border-radius: 2px;
 			li {
 				max-width: none;
 				a, a:visited {

@@ -2,7 +2,7 @@
 
 <div id="content">
 
-	<article class="wrap">
+	<article class="wrapInner">
 	
 		<header class="articleHeader">
 			<h1><?php the_title(); ?></h1>

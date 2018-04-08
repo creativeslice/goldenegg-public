@@ -1,8 +1,16 @@
-<?php get_header(); ?>
+<?php get_header();
+	
+	// Get ID of Page for Posts
+	$page_for_posts = get_option( 'page_for_posts' );
+	setup_postdata( $page_for_posts );
+	$topid = wp_get_post_parent_id( $page_for_posts );
+?>
 
 <div id="content">
-
-	<div class="wrapInner">
+	
+	<div class="wrap">
+		
+		<h1 class="pageTitle"><?php echo get_the_title( $page_for_posts ); ?></h1>
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -24,7 +32,7 @@
 		else : 
 			echo '<h1>Nothing Found Here</h1>';
 		endif; ?>
-
+		
 	</div>
 
 </div>

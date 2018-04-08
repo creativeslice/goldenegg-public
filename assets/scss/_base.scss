@@ -73,9 +73,7 @@ CONTENT STYLES
 *********************/
 
 #content {
-	padding: $spacing/2 0;
 @include breakpoint(medium) {
-	padding: $spacing 0;
 }
 }
 
@@ -85,6 +83,5 @@ SIDEBAR
 
 .sidebar {
 	.sideMenu {
-		
 	}
 }
