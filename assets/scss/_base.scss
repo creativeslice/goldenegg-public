@@ -73,63 +73,18 @@ CONTENT STYLES
 *********************/
 
 #content {
+	padding: $spacing/2 0;
 @include breakpoint(medium) {
+	padding: $spacing 0;
 }
 }
-
 
 /*********************
-ENTRY CONTENT
-*********************/
-
-.entryContent {
-
-	ul, ol {
-		margin: 0 0 $default_margin 2em;
-	}
-
-	ul {
-		list-style: disc;
-	}
-
-	ol {
-		list-style: decimal;
-	}
-
-	li {
-		& > ul,
-		& > ol {
-			margin-bottom: 0;
-			margin-left: 1em;
-		}
-	}
-
-	dt {
-		font-weight: bold;
-	}
-
-	dd {
-		margin: 0 1em $default_margin;
-	}
-
-	table {
-		margin: 0 0 $default_margin;
-		width: 100%;
-	}
-
-	th {
-		font-weight: bold;
-	}
-
-}
-
-
-
-/*********************
-SIDEBARS & ASIDES
+SIDEBAR
 *********************/
 
 .sidebar {
-	background: $gray_lighter;
-	padding: 2em;
+	.sideMenu {
+		
+	}
 }

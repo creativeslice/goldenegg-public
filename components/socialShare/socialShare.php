@@ -1,13 +1,13 @@
 <div class="shareLinks">
-	<h6>Share</h6>
+	
 	<?php 
 		$title		= get_the_title();
 		$permalink	= get_permalink();
 		$hastag		= strtolower( str_replace(' ', '', get_option('blogname')) );
-		$twitter	= 'worldofchildren';
+		$twitter	= 'creativeslice';
 		$thumb_url	= wp_get_attachment_image_src( get_post_thumbnail_id() );
 		$image		= apply_filters( 'egg/share_image', ($thumb_url ? $thumb_url[0] : '') );
-
+	
 		$links = array(
 			array(
 				'title' => 'Email',
@@ -45,4 +45,5 @@
 		<span class="screen-reader-text">Share via <?php echo $link['title']; ?>: <?php echo $title; ?></span>
 	</a>
 	<?php endforeach; ?>
+	
 </div>

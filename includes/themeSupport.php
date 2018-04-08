@@ -56,15 +56,13 @@ function custom_theme_support() {
 	/* Featured Image */
 	add_theme_support( 'post-thumbnails', array( 'post', 'page', ) ); // Posts, Pages
 
-	/* This feature enables post and comment RSS feed links to head * /
-	add_theme_support('automatic-feed-links');
+	/* Enables post and comment RSS feed links to head */
+	//add_theme_support('automatic-feed-links');
 
 	/* Enable support for HTML5 markup. */
 	add_theme_support( 'html5', 
 		array(
-			'comment-list',
 			'search-form',
-			'comment-form',
 			'gallery',
 			'caption'
 		)

@@ -4,7 +4,7 @@
 
 	<div class="wrap">
 		
-		<article class="goldlarge">
+		<article>
 
 			<header class="articleHeader">
 				<h1><?php the_title(); ?></h1>
@@ -16,9 +16,11 @@
 		
 		</article>
 
-		<?php get_sidebar(); ?>
+		<?php //get_sidebar(); ?>
 
 	</div>
+	
+	<?php //include(locate_template('includes/acfContentBlocks.php')); ?>
 
 </div>
 

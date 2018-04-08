@@ -1,8 +1,8 @@
-<?php 
+<?php
+
 /**
  * Loop through ACF Flexible Content Field layouts
  */
- 
 $ctblocks = 0;
 while(has_sub_field('content_blocks')): 
 	if($block = get_row_layout()) {
@@ -10,4 +10,3 @@ while(has_sub_field('content_blocks')):
 	};
 $ctblocks++; 
 endwhile;
-?>

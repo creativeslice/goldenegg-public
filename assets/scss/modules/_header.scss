@@ -6,6 +6,7 @@ Stylesheet: Header
 
 .header {
 	text-align: center;
+	background: $white;
 	#logo {
 		display: inline-block;
 		padding: 2em;
@@ -15,15 +16,18 @@ Stylesheet: Header
 }
 }
 
-// Show Search
+
+/*********************
+Search Form
+*********************/
 #searchToggle {
 	display: block;
 	float: right;
 	cursor: pointer;
 	fill: $link_color;
 	svg {
-		width: 28px;
-		height: 28px;
+		width: 24px;
+		height: 24px;
 	}
 	&:hover, &:focus {
 		fill: $link_hover;

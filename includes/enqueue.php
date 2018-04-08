@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Add enqueue scripts/styles
  */
@@ -10,32 +11,32 @@ function egg_enqueue() {
 
 
 /**
- * Load in the base styles
+ * Load in the styles
  */
 function egg_styles() {
-	global $wp_styles; // global variable for ie stylesheet
 
-	// register main stylesheet
-	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?' . date("U"), array(), '', 'all' ); // Dev
-	//wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' ); // Production
+	/* DEV Styles */
+	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?' . date("U"), array(), '', 'all' );
+	/* PRODUCTION Styles */
+	//wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' );
 
 	wp_enqueue_style( 'egg-stylesheet');
 }
 
 
 /**
- * Load in the base scripts
+ * Load in the scripts
  */
 function egg_scripts() {
-	global $wp_scripts; // global variable for for ie scripts
 	
-	/* move core jQuery to footer * /
+	/* Move core jQuery to footer */
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, true);
 	
-	/* Adding scripts file in the footer */
-	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . date("U"), array( 'jquery' ), '', true ); // Dev
-	//wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true ); // Production
+	/* DEV Scripts */
+	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . date("U"), array( 'jquery' ), '', true );
+	/* PRODUCTION Scripts */
+	//wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
 	
 	// enqueue styles and scripts
 	wp_enqueue_script( 'egg-js');

@@ -9,6 +9,11 @@ REMOVES MEDIA QUERIES
 /*********************
 IMPORTING MODULES
 *********************/
+/******************************************************************
+
+Stylesheet: Variables
+
+******************************************************************/
 /*********************
 FONTS
 *********************/
@@ -25,11 +30,6 @@ REUSABLE ITEMS
     display: table; }
   .clearfix:after, .cf:after {
     clear: both; }
-
-.screen-reader-text {
-  left: -9999em !important;
-  position: absolute !important;
-  top: -9999em !important; }
 
 /*********************
 BREAKPOINTS
@@ -53,41 +53,39 @@ FONT FACE
   font-style: normal;
 } 
 */
-/*********************
-FONT STACKS
-*********************/
 /******************************************************************
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  clear: both; }
-  h1 a, h1 a:visited, .h1 a, .h1 a:visited, h2 a, h2 a:visited, .h2 a, .h2 a:visited, h3 a, h3 a:visited, .h3 a, .h3 a:visited, h4 a, h4 a:visited, .h4 a, .h4 a:visited, h5 a, h5 a:visited, .h5 a, .h5 a:visited {
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  clear: both;
+  margin-top: 16px;
+  margin-bottom: 16px; }
+  h1 a, h1 a:visited, .h1 a, .h1 a:visited, h2 a, h2 a:visited, .h2 a, .h2 a:visited, h3 a, h3 a:visited, .h3 a, .h3 a:visited, h4 a, h4 a:visited, .h4 a, .h4 a:visited, h5 a, h5 a:visited, .h5 a, .h5 a:visited, h6 a, h6 a:visited, .h6 a, .h6 a:visited {
     text-decoration: none; }
 
 h1, .h1 {
   font-size: 2em;
-  line-height: 1.5em;
-  margin: 0.4em 0; }
+  line-height: 1.5em; }
 
 h2, .h2 {
   font-size: 1.5em;
-  line-height: 1.5em;
-  margin: 0.571428571em 0; }
+  line-height: 1.5em; }
 
 h3, .h3 {
-  font-size: 1.375em;
-  margin: 0.666666667em 0; }
+  font-size: 1.375em; }
 
 h4, .h4 {
-  font-size: 1.25em;
-  font-weight: 700;
-  margin: 0.8em 0; }
+  font-size: 1.25em; }
 
 h5, .h5 {
   font-size: 1.125em;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0.888888889em 0; }
+  letter-spacing: 2px; }
+
+h6, .h6 {
+  font-size: .875em;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
 
 @media screen and (min-width: 48em) {
   h1, .h1 {
@@ -133,26 +131,16 @@ mark, ins {
   background: #fff9c0;
   text-decoration: none; }
 
-/* post meta */
 .byline {
-  color: #666;
-  font-style: italic;
-  margin: 0; }
-
-.intro:first-child:first-letter {
-  float: left;
-  font-size: 3.25em;
-  line-height: .75em;
-  padding: 5px 12px 0 3px;
-  font-family: "Georgia", Cambria, Times New Roman, Times, serif;
-  color: #111; }
+  font-size: .75em;
+  margin: 1em 0; }
 
 .nowrap {
   display: inline-block; }
 
 /******************************************************************
 
-Stylesheet: Button Styles
+Stylesheet: Buttons
 
 ******************************************************************/
 /*********************
@@ -162,7 +150,7 @@ BUTTONS
 .button, .button:visited {
   display: inline-block;
   position: relative;
-  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
   font-size: .875em;
   font-weight: bold;

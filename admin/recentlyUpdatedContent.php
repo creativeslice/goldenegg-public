@@ -1,17 +1,10 @@
 <?php
+
 /**
  * Recently Updated Content Admin Dashboard Widget
  */
-
-/**
- * Sets up the widget
- *
- * @author  Stanislav Kostadinov
- * @return	void
- */
 add_action( 'wp_dashboard_setup', 'recently_updated_content_dashboard_widget' );
-function recently_updated_content_dashboard_widget()
-{
+function recently_updated_content_dashboard_widget() {
 	$widget_id   = 'recently_updated_content'; // Widget slug
 	$widget_name = 'Recently Updated Content'; // Title
 	$callback    = 'recently_updated_content_function';
@@ -20,34 +13,29 @@ function recently_updated_content_dashboard_widget()
 
 /**
  * Create the function to output the contents of our Dashboard Widget.
- *
  */
-function recently_updated_content_function()
-{
+function recently_updated_content_function() {
 	global $current_user; wp_get_current_user(); // Get the logged in user info
 
 	echo "Hello, <b>" . $current_user->display_name . "</b>!<br />Below you can see all content updated in the past 30 days.";
 
 	// Get the posts from the last 30 days only
+	add_filter( 'posts_where', 'filter_where' );
 	function filter_where( $where = '' ) {
 		$where .= " AND post_modified > '" . date('Y-m-d', strtotime('-30 days')) . "'";
 		return $where;
 	}
 
-	add_filter( 'posts_where', 'filter_where' );
-
 	// The Query
-	$modified_posts_query = new WP_Query( array(  'post_type' => array( 'post', 'page' ),
+	$modified_posts_query = new WP_Query( array(  'post_type' => array( 'post', 'page' ), // <--- ADD POSTS TYPES HERE
 		'posts_per_page' => '-1',
 		'orderby' => 'modified',
 		'order'=> 'DESC',
 	));
 
 	// The Loop
-	if ( $modified_posts_query->have_posts() ) {
-
-		// Style the table
-		?>
+	if ( $modified_posts_query->have_posts() ) { ?>
+	
 		<style>
 		#recently-updated-posts {margin-top: 15px; width: 100%;}
 		.modified-number-col {width: 4%;}
@@ -61,51 +49,43 @@ function recently_updated_content_function()
 		</style>
 
 		<table id="recently-updated-posts" cellpadding="6">
-		<tr>
-			<td class="modified-number-col"></td>
-			<td class="modified-title-col">Title</td>
-			<td class="modified-date-col">Last Updated</td>
-			<td class="modified-user-col">By</td>
-		</tr>
-
-		<?php
-		$count = 0;
-
-		while ( $modified_posts_query->have_posts() ) {
-		
-			$modified_posts_query->the_post();
-			
-			// Check if the modified date is different from the publish date
-			if (get_the_modified_time() != get_the_time()) {
-
+			<tr>
+				<td class="modified-number-col"></td>
+				<td class="modified-title-col">Title</td>
+				<td class="modified-date-col">Last Updated</td>
+				<td class="modified-user-col">By</td>
+			</tr>
+	
+			<?php $count = 0;
+			while ( $modified_posts_query->have_posts() ) {
+				$modified_posts_query->the_post();
+				
+				// Check if the modified date is different from the publish date
+				if (get_the_modified_time() != get_the_time()) { 
 				$count++; ?>
+	
+					<tr id="post-<?php the_ID(); ?>">
+						<td class="modified-number"><?php echo $count . '.'; ?></td>
+						<td class="modified-title"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong> | <a href="<?php echo get_edit_post_link(); ?>">Edit</a></td>
+						<td class="modified-date"><?php the_modified_date('M j'); ?> at <?php the_modified_date('H:i'); ?></td>
+						<td class="modified-user"><?php the_modified_author(); ?></td>
+					</tr>
+	
+					<?php
+				}
+			} ?>
 
-				<tr id="post-<?php the_ID(); ?>">
-					<td class="modified-number"><?php echo $count . '.'; ?></td>
-					<td class="modified-title"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong> | <a href="<?php echo get_edit_post_link(); ?>">Edit</a></td>
-					<td class="modified-date"><?php the_modified_date('M j'); ?> at <?php the_modified_date('H:i'); ?></td>
-					<td class="modified-user"><?php the_modified_author(); ?></td>
-				</tr>
+		</table>
 
-				<?php
-
-			}
-		}
-
-		echo '</table>';
-
-		// Leave a message if no posts have been modified yet.
+		<?php // Leave a message if no posts have been modified recently.
 		if (!isset($count)) {
-
 			echo '<p>No content has been modified recently.</p>';
-
 		}
-
 	}
 
 	// Leave a message if the query returns no results.
 	else {
-		echo '<p>No pages found.</p>';
+		echo '<p>Nothing found.</p>';
 	}
 
 	// Restore original Post Data.
