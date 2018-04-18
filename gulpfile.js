@@ -49,13 +49,14 @@ gulp.task('styles', function() {
 	return gulp.src('assets/scss/style.scss')
 		.pipe( plumber( { errorHandler: onError } ) )
 		.pipe(sass({ style: compression }))
-		.pipe(autoprefixer('last 2 versions', 'ie 10', 'opera 12.1', 'android 4'))
+		.pipe(autoprefixer('last 2 versions', '> 1%', 'android > 4'))
 		.pipe(gulp.dest('assets/css'))
 		.pipe(minifycss())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('assets/css'))
 		.pipe(livereload())
 });
+
 gulp.task('styles-login', function() {
 	return gulp.src('assets/scss/login.scss')
 		.pipe(sass({ style: compression }))
@@ -63,6 +64,7 @@ gulp.task('styles-login', function() {
 		.pipe(gulp.dest('assets/css'))
 		.pipe(notify({ message: 'Admin styles task complete' }));
 });
+
 gulp.task('styles-editor', function() {
 	return gulp.src('assets/scss/editor.scss')
 		.pipe(sass({ style: compression }))
@@ -106,7 +108,7 @@ gulp.task('scripts', function() {
 /**
  * SVG ICONS
  *
- * compile using 'gulp icons'
+ * 'gulp icons' (only compiles icons)
  *
  */
 gulp.task('icons', function() {
@@ -121,7 +123,7 @@ gulp.task('icons', function() {
 			parserOptions: { xmlMode: true },
 		}))
 		.pipe( rename('icons.svg') )
-		.pipe( gulp.dest('icons') )
+		.pipe( gulp.dest('assets/icons') )
 		.pipe( notify({
 			title: 'Images',
 			message: 'Icons complete'
