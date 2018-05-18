@@ -1,8 +1,4 @@
 <?php
-/**
- * Make adjustments to the admin
- */
-
 
 /**
  * Disable the auto generated email sent to the admin after a successful core update:
@@ -21,10 +17,9 @@ function egg_bypass_auto_update_email( $send, $type, $core_update, $result ) {
  */
 add_action( 'wp_before_admin_bar_render', 'egg_adminbar_titles' );
 function egg_adminbar_titles( ) {
-	if(is_admin()){ 
+	if(is_admin()) { 
 		$title = "Home";
-	}
-	else{
+	} else {
 		$title = "Admin Area";
 	}
     global $wp_admin_bar;
@@ -41,11 +36,10 @@ function egg_adminbar_titles( ) {
  */
 add_action( 'wp_head', 'egg_style_admin_bar' );
 function egg_style_admin_bar() {
-	if ( is_user_logged_in() ){
+	if ( is_user_logged_in() ) {
 	    echo "<style type='text/css'>
 	    #wpadminbar #wp-admin-bar-site-name>.ab-item:before {
 			content: '\\f226';
-			top: 2px;
 		}
 		</style>";
 	}
@@ -67,6 +61,7 @@ function egg_remove_help_tabs() {
  */
 add_action( 'admin_menu', 'egg_disable_dashboard_widgets' );
 function egg_disable_dashboard_widgets() {
+	
 	remove_meta_box('dashboard_right_now', 'dashboard', 'core');    	// Right Now Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core'); 	// Incoming Links Widget
 	remove_meta_box('dashboard_plugins', 'dashboard', 'core');			// Plugins Widget
@@ -150,8 +145,6 @@ function egg_customize_admin_bar() {
 
 /**
  * Replace howdy in the admin bar
- *
- * @return	string Modified welcome message.
  */
 add_filter( 'gettext', 'egg_replace_howdy', 10, 3 );
 function egg_replace_howdy( $translated, $text, $domain ) {
@@ -167,5 +160,5 @@ function egg_replace_howdy( $translated, $text, $domain ) {
  */
 add_filter( 'admin_footer_text', 'egg_admin_footer' );
 function egg_admin_footer() { ?>
-	<span id="footer-thankyou">Built by <a href="https://creativeslice.com" target="_blank">Creative Slice</a></span>
+	<span id="footer-thankyou">Crafted by <a href="https://creativeslice.com" target="_blank">Creative Slice</a></span>
 <?php }

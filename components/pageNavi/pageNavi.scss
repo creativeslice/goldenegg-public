@@ -3,11 +3,10 @@
 .postPrev, .postNext {
 	font-size: .875em;
 	text-transform: uppercase;
-	letter-spacing: .15em;
 	a, a:visited {
 		color: $gray;
 		&:hover {
-			color: $blue;
+			color: $link_hover;
 		}
 	}
 }
@@ -23,7 +22,7 @@
 PAGE NAVI STYLES
 **************************************/
 
-.PageNavi {
+.pageNavi {
 	text-align: center;
 	ul {
 		display: inline-block;

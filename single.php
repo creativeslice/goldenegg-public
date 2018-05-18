@@ -2,11 +2,11 @@
 
 <div id="content">
 
-	<article class="wrap">
+	<article class="wrapInner">
 	
 		<header class="articleHeader">
 			<h1><?php the_title(); ?></h1>
-			<p class="byline">Posted <?php the_time('F j, Y'); the_category(', ') ?></p>
+			<p class="byline"><?php the_time('F j, Y'); ?> <?php the_category(', '); ?></p>
 		</header>
 	
 		<section class="entryContent cf">
@@ -14,12 +14,14 @@
 		</section>
 	
 		<footer class="articleFooter">
+			
 			<?php the_tags( '<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>' ); ?>
 			
-			<?php locate_template('components/socialShare/socialShare.php'); ?>
+			<?php include(locate_template('components/socialShare/socialShare.php')); ?>
 			
 			<span class="postPrev"><?php previous_post_link('%link', '&lsaquo;&nbsp;Previous'); ?></span>
 			<span class="postNext"><?php next_post_link('%link', 'Next&nbsp;&rsaquo;'); ?></span>
+			
 		</footer>
 	
 	</article>

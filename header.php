@@ -12,11 +12,6 @@
     
     <?php //get_template_part( 'components/favicons/favicons' ); ?>
 
-<!--[if lt IE 9]>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/ie.css" type="text/css" media="all" />
-	<script type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
 </head>
 
 <body <?php body_class(); ?>>
@@ -36,7 +31,7 @@
 				<svg title="search"><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#search"></use></svg>
 			</span>
 			
-			<?php locate_template('components/headerMenu/headerMenu.php'); ?>
+			<?php include(locate_template('components/headerMenu/headerMenu.php')); ?>
 
 		</div>
 

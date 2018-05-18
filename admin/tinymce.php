@@ -1,16 +1,9 @@
 <?php
+
 /**
  * Update TinyMCE
- *
- * @return	void
  */
-
-// actions
 add_action( 'init', 'egg_tinymce' );
-add_action('admin_head', 'egg_add_magic_button'); // adds .button class to links
-add_action('admin_head', 'egg_add_no_wrap'); // adds .nowrap span
-//add_action('admin_head', 'egg_add_intro'); // adds .intro p class
-
 function egg_tinymce() {
 	// filters
 	add_filter( 'mce_buttons',				'egg_mce_buttons' );
@@ -85,8 +78,9 @@ function egg_mce_show_row_2( $in ) {
 
 
 /**
- * Adds "Create Button" - which adds the 'button' class to the selected anchor node
+ * Adds the 'button' class to the selected anchor node
  */
+add_action('admin_head', 'egg_add_magic_button');
 function egg_add_magic_button() {
 	add_filter("mce_external_plugins", "egg_add_tinymce_button_plugin");
 	add_filter('mce_buttons', 'egg_register_magic_button');
@@ -102,8 +96,9 @@ function egg_register_magic_button($buttons) {
 
 
 /**
- * Adds "No-Wrap" - which inserts the selection into a span element with class='nospan'
+ * Inserts the selection into a span element with class='nowrap'
  */
+add_action('admin_head', 'egg_add_no_wrap');
 function egg_add_no_wrap() {
 	add_filter("mce_external_plugins", "egg_add_tinymce_no_wrap_plugin");
 	add_filter('mce_buttons', 'egg_register_no_wrap');
@@ -114,22 +109,5 @@ function egg_add_tinymce_no_wrap_plugin($plugin_array) {
 }
 function egg_register_no_wrap($buttons) {
    array_push($buttons, "egg_no_wrap");
-   return $buttons;
-}
-
-
-/**
- * Adds "Intro" - which inserts the selection into a <p> element with class='intro'
- */
-function egg_add_intro() {
-	add_filter("mce_external_plugins", "egg_add_tinymce_intro_plugin");
-	add_filter('mce_buttons', 'egg_register_intro');
-}
-function egg_add_tinymce_intro_plugin($plugin_array) {
-   	$plugin_array['egg_intro'] = get_template_directory_uri().'/admin/assets/js/tinymce-functions.js'; 
-   	return $plugin_array;
-}
-function egg_register_intro($buttons) {
-   array_push($buttons, "egg_intro");
    return $buttons;
 }

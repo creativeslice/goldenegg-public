@@ -1,6 +1,6 @@
 <?php
 /**
- * Golden Egg Disable Comments in the Admin
+ * Disable Comments in the Admin
  */
 
 // actions
@@ -21,8 +21,7 @@ add_action( 'wp_head',							'egg_remove_recent_comments_style', 1 );
 /**
  * Remove from wpadmin menu (TOP BAR)
  */
-function egg_remove_comments_admin_bar()
-{
+function egg_remove_comments_admin_bar() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu('comments');
 }
@@ -31,8 +30,7 @@ function egg_remove_comments_admin_bar()
 /**
  * Remove from admin menu (LEFT SIDEBAR)
  */
-function egg_remove_comments_admin_menu()
-{	
+function egg_remove_comments_admin_menu() {	
 	remove_menu_page('edit-comments.php');
 	remove_submenu_page( 'options-general.php', 'options-discussion.php' );
 }
@@ -41,8 +39,7 @@ function egg_remove_comments_admin_menu()
 /**
  * Remove ping option and comments option from Quick Edit
  */
-function egg_remove_comments_quick_edit() 
-{    
+function egg_remove_comments_quick_edit() {    
 	global $current_screen;
 	if ( 'edit-post' != $current_screen->id && 'edit-page' != $current_screen->id )
 		return;
@@ -64,8 +61,7 @@ function egg_remove_comments_quick_edit()
 /**
  * Remove Comments Widget from dashboard and metaboxes from Pages & Posts
  */
-function egg_remove_comments_metaboxes()
-{
+function egg_remove_comments_metaboxes() {
 	remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'core');	// Comments Widget
 	remove_meta_box( 'commentstatusdiv','post','normal' );              // Comments Status Metabox
 	remove_meta_box( 'commentsdiv','post','normal' );                   // Comments Metabox
@@ -77,8 +73,7 @@ function egg_remove_comments_metaboxes()
 /**
  * Remove Comments Column from lists-table
  */
-function egg_remove_comments_list_columns( $columns )
-{
+function egg_remove_comments_list_columns( $columns ) {
 	unset($columns['comments']);
 	return $columns;
 }

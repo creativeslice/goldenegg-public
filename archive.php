@@ -54,7 +54,7 @@
 		</article>
 
 		<?php endwhile; 
-			locate_template('components/pageNavi/pageNavi.php'); 
+			include(locate_template('components/pageNavi/pageNavi.php'));
 		else : 
 			echo '<h1>Nothing Found Here</h1>';
 		endif; ?>

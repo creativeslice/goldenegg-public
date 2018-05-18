@@ -27,17 +27,17 @@ BUTTONS
 	@extend %btn;
 	background-color: $link_color;
 	border: 1px solid $link_color;
-	color: white;
+	color: $white;
 	
-	&:hover,
+	&:hover, 
 	&:focus {
-		background-color: lighten($link_color, 15%);
-		color: white;
+		background-color: $link_hover;
+		color: $white;
 		text-decoration: none;
 	}
 
 	&:active {
-		background-color: darken($link_color, 10%);
-		color: white;
+		background-color: darken($link_hover, 10%);
+		color: $white;
 	}
 }

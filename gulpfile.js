@@ -2,27 +2,36 @@
  * Gulp Configuration
  */
 
-var environment = 'development', // 'production development'
-	gulp = require('gulp'),
-	sass = require('gulp-sass'),
-	autoprefixer = require('gulp-autoprefixer'),
-	minifycss = require('gulp-minify-css'),
-	uglify = require('gulp-uglify'),
-	rename = require('gulp-rename'),
-	stripDebug = require('gulp-strip-debug'),
-	jsHint = require('gulp-jshint'),
-	concat = require('gulp-concat'),
-	notify = require('gulp-notify'),
-	cache = require('gulp-cache'),
-	plumber = require('gulp-plumber'),
-	svgmin = require('gulp-svgmin'), 		// required for svg icons
-	svgstore = require('gulp-svgstore'), 	// required for svg icons
-	gulpif = require('gulp-if'), 			// required for svg icons
-	cheerio = require('gulp-cheerio'), 		// required for svg icons
-	livereload = require('gulp-livereload'),
+var environment = 'development', // 'production' or 'development'
+
+	gulp = 			require('gulp'),
+	sass = 			require('gulp-sass'),
+	autoprefixer = 	require('gulp-autoprefixer'),
+	minifycss = 	require('gulp-minify-css'),
+	uglify = 		require('gulp-uglify'),
+	rename = 		require('gulp-rename'),
+	stripDebug = 	require('gulp-strip-debug'),
+	jsHint = 		require('gulp-jshint'),
+	concat = 		require('gulp-concat'),
+	notify = 		require('gulp-notify'),
+	cache = 		require('gulp-cache'),
+	plumber = 		require('gulp-plumber'),
+	
+	// used with browser extension
+	livereload = 	require('gulp-livereload'),
+	
+	// required for svg icons
+	svgmin = 		require('gulp-svgmin'),
+	svgstore = 		require('gulp-svgstore'),
+	gulpif = 		require('gulp-if'),
+	cheerio = 		require('gulp-cheerio'),
+	
 	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
 
-// Default error handler
+
+/**
+ * Error handler
+ */
 var onError = function( error ) {
 	notify.onError({
 		title:    "Gulp",
@@ -40,31 +49,26 @@ gulp.task('styles', function() {
 	return gulp.src('assets/scss/style.scss')
 		.pipe( plumber( { errorHandler: onError } ) )
 		.pipe(sass({ style: compression }))
-		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+		.pipe(autoprefixer('last 2 versions', '> 1%', 'android > 4'))
 		.pipe(gulp.dest('assets/css'))
 		.pipe(minifycss())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('assets/css'))
 		.pipe(livereload())
 });
-gulp.task('styles-ie', function() {
-	return gulp.src('assets/scss/ie.scss')
-		.pipe(sass({ style: compression }))
-		.pipe(autoprefixer('ie 7', 'ie 8'))
-		.pipe(gulp.dest('assets/css'))
-		.pipe(notify({ message: 'IE styles task complete' }));
-});
+
 gulp.task('styles-login', function() {
 	return gulp.src('assets/scss/login.scss')
 		.pipe(sass({ style: compression }))
-		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+		.pipe(autoprefixer('last 2 versions'))
 		.pipe(gulp.dest('assets/css'))
 		.pipe(notify({ message: 'Admin styles task complete' }));
 });
+
 gulp.task('styles-editor', function() {
 	return gulp.src('assets/scss/editor.scss')
 		.pipe(sass({ style: compression }))
-		.pipe(autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+		.pipe(autoprefixer('last 2 versions'))
 		.pipe(gulp.dest('assets/css'))
 		.pipe(notify({ message: 'Editor styles task complete' }));
 });
@@ -104,7 +108,7 @@ gulp.task('scripts', function() {
 /**
  * SVG ICONS
  *
- * compile using 'gulp icons'
+ * 'gulp icons' (only compiles icons)
  *
  */
 gulp.task('icons', function() {
@@ -119,7 +123,7 @@ gulp.task('icons', function() {
 			parserOptions: { xmlMode: true },
 		}))
 		.pipe( rename('icons.svg') )
-		.pipe( gulp.dest('icons') )
+		.pipe( gulp.dest('assets/icons') )
 		.pipe( notify({
 			title: 'Images',
 			message: 'Icons complete'
@@ -127,13 +131,23 @@ gulp.task('icons', function() {
 });
 
 
-// 'gulp'
+/**
+ * GULP Task
+ *
+ * 'gulp' (does not compile icons)
+ *
+ */
 gulp.task('default', function() {
-	gulp.start('styles', 'styles-ie', 'styles-login', 'styles-editor', 'scripts');
+	gulp.start('styles', 'styles-login', 'styles-editor', 'scripts');
 });
 
 
-// 'gulp watch' (does not compile styles-ie or styles-login or icons)
+/**
+ * GULP WATCH Task
+ *
+ * 'gulp watch' (does not compile styles-login, styles-editor or icons)
+ *
+ */
 gulp.task('watch', function() {
 	livereload.listen();
 	gulp.watch('assets/scss/**/*.scss', ['styles']);

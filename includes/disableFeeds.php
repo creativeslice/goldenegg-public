@@ -11,8 +11,8 @@ if (! class_exists('sewn_remove_feeds') ) :
 
 add_action( 'init', array('sewn_remove_feeds', 'init') );
 
-class sewn_remove_feeds
-{
+class sewn_remove_feeds {
+	
 	/**
 	 * Class prefix
 	 *
@@ -36,17 +36,13 @@ class sewn_remove_feeds
 	 * @since	1.0.0
 	 * @return	void
 	 */
-	public static function init()
-	{
+	public static function init() {
 		remove_action( 'wp_head', 'feed_links', 2 );
 		remove_action( 'wp_head', 'feed_links_extra', 3 );
 
-		foreach( apply_filters( self::PREFIX . '/all_feeds', self::$feed_types ) as $feed )
-		{
-			if ( $feed )
-			{
-				if ( apply_filters( self::PREFIX . '/type=' . $feed, true ) )
-				{
+		foreach( apply_filters( self::PREFIX . '/all_feeds', self::$feed_types ) as $feed ) {
+			if ( $feed ) {
+				if ( apply_filters( self::PREFIX . '/type=' . $feed, true ) ) {
 					add_action( 'do_feed_' . $feed, array(__CLASS__, 'disable_feeds'), 1 );
 				}
 			}
@@ -60,8 +56,7 @@ class sewn_remove_feeds
 	 * @since	1.0.0
 	 * @return	void
 	 */
-	public static function disable_feeds()
-	{
+	public static function disable_feeds() {
 		wp_redirect( home_url('/'), 302 );
 		die;
 	}

@@ -3,28 +3,29 @@ SHARE LINKS
 *********************/
 
 .shareLinks {
-	h6 {
-		font-size: .875em;
-		float: left;
-		color: $gray;
-		margin: 10px 12px 0 0;
-		font-weight: normal;
-	}
 	a, a:visited {
 		fill: $gray;
 		display: inline-block;
 		vertical-align: top;
-		padding: 3px 7px;
-		width: 34px;
-		height: 34px;
+		padding: 2px 6px;
+		width: 32px;
+		height: 32px;
 		background: $white;
 		border-radius: 50%;
 		&:hover {
-			fill: $link_hover;
+			fill: $white;
+			background: $link_hover;
 		}
 		svg {
 			width: 20px;
 			height: 20px;
 		}
 	}
+}
+
+// Better support for screen readers with icons
+.screen-reader-text {
+	left: -9999em !important;
+	position: absolute !important;
+	top: -9999em !important;
 }

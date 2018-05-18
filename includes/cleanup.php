@@ -151,8 +151,12 @@ function custom_excerpt_length( $length ) {
 	return 33; // number of characters
 }
 
+
+/**
+ * Excerpt limit by words
+ *
+ * echo excerpt(8); // number of words
+ */
 function excerpt($limit) {
-    return wp_trim_words(get_the_excerpt(), $limit); // number of words
+    return wp_trim_words(get_the_excerpt(), $limit);
 }
-
-

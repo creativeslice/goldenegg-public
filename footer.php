@@ -6,10 +6,10 @@
 			'container' => false,
 			'menu_class' => 'footerLinks',
 			'theme_location' => 'footerLinks',
-			'depth' => 0
+			'depth' => 1
 		)); ?>
 		
-		<p class="copyright">&copy; <?php echo date('Y'); bloginfo( 'name' ); ?>. Website by <a target="_blank" href="https://creativeslice.com">Creative Slice</a></p>
+		<p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. <a target="_blank" href="https://creativeslice.com">Crafted by Creative Slice</a></p>
 
 	</div>
 

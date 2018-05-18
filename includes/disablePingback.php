@@ -1,6 +1,6 @@
 <?php
 /**
- * Golden Egg Disable XMLRPC and Pingbacks/Trackbacks
+ * Disable XMLRPC and Pingbacks/Trackbacks
  */
 
 // remove RSD link

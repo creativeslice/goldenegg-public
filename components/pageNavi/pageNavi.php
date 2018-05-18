@@ -4,7 +4,7 @@
  */
 global $wp_query; ?>
 
-<nav class="PageNavi">
+<nav class="pageNavi">
 <?php
     $bignum = 999999999;
     if ( $wp_query->max_num_pages <= 1 ) return;

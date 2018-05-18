@@ -35,17 +35,17 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 h1, .h1 {
-	font-size: 2em;
+	font-size: 2em;					// 32px
 	line-height: 1.5em;
 }
 
 h2, .h2 {
-	font-size: 1.5em;
+	font-size: 1.5em;				// 24px
 	line-height: 1.5em;
 }
 
 h3, .h3 {
-	font-size: 1.375em;
+	font-size: 1.375em;				// 22px
 }
 
 h4, .h4 {
@@ -79,12 +79,63 @@ h3, .h3 {
 }
 
 
-/******************************************************************
-BASE ELEMENTS
-******************************************************************/
+/*********************
+ENTRY CONTENT
+*********************/
 
-p {
-	margin: 0 0 $default_margin;
+.entryContent {
+	p {
+		margin: 0 0 $default_margin;
+	}
+	
+	ul, ol {
+		margin: 0 0 $default_margin 2em;
+	}
+
+	ul {
+		list-style: disc;
+	}
+
+	ol {
+		list-style: decimal;
+	}
+
+	li {
+		& > ul,
+		& > ol {
+			margin-bottom: 0;
+			margin-left: 1em;
+		}
+	}
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		margin: 0 1em $default_margin;
+	}
+
+	table {
+		margin: 0 0 $default_margin;
+		width: 100%;
+	}
+
+	th {
+		font-weight: bold;
+	}
+
+}
+
+
+/*********************
+BASE ELEMENTS
+*********************/
+
+.byline {
+	//font-style: italic;
+	font-size: .75em;
+	margin: 1em 0;
 }
 
 dfn, cite, em, i {
@@ -122,29 +173,4 @@ abbr, acronym {
 mark, ins {
 	background: #fff9c0;
 	text-decoration: none;
-}
-
-/* post meta */
-.byline {
-	color: $gray;
-	font-style: italic;
-	margin: 0;
-}
-
-// big first letter: class adding through wysiwyg
-.intro {
-	//font-size: 1.25em;
-	&:first-child:first-letter {
-		float: left;
-		font-size: 3.25em;
-		line-height: .75em;
-		padding: 5px 12px 0 3px;
-		font-family: $serif;
-		color: $black;
-	}
-}
-
-// keep phrase from breaking to 2nd line: class adding through wysiwyg
-.nowrap {
-	display: inline-block;
 }

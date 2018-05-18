@@ -49,26 +49,6 @@
 			
 			<p>Additional paragraph text with <strong><em>bold italic text</em></strong> to make it wrap so we can test <em>italic text</em> and line height. More paragraph text here with additional text to make it wrap so we can test line height. More paragraph text here with additional text to make it wrap so we can test line height. <a class="button" href="#">Inline button</a> More paragraph text here with additional text to make it wrap so we can test line height. More paragraph text here with additional text to make it wrap so we can test line height. More paragraph text here with additional text to make it wrap so we can test line height. More paragraph text here with additional text to make it wrap so we can test line height.</p>
 			
-			<hr>
-			
-			<div class="cf">
-				<h2>Simple Golden Ratio</h2>
-				<div class="goldlarge">
-					<p><strong>goldlarge</strong><br />Just some text here to see how it wraps and see how the padding works, or if it works at all...</p>
-				</div>
-				<div class="goldsmall">
-					<p><strong>goldsmall</strong><br /> Right sidebar</p>
-				</div>
-				
-				<div class="goldlarge last-col">
-					<p><strong>goldlarge last-col</strong><br /> Just some text here to see how it wraps and see how the padding works, or if it works at all...</p>
-				</div>
-				<div class="goldsmall first-col">
-					<p><strong>goldsmall first-col</strong><br />Right sidebar</p>
-				</div>
-
-			</div>
-			
 		</section>
 
 	</article>
