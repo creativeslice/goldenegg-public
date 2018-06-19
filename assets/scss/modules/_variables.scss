@@ -60,6 +60,13 @@ $easeslow:			.6s ease-in;
 	}
 }
 
+// Better support for screen readers with icons
+.screen-reader-text {
+	left: -9999em !important;
+	position: absolute !important;
+	top: -9999em !important;
+}
+
 // keep phrase from breaking to 2nd line: class adding through wysiwyg
 .nowrap {
 	display: inline-block;
@@ -70,11 +77,11 @@ $easeslow:			.6s ease-in;
 BREAKPOINTS
 *********************/
 
-$small:				"screen and (min-width: 30em)"; // 480px
-$medium:			"screen and (min-width: 48em)";	// 768px
-$large:				"screen and (min-width: 64em)";	// 1024px
-$xlarge:			"screen and (min-width: 75em)";	// 1200px
-$xxlarge:			"screen and (min-width: 90em)";	// 1440px
+$small:		"screen and (min-width: 30em)"; // 480px
+$medium:	"screen and (min-width: 48em)";	// 768px
+$large:		"screen and (min-width: 64em)";	// 1024px
+$xlarge:	"screen and (min-width: 75em)";	// 1200px
+$xxlarge:	"screen and (min-width: 90em)";	// 1440px
 
 @mixin breakpoint($point) {
 	@if $point == xxlarge {

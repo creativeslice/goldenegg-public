@@ -15,6 +15,9 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<a class="content-skip screen-reader-text" href="#content">Skip to Content</a>
+
 <div id="container">
 	
 	<?php get_search_form(); // hidden by default ?>
@@ -27,9 +30,16 @@
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" />
 			</a>
 			
-			<span id="searchToggle">
-				<svg title="search"><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#search"></use></svg>
-			</span>
+			<button id="searchToggle">
+				<svg title="Search" class="open">
+					<title>Search</title>
+					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#search"></use>
+				</svg>
+				<svg title="Close" class="close">
+					<title>Close</title>
+					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#close"></use>
+				</svg>
+			</button>
 			
 			<?php include(locate_template('components/headerMenu/headerMenu.php')); ?>
 
