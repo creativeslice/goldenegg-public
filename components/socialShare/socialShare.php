@@ -31,7 +31,7 @@
 			),
 			array(
 				'title' => 'Google+',
-				'icon'  => 'google-plus',
+				'icon'  => 'google',
 				'url'   => 'https://plus.google.com/share?url=' . $permalink,
 			),
 		);

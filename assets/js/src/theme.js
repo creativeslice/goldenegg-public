@@ -8,6 +8,7 @@ jQuery(document).ready(function($) {
     */
     svg4everybody();
 	
+	
 	/**
      * Expandable Blocks FAQ
      */
