@@ -85,18 +85,18 @@ $xxlarge:	"screen and (min-width: 90em)";	// 1440px
 
 @mixin breakpoint($point) {
 	@if $point == xxlarge {
-		@media #{$xxlarge} { @content; }	// output xxlarge screen content
+		@media #{$xxlarge} { @content; }	// xxlarge screen content
 	}
 	@if $point == xlarge {
-		@media #{$xlarge} { @content; }		// output xlarge screen content
+		@media #{$xlarge} { @content; }		// xlarge screen content
 	}
 	@if $point == large {
-		@media #{$large} { @content; }		// output large screen content
+		@media #{$large} { @content; }		// large screen content
 	}
 	@if $point == medium {
-		@media #{$medium} { @content; }		// output medium screen content
+		@media #{$medium} { @content; }		// medium screen content
 	}
 	@if $point == small {
-		@media #{$small} { @content; }		// output small screen content
+		@media #{$small} { @content; }		// small screen content
 	}
 }

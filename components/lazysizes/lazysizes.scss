@@ -3,11 +3,11 @@ IMG[src=''], IMG:not([src]) {
 	opacity: 0;
 }
 
-
 // Lazy Loading
-.lazythumb,
-.lazyhd {
+.lazyhd,
+.lazy70 {
 	img {
+		width: 100%;
 		opacity: 0.2;
 		transition: opacity $easeslow;
 	}
@@ -28,11 +28,13 @@ IMG[src=''], IMG:not([src]) {
 	opacity: 1 !important;
 }
 
-// lazy thumbnails
-.lazythumb {
-	padding-bottom: 85.71428%;
+// lazy 70
+.lazy70 {
+	padding-bottom: 70%;
 	height: 0;
-	background: $gray_light;
+	background: $gray_lighter;
+	position: relative;
+	margin-bottom: $spacing/2;
 }
 
 // lazy HD

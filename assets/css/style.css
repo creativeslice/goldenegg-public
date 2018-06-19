@@ -802,8 +802,9 @@ MAIN MENU
 IMG[src=''], IMG:not([src]) {
   opacity: 0; }
 
-.lazythumb img,
-.lazyhd img {
+.lazyhd img,
+.lazy70 img {
+  width: 100%;
   opacity: 0.2;
   -webkit-transition: opacity 0.6s ease-in;
   transition: opacity 0.6s ease-in; }
@@ -822,10 +823,12 @@ IMG[src=''], IMG:not([src]) {
 .lazyloaded {
   opacity: 1 !important; }
 
-.lazythumb {
-  padding-bottom: 85.71428%;
+.lazy70 {
+  padding-bottom: 70%;
   height: 0;
-  background: #999; }
+  background: #eee;
+  position: relative;
+  margin-bottom: 40px; }
 
 .lazyhd {
   padding-bottom: 56.25%;
