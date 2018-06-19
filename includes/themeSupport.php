@@ -34,14 +34,14 @@ function vnmFunctionality_embedWrapper($html, $url, $attr) {
  */
 add_filter( 'get_search_form', 'egg_wpsearch' );
 function egg_wpsearch($form) {
-	$form = '<div class="search-form">
-	<form role="search" method="get" class="wrap-inner" action="' . esc_url( home_url( '/' ) ) . '">
-	        <label>
-	            <span class="screen-reader-text">' . _x( 'Search for:', 'label' ) . '</span>
-	            <input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search Term&hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" />
-	        </label>
-	        <input type="submit" class="search-submit button" value="'. esc_attr_x( 'Search', 'submit button' ) .'" />
-	    </form>
+	$form = '<div class="searchForm">
+	<form role="search" method="get" action="' . esc_url( home_url( '/' ) ) . '">
+        <label>
+            <span class="screen-reader-text">Search for:</span>
+            <input type="search" class="searchField" placeholder="' . esc_attr_x( 'Search Term&hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" />
+        </label>
+        <input type="submit" class="searchSubmit button" value="Search" />
+    </form>
 	</div>';
 	return $form;
 }

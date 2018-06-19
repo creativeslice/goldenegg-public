@@ -7,8 +7,8 @@ jQuery(document).ready(function($) {
 		e.preventDefault();
 		var $this = $(this);
 		$this.toggleClass('active');
-		$('.search-form').slideToggle(300);
-		$('.search-field')[0].focus();	
+		$('.searchForm').slideToggle(300);
+		$('.searchField')[0].focus();	
 	});
 	
 	

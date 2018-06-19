@@ -208,6 +208,11 @@ REUSABLE ITEMS
   .clearfix:after, .cf:after {
     clear: both; }
 
+.screen-reader-text {
+  left: -9999em !important;
+  position: absolute !important;
+  top: -9999em !important; }
+
 .nowrap {
   display: inline-block; }
 
@@ -364,14 +369,25 @@ Search Form
   display: block;
   float: right;
   cursor: pointer;
-  fill: #669933; }
+  position: relative;
+  fill: #666;
+  margin: 1em; }
   #searchToggle svg {
-    width: 20px;
-    height: 20px; }
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 0;
+    right: 0; }
+  #searchToggle svg.close {
+    display: none; }
+  #searchToggle.active svg.close {
+    display: block; }
+  #searchToggle.active svg.open {
+    display: none; }
   #searchToggle:hover, #searchToggle:focus {
     fill: #80bf40; }
 
-.search-form {
+.searchForm {
   display: none;
   margin: 1em 0;
   text-align: center; }

@@ -24,8 +24,9 @@ Search Form
 	display: block;
 	float: right;
 	cursor: pointer;
-	fill: $link_color;
-	border: 1px solid red;
+	position: relative;
+	fill: $gray;
+	margin: 1em;
 	svg {
 		width: 24px;
 		height: 24px;
@@ -49,7 +50,7 @@ Search Form
 	}
 }
 
-.search-form {
+.searchForm {
 	display: none; // hide before pressing #searchToggle
 	margin: 1em 0;
 	text-align: center;
