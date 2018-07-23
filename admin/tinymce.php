@@ -5,7 +5,6 @@
  */
 add_action( 'init', 'egg_tinymce' );
 function egg_tinymce() {
-	// filters
 	add_filter( 'mce_buttons',				'egg_mce_buttons' );
 	add_filter( 'mce_buttons_2',			'egg_mce_buttons_2' );
 	add_filter( 'tiny_mce_before_init', 	'egg_mce_show_row_2' );

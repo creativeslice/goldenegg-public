@@ -149,7 +149,7 @@ dfn, cite, em, i {
 blockquote {
   margin: 0 0 1.5em 1em;
   padding: 0 0 0 1em;
-  border-left: 3px solid #669933;
+  border-left: 3px solid #1b801b;
   font-style: italic;
   color: #666; }
 
@@ -198,18 +198,18 @@ BUTTONS
 
 .form-submit input,
 .button, .button:visited {
-  background-color: #669933;
-  border: 1px solid #669933;
+  background-color: #1b801b;
+  border: 1px solid #1b801b;
   color: #fff; }
   .form-submit input:hover, .form-submit input:focus,
   .button:hover,
   .button:focus, .button:visited:hover, .button:visited:focus {
-    background-color: #80bf40;
+    background-color: #24aa24;
     color: #fff;
     text-decoration: none; }
   .form-submit input:active,
   .button:active, .button:visited:active {
-    background-color: #669933;
+    background-color: #1b801b;
     color: #fff; }
 
 /*********************

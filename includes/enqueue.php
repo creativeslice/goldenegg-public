@@ -17,6 +17,7 @@ function egg_styles() {
 
 	/* DEV Styles */
 	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?' . date("U"), array(), '', 'all' );
+	
 	/* PRODUCTION Styles */
 	//wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' );
 
@@ -35,6 +36,7 @@ function egg_scripts() {
 	
 	/* DEV Scripts */
 	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . date("U"), array( 'jquery' ), '', true );
+	
 	/* PRODUCTION Scripts */
 	//wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
 	
@@ -45,7 +47,6 @@ function egg_scripts() {
 
 /**
  * Remove jQuery Migrate and wp-embed scripts
- * Be absolutely sure you are ok to do this, and test your code afterwards.
  */
 add_filter( 'wp_default_scripts', 'egg_dequeue_jquery_migrate' );
 function egg_dequeue_jquery_migrate( &$scripts ) {

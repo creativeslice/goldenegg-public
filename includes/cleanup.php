@@ -65,6 +65,9 @@ function egg_head_cleanup() {
 	remove_action( 'wp_head', 				'rest_output_link_wp_head', 10 );
 	remove_action( 'wp_head', 				'wp_oembed_add_discovery_links', 10 );
 	
+	// Remove EditURI/RSD link
+	remove_action('wp_head', 				'rsd_link');
+	
 	// Remove DNS Prefetch
 	//remove_action( 'wp_head', 			'wp_resource_hints', 2 );
 	

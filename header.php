@@ -16,9 +16,9 @@
 
 <body <?php body_class(); ?>>
 
-<a class="content-skip screen-reader-text" href="#content">Skip to Content</a>
-
 <div id="container">
+	
+	<a class="screen-reader-text" href="#content">Skip to Content</a>
 	
 	<?php get_search_form(); // hidden by default ?>
 	
@@ -32,11 +32,11 @@
 			
 			<button id="searchToggle">
 				<svg title="Search" class="open">
-					<title>Search</title>
+					<title>Show Search</title>
 					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#search"></use>
 				</svg>
 				<svg title="Close" class="close">
-					<title>Close</title>
+					<title>Close Search</title>
 					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#close"></use>
 				</svg>
 			</button>
@@ -46,3 +46,5 @@
 		</div>
 
 	</header>
+	
+	<div id="content" class="cf">

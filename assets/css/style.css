@@ -326,7 +326,7 @@ dfn, cite, em, i {
 blockquote {
   margin: 0 0 1.5em 1em;
   padding: 0 0 0 1em;
-  border-left: 3px solid #669933;
+  border-left: 3px solid #1b801b;
   font-style: italic;
   color: #666; }
 
@@ -385,7 +385,7 @@ Search Form
   #searchToggle.active svg.open {
     display: none; }
   #searchToggle:hover, #searchToggle:focus {
-    fill: #80bf40; }
+    fill: #24aa24; }
 
 .searchForm {
   display: none;
@@ -525,7 +525,7 @@ input[type="color"],
 select,
 textarea,
 .field {
-  background-color: #eee;
+  background-color: #f9f9f9;
   border: 1px solid #999;
   border-radius: 3px;
   -webkit-box-sizing: border-box;
@@ -615,18 +615,18 @@ BUTTONS
 
 .form-submit input,
 .button, .button:visited {
-  background-color: #669933;
-  border: 1px solid #669933;
+  background-color: #1b801b;
+  border: 1px solid #1b801b;
   color: #fff; }
   .form-submit input:hover, .form-submit input:focus,
   .button:hover,
   .button:focus, .button:visited:hover, .button:visited:focus {
-    background-color: #80bf40;
+    background-color: #24aa24;
     color: #fff;
     text-decoration: none; }
   .form-submit input:active,
   .button:active, .button:visited:active {
-    background-color: #669933;
+    background-color: #1b801b;
     color: #fff; }
 
 /******************************************************************
@@ -635,7 +635,7 @@ Stylesheet: BASE
 
 ******************************************************************/
 html, body {
-  background-color: #eee; }
+  background-color: #f9f9f9; }
 
 body {
   font-size: 100%;
@@ -682,13 +682,13 @@ LAYOUT & GRID STYLES
 LINK STYLES
 *********************/
 a, a:visited {
-  color: #669933; }
+  color: #1b801b; }
   a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #80bf40; }
+    color: #24aa24; }
   a:active, a:visited:active {
-    color: #669933; }
+    color: #1b801b; }
   a:link, a:visited:link {
-    -webkit-tap-highlight-color: rgba(102, 153, 51, 0.5); }
+    -webkit-tap-highlight-color: rgba(27, 128, 27, 0.5); }
 
 /*********************
 CONTENT STYLES
@@ -707,7 +707,7 @@ MENU NAVIGATION
   position: relative;
   float: right;
   cursor: pointer;
-  fill: #669933;
+  fill: #1b801b;
   margin: 1em; }
   #menuToggle svg {
     width: 24px;
@@ -826,7 +826,7 @@ IMG[src=''], IMG:not([src]) {
 .lazy70 {
   padding-bottom: 70%;
   height: 0;
-  background: #eee;
+  background: #f9f9f9;
   position: relative;
   margin-bottom: 40px; }
 
@@ -841,7 +841,7 @@ IMG[src=''], IMG:not([src]) {
   .postPrev a, .postPrev a:visited, .postNext a, .postNext a:visited {
     color: #666; }
     .postPrev a:hover, .postPrev a:visited:hover, .postNext a:hover, .postNext a:visited:hover {
-      color: #80bf40; }
+      color: #24aa24; }
 
 .postPrev {
   float: left; }
@@ -879,9 +879,9 @@ PAGE NAVI STYLES
     padding: 0.75em;
     min-width: 1em;
     display: block;
-    color: #669933; }
+    color: #1b801b; }
     .pageNavi a:hover, .pageNavi a:focus, .pageNavi a:visited:hover, .pageNavi a:visited:focus, .pageNavi span:hover, .pageNavi span:focus {
-      background-color: #669933;
+      background-color: #1b801b;
       color: #fff; }
   .pageNavi .current {
     cursor: default;
@@ -905,7 +905,7 @@ SHARE LINKS
   border-radius: 50%; }
   .shareLinks a:hover, .shareLinks a:visited:hover {
     fill: #fff;
-    background: #80bf40; }
+    background: #24aa24; }
   .shareLinks a svg, .shareLinks a:visited svg {
     width: 20px;
     height: 20px; }
