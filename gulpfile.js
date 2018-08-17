@@ -16,6 +16,7 @@ var environment = 'development', // 'production' or 'development'
 	notify = 		require('gulp-notify'),
 	cache = 		require('gulp-cache'),
 	plumber = 		require('gulp-plumber'),
+	sourcemaps = 	require('gulp-sourcemaps'),
 	
 	// used with browser extension
 	livereload = 	require('gulp-livereload'),
@@ -47,12 +48,12 @@ var onError = function( error ) {
  */
 gulp.task('styles', function() {
 	return gulp.src('assets/scss/style.scss')
-		.pipe( plumber( { errorHandler: onError } ) )
+		.pipe(plumber({ errorHandler: onError }))
+		.pipe(sourcemaps.init())
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions', '> 1%', 'android > 4'))
-		.pipe(gulp.dest('assets/css'))
 		.pipe(minifycss())
-		.pipe(rename({suffix: '.min'}))
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('assets/css'))
 		.pipe(livereload())
 });

@@ -15,7 +15,7 @@ function tinymce_allow_unsafe_link_target( $mceInit ) {
 /**
  * Remove Editor Styles
  */
-//add_filter( 'tiny_mce_before_init', 'egg_mce_hide_styles' );
+add_filter( 'tiny_mce_before_init', 'egg_mce_hide_styles' );
 function egg_mce_hide_styles( $settings ) {
     unset($settings['preview_styles']);
     return $settings;
@@ -68,32 +68,36 @@ add_filter( 'tiny_mce_before_init', 'egg_mce_before_init' );
 function egg_mce_before_init( $settings ) {
     $settings['theme_advanced_blockformats'] = 'p,a,div,span,h1,h2,h3,h4,h5,h6,tr,';
 	$style_formats = array(
+		array(
+            'title' => 'Paragraph',
+            'format' => 'p'
+        ),
         array(
             'title' => 'Headers',
                 'items' => array(
                 array(
                     'title' => 'Header 1',
-                    'format' => 'h1',
+                    'format' => 'h1'
                 ),
                 array(
                     'title' => 'Header 2',
-                    'format' => 'h2',
+                    'format' => 'h2'
                 ),
                 array(
                     'title' => 'Header 3',
-                    'format' => 'h3',
+                    'format' => 'h3'
                 ),
                 array(
                     'title' => 'Header 4',
-                    'format' => 'h4',
+                    'format' => 'h4'
                 ),
                 array(
                     'title' => 'Header 5',
-                    'format' => 'h5',
+                    'format' => 'h5'
                 ),
                 array(
                     'title' => 'Header 6',
-                    'format' => 'h6',
+                    'format' => 'h6'
                 )
             )
         ),
@@ -115,7 +119,37 @@ function egg_mce_before_init( $settings ) {
             'title' => 'small',
             'selector' => 'p',
             'classes' => 'small'
-        )
+        ),
+        array(
+            'title' => 'Headline Style',
+                'items' => array(
+                array(
+                    'title' => 'H1 Style',
+                    'selector' => 'p,h1,h2,h3,h4,h5,h6',
+                    'classes' => 'h1',
+                ),
+                array(
+                    'title' => 'H2 Style',
+                    'selector' => 'p,h1,h2,h3,h4,h5,h6',
+                    'classes' => 'h2',
+                ),
+                array(
+                    'title' => 'H3 Style',
+                    'selector' => 'p,h1,h2,h3,h4,h5,h6',
+                    'classes' => 'h3',
+                ),
+                array(
+                    'title' => 'H4 Style',
+                    'selector' => 'p,h1,h2,h3,h4,h5,h6',
+                    'classes' => 'h4',
+                ),
+                array(
+                    'title' => 'H5 Style',
+                    'selector' => 'p,h1,h2,h3,h4,h5,h6',
+                    'classes' => 'h5',
+                )
+            )
+        ),
     );
     $settings['style_formats'] = json_encode( $style_formats );
     return $settings;

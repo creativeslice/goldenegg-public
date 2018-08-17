@@ -61,7 +61,7 @@ a, a:visited {
 		color: darken($link_hover, 10%);
 	}
 	&:link {
-		-webkit-tap-highlight-color: rgba( $link_color, 0.5 ); // mobile tap color
+		-webkit-tap-highlight-color: rgba( $link_color, 0.6 ); // mobile tap color
 	}
 }
 

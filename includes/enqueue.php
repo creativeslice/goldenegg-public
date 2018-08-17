@@ -1,46 +1,37 @@
 <?php
 
 /**
- * Add enqueue scripts/styles
- */
-add_action( 'after_setup_theme', 'egg_enqueue' );
-function egg_enqueue() {
-	add_action( 'wp_enqueue_scripts', 'egg_styles', 999 );
-	add_action( 'wp_enqueue_scripts', 'egg_scripts', 999 );
-}
-
-
-/**
  * Load in the styles
  */
+add_action( 'wp_enqueue_scripts', 'egg_styles', 999 );
 function egg_styles() {
-
-	/* DEV Styles */
-	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?' . date("U"), array(), '', 'all' );
 	
-	/* PRODUCTION Styles */
-	//wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.min.css', array(), '', 'all' );
-
+	/* Add modified date for cache busting */
+	$csschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/css/style.css' );
+	
+	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?' . $csschanged, array(), '', 'all' );
 	wp_enqueue_style( 'egg-stylesheet');
 }
-
 
 /**
  * Load in the scripts
  */
+add_action( 'wp_enqueue_scripts', 'egg_scripts', 999 );
 function egg_scripts() {
+	
+	/* Move Gravity Form scripts to footer - does NOT work with AJAX */
+	//add_filter( 'gform_init_scripts_footer', '__return_true' );
 	
 	/* Move core jQuery to footer */
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, true);
+	//wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'), false, '3.3.1', true);
 	
-	/* DEV Scripts */
-	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . date("U"), array( 'jquery' ), '', true );
+	/* Add modified date for cache busting */
+	$jschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/js/scripts.js' );
 	
-	/* PRODUCTION Scripts */
-	//wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
-	
-	// enqueue styles and scripts
+	/* Scripts */
+	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . $jschanged, array( 'jquery' ), '', true );
 	wp_enqueue_script( 'egg-js');
 }
 

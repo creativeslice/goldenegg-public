@@ -8,9 +8,9 @@ jQuery(document).ready(function($) {
     */
     svg4everybody();
 	
-	
+
 	/**
-     * Expandable Blocks FAQ
+     * Expandable Blocks
      */
     $('.faq-block .question').click(function(e) {
         e.preventDefault();
