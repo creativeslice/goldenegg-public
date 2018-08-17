@@ -4,6 +4,12 @@ Stylesheet: Typography
 
 ******************************************************************/
 
+body {
+	font-size: 100%;
+	line-height: 1.5;
+	font-family: $sans_serif;
+}
+
 /*********************
 FONT FACE
 *********************/
@@ -147,6 +153,7 @@ blockquote {
 	padding: 0 0 0 1em;
 	border-left: 3px solid $link_color;
 	font-style: italic;
+	font-family: $serif;
 	color: $gray;
 	&:before {}
 }

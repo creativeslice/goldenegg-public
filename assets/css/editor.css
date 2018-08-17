@@ -47,6 +47,11 @@ BREAKPOINTS
 Stylesheet: Typography
 
 ******************************************************************/
+body {
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
 /*********************
 FONT FACE
 *********************/
@@ -152,6 +157,7 @@ blockquote {
   padding: 0 0 0 1em;
   border-left: 3px solid #1b801b;
   font-style: italic;
+  font-family: "Georgia", Cambria, Times, serif;
   color: #666; }
 
 address {
@@ -174,45 +180,6 @@ mark, ins {
   background: #fff9c0;
   text-decoration: none; }
 
-/******************************************************************
-
-Stylesheet: Buttons
-
-******************************************************************/
-/*********************
-BUTTONS
-*********************/
-.form-submit input,
-.button, .button:visited {
-  display: inline-block;
-  position: relative;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-decoration: none;
-  font-size: .875em;
-  font-weight: bold;
-  line-height: 1em;
-  padding: 1em;
-  border-radius: 2px;
-  cursor: pointer;
-  -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out; }
-
-.form-submit input,
-.button, .button:visited {
-  background-color: #1b801b;
-  border: 1px solid #1b801b;
-  color: #fff; }
-  .form-submit input:hover, .form-submit input:focus,
-  .button:hover,
-  .button:focus, .button:visited:hover, .button:visited:focus {
-    background-color: #24aa24;
-    color: #fff;
-    text-decoration: none; }
-  .form-submit input:active,
-  .button:active, .button:visited:active {
-    background-color: #1b801b;
-    color: #fff; }
-
 /*********************
 CUSTOM EDITOR STYLES
 *********************/
@@ -220,5 +187,16 @@ CUSTOM EDITOR STYLES
   border: 1px solid #eee;
   display: inline-block; }
 
-.mce-menu-item.mce-menu-item-preview.mce-active .mce-text, .mce-menu-item.mce-menu-item-preview.mce-active .mce-ico {
-  color: red !important; }
+.button {
+  padding: 3px 6px;
+  font-weight: bold;
+  color: #fff;
+  background: #1b801b;
+  text-decoration: none; }
+
+.small {
+  font-size: .75em; }
+
+.mce-menu .mce-menu-item.mce-selected {
+  color: red !important;
+  border: 2px solid yellow; }

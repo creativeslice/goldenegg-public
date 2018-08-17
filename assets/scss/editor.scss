@@ -21,7 +21,7 @@ IMPORTING MODULES
 @import "modules/typography";
 
 // buttons
-@import "modules/buttons";
+//@import "modules/buttons";
 
 
 /*********************
@@ -33,6 +33,19 @@ CUSTOM EDITOR STYLES
 	display: inline-block;
 }
 
-.mce-menu-item.mce-menu-item-preview.mce-active .mce-text, .mce-menu-item.mce-menu-item-preview.mce-active .mce-ico {
+.button {
+	padding: 3px 6px;
+	font-weight: bold;
+	color: $white;
+	background: $link_color;
+	text-decoration: none;
+}
+
+.small {
+	font-size: .75em;
+}
+
+.mce-menu .mce-menu-item.mce-selected {
 	color: red !important;
+	border: 2px solid yellow;
 }
