@@ -64,8 +64,8 @@ function egg_mce_editor_buttons( $buttons ) {
 /**
  * Add items to Format dropdown
  */
-add_filter( 'tiny_mce_before_init', 'egg_mce_before_init' );
-function egg_mce_before_init( $settings ) {
+add_filter( 'tiny_mce_before_init', 'egg_mce_formats' );
+function egg_mce_formats( $settings ) {
     $settings['theme_advanced_blockformats'] = 'p,a,div,span,h1,h2,h3,h4,h5,h6,tr,';
 	$style_formats = array(
 		array(
@@ -119,37 +119,7 @@ function egg_mce_before_init( $settings ) {
             'title' => 'small',
             'selector' => 'p',
             'classes' => 'small'
-        ),
-        array(
-            'title' => 'Headline Style',
-                'items' => array(
-                array(
-                    'title' => 'H1 Style',
-                    'selector' => 'p,h1,h2,h3,h4,h5,h6',
-                    'classes' => 'h1',
-                ),
-                array(
-                    'title' => 'H2 Style',
-                    'selector' => 'p,h1,h2,h3,h4,h5,h6',
-                    'classes' => 'h2',
-                ),
-                array(
-                    'title' => 'H3 Style',
-                    'selector' => 'p,h1,h2,h3,h4,h5,h6',
-                    'classes' => 'h3',
-                ),
-                array(
-                    'title' => 'H4 Style',
-                    'selector' => 'p,h1,h2,h3,h4,h5,h6',
-                    'classes' => 'h4',
-                ),
-                array(
-                    'title' => 'H5 Style',
-                    'selector' => 'p,h1,h2,h3,h4,h5,h6',
-                    'classes' => 'h5',
-                )
-            )
-        ),
+        )
     );
     $settings['style_formats'] = json_encode( $style_formats );
     return $settings;

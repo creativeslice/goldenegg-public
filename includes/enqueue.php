@@ -9,7 +9,7 @@ function egg_styles() {
 	/* Add modified date for cache busting */
 	$csschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/css/style.css' );
 	
-	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?' . $csschanged, array(), '', 'all' );
+	wp_register_style( 'egg-stylesheet', get_stylesheet_directory_uri() . '/assets/css/style.css?v=' . $csschanged, array(), '', 'all' );
 	wp_enqueue_style( 'egg-stylesheet');
 }
 
@@ -25,7 +25,7 @@ function egg_scripts() {
 	/* Move core jQuery to footer */
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, true);
-	//wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'), false, '3.3.1', true);
+	//wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'), false, '2.2.4', true);
 	
 	/* Add modified date for cache busting */
 	$jschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/js/scripts.js' );
