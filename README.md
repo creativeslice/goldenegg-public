@@ -23,6 +23,10 @@ The example files above would be contained in: `/components/component_name/`.
 
 In the repo, this is used to hold non-default components that can be used in your project. In the final project, this can be deleted to avoid confusion.
 
+### /acf-json
+
+Will hold json definitions of any ACF groups created. Allows them to be version controlled.
+
 ### /admin
 
 Admin customizations such as TinyMCE updates.
