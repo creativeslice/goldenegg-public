@@ -2,7 +2,7 @@
 
 ### Version 2.0.2
 
-A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS. This theme is component-based and organzies the SCSS, JS, &amp; PHP that define a component all in the same directory within the components directory.
+A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS. This theme is component-based and organizes the SCSS, JS, &amp; PHP that define a component all in the same directory within the components directory.
 
 More at: [https://creativeslice.com/goldenegg](https://creativeslice.com/goldenegg)
 
@@ -64,7 +64,7 @@ A PHP library of global functionality.
 
 ## Gulp to Process Scripts and Styles
 
-Gulp can be used to create an SVG icon sprite, combine, update, and process SCSS and JavaScript. It will pull the SCSS and JS from the components automatically.
+Gulp can be used to create an SVG icon sprite, combine, update, and process SCSS and JavaScript. It will pull the JS from the components automatically but SCSS files need to be manually added in the `/assets/scss/style.scss` file.
 
 **Gulp Commands**
 
