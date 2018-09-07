@@ -13,11 +13,11 @@ More at: [https://creativeslice.com/goldenegg](https://creativeslice.com/goldene
 
 This directory holds the reusable components that make up the site. Components are meant to wholly contain the functionality for a piece of website functionality. A component can consist of any combination of or potentially multiple of each:
 
-1. A PHP file, eg: `component_name.php`
-1. A JavaScript file, eg: `component_name.js`
-1. A CSS file, eg: `component_name.css`
+1. A PHP file, eg: `componentName.php`
+1. A JavaScript file, eg: `componentName.js`
+1. A CSS file, eg: `componentName.scss`
 
-The example files above would be contained in: `/components/component_name/`.
+The example files above would be contained in: `/components/componentName/`.
 
 ### /components_OFF
 
@@ -25,7 +25,7 @@ In the repo, this is used to hold non-default components that can be used in you
 
 ### /acf-json
 
-Will hold json definitions of any ACF groups created. Allows them to be version controlled.
+Will hold JSON definitions of any ACF groups created. Allows them to be version controlled.
 
 ### /admin
 
@@ -42,15 +42,15 @@ A PHP library of global functionality.
 
 ## Requirements
 
-1. *Node* and its package manager **NPM** need to be installed on your computer
-1. The [Advanced Custom Fields](https://www.advancedcustomfields.com/) plugin to add custom fields and use the page builder
+1. **Node** and its package manager **NPM** need to be installed on your computer
+1. The [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/) plugin to add custom fields and use the page builder
 
 
 ## Install &amp; Set Up
 
 1. Copy this directory into a WordPress site theme directory
 1. Open Terminal or your CLI of choice
-1. Navigate to the theme directory (eg: `cd ~/Documents/Websites/site_name/wp-content/themes/goldenegg/`)
+1. Navigate to the theme directory (eg: `cd ~/Sites/site_name/app/public/wp-content/themes/goldenegg/`)
 1. Run `npm install` to install the necessary packages
 
 
