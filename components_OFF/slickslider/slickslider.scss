@@ -4,15 +4,9 @@ Stylesheet: Slick Slider
 
 ******************************************************************/
 
-
-
 /*********************
 CORE SLICK STYLES
 *********************/
-
-.slick-slideshow {
-	//position: relative;
-}
 
 .draggable .slide {
 	cursor: pointer;
@@ -100,7 +94,7 @@ NAVIGATION
 *********************/
 
 // Arrows
-.slick-prev, .slick-next { 
+.slick-arrow { 
 	position: absolute;
 	z-index: 9;
 	height: 48px; 
@@ -113,22 +107,32 @@ NAVIGATION
 	font-size: .01px;
 	&:after {
 		content: '';
-		width: 12px;
-		height: 12px;
+		width: 10px;
+		height: 10px;
 		display: block;
-		margin: 0 auto;
-		border-bottom: 3px solid $white;
-		border-left: 3px solid $white;
+		margin: 0 0 0 20px;
+		border-bottom: 2px solid $white;
+		border-left: 2px solid $white;
 		transition: border $ease;
 		transform: rotate(45deg);
 	}
-
+	&.slick-next { 
+		&:after {
+			margin-left: 15px;
+			border: none;
+			border-top: 2px solid $link_color;
+			border-right: 2px solid $link_color;
+		}
+	}
 	&:hover { 
 		outline: none;
-		background: darken($link_color, 10%);
+		background: $link_hover;
 	}
 	&:active { 
 		color: $link_hover;
+	}
+	&.slick-disabled {
+		display: none !important;
 	}
 }
 

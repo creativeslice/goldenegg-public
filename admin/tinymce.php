@@ -5,7 +5,7 @@
  * Disables tinyMCE security feature for external links
  * rel = "noopener"
  */
-//add_filter( 'tiny_mce_before_init',	'tinymce_allow_unsafe_link_target');
+add_filter( 'tiny_mce_before_init',	'tinymce_allow_unsafe_link_target');
 function tinymce_allow_unsafe_link_target( $mceInit ) {
 	$mceInit['allow_unsafe_link_target']=true;
 	return $mceInit;
@@ -15,7 +15,7 @@ function tinymce_allow_unsafe_link_target( $mceInit ) {
 /**
  * Remove Editor Styles
  */
-add_filter( 'tiny_mce_before_init', 'egg_mce_hide_styles' );
+//add_filter( 'tiny_mce_before_init', 'egg_mce_hide_styles' );
 function egg_mce_hide_styles( $settings ) {
     unset($settings['preview_styles']);
     return $settings;
@@ -27,7 +27,18 @@ function egg_mce_hide_styles( $settings ) {
  */
 add_action( 'admin_init', 'egg_editor_styles' );
 function egg_editor_styles() {
-	add_editor_style( get_template_directory_uri() . '/assets/css/editor.css' );
+	add_editor_style( get_template_directory_uri() . '/assets/css/editor.css?091918' );
+}
+
+
+/*
+ * Modify TinyMCE editor to remove H1.
+ */
+add_filter('tiny_mce_before_init', 'tiny_mce_remove_unused_formats' );
+function tiny_mce_remove_unused_formats($init) {
+	// Add block format elements you want to show in dropdown
+	$init['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;Blockquote=blockquote;Superscript=superscript;Subscript=subscript;';
+	return $init;
 }
 
 
@@ -36,7 +47,7 @@ function egg_editor_styles() {
  */
 add_filter( 'mce_buttons', 'egg_mce_buttons' );
 function egg_mce_buttons( $buttons ) {
-	$remove = array('formatselect', 'blockquote', 'wp_more');
+	$remove = array('blockquote', 'wp_more'); // formatselect
 	return array_diff($buttons, $remove);
 }
 
@@ -68,39 +79,6 @@ add_filter( 'tiny_mce_before_init', 'egg_mce_formats' );
 function egg_mce_formats( $settings ) {
     $settings['theme_advanced_blockformats'] = 'p,a,div,span,h1,h2,h3,h4,h5,h6,tr,';
 	$style_formats = array(
-		array(
-            'title' => 'Paragraph',
-            'format' => 'p'
-        ),
-        array(
-            'title' => 'Headers',
-                'items' => array(
-                array(
-                    'title' => 'Header 1',
-                    'format' => 'h1'
-                ),
-                array(
-                    'title' => 'Header 2',
-                    'format' => 'h2'
-                ),
-                array(
-                    'title' => 'Header 3',
-                    'format' => 'h3'
-                ),
-                array(
-                    'title' => 'Header 4',
-                    'format' => 'h4'
-                ),
-                array(
-                    'title' => 'Header 5',
-                    'format' => 'h5'
-                ),
-                array(
-                    'title' => 'Header 6',
-                    'format' => 'h6'
-                )
-            )
-        ),
         array(
             'title' => 'Button',
             'selector' => 'a',
@@ -110,10 +88,6 @@ function egg_mce_formats( $settings ) {
             'title' => 'No Wrap',
             'selector' => 'span',
             'classes' => 'nowrap'
-        ),
-        array(
-            'title' => 'Blockquote',
-            'format' => 'blockquote'
         ),
         array(
             'title' => 'small',

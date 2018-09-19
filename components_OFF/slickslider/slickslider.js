@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 	/**
 	* Slick Slider
 	*/
-	$('.SlickSlider').slick({
+	var $slickslider = $('.slickSlider').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		draggable: true,
@@ -11,12 +11,12 @@ jQuery(document).ready(function($) {
 		fade: false,
 		arrows: false,
 		lazyLoad: 'progressive',
-		centerMode: true,
-		centerPadding: '20px',
+		//centerMode: true,
+		//centerPadding: '20px',
 		//variableWidth:true,
+		//initialSlide: 1,
 		focusOnSelect: true,
 		adaptiveHeight: true,
-		fade: false,
 		infinite: false,
 		mobileFirst: true,
 		responsive: [ 
@@ -27,5 +27,13 @@ jQuery(document).ready(function($) {
 			}
 		]
 	});
+	
+	// Click image to progress slideshow	
+	/*$slickslider.each(function() {
+	    var $this = $(this);
+	    $this.find(".slick-slide .boxImage").on("click", function(){
+	        $this.slick("slickNext");
+	    });
+	});*/
 		
 });
