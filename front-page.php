@@ -10,15 +10,15 @@
 		
 		<?php the_post(); the_content(); ?>
 		
-		<figure class="lazy70">
-			<img
-				data-sizes="100vw"
+		<div class="boxImage">
+			<figure class="lazy70"><img data-sizes="(max-width: 767px) 100vw, 80vw"
 				data-src="<?php echo get_template_directory_uri(); ?>/assets/img/img_600x400.jpg"
-				data-srcset="<?php echo get_template_directory_uri(); ?>/assets/img/img_1000x700.jpg 1000w,
-				<?php echo get_template_directory_uri(); ?>/assets/img/img_600x400.jpg 600w"
+				data-srcset="<?php echo get_template_directory_uri(); ?>/assets/img/img_600x400.jpg 600w,
+					<?php echo get_template_directory_uri(); ?>/assets/img/img_1000x700.jpg 1000w"
 				alt="Gold Egg Alt Text"
 				class="lazyload lazypreload" />
-		</figure>
+			</figure>
+		</div>
 		
 	</section>
 

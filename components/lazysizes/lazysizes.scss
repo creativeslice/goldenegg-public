@@ -3,16 +3,31 @@ IMG[src=''], IMG:not([src]) {
 	opacity: 0;
 }
 
-// Lazy Loading
+// figure classes
 .lazyhd,
+.lazysquare,
 .lazy70 {
+	position: relative;
+	height: 0;
+	background: $gray_light;
 	img {
 		width: 100%;
+		height: auto;
 		opacity: 0.2;
 		transition: opacity $easeslow;
 	}
 }
+.lazyhd {
+	padding-bottom: 56.25%;
+}
+.lazysquare {
+	padding-bottom: 100%;
+}
+.lazy70 {
+	padding-bottom: 70%;
+}
 
+// Defaults
 .lazyload {
 	position: absolute;
 	top: 0;
@@ -26,20 +41,4 @@ IMG[src=''], IMG:not([src]) {
 }
 .lazyloaded {
 	opacity: 1 !important;
-}
-
-// lazy 70
-.lazy70 {
-	padding-bottom: 70%;
-	height: 0;
-	background: $gray_lighter;
-	position: relative;
-	margin-bottom: $spacing/2;
-}
-
-// lazy HD
-.lazyhd {
-	padding-bottom: 56.25%;
-	height: 0;
-	background: $gray_light;
 }

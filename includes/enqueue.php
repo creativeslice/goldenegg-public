@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Load in the styles
+ * Load CSS
  */
 add_action( 'wp_enqueue_scripts', 'egg_styles', 999 );
 function egg_styles() {
@@ -13,27 +13,54 @@ function egg_styles() {
 	wp_enqueue_style( 'egg-stylesheet');
 }
 
+
 /**
- * Load in the scripts
+ * Load JS
  */
 add_action( 'wp_enqueue_scripts', 'egg_scripts', 999 );
 function egg_scripts() {
-	
-	/* Move Gravity Form scripts to footer - does NOT work with AJAX */
-	//add_filter( 'gform_init_scripts_footer', '__return_true' );
-	
+
 	/* Move core jQuery to footer */
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, true);
-	//wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'), false, '2.2.4', true);
+	wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, false);
+	//wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'), false, '2.2.4', false);
 	
 	/* Add modified date for cache busting */
 	$jschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/js/scripts.js' );
 	
 	/* Scripts */
-	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . $jschanged, array( 'jquery' ), '', true );
+	wp_register_script( 'egg-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js?' . $jschanged, array( 'jquery' ), '', false );
 	wp_enqueue_script( 'egg-js');
 }
+
+
+/**
+ * Defer ALL enqueued scripts
+ */
+if (! is_admin() ) {
+	add_filter( 'script_loader_tag', function ( $tag, $handle ) {
+		return str_replace( ' src', ' defer="defer" src', $tag );
+	}, 10, 2 );
+}
+
+
+/**
+ * Gravity Form Scripts
+ * wrap GF inline scripts in DOMContentLoaded event listeners 
+ * so they aren't triggered before jQuery loads
+ */
+/*
+add_filter( 'gform_cdata_open', 'wrap_gform_cdata_open' );
+function wrap_gform_cdata_open( $content = '' ) {
+    $content = 'document.addEventListener( "DOMContentLoaded", function() { ';
+    return $content;
+}
+add_filter( 'gform_cdata_close', 'wrap_gform_cdata_close' );
+function wrap_gform_cdata_close( $content = '' ) {
+    $content = ' }, false );';
+    return $content;
+}
+*/
 
 
 /**

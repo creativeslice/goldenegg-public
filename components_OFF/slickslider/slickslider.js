@@ -15,14 +15,19 @@ jQuery(document).ready(function($) {
 		//centerPadding: '20px',
 		//variableWidth:true,
 		//initialSlide: 1,
+		autoplay: true,
+		autoplaySpeed: 4000,
+		speed: 900,
 		focusOnSelect: true,
 		adaptiveHeight: true,
+		swipeToSlide: true,
+		touchThreshold: 5,
 		infinite: false,
 		mobileFirst: true,
 		responsive: [ 
 			{ breakpoint: 1200,
 				settings: {
-					slidesToShow: 1,
+					slidesToShow: 2,
 				}
 			}
 		]
