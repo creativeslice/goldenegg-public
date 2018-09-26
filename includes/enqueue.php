@@ -20,10 +20,9 @@ function egg_styles() {
 add_action( 'wp_enqueue_scripts', 'egg_scripts', 999 );
 function egg_scripts() {
 
-	/* Move core jQuery to footer */
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', includes_url( '/js/jquery/jquery.js' ), false, null, false);
-	//wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'), false, '2.2.4', false);
+	/* Call jQuery from Google CDN */
+	//wp_deregister_script('jquery');
+	//wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'), false, '3.3.1', false);
 	
 	/* Add modified date for cache busting */
 	$jschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/js/scripts.js' );
