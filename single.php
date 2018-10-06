@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<article class="wrapInner">
+<article id="content" class="wrapInner">
 
 	<header class="articleHeader">
 		<h1><?php the_title(); ?></h1>

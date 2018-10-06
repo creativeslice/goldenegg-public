@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="wrap">
+<main id="content" class="wrap">
 
 	<header class="articleHeader">
 		<h1>Page Not Found</h1>

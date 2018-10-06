@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="wrap">
+<div id="content" class="wrap">
 	
 	<h1 class="archiveTitle"><span>Search Results for:</span> <?php echo get_search_query(); ?></h1>
 

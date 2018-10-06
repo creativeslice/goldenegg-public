@@ -59,6 +59,17 @@ function wrap_gform_cdata_close( $content = '' ) {
     $content = ' }, false );';
     return $content;
 }
+
+// GF fix AJAX forms to work with redirect
+add_filter( 'gform_confirmation', 'cs_gform_ajax_redirect', 10, 4);
+function cs_gform_ajax_redirect( $confirmation, $form, $entry, $ajax ) {
+    if ( $ajax && $form['confirmation']['type'] == 'page' ) {
+        $confirmation = "<script>function gformRedirect(){document.location.href='" . $confirmation['redirect'] . "';}</script>";    
+    } elseif ( $ajax && $form['confirmation']['type'] == 'redirect' ) {
+	    $confirmation = "<script>function gformRedirect(){document.location.href='" . $form['confirmation']['url'] . "';}</script>"; 
+    }
+    return $confirmation;
+}
 */
 
 

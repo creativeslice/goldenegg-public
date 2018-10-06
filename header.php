@@ -46,5 +46,3 @@
 		</div>
 
 	</header>
-	
-	<div id="content" class="cf">

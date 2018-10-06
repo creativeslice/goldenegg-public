@@ -1,5 +1,3 @@
-</div><?php // Closes #content from header.php ?>
-
 <footer class="footer">
 
 	<div class="wrap">

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="wrap">
+<div id="content" class="wrap">
 
 	<?php if ( is_category() ) : ?>
 		<h1 class="archiveTitle">

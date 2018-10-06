@@ -1,6 +1,6 @@
 <?php get_header(); // Template Name: Style Guide ?>
 	
-<article class="wrap">
+<article id="content" class="wrap">
 
 	<header class="articleHeader">
 		<h1 class="pageTitle"><strong>PAGE TITLE:</strong> <?php the_title(); ?></h1>

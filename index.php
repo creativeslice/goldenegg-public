@@ -6,7 +6,7 @@
 	$topid = wp_get_post_parent_id( $page_for_posts );
 ?>
 	
-<div class="wrap">
+<div id="content" class="wrap">
 	
 	<h1 class="pageTitle"><?php echo get_the_title( $page_for_posts ); ?></h1>
 
