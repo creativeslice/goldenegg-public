@@ -17,22 +17,17 @@
 			array(
 				'title' => 'Twitter',
 				'icon'  => 'twitter',
-				'url'   => 'http://twitter.com/share?text=' . urlencode($title) . '&url=' . $permalink . ($hastag ? '&hashtags=' . $hastag : '') . ($twitter ? '&via=' . $twitter : ''),
+				'url'   => 'https://twitter.com/share?text=' . urlencode($title) . '&url=' . $permalink . ($hastag ? '&hashtags=' . $hastag : '') . ($twitter ? '&via=' . $twitter : ''),
 			),
 			array(
 				'title' => 'Linkedin',
 				'icon'  => 'linkedin',
-				'url'   => 'http://www.linkedin.com/shareArticle?mini=true&url=' . $permalink . '&title=' . urlencode($title) . '&summary=' . urlencode(get_the_excerpt()) . '&source=' . home_url('/'),
+				'url'   => 'https://www.linkedin.com/shareArticle?mini=true&url=' . $permalink . '&title=' . urlencode($title) . '&summary=' . urlencode(get_the_excerpt()) . '&source=' . home_url('/'),
 			),
 			array(
 				'title' => 'Facebook',
 				'icon'  => 'facebook',
-				'url'   => 'http://www.facebook.com/sharer.php?m2w&s=100&p[url]=' . $permalink . ($image ? '&p[images][0]=' . $image : '') . '&p[title]=' . urlencode($title) . '&p[summary]=' . urlencode(get_the_excerpt()),
-			),
-			array(
-				'title' => 'Google+',
-				'icon'  => 'google',
-				'url'   => 'https://plus.google.com/share?url=' . $permalink,
+				'url'   => 'https://www.facebook.com/sharer.php?m2w&s=100&p[url]=' . $permalink . ($image ? '&p[images][0]=' . $image : '') . '&p[title]=' . urlencode($title) . '&p[summary]=' . urlencode(get_the_excerpt()),
 			),
 		);
 	?>

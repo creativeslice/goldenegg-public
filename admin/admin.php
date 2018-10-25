@@ -61,7 +61,6 @@ function egg_remove_help_tabs() {
  */
 add_action( 'admin_menu', 'egg_disable_dashboard_widgets' );
 function egg_disable_dashboard_widgets() {
-	
 	remove_meta_box('dashboard_right_now', 'dashboard', 'core');    	// Right Now Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core'); 	// Incoming Links Widget
 	remove_meta_box('dashboard_plugins', 'dashboard', 'core');			// Plugins Widget
@@ -69,9 +68,8 @@ function egg_disable_dashboard_widgets() {
 	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');	// Recent Drafts Widget
 	remove_meta_box('dashboard_activity', 'dashboard', 'core');			// Activity Widget
 	remove_meta_box('dashboard_primary', 'dashboard', 'core');			// WordPress News Widget
-
-	// remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');	// Gravity Forms Plugin Widget
 	remove_meta_box('wpe_dify_news_feed', 'dashboard', 'normal');		// WPEngine News Widget
+	// remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');	// Gravity Forms Widget
 }
 
 
@@ -109,6 +107,16 @@ function egg_remove_menu_pages() {
 	remove_menu_page('link-manager.php');
 	if (! current_user_can('manage_options') ) remove_menu_page('tools.php');
 }
+
+
+/**
+ * Only allow ACF fields to be edited on local development
+ */
+/*
+if ( ! defined( 'WP_LOCAL_DEV' ) ) {
+	add_filter( 'acf/settings/show_admin', '__return_false' );
+}
+*/
 
 
 /**
