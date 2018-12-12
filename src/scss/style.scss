@@ -6,8 +6,6 @@ IMPORTING MODULES
 @import "modules/sanitize";
 @import "modules/variables";
 @import "modules/typography";
-@import "modules/header";
-@import "modules/footer";
 @import "modules/images";
 @import "modules/forms";
 @import "modules/buttons";
@@ -15,14 +13,18 @@ IMPORTING MODULES
 
 /*********************
 COMPONENTS
-*********************/
+********************* /
 //@import "components/colorbox/colorbox";
 @import "components/headerMenu/headerMenu";
 //@import "components/iframeVideo/iframeVideo";
 @import "components/lazysizes/lazysizes";
+@import "components/pageFooter/pageFooter";
+@import "components/pageHeader/pageHeader";
 @import "components/pageNavi/pageNavi";
 //@import "components/slickslider/slickslider";
-@import "components/socialShare/socialShare";
+@import "components/searchForm/searchForm";
+@import "components/searchToggle/searchToggle";
+@import "components/shareLinks/shareLinks";
 
 
 /*********************

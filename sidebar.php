@@ -1,5 +1,5 @@
 <aside class="sidebar">
-	
+
 <?php // find top ancestor for sidebar menu
 if (@$post->post_parent)	{
 	$ancestors=get_post_ancestors($post->ID);

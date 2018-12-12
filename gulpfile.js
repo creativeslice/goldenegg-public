@@ -47,7 +47,11 @@ var onError = function( error ) {
  * CSS
  */
 gulp.task('styles', function() {
-	return gulp.src('assets/scss/style.scss')
+	return gulp.src([
+			'src/scss/style.scss',
+			'components/**/*.scss',
+		])
+		.pipe(concat('style.scss'))
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(sourcemaps.init())
 		.pipe(sass({ style: compression }))
@@ -59,7 +63,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('styles-login', function() {
-	return gulp.src('assets/scss/login.scss')
+	return gulp.src('src/scss/login.scss')
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions'))
 		.pipe(gulp.dest('assets/css'))
@@ -67,7 +71,7 @@ gulp.task('styles-login', function() {
 });
 
 gulp.task('styles-editor', function() {
-	return gulp.src('assets/scss/editor.scss')
+	return gulp.src('src/scss/editor.scss')
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions'))
 		.pipe(gulp.dest('assets/css'))
@@ -81,8 +85,8 @@ gulp.task('styles-editor', function() {
 gulp.task('scripts', function() {
 	if ( 'production' === environment ) {
 		return gulp.src([
-				'assets/js/src/libs/*.js',
-				'assets/js/src/**/*.js',
+				'src/js/libs/*.js',
+				'src/js/**/*.js',
 				'components/**/*.js',
 			])
 			.pipe(concat('scripts.js'))
@@ -93,8 +97,8 @@ gulp.task('scripts', function() {
 			.pipe(notify({ message: 'Production scripts task complete' }));
 	} else {
 		return gulp.src([
-				'assets/js/src/libs/*.js',
-				'assets/js/src/**/*.js',
+				'src/js/libs/*.js',
+				'src/js/**/*.js',
 				'components/**/*.js',
 			])
 			.pipe(concat('scripts.js'))
@@ -113,22 +117,22 @@ gulp.task('scripts', function() {
  *
  */
 gulp.task('icons', function() {
-	return gulp.src('assets/icons/src/*')
-		.pipe( gulpif('production'==environment, svgmin()) )
-		.pipe( svgstore({ inlineSvg: true }) )
-		.pipe( cheerio({
+	return gulp.src('src/icons/*')
+		.pipe(gulpif('production'==environment, svgmin()))
+		.pipe(svgstore({ inlineSvg: true }))
+		.pipe(cheerio({
 			run: function( $, file ) {
 				$('svg').addClass('hide');
 				$('symbol[id!=logo]').find('path,g,polygon,circle,rect').removeAttr('fill');
 			},
 			parserOptions: { xmlMode: true },
 		}))
-		.pipe( rename('icons.svg') )
-		.pipe( gulp.dest('assets/icons') )
-		.pipe( notify({
+		.pipe(rename('icons.svg'))
+		.pipe(gulp.dest('assets/icons'))
+		.pipe(notify({
 			title: 'Images',
 			message: 'Icons complete'
-		}) );
+		}));
 });
 
 
@@ -151,8 +155,8 @@ gulp.task('default', function() {
  */
 gulp.task('watch', function() {
 	livereload.listen();
-	gulp.watch('assets/scss/**/*.scss', ['styles']);
+	gulp.watch('src/scss/**/*.scss', ['styles']);
 	gulp.watch('components/**/*.scss', ['styles']);
-	gulp.watch('assets/js/src/**/*.js', ['scripts']);
+	gulp.watch('src/js/**/*.js', ['scripts']);
 	gulp.watch('components/**/*.js', ['scripts']);
 });

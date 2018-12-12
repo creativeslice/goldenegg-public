@@ -12,14 +12,14 @@
 	</section>
 
 	<footer class="articleFooter">
-		
+
 		<?php the_tags( '<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>' ); ?>
-		
-		<?php include(locate_template('components/socialShare/socialShare.php')); ?>
-		
+
+		<?php include(locate_template('components/shareLinks/shareLinks.php')); ?>
+
 		<span class="postPrev"><?php previous_post_link('%link', '&lsaquo;&nbsp;Previous'); ?></span>
 		<span class="postNext"><?php next_post_link('%link', 'Next&nbsp;&rsaquo;'); ?></span>
-		
+
 	</footer>
 
 </article>

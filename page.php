@@ -18,6 +18,6 @@
 
 </main>
 
-<?php //include(locate_template('includes/acfContentBlocks.php')); ?>
+<?php //include(locate_template("components/contentBlocks/contentBlocks.php")); ?>
 
-<?php get_footer(); ?>
+<?php get_footer();

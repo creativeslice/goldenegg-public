@@ -22,27 +22,4 @@
 	
 	<?php get_search_form(); // hidden by default ?>
 	
-	<header class="header">  
-
-		<div class="wrap cf">
-
-			<a id="logo" href="<?php echo home_url(); ?>" title="Home">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" />
-			</a>
-			
-			<button id="searchToggle">
-				<svg title="Search" class="open">
-					<title>Show Search</title>
-					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#search"></use>
-				</svg>
-				<svg title="Close" class="close">
-					<title>Close Search</title>
-					<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#close"></use>
-				</svg>
-			</button>
-			
-			<?php include(locate_template('components/headerMenu/headerMenu.php')); ?>
-
-		</div>
-
-	</header>
+	<?php include(locate_template('components/pageHeader/pageHeader.php')); ?>
