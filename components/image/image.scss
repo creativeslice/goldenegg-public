@@ -1,3 +1,14 @@
+.image {
+	height: auto;
+	margin: 0;
+	max-width: 100%;
+
+	&-img {
+		height: 100%;
+		width: 100%;
+	}
+}
+
 // hides border for images without src
 IMG[src=''], IMG:not([src]) {
 	opacity: 0;

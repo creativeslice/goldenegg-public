@@ -49,6 +49,7 @@ var onError = function( error ) {
 gulp.task('styles', function() {
 	return gulp.src([
 			'src/scss/style.scss',
+			'src/libs/**/*.scss',
 			'components/**/*.scss',
 		])
 		.pipe(concat('style.scss'))
@@ -85,7 +86,7 @@ gulp.task('styles-editor', function() {
 gulp.task('scripts', function() {
 	if ( 'production' === environment ) {
 		return gulp.src([
-				'src/js/libs/*.js',
+				'src/libs/**/*.js',
 				'src/js/**/*.js',
 				'components/**/*.js',
 			])
@@ -97,7 +98,7 @@ gulp.task('scripts', function() {
 			.pipe(notify({ message: 'Production scripts task complete' }));
 	} else {
 		return gulp.src([
-				'src/js/libs/*.js',
+				'src/libs/**/*.js',
 				'src/js/**/*.js',
 				'components/**/*.js',
 			])
