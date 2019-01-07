@@ -12,12 +12,7 @@
  * @param	array	$settings	An array of parameters to determine the output of the component
  * @return	bool	If the component is found, it returns true, otherwise false
  */
-function egg_component( $component, $settings = [], $container = false ) {
-	// If a container exists, use it. Unless component is forced in the settings.
-	if ( empty($settings['component']) && $container = patch_container( $component, $settings ) ) {
-		return $container;
-	}
-
+function egg_component( $component, $settings = [] ) {
 	$settings['component'] = false;
 
 	// Always send classes through, so it is expected
