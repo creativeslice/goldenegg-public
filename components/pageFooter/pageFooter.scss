@@ -1,14 +1,9 @@
-/******************************************************************
-
-Stylesheet: Footer
-
-******************************************************************/
-
-.footer {
+.pageFooter {
 	clear: both;
 	text-align: center;
 	padding: 2em 0;
 	border-top: 1px solid $gray_light;
+
 	.footerLinks {
 		li {
 			list-style: none;
@@ -18,11 +13,13 @@ Stylesheet: Footer
 			}
 		}
 	}
+
 	.copyright {
 		clear: both;
 		font-size: .75em;
 		margin-top: 1em;
 	}
+
 @include breakpoint(medium) {
 	.footerLinks {
 		li {

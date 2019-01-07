@@ -1,11 +1,74 @@
 # Golden Egg WordPress Starter Theme
 
-### Version 2.0.2
+### Version 2.0.3
 
 A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS. This theme is component-based and organizes the SCSS, JS, &amp; PHP that define a component all in the same directory within the components directory.
 
 More at: [https://creativeslice.com/goldenegg](https://creativeslice.com/goldenegg)
 
+## Components
+
+As of 2.0.3, there is some extra automation to components including a new wrapper function for including a component. SCSS files are auto discovered and compiled similar JavaScript files.
+
+### Including a Component
+
+```
+egg_component( 'componentName', $settings );
+```
+
+1. `componentName` is the name used for directory and PHP filename (see Organization below). The component PHP file needs to match the directory name.
+1. `$settings` is an array of settings that the component uses.
+
+This wrapper function allows automation of optional variables that are available to all components, and if a change is needed that would be useful site-wide to all components, the wrapper function can be used. The wrapper is stored in: `includes/components.php`.
+
+### Component Defaults
+
+Default variables that are available to all components:
+
+1. `$id`, provides a string with the `id=""` attribute. Empty unless specified in the `$settings` array. See examples.
+1. `$class`, provides a string with the `class="componentName"` attribute. By default, uses the component's name. More classes can be added in the `$settings` array. See examples.
+1. `$attr`, provides a string with all attributes specified including `class` and `id`. Any attribute can be added in the `$settings` array. See examples.
+
+#### $id Examples
+
+**Basic id**
+
+```
+$settings['id'] = 'unique-name';
+```
+*Output*: `id="unique-name"`
+
+**Section id**
+
+Can be used in a loop:
+```
+$count = 1;
+foreach ( $content_blocks as $settings ) :
+
+	$settings['build_count'] = $count;
+	egg_component( $block, $settings );
+
+	$count++;
+endforeach;
+```
+*Output*: `id="section--1"`
+
+**$class Examples**
+
+```
+$settings['class'] = [ 'slickslider', 'slickslider--sidebar' ];
+```
+*Output*: `class="componentName slickslider slickslider--sidebar"`
+
+*$attr Examples*
+```
+$settings['attr'] = [
+	'data-type' => 'gallery',
+	'width'     => 128,
+	'srcset'    => 'path/image-1920.jpg 1920w, path/image-1280.jpg 1280w',
+];
+```
+Output: `id="unique-name" class="componentName slickslider slickslider--sidebar" data-type="gallery" width="128" srcset="path/image-1920.jpg 1920w, path/image-1280.jpg 1280w"`
 
 ## Organization
 

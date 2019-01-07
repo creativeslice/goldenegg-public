@@ -1,17 +1,5 @@
 jQuery(document).ready(function($) {
-	
-	/**
-	 * Open search panel and focus cursor
-	 */
-	$('#searchToggle').click(function(e) {
-		e.preventDefault();
-		var $this = $(this);
-		$this.toggleClass('active');
-		$('.searchForm').slideToggle(300);
-		$('.searchField')[0].focus();	
-	});
-	
-	
+
 	/**
 	 * Mobile menu toggle
 	 */
@@ -21,8 +9,8 @@ jQuery(document).ready(function($) {
 		$this.toggleClass('active');
 		$('.menuFull').slideToggle(300);
 	});
-	
-	
+
+
 	/**
 	 * Sub menu functionality for touch screen
 	 */
@@ -39,30 +27,5 @@ jQuery(document).ready(function($) {
 			}
 		});
 	}
-	
 
-	/**
-	 * Detect scroll position and add sticky class to body
-	 */
-	
-	// get initial offset height of #stickyTrigger
-	if ( $('#logo').length ){
-		elementOffset = $('#logo').offset().top;
-	}
-	
-	// NEED TO UPDATE timeToWaitForLast based on Jake's function
-	window.onscroll = function() {
-		var windowTop = $(window).scrollTop();
-	
-		// checks for #stickyTrigger ID and will trigger "sticky"
-		if ( $('#logo').length ) {
-			var distance = (elementOffset - windowTop + 122); // fixed header offset
-			if (distance < 0 ) {
-				$('body').addClass('sticky');
-			} else {
-				$('body').removeClass('sticky');
-			}
-		}
-	}
-	
 });
