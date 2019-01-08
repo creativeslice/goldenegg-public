@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Loop through ACF Flexible Content Field layouts
  */

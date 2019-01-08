@@ -1,6 +1,10 @@
 <?php
+/**
+ * Images Component
+ *
+ * Need examples here to show how this code may be used
+ */
 $prefix = ( ! empty($settings['lazyload']) ? 'data-' : '' );
-
 ?><figure<?php echo $attr; ?>><img
 	class="image-img<?php echo ( ! empty($settings['lazyload']) ? ' lazyload' : '' ); ?>"
 	alt="<?php echo esc_attr( $settings['alt'] ); ?>"
