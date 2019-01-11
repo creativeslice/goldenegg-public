@@ -1,4 +1,4 @@
-# Image Compnent
+# Image Component
 
 The image component normalizes and simplifies complex, responsive image functionality.
 
