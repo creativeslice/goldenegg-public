@@ -5,7 +5,7 @@ The image component normalizes and simplifies complex, responsive image function
 ## Usage
 
 ```
-egg_component( 'Image', [
+egg_component( 'image', [
 	'alt'      => '',
 	'caption'  => '',
 	'lazyload' => false,
