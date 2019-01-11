@@ -85,7 +85,7 @@ egg_component( 'image', [
 if ( ! empty($block['image']) ) :
     egg_component( 'image', [
         'alt' 		=> $block['image']['alt'],
-        'lazyload' 	=> true,
+        'lazyload'  => 'lazypreload',
         'class' 	=> 'lazyhd',
         'sizes' 	=> [ '110vw' ],
         'src' 		=> $block['image']['sizes']['large'],

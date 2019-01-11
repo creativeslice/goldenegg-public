@@ -34,12 +34,20 @@ function egg_scripts() {
 
 
 /**
- * Defer ALL enqueued scripts
+ * Defer most enqueued scripts
  */
-if (! is_admin() ) {
+if (!is_admin() ) {
 	add_filter( 'script_loader_tag', function ( $tag, $handle ) {
-		return str_replace( ' src', ' defer="defer" src', $tag );
-	}, 10, 2 );
+		// We need jquery as soon as possible because GF catpcha is inline and doesn't defer
+		// Note that our jquery enqueued above has a handle of "jquery" but the gravity forms
+		// modal window is enqueued as "jquery-core".
+		if (($handle == 'jquery') || ($handle == 'jquery-core')) {
+			return $tag;
+			/// return str_replace( ' src', ' async="async" src', $tag ); // only works in chrome
+		} else {
+			return str_replace( ' src', ' defer="defer" src', $tag );
+		}
+	}, 99, 2 );
 }
 
 
