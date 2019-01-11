@@ -8,6 +8,8 @@ The image component normalizes and simplifies complex, responsive image function
 egg_component( 'image', [
 	'alt'      => '',
 	'caption'  => '',
+	'class'	   => '',
+	'id'       => '',
 	'lazyload' => false,
 	'role'     => false,
 	'sizes'    => [],
@@ -74,7 +76,27 @@ egg_component( 'image', [
 </figure>
 ```
 
-## Examples
+## Examples of Use
+
+
+### Lazyload Responsive ACF
+
+```
+if ( ! empty($block['image']) ) :
+    egg_component( 'image', [
+        'alt' 		=> $block['image']['alt'],
+        'lazyload' 	=> true,
+        'class' 	=> 'lazyhd',
+        'sizes' 	=> [ '110vw' ],
+        'src' 		=> $block['image']['sizes']['large'],
+        'srcset' 	=> [
+            '1024w' => $block['image']['sizes']['large'],
+            '768w' 	=> $block['image']['sizes']['medium'],
+        ],
+    ]);
+endif;
+```
+
 
 ### Lazyload Responsive
 

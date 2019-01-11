@@ -2,10 +2,14 @@
 /**
  * Loop through ACF Flexible Content Field layouts
  */
-$ctblocks = 0;
-while(has_sub_field('content_blocks')): 
-	if($block = get_row_layout()) {
-		include(locate_template( 'components/'. $block .'/'. $block .'.php' ));
-	};
-$ctblocks++; 
-endwhile;
+$count = 1;
+$content_blocks = get_field( 'content_blocks' );
+if ( $content_blocks ) : foreach ( $content_blocks as $settings ) :
+
+    $block                   = $settings['acf_fc_layout'];
+    $settings['type']        = 'contentBlocks';
+    $settings['build_count'] = $count;
+    egg_component( $block, $settings );
+
+    $count++;
+endforeach; endif;

@@ -1,12 +1,12 @@
 <?php // ACF contentBlocks - Text Block
-	$section_title = get_sub_field('section_title');
-	$content = get_sub_field('content');
+	$title = ( ! empty($settings['title']) ? $settings['title'] : '' );
+	$content = ( ! empty($settings['content']) ? $settings['content'] : '' );
 ?>
 
-<section class="textBlock">
+<section class="textBlock wrap">
 	
-	<?php if($section_title) { ?>
-	<h3 class="sectionTitle"><?php echo $section_title; ?></h3>
+	<?php if($title) { ?>
+	<h3 class="sectionTitle"><?php echo $title; ?></h3>
 	<?php } ?>
 	
 	<?php if($content) { ?>

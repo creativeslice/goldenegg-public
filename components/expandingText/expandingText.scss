@@ -1,0 +1,64 @@
+/*********************
+Expanding Text
+*********************/
+.expandingText {
+	text-align: center;
+	width: 100%;
+	margin-top: $spacing;
+	margin-bottom: $spacing;
+	.sectionTitle {
+		color: $gray;
+	}
+	.expandBlock {
+		text-align: left;
+		margin-top: 0px;
+	}
+	.toggleContent {
+		transition: color $ease;
+		display: block;
+		cursor: pointer;
+		padding: $spacing/2 $spacing*1.5 $spacing/2 $spacing/2;
+		margin: 0;
+		position: relative;
+		color: $green;
+		box-shadow: 0 1px 0 rgba(black, .15);
+		transition: all $ease;
+		svg {
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			bottom: $spacing/2;
+			right: $spacing/2;
+			fill: $gray;
+		}
+		&:hover {
+			background: $white;
+			svg {
+				fill: $green;
+			}
+		}
+		&.open {
+			background: $white;
+			box-shadow: none;
+			svg {
+				fill: $green;
+				transform: rotate(180deg);
+			}
+		}
+	}
+	.hiddenContent {
+		display: none;
+		padding: 2px $spacing/2 $spacing/2 $spacing/2;
+		background: $white;
+		&.open {
+		}
+	}
+@include breakpoint(medium) {
+	.toggleContent {
+		padding: $spacing/2 $spacing*2 $spacing/2 $spacing;
+	}
+	.hiddenContent {
+		padding: 2px $spacing $spacing/2 $spacing;
+	}
+}
+}
