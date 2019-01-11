@@ -5,7 +5,6 @@ require_once( 'admin/admin.php' );
 require_once( 'admin/login.php' );
 require_once( 'admin/tinymce.php' );
 #require_once( 'admin/disableComments.php' );			// Completely remove comments from the admin area
-#require_once( 'admin/recentlyUpdatedContent.php' ); 	// Shows recently updated content. REQUIRES customization for custom post types
 
 // Front End
 require_once( 'includes/enqueue.php' );
