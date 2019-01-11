@@ -7,29 +7,23 @@
 */
 jQuery(document).ready(function($) {
 	
-	/**
-    * fallback for SVG icons in IE
-    */
-    svg4everybody();
 	
+	/**
+	* fallback for SVG icons in IE
+	*/
+	svg4everybody();
+	
+	
+	/*
+	 * Prevent Widows in h1 articleHeader
+	 */
+	$('.articleHeader h1').each(function () {
+		var string = $(this).html();
+		string = string.replace(/ ([^ ]*)$/, '&nbsp;$1');
+		$(this).html(string);
+	});
 
-	/**
-     * Expandable Blocks
-     */
-    $('.faq-block .question').click(function(e) {
-        e.preventDefault();
-		var hasOpen = $(this).hasClass('open');
-		var answer = $(this).next('.answer');
-        // close all the others
-        $('.faq-block .question.open').removeClass('open');
-        $('.answer.shown').slideUp();
-        if (!hasOpen) {
-            $(this).addClass('open');
-            answer.slideDown().addClass('shown');
-        }
-    });
-    
-	
+
 });
 jQuery(document).ready(function($) {
 

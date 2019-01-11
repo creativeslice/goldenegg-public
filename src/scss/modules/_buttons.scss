@@ -4,10 +4,6 @@ Stylesheet: Buttons
 
 ******************************************************************/
 
-/*********************
-BUTTONS
-*********************/
-
 %btn {
 	display: inline-block;
 	position: relative;
@@ -20,6 +16,7 @@ BUTTONS
 	border-radius: 2px;
 	cursor: pointer;
 	transition: background-color $ease;
+	-webkit-appearance: none;
 }
 
 .form-submit input,
@@ -28,14 +25,12 @@ BUTTONS
 	background-color: $link_color;
 	border: 1px solid $link_color;
 	color: $white;
-	
 	&:hover, 
 	&:focus {
 		background-color: $link_hover;
 		color: $white;
 		text-decoration: none;
 	}
-
 	&:active {
 		background-color: darken($link_hover, 10%);
 		color: $white;
