@@ -1,4 +1,4 @@
-<?php include(locate_template('components/pageFooter/pageFooter.php')); ?>
+<?php egg_component( 'pageFooter' ); ?>
 	
 </div><?php // Closes #container from header.php ?>
 

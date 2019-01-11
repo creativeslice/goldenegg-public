@@ -18,6 +18,6 @@
 
 </main>
 
-<?php //include(locate_template("components/contentBlocks/contentBlocks.php")); ?>
+<?php egg_component( 'contentBlocks' ); ?>
 
 <?php get_footer();

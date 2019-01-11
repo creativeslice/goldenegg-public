@@ -6,6 +6,7 @@ var environment = 'development', // 'production' or 'development'
 
 	gulp = 			require('gulp'),
 	sass = 			require('gulp-sass'),
+	globSass = 		require('gulp-sass-glob'),
 	autoprefixer = 	require('gulp-autoprefixer'),
 	minifycss = 	require('gulp-minify-css'),
 	uglify = 		require('gulp-uglify'),
@@ -47,20 +48,16 @@ var onError = function( error ) {
  * CSS
  */
 gulp.task('styles', function() {
-	return gulp.src([
-			'src/scss/style.scss',
-			'src/libs/**/*.scss',
-			'components/**/*.scss',
-		])
-		.pipe(concat('style.scss'))
+	return gulp.src('src/scss/style.scss')
 		.pipe(plumber({ errorHandler: onError }))
+		.pipe(globSass())
 		.pipe(sourcemaps.init())
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions', '> 1%', 'android > 4'))
 		.pipe(minifycss())
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('assets/css'))
-		.pipe(livereload())
+		.pipe(livereload());
 });
 
 gulp.task('styles-login', function() {
@@ -84,30 +81,17 @@ gulp.task('styles-editor', function() {
  * JAVASCRIPT
  */
 gulp.task('scripts', function() {
-	if ( 'production' === environment ) {
-		return gulp.src([
-				'src/libs/**/*.js',
-				'src/js/**/*.js',
-				'components/**/*.js',
-			])
-			.pipe(concat('scripts.js'))
-			.pipe(jsHint())
-			.pipe(stripDebug())
-			.pipe(uglify())
-			.pipe(gulp.dest('assets/js'))
-			.pipe(notify({ message: 'Production scripts task complete' }));
-	} else {
-		return gulp.src([
-				'src/libs/**/*.js',
-				'src/js/**/*.js',
-				'components/**/*.js',
-			])
-			.pipe(concat('scripts.js'))
-			.pipe(jsHint())
-			.pipe(gulp.dest('assets/js'))
-			.pipe(livereload())
-			.pipe(notify({ message: 'Scripts task complete' }));
-	}
+	return gulp.src([
+			'src/libs/**/*.js',
+			'src/js/**/*.js',
+			'components/**/*.js',
+		])
+		.pipe(concat('scripts.js'))
+		.pipe(jsHint())
+		.pipe(gulpif('production'==environment, stripDebug()))
+		.pipe(gulpif('production'==environment, uglify()))
+		.pipe(gulp.dest('assets/js'))
+		.pipe(notify({ message: 'Scripts task complete' }));
 });
 
 

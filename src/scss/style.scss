@@ -1,6 +1,11 @@
 /*! Crafted with care by Creative Slice https://creativeslice.com */
 
 /*********************
+IMPORTING LIBRARIES
+*********************/
+@import "../libs/**/*.css";
+
+/*********************
 IMPORTING MODULES
 *********************/
 @import "modules/sanitize";
@@ -11,6 +16,10 @@ IMPORTING MODULES
 @import "modules/buttons";
 @import "base";
 
+/*********************
+IMPORTING COMPONENTS
+*********************/
+@import "../../components/**/*.scss";
 
 /*********************
 PRINT STYLESHEET

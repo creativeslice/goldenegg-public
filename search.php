@@ -27,7 +27,8 @@
 		
 		<?php endif; ?>
 
-	<?php endwhile; locate_template('components/pageNavi/pageNavi.php'); 
+	<?php endwhile;
+	egg_component( 'pageNavi' );
 	else : echo '<h1>Nothing Found Here</h1>';
 	endif; ?>
 
