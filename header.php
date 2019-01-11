@@ -22,4 +22,4 @@
 	
 	<?php get_search_form(); // hidden by default ?>
 	
-	<?php include(locate_template('components/pageHeader/pageHeader.php')); ?>
+	<?php egg_component( 'pageHeader' ); ?>

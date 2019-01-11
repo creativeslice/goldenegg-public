@@ -36,7 +36,7 @@ add_filter( 'get_search_form', 'egg_wpsearch' );
 function egg_wpsearch($form) {
 	$component = 'searchForm';
 	ob_start();
-	include( locate_template( "components/$component/$component.php" ) );
+	egg_component( $component );
 	$form = ob_get_clean();
 	return $form;
 }

@@ -1,6 +1,11 @@
 /*! Crafted with care by Creative Slice https://creativeslice.com */
 
 /*********************
+IMPORTING LIBRARIES
+*********************/
+@import "../libs/**/*.css";
+
+/*********************
 IMPORTING MODULES
 *********************/
 @import "modules/sanitize";
@@ -12,20 +17,9 @@ IMPORTING MODULES
 @import "base";
 
 /*********************
-COMPONENTS
-********************* /
-//@import "components/colorbox/colorbox";
-@import "components/headerMenu/headerMenu";
-//@import "components/iframeVideo/iframeVideo";
-@import "components/lazysizes/lazysizes";
-@import "components/pageFooter/pageFooter";
-@import "components/pageHeader/pageHeader";
-@import "components/pageNavi/pageNavi";
-//@import "components/slickslider/slickslider";
-@import "components/searchForm/searchForm";
-@import "components/searchToggle/searchToggle";
-@import "components/shareLinks/shareLinks";
-
+IMPORTING COMPONENTS
+*********************/
+@import "../../components/**/*.scss";
 
 /*********************
 PRINT STYLESHEET
