@@ -2,8 +2,9 @@
 MENU NAVIGATION
 *********************/
 
-// Mobile Menu Toggle
-#menuToggle {
+// Mobile Menu and Search Toggle
+#menuToggle,
+#searchToggle{
 	display: block;
 	position: relative;
 	float: right;
@@ -31,12 +32,20 @@ MENU NAVIGATION
 	.menuText {
 		display: none;
 	}
+
+}
+
+// Menu Toggle specific
+#menuToggle {
 @include breakpoint(large) {
 	display: none;
 }
 }
 
 
+/*********************
+MAIN MENU
+*********************/
 // Main Menu Wrapper
 .menuFull {
 	display: none;
@@ -45,14 +54,11 @@ MENU NAVIGATION
 }
 }
 
-
-/*********************
-MAIN MENU
-*********************/
 .mainNav {
 	margin: 0;
 	clear: both;
 	text-align: center;
+	background: $white;
 	li {
 		a, a:visited {
 			display: block;
@@ -83,7 +89,6 @@ MAIN MENU
 		}
 	}
 @include breakpoint(large) {
-	background: none;
 	li {
 		display: inline-block;
 		vertical-align: top;
