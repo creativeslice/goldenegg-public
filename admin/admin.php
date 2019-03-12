@@ -20,7 +20,7 @@ function egg_adminbar_titles( ) {
 	if(is_admin()) { 
 		$title = "Home";
 	} else {
-		$title = "Admin Area";
+		$title = "Dashboard";
 	}
     global $wp_admin_bar;
     $wp_admin_bar->add_menu( array(
@@ -168,5 +168,5 @@ function egg_replace_howdy( $translated, $text, $domain ) {
  */
 add_filter( 'admin_footer_text', 'egg_admin_footer' );
 function egg_admin_footer() { ?>
-	<span id="footer-thankyou">Crafted by <a href="https://creativeslice.com" target="_blank">Creative Slice</a></span>
+	<span id="footer-thankyou">Built by Creative Slice with WordPress <?php echo get_bloginfo( 'version' ); ?></span>
 <?php }
