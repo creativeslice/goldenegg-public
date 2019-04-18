@@ -3,8 +3,8 @@
 	<?php 
 		$title		= get_the_title();
 		$permalink	= get_permalink();
-		$hastag		= strtolower( str_replace(' ', '', get_option('blogname')) );
-		$twitter	= 'creativeslice';
+		$hastag		= null; //strtolower( str_replace(' ', '', get_option('blogname')) );
+		$twitter	= null; //'creativeslice';
 		$thumb_url	= wp_get_attachment_image_src( get_post_thumbnail_id() );
 		$image		= apply_filters( 'egg/share_image', ($thumb_url ? $thumb_url[0] : '') );
 	
@@ -27,7 +27,7 @@
 			array(
 				'title' => 'Facebook',
 				'icon'  => 'facebook',
-				'url'   => 'https://www.facebook.com/sharer.php?m2w&s=100&p[url]=' . $permalink . ($image ? '&p[images][0]=' . $image : '') . '&p[title]=' . urlencode($title) . '&p[summary]=' . urlencode(get_the_excerpt()),
+				'url'   => 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode($permalink),
 			),
 		);
 	?>
