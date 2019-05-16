@@ -3,8 +3,17 @@
 /**
  * Image sizes
  */
-#add_image_size( 'fhd', 1920, 1080, true );
-#add_image_size( 'hd', 1280, 720, true );
+ 
+// WP DEFAULTS
+# thumbnail		150, 	150,	true
+# medium		800, 	800,	false
+# large			1600, 	1600,	false
+
+// CUSTOM SIZES
+//add_image_size( 'fhd', 		1920, 	1080, 	true );
+//add_image_size( 'hd', 		1280, 	720, 	true );
+//add_image_size( 'hdsm', 	640, 	360, 	true );
+
 
 
 /**
@@ -49,7 +58,7 @@ add_action( 'after_setup_theme', 'custom_theme_support' );
 function custom_theme_support() {
 	
 	/* Featured Image */
-	add_theme_support( 'post-thumbnails', array( 'post', 'page', ) ); // Posts, Pages
+	add_theme_support( 'post-thumbnails', array( 'post', 'page' ) ); // Post types
 
 	/* Enables post and comment RSS feed links to head */
 	//add_theme_support('automatic-feed-links');

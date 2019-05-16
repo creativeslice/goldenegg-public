@@ -5,20 +5,7 @@ Stylesheet: Forms
 ******************************************************************/
 
 // Input defaults
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
+input,
 select,
 textarea,
 .field {
@@ -57,4 +44,101 @@ select {
 	background-repeat: no-repeat;
 	background-position: 95% center;
 	-webkit-appearance: none;
+}
+
+
+/*********************
+GRAVITY FORMS
+*********************/
+
+.entryContent .gform_wrapper {
+	padding: 40px;
+	border: 1px solid $gray_lighter;
+}
+
+.gform_wrapper {
+	position: relative;
+	.top_label .gfield_label {
+	}
+	.hidelabel .gfield_label {
+		display: none !important;
+	}
+	.top_label div.ginput_container {
+		margin-top: 0 !important;
+	}
+	.gfield_description {
+		padding-top: 4px !important;
+		color: $gray;
+	}
+	input[type=text],
+	input[type=email] {
+		padding: 6px 10px 4px 10px !important;
+		&::placeholder {
+			color: $gray;
+		}
+	}
+	textarea {
+		margin-top: 5px;
+		border: 1px solid $gray_light;
+		&:focus, &:active {
+			border-color: $link_color;
+		}
+	}
+	select {
+		margin: 0 !important;
+		padding: 5px 10px !important;
+		border: 1px solid $gray_light;
+		&:focus, &:active {
+			border-color: $link_color;
+		}
+	}
+	.gfield_radio {
+		input {
+		}
+		label {
+		}
+	}
+	.gfield_checkbox {
+		input {
+		}
+		label {
+		}
+		li input[type=checkbox]:checked+label {
+			
+		}
+	}
+	// Labels below fields
+	.ginput_complex.ginput_container label {
+		color: $gray;
+		text-transform: uppercase;
+		font-size: 12px !important;
+		margin: 2px 0 8px 0 !important;
+	}
+	.horizontal .gfield_checkbox {
+		li {
+			display: inline-block;
+			margin-right: 30px;
+		}
+	}
+	
+	// Error Messages
+	div.validation_error {
+		background: $link_color;
+		padding: 10px !important;
+		color: $white !important;
+		border: none !important;
+	}
+	li.gfield.gfield_error {
+		border: none !important;
+		padding-top: 0 !important;
+	}
+	// Submit Button
+	.gform_footer {
+		.button {
+			&:hover {
+			}
+			&:active {
+			}
+		}
+	}
 }

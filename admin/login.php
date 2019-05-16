@@ -11,7 +11,6 @@ function egg_login_init() {
 
 	// filters
 	add_filter( 'login_headerurl',       'egg_login_url' );
-	add_filter( 'login_headertitle',     'egg_login_title' );
 }
 
 
@@ -28,12 +27,4 @@ function egg_login_css() {
  */
 function egg_login_url() {
 	return home_url( '/' );
-}
-
-
-/**
- * Change the alt text on the logo to site name
- */
-function egg_login_title() {
-	return get_option('blogname');
 }

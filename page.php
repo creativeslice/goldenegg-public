@@ -7,10 +7,12 @@
 		<header class="articleHeader">
 			<h1><?php the_title(); ?></h1>
 		</header>
-
+		
+		<?php the_post(); $cc = get_the_content(); if($cc != '') : ?>
 		<section class="entryContent">
-			<?php the_post(); the_content(); ?>
+			<?php the_content(); ?>
 		</section>
+		<?php endif; ?>
 	
 	</article>
 

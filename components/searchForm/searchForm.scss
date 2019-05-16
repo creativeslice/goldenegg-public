@@ -3,3 +3,34 @@
 	margin: 1em 0;
 	text-align: center;
 }
+
+#searchToggle{
+	display: block;
+	position: relative;
+	float: right;
+	cursor: pointer;
+	fill: $link_color;
+	margin: 1em;
+	svg {
+		width: 24px;
+		height: 24px;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	svg.close {
+		display: none;
+	}
+	&.active {
+		svg.close {
+			display: block;
+		}
+		svg.open {
+			display: none;
+		}
+	}
+	.menuText {
+		display: none;
+	}
+
+}

@@ -1,6 +1,6 @@
 /******************************************************************
 
-Stylesheet: WP Images
+Stylesheet: WP Media
 
 ******************************************************************/
 
@@ -112,4 +112,28 @@ HTML5 IMAGE GALLERY
 		}
 	}
 }
+}
+
+
+/*********************
+RESPONSIVE VIDEOS
+*********************/
+
+// General Video Styles
+.videoContainer {
+	position: relative; 
+	padding-bottom: 56.25%; 
+	height: 0; 
+	overflow: hidden;
+}
+
+.videoContainer iframe, 
+.videoContainer object, 
+.videoContainer embed, 
+.videoContainer video { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%;
+	height: 100%; 
 }

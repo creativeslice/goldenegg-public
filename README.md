@@ -1,6 +1,6 @@
 # Golden Egg WordPress Starter Theme
 
-### Version 2.0.4
+### Version 2.0.5
 
 A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS. This theme is component-based and organizes the SCSS, JS, &amp; PHP that define a component all in the same directory within the components directory.
 
@@ -119,8 +119,8 @@ A PHP library of global functionality.
 
 ## Creative Slice Specific Set Up
 
-1. Change the theme name to follow this format: `[sitename]-[year]`, eg: `creativeslice-2018`
-1. Update style.css with: "Site Name - 2018" (Use the current site and current year), the current site's URL, and a quick description, example below
+1. Change the theme name to follow this format: `[sitename]-[year]`, eg: `creativeslice-2019`
+1. Update style.css with: "Site Name - 2019" (Use the current site and current year), the current site's URL, and a quick description, example below
 1. Update screenshot.png with the comp or site logo
 1. Update `assets/img/logo.png`
 
@@ -138,9 +138,16 @@ Gulp can be used to create an SVG icon sprite, combine, update, and process SCSS
 
 ## Changelog
 
+**2.0.5 - 2019-05-15**
+
+1. Basic GF form styles
+1. page template detects if the_content exists
+1. Updated images scss to media and added videoContainer styles
+1. Updated lazysizes script to 5.0.0
+
 **2.0.4 - 2019-02-22**
 
-1. Moved header/footer away from components since these are core theme files
+1. Move searchToggle to search component
 1. Updated lazysizes script
 
 **2.0.2 - 2018-09-07**
