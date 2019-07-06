@@ -19,6 +19,16 @@ function egg_cleanup() {
 	add_filter( 'excerpt_more',				'egg_excerpt_more' );
 	// shorten excerpt
 	#add_filter( 'excerpt_length',			'custom_excerpt_length', 999 );
+	// remove gutenberg block library styles
+	add_action( 'wp_print_styles', 			'egg_remove_gutenberg_styles', 100 );
+}
+
+
+/**
+ * Remove Gutenberg Block Library Styles
+ */
+function egg_remove_gutenberg_styles() {
+    wp_dequeue_style( 'wp-block-library' );
 }
 
 

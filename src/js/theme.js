@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 	 */
 	$('.articleHeader h1').each(function () {
 		var string = $(this).html();
-		string = string.replace(/ ([^ ]*)$/, '&#8239;$1');
+		string = string.replace(/ ([^ ]*)$/, '&nbsp;$1');
 		$(this).html(string);
 	});
 	

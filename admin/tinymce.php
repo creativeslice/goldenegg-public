@@ -1,11 +1,21 @@
 <?php // TinyMCE Editor Panel
 
+/**
+ * Simple ACF WYSIWYG bar
+ */
+//add_filter( 'acf/fields/wysiwyg/toolbars', 'my_toolbars' );
+function my_toolbars( $toolbars ) {
+	$toolbars['Very Simple' ] = array();
+	$toolbars['Very Simple' ][1] = array('bold', 'italic' );
+	return $toolbars;
+}
+
 
 /**
  * Disables tinyMCE security feature for external links
  * rel = "noopener"
  */
-add_filter( 'tiny_mce_before_init',	'tinymce_allow_unsafe_link_target');
+//add_filter( 'tiny_mce_before_init', 'tinymce_allow_unsafe_link_target');
 function tinymce_allow_unsafe_link_target( $mceInit ) {
 	$mceInit['allow_unsafe_link_target']=true;
 	return $mceInit;
@@ -27,7 +37,7 @@ function egg_mce_hide_styles( $settings ) {
  */
 add_action( 'admin_init', 'egg_editor_styles' );
 function egg_editor_styles() {
-	add_editor_style( get_template_directory_uri() . '/assets/css/editor.css?091918' );
+	add_editor_style( get_template_directory_uri() . '/assets/css/editor.css?20190705a' );
 }
 
 

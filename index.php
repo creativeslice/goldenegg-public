@@ -11,7 +11,6 @@
 	<h1 class="pageTitle"><?php echo get_the_title( $page_for_posts ); ?></h1>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
 	<article <?php post_class( 'cf' ); ?>>
 
 		<header class="article-header">

@@ -20,6 +20,6 @@
 
 </main>
 
-<?php egg_component( 'contentBlocks' ); ?>
+<?php get_template_part( 'includes/contentBlocks' ); ?>
 
 <?php get_footer();

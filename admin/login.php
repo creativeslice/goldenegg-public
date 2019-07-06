@@ -10,7 +10,8 @@ function egg_login_init() {
 	add_action( 'login_enqueue_scripts', 'egg_login_css' );
 
 	// filters
-	add_filter( 'login_headerurl',       'egg_login_url' );
+	add_filter( 'login_headerurl',		'egg_login_url' );
+	add_filter( 'login_headertext',		'egg_login_title' );
 }
 
 
@@ -23,8 +24,16 @@ function egg_login_css() {
 
 
 /**
- * Change the logo link from wordpress.org to the site home
+ * Change logo link to site home
  */
 function egg_login_url() {
 	return home_url( '/' );
+}
+
+
+/**
+ * Change the alt text on the logo to site name
+ */
+function egg_login_title() {
+	return get_option('blogname');
 }

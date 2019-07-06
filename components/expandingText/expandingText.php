@@ -4,15 +4,18 @@
 <section class="expandingText wrap">
 	
 	<?php if($section_title) { ?>
-	<h3 class="sectionTitle"><?php echo $section_title; ?></h3>
+	<h2 class="sectionTitle"><?php echo $section_title; ?></h2>
 	<?php } ?>
 	
 	<?php foreach ( $settings['blocks'] as $block ) : ?>
 	<div class="expandBlock">
 		
-		<h4 class="toggleContent">
+		<strong class="toggleContent">
 			<?php echo $block['title']; ?>
-		</h4>
+			<svg title="Open Menu" role="presentation">
+				<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#arrow-down"></use>
+			</svg>
+		</strong>
 		
 		<div class="hiddenContent entryContent">
 			<?php echo $block['content']; ?>
