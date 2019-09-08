@@ -15,6 +15,14 @@
 //add_image_size( 'hdsm', 	640, 	360, 	true );
 
 
+/**
+ * Title Tag support
+ */
+add_action( 'after_setup_theme', 'theme_slug_setup' );
+function theme_slug_setup() {
+   add_theme_support( 'title-tag' );
+}
+
 
 /**
  * Force galleries to link to file instead of attachment page
