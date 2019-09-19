@@ -32,9 +32,34 @@ REUSABLE ITEMS
     clear: both; }
 
 .screen-reader-text {
-  left: -9999em !important;
-  position: absolute !important;
-  top: -9999em !important; }
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important; }
+  .screen-reader-text:focus {
+    background-color: #fff;
+    clip: auto !important;
+    -webkit-clip-path: none;
+            clip-path: none;
+    color: #1b801b;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */ }
 
 .nowrap {
   display: inline-block; }

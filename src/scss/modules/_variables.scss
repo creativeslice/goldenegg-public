@@ -62,9 +62,32 @@ $easeslow:			.6s ease-in;
 
 // Better support for screen readers with icons
 .screen-reader-text {
-	left: -9999em !important;
-	position: absolute !important;
-	top: -9999em !important;
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+	&:focus {
+		background-color: $white;
+		clip: auto !important;
+		clip-path: none;
+		color: $link_color;
+		display: block;
+		font-size: 1em;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 15px 23px 14px;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000; /* Above WP toolbar. */
+	}
 }
 
 // keep phrase from breaking to 2nd line: class adding through wysiwyg
