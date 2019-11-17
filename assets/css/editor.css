@@ -48,7 +48,7 @@ REUSABLE ITEMS
     clip: auto !important;
     -webkit-clip-path: none;
             clip-path: none;
-    color: #1b801b;
+    color: #2980b9;
     display: block;
     font-size: 1em;
     height: auto;
@@ -180,7 +180,7 @@ dfn, cite, em, i {
 blockquote {
   margin: 0 0 1.5em 1em;
   padding: 0 0 0 1em;
-  border-left: 3px solid #1b801b;
+  border-left: 3px solid #2980b9;
   font-style: italic;
   font-family: "Georgia", Cambria, Times, serif;
   color: #666; }
@@ -216,7 +216,7 @@ CUSTOM EDITOR STYLES
   padding: 3px 6px;
   font-weight: bold;
   color: #fff;
-  background: #1b801b;
+  background: #2980b9;
   text-decoration: none; }
 
 .small {

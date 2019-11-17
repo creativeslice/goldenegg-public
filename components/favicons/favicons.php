@@ -20,8 +20,6 @@
 <meta name="msapplication-TileColor" content="#fff">
 <meta name="theme-color" content="#fff">
 
-<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/components/favicons/img/manifest.json">
-
 <meta name="apple-mobile-web-app-title" content="GoldenEgg">
 <meta name="author" content="Creative Slice">
 <meta name="revisit-after" content="15 days">

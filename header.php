@@ -18,6 +18,10 @@
 	
 	<a class="screen-reader-text" href="#content">Skip to Content</a>
 	
+	<?php // Alert Bar Notices
+		get_template_part( 'components/notices/notices' ); 
+	?>
+	
 	<?php get_search_form(); // hidden by default ?>
 	
 	<header class="pageHeader">  

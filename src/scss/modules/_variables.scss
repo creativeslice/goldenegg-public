@@ -24,16 +24,14 @@ $gray_light:		#999;
 $gray:              #666;
 $gray_dark:         #333;
 
-$gold:				#e8c200;
 $green: 	        #669933;
-$green_dark:		#1b801b;
-$orange: 	        #ff9933;
-$blue:              #2980b9;
+$gold:				#e8c200;
 $red:				#d3033d;
+$blue:              #2980b9;
 
 $text_color:        $gray_dark;
-$link_color:        $green_dark;
-$link_hover:        lighten($link_color, 10%);
+$link_color:        $blue;
+$link_hover:        lighten($blue, 10%);
 
 
 /*********************

@@ -137,6 +137,14 @@ Gulp can be used to create an SVG icon sprite, combine, update, and process SCSS
 
 ## Changelog
 
+**2.0.8 - 2019-11-17**
+
+1. Refined Content Blocks: Text Block, Expanding Text (with FAQ schema)
+1. Updating lazysizes to v5.2.0-beta1
+1. Simplify favicon output
+1. Adding ACF notices component
+1. Adding functions to cleanup Tribe Calendar output
+
 **2.0.7 - 2019-09-08**
 
 1. Adding title tag support

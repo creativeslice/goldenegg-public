@@ -1,0 +1,27 @@
+/*********************
+Notices
+*********************/
+.notice {
+	text-align: center;
+	padding: 10px;
+	color: $white;
+	font-weight: bold;
+	a, a:visited {
+		margin-left: 4px;
+		color: $white;
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	&.greenColor {
+		background: $green;
+		background: linear-gradient(to right, $green, darken($green, 5%));
+	}
+	&.yellowColor {
+		background: $gold;
+	}
+	&.redColor {
+		background: $red;
+	}
+}

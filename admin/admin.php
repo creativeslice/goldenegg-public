@@ -69,6 +69,7 @@ function egg_disable_dashboard_widgets() {
 	remove_meta_box('dashboard_activity', 'dashboard', 'core');			// Activity Widget
 	remove_meta_box('dashboard_primary', 'dashboard', 'core');			// WordPress News Widget
 	remove_meta_box('wpe_dify_news_feed', 'dashboard', 'normal');		// WPEngine News Widget
+	remove_meta_box('tribe_dashboard_widget', 'dashboard', 'normal');	// Tribe News Widget
 	// remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');	// Gravity Forms Widget
 }
 
@@ -141,13 +142,7 @@ function egg_customize_admin_bar() {
 	$wp_admin_bar->remove_menu('customize-themes');
 	$wp_admin_bar->remove_menu('themes');
 	$wp_admin_bar->remove_menu('widgets');
-    //$wp_admin_bar->remove_menu('menus');
-    /*
-	// removes top right account info. ERRORS if jQuery in footer
-	if(!is_admin()){
-		$wp_admin_bar->remove_menu('my-account'); 
-	}
-	*/
+    $wp_admin_bar->remove_menu('tribe-events'); // Remove Tribe Calendar menu
 }
 
 
