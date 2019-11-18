@@ -15,7 +15,6 @@ var environment = 'development', // 'production' or 'development'
 	jsHint = 		require('gulp-jshint'),
 	concat = 		require('gulp-concat'),
 	notify = 		require('gulp-notify'),
-	cache = 		require('gulp-cache'),
 	plumber = 		require('gulp-plumber'),
 	sourcemaps = 	require('gulp-sourcemaps'),
 	

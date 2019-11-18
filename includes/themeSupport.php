@@ -1,5 +1,5 @@
 <?php
-
+	
 /**
  * Image sizes
  */
@@ -10,13 +10,13 @@
 # large			1600, 	1600,	false
 
 // CUSTOM SIZES
-//add_image_size( 'fhd', 		1920, 	1080, 	true );
-//add_image_size( 'hd', 		1280, 	720, 	true );
-//add_image_size( 'hdsm', 	640, 	360, 	true );
+add_image_size( 'fhd', 		1920, 	1080, 	true );
+add_image_size( 'hd', 		1280, 	720, 	true );
+add_image_size( 'hdsm', 	640, 	360, 	true );
 
 
 /**
- * Title Tag support
+ * Title Tag support for SEO
  */
 add_action( 'after_setup_theme', 'theme_slug_setup' );
 function theme_slug_setup() {

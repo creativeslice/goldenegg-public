@@ -1,0 +1,109 @@
+
+/*********************
+Cards Block
+*********************/
+
+.cardBlock {
+	padding: $spacing/4 0;
+	.sectionTitle {
+		margin: 0 0 $spacing/2 0;
+		text-align: center;
+	}
+	img {
+		width: 100%;
+		height: auto;
+	}
+	&.color-white {
+		background: $white;
+		.card {
+			border: 2px solid $black;
+		}
+	}
+	&.color-black {
+		background: $black;
+		.sectionTitle {
+			color: $white;
+		}
+	}
+@include breakpoint(medium) {
+	padding: $spacing/2 0;
+}
+}
+
+
+// Cards
+.cards {
+	clear: both;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	.card {
+		background: $white;
+		display: inline-block;
+		vertical-align: top;
+		width: 96%;
+		position: relative;
+		transition: all $ease;
+		margin: 1%;
+		.cardContent {
+			padding: 20px;
+			* {
+				margin: 0;
+			}
+		}
+		.bottom {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			padding: 10px 10px 20px 10px;
+			.button {
+				transition: all $ease;
+			}
+		}
+	}
+	a.card {
+		padding-bottom: 80px;
+		.cardContent {
+			color: $black;
+		}
+	}
+	a.card:hover {
+		box-shadow: $shadow;
+		.button {
+			color: $black;
+			background: none;
+		}
+	}
+	a.card:active {
+		box-shadow: $shadow_active;
+		.button {
+		}
+	}
+@include breakpoint(medium) {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1220px;
+	.card {
+		width: 48%;
+	}
+	&.style-three {
+		max-width: 1240px;
+		.card {
+			width: 31%;
+		}
+	}
+	&.style-four {
+		.card {
+			width: 23%;
+			.cardContent {
+				font-size: .875em;
+			}
+		}
+		a.card {
+			padding-bottom: 0px;
+		}
+	}
+}
+}

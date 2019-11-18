@@ -1,6 +1,6 @@
 # Golden Egg WordPress Starter Theme
 
-### Version 2.0.7
+### Version 2.0.9
 
 A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS. This theme is component-based and organizes the SCSS, JS, &amp; PHP that define a component all in the same directory within the components directory.
 
@@ -136,6 +136,11 @@ Gulp can be used to create an SVG icon sprite, combine, update, and process SCSS
 1. `gulp watch` - Rebuilds the SCSS/JS when any file is updated within the SCSS/JS files: `/assets/js/src/`, `/assets/scss/src/`, `/components/*/`
 
 ## Changelog
+
+**2.0.9 - 2019-11-18**
+
+1. Add Cards content block
+1. Update package file for Gulp. Thanks Jake!
 
 **2.0.8 - 2019-11-17**
 

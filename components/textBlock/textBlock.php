@@ -8,7 +8,7 @@
 	$content3 = ( ! empty($settings['content3']) ? $settings['content3'] : '' );
 ?>
 
-<section id="block<?php echo $build_count; ?>" class="textBlock <?php echo $block_style; ?>Style <?php echo $block_color; ?>Color">
+<section id="block<?php echo $build_count; ?>" class="textBlock style-<?php echo $block_style; ?> color-<?php echo $block_color; ?>">
 	
 	<?php if($section_title) { ?>
 	<h2 class="sectionTitle h5"><?php echo $section_title; ?></h2>

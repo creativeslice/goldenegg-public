@@ -1,6 +1,6 @@
 <?php get_header(); // Template Name: Home ?>
 
-<article id="wrap" class="wrap">
+<article id="content" class="wrap">
 
 	<header class="articleHeader">
 		<h1><?php the_title(); ?></h1>
@@ -10,23 +10,6 @@
 		
 		<?php the_post(); the_content(); ?>
 		
-		<hr>
-		
-		<?php egg_component( 'image', [
-			'alt'      => 'Gold Egg Alt Text',
-			'class'    => 'lazy70',
-			'lazyload' => 'lazypreload',
-			'sizes'    => [
-				'(max-width: 767px) 100vw',
-				'80vw',
-			],
-			'src'      => get_template_directory_uri() . '/assets/img/img_600x400.jpg',
-			'srcset'   => [
-				'600w'    => get_template_directory_uri() . '/assets/img/img_600x400.jpg',
-				'1000w'   => get_template_directory_uri() . '/assets/img/img_1000x700.jpg',
-			],
-		]); ?>
-
 		<hr>
 		
 		<div class="boxImage">

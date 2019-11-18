@@ -17,16 +17,16 @@ Text Block
 			margin-top: 0;
 		}
 	}
-	&.whiteColor {
+	&.color-white {
 		background: $white;
 	}
-	&.blackColor {
+	&.color-black {
 		background: $black;
 		color: $white;
 	}
 @include breakpoint(medium) {
 	padding: $spacing/2 0;
-	&.twoStyle {
+	&.style-two {
 		text-align: center;
 		.entryContent {
 			text-align: left;
@@ -39,7 +39,7 @@ Text Block
 			}
 		}
 	}
-	&.threeStyle {
+	&.style-three {
 		text-align: center;
 		.entryContent {
 			text-align: left;
