@@ -65,15 +65,23 @@ Cards Block
 	}
 	a.card {
 		padding-bottom: 80px;
+		text-decoration: none;
 		.cardContent {
 			color: $black;
+		}
+		.button {
+			color: $link_color;
+			background: none;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 	a.card:hover {
 		box-shadow: $shadow;
 		.button {
-			color: $black;
-			background: none;
+			color: $white;
+			background: $link_color;
 		}
 	}
 	a.card:active {

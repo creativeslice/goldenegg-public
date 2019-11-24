@@ -21,8 +21,8 @@ add_action( 'wp_enqueue_scripts', 'egg_scripts', 999 );
 function egg_scripts() {
 
 	/* Call jQuery from Google CDN */
-	//wp_deregister_script('jquery');
-	//wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'), false, '3.3.1', false);
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'), false, '3.4.1', false);
 	
 	/* Add modified date for cache busting */
 	$jschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/js/scripts.js' );
@@ -38,47 +38,19 @@ function egg_scripts() {
  */
 if (!is_admin() ) {
 	add_filter( 'script_loader_tag', function ( $tag, $handle ) {
-		// We need jquery as soon as possible because GF catpcha is inline and doesn't defer
+		// We need jquery as soon as possible because GF captcha is inline and doesn't defer
 		// Note that our jquery enqueued above has a handle of "jquery" but the gravity forms
 		// modal window is enqueued as "jquery-core".
-		if (($handle == 'jquery') || ($handle == 'jquery-core')) {
+		/*if (($handle == 'jquery') || ($handle == 'jquery-core')) {
 			return $tag;
 			/// return str_replace( ' src', ' async="async" src', $tag ); // only works in chrome
 		} else {
 			return str_replace( ' src', ' defer="defer" src', $tag );
 		}
+		*/
+		return str_replace( ' src', ' defer="defer" src', $tag );
 	}, 99, 2 );
 }
-
-
-/**
- * Gravity Form Scripts
- * wrap GF inline scripts in DOMContentLoaded event listeners 
- * so they aren't triggered before jQuery loads
- */
-/*
-add_filter( 'gform_cdata_open', 'wrap_gform_cdata_open' );
-function wrap_gform_cdata_open( $content = '' ) {
-    $content = 'document.addEventListener( "DOMContentLoaded", function() { ';
-    return $content;
-}
-add_filter( 'gform_cdata_close', 'wrap_gform_cdata_close' );
-function wrap_gform_cdata_close( $content = '' ) {
-    $content = ' }, false );';
-    return $content;
-}
-
-// GF fix AJAX forms to work with redirect
-add_filter( 'gform_confirmation', 'cs_gform_ajax_redirect', 10, 4);
-function cs_gform_ajax_redirect( $confirmation, $form, $entry, $ajax ) {
-    if ( $ajax && $form['confirmation']['type'] == 'page' ) {
-        $confirmation = "<script>function gformRedirect(){document.location.href='" . $confirmation['redirect'] . "';}</script>";    
-    } elseif ( $ajax && $form['confirmation']['type'] == 'redirect' ) {
-	    $confirmation = "<script>function gformRedirect(){document.location.href='" . $form['confirmation']['url'] . "';}</script>"; 
-    }
-    return $confirmation;
-}
-*/
 
 
 /**
