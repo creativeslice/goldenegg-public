@@ -146,6 +146,59 @@ function tribe_adjust_venue_links( $permalink, $passed_post, $leavename, $sample
 }
 
 
+/**
+ * Remove "United States" from all venue listings.
+ * @param $output
+ * @param $venue_id
+ *
+ * @return mixed
+ */
+add_filter('tribe_get_country', 'tribe_customize_country', 10, 2);
+function trbie_customize_country($output, $venue_id) {
+	return str_replace("United States", '', $output);
+}
+
+
+/**
+ * If an event is cancelled, add schema so google knows about it
+ * Requires ACF checkbox field `event_status`
+ * 
+ * @param $data
+ * @param $args
+ * @param $post
+ *
+ * @return mixed
+ */
+add_filter('tribe_json_ld_event_object', 'tribe_add_cancelled_to_json_if_required', 10, 3);
+function tribe_add_cancelled_to_json_if_required($data, $args, $post) {
+	if (get_field('event_status', $post->ID)) {
+		$data->eventStatus = "http://schema.org/EventCancelled";
+	}
+	return $data;
+}
+
+
+/**
+ * If an event is registerable, add the schema so google knows about it
+ * Requires ACF field `rsvp_form`
+ * @param $data
+ * @param $args
+ * @param $post
+ *
+ * @return mixed
+ */
+add_filter('tribe_json_ld_event_object', 'tribe_add_offer_to_json_if_required', 10, 3);
+function tribe_add_offer_to_json_if_required($data, $args, $post) {
+	if (get_field('rsvp_form', $post->ID)) {
+		$offer = new stdClass();
+		$offer->{'@type'} = "Event Registration";
+		$offer->lowPrice = "Free";
+		$offer->offerCount = get_field( 'rsvp_limit', $post->ID );
+		$data->offers = $offer;
+	}
+	return $data;
+}
+
 /*
  * Recurring events in wp-admin: only display first (parent) occurrence in list of Events
  * (i.e. hide child recurring events)
@@ -191,4 +244,61 @@ function tribe_add_admin_event_filter_links( $views ) {
 		$views['all_recur'] = "<a href='/wp-admin/edit.php?post_status=publish&post_type=tribe_events&collapse_recurring=true'>Show recurring instances once</a>";
 	}
 	return $views;
+}
+
+/**
+ *  Remove tribe credits injected into footer
+ */
+add_action( 'wp_footer', 'tribe_kill_tribe_credits', 0 );
+function tribe_kill_tribe_credits() {
+	remove_anonymous_object_filter(
+		'tribe_events_after_html',
+		'Tribe__Credits',
+		'html_comment_credit'
+	);
+}
+
+add_action( 'admin_footer', 'tribe_kill_tribe_nudge', 0 );
+function tribe_kill_tribe_nudge() {
+	remove_anonymous_object_filter(
+		'admin_footer_text',
+		'Tribe__Credits',
+		'rating_nudge'
+	);
+}
+if ( ! function_exists( 'remove_anonymous_object_filter' ) ) {
+	/**
+	 *
+	 * Remove an anonymous object filter.
+	 *
+	 * @param  string $tag    Hook name.
+	 * @param  string $class  Class name
+	 * @param  string $method Method name
+	 * @return void
+	 */
+	function remove_anonymous_object_filter( $tag, $class, $method ) {
+		$filters = $GLOBALS['wp_filter'][ $tag ];
+		if ( empty ( $filters ) ) {
+			return;
+		} foreach ( $filters as $priority => $filter ) {
+			foreach ( $filter as $identifier => $function ) {
+				if ( is_array( $function)
+				     and is_a( $function['function'][0], $class )
+				         and $method === $function['function'][1]
+				) {
+					remove_filter(
+						$tag,
+						array ( $function['function'][0], $method ),
+						$priority
+					);
+				}
+			}
+		}
+	}
+}
+
+// Removes comments from events
+add_action('init', 'remove_comment_support', 100);
+function remove_comment_support() {
+	remove_post_type_support( 'tribe_events', 'comments' );
 }

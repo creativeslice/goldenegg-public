@@ -78,8 +78,6 @@ Cards Block
 	}
 	a.card:active {
 		box-shadow: $shadow_active;
-		.button {
-		}
 	}
 @include breakpoint(medium) {
 	margin-right: auto;

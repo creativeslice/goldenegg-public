@@ -4,6 +4,12 @@ Stylesheet: Buttons
 
 ******************************************************************/
 
+// adjust button defaults
+button {
+	background: none;
+	border: none;
+}
+
 %btn {
 	display: inline-block;
 	position: relative;

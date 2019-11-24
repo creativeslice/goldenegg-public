@@ -137,6 +137,12 @@ Gulp can be used to create an SVG icon sprite, combine, update, and process SCSS
 
 ## Changelog
 
+**2.0.10 - 2019-11-24**
+
+1. Update to Gulp 4
+1. Simpler css reset to replace sanitize
+1. Search form styling
+
 **2.0.9 - 2019-11-18**
 
 1. Add Cards content block

@@ -16,13 +16,11 @@ Stylesheet: WP Media
 @include breakpoint(small) {
 	.alignleft, img.alignleft, figure.alignleft, dl.alignleft {
 		display: inline;
-		float: left;
 		margin-left: 0em;
 		margin-right: $default_margin;
 	}
 	.alignright, img.alignright, figure.alignright, dl.alignright {
 		display: inline;
-		float: right;
 		margin-left: $default_margin;
 		margin-right: 0em;
 	}

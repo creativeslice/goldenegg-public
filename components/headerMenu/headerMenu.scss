@@ -9,13 +9,14 @@ MENU NAVIGATION
 	float: right;
 	cursor: pointer;
 	fill: $link_color;
-	margin: 1em;
+	width: 48px;
+	height: 48px;
 	svg {
 		width: 24px;
 		height: 24px;
 		position: absolute;
-		top: 0;
-		right: 0;
+		top: 12px;
+		right: 12px;
 	}
 	svg.close {
 		display: none;
@@ -54,10 +55,13 @@ MAIN MENU
 }
 
 .mainNav {
-	margin: 0;
 	clear: both;
 	text-align: center;
 	background: $white;
+	ul {
+		margin: 0;
+		padding: 0;
+	}
 	li {
 		a, a:visited {
 			display: block;

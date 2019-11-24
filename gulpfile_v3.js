@@ -1,14 +1,14 @@
 /**
- * Gulp v4 Configuration
+ * Gulp v3 Configuration
  */
 
-var environment = 'dev', // 'prod' or 'dev'
+var environment = 'production', // 'production' or 'development'
 
 	gulp = 			require('gulp'),
 	sass = 			require('gulp-sass'),
 	globSass = 		require('gulp-sass-glob'),
 	autoprefixer = 	require('gulp-autoprefixer'),
-	cleanCSS	 = 	require('gulp-clean-css'),
+	minifycss = 	require('gulp-minify-css'),
 	uglify = 		require('gulp-uglify'),
 	rename = 		require('gulp-rename'),
 	stripDebug = 	require('gulp-strip-debug'),
@@ -27,7 +27,7 @@ var environment = 'dev', // 'prod' or 'dev'
 	gulpif = 		require('gulp-if'),
 	cheerio = 		require('gulp-cheerio'),
 
-	compression = ( 'prod' === environment ? 'compressed' : 'expanded' );
+	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
 
 
 	
@@ -54,7 +54,7 @@ gulp.task('styles', function() {
 		.pipe(sourcemaps.init())
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions', '> 1%', 'android > 4'))
-		.pipe(cleanCSS({compatibility: 'ie8'}))
+		.pipe(minifycss())
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('assets/css'))
 		.pipe(livereload());
@@ -89,8 +89,8 @@ gulp.task('scripts', function() {
         .pipe(plumber({ errorHandler: onError }))
         .pipe(concat('scripts.js'))
         .pipe(jsHint())
-        .pipe(gulpif('prod'==environment, stripDebug()))
-        .pipe(gulpif('prod'==environment, uglify()))
+        .pipe(gulpif('production'==environment, stripDebug()))
+        .pipe(gulpif('production'==environment, uglify()))
         .pipe(gulp.dest('assets/js'))
         .pipe(notify({ message: "Scripts task complete" }));
 });
@@ -100,10 +100,11 @@ gulp.task('scripts', function() {
  * SVG ICONS
  *
  * 'gulp icons' (only compiles icons)
+ *
  */
 gulp.task('icons', function() {
 	return gulp.src('src/icons/*')
-		.pipe(gulpif('prod'==environment, svgmin()))
+		.pipe(gulpif('production'==environment, svgmin()))
 		.pipe(svgstore({ inlineSvg: true }))
 		.pipe(cheerio({
 			run: function( $, file ) {
@@ -125,19 +126,23 @@ gulp.task('icons', function() {
  * GULP Task
  *
  * 'gulp' (does not compile icons)
+ *
  */
-gulp.task('default', gulp.series('styles', 'styles-login', 'styles-editor', 'scripts'));
+gulp.task('default', function() {
+	gulp.start('styles', 'styles-login', 'styles-editor', 'scripts');
+});
 
 
 /**
  * GULP WATCH Task
  *
  * 'gulp watch' (does not compile styles-login, styles-editor or icons)
+ *
  */
 gulp.task('watch', function() {
-	livereload({ start: true })
-	gulp.watch('src/scss/**/*.scss', gulp.series('styles'));
-	gulp.watch('components/**/*.scss', gulp.series('styles'));
-	gulp.watch('src/js/**/*.js', gulp.series('scripts'));
-	gulp.watch('components/**/*.js', gulp.series('scripts'));
+	livereload.listen();
+	gulp.watch('src/scss/**/*.scss', ['styles']);
+	gulp.watch('components/**/*.scss', ['styles']);
+	gulp.watch('src/js/**/*.js', ['scripts']);
+	gulp.watch('components/**/*.js', ['scripts']);
 });
