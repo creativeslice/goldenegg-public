@@ -1,10 +1,8 @@
 # Golden Egg WordPress Starter Theme
 
-### Version 2.0.9
-
 A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS. This theme is component-based and organizes the SCSS, JS, &amp; PHP that define a component all in the same directory within the components directory.
 
-More at: [https://creativeslice.com/goldenegg](https://creativeslice.com/goldenegg)
+More at: [https://goldenegg.dev](https://goldenegg.dev)
 
 ## Components
 
