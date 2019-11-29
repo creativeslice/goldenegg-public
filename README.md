@@ -6,7 +6,7 @@ More at: [https://goldenegg.dev](https://goldenegg.dev)
 
 ## Components
 
-As of 2.0.3, there is some extra automation to components including a new wrapper function for including a component. SCSS files are auto discovered and compiled similar JavaScript files.
+As of 2.0.3, there is some extra automation to components including a new wrapper function for including a component. SCSS files are auto discovered and compiled similar to JavaScript files.
 
 ### Including a Component
 
@@ -80,10 +80,6 @@ This directory holds the reusable components that make up the site. Components a
 
 The example files above would be contained in: `/components/componentName/`.
 
-### /components_OFF
-
-In the repo, this is used to hold non-default components that can be used in your project. In the final project, this can be deleted to avoid confusion.
-
 ### /acf-json
 
 Will hold JSON definitions of any ACF groups created. Allows them to be version controlled.
@@ -114,7 +110,7 @@ A PHP library of global functionality.
 1. Run `npm install` to install the necessary packages
 
 
-## Creative Slice Specific Set Up
+## New Theme Set Up
 
 1. Change the theme name to follow this format: `[sitename]-[year]`, eg: `creativeslice-2019`
 1. Update style.css with: "Site Name - 2019" (Use the current site and current year), the current site's URL, and a quick description, example below
