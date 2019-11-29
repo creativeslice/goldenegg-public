@@ -106,7 +106,7 @@ A PHP library of global functionality.
 
 1. Copy this directory into a WordPress site theme directory
 1. Open Terminal or your CLI of choice
-1. Navigate to the theme directory (eg: `cd ~/Sites/site_name/app/public/wp-content/themes/goldenegg/`)
+1. Navigate to the site directory (eg: `cd ~/Sites/site_name/app/public/wp-content/`)
 1. Run `npm install` to install the necessary packages
 
 
@@ -121,6 +121,8 @@ A PHP library of global functionality.
 ## Gulp to Process Scripts and Styles
 
 Gulp can be used to create an SVG icon sprite, combine, update, and process SCSS and JavaScript. It will pull the JS from the components automatically but SCSS files need to be manually added in the `/assets/scss/style.scss` file.
+
+To use Gulp v3 (instead of the default Gulp 4) rename the `gulpfile_v3.js` file to `gulpfile.js`.
 
 **Gulp Commands**
 
