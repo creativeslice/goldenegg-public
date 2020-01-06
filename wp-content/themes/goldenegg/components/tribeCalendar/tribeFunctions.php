@@ -297,8 +297,22 @@ if ( ! function_exists( 'remove_anonymous_object_filter' ) ) {
 	}
 }
 
-// Removes comments from events
+/**
+ *  Remove comment support from events
+ */
 add_action('init', 'remove_comment_support', 100);
 function remove_comment_support() {
 	remove_post_type_support( 'tribe_events', 'comments' );
 }
+
+
+/**
+ *  Remove annoying geo nag message
+ *  'You have venues for which we don't have Geolocation information'
+ */
+add_action( 'admin_init', function() {
+	remove_action( 'admin_notices', array(
+		Tribe__Events__Pro__Geo_Loc::instance(),
+		'show_offer_to_fix_notice'
+	) );
+}, 100 );
