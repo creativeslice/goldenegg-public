@@ -25,6 +25,8 @@ Expanding Text
 		margin: 0;
 		position: relative;
 		transition: all $ease;
+		width: 100%;
+		text-align: left;
 		svg {
 			width: 20px;
 			height: 20px;
@@ -33,6 +35,10 @@ Expanding Text
 			right: 4%;
 		}
 		&:hover {
+			background: $white;
+		}
+		&:focus {
+			outline: none;
 			background: $white;
 		}
 		&.open {

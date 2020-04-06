@@ -68,8 +68,11 @@ function egg_disable_dashboard_widgets() {
 	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');	// Recent Drafts Widget
 	remove_meta_box('dashboard_activity', 'dashboard', 'core');			// Activity Widget
 	remove_meta_box('dashboard_primary', 'dashboard', 'core');			// WordPress News Widget
-	remove_meta_box('wpe_dify_news_feed', 'dashboard', 'normal');		// WPEngine News Widget
-	remove_meta_box('tribe_dashboard_widget', 'dashboard', 'normal');	// Tribe News Widget
+	remove_meta_box('dashboard_site_health', 'dashboard', 'normal');	// Site Health Widget
+	
+	// Third Party
+	//remove_meta_box('wpe_dify_news_feed', 'dashboard', 'normal');		// WPEngine News Widget
+	//remove_meta_box('tribe_dashboard_widget', 'dashboard', 'normal');	// Tribe News Widget
 	// remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');	// Gravity Forms Widget
 }
 

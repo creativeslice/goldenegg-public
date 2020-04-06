@@ -13,10 +13,10 @@
 	<?php foreach ( $settings['blocks'] as $block ) : ?>
 	<div class="expandBlock"<?php if($faq_schema){ echo ' itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"'; } ?>>
 		
-		<strong class="toggleContent">
+		<button class="toggleContent">
 			<span <?php if($faq_schema){ echo 'itemprop="name"'; } ?>><?php echo $block['title']; ?></span>
 			<svg title="Open Menu" role="presentation"><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#arrow-down"></use></svg>
-		</strong>
+		</button>
 		
 		<div class="hiddenContent"<?php if($faq_schema){ echo ' itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"'; } ?>>
 			<div class="entryContent"<?php if($faq_schema){ echo ' itemprop="text"'; } ?>>
