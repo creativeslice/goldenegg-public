@@ -133,6 +133,10 @@ To use Gulp v3 (instead of the default Gulp 4) rename the `gulpfile_v3.js` file 
 
 ## Changelog
 
+**2.0.12 - 2020-04-29**
+
+1. Dashboard widget framework for Care Plan links
+
 **2.0.11 - 2020-04-06**
 
 1. Dashboard cleanup for WordPress 5.4

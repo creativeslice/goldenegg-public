@@ -5,6 +5,7 @@ require_once( 'admin/admin.php' );
 require_once( 'admin/login.php' );
 require_once( 'admin/tinymce.php' );
 #require_once( 'admin/disableComments.php' );			// Completely remove comments from the admin area
+require_once( 'admin/dashboardWidget.php' );
 
 // Front End
 require_once( 'includes/enqueue.php' );
