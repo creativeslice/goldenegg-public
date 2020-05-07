@@ -39,6 +39,15 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'page_title' 	=> 'Theme Settings',
 		'menu_title'	=> 'Footer',
 		'parent_slug' 	=> 'themes.php',
+		'capability' 	=> 'add_users', // Admin only
+	));
+	
+	// ACF Reporting settings for care plan dashboard widget
+	acf_add_options_page(array(
+		'page_title' 	=> 'Care Plan Reporting',
+		'menu_title'	=> 'Reporting',
+		'parent_slug' 	=> 'themes.php',
+		'capability' 	=> 'add_users', // Admin only
 	));
 
 }
