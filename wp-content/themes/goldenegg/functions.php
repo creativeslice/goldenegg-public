@@ -11,15 +11,30 @@ require_once( 'admin/dashboardWidget.php' );
 require_once( 'includes/enqueue.php' );
 require_once( 'includes/themeSupport.php' );
 require_once( 'includes/cleanup.php' );					// Cleanup WordPress scripts
-require_once( 'includes/components.php' );
+require_once( 'includes/contentBlockFunctions.php' );
 #require_once( 'includes/disablePingback.php' );		// Disable XMLRPC, pingbacks, trackbacks
 #require_once( 'includes/disableFeeds.php' );			// Disable site feeds
 #require_once( 'includes/customPostTypes.php' );		// Create custom post types
 #require_once( 'includes/niceSearch.php' );				// Clean search urls & Relevanssi custom fields
 #require_once( 'includes/excludeFromMenu.php' );		// Exclude from menu checkbox
 
-// Components
-#require_once( 'components/tribeCalendar/tribeFunctions.php' );		// Tribe Calendar Cleanup
+
+/**
+ * SVG Icons with version number
+ *
+ * replaces: <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#close"></use></svg>
+ * with: <use xlink:href="<?php echo get_svg('globe'); ?>"></use>
+ *
+ * @param $which string the name of the icon
+ * @return string
+ *
+ */
+// set the modified time for icons.svg to bust caching
+define('SVG_LAST_MTIME', filemtime( realpath(__DIR__) . '/assets/icons/icons.svg' ));
+function get_svg($which) {
+	$version = SVG_LAST_MTIME;
+	return get_template_directory_uri() . "/assets/icons/icons.svg?". $version . "#" . $which;
+}
 
 
 /**

@@ -11,7 +11,7 @@ if ( $content_blocks ) : foreach ( $content_blocks as $settings ) :
 	$block                   = $settings['acf_fc_layout'];
 	$settings['type']        = 'contentBlocks';
 	$settings['build_count'] = $count;
-	egg_component( $block, $settings );
+	egg_block( $block, $settings );
 	$count++;
 
 endforeach; endif;

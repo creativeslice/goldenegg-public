@@ -1,23 +1,23 @@
 <?php
 
 /**
- * Use to get a basic or dumb component
+ * Use to get a basic or dumb block
  *
- * Dumb components take simple variable input and output HTML with that input.
- * Dumb components do not connect to the database or require state.
- * Dumb components usually output HTML to the page.
+ * Dumb blocks take simple variable input and output HTML with that input.
+ * Dumb blocks do not connect to the database or require state.
+ * Dumb blocks usually output HTML to the page.
  *
  * @author	Jake Snyder
- * @param	string	$component	The name of the eventual field in ACF
- * @param	array	$settings	An array of parameters to determine the output of the component
- * @return	bool	If the component is found, it returns true, otherwise false
+ * @param	string	$block	The name of the eventual field in ACF
+ * @param	array	$settings	An array of parameters to determine the output of the block
+ * @return	bool	If the block is found, it returns true, otherwise false
  */
-function egg_component( $component, $settings = [] ) {
-	$settings['component'] = false;
+function egg_block( $block, $settings = [] ) {
+	$settings['block'] = false;
 
 	// Always send classes through, so it is expected
 	// Also allow an array of classes that we combine into a string here
-	$class = $component;
+	$class = $block;
 	if ( isset($settings['classes']) ) { $settings['class'] = $settings['classes']; }
 	if ( ! empty($settings['class']) && is_array($settings['class']) ) {
 		$settings['class'] = implode(' ', $settings['class']);
@@ -51,8 +51,8 @@ function egg_component( $component, $settings = [] ) {
 	}
 	$attr = $id . $class . $attr;
 
-	if ( is_file( get_stylesheet_directory() . "/components/$component/$component.php" ) ) {
-		include get_stylesheet_directory() . "/components/$component/$component.php";
+	if ( is_file( get_stylesheet_directory() . "/blocks/$block/$block.php" ) ) {
+		include get_stylesheet_directory() . "/blocks/$block/$block.php";
 		return true;
 	}
 	return false;
