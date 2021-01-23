@@ -14,6 +14,9 @@ add_image_size( 'fhd', 		1920, 	1080, 	true );
 add_image_size( 'hd', 		1280, 	720, 	true );
 add_image_size( 'hdsm', 	640, 	360, 	true );
 
+// Disable large image scaling
+add_filter( 'big_image_size_threshold', '__return_false' );
+
 
 /**
  * Title Tag support for SEO
@@ -43,19 +46,6 @@ function vnmFunctionality_embedWrapper($html, $url, $attr) {
         return '<div class="videoContainer">' . $html . '</div>';
     }
 	return $html;
-}
-
-
-/**
- * Customize Search Box
- */
-add_filter( 'get_search_form', 'egg_wpsearch' );
-function egg_wpsearch($form) {
-	$component = 'searchForm';
-	ob_start();
-	egg_component( $component );
-	$form = ob_get_clean();
-	return $form;
 }
 
 

@@ -28,8 +28,9 @@
 		<?php endif; ?>
 
 	<?php endwhile;
-		egg_component( 'pageNavi' );
-	else : echo '<h1>Nothing Found Here</h1>';
+		get_template_part( 'components/pageNavi/pageNavi' );
+	else : 
+		echo '<h1>Nothing Found Here</h1>';
 	endif; ?>
 
 </div>

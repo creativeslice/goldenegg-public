@@ -1,4 +1,6 @@
 <?php // Banner Notices
+	
+	$notice_active = get_field('notice_active', 'option');
 	$notice_color = get_field('notice_color', 'option');
 	$notice_location = get_field('notice_location', 'option');
 	$notice_message = get_field('notice_message', 'option');
@@ -11,8 +13,11 @@
 	$start_stamp = strtotime( $start_date ); 
 	$end_stamp = strtotime( $end_date );
 	
-	// Check if time is now
-	if( $start_stamp <= $curTime && $curTime <= $end_stamp && ( $start_stamp < $end_stamp ) ) :
+// Check if notice status is active
+if($notice_active) :
+
+// Check if time is now
+if( $start_stamp <= $curTime && $curTime <= $end_stamp && ( $start_stamp < $end_stamp ) ) :
 ?>
 
 	<?php // Homepage only
@@ -48,4 +53,4 @@
 		</div>
 	<?php } ?>
 
-<?php endif; ?>
+<?php endif; endif; ?>

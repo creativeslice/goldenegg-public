@@ -1,4 +1,5 @@
 <?php // ACF contentBlocks - Expanding Text
+	
 	$build_count = $settings['build_count'];
 	$section_title = ( ! empty($settings['section_title']) ? $settings['section_title'] : '' );
 	$faq_schema = ( ! empty($settings['faq_schema']) ? $settings['faq_schema'] : '' );
@@ -15,7 +16,9 @@
 		
 		<button class="toggleContent">
 			<span <?php if($faq_schema){ echo 'itemprop="name"'; } ?>><?php echo $block['title']; ?></span>
-			<svg title="Open Menu" role="presentation"><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#arrow-down"></use></svg>
+			<svg role="presentation">
+				<use xlink:href="<?php echo get_svg('arrow-down'); ?>"></use>
+			</svg>
 		</button>
 		
 		<div class="hiddenContent"<?php if($faq_schema){ echo ' itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"'; } ?>>

@@ -1,12 +1,12 @@
 <button id="menuToggle">
-	<span class="menuText">MENU</span>
-	<svg title="Open Menu" class="open">
+	<span class="label">MENU</span>
+	<svg class="open">
 		<title>Open Menu</title>
-		<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#menu"></use>
+		<use xlink:href="<?php echo get_svg('menu'); ?>"></use>
 	</svg>
-	<svg title="Close" class="close">
+	<svg class="close">
 		<title>Close Menu</title>
-		<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#close"></use>
+		<use xlink:href="<?php echo get_svg('close'); ?>"></use>
 	</svg>
 </button>
 

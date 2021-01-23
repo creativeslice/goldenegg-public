@@ -1,14 +1,15 @@
 <button id="searchToggle">
-	<svg title="Search" class="open">
+	<svg class="open">
 		<title>Show Search</title>
-		<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#search"></use>
+		<use xlink:href="<?php echo get_svg('search'); ?>"></use>
 	</svg>
-	<svg title="Close" class="close">
+	<svg class="close">
 		<title>Close Search</title>
-		<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#close"></use>
+		<use xlink:href="<?php echo get_svg('close'); ?>"></use>
 	</svg>
 </button>
 
+<?php // Text Search Button ?>
 <form class="searchForm" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label>
 		<span class="screen-reader-text">Search for:</span>
@@ -16,3 +17,16 @@
 	</label>
 	<input type="submit" class="searchSubmit button" value="Search" />
 </form>
+
+<!--
+<?php // Icon Search Button ?>
+<form class="searchForm" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+    <input type="text" name="s" placeholder="Keyword search..." title="Search" value="<?php echo get_search_query() ?>">
+    <button type="submit" title="Submit Search">
+		<svg class="iconSearch">
+			<title>Search</title>
+			<use xlink:href="<?php echo get_svg('search'); ?>"></use>
+		</svg>
+    </button>
+</form>
+-->

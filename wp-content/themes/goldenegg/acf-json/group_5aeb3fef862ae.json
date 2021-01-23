@@ -72,9 +72,7 @@
                 "home": "Homepage",
                 "sitewide": "Sitewide"
             },
-            "default_value": [
-                "Home"
-            ],
+            "default_value": "Home",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -100,9 +98,7 @@
                 "yellow": "Yellow",
                 "red": "Red"
             },
-            "default_value": [
-                "green"
-            ],
+            "default_value": "green",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -160,7 +156,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1574031375
+    "modified": 1611415988
 }

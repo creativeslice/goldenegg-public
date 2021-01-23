@@ -23,7 +23,7 @@ require_once( 'includes/contentBlockFunctions.php' );
  * SVG Icons with version number
  *
  * replaces: <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#close"></use></svg>
- * with: <use xlink:href="<?php echo get_svg('globe'); ?>"></use>
+ * with: <svg><use xlink:href="<?php echo get_svg('globe'); ?>"></use></svg>
  *
  * @param $which string the name of the icon
  * @return string

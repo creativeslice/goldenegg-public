@@ -4,25 +4,37 @@
  *
  * https://www.favicon-generator.org/
  * https://favicon.io/
+ * https://realfavicongenerator.net/favicon_checker
+ *
+ * place in root directory: favicon.ico, apple-touch-icon.png
+ *
  */
 ?>
 
-<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/components/favicons/img/favicon.ico">
-
-<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/components/favicons/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="<?php echo get_template_directory_uri(); ?>/components/favicons/img/android-icon-48x48.png">
-<link rel="icon" type="image/png" sizes="96x96" href="<?php echo get_template_directory_uri(); ?>/components/favicons/img/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="<?php echo get_template_directory_uri(); ?>/components/favicons/img/android-chrome-192x192.png">
-
-<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/components/favicons/img/apple-touch-icon.png">
-
-<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/components/favicons/img/ms-icon-144x144.png">
-<meta name="msapplication-TileColor" content="#fff">
-<meta name="theme-color" content="#fff">
-
-<meta name="apple-mobile-web-app-title" content="GoldenEgg">
-<meta name="author" content="Creative Slice">
-<meta name="revisit-after" content="15 days">
-<meta name="rating" content="general">
-<meta name="distribution" content="global">
-<meta property="og:phone_number" content="+1-555-555-5555">
+<?php // Server Environment Type (requires define( 'WP_ENVIRONMENT_TYPE', 'development' ); in wp-config)
+switch ( wp_get_environment_type() ) {
+	
+	// Dev
+	case 'local': case 'development': ?>
+		<link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/components/favicons/icon-evergreen.png">
+	<?php break; 
+		
+	// Staging
+	case 'staging': ?>
+		<link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/components/favicons/icon-vividblue.png">
+	<?php break; 
+		
+	// Production
+	case 'production': default: ?>
+		<link rel="manifest" crossorigin="use-credentials" href="<?php echo get_template_directory_uri(); ?>/components/favicons/manifest.webmanifest" >
+		<link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/components/favicons/favicon.svg">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<meta name="theme-color" content="#339933">
+		
+		<meta name="apple-mobile-web-app-title" content="Creative Slice">
+		<meta name="author" content="Creative Slice">
+		<meta name="revisit-after" content="15 days">
+		<meta name="rating" content="general">
+		<meta name="distribution" content="global">
+	<?php break; 
+}

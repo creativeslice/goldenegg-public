@@ -1,4 +1,11 @@
-<?php
+<?php // WordPress Admin Functions
+
+
+/**
+ * Turn OFF Theme Editor - PAGELY already does this
+ */
+#define( 'DISALLOW_FILE_EDIT', true );
+
 
 /**
  * Disable the auto generated email sent to the admin after a successful core update:
@@ -69,10 +76,6 @@ function egg_disable_dashboard_widgets() {
 	remove_meta_box('dashboard_activity', 'dashboard', 'core');			// Activity Widget
 	remove_meta_box('dashboard_primary', 'dashboard', 'core');			// WordPress News Widget
 	remove_meta_box('dashboard_site_health', 'dashboard', 'normal');	// Site Health Widget
-	
-	// Third Party
-	//remove_meta_box('wpe_dify_news_feed', 'dashboard', 'normal');		// WPEngine News Widget
-	//remove_meta_box('tribe_dashboard_widget', 'dashboard', 'normal');	// Tribe News Widget
 	// remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');	// Gravity Forms Widget
 }
 
@@ -82,9 +85,9 @@ function egg_disable_dashboard_widgets() {
  */
 add_action( 'admin_head', 'egg_admin_favicon', 11 );
 function egg_admin_favicon() { ?>
-	<link rel="icon" href="<?php echo get_template_directory_uri() . '/admin/assets/img/favicon.png'; ?>">
+	<link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/components/favicons/favicon.png">
 <?php }
-
+	
 
 /**
  * Remove some screen options from the dashboard
@@ -114,13 +117,15 @@ function egg_remove_menu_pages() {
 
 
 /**
- * Only allow ACF fields to be edited on local development
+ * Only allow ACF updates on development server
  */
-/*
-if ( ! defined( 'WP_LOCAL_DEV' ) ) {
-	add_filter( 'acf/settings/show_admin', '__return_false' );
+switch ( wp_get_environment_type() ) {
+	case 'staging': case 'production':
+		add_filter( 'acf/settings/show_admin', '__return_false' );
+		break;
+	case 'development': default:
+		break;
 }
-*/
 
 
 /**
@@ -145,7 +150,6 @@ function egg_customize_admin_bar() {
 	$wp_admin_bar->remove_menu('customize-themes');
 	$wp_admin_bar->remove_menu('themes');
 	$wp_admin_bar->remove_menu('widgets');
-    $wp_admin_bar->remove_menu('tribe-events'); // Remove Tribe Calendar menu
 }
 
 

@@ -1,5 +1,11 @@
+/******************************************************************
 
-/* reset.css | https://andy-bell.design/wrote/a-modern-css-reset/ */
+Stylesheet: Modern CSS Reset 
+https://github.com/hankchizljaw/modern-css-reset
+
+modified by Creative Slice
+
+******************************************************************/
 
 /* Box sizing rules */
 *,
@@ -32,18 +38,23 @@ dd {
   margin: 0;
 }
 
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
 /* Remove list styles on ul, ol elements with a class attribute */
 ul[class],
 ol[class] {
   list-style: none;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 }
 
 /* A elements that don't have a class get default styles */
@@ -52,14 +63,10 @@ a:not([class]) {
 }
 
 /* Make images easier to work with */
-img {
+img,
+picture {
   max-width: 100%;
   display: block;
-}
-
-/* Natural flow and rhythm in articles by default */
-article > * + * {
-  margin-top: 1em;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -72,7 +79,9 @@ select {
 
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

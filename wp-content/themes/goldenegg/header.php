@@ -1,6 +1,5 @@
 <!doctype html>
 <html dir="ltr" lang="en-US">
-
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="x-ua-Compatible" content="ie=edge">
@@ -22,7 +21,9 @@
 		get_template_part( 'components/notices/notices' ); 
 	?>
 	
-	<?php get_search_form(); // hidden by default ?>
+	<?php // Search Form 
+		get_template_part( 'components/searchForm/searchForm' ); 
+	?>
 	
 	<header class="pageHeader">  
 	
@@ -32,7 +33,9 @@
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" />
 			</a>
 	
-			<?php egg_component( 'headerMenu' ); ?>
+			<?php // Header Menu 
+				get_template_part( 'components/headerMenu/headerMenu' ); 
+			?>
 	
 		</div>
 	

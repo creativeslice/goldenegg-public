@@ -20,6 +20,8 @@
 
 </main>
 
-<?php get_template_part( 'includes/contentBlocks' ); ?>
+<?php // Content Blocks
+	get_template_part( 'includes/contentBlocks' ); 
+?>
 
 <?php get_footer();

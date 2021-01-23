@@ -1,7 +1,6 @@
 /**
  * Gulp v4 Configuration
  */
-
 var environment = 'dev', // 'prod' or 'dev'
 
 	gulp = 			require('gulp'),
@@ -9,14 +8,16 @@ var environment = 'dev', // 'prod' or 'dev'
 	globSass = 		require('gulp-sass-glob'),
 	autoprefixer = 	require('gulp-autoprefixer'),
 	cleanCSS	 = 	require('gulp-clean-css'),
-	uglify = 		require('gulp-uglify'),
 	rename = 		require('gulp-rename'),
 	stripDebug = 	require('gulp-strip-debug'),
 	jsHint = 		require('gulp-jshint'),
 	concat = 		require('gulp-concat'),
 	notify = 		require('gulp-notify'),
 	plumber = 		require('gulp-plumber'),
-	sourcemaps = 	require('gulp-sourcemaps'),
+    sourcemaps = 	require('gulp-sourcemaps'),
+    babel =         require('gulp-babel'),
+    terser =        require('gulp-terser'),
+    filter =        require('gulp-filter'),
 
 	// used with browser extension
 	livereload = 	require('gulp-livereload'),
@@ -30,7 +31,7 @@ var environment = 'dev', // 'prod' or 'dev'
 	compression = ( 'prod' === environment ? 'compressed' : 'expanded' );
 
 
-	
+
 /**
  * Error handler
  */
@@ -80,19 +81,28 @@ gulp.task('styles-editor', function() {
 /**
  * JAVASCRIPT
  */
+
 gulp.task('scripts', function() {
-    return gulp.src([
-            'src/libs/**/*.js',
-            'src/js/**/*.js',
-            'components/**/*.js',
-        ])
-        .pipe(plumber({ errorHandler: onError }))
+    const customScripts = filter('src/js/**/*.js' + 'components/**/*.js' + 'blocks/**/*.js', {restore: true});
+	return gulp.src([
+		'src/libs/**/*.js',
+		'src/js/**/*.js',
+		'components/**/*.js',
+		'blocks/**/*.js',
+	])
+		.pipe(plumber({ errorHandler: onError }))
         .pipe(concat('scripts.js'))
+        .pipe(customScripts) // We only want to lint and babelize custom scripts
         .pipe(jsHint())
-        .pipe(gulpif('prod'==environment, stripDebug()))
-        .pipe(gulpif('prod'==environment, uglify()))
-        .pipe(gulp.dest('assets/js'))
-        .pipe(notify({ message: "Scripts task complete" }));
+        .pipe(babel({
+            presets: ['@babel/preset-env'],
+            ignore: ["./src/libs/svg4everybody.min.js"],
+        }))
+        .pipe(customScripts.restore)
+		.pipe(gulpif('prod'==environment, stripDebug()))
+		.pipe(gulpif('prod'==environment, terser()))
+		.pipe(gulp.dest('assets/js'))
+		.pipe(notify({ message: "Scripts task complete" }));
 });
 
 
@@ -138,6 +148,8 @@ gulp.task('watch', function() {
 	livereload({ start: true })
 	gulp.watch('src/scss/**/*.scss', gulp.series('styles'));
 	gulp.watch('components/**/*.scss', gulp.series('styles'));
+	gulp.watch('blocks/**/*.scss', gulp.series('styles'));
 	gulp.watch('src/js/**/*.js', gulp.series('scripts'));
 	gulp.watch('components/**/*.js', gulp.series('scripts'));
+	gulp.watch('blocks/**/*.js', gulp.series('scripts'));
 });

@@ -29,14 +29,17 @@ MENU NAVIGATION
 			display: none;
 		}
 	}
-	.menuText {
+	.label {
 		display: none;
 	}
-
+@include breakpoint(small) {
+	width: auto;
+	.label {
+		display: block;
+		margin-right: 36px;
+		color: $link_color;
+	}
 }
-
-// Menu Toggle specific
-#menuToggle {
 @include breakpoint(large) {
 	display: none;
 }
@@ -61,6 +64,7 @@ MAIN MENU
 	ul {
 		margin: 0;
 		padding: 0;
+		list-style: none;
 	}
 	li {
 		a, a:visited {

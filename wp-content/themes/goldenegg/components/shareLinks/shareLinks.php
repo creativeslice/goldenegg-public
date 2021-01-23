@@ -1,4 +1,5 @@
 <?php // Social Sharing Links
+	
 	$title		= get_the_title();
 	$permalink	= get_permalink();
 	$hastag		= null; //strtolower( str_replace(' ', '', get_option('blogname')) );
@@ -31,14 +32,13 @@
 ?>
 
 <div class="shareLinks">
-	
 	<?php foreach ( $links as $link ) : ?>
 	<a class="share-<?php echo $link['icon']; ?>" href="<?php echo $link['url']; ?>" title="Share via <?php echo $link['title']; ?>" target="_blank">
-		<svg title="<?php echo $link['icon']; ?>">
-			<use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#<?php echo $link['icon']; ?>"></use>
+		<svg>
+			<title><?php echo $link['icon']; ?></title>
+			<use xlink:href="<?php echo get_svg($link['icon']); ?>"></use>
 		</svg>
 		<span class="screen-reader-text">Share via <?php echo $link['title']; ?>: <?php echo $title; ?></span>
 	</a>
 	<?php endforeach; ?>
-	
 </div>
