@@ -1,23 +1,17 @@
-/*
- * Wrap jQuery JS in ready class
-*/
-jQuery(document).ready(function($) {
-	
-	
-	/**
-	* fallback for SVG icons in IE
-	*/
-	svg4everybody();
-	
-	
-	/*
-	 * Prevent Widows in h1 articleHeader
-	 */
-	$('.articleHeader h1').each(function () {
-		var string = $(this).html();
-		string = string.replace(/ ([^ ]*)$/, '&nbsp;$1');
-		$(this).html(string);
-	});
-	
+/**
+ * Import all front-end JS scripts.
+ * 
+ * Compiles to assets/js/scripts.js
+ */
 
-});
+ /* eslint-disable no-unused-vars */
+
+ // Import ES6 modules (recommended)
+ // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+
+ // Import third party libs
+ import '../libs/**/*.js';
+
+ import "../../blocks/**/*.js";
+ import "../../components/**/*.js";
+ import './global.js';
