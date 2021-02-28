@@ -118,6 +118,9 @@ function egg_remove_menu_pages() {
 
 /**
  * Only allow ACF updates on development server
+ *
+ * set in wp-config.php
+ * define( 'WP_ENVIRONMENT_TYPE', 'development' );
  */
 switch ( wp_get_environment_type() ) {
 	case 'staging': case 'production':

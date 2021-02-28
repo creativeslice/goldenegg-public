@@ -12,7 +12,7 @@ require_once( 'admin/tinymce.php' );					// Classic WYSIWYG Editor
 require_once( 'includes/enqueue.php' );
 require_once( 'includes/themeSupport.php' );
 require_once( 'includes/cleanup.php' );					// Cleanup WordPress scripts
-#require_once( 'includes/contentBlockFunctions.php' );	// Classic ACF Method
+require_once( 'includes/contentBlockFunctions.php' );	// Classic ACF Method
 #require_once( 'includes/disablePingback.php' );		// Disable XMLRPC, pingbacks, trackbacks
 #require_once( 'includes/disableFeeds.php' );			// Disable site feeds
 #require_once( 'includes/customPostTypes.php' );		// Create custom post types

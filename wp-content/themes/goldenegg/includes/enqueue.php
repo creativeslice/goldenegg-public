@@ -29,65 +29,14 @@ function egg_scripts() {
 }
 
 
-
-
-
-/**
- * Enqueue block JavaScript and CSS for Gutenberg Editor
+ /**
+ * Remove jQuery Migrate and wp-embed scripts
  */
-// Hook the enqueue functions into the editor
-add_action( 'enqueue_block_editor_assets', 'egg_block_editor_scripts' );
-function egg_block_editor_scripts() {
-	
-	//$csschanged = filemtime( realpath(__DIR__ . '/..') . '/blocks/portfolio-item/portfolio-item.css' );
-	$csschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/css/editor.css' );
-	
-    // Enqueue block editor JS
-/*
-    wp_enqueue_script(
-        'my-block-editor-js',
-        plugins_url( '/blocks/portfolio-item/portfolio-item.js', __FILE__ ),
-        [ 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor' ],
-        filemtime( plugin_dir_path( __FILE__ ) . 'blocks/portfolio-item/portfolio-item.js' )	
-    );
-*/
-
-    // Enqueue block editor styles
-/*
-    wp_enqueue_style(
-        'my-block-editor-css',
-        plugins_url( '/blocks/custom-block/editor-styles.css', __FILE__ ),
-        [ 'wp-edit-blocks' ],
-        filemtime( plugin_dir_path( __FILE__ ) . 'blocks/portfolio-item/portfolio-item.css' )	
-    );
-*/
-    
-    wp_register_style( 'egg-block-editor-css', get_stylesheet_directory_uri() . '/assets/css/editor.css?v=' . $csschanged, [ 'wp-edit-blocks' ], '', 'all' );
-
-
+add_filter('wp_default_scripts', 'egg_dequeue_jquery_migrate');
+function egg_dequeue_jquery_migrate(&$scripts) {
+    if (!is_admin()) {
+        $scripts->remove('wp-embed');
+        $scripts->remove('jquery');
+        $scripts->add('jquery', FALSE, array('jquery-core'), '1.10.2');
+    }
 }
-
-
-
-/**
- * Enqueue frontend and editor JavaScript and CSS
- */
-// Hook the enqueue functions into the frontend and editor
-add_action( 'enqueue_block_assets', 'egg_block_scripts' );
-function egg_block_scripts() {
-	
-	$csschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/css/style.css' );
-	
-    // Enqueue block editor styles
-/*
-    wp_enqueue_style(
-        'my-block-css',
-        plugins_url( '/blocks/portfolio-item/portfolio-item.css', __FILE__ ),
-        [],
-        filemtime( plugin_dir_path( __FILE__ ) . 'blocks/portfolio-item/portfolio-item.css' )	
-    );
-*/
-    wp_enqueue_style( 'egg-block-css', get_stylesheet_directory_uri() . '/assets/css/editor.css?v=' . $csschanged, [ 'wp-edit-blocks' ], '', 'all' );
-
-}
-

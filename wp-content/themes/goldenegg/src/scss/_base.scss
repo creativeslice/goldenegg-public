@@ -6,7 +6,6 @@ Stylesheet: BASE
 
 html, body {
 	background-color: $gray_lighter;
-	// scroll-behavior: smooth;
 }
 
 body {
@@ -29,10 +28,23 @@ hr {
 	padding: 0;
 }
 
-.portfolio-item h3.portfolio-title {
-	outline: 1px solid pink;
-	font-family: $sans_serif;
+/*********************
+LINK STYLES
+*********************/
+
+a, a:visited {
+	color: $link_color;
+	&:hover, &:focus {
+		color: $link_hover;
+	}
+	&:active {
+		color: darken($link_hover, 10%);
+	}
+	&:link {
+		-webkit-tap-highlight-color: rgba( $link_color, 0.6 ); // mobile tap color
+	}
 }
+
 
 /*********************
 LAYOUT & GRID STYLES
@@ -56,7 +68,10 @@ LAYOUT & GRID STYLES
 	position: relative;
 }
 
-// first child
+/*********************
+GUTENBERG
+*********************/
+// Gutenberg Blocks, first child
 .gutenbergBlocks > {
 	* {
 		background: white;
@@ -73,22 +88,9 @@ LAYOUT & GRID STYLES
 	}
 }
 
-
-/*********************
-LINK STYLES
-*********************/
-
-a, a:visited {
-	color: $link_color;
-	&:hover, &:focus {
-		color: $link_hover;
-	}
-	&:active {
-		color: darken($link_hover, 10%);
-	}
-	&:link {
-		-webkit-tap-highlight-color: rgba( $link_color, 0.6 ); // mobile tap color
-	}
+.portfolio-item h3.portfolio-title {
+	outline: 5px solid pink;
+	font-family: $sans_serif;
 }
 
 /*********************
@@ -100,8 +102,3 @@ CONTENT STYLES
 }
 }
 
-
-
-/*********************
-SIDEBAR
-*********************/

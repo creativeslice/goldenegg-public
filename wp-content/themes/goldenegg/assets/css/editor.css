@@ -148,11 +148,14 @@ REUSABLE ITEMS
 *********************/
 .clearfix, .cf {
   zoom: 1; }
-  .clearfix:before, .clearfix:after, .cf:before, .cf:after {
+  .clearfix::before, .clearfix::after, .cf::before, .cf::after {
     content: "";
     display: table; }
-  .clearfix:after, .cf:after {
+  .clearfix::after, .cf::after {
     clear: both; }
+
+.modern-clearfix {
+  display: flow-root; }
 
 .screen-reader-text {
   border: 0;
@@ -444,7 +447,7 @@ HTML5 IMAGE GALLERY
   .gallery .gallery-caption {
     text-align: left;
     padding: .25em 0; }
-  .gallery:after {
+  .gallery::after {
     content: '';
     display: inline-block;
     width: 100%; }
@@ -554,9 +557,17 @@ hr {
   margin: 1em 0;
   padding: 0; }
 
-.portfolio-item h3.portfolio-title {
-  outline: 1px solid pink;
-  font-family: "Helvetica Neue", Arial, sans-serif; }
+/*********************
+LINK STYLES
+*********************/
+a, a:visited {
+  color: #547E2A; }
+  a:hover, a:focus, a:visited:hover, a:visited:focus {
+    color: #3b581d; }
+  a:active, a:visited:active {
+    color: #213211; }
+  a:link, a:visited:link {
+    -webkit-tap-highlight-color: rgba(84, 126, 42, 0.6); }
 
 /*********************
 LAYOUT & GRID STYLES
@@ -576,6 +587,9 @@ LAYOUT & GRID STYLES
 #container {
   position: relative; }
 
+/*********************
+GUTENBERG
+*********************/
 .gutenbergBlocks > * {
   background: white;
   max-width: 720px;
@@ -591,23 +605,12 @@ LAYOUT & GRID STYLES
   -webkit-box-shadow: none;
           box-shadow: none; }
 
-/*********************
-LINK STYLES
-*********************/
-a, a:visited {
-  color: #547E2A; }
-  a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #3b581d; }
-  a:active, a:visited:active {
-    color: #213211; }
-  a:link, a:visited:link {
-    -webkit-tap-highlight-color: rgba(84, 126, 42, 0.6); }
+.portfolio-item h3.portfolio-title {
+  outline: 5px solid pink;
+  font-family: "Helvetica Neue", Arial, sans-serif; }
 
 /*********************
 CONTENT STYLES
-*********************/
-/*********************
-SIDEBAR
 *********************/
 /*********************
 CUSTOM EDITOR STYLES
