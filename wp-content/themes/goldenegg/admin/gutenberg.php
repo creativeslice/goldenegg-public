@@ -4,13 +4,14 @@
 /**
  * Limit Default Gutenberg Block Types
  */
-add_filter( 'allowed_block_types', 'egg_allowed_block_types' );
+//add_filter( 'allowed_block_types', 'egg_allowed_block_types' );
 function egg_allowed_block_types( $allowed_blocks ) {
 	return array(
 		'core/image',
 		'core/paragraph',
 		'core/heading',
 		'core/list',
+		'core/buttons',
 		'acf/portfolio-item'
 	);
 }
@@ -26,6 +27,9 @@ function egg_gutenberg_editor_setup() {
 	
 	#add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'align-wide' ); // adds full and wide options
+	
+	
+	//add_theme_support( 'disable-border-settings' ); 
 	
 	// Custom Font Sizes
 	add_theme_support( 'disable-custom-font-sizes' ); // disallow user to set any size
@@ -49,10 +53,21 @@ function egg_gutenberg_editor_setup() {
             'slug'      => 'large'
         )
     ) );
-  
+    
+    
 	// Custom Color Palette
 	add_theme_support( 'disable-custom-colors' ); // disallow user to select any color
 	add_theme_support( 'editor-color-palette', array(
+		array(
+			'name'  => __( 'White', 'egg' ),
+			'slug'  => 'white',
+			'color'	=> '#fff',
+		),
+		array(
+			'name'  => __( 'Black', 'egg' ),
+			'slug'  => 'black',
+			'color'	=> '#111',
+		),
 		array(
 			'name'  => __( 'Gray', 'egg' ),
 			'slug'  => 'gray',
@@ -84,6 +99,23 @@ function egg_gutenberg_editor_setup() {
 			'color'	=> '#d3033d',
 		),
 	) );
+	
+	// Custom Color Gradients
+	add_theme_support( 'disable-custom-gradients' ); // disallow user to create new gradients
+	add_theme_support( 'editor-gradient-presets', array(
+		array(
+            'name' => __( 'Green to blue', 'egg'),
+			'gradient' => 'linear-gradient(135deg,rgb(0,250,56) 0%,rgb(0,27,255) 100%)',
+			'slug' => 'green-to-blue'
+        ),
+        array(
+            'name' => esc_html__( 'Red to yellow', 'egg'),
+			'gradient' => 'linear-gradient(115deg,rgb(250,0,0) 0%,rgb(255,225,0) 100%)',
+			'slug' => 'red-to-yellow'
+        )
+    ) );
+
+	
 }
 
 
