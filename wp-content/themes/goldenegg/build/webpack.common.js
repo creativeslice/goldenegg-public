@@ -12,7 +12,7 @@ const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 // SVG Sprites
-// const SVGSpritemapPlugin = require("svg-spritemap-webpack-plugin");
+const SVGSpritemapPlugin = require("svg-spritemap-webpack-plugin");
 
 // Config files.
 const settings = require("./project.config.js");
@@ -110,15 +110,8 @@ module.exports = {
             test: /\.(jpe?g|png|gif)$/i
         }),
         // SVG Spritemaps
-        // new SVGSpritemapPlugin("src/icons/*.svg", {
-        //     output: {
-        //         filename: "../icons/icons.svg",
-        //         svgo: true,
-        //     },
-        //     sprite: {
-        //         prefix: false,
-        //     }
-        // })
+        new SVGSpritemapPlugin("src/icons/*.svg", {
+        })
     ],
 
     optimization: {
