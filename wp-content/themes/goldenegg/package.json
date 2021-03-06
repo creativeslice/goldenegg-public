@@ -57,5 +57,7 @@
 		"last 2 versions",
 		"IE 11"
 	],
-	"dependencies": {}
+	"dependencies": {
+		"md5-file": "^5.0.0"
+	}
 }
