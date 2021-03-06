@@ -6,8 +6,7 @@ More at: [https://goldenegg.dev](https://goldenegg.dev)
 
 ## Organization
 
-## Components & Blocks
-
+### Components & Blocks
 These directories hold the reusable components that make up the site. Components are meant to wholly contain the functionality for a piece of website functionality. A component can consist of any combination of or potentially multiple of each:
 
 1. A PHP file, eg: `componentName.php`
@@ -20,7 +19,7 @@ The example files above would be contained in: `/components/componentName/`.
 
 Site wide elements like the menu 
 
-## /blocks
+### /blocks
 
 Reusable blocks for the ACF page builder or custom Gutenberg blocks.
 
