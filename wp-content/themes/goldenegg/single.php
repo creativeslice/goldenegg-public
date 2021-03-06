@@ -15,8 +15,6 @@
 
 		<?php the_tags( '<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>' ); ?>
 
-		<?php egg_component( 'shareLinks' ); ?>
-
 		<span class="postPrev"><?php previous_post_link('%link', '&lsaquo;&nbsp;Previous'); ?></span>
 		<span class="postNext"><?php next_post_link('%link', 'Next&nbsp;&rsaquo;'); ?></span>
 
