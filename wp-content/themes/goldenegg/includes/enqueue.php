@@ -82,7 +82,7 @@ function egg_block_editor_scripts() {
 add_action( 'enqueue_block_assets', 'egg_block_scripts' );
 function egg_block_scripts() {
 	
-	$csschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/css/style.css' );
+	$csschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/css/styles.css' );
 	
     // Enqueue block editor styles
 /*

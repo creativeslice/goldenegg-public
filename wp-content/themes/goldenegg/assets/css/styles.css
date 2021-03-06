@@ -101,6 +101,44 @@ FONTS
 /*********************
 COLORS
 *********************/
+/* Inline Colors
+--------------------------------------------- */
+.has-gray-color {
+  color: #666; }
+
+.has-gray-background-color {
+  background-color: #666; }
+
+.has-gray_light-color {
+  color: #999; }
+
+.has-gray_light-background-color {
+  background-color: #999; }
+
+.has-blue-color {
+  color: #2779AE; }
+
+.has-blue-background-color {
+  background-color: #2779AE; }
+
+.has-green-color {
+  color: #547E2A; }
+
+.has-green-background-color {
+  background-color: #547E2A; }
+
+.has-gold-color {
+  color: #e8c200; }
+
+.has-gold-background-color {
+  background-color: #e8c200; }
+
+.has-red-color {
+  color: #d3033d; }
+
+.has-red-background-color {
+  background-color: #d3033d; }
+
 /*********************
 REUSABLE ITEMS
 *********************/
@@ -637,6 +675,10 @@ hr {
   margin: 1em 0;
   padding: 0; }
 
+.portfolio-item h3.portfolio-title {
+  outline: 1px solid pink;
+  font-family: "Helvetica Neue", Arial, sans-serif; }
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -654,6 +696,21 @@ LAYOUT & GRID STYLES
 
 #container {
   position: relative; }
+
+.gutenbergBlocks > * {
+  background: white;
+  max-width: 720px;
+  margin: 80px auto;
+  -webkit-box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2); }
+
+.gutenbergBlocks > .alignwide {
+  max-width: 1080px; }
+
+.gutenbergBlocks > .alignfull {
+  max-width: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
 
 /*********************
 LINK STYLES

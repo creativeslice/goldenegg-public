@@ -125,6 +125,17 @@ jQuery(document).ready(function ($) {
 
 /***/ }),
 
+/***/ "./blocks/portfolio-item/portfolio-item.js":
+/*!*************************************************!*\
+  !*** ./blocks/portfolio-item/portfolio-item.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./components/headerMenu/headerMenu.js":
 /*!*********************************************!*\
   !*** ./components/headerMenu/headerMenu.js ***!
@@ -216,11 +227,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _libs_svg4everybody_min_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_libs_svg4everybody_min_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _blocks_expandingText_expandingText_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../blocks/expandingText/expandingText.js */ "./blocks/expandingText/expandingText.js");
 /* harmony import */ var _blocks_expandingText_expandingText_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_blocks_expandingText_expandingText_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_headerMenu_headerMenu_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/headerMenu/headerMenu.js */ "./components/headerMenu/headerMenu.js");
-/* harmony import */ var _components_headerMenu_headerMenu_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_headerMenu_headerMenu_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_searchForm_searchForm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/searchForm/searchForm.js */ "./components/searchForm/searchForm.js");
-/* harmony import */ var _components_searchForm_searchForm_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_searchForm_searchForm_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./global.js */ "./src/js/global.js");
+/* harmony import */ var _blocks_portfolio_item_portfolio_item_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../blocks/portfolio-item/portfolio-item.js */ "./blocks/portfolio-item/portfolio-item.js");
+/* harmony import */ var _blocks_portfolio_item_portfolio_item_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_blocks_portfolio_item_portfolio_item_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_headerMenu_headerMenu_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/headerMenu/headerMenu.js */ "./components/headerMenu/headerMenu.js");
+/* harmony import */ var _components_headerMenu_headerMenu_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_headerMenu_headerMenu_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_searchForm_searchForm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/searchForm/searchForm.js */ "./components/searchForm/searchForm.js");
+/* harmony import */ var _components_searchForm_searchForm_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_components_searchForm_searchForm_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./global.js */ "./src/js/global.js");
 /**
  * Import all front-end JS scripts.
  * 
@@ -231,6 +244,7 @@ __webpack_require__.r(__webpack_exports__);
 // Import ES6 modules (recommended)
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
 // Import third party libs
+
 
 
 
