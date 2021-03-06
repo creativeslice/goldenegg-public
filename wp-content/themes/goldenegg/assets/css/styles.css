@@ -632,7 +632,10 @@ button {
   clear: both;
   text-align: center;
   padding: 2em 0;
-  border-top: 1px solid #999; }
+  background: #333;
+  color: white; }
+  .pageFooter a, .pageFooter a:visited {
+    color: white; }
   .pageFooter .footerLinks ul {
     padding: 0; }
   .pageFooter .footerLinks li {
@@ -712,7 +715,6 @@ LAYOUT & GRID STYLES
 GUTENBERG
 *********************/
 .gutenbergBlocks > * {
-  background: white;
   max-width: 720px;
   margin: 80px auto;
   -webkit-box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);

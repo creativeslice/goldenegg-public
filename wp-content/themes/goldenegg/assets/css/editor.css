@@ -591,7 +591,6 @@ LAYOUT & GRID STYLES
 GUTENBERG
 *********************/
 .gutenbergBlocks > * {
-  background: white;
   max-width: 720px;
   margin: 80px auto;
   -webkit-box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);

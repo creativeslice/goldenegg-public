@@ -2,7 +2,11 @@
 	clear: both;
 	text-align: center;
 	padding: 2em 0;
-	border-top: 1px solid $gray_light;
+	background: $gray_dark;
+	color: white;
+	a, a:visited {
+		color: white;
+	}
 	.footerLinks {
 		ul {
 			padding: 0;
