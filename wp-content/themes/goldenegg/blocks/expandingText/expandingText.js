@@ -25,27 +25,10 @@ jQuery(document).ready(function($) {
 	
 	// Open Block if Gravity Forms error message
 	$('.expandBlock').each(function() {
-		var $expandBlock = $(this);
+		//var $expandBlock = $(this);
 		if ($('.gform_wrapper .validation_error', this).length) {
 			egg_openExpandBlock($('.toggleContent', this)[0]);
 		}
 	});
-	
-	
-	// Simplified, does NOT close others
-	/*
-	$('.expandBlock .toggleContent').click(function(e) {
-		var $this = $(this);
-		$this.parent('.expandBlock').toggleClass('open');
-	});
-	*/
-	
-	// Open div with ID that matches hashlink
-	/*
-	var id = location.hash;
-	if (jQuery(id).length) {
-		jQuery(id).addClass('open');
-	}
-	*/
 
 });

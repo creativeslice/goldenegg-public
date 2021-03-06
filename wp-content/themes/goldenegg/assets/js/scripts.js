@@ -116,27 +116,11 @@ jQuery(document).ready(function ($) {
   }); // Open Block if Gravity Forms error message
 
   $('.expandBlock').each(function () {
-    var $expandBlock = $(this);
-
+    //var $expandBlock = $(this);
     if ($('.gform_wrapper .validation_error', this).length) {
       egg_openExpandBlock($('.toggleContent', this)[0]);
     }
-  }); // Simplified, does NOT close others
-
-  /*
-  $('.expandBlock .toggleContent').click(function(e) {
-  	var $this = $(this);
-  	$this.parent('.expandBlock').toggleClass('open');
   });
-  */
-  // Open div with ID that matches hashlink
-
-  /*
-  var id = location.hash;
-  if (jQuery(id).length) {
-  	jQuery(id).addClass('open');
-  }
-  */
 });
 
 /***/ }),
@@ -152,35 +136,12 @@ jQuery(document).ready(function ($) {
   /**
    * Mobile menu toggle
    */
-  $('#menuToggle').click(function (e) {
+  $('#menuToggle').click(function () {
     //e.preventDefault();
     var $this = $(this);
     $this.toggleClass('active');
     $('.menuFull').slideToggle(300); //$('.menuFull').toggleClass('active');
-  }); // First click opens the menu on touch screens
-
-  if ('ontouchstart' in window) {
-    var touched = false;
-    jQuery('body').on('touchstart click', '.mainNav > .menu-item-has-children > a', function (e) {
-      e.preventDefault();
-
-      if ('click' !== e.type) {
-        var el = jQuery(this).parent();
-
-        if (!el.hasClass('focus')) {
-          el.toggleClass('focus');
-          el.siblings('.focus').removeClass('focus');
-        } else {
-          window.location = this.href;
-        }
-      }
-    });
-  } else {
-    jQuery('.mainNav').find('a').on('focus blur', function () {
-      var el = jQuery(this).closest('.menu-item-has-children');
-      el.toggleClass('focus');
-    });
-  }
+  });
 });
 
 /***/ }),
