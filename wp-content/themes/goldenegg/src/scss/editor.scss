@@ -64,8 +64,44 @@ CUSTOM EDITOR STYLES
 	}
 }
 
+
+
+/* Page Title */
+.edit-post-visual-editor__post-title-wrapper .editor-post-title {
+	//margin: 0;
+	max-width: none;
+	margin: -10px -10px 0px -10px;
+	outline: none;
+	padding: 20px 20px 0px 20px;
+	
+	background: #F0F0F0;
+	//background: #007cba;
+	//color: white;
+	//background: #E0E0E0;
+	//border-left: 4px solid #007cba;
+	border-bottom: 1px solid rgba(black,.2);
+	border-bottom: 2px solid #E0E0E0;
+	&:before {
+		content: 'Title';
+		color: #007cba;
+		color: $gray;
+		font-size: 13px;
+		font-weight: 500;
+		//letter-spacing: 1px;
+		//text-transform: uppercase;
+	}
+	.editor-post-title__input {
+		font-size: 28px;
+		padding: 0 20px 20px 0;
+		//font-weight: normal;
+		&:focus, &:active {
+			//background-color: white;
+			color: #007cba;
+		}
+	}
+}
+
 .editor-styles-wrapper,
-.editor-post-title__block .editor-post-title__input,
 .edit-post-visual-editor {
 	font-family: $sans_serif !important;
 }
@@ -73,7 +109,7 @@ CUSTOM EDITOR STYLES
 /* Main column width */
 .wp-block {
     max-width: 720px;
-    outline: 1px dashed rgba(#007cba, .2); // admin blue
+    //outline: 1px dashed rgba(#007cba, .2); // admin blue
 }
  
 /* Width of "wide" blocks */

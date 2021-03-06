@@ -17,7 +17,6 @@ function egg_allowed_block_types( $allowed_blocks ) {
 }
 
 
-
 /**
  * Admin Gutenberg Refinements
  * https://developer.wordpress.org/block-editor/developers/themes/theme-support/
@@ -25,11 +24,13 @@ function egg_allowed_block_types( $allowed_blocks ) {
 add_action( 'after_setup_theme', 'egg_gutenberg_editor_setup' );
 function egg_gutenberg_editor_setup() {
 	
-	#add_theme_support( 'wp-block-styles' );
-	add_theme_support( 'align-wide' ); // adds full and wide options
+	#add_theme_support( 'wp-block-styles' ); // load core block styles (like for columns)
 	
+	// add full and wide options to blocks
+	add_theme_support( 'align-wide' ); 
 	
-	//add_theme_support( 'disable-border-settings' ); 
+	// disallow user to set any border radius
+	add_theme_support( 'disable-border-settings' ); 
 	
 	// Custom Font Sizes
 	add_theme_support( 'disable-custom-font-sizes' ); // disallow user to set any size
@@ -121,38 +122,11 @@ function egg_gutenberg_editor_setup() {
 
 /**
  * Remove Drop cap
- wp.data.dispatch('core/edit-post').removeEditorPanel('discussion-panel');
  */
 add_filter('block_editor_settings', function ($editor_settings) {
 	$editor_settings['__experimentalFeatures']['global']['typography']['dropCap'] = false;
 	return $editor_settings;
 });
-
-
-
-/**
- * ACF Gutenberg Blocks
- */
-add_action('acf/init', 'acf_portfolio_item_block');
-function acf_portfolio_item_block() {
-	
-	// check function exists
-	if( function_exists('acf_register_block') ) {
-		
-		// register a portfolio item block
-		acf_register_block(array(
-			'name'				=> 'portfolio-item',
-			'title'				=> __('Portfolio Item'),
-			'description'		=> __('A custom block for portfolio items.'),
-			'render_template'	=> 'blocks/portfolio-item/block-portfolio-item.php',
-			//'supports' 			=> array( 'mode' => false ), // turn off main panel editing
-			'category'			=> 'layout',
-			'icon'				=> 'excerpt-view',
-			'keywords'			=> array( 'portfolio' ),
-		));
-	}
-}
-
 
 
 /**
@@ -190,7 +164,7 @@ function egg_block_editor_scripts() {
 add_action( 'enqueue_block_assets', 'egg_block_scripts' );
 function egg_block_scripts() {
 	
-	$csschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/css/style.css' );
+	$csschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/css/styles.css' );
 	
     // Enqueue block editor styles
     wp_enqueue_style( 'egg-block-css', 
@@ -200,5 +174,31 @@ function egg_block_scripts() {
     	'all' 
     );
 
+}
+
+
+
+
+/**
+ * ACF Gutenberg Blocks
+ */
+add_action('acf/init', 'acf_portfolio_item_block');
+function acf_portfolio_item_block() {
+	
+	// check function exists
+	if( function_exists('acf_register_block') ) {
+		
+		// register a portfolio item block
+		acf_register_block(array(
+			'name'				=> 'portfolio-item',
+			'title'				=> __('Portfolio Item'),
+			'description'		=> __('A custom block for portfolio items.'),
+			'render_template'	=> 'blocks/portfolio-item/block-portfolio-item.php',
+			//'supports' 			=> array( 'mode' => false ), // turn off main panel editing
+			'category'			=> 'layout',
+			'icon'				=> 'excerpt-view',
+			'keywords'			=> array( 'portfolio' ),
+		));
+	}
 }
 

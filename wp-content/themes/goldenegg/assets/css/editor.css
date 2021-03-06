@@ -606,7 +606,7 @@ GUTENBERG
           box-shadow: none; }
 
 .portfolio-item h3.portfolio-title {
-  outline: 5px solid pink;
+  outline: 5px solid green;
   font-family: "Helvetica Neue", Arial, sans-serif; }
 
 /*********************
@@ -635,15 +635,34 @@ CUSTOM EDITOR STYLES
   .edit-post-header .edit-post-fullscreen-mode-close.has-icon:hover:before {
     color: white; }
 
+/* Page Title */
+.edit-post-visual-editor__post-title-wrapper .editor-post-title {
+  max-width: none;
+  margin: -10px -10px 0px -10px;
+  outline: none;
+  padding: 20px 20px 0px 20px;
+  background: #F0F0F0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #E0E0E0; }
+  .edit-post-visual-editor__post-title-wrapper .editor-post-title:before {
+    content: 'Title';
+    color: #007cba;
+    color: #666;
+    font-size: 13px;
+    font-weight: 500; }
+  .edit-post-visual-editor__post-title-wrapper .editor-post-title .editor-post-title__input {
+    font-size: 28px;
+    padding: 0 20px 20px 0; }
+    .edit-post-visual-editor__post-title-wrapper .editor-post-title .editor-post-title__input:focus, .edit-post-visual-editor__post-title-wrapper .editor-post-title .editor-post-title__input:active {
+      color: #007cba; }
+
 .editor-styles-wrapper,
-.editor-post-title__block .editor-post-title__input,
 .edit-post-visual-editor {
   font-family: "Helvetica Neue", Arial, sans-serif !important; }
 
 /* Main column width */
 .wp-block {
-  max-width: 720px;
-  outline: 1px dashed rgba(0, 124, 186, 0.2); }
+  max-width: 720px; }
 
 /* Width of "wide" blocks */
 .wp-block[data-align="wide"] {
