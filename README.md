@@ -1,25 +1,28 @@
 # Golden Egg WordPress Starter Theme
 
-A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS. This theme is component-based and organizes the SCSS, JS, &amp; PHP that define a component all in the same directory within the components directory.
+A responsive WordPress starter theme created by Creative Slice that uses Webpack to compile SCSS &amp; JS. This theme is component-based and organizes the SCSS, JS, &amp; PHP that define a component all in the same directory within the components directory.
 
 More at: [https://goldenegg.dev](https://goldenegg.dev)
 
-## Components
-
-Site wide elements like the menu 
-
-
 ## Organization
 
-### /components
+## Components & Blocks
 
-This directory holds the reusable components that make up the site. Components are meant to wholly contain the functionality for a piece of website functionality. A component can consist of any combination of or potentially multiple of each:
+These directories hold the reusable components that make up the site. Components are meant to wholly contain the functionality for a piece of website functionality. A component can consist of any combination of or potentially multiple of each:
 
 1. A PHP file, eg: `componentName.php`
 1. A JavaScript file, eg: `componentName.js`
 1. A CSS file, eg: `componentName.scss`
 
 The example files above would be contained in: `/components/componentName/`.
+
+### /components
+
+Site wide elements like the menu 
+
+## /blocks
+
+Reusable blocks for the ACF page builder or custom Gutenberg blocks.
 
 ### /acf-json
 
@@ -71,7 +74,7 @@ A PHP library of global functionality.
 
 `npm run test-a11y` - runs accessibility checks on URLs listed in `build/project.config.js`
 
-## Scripts
+## Styles
 This theme is setup to use Sass. There are three style entry points (styles, editor, login), each that generates its own CSS file. Styles are processed through Autoprefixer.
 
 Note: The `postcss.config.js` file needs to stay in place for Autoprefixer to work. You can adjust supported browsers in the `package.json` file.
