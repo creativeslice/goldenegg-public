@@ -11,7 +11,13 @@
  */
 ?>
 
-<?php // Server Environment Type (requires define( 'WP_ENVIRONMENT_TYPE', 'development' ); in wp-config)
+<?php 
+/**
+ * Server Environment Type
+ *
+ * set in wp-config.php
+ * define( 'WP_ENVIRONMENT_TYPE', 'development' );
+ */
 switch ( wp_get_environment_type() ) {
 	
 	// Dev

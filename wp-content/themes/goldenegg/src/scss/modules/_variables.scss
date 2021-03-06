@@ -70,17 +70,24 @@ $ease:				.2s ease-in-out;
 $easeslow:			.6s ease-in;
 
 
-// Contain floats
+// Contain floats with classic clearfix
 .clearfix, .cf {
 	zoom: 1;
-	&:before, &:after { 
+	&::before, &::after { 
 		content: ""; 
 		display: table; 
 	}
-	&:after { 
+	&::after { 
 		clear: both; 
 	}
 }
+
+// Modern clearfix (does not work with IE)
+.modern-clearfix {
+	display: flow-root;
+}
+
+
 
 // Better support for screen readers with icons
 .screen-reader-text {
