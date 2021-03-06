@@ -37,7 +37,7 @@ function egg_mce_hide_styles( $settings ) {
  */
 add_action( 'admin_init', 'egg_editor_styles' );
 function egg_editor_styles() {
-	add_editor_style( get_template_directory_uri() . '/assets/css/editor.css?20190705a' );
+	add_editor_style( get_template_directory_uri() . '/assets/css/editor.css?20210227' );
 }
 
 

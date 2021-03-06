@@ -1,0 +1,15 @@
+
+.portfolio-item {
+	border-bottom: 1px solid #999;
+	padding: 20px;
+}
+
+.portfolio-item h3.portfolio-title {
+    clear: none;
+    color: red;
+}
+
+.portfolio-logo {
+    outline: 2px solid #ebebeb;
+    border: 2px solid red !important;
+}

@@ -51,7 +51,7 @@ function egg_style_admin_bar() {
 		</style>";
 	}
 }
-
+	
 
 /**
  * Remove Help Tab
@@ -102,7 +102,7 @@ function egg_dashboard_welcome_cleanup() {
 			.hide-if-no-customize {display: none !important;}
 		</style>
 		<?php
-	}
+	} 
 }
 
 

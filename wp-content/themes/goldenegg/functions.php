@@ -3,15 +3,16 @@
 // Admin
 require_once( 'admin/admin.php' );
 require_once( 'admin/login.php' );
-require_once( 'admin/tinymce.php' );
-#require_once( 'admin/disableComments.php' );			// Completely remove comments from the admin area
-require_once( 'admin/dashboardWidget.php' );
+require_once( 'admin/gutenberg.php' );					// Gutenberg Editor
+require_once( 'admin/tinymce.php' );					// Classic WYSIWYG Editor
+#require_once( 'admin/disableComments.php' );			// Remove comments
+#require_once( 'admin/dashboardWidget.php' );			// Custom admin widget
 
 // Front End
 require_once( 'includes/enqueue.php' );
 require_once( 'includes/themeSupport.php' );
 require_once( 'includes/cleanup.php' );					// Cleanup WordPress scripts
-require_once( 'includes/contentBlockFunctions.php' );
+#require_once( 'includes/contentBlockFunctions.php' );	// Classic ACF Method
 #require_once( 'includes/disablePingback.php' );		// Disable XMLRPC, pingbacks, trackbacks
 #require_once( 'includes/disableFeeds.php' );			// Disable site feeds
 #require_once( 'includes/customPostTypes.php' );		// Create custom post types
@@ -66,3 +67,6 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 	));
 
 }
+
+
+

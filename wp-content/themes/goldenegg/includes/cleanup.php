@@ -20,7 +20,7 @@ function egg_cleanup() {
 	// shorten excerpt
 	#add_filter( 'excerpt_length',			'custom_excerpt_length', 999 );
 	// remove gutenberg block library styles
-	add_action( 'wp_print_styles', 			'egg_remove_gutenberg_styles', 100 );
+	//add_action( 'wp_print_styles', 			'egg_remove_gutenberg_styles', 100 );
 }
 
 

@@ -1,22 +1,14 @@
 <?php get_header(); ?>
 
-<main id="content" class="wrap">
+<main id="content">
 	
-	<article>
-
-		<header class="articleHeader">
-			<h1><?php the_title(); ?></h1>
-		</header>
-		
-		<?php the_post(); $cc = get_the_content(); if($cc != '') : ?>
-		<section class="entryContent">
-			<?php the_content(); ?>
-		</section>
-		<?php endif; ?>
+	<header class="articleHeader wrap">
+		<h1><?php the_title(); ?></h1>
+	</header>
 	
+	<article class="gutenbergBlocks">
+		<?php the_post(); the_content(); ?>
 	</article>
-
-	<?php get_sidebar(); ?>
 
 </main>
 

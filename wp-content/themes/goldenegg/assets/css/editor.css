@@ -11,6 +11,91 @@ IMPORTING MODULES
 *********************/
 /******************************************************************
 
+Stylesheet: Modern CSS Reset 
+https://github.com/hankchizljaw/modern-css-reset
+
+modified by Creative Slice
+
+******************************************************************/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0; }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0; }
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none; }
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  /* Prevent font scaling in landscape while allowing user zoom */ }
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5; }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto; }
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block; }
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+
+/******************************************************************
+
 Stylesheet: Variables
 
 ******************************************************************/
@@ -20,6 +105,44 @@ FONTS
 /*********************
 COLORS
 *********************/
+/* Inline Colors
+--------------------------------------------- */
+.has-gray-color {
+  color: #666; }
+
+.has-gray-background-color {
+  background-color: #666; }
+
+.has-gray_light-color {
+  color: #999; }
+
+.has-gray_light-background-color {
+  background-color: #999; }
+
+.has-blue-color {
+  color: #2779AE; }
+
+.has-blue-background-color {
+  background-color: #2779AE; }
+
+.has-green-color {
+  color: #547E2A; }
+
+.has-green-background-color {
+  background-color: #547E2A; }
+
+.has-gold-color {
+  color: #e8c200; }
+
+.has-gold-background-color {
+  background-color: #e8c200; }
+
+.has-red-color {
+  color: #d3033d; }
+
+.has-red-background-color {
+  background-color: #d3033d; }
+
 /*********************
 REUSABLE ITEMS
 *********************/
@@ -205,9 +328,330 @@ mark, ins {
   background: #fff9c0;
   text-decoration: none; }
 
+/******************************************************************
+
+Stylesheet: WP Media
+
+******************************************************************/
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+  max-width: 100%;
+  height: auto; }
+
+@media screen and (min-width: 30em) {
+  .alignleft, img.alignleft, figure.alignleft, dl.alignleft {
+    display: inline;
+    margin-left: 0em;
+    margin-right: 1.5em; }
+  .alignright, img.alignright, figure.alignright, dl.alignright {
+    display: inline;
+    margin-left: 1.5em;
+    margin-right: 0em; }
+  .aligncenter, img.aligncenter, figure.aligncenter, dl.aligncenter {
+    clear: both;
+    display: block;
+    margin-right: auto;
+    margin-left: auto; } }
+
+.alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
+  margin-left: 0;
+  margin-right: 0;
+  height: auto; }
+
+/*********************
+LAZYLOADING IMAGES - uses lazysizes script
+*********************/
+IMG[src=''], IMG:not([src]) {
+  opacity: 0; }
+
+.lazyhd,
+.lazysquare,
+.lazy70 {
+  position: relative;
+  height: 0;
+  background: #999; }
+  .lazyhd img,
+  .lazysquare img,
+  .lazy70 img {
+    width: 100%;
+    height: auto;
+    opacity: 0.2;
+    -webkit-transition: opacity 0.6s ease-in;
+    transition: opacity 0.6s ease-in; }
+
+.lazyhd {
+  padding-bottom: 56.25%; }
+
+.lazysquare {
+  padding-bottom: 100%; }
+
+.lazy70 {
+  padding-bottom: 70%; }
+
+.lazyload {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.lazyloading {
+  opacity: 0.2; }
+
+.lazyloaded {
+  opacity: 1 !important; }
+
+/*********************
+WP CAPTIONS
+*********************/
+.wp-caption {
+  max-width: 100%;
+  text-align: center;
+  /* images inside wp-caption */ }
+  .wp-caption.alignleft {
+    margin-right: 1.5em; }
+  .wp-caption.alignright {
+    margin-left: 1.5em; }
+  .wp-caption.aligncenter {
+    margin-right: auto;
+    margin-left: auto; }
+  .wp-caption img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0; }
+  .wp-caption .wp-caption-text {
+    font-size: 0.875em;
+    margin: .5em 0 1em;
+    text-align: center; }
+
+/*********************
+HTML5 IMAGE GALLERY
+*********************/
+.gallery {
+  text-align: justify; }
+  .gallery .gallery-item {
+    margin: 0;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    padding: .5em; }
+  .gallery img {
+    display: block; }
+  .gallery .gallery-caption {
+    text-align: left;
+    padding: .25em 0; }
+  .gallery:after {
+    content: '';
+    display: inline-block;
+    width: 100%; }
+  @media screen and (min-width: 48em) {
+    .gallery .gallery-item {
+      width: 25%; }
+    .gallery img {
+      will-change: opacity; }
+      .gallery img:hover {
+        opacity: .7;
+        -webkit-transition: opacity 0.2s ease-in-out;
+        transition: opacity 0.2s ease-in-out; } }
+
+/*********************
+RESPONSIVE VIDEOS
+*********************/
+.videoContainer {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden; }
+
+.videoContainer iframe,
+.videoContainer object,
+.videoContainer embed,
+.videoContainer video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+/******************************************************************
+
+Stylesheet: Buttons
+
+******************************************************************/
+button {
+  background: none;
+  border: none; }
+
+.form-submit input,
+.button, .button:visited {
+  display: inline-block;
+  position: relative;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-decoration: none;
+  font-size: .875em;
+  font-weight: bold;
+  line-height: 1em;
+  padding: 1em;
+  border-radius: 2px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  -webkit-appearance: none; }
+
+.form-submit input,
+.button, .button:visited {
+  background-color: #547E2A;
+  border: 1px solid #547E2A;
+  color: #fff; }
+  .form-submit input:hover, .form-submit input:focus,
+  .button:hover,
+  .button:focus, .button:visited:hover, .button:visited:focus {
+    background-color: #3b581d;
+    color: #fff;
+    text-decoration: none; }
+  .form-submit input:active,
+  .button:active, .button:visited:active {
+    background-color: #213211;
+    color: #fff; }
+
+.pageHeader {
+  text-align: center; }
+  .pageHeader #logo {
+    display: inline-block;
+    padding: 2em; }
+
+/******************************************************************
+
+Stylesheet: BASE
+
+******************************************************************/
+html, body {
+  background-color: #f9f9f9; }
+
+body {
+  color: #333; }
+
+::-moz-selection {
+  background: #ff9;
+  color: black !important;
+  text-shadow: none; }
+
+::selection {
+  background: #ff9;
+  color: black !important;
+  text-shadow: none; }
+
+hr {
+  display: block;
+  height: 0;
+  border: 0;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #fff;
+  margin: 1em 0;
+  padding: 0; }
+
+.portfolio-item h3.portfolio-title {
+  outline: 1px solid pink;
+  font-family: "Helvetica Neue", Arial, sans-serif; }
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+.wrap {
+  width: 92%;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1200px; }
+
+.wrapInner {
+  width: 92%;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 800px; }
+
+#container {
+  position: relative; }
+
+.gutenbergBlocks > * {
+  background: white;
+  max-width: 720px;
+  margin: 80px auto;
+  -webkit-box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2); }
+
+.gutenbergBlocks > .alignwide {
+  max-width: 1080px; }
+
+.gutenbergBlocks > .alignfull {
+  max-width: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+
+/*********************
+LINK STYLES
+*********************/
+a, a:visited {
+  color: #547E2A; }
+  a:hover, a:focus, a:visited:hover, a:visited:focus {
+    color: #3b581d; }
+  a:active, a:visited:active {
+    color: #213211; }
+  a:link, a:visited:link {
+    -webkit-tap-highlight-color: rgba(84, 126, 42, 0.6); }
+
+/*********************
+CONTENT STYLES
+*********************/
+/*********************
+SIDEBAR
+*********************/
 /*********************
 CUSTOM EDITOR STYLES
 *********************/
+/* Gutenberg
+--------------------------------------------- */
+.edit-post-header .edit-post-fullscreen-mode-close.has-icon {
+  height: 60px;
+  width: 60px;
+  padding: 0; }
+  .edit-post-header .edit-post-fullscreen-mode-close.has-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #777; }
+  .edit-post-header .edit-post-fullscreen-mode-close.has-icon:before {
+    content: '\2190';
+    font-size: 16px;
+    float: left;
+    margin: -4px 4px 0 0px; }
+  .edit-post-header .edit-post-fullscreen-mode-close.has-icon:hover svg {
+    fill: white; }
+  .edit-post-header .edit-post-fullscreen-mode-close.has-icon:hover:before {
+    color: white; }
+
+.editor-styles-wrapper,
+.editor-post-title__block .editor-post-title__input,
+.edit-post-visual-editor {
+  font-family: "Helvetica Neue", Arial, sans-serif !important; }
+
+/* Main column width */
+.wp-block {
+  max-width: 720px;
+  outline: 1px dashed rgba(0, 124, 186, 0.2); }
+
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+  max-width: 1080px; }
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+  max-width: none; }
+
+/* Legacy
+--------------------------------------------- */
 .nowrap {
   border: 1px solid #eee;
   display: inline-block; }

@@ -14,20 +14,81 @@ $ignore-mqs: true;
 IMPORTING MODULES
 *********************/
 
-// import variables
+// core items
+@import "modules/reset";
 @import "modules/variables";
-
-// typography
 @import "modules/typography";
-
-// buttons
 //@import "modules/buttons";
+
+
+@import "modules/media";
+@import "modules/buttons";
+@import "modules/header";
+@import "base";
 
 
 /*********************
 CUSTOM EDITOR STYLES
 *********************/
 
+/* Gutenberg
+--------------------------------------------- */
+
+// Editor Header
+.edit-post-header {
+	.edit-post-fullscreen-mode-close.has-icon {
+		height: 60px;
+		width: 60px;
+		padding: 0;
+		//background: #0D273B; // dark wp blue
+		svg {
+			//display: none !important;
+			width: 24px;
+			height: 24px;
+			fill: #777; //#007cba; wp blue
+		}
+		&:before {
+			content: '\2190';
+			font-size: 16px;
+			float: left;
+			margin: -4px 4px 0 0px;
+		}
+		&:hover {
+			svg {
+				fill: white;
+			}
+			&:before {
+				color: white;
+			}
+		}
+	}
+}
+
+.editor-styles-wrapper,
+.editor-post-title__block .editor-post-title__input,
+.edit-post-visual-editor {
+	font-family: $sans_serif !important;
+}
+
+/* Main column width */
+.wp-block {
+    max-width: 720px;
+    outline: 1px dashed rgba(#007cba, .2); // admin blue
+}
+ 
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+    max-width: 1080px;
+}
+ 
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+    max-width: none;
+}
+
+
+/* Legacy
+--------------------------------------------- */
 .nowrap {
 	border: 1px solid #eee;
 	display: inline-block;
@@ -49,3 +110,5 @@ CUSTOM EDITOR STYLES
 	color: red !important;
 	border: 2px solid yellow;
 }
+
+

@@ -34,6 +34,28 @@ $link_color:        $green;
 $link_hover:        darken($green, 10%);
 
 
+// Gutenberg color options
+// -- see editor-color-palette in admin/gutenberg.php
+$colors: ( gray, $gray ),
+( gray_light, $gray_light ),
+( blue, $blue ),
+( green, $green ),
+( gold, $gold ),
+( red, $red );
+
+/* Inline Colors
+--------------------------------------------- */
+@each $name, $color in $colors {
+	.has-#{$name}-color {
+		color: $color;
+	}
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+}
+
+
+
 /*********************
 REUSABLE ITEMS
 *********************/

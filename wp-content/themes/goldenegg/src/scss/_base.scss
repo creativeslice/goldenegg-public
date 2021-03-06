@@ -29,6 +29,11 @@ hr {
 	padding: 0;
 }
 
+.portfolio-item h3.portfolio-title {
+	outline: 1px solid pink;
+	font-family: $sans_serif;
+}
+
 /*********************
 LAYOUT & GRID STYLES
 *********************/
@@ -49,6 +54,24 @@ LAYOUT & GRID STYLES
 #container {
 	position: relative;
 }
+
+// first child
+.gutenbergBlocks > {
+	* {
+		background: white;
+		max-width: 720px;
+		margin: $spacing auto;
+		box-shadow: $shadow;
+	}
+	.alignwide {
+		max-width: 1080px;
+	}
+	.alignfull {
+		max-width: 100%;
+		box-shadow: none;
+	}
+}
+
 
 /*********************
 LINK STYLES
@@ -75,6 +98,8 @@ CONTENT STYLES
 @include breakpoint(medium) {
 }
 }
+
+
 
 /*********************
 SIDEBAR
