@@ -1,5 +1,5 @@
 const common = require('./webpack.common.js');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 // Used to create a local server
 const LiveReloadPlugin = require('webpack-livereload-plugin');
