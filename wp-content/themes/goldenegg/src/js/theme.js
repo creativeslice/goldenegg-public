@@ -10,8 +10,8 @@
  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
 
  // Import third party libs
- import '../libs/**/*.js';
+//  import '../libs/**/*.js'; Need to import individually 
 
- import "../../blocks/**/*.js";
- import "../../components/**/*.js";
+//  import "../../blocks/**/*.js";
+//  import "../../components/**/*.js";
  import './global.js';

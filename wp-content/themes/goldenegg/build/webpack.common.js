@@ -52,10 +52,6 @@ module.exports = {
                             sourceMap: true
                         }
                     },
-                    // Allow for globbing of JS files
-                    {
-                        loader: "webpack-import-glob-loader"
-                    }
                 ]
             },
 
@@ -79,7 +75,6 @@ module.exports = {
                     {
                         loader: "sass-loader",
                         options: {
-                            importer: globImporter(),
                             sourceMap: true
                         }
                     }
