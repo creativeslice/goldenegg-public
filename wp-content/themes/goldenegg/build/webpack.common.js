@@ -3,7 +3,7 @@ const path = require("path");
 // Used to compile Sass into CSS
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const globImporter = require("node-sass-glob-importer");
 const autoprefixer = require("autoprefixer");
 
@@ -52,10 +52,6 @@ module.exports = {
                             sourceMap: true
                         }
                     },
-                    // Allow for globbing of JS files
-                    {
-                        loader: "webpack-import-glob-loader"
-                    }
                 ]
             },
 
@@ -74,15 +70,11 @@ module.exports = {
                         }
                     },
                     {
-                        loader: "postcss-loader",
-                        options: {
-	                        sourceMap: true,
-                        }
+                        loader: "postcss-loader"
                     },
                     {
                         loader: "sass-loader",
                         options: {
-                            importer: globImporter(),
                             sourceMap: true
                         }
                     }
@@ -93,22 +85,20 @@ module.exports = {
 
     plugins: [
         // Remove extra files created by webpack
-        new FixStyleOnlyEntriesPlugin({
-            silent: true
-        }),
+        new RemoveEmptyScriptsPlugin(),
 
         // Extract CSS to this location
         new MiniCssExtractPlugin({
             filename: "../css/[name].css"
         }),
 
-        // Optimize images
-        new CopyWebpackPlugin([
-            {
-                from: "src/img/",
-                to: "../img/"
-            }
-        ]),
+        // // Optimize images
+        // new CopyWebpackPlugin([
+        //     {
+        //         from: "src/img/",
+        //         to: "../img/"
+        //     }
+        // ]),
         new ImageminPlugin({
             test: /\.(jpe?g|png|gif)$/i
         }),

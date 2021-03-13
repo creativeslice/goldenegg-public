@@ -3,7 +3,7 @@
 /*********************
 IMPORTING LIBRARIES
 *********************/
-@import "../libs/**/*.css";
+// @import "../libs/**/*.css"; Need to import individually 
 
 /*********************
 IMPORTING MODULES
@@ -21,8 +21,8 @@ IMPORTING MODULES
 /*********************
 IMPORTING COMPONENTS
 *********************/
-@import "../../blocks/**/*.scss";
-@import "../../components/**/*.scss";
+// @import "../../blocks/**/*.scss"; Need to import individually 
+// @import "../../components/**/*.scss"; Need to import individually 
 
 /*********************
 PRINT STYLESHEET
