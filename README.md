@@ -17,7 +17,9 @@ The example files above would be contained in: `/components/componentName/`.
 
 ### /components
 
-Site wide elements like the menu 
+Site wide elements like the menu
+* Import CSS into src/scss/style.scss, eg: `@import "components/headerMenu/headerMenu";`
+* Import JS into src/js/theme.js, eg: `import "../../components/headerMenu/headerMenu.js";`
 
 ### /blocks
 
@@ -49,16 +51,15 @@ A PHP library of global functionality.
 
 1. Copy this directory into a WordPress site theme directory
 1. Open Terminal or your CLI of choice
-1. Navigate to the theme directory (eg: `cd ~/Sites/site_name/app/public/wp-content/creativeslice-2021`)
+1. Navigate to the theme directory (eg: `cd ~/Sites/site_name/app/public/wp-content/goldenegg-2021`)
 1. Run `npm install` to install theme dependencies.
-1. Be sure to update the `build/project.config.js` file with your local URL.
 1. Run `npm run watch` to watch for changes. This uses LiveReload, so you will need the LiveReload browser extension. 
 1. Run `npm run build-prod` to create production ready files. 
 
 
 ## New Theme Set Up
 
-1. Change the theme name to follow this format: `[sitename]-[year]`, eg: `creativeslice-2021`
+1. Change the theme name to follow this format: `[sitename]-[year]`, eg: `goldenegg-2021`
 1. Update style.css with: "Site Name - 2019" (Use the current site and current year), the current site's URL, and a quick description, example below
 1. Update screenshot.png with the comp or site logo
 1. Update `assets/img/logo.png`
@@ -98,8 +99,13 @@ Compliance levels can also be changed through the `standard` setting in the `bui
 
 
 
-
 ## Changelog
+
+**2.2.1 - 2021-03-12**
+
+1. Upgrade to Webpack 5
+1. Add Gutenberg support
+
 
 **2.2.0 - 2021-03-05**
 

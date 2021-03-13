@@ -19,10 +19,17 @@ IMPORTING MODULES
 @import "base";
 
 /*********************
-IMPORTING COMPONENTS
+COMPONENTS
 *********************/
-// @import "../../blocks/**/*.scss"; Need to import individually 
-// @import "../../components/**/*.scss"; Need to import individually 
+
+@import "components/headerMenu/headerMenu";
+@import "components/searchForm/searchForm";
+
+/*********************
+BLOCKS
+*********************/
+@import "blocks/expandingText/expandingText";
+
 
 /*********************
 PRINT STYLESHEET

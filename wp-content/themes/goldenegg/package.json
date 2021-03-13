@@ -1,8 +1,7 @@
 {
 	"name": "goldenegg",
-	"version": "2.0.10",
+	"version": "2.2.1",
 	"description": "Custom starter theme built by Creative Slice",
-	"main": "gulpfile.js",
 	"keywords": [
 		"webpack",
 		"wordpress"

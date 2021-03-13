@@ -1,6 +1,85 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./blocks/expandingText/expandingText.js":
+/*!***********************************************!*\
+  !*** ./blocks/expandingText/expandingText.js ***!
+  \***********************************************/
+/***/ (function() {
+
+jQuery(document).ready(function ($) {
+  /**
+   * Expanding Text
+   */
+  function egg_openExpandBlock(elem) {
+    var hasOpen = $(elem).hasClass('open'),
+        $hiddenContent = $(elem).next('.hiddenContent'); // close all the others
+
+    $('.expandBlock .toggleContent.open').removeClass('open');
+    $('.hiddenContent.open').slideUp().removeClass('open'); // open this one
+
+    if (!hasOpen) {
+      $(elem).addClass('open');
+      $hiddenContent.slideDown().addClass('open');
+    }
+  }
+
+  $('.expandBlock .toggleContent').click(function (e) {
+    e.preventDefault();
+    egg_openExpandBlock(this);
+  }); // Open Block if Gravity Forms error message
+
+  $('.expandBlock').each(function () {
+    //var $expandBlock = $(this);
+    if ($('.gform_wrapper .validation_error', this).length) {
+      egg_openExpandBlock($('.toggleContent', this)[0]);
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./components/headerMenu/headerMenu.js":
+/*!*********************************************!*\
+  !*** ./components/headerMenu/headerMenu.js ***!
+  \*********************************************/
+/***/ (function() {
+
+jQuery(document).ready(function ($) {
+  /**
+   * Mobile menu toggle
+   */
+  $('#menuToggle').click(function () {
+    //e.preventDefault();
+    var $this = $(this);
+    $this.toggleClass('active');
+    $('.menuFull').slideToggle(300); //$('.menuFull').toggleClass('active');
+  });
+});
+
+/***/ }),
+
+/***/ "./components/searchForm/searchForm.js":
+/*!*********************************************!*\
+  !*** ./components/searchForm/searchForm.js ***!
+  \*********************************************/
+/***/ (function() {
+
+jQuery(document).ready(function ($) {
+  /**
+   * Open search panel and focus cursor
+   */
+  $('#searchToggle').click(function (e) {
+    e.preventDefault();
+    var $this = $(this);
+    $this.toggleClass('active');
+    $('.searchForm').fadeToggle(300);
+    $('.searchField')[0].focus();
+  });
+});
+
+/***/ }),
+
 /***/ "./src/js/global.js":
 /*!**************************!*\
   !*** ./src/js/global.js ***!
@@ -122,6 +201,12 @@ var __webpack_exports__ = {};
   \*************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./global.js */ "./src/js/global.js");
+/* harmony import */ var _components_headerMenu_headerMenu_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/headerMenu/headerMenu.js */ "./components/headerMenu/headerMenu.js");
+/* harmony import */ var _components_headerMenu_headerMenu_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_headerMenu_headerMenu_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_searchForm_searchForm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/searchForm/searchForm.js */ "./components/searchForm/searchForm.js");
+/* harmony import */ var _components_searchForm_searchForm_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_searchForm_searchForm_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _blocks_expandingText_expandingText_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../blocks/expandingText/expandingText.js */ "./blocks/expandingText/expandingText.js");
+/* harmony import */ var _blocks_expandingText_expandingText_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_blocks_expandingText_expandingText_js__WEBPACK_IMPORTED_MODULE_3__);
 /**
  * Import all front-end JS scripts.
  * 
@@ -131,10 +216,14 @@ __webpack_require__.r(__webpack_exports__);
 /* eslint-disable no-unused-vars */
 // Import ES6 modules (recommended)
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
-// Import third party libs
 //  import '../libs/**/*.js'; Need to import individually 
 //  import "../../blocks/**/*.js";
 //  import "../../components/**/*.js";
+ // Components
+
+
+ // Blocks
+
 
 }();
 /******/ })()
