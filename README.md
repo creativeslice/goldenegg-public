@@ -52,6 +52,8 @@ A PHP library of global functionality.
 1. Navigate to the theme directory (eg: `cd ~/Sites/site_name/app/public/wp-content/creativeslice-2021`)
 1. Run `npm install` to install theme dependencies.
 1. Be sure to update the `build/project.config.js` file with your local URL.
+1. Run `npm run watch` to watch for changes. This uses LiveReload, so you will need the LiveReload browser extension. 
+1. Run `npm run build-prod` to create production ready files. 
 
 
 ## New Theme Set Up
