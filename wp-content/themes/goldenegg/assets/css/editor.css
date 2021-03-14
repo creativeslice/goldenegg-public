@@ -72,6 +72,7 @@ a:not([class]) {
 img,
 picture {
   max-width: 100%;
+  height: auto;
   display: block; }
 
 /* Inherit fonts for inputs and buttons */
@@ -636,9 +637,9 @@ CUSTOM EDITOR STYLES
 
 /* Page Title */
 .edit-post-visual-editor__post-title-wrapper .editor-post-title {
+  outline: none;
   max-width: none;
   margin: -10px -10px 0px -10px;
-  outline: none;
   padding: 20px 20px 0px 20px;
   background: #F0F0F0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);

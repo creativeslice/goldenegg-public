@@ -24,7 +24,8 @@ function egg_allowed_block_types( $allowed_blocks ) {
 add_action( 'after_setup_theme', 'egg_gutenberg_editor_setup' );
 function egg_gutenberg_editor_setup() {
 	
-	#add_theme_support( 'wp-block-styles' ); // load core block styles (like for columns)
+	// load core block styles (like for columns)
+	#add_theme_support( 'wp-block-styles' );
 	
 	// add full and wide options to blocks
 	add_theme_support( 'align-wide' ); 
@@ -121,13 +122,21 @@ function egg_gutenberg_editor_setup() {
 
 
 /**
- * Remove Drop cap
+ * Disable Specific Block Editor Settings
  */
-add_filter('block_editor_settings', function ($editor_settings) {
-	$editor_settings['__experimentalFeatures']['global']['typography']['dropCap'] = false;
+add_filter( 'block_editor_settings', 'egg_editor_settings');
+function egg_editor_settings ( $editor_settings ) {
+	$editor_settings['__experimentalFeatures']['global']['typography']['dropCap'] = false; // disable dropCap, no longer works
+	//$editor_settings['imageEditing'] = false; // disable inline image editing
 	return $editor_settings;
-});
+}
 
+
+
+
+/*********************
+GUTENBERG ENQUEUE
+*********************/
 
 /**
  * Enqueue block JavaScript and CSS for Gutenberg Editor
@@ -137,7 +146,13 @@ function egg_block_editor_scripts() {
 	
 	$csschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/css/editor.css' );
 
-/*
+    // Enqueue block editor CSS
+    wp_register_style( 'egg-block-editor-css', 
+    	get_stylesheet_directory_uri() . '/assets/css/editor.css?v=' . $csschanged, 
+    	[ 'wp-edit-blocks' ], '', 'all' 
+    );
+    
+    /*
 	// Enqueue block editor JS
     wp_enqueue_script(
         'my-block-editor-js',
@@ -145,50 +160,103 @@ function egg_block_editor_scripts() {
         [ 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-components', 'wp-editor' ],
         filemtime( plugin_dir_path( __FILE__ ) . 'blocks/portfolio-item/portfolio-item.js' )	
     );
-*/
-
-    // Enqueue block editor styles
-    wp_register_style( 'egg-block-editor-css', 
-    	get_stylesheet_directory_uri() . '/assets/css/editor.css?v=' . $csschanged, 
-    	[ 'wp-edit-blocks' ], 
-    	'', 
-    	'all' 
-    );
+	*/
 
 }
 
 
 /**
- * Enqueue frontend and editor JavaScript and CSS
+ * Enqueue frontend and editor CSS (JS too?)
  */
 add_action( 'enqueue_block_assets', 'egg_block_scripts' );
 function egg_block_scripts() {
 	
 	$csschanged = filemtime( realpath(__DIR__ . '/..') . '/assets/css/styles.css' );
 	
-    // Enqueue block editor styles
+    // Enqueue block editor CSS
     wp_enqueue_style( 'egg-block-css', 
     	get_stylesheet_directory_uri() . '/assets/css/editor.css?v=' . $csschanged, 
-    	[ 'wp-edit-blocks' ], 
-    	'', 
-    	'all' 
+    	[ 'wp-edit-blocks' ], '', 'all' 
     );
 
 }
 
 
 
+/*********************
+GUTENBERG TEMPLATES
+*********************/
 
 /**
- * ACF Gutenberg Blocks
+ * Post Example
+ */
+add_action( 'init', 'egg_post_register_template' );
+function egg_post_register_template() {
+    $post_type_object = get_post_type_object( 'post' );
+    $post_type_object->template = array(
+        array( 'core/image' ),
+        array( 'core/paragraph', array(
+            'placeholder' => 'Add Description...',
+        ) ),
+    );
+    $post_type_object->template_lock = 'all';
+}
+
+/**
+ * Page Example
+ */
+add_action( 'init', 'egg_page_register_template' );
+function egg_page_register_template() {
+    $post_type_object = get_post_type_object( 'page' );
+    $post_type_object->template = array(
+        array( 'core/heading', array( 'level' => 5, 'content' => 'Role' ) ),
+		array( 'core/paragraph' ),
+		array( 'core/heading', array( 'level' => 5, 'content' => 'Responsibilities' ) ),
+		array( 'core/paragraph' ),
+		array( 'core/heading', array( 'level' => 5, 'content' => 'Qualifications' ) ),
+		array( 'core/list' ),
+		array( 'core/heading', array( 'level' => 5, 'content' => 'Highlights' ) ),
+		array( 'core/paragraph' ),
+    );
+}
+
+
+/*********************
+GUTENBERG BLOCK PATTERNS
+*********************/
+
+/**
+ * Block Pattern Example
+ */
+add_action( 'init', 'egg_wp_block_patterns' );
+function egg_wp_block_patterns() {
+    register_block_pattern(
+        'page-intro-block/my-custom-pattern',
+        array(
+            'title'       => __( 'Page Intro Blocks', 'page-intro-block' ),
+            
+            'description' => _x( 'Includes a cover block, two columns with headings and text, a separator and a single-column text block.', 'Block pattern description', 'page-intro-block' ),
+            
+            'content'     => "<!-- wp:cover -->\n<div class=\"wp-block-cover has-background-dim\"><div class=\"wp-block-cover__inner-container\"></div></div>\n<!-- /wp:cover -->\n\n<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:heading -->\n<h2>Heading</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Content Area #1</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:heading -->\n<h2>Heading</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Content Area #2</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->\n\n<!-- wp:separator {\"className\":\"is-style-wide\"} -->\n<hr class=\"wp-block-separator is-style-wide\"/>\n<!-- /wp:separator -->\n\n<!-- wp:paragraph -->\n<p>Content Area #3</p>\n<!-- /wp:paragraph -->",
+            
+            'categories'  => array('header'),
+        )
+    );
+
+}    
+
+
+
+/*********************
+GUTENBERG ACF BLOCKS
+*********************/
+
+/**
+ * ACF Sample Block
  */
 add_action('acf/init', 'acf_portfolio_item_block');
 function acf_portfolio_item_block() {
-	
-	// check function exists
 	if( function_exists('acf_register_block') ) {
-		
-		// register a portfolio item block
 		acf_register_block(array(
 			'name'				=> 'portfolio-item',
 			'title'				=> __('Portfolio Item'),
