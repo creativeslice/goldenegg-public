@@ -40,20 +40,23 @@ CUSTOM EDITOR STYLES
 		height: 60px;
 		width: 60px;
 		padding: 0;
-		//background: #0D273B; // dark wp blue
+		background: #0D273B; // dark wp blue
 		svg {
 			//display: none !important;
-			width: 24px;
-			height: 24px;
+			width: 32px; // 24
+			height: 32px;
 			fill: #777; //#007cba; wp blue
 		}
+		/*
 		&:before {
 			content: '\2190';
 			font-size: 16px;
 			float: left;
 			margin: -4px 4px 0 0px;
 		}
+		*/
 		&:hover {
+			//background: #007cba;
 			svg {
 				fill: white;
 			}
@@ -71,28 +74,42 @@ CUSTOM EDITOR STYLES
 	outline: none;
 	max-width: none;
 	margin: -10px -10px 0px -10px;
-	padding: 20px 20px 0px 20px;
+	padding: 0;
 	background: #F0F0F0;
-	border-bottom: 1px solid rgba(black,.2);
-	border-bottom: 2px solid #E0E0E0;
+	border: none;
+	//background: #007cba;
+	//border-bottom: 1px solid rgba(black,.2);
+	//border-bottom: 1px solid #E0E0E0;
+	//border-bottom: 2px solid #007cba;
 	&:before {
 		content: 'Title';
-		color: #007cba;
-		color: $gray;
+		color: #1e1e1e;
+		//color: $gray_dark;
 		font-size: 13px;
 		font-weight: 500;
+		position: absolute;
+		top: 12px;
+		left: 20px;
 	}
 	.editor-post-title__input {
-		font-size: 28px;
-		padding: 0 20px 20px 0;
+		font-size: 24px;
+		height: 48px;
+		padding: 7px 20px;
+		padding-top: 40px;
+		color: #007cba;
+		border: none;
+		border-bottom: 1px solid #E0E0E0;
 		&:focus, &:active {
-			color: #007cba;
+			color: black; 
+			background: white;
+			border-color: #007cba; // wp blue
 		}
 	}
 }
 
-.editor-styles-wrapper,
-.edit-post-visual-editor {
+/* Default Font Family */
+//.edit-post-visual-editor,
+.editor-styles-wrapper {
 	font-family: $sans_serif !important;
 }
 
@@ -114,11 +131,11 @@ CUSTOM EDITOR STYLES
 
 /* Legacy
 --------------------------------------------- */
+/*
 .nowrap {
 	border: 1px solid #eee;
 	display: inline-block;
 }
-
 .button {
 	padding: 3px 6px;
 	font-weight: bold;
@@ -126,14 +143,12 @@ CUSTOM EDITOR STYLES
 	background: $link_color;
 	text-decoration: none;
 }
-
 .small {
 	font-size: .75em;
 }
-
 .mce-menu .mce-menu-item.mce-selected {
 	color: red !important;
 	border: 2px solid yellow;
 }
-
+*/
 

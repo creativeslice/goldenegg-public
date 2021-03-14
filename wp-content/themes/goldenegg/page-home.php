@@ -1,6 +1,6 @@
 <?php get_header(); // Template Name: Home ?>
 
-<article id="content" class="wrap">
+<article id="content">
 
 	<header class="articleHeader">
 		<h1><?php the_title(); ?></h1>

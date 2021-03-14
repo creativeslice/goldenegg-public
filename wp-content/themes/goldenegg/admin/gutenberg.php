@@ -124,8 +124,8 @@ function egg_gutenberg_editor_setup() {
 /**
  * Disable Specific Block Editor Settings
  */
-add_filter( 'block_editor_settings', 'egg_editor_settings');
-function egg_editor_settings ( $editor_settings ) {
+//add_filter( 'block_editor_settings', 'egg_block_editor_settings');
+function egg_block_editor_settings ( $editor_settings ) {
 	$editor_settings['__experimentalFeatures']['global']['typography']['dropCap'] = false; // disable dropCap, no longer works
 	//$editor_settings['imageEditing'] = false; // disable inline image editing
 	return $editor_settings;
@@ -202,10 +202,11 @@ function egg_post_register_template() {
     $post_type_object->template_lock = 'all';
 }
 
+
 /**
  * Page Example
  */
-add_action( 'init', 'egg_page_register_template' );
+//add_action( 'init', 'egg_page_register_template' );
 function egg_page_register_template() {
     $post_type_object = get_post_type_object( 'page' );
     $post_type_object->template = array(
@@ -221,6 +222,7 @@ function egg_page_register_template() {
 }
 
 
+
 /*********************
 GUTENBERG BLOCK PATTERNS
 *********************/
@@ -228,7 +230,7 @@ GUTENBERG BLOCK PATTERNS
 /**
  * Block Pattern Example
  */
-add_action( 'init', 'egg_wp_block_patterns' );
+//add_action( 'init', 'egg_wp_block_patterns' );
 function egg_wp_block_patterns() {
     register_block_pattern(
         'page-intro-block/my-custom-pattern',
