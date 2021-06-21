@@ -1,0 +1,251 @@
+/******************************************************************
+
+Stylesheet: Admin CSS (inside and outside block editor)
+
+******************************************************************/
+
+@import "modules/variables";
+
+
+/* Page Title
+--------------------------------------------- */
+.edit-post-visual-editor__post-title-wrapper .editor-post-title {
+	outline: none;
+	max-width: none !important;
+	margin: -10px -10px 0px -10px;
+	padding: 0;
+	background: #23282e; //#007cba; 
+	border: none;
+	&:before {
+		content: 'Title';
+		color: #757575;//#1e1e1e;
+		font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		position: absolute;
+		top: 12px;
+		left: 20px;
+	}
+	.editor-post-title__input {
+		font-weight: normal;
+		font-size: 24px;
+		height: 48px;
+		min-height: 48px !important;
+		padding: 7px 20px;
+		padding-top: 40px;
+		color: white;
+		font-weight: bold;
+		border: none;
+		border-bottom: 4px solid black;
+		&:focus, &:active {
+			color: black; //#007cba; 
+			background: white;
+			border-color: #007cba; //#E0E0E0; 
+		}
+	}
+}
+
+
+
+/* ACF Sidebar Setting Styles
+--------------------------------------------- */
+
+// Make sure ACF editor styles are using the block editor
+body .acf-block-fields,
+.edit-post-sidebar {
+     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+     font-size: 13px;
+     line-height: 1.4em;
+     
+     .acf-field {
+          input[type="text"],
+          input[type="password"],
+          input[type="number"],
+          input[type="search"],
+          input[type="email"],
+          input[type="url"],
+          textarea,
+          select {
+               font-size: 14px;
+               line-height: 1.4;
+               box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+               transition: 50ms border-color ease-in-out;
+               border-radius: 0;
+               border: 1px solid #ddd;
+               color: #32373c;
+          }
+          textarea.wp-editor-area {
+               box-shadow: none;
+               border: none;
+          }
+          input[type="checkbox"],
+          input[type="radio"] {
+               border: 1px solid #b4b9be;
+               color: #555;
+               height: 16px;
+               width: 16px;
+               border-radius: 0;
+          }
+          input[type="radio"] {
+               border-radius: 50%;
+               padding: 1px !important;
+          }
+     }
+}
+
+
+// ACF Main Content Editing
+body .acf-block-fields {
+	.acf-field-relationship {
+		.list {
+			height: 240px;
+		}
+		ul li {
+			margin: 0;
+			font-size: .875rem;
+		}
+		.values ul li {
+			//font-weight: bold;
+		}
+	}
+}
+
+
+// Gutenberg Sidebar Adjustments
+.edit-post-sidebar {
+	
+	// Hide Text settings and Drop Cap
+	.block-editor-panel-color-gradient-settings + .components-panel__body {
+		display: none;
+	}
+	
+	// Hide text editing from sidebar settings panel
+	.acf-field {
+		// Use class '.hide-sidebar-edit'
+		&.hide-sidebar-edit {
+			.acf-label,
+			.acf-input {
+				display: none;
+			}
+			&:before {
+				content: 'To update or add content, Switch to Edit.';
+				color: #757575;
+				font-style: italic;
+			}
+		}
+	}
+	
+	// Refine ACF gallery styles so they work in sidebar
+	.acf-gallery {
+		margin: 0 -16px !important;
+		// image aspect ratio
+		.acf-gallery-attachment .margin:before {
+			padding-top: 50%;
+		}
+		.acf-gallery-main {
+			.acf-gallery-attachments {
+				padding: 0;
+			}
+			.acf-gallery-toolbar {
+				padding: 0;
+				overflow: hidden;
+				.acf-hl>li {
+					margin: 10px;
+					.acf-gallery-sort {
+						width: 140px;
+					}
+					.acf-gallery-add {
+					}
+				}
+			}
+		}
+		
+		.acf-gallery-side,
+		.acf-gallery-side-inner {
+			z-index: 1;
+			width: 280px !important;
+			.acf-gallery-side-info {
+				margin: 0;
+			}
+			.acf-gallery-side-data {
+			}
+		}
+	}
+	
+	// Refine Relationship styles
+	.acf-field-relationship {
+		margin: 0 !important;
+		.acf-label {
+			padding-left: 16px;
+		}
+		.selection .choices {
+			width: 100%;
+			float: none;
+		}
+		.selection .values {
+			border: 1px solid $blue;
+			width: 100%;
+			float: none;
+		}
+	}
+}
+
+
+
+// ACF Radio Button Color Picker 
+.wp-admin .acf-block-component {
+    ul.acf-radio-list {
+         display: flex;
+         flex-wrap: wrap;
+         padding-left: 0;
+         margin-left: 0;
+         li {
+              margin-right: 0;
+              display: flex;
+              label {
+                   width: 28px;
+                   height: 28px;
+                   position: relative;
+                   margin: 6px 8px 6px 0;
+                   color: $white;
+                   input[type="radio"] {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 28px;
+                        height: 28px;
+                        box-shadow: none;
+                        border: 1px solid rgba(black, .2);
+                        &:checked {
+	                        border: 2px solid white;
+	                        box-shadow: 0 0 0px 2px #777;
+                             &::before {
+                                  content: "\f15e";
+                                  font-family: dashicons;
+                                  width: 20px;
+                                  height: 20px;
+                                  background-color: transparent;
+                                  font-size: 20px;
+                                  margin: 0px;
+                                  color: $white;
+                             }
+                        }
+                        // override light colors with a black checkmark when checked (default is white)
+                        &[value="white"],
+                        &[value="gray-light"] {
+                             &:checked {
+                                  &::before {
+                                       color: $black;
+                                  }
+                             }
+                        }
+                        @each $name, $color in $colors {
+                            &[value="#{$name}"] {
+                                background-color: $color;
+                            }
+                        }
+                   }
+              }
+         }
+    }
+}

@@ -55,7 +55,6 @@ body form .input {
 #wp-submit {
   background: #e8c200;
   border-color: #e8c200 !important;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   font-weight: bold;

@@ -25,7 +25,7 @@
 	</article>
 
 	<?php endwhile;
-		get_template_part( 'components/pageNavi/pageNavi' );
+		get_template_part( 'partials/archive-nav/archive-nav' );
 	else : 
 		echo '<h1>Nothing Found Here</h1>';
 	endif; ?>

@@ -6,11 +6,14 @@ Stylesheet: BASE
 
 html, body {
 	background-color: $gray_lighter;
-	// scroll-behavior: smooth;
 }
 
 body {
-	color: $text_color;
+	font-size: 100%;
+	line-height: 1.7;
+	font-family: $sans_serif;
+	color: $gray_dark; //$black;
+	margin: 0;
 }
 
 ::selection { 
@@ -20,41 +23,21 @@ body {
 }
 
 hr {
-	display: block;
+	//display: block;
 	height: 0;
 	border: 0;
 	border-top: 1px solid $gray_light;
 	border-bottom: 1px solid $white;
-	margin: 1em 0;
 	padding: 0;
 }
-
-/*********************
-LAYOUT & GRID STYLES
-*********************/
-
-.wrap {
-	width: 92%;
-	margin-right: auto;
-	margin-left: auto;
-	max-width: 1200px;
-}
-
-.wrapInner {
-	width: 92%;
-	margin-right: auto;
-	margin-left: auto;
-	max-width: 800px;
-}
-
-#container {
-	position: relative;
+.wp-block-separator.has-background {
+	height: 2px;
+	border: 0;
 }
 
 /*********************
 LINK STYLES
 *********************/
-
 a, a:visited {
 	color: $link_color;
 	&:hover, &:focus {
@@ -68,15 +51,134 @@ a, a:visited {
 	}
 }
 
+//<a> elements that don't have a class get default styles
+/*
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-color: $link_color;
+	&:hover {
+		text-decoration: none;
+		color: $link_hover;
+	}
+}
+*/
+
 /*********************
-CONTENT STYLES
+LAYOUT & GRID STYLES
 *********************/
 
-#content {
-@include breakpoint(medium) {
+.wrapper {
+    //position: relative;
+	width: 92%;
+	width: calc(100% - 40px);
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1240px;
+}
+
+.wrapperInner {
+	width: 92%;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 760px; //800px;
+}
+
+#container {
+	position: relative;
+}
+
+
+/*********************
+GUTENBERG Blocks
+similar to old .entryContent
+*********************/
+
+.gutenbergBlocks {
+	overflow: hidden; // this might break position sticky
+}
+
+// Gutenberg Blocks, first child
+// Style all the core blocks without a wrapper :not(.acf-block)
+.gutenbergBlocks > { 
+	*:not(.acf-block) {
+		width: calc(100% - 40px);
+		max-width: 760px;
+		margin-right: auto;
+		margin-left: auto;
+		position: relative;
+		/*
+		&:first-child {
+			margin-top: 0;
+			padding-top: $spacing;
+		}
+		*/
+	}
+	.alignwide {
+		max-width: 1240px;
+	}
+	.alignfull {
+		width: 100%;
+		max-width: 100%;
+	}
+	
+	// Core group block
+	.wp-block-group {
+		.wp-block-group__inner-container > {
+			*:not(.acf-block) {
+				width: calc(100% - 40px);
+				max-width: 760px;
+				margin-right: auto;
+				margin-left: auto;
+			}
+			.alignwide {
+				max-width: 1240px; // 1180
+			}
+			.alignfull {
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+	}
+@include breakpoint(large) {
 }
 }
 
+
+
+
 /*********************
-SIDEBAR
+CORE GUTENBERG
+If wp_dequeue_style( 'wp-block-library' );
 *********************/
+/*
+.has-text-align-center {
+	text-align: center;
+}
+.has-text-align-left {
+	text-align: left;
+}
+.has-text-align-right {
+	text-align: right;
+}
+
+.is-content-justification-center {
+	justify-content: center;
+}
+
+.wp-block-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+*/
+
+
+/*********************
+ACCESSIBILITY using what intent
+*********************/
+[data-whatintent='mouse'] *:focus {
+	outline: none;
+}
+

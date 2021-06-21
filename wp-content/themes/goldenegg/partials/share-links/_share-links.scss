@@ -1,0 +1,24 @@
+/*********************
+SHARE LINKS
+*********************/
+
+.shareLinks {
+	a, a:visited {
+		fill: $gray;
+		display: inline-block;
+		vertical-align: top;
+		padding: 2px 6px;
+		width: 32px;
+		height: 32px;
+		background: $white;
+		border-radius: 50%;
+		&:hover {
+			fill: $white;
+			background: $link_hover;
+		}
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}

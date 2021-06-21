@@ -1,14 +1,8 @@
 /*! Crafted with care by Creative Slice https://creativeslice.com */
 
 /*********************
-IMPORTING LIBRARIES
-*********************/
-@import "../libs/**/*.css";
-
-/*********************
 IMPORTING MODULES
 *********************/
-@import "modules/reset";
 @import "modules/variables";
 @import "modules/typography";
 @import "modules/media";
@@ -16,13 +10,17 @@ IMPORTING MODULES
 @import "modules/buttons";
 @import "modules/header";
 @import "modules/footer";
+
+//@import "modules/animation"; 		// aos-based animations
+//@import "modules/swiper";			// Swiper carousel slider
+
 @import "base";
 
 /*********************
-IMPORTING COMPONENTS
+PARTIALS & BLOCKS
 *********************/
+@import "../../partials/**/*.scss";
 @import "../../blocks/**/*.scss";
-@import "../../components/**/*.scss";
 
 /*********************
 PRINT STYLESHEET
