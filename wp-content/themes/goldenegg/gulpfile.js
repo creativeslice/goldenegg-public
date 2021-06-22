@@ -1,6 +1,7 @@
 /**
  * Gulp v4 Configuration
  */
+
 var environment = 'dev', // 'prod' or 'dev'
 
 	gulp = 			require('gulp'),
@@ -55,7 +56,7 @@ gulp.task('styles', function() {
 		.pipe(sourcemaps.init())
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions', '> 1%', 'android > 4'))
-		.pipe(cleanCSS({compatibility: 'ie8'}))
+		.pipe(cleanCSS({compatibility: 'ie10'}))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('assets/css'))
 		.pipe(livereload());
@@ -66,28 +67,40 @@ gulp.task('styles-login', function() {
 		.pipe(sass({ style: compression }))
 		.pipe(autoprefixer('last 2 versions'))
 		.pipe(gulp.dest('assets/css'))
-		.pipe(notify({ message: "Admin styles task complete" }));
+		.pipe(notify({ message: "Styles login task complete" }));
+});
+
+gulp.task('styles-admin', function() {
+	return gulp.src('src/scss/admin.scss')
+		.pipe(sass({ style: compression }))
+		.pipe(autoprefixer('last 2 versions'))
+		.pipe(gulp.dest('assets/css'))
+		.pipe(notify({ message: "Styles admin task complete" }));
 });
 
 gulp.task('styles-editor', function() {
 	return gulp.src('src/scss/editor.scss')
+		.pipe(plumber({ errorHandler: onError }))
+		.pipe(globSass())
+		.pipe(sourcemaps.init())
 		.pipe(sass({ style: compression }))
-		.pipe(autoprefixer('last 2 versions'))
+		.pipe(autoprefixer('last 2 versions', '> 1%', 'android > 4'))
+		.pipe(cleanCSS())
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('assets/css'))
-		.pipe(notify({ message: "Editor styles task complete" }));
+		.pipe(notify({ message: "Styles editor task complete" }));
 });
 
 
 /**
  * JAVASCRIPT
  */
-
 gulp.task('scripts', function() {
-    const customScripts = filter('src/js/**/*.js' + 'components/**/*.js' + 'blocks/**/*.js', {restore: true});
+    const customScripts = filter('src/js/**/*.js' + 'partials/**/*.js' + 'blocks/**/*.js', {restore: true});
 	return gulp.src([
-		'src/libs/**/*.js',
-		'src/js/**/*.js',
-		'components/**/*.js',
+		'src/libs/*.js',
+		'src/js/theme.js',
+		'partials/**/*.js',
 		'blocks/**/*.js',
 	])
 		.pipe(plumber({ errorHandler: onError }))
@@ -107,13 +120,32 @@ gulp.task('scripts', function() {
 
 
 /**
+ * ADMIN JS
+ *
+ * Does not compile partials or theme.js
+ */
+gulp.task('scripts-admin', function() {
+	return gulp.src([
+		'src/libs/*.js',
+		'blocks/**/*.js',
+		'src/js/admin-only.js',
+	])
+		.pipe(plumber({ errorHandler: onError }))
+        .pipe(concat('admin-scripts.js'))
+        .pipe(jsHint())
+		.pipe(gulp.dest('assets/js'))
+		.pipe(notify({ message: "Scripts admin task complete" }));
+});
+
+
+/**
  * SVG ICONS
  *
  * 'gulp icons' (only compiles icons)
  */
 gulp.task('icons', function() {
 	return gulp.src('src/icons/*')
-		.pipe(gulpif('prod'==environment, svgmin()))
+		//.pipe(gulpif('prod'==environment, svgmin()))
 		.pipe(svgstore({ inlineSvg: true }))
 		.pipe(cheerio({
 			run: function( $, file ) {
@@ -134,9 +166,9 @@ gulp.task('icons', function() {
 /**
  * GULP Task
  *
- * 'gulp' (does not compile icons)
+ * 'gulp'
  */
-gulp.task('default', gulp.series('styles', 'styles-login', 'styles-editor', 'scripts'));
+gulp.task('default', gulp.series('styles', 'styles-login', 'styles-admin', 'styles-editor', 'scripts', 'scripts-admin'));
 
 
 /**
@@ -145,11 +177,16 @@ gulp.task('default', gulp.series('styles', 'styles-login', 'styles-editor', 'scr
  * 'gulp watch' (does not compile styles-login, styles-editor or icons)
  */
 gulp.task('watch', function() {
+	//environment = 'dev'
 	livereload({ start: true })
-	gulp.watch('src/scss/**/*.scss', gulp.series('styles'));
-	gulp.watch('components/**/*.scss', gulp.series('styles'));
+	
+	gulp.watch('src/scss/**/*.scss', gulp.series('styles', 'styles-editor'));
+	gulp.watch('partials/**/*.scss', gulp.series('styles'));
 	gulp.watch('blocks/**/*.scss', gulp.series('styles'));
+	
 	gulp.watch('src/js/**/*.js', gulp.series('scripts'));
-	gulp.watch('components/**/*.js', gulp.series('scripts'));
+	gulp.watch('partials/**/*.js', gulp.series('scripts'));
 	gulp.watch('blocks/**/*.js', gulp.series('scripts'));
 });
+
+	

@@ -8,7 +8,7 @@
 
 	<section class="entryContent">
 		<p>The page you were looking for may have moved:</p>
-		<p><?php get_search_form(); ?></p>
+		<?php //get_search_form(); ?>
 	</section>
 
 	<section class="siteMap">

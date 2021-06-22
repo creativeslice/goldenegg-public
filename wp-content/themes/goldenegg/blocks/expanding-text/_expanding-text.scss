@@ -1,0 +1,83 @@
+/*********************
+ACF Block - Expanding Text
+*********************/
+
+.expanding-text-block {
+	padding: $spacing/4 0;
+	.sectionTitle {
+		color: $black !important;
+		svg {
+			width: 24px;
+			height: 24px;
+			margin: 0;
+		}
+	}
+	.expandBlock {
+        margin-bottom: 10px;
+        background: $gray_lighter;
+	}
+	.toggleContent {
+		transition: color $ease;
+		display: block;
+		cursor: pointer;
+		padding: $default_margin;
+		padding-right: 60px;
+		margin: 0;
+		position: relative;
+		transition: all $ease;
+		width: 100%;
+		text-align: left;
+		svg {
+			width: 24px;
+			height: 24px;
+			position: absolute;
+			top: 24px;
+			right: $default_margin;
+			transform: rotate(90deg);
+		}
+		&.open {
+			svg {
+				transform: rotate(-90deg);
+			}
+		}
+		&:hover svg {
+			fill: $link_hover;
+		}
+	}
+	.hiddenContent {
+	    display: none;
+		padding: $default_margin;
+		padding-top: 0;
+		.entryContent {
+			*:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+@include breakpoint(large) {
+	padding: $spacing/2 0;
+	.sectionTitle {
+		svg {
+			width: 32px;
+			height: 32px;
+		}
+	}
+	.expandBlock {
+		width: calc(100% - 40px);
+		max-width: 1240px;
+		margin: 0 auto 20px auto;
+	}
+	.toggleContent,
+	.hiddenContent {
+		padding: $spacing/2;
+		padding-right: 80px;
+		svg {
+			right: 36px;
+			top: 36px;
+		}
+	}
+	.hiddenContent {
+		padding: 0 80px $spacing/2 $spacing/2;
+	}
+}
+}

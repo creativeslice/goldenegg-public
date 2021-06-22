@@ -1,4 +1,4 @@
-<?php get_header(); // Template Name: Style Guide ?>
+<?php get_header(); // Template Name: Style Guide (LEGACY) ?>
 	
 <article id="content" class="wrap">
 

@@ -4,48 +4,65 @@ Stylesheet: WP Editor Stylesheet
 
 ******************************************************************/
 
-/*********************
-REMOVES MEDIA QUERIES
-*********************/
-$ignore-mqs: true;
-
-
-/*********************
-IMPORTING MODULES
-*********************/
-
-// import variables
 @import "modules/variables";
+@import "modules/media";
+@import "modules/buttons";
 
-// typography
-@import "modules/typography";
-
-// buttons
-//@import "modules/buttons";
+@import "../../blocks/**/*.scss";
 
 
-/*********************
-CUSTOM EDITOR STYLES
-*********************/
+/* START .editor-styles-wrapper
+--------------------------------------------- */
+.editor-styles-wrapper { // same as `body` for block area
+	font-size: 100%;
+	line-height: 1.5;
+	font-family: $sans_serif;
+	color: $black;
+	
+	// These load in the editor ONLY, not the sidebar
+	@import "modules/typography";
+	@import "base";
+	
+	// Alignment Width in Editor
+	.wp-block {
+		max-width: none;
+		//margin-right: auto;
+		//margin-left: auto;
+	}
+	.wp-block[data-type*="core/"] {
+	    max-width: 760px;
+	}
+	.wp-block[data-align="wide"] {
+	    max-width: 1240px;
+	}
+	.wp-block[data-align="full"] {
+	    max-width: 100%;
+	}
+	
+	// light blue outline to show blocks
+	.block-editor-block-list__block {
+		outline: 2px dashed rgba(#007cba, .4);
+		.block-editor-block-list__block {
+			outline: 1px dashed rgba(#007cba, .3);
+		}
+	}
+	
+	// Remove editor clicking from ACF rendered links
+	.acf-block-preview {
+		a, button.toggleContent {
+			pointer-events: none;
+		}
+		a.acf-button {
+			pointer-events: all;
+		}
+	}
+	
+	// ACF placeholder if no items are selected
+	.acf_editor_select_notice {
+		padding: $spacing;
+		color: $link_color;
+		display: block;
+		text-align: center;
+	}
 
-.nowrap {
-	border: 1px solid #eee;
-	display: inline-block;
-}
-
-.button {
-	padding: 3px 6px;
-	font-weight: bold;
-	color: $white;
-	background: $link_color;
-	text-decoration: none;
-}
-
-.small {
-	font-size: .75em;
-}
-
-.mce-menu .mce-menu-item.mce-selected {
-	color: red !important;
-	border: 2px solid yellow;
-}
+} // END .editor-styles-wrapper

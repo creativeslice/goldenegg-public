@@ -1,35 +1,27 @@
-<?php
+<?php // FUNCTIONS
 
-// Admin
-require_once( 'admin/admin.php' );
-require_once( 'admin/login.php' );
-require_once( 'admin/tinymce.php' );
-#require_once( 'admin/disableComments.php' );			// Completely remove comments from the admin area
-require_once( 'admin/dashboardWidget.php' );
+// Core WordPress Functions
+include_once get_stylesheet_directory() . '/includes/cleanup-wp-admin.php';
+include_once get_stylesheet_directory() . '/includes/cleanup-wp.php';
+include_once get_stylesheet_directory() . '/includes/enqueue.php';
 
-// Front End
-require_once( 'includes/enqueue.php' );
-require_once( 'includes/themeSupport.php' );
-require_once( 'includes/cleanup.php' );					// Cleanup WordPress scripts
-require_once( 'includes/contentBlockFunctions.php' );
-#require_once( 'includes/disablePingback.php' );		// Disable XMLRPC, pingbacks, trackbacks
-#require_once( 'includes/disableFeeds.php' );			// Disable site feeds
-#require_once( 'includes/customPostTypes.php' );		// Create custom post types
-#require_once( 'includes/niceSearch.php' );				// Clean search urls & Relevanssi custom fields
-#require_once( 'includes/excludeFromMenu.php' );		// Exclude from menu checkbox
+// Custom Theme Functions
+//include_once get_stylesheet_directory() . '/includes/custom-post-types.php'; // Or use CPT plugin
+include_once get_stylesheet_directory() . '/includes/theme-support.php';
+include_once get_stylesheet_directory() . '/includes/gutenberg.php';
+
+// Partials & Block Functions
+include_once get_stylesheet_directory() . '/partials/search/search-functions.php';
+include_once get_stylesheet_directory() . '/blocks/blocks-acf.php'; // Custom ACF Gutenberg Blocks
 
 
 /**
  * SVG Icons with version number
  *
  * replaces: <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#close"></use></svg>
- * with: <svg><use xlink:href="<?php echo get_svg('globe'); ?>"></use></svg>
- *
- * @param $which string the name of the icon
- * @return string
+ * with: <svg><use href="<?php echo get_svg('globe'); ?>"></use></svg>
  *
  */
-// set the modified time for icons.svg to bust caching
 define('SVG_LAST_MTIME', filemtime( realpath(__DIR__) . '/assets/icons/icons.svg' ));
 function get_svg($which) {
 	$version = SVG_LAST_MTIME;
@@ -38,31 +30,27 @@ function get_svg($which) {
 
 
 /**
- * ACF Options Page
+ * Allow SVG uploads
+ */
+add_filter( 'upload_mimes', 'cc_mime_types' );
+function cc_mime_types( $mimes ){
+	$mimes['svg'] = 'image/svg+xml';
+	$mimes['svg'] = 'image/svg';
+	return $mimes;
+}
+
+
+/**
+ * ACF Options Page for site-wide fields
  */
 if ( function_exists( 'acf_add_options_page' ) ) {
 	
-	// Used by components/notices
+	// Used by partials/notices
 	acf_add_options_page(array(
-		'title'    => 'Notices',
-		'position' => '2.1',
-		'icon_url' => 'dashicons-megaphone',
-	));
-	
-	// Footer settings
-	acf_add_options_page(array(
-		'page_title' 	=> 'Theme Settings',
-		'menu_title'	=> 'Footer',
+		'title'    		=> 'Notices',
 		'parent_slug' 	=> 'themes.php',
 		'capability' 	=> 'add_users', // Admin only
-	));
-	
-	// ACF Reporting settings for care plan dashboard widget
-	acf_add_options_page(array(
-		'page_title' 	=> 'Care Plan Reporting',
-		'menu_title'	=> 'Reporting',
-		'parent_slug' 	=> 'themes.php',
-		'capability' 	=> 'add_users', // Admin only
+		'icon_url' 		=> 'dashicons-megaphone', // https://developer.wordpress.org/resource/dashicons/#megaphone
 	));
 
 }

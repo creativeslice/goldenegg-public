@@ -1,0 +1,349 @@
+/******************************************************************
+
+Stylesheet: Admin CSS (inside and outside block editor)
+
+******************************************************************/
+/******************************************************************
+
+Stylesheet: Variables
+
+******************************************************************/
+/*********************
+FONTS
+*********************/
+/* Font Face Example 
+@font-face {
+	font-family: 'MMResistSans';
+	src: url('../fonts/ResistSansDisplayBold.woff2') format('woff2');
+	font-display: auto; // swap
+	font-weight: bold;
+	font-style: normal;
+}
+*/
+/* Google Fonts Example
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+*/
+/*********************
+COLORS
+*********************/
+/* Gutenberg color options
+-- see editor-color-palette in includes/gutenberg.php
+--------------------------------------------- */
+/*********************
+INLINE COLORS
+*********************/
+.has-gray-color {
+  color: #333; }
+
+.has-gray-background-color {
+  background-color: #333; }
+
+.has-gray-light-color {
+  color: #eee; }
+
+.has-gray-light-background-color {
+  background-color: #eee; }
+
+.has-blue-color {
+  color: #2779AE; }
+
+.has-blue-background-color {
+  background-color: #2779AE; }
+
+.has-green-color {
+  color: #547E2A; }
+
+.has-green-background-color {
+  background-color: #547E2A; }
+
+.has-yellow-color {
+  color: #e8c200; }
+
+.has-yellow-background-color {
+  background-color: #e8c200; }
+
+.has-red-color {
+  color: #d3033d; }
+
+.has-red-background-color {
+  background-color: #d3033d; }
+
+.has-white-color {
+  color: #fff; }
+
+.has-white-background-color {
+  background-color: #fff; }
+
+.has-black-color {
+  color: #000; }
+
+.has-black-background-color {
+  background-color: #000; }
+
+/*********************
+REUSABLE ITEMS
+*********************/
+.clearfix, .cf {
+  zoom: 1; }
+  .clearfix:before, .clearfix:after, .cf:before, .cf:after {
+    content: "";
+    display: table; }
+  .clearfix:after, .cf:after {
+    clear: both; }
+
+.modern-clearfix {
+  display: flow-root; }
+
+.screen-reader-text {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  word-wrap: normal !important;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0; }
+  .screen-reader-text:focus {
+    z-index: 100000;
+    /* Above WP toolbar. */
+    clip: auto !important;
+    -webkit-clip-path: none;
+            clip-path: none;
+    display: block;
+    top: 5px;
+    left: 5px;
+    height: auto;
+    width: auto;
+    padding: 15px 23px 14px;
+    font-size: 1em;
+    line-height: normal;
+    text-decoration: none;
+    background-color: #fff;
+    color: #547E2A; }
+
+.scroll-overflow {
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* use hidden if you only want to show on hover */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+  scrollbar-width: thin;
+  /* Firefox can also use 'none' */ }
+  .scroll-overflow::-webkit-scrollbar {
+    /* Safari and Chrome */
+    width: 8px; }
+  .scroll-overflow::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 1px 0 0 0 #f9f9f9;
+    background: #eee; }
+  .scroll-overflow::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: #333; }
+
+.nowrap {
+  display: inline-block; }
+
+.hide {
+  display: none; }
+
+/*********************
+BREAKPOINTS
+*********************/
+/* Page Title
+--------------------------------------------- */
+.edit-post-visual-editor__post-title-wrapper .editor-post-title {
+  outline: none;
+  max-width: none !important;
+  margin: -10px -10px 0px -10px;
+  padding: 0;
+  background: #23282e;
+  border: none; }
+  .edit-post-visual-editor__post-title-wrapper .editor-post-title:before {
+    content: 'Title';
+    color: #757575;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    position: absolute;
+    top: 12px;
+    left: 20px; }
+  .edit-post-visual-editor__post-title-wrapper .editor-post-title .editor-post-title__input {
+    font-weight: normal;
+    font-size: 24px;
+    height: 48px;
+    min-height: 48px !important;
+    padding: 7px 20px;
+    padding-top: 40px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-bottom: 4px solid black; }
+    .edit-post-visual-editor__post-title-wrapper .editor-post-title .editor-post-title__input:focus, .edit-post-visual-editor__post-title-wrapper .editor-post-title .editor-post-title__input:active {
+      color: black;
+      background: white;
+      border-color: #007cba; }
+
+/* ACF Sidebar Setting Styles
+--------------------------------------------- */
+body .acf-block-fields,
+.edit-post-sidebar {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-size: 13px;
+  line-height: 1.4em; }
+  body .acf-block-fields .acf-field input[type="text"],
+  body .acf-block-fields .acf-field input[type="password"],
+  body .acf-block-fields .acf-field input[type="number"],
+  body .acf-block-fields .acf-field input[type="search"],
+  body .acf-block-fields .acf-field input[type="email"],
+  body .acf-block-fields .acf-field input[type="url"],
+  body .acf-block-fields .acf-field textarea,
+  body .acf-block-fields .acf-field select,
+  .edit-post-sidebar .acf-field input[type="text"],
+  .edit-post-sidebar .acf-field input[type="password"],
+  .edit-post-sidebar .acf-field input[type="number"],
+  .edit-post-sidebar .acf-field input[type="search"],
+  .edit-post-sidebar .acf-field input[type="email"],
+  .edit-post-sidebar .acf-field input[type="url"],
+  .edit-post-sidebar .acf-field textarea,
+  .edit-post-sidebar .acf-field select {
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+    -webkit-transition: 50ms border-color ease-in-out;
+    transition: 50ms border-color ease-in-out;
+    border-radius: 0;
+    border: 1px solid #ddd;
+    color: #32373c; }
+  body .acf-block-fields .acf-field textarea.wp-editor-area,
+  .edit-post-sidebar .acf-field textarea.wp-editor-area {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: none; }
+  body .acf-block-fields .acf-field input[type="checkbox"],
+  body .acf-block-fields .acf-field input[type="radio"],
+  .edit-post-sidebar .acf-field input[type="checkbox"],
+  .edit-post-sidebar .acf-field input[type="radio"] {
+    border: 1px solid #b4b9be;
+    color: #555;
+    height: 16px;
+    width: 16px;
+    border-radius: 0; }
+  body .acf-block-fields .acf-field input[type="radio"],
+  .edit-post-sidebar .acf-field input[type="radio"] {
+    border-radius: 50%;
+    padding: 1px !important; }
+
+body .acf-block-fields .acf-field-relationship .list {
+  height: 240px; }
+
+body .acf-block-fields .acf-field-relationship ul li {
+  margin: 0;
+  font-size: .875rem; }
+
+.edit-post-sidebar .block-editor-panel-color-gradient-settings + .components-panel__body {
+  display: none; }
+
+.edit-post-sidebar .acf-field.hide-sidebar-edit .acf-label,
+.edit-post-sidebar .acf-field.hide-sidebar-edit .acf-input {
+  display: none; }
+
+.edit-post-sidebar .acf-field.hide-sidebar-edit:before {
+  content: 'To update or add content, Switch to Edit.';
+  color: #757575;
+  font-style: italic; }
+
+.edit-post-sidebar .acf-gallery {
+  margin: 0 -16px !important; }
+  .edit-post-sidebar .acf-gallery .acf-gallery-attachment .margin:before {
+    padding-top: 50%; }
+  .edit-post-sidebar .acf-gallery .acf-gallery-main .acf-gallery-attachments {
+    padding: 0; }
+  .edit-post-sidebar .acf-gallery .acf-gallery-main .acf-gallery-toolbar {
+    padding: 0;
+    overflow: hidden; }
+    .edit-post-sidebar .acf-gallery .acf-gallery-main .acf-gallery-toolbar .acf-hl > li {
+      margin: 10px; }
+      .edit-post-sidebar .acf-gallery .acf-gallery-main .acf-gallery-toolbar .acf-hl > li .acf-gallery-sort {
+        width: 140px; }
+  .edit-post-sidebar .acf-gallery .acf-gallery-side,
+  .edit-post-sidebar .acf-gallery .acf-gallery-side-inner {
+    z-index: 1;
+    width: 280px !important; }
+    .edit-post-sidebar .acf-gallery .acf-gallery-side .acf-gallery-side-info,
+    .edit-post-sidebar .acf-gallery .acf-gallery-side-inner .acf-gallery-side-info {
+      margin: 0; }
+
+.edit-post-sidebar .acf-field-relationship {
+  margin: 0 !important; }
+  .edit-post-sidebar .acf-field-relationship .acf-label {
+    padding-left: 16px; }
+  .edit-post-sidebar .acf-field-relationship .selection .choices {
+    width: 100%;
+    float: none; }
+  .edit-post-sidebar .acf-field-relationship .selection .values {
+    border: 1px solid #2779AE;
+    width: 100%;
+    float: none; }
+
+.wp-admin .acf-block-component ul.acf-radio-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-left: 0;
+  margin-left: 0; }
+  .wp-admin .acf-block-component ul.acf-radio-list li {
+    margin-right: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    .wp-admin .acf-block-component ul.acf-radio-list li label {
+      width: 28px;
+      height: 28px;
+      position: relative;
+      margin: 6px 8px 6px 0;
+      color: #fff; }
+      .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 28px;
+        height: 28px;
+        -webkit-box-shadow: none;
+                box-shadow: none;
+        border: 1px solid rgba(0, 0, 0, 0.2); }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"]:checked {
+          border: 2px solid white;
+          -webkit-box-shadow: 0 0 0px 2px #777;
+                  box-shadow: 0 0 0px 2px #777; }
+          .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"]:checked::before {
+            content: "\f15e";
+            font-family: dashicons;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            font-size: 20px;
+            margin: 0px;
+            color: #fff; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="white"]:checked::before, .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="gray-light"]:checked::before {
+          color: #000; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="gray"] {
+          background-color: #333; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="gray-light"] {
+          background-color: #eee; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="blue"] {
+          background-color: #2779AE; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="green"] {
+          background-color: #547E2A; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="yellow"] {
+          background-color: #e8c200; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="red"] {
+          background-color: #d3033d; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="white"] {
+          background-color: #fff; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="black"] {
+          background-color: #000; }

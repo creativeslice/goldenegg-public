@@ -12,26 +12,69 @@ $serif:				"Georgia", Cambria, Times, serif;
 $headline: 			'DIN', sans-serif;
 
 
+/* Font Face Example 
+@font-face {
+	font-family: 'MMResistSans';
+	src: url('../fonts/ResistSansDisplayBold.woff2') format('woff2');
+	font-display: auto; // swap
+	font-weight: bold;
+	font-style: normal;
+}
+*/
+
+/* Google Fonts Example
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+*/
+
+
 /*********************
 COLORS
 *********************/
 
-$black:				#111;
+$black:				#000;
 $white:				#fff;
 
 $gray_lighter:		#f9f9f9;
-$gray_light:		#999;
-$gray:				#666;
-$gray_dark:			#333;
+$gray_light:		#eee;
+$gray:				#333;
+$gray_dark:			#111;
+
+$gold:				#e8c200;
+$yellow:			$gold;
 
 $green:				#547E2A; // #669933;
-$gold:				#e8c200;
 $red:				#d3033d;
 $blue:				#2779AE;
 
 $text_color:        $gray_dark;
 $link_color:        $green;
-$link_hover:        darken($green, 10%);
+$link_hover:        $blue;
+
+
+/* Gutenberg color options
+-- see editor-color-palette in includes/gutenberg.php
+--------------------------------------------- */
+$colors:  
+	( gray, $gray ),
+	( gray-light, $gray_light ),
+	( blue, $blue ),
+	( green, $green ),
+	( yellow, $yellow ),
+	( red, $red ),
+	( white, $white ),
+	( black, $black );
+
+/*********************
+INLINE COLORS
+*********************/
+@each $name, $color in $colors { 
+	.has-#{$name}-color {
+		color: $color;
+	}
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+}
 
 
 /*********************
@@ -39,10 +82,13 @@ REUSABLE ITEMS
 *********************/
 
 $spacing:    		80px;
-$default_margin:    1.5em;
+$default_margin:    1.25rem; 	// 20px
 
-$shadow: 			1px 4px 8px rgba(black, .2);
-$shadow_active:		0px 1px 3px rgba(black, .2);
+$radius:			8px;
+
+$shadow: 			0 2px 16px rgba(black, .12);
+$shadow_hover: 		0 4px 24px rgba(black, .24);
+$shadow_active:		0 1px 3px rgba(black, .2);
 
 $ease:				.2s ease-in-out;
 $easeslow:			.6s ease-in;
@@ -60,39 +106,67 @@ $easeslow:			.6s ease-in;
 	}
 }
 
+// Modern clearfix (does not work with IE)
+.modern-clearfix {
+	display: flow-root;
+}
+
 // Better support for screen readers with icons
 .screen-reader-text {
-	border: 0;
+	position: absolute;
+	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
 	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
 	word-wrap: normal !important;
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
 	&:focus {
-		background-color: $white;
+		z-index: 100000; /* Above WP toolbar. */
 		clip: auto !important;
 		clip-path: none;
-		color: $link_color;
 		display: block;
-		font-size: 1em;
-		height: auto;
-		left: 5px;
-		line-height: normal;
-		padding: 15px 23px 14px;
-		text-decoration: none;
 		top: 5px;
+		left: 5px;
+		height: auto;
 		width: auto;
-		z-index: 100000; /* Above WP toolbar. */
+		padding: 15px 23px 14px;
+		font-size: 1em;
+		line-height: normal;
+		text-decoration: none;
+		background-color: $white;
+		color: $link_color;
+	}
+}
+
+// Styling Scrolling DIVS
+.scroll-overflow {
+	overflow-x: hidden;
+	overflow-y: auto; /* use hidden if you only want to show on hover */
+	-ms-overflow-style: none; /* IE 10+ */
+	scrollbar-width: thin; /* Firefox can also use 'none' */
+	&::-webkit-scrollbar { /* Safari and Chrome */
+		width: 8px;
+	}
+	&::-webkit-scrollbar-track {
+	    -webkit-box-shadow: inset 1px 0 0 0 $gray_lighter;
+	    background: $gray_light;
+	}
+	&::-webkit-scrollbar-thumb {
+	    border-radius: 8px;
+	    background: $gray;
 	}
 }
 
 // keep phrase from breaking to 2nd line: class adding through wysiwyg
 .nowrap {
 	display: inline-block;
+}
+
+.hide {
+    display: none;
 }
 
 
