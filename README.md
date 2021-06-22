@@ -75,89 +75,30 @@ More at: [https://goldenegg.dev](https://goldenegg.dev)
 1. Updated README
 
 
-## Components
+## Blocks
 
-As of 2.0.3, there is some extra automation to components including a new wrapper function for including a component. SCSS files are auto discovered and compiled similar to JavaScript files.
+As of 3.0.0, there is some extra automation to blocks and partials so SCSS files are auto discovered and compiled similar to JavaScript files.
 
-### Including a Component
-
-```
-egg_component( 'componentName', $settings );
-```
-
-1. `componentName` is the name used for directory and PHP filename (see Organization below). The component PHP file needs to match the directory name.
-1. `$settings` is an array of settings that the component uses.
-
-This wrapper function allows automation of optional variables that are available to all components, and if a change is needed that would be useful site-wide to all components, the wrapper function can be used. The wrapper is stored in: `includes/components.php`.
-
-### Component Defaults
-
-Default variables that are available to all components:
-
-1. `$id`, provides a string with the `id=""` attribute. Empty unless specified in the `$settings` array. See examples.
-1. `$class`, provides a string with the `class="componentName"` attribute. By default, uses the component's name. More classes can be added in the `$settings` array. See examples.
-1. `$attr`, provides a string with all attributes specified including `class` and `id`. Any attribute can be added in the `$settings` array. See examples.
-
-#### $id Examples
-
-**Basic id**
-
-```
-$settings['id'] = 'unique-name';
-```
-*Output*: `id="unique-name"`
-
-**Section id**
-
-Can be used in a loop:
-```
-$count = 1;
-foreach ( $content_blocks as $settings ) :
-
-	$settings['build_count'] = $count;
-	egg_component( $block, $settings );
-
-	$count++;
-endforeach;
-```
-*Output*: `id="section--1"`
-
-**$class Examples**
-
-```
-$settings['class'] = [ 'slickslider', 'slickslider--sidebar' ];
-```
-*Output*: `class="componentName slickslider slickslider--sidebar"`
-
-*$attr Examples*
-```
-$settings['attr'] = [
-	'data-type' => 'gallery',
-	'width'     => 128,
-	'srcset'    => 'path/image-1920.jpg 1920w, path/image-1280.jpg 1280w',
-];
-```
-Output: `id="unique-name" class="componentName slickslider slickslider--sidebar" data-type="gallery" width="128" srcset="path/image-1920.jpg 1920w, path/image-1280.jpg 1280w"`
 
 ## Organization
 
-### /components
+### /blocks
 
-This directory holds the reusable components that make up the site. Components are meant to wholly contain the functionality for a piece of website functionality. A component can consist of any combination of or potentially multiple of each:
+This directory holds the reusable blocks that make up the site. Blocks are meant to wholly contain the functionality for a piece of website functionality. A block can consist of any combination of or potentially multiple of each:
 
-1. A PHP file, eg: `componentName.php`
-1. A JavaScript file, eg: `componentName.js`
-1. A CSS file, eg: `componentName.scss`
+1. A PHP file, eg: `block-name.php`
+1. A JavaScript file, eg: `_block-name.js`
+1. A CSS file, eg: `_block-name.scss`
 
-The example files above would be contained in: `/components/componentName/`.
+The example files above would be contained in: `/blocks/block-name/`.
+
+### /partials
+
+This directory holds universal elements like menus and favicons. These are referenced in the same manner as /blocks.
 
 ### /acf-json
 
 Will hold JSON definitions of any ACF groups created. Allows them to be version controlled.
-
-### /admin
-
-Admin customizations such as TinyMCE updates.
 
 ### /assets
 
@@ -191,14 +132,11 @@ A PHP library of global functionality.
 
 ## Gulp to Process Scripts and Styles
 
-Gulp can be used to create an SVG icon sprite, combine, update, and process SCSS and JavaScript. It will pull the JS from the components automatically but SCSS files need to be manually added in the `/assets/scss/style.scss` file.
-
-To use Gulp v3 (instead of the default Gulp 4) rename the `gulpfile_v3.js` file to `gulpfile.js`.
+Gulp can be used to create an SVG icon sprite, combine, update, and process SCSS and JavaScript. It will pull the JS and SCSS from the blocks and partials directories automatically but SCSS modules need to be manually added in the `/assets/scss/style.scss` file.
 
 **Gulp Commands**
 
-1. `gulp styles` - Process `/assets/scss/` + `/components/*/*.scss` into `/assets/css/style.css`
-1. `gulp scripts` - Process `/assets/js/` + `/components/*/*.js` into `/assets/js/scripts.js`
+1. `gulp` - Process `/assets/scss/` + `/components/*/*.scss` into `/assets/css/style.css` and Process `/assets/js/` + `/components/*/*.js` into `/assets/js/scripts.js`
 1. `gulp icons` - Process `/assets/icons/` into `/assets/icons/icons.svg`
-1. `gulp watch` - Rebuilds the SCSS/JS when any file is updated within the SCSS/JS files: `/assets/js/src/`, `/assets/scss/src/`, `/components/*/`
+1. `gulp watch` - Rebuilds the SCSS/JS when any file is updated within the SCSS/JS files: `/assets/js/src/`, `/assets/scss/src/`, `/blocks/*/`, `/partials/*/`
 
