@@ -4,133 +4,189 @@ Stylesheet: Typography
 
 ******************************************************************/
 
-body {
-	font-size: 100%;
-	line-height: 1.5;
-	font-family: $sans_serif;
-}
-
 /*********************
-FONT FACE
+HEADLINES
 *********************/
 
-/* @font-face {
-  font-family: 'Font Name';
-  font-display: auto;
-  font-weight: normal;
-  font-style: normal;
-  src: local('Arial'), url('../fonts/font-name.eot');
-  src: url('../fonts/font-name.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/font-name.woff') format('woff'),
-         url('../fonts/font-name.ttf') format('truetype'),
-         url('../fonts/font-name.svg?#font-name') format('svg');
-} 
-*/
-
-/******************************************************************
-H1, H2, H3, H4, H5 STYLES
-******************************************************************/
-
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-	clear: both;
-	margin-top: 16px;
-	margin-bottom: 16px;
-	a, a:visited {
-		text-decoration: none;
-	}
-}
-
-h1, .h1 {
-	font-size: 2em;					// 32px
-	line-height: 1.5em;
-}
-
-h2, .h2 {
-	font-size: 1.5em;
-	line-height: 1.5em;
-}
-
-h3, .h3 {
-	font-size: 1.25em;
-}
-
-h4, .h4 {
-	font-size: 1.125em;
-}
-
-h5, .h5 {
-	font-size: 1em;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-}
-
+h1, .h1, 
+h2, .h2, 
+h3, .h3, 
+h4, .h4,
+h5, .h5,
 h6, .h6 {
-	font-size: .875em;
-	text-transform: uppercase;
-	letter-spacing: 2px;
+	clear: both;
+	margin: 20px 0;
+	font-family: $sans_serif;
+	em {
+		color: $gray;
+		font-weight: inherit;
+		font-style: normal;
+	}
 }
-
-@include breakpoint(medium) {
 h1, .h1 {
-	font-size: 2.5em;				// 40px
+	font-size: 2.5rem;
+	line-height: 1.25;
+	font-weight: bold;
 }
-
-h2, .h2 {
-	font-size: 1.75em;
+h2, .h2, .has-xlarge-font-size {
+	font-size: 2rem;
+	line-height: 1.25;
+	font-weight: bold;
 }
-
-h3, .h3 {
-	font-size: 1.37em;
+h3, .h3, .has-large-font-size {
+	font-size: 1.5rem;
+	line-height: 1.25;
+	font-weight: bold;
 }
+h4, .h4, .has-medium-font-size {
+	font-size: 1.25rem;
+	line-height: 1.5;
+	font-weight: 500;
+}
+h5, .h5, .has-small-font-size {
+	font-size: 1rem;
+	line-height: 1.5;
+	font-weight: normal;
+}
+h6, .h6, .has-tiny-font-size {
+	font-size: .875rem;
+	line-height: 1.5;
+	font-weight: normal;
 }
 
 
 /*********************
-ENTRY CONTENT
+PARAGRAPH & LISTS
 *********************/
-
-.entryContent {
-	p {
-		margin: 0 0 $default_margin;
+// .wp-block p, p.wp-block, .gutenbergBlocks p
+p, ul, ol {
+	margin: 0;
+	padding: 0;
+	font-size: 1rem;
+	font-weight: normal;
+	margin-bottom: $default_margin;
+	&.has-tiny-font-size {
+		font-size: .875rem;
 	}
-	
-	ul, ol {
-		margin: 0 0 $default_margin 2em;
+	&.has-small-font-size {
+		font-size: 1rem;
 	}
-
-	ul {
-		list-style: disc;
+	&.has-medium-font-size {
+		font-size: 1.25rem;
 	}
-
-	ol {
-		list-style: decimal;
+	&.has-large-font-size {
+		font-size: 1.5rem;
 	}
+	&.has-xlarge-font-size {
+		font-size: 2rem;
+	}
+}
 
-	li {
-		& > ul,
-		& > ol {
-			margin-bottom: 0;
-			margin-left: 1em;
+
+/*********************
+BREAKPOINTS
+*********************/
+@include breakpoint(small) {
+	h1, .h1 {
+		font-size: 3rem;
+		line-height: 1.1;
+	}
+}
+
+@include breakpoint(large) {
+	h1, .h1 {
+		font-size: 4rem;
+	}
+	h2, .h2, .has-xlarge-font-size {
+		font-size: 3rem;
+		line-height: 1.1;
+	}
+	h3, .h3, .has-large-font-size {
+		font-size: 2rem;
+		line-height: 1.25;
+	}
+	h4, .h4, .has-medium-font-size {
+		font-size: 1.25rem;
+		line-height: 1.4;
+	}
+	p, ul, ol {
+		font-size: 1.125rem;
+		&.has-tiny-font-size {
+			font-size: 14px;
+		}
+		&.has-small-font-size {
+			font-size: 18px;
+		}
+		&.has-medium-font-size {
+			font-size: 1.25rem;
+		}
+		&.has-large-font-size {
+			font-size: 2rem;
+		}
+		&.has-xlarge-font-size {
+			font-size: 3rem;
 		}
 	}
-
-	dt {
-		font-weight: bold;
+}
+@include breakpoint(xlarge) {
+	h1, .h1 {
+		font-size: 4.5rem;
 	}
-
-	dd {
-		margin: 0 1em $default_margin;
+	h2, .h2, .has-xlarge-font-size {
+		font-size: 3.25rem;
 	}
-
-	table {
-		margin: 0 0 $default_margin;
-		width: 100%;
+	h3, .h3, .has-large-font-size {
+		font-size: 2.25rem;
 	}
-
-	th {
-		font-weight: bold;
+	h4, .h4, .has-medium-font-size {
+		font-size: 1.5rem;
 	}
+	p, ul, ol {
+		font-size: 1.25rem;
+		&.has-medium-font-size {
+			font-size: 1.5rem;
+		}
+		&.has-large-font-size {
+			font-size: 2.25rem;
+		}
+		&.has-xlarge-font-size {
+			font-size: 3.25rem;
+		}
+	}
+}
 
+
+// lists
+ul, ol {
+	li {
+		margin: .25em 0 .25em 1.25em;
+	}
+}
+ul li {
+	list-style: disc;
+}
+ol li {
+	list-style: decimal;
+}
+li {
+	& > ul,
+	& > ol {
+		margin-bottom: 0;
+		margin-left: 0;
+	}
+}
+
+
+// Elements with background color
+h1, h2, h3, h4, h5, h6, p {
+	&.has-background {
+		padding: 20px;
+	}
+@include breakpoint(large) {
+	&.has-background {
+		padding: 40px;
+	}
+}
 }
 
 
@@ -138,44 +194,44 @@ ENTRY CONTENT
 BASE ELEMENTS
 *********************/
 
-.byline {
-	//font-style: italic;
-	font-size: .75em;
-	margin: 1em 0;
-}
-
-dfn, cite, em, i {
+dfn, em, i {
 	font-style: italic;
 }
-
 blockquote {
-	margin: 0 0 $default_margin 1em;
-	padding: 0 0 0 1em;
-	border-left: 3px solid $link_color;
-	font-style: italic;
-	font-family: $serif;
-	color: $gray;
+	font-family: $sans_serif;
+	font-size: 1.25em;
+	line-height: 1.5;
+	margin: 0;
+@include breakpoint(large) {
+	font-size: 1.5em;
+}
+}
+
+cite {
+	font-style: normal;
+	font-weight: 500;
+	font-size: .875rem;
+@include breakpoint(large) {
+	font-size: 1.125rem;
+}
 }
 
 address {
-	margin: 0 0 $default_margin;
+	margin: 0;
 }
-
 pre {
 	background: $black;
-	color: $gray_light;
-	font-family: "Courier 10 Pitch", Courier, monospace;
+	color: $gray_lighter;
+	font-family: monospace;
 	font-size: 0.9em;
 	margin: 0 0 $default_margin;
 	max-width: 100%;
 	padding: 1em;
 	overflow: auto;
 }
-
 abbr, acronym {
 	cursor: help;
 }
-
 mark, ins {
 	background: #fff9c0;
 	text-decoration: none;

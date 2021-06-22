@@ -2,7 +2,7 @@
  * Gulp v4 Configuration
  */
 
-var environment = 'prod', // 'prod' or 'dev'
+var environment = 'dev', // 'prod' or 'dev'
 
 	gulp = 			require('gulp'),
 	sass = 			require('gulp-sass'),
@@ -145,7 +145,7 @@ gulp.task('scripts-admin', function() {
  */
 gulp.task('icons', function() {
 	return gulp.src('src/icons/*')
-		.pipe(gulpif('prod'==environment, svgmin()))
+		//.pipe(gulpif('prod'==environment, svgmin()))
 		.pipe(svgstore({ inlineSvg: true }))
 		.pipe(cheerio({
 			run: function( $, file ) {

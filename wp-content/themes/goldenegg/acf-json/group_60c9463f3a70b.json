@@ -1,6 +1,6 @@
 {
     "key": "group_60c9463f3a70b",
-    "title": "[block] Image Icon Text",
+    "title": "[block] Text with Image or Icon",
     "fields": [
         {
             "key": "field_60c94653afc97",
@@ -65,5 +65,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1623803907
+    "modified": 1624326002
 }

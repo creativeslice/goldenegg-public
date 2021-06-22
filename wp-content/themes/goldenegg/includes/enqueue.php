@@ -52,7 +52,7 @@ function egg_block_editor_scripts() {
 	);
 	
 	// Gutenberg Customization Script	
-	wp_enqueue_script('wd-editor', get_stylesheet_directory_uri() . '/blocks/core-block-overrides.js', array( 'wp-blocks', 'wp-dom' ), filemtime( get_stylesheet_directory() . '/blocks/core-block-overrides.js' ), true );
+	wp_enqueue_script('wd-editor', get_stylesheet_directory_uri() . '/includes/core-block-overrides.js', array( 'wp-blocks', 'wp-dom' ), filemtime( get_stylesheet_directory() . '/includes/core-block-overrides.js' ), true );
 
 }
 

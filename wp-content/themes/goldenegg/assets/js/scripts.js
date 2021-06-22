@@ -1,8 +1,631 @@
-!function(e,t){"function"==typeof define&&define.amd?define([],(function(){return e.svg4everybody=t()})):"object"==typeof module&&module.exports?module.exports=t():e.svg4everybody=t()}(this,(function(){function e(e,t,o){if(o){var n=document.createDocumentFragment(),r=!t.hasAttribute("viewBox")&&o.getAttribute("viewBox");r&&t.setAttribute("viewBox",r);for(var i=o.cloneNode(!0);i.childNodes.length;)n.appendChild(i.firstChild);e.appendChild(n)}}function t(t){t.onreadystatechange=function(){if(4===t.readyState){var o=t._cachedDocument;o||((o=t._cachedDocument=document.implementation.createHTMLDocument("")).body.innerHTML=t.responseText,t._cachedTarget={}),t._embeds.splice(0).map((function(n){var r=t._cachedTarget[n.id];r||(r=t._cachedTarget[n.id]=o.getElementById(n.id)),e(n.parent,n.svg,r)}))}},t.onreadystatechange()}function o(e){for(var t=e;"svg"!==t.nodeName.toLowerCase()&&(t=t.parentNode););return t}return function(n){var r,i=Object(n),c=window.top!==window.self;r="polyfill"in i?i.polyfill:/\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/.test(navigator.userAgent)||(navigator.userAgent.match(/\bEdge\/12\.(\d+)\b/)||[])[1]<10547||(navigator.userAgent.match(/\bAppleWebKit\/(\d+)\b/)||[])[1]<537||/\bEdge\/.(\d+)\b/.test(navigator.userAgent)&&c;var s={},a=window.requestAnimationFrame||setTimeout,u=document.getElementsByTagName("use"),l=0;r&&function n(){for(var c=0;c<u.length;){var d=u[c],p=d.parentNode,w=o(p),m=d.getAttribute("xlink:href")||d.getAttribute("href");if(!m&&i.attributeName&&(m=d.getAttribute(i.attributeName)),w&&m){if(r)if(!i.validate||i.validate(m,w,d)){p.removeChild(d);var g=m.split("#"),f=g.shift(),b=g.join("#");if(f.length){var k=s[f];k||((k=s[f]=new XMLHttpRequest).open("GET",f),k.send(),k._embeds=[]),k._embeds.push({parent:p,svg:w,id:b}),t(k)}else e(p,w,document.getElementById(b))}else++c,++l}else++c}(!u.length||u.length-l>0)&&a(n,67)}()}})),
+/* svg4everybody - v2.1.9 https://github.com/jonathantneal/svg4everybody */
+!function(a,b){"function"==typeof define&&define.amd?define([],function(){return a.svg4everybody=b()}):"object"==typeof module&&module.exports?module.exports=b():a.svg4everybody=b()}(this,function(){function a(a,b,c){if(c){var d=document.createDocumentFragment(),e=!b.hasAttribute("viewBox")&&c.getAttribute("viewBox");e&&b.setAttribute("viewBox",e);for(var f=c.cloneNode(!0);f.childNodes.length;)d.appendChild(f.firstChild);a.appendChild(d)}}function b(b){b.onreadystatechange=function(){if(4===b.readyState){var c=b._cachedDocument;c||(c=b._cachedDocument=document.implementation.createHTMLDocument(""),c.body.innerHTML=b.responseText,b._cachedTarget={}),b._embeds.splice(0).map(function(d){var e=b._cachedTarget[d.id];e||(e=b._cachedTarget[d.id]=c.getElementById(d.id)),a(d.parent,d.svg,e)})}},b.onreadystatechange()}function c(c){function e(){for(var c=0;c<o.length;){var h=o[c],i=h.parentNode,j=d(i),k=h.getAttribute("xlink:href")||h.getAttribute("href");if(!k&&g.attributeName&&(k=h.getAttribute(g.attributeName)),j&&k){if(f)if(!g.validate||g.validate(k,j,h)){i.removeChild(h);var l=k.split("#"),q=l.shift(),r=l.join("#");if(q.length){var s=m[q];s||(s=m[q]=new XMLHttpRequest,s.open("GET",q),s.send(),s._embeds=[]),s._embeds.push({parent:i,svg:j,id:r}),b(s)}else a(i,j,document.getElementById(r))}else++c,++p}else++c}(!o.length||o.length-p>0)&&n(e,67)}var f,g=Object(c),h=/\bTrident\/[567]\b|\bMSIE (?:9|10)\.0\b/,i=/\bAppleWebKit\/(\d+)\b/,j=/\bEdge\/12\.(\d+)\b/,k=/\bEdge\/.(\d+)\b/,l=window.top!==window.self;f="polyfill"in g?g.polyfill:h.test(navigator.userAgent)||(navigator.userAgent.match(j)||[])[1]<10547||(navigator.userAgent.match(i)||[])[1]<537||k.test(navigator.userAgent)&&l;var m={},n=window.requestAnimationFrame||setTimeout,o=document.getElementsByTagName("use"),p=0;f&&e()}function d(a){for(var b=a;"svg"!==b.nodeName.toLowerCase()&&(b=b.parentNode););return b}return c});
 /**
  * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
  * @version v5.2.10
  * @link https://github.com/ten1seven/what-input
  * @license MIT
  */
-function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define("whatInput",[],t):"object"==typeof exports?exports.whatInput=t():e.whatInput=t()}(this,(function(){return function(e){var t={};function o(n){if(t[n])return t[n].exports;var r=t[n]={exports:{},id:n,loaded:!1};return e[n].call(r.exports,r,r.exports,o),r.loaded=!0,r.exports}return o.m=e,o.c=t,o.p="",o(0)}([function(e,t){"use strict";e.exports=function(){if("undefined"==typeof document||"undefined"==typeof window)return{ask:function(){return"initial"},element:function(){return null},ignoreKeys:function(){},specificKeys:function(){},registerOnChange:function(){},unRegisterOnChange:function(){}};var e=document.documentElement,t=null,o="initial",n=o,r=Date.now(),i="false",c=["button","input","select","textarea"],s=[],a=[16,17,18,91,93],u=[],l={keydown:"keyboard",keyup:"keyboard",mousedown:"mouse",mousemove:"mouse",MSPointerDown:"pointer",MSPointerMove:"pointer",pointerdown:"pointer",pointermove:"pointer",touchstart:"touch",touchend:"touch"},d=!1,p={x:null,y:null},w={2:"touch",3:"touch",4:"mouse"},m=!1;try{var g=Object.defineProperty({},"passive",{get:function(){m=!0}});window.addEventListener("test",null,g)}catch(e){}var f=function(){var e=!!m&&{passive:!0};document.addEventListener("DOMContentLoaded",b),window.PointerEvent?(window.addEventListener("pointerdown",k),window.addEventListener("pointermove",v)):window.MSPointerEvent?(window.addEventListener("MSPointerDown",k),window.addEventListener("MSPointerMove",v)):(window.addEventListener("mousedown",k),window.addEventListener("mousemove",v),"ontouchstart"in window&&(window.addEventListener("touchstart",k,e),window.addEventListener("touchend",k))),window.addEventListener(E(),v,e),window.addEventListener("keydown",k),window.addEventListener("keyup",k),window.addEventListener("focusin",y),window.addEventListener("focusout",B)},b=function(){if(i=!(e.getAttribute("data-whatpersist")||"false"===document.body.getAttribute("data-whatpersist")))try{window.sessionStorage.getItem("what-input")&&(o=window.sessionStorage.getItem("what-input")),window.sessionStorage.getItem("what-intent")&&(n=window.sessionStorage.getItem("what-intent"))}catch(e){}h("input"),h("intent")},k=function(e){var t=e.which,r=l[e.type];"pointer"===r&&(r=x(e));var i=!u.length&&-1===a.indexOf(t),s=u.length&&-1!==u.indexOf(t),d="keyboard"===r&&t&&(i||s)||"mouse"===r||"touch"===r;if(V(r)&&(d=!1),d&&o!==r&&(T("input",o=r),h("input")),d&&n!==r){var p=document.activeElement;p&&p.nodeName&&(-1===c.indexOf(p.nodeName.toLowerCase())||"button"===p.nodeName.toLowerCase()&&!S(p,"form"))&&(T("intent",n=r),h("intent"))}},h=function(t){e.setAttribute("data-what"+t,"input"===t?o:n),C(t)},v=function(e){var t=l[e.type];"pointer"===t&&(t=x(e)),L(e),(!d&&!V(t)||d&&"wheel"===e.type||"mousewheel"===e.type||"DOMMouseScroll"===e.type)&&n!==t&&(T("intent",n=t),h("intent"))},y=function(o){o.target.nodeName?(t=o.target.nodeName.toLowerCase(),e.setAttribute("data-whatelement",t),o.target.classList&&o.target.classList.length&&e.setAttribute("data-whatclasses",o.target.classList.toString().replace(" ",","))):B()},B=function(){t=null,e.removeAttribute("data-whatelement"),e.removeAttribute("data-whatclasses")},T=function(e,t){if(i)try{window.sessionStorage.setItem("what-"+e,t)}catch(e){}},x=function(e){return"number"==typeof e.pointerType?w[e.pointerType]:"pen"===e.pointerType?"touch":e.pointerType},V=function(e){var t=Date.now(),n="mouse"===e&&"touch"===o&&t-r<200;return r=t,n},E=function(){return"onwheel"in document.createElement("div")?"wheel":void 0!==document.onmousewheel?"mousewheel":"DOMMouseScroll"},C=function(e){for(var t=0,r=s.length;t<r;t++)s[t].type===e&&s[t].fn.call(void 0,"input"===e?o:n)},L=function(e){p.x!==e.screenX||p.y!==e.screenY?(d=!1,p.x=e.screenX,p.y=e.screenY):d=!0},S=function(e,t){var o=window.Element.prototype;if(o.matches||(o.matches=o.msMatchesSelector||o.webkitMatchesSelector),o.closest)return e.closest(t);do{if(e.matches(t))return e;e=e.parentElement||e.parentNode}while(null!==e&&1===e.nodeType);return null};return"addEventListener"in window&&Array.prototype.indexOf&&(l[E()]="mouse",f()),{ask:function(e){return"intent"===e?n:o},element:function(){return t},ignoreKeys:function(e){a=e},specificKeys:function(e){u=e},registerOnChange:function(e,t){s.push({fn:e,type:t||"input"})},unRegisterOnChange:function(e){var t=function(e){for(var t=0,o=s.length;t<o;t++)if(s[t].fn===e)return t}(e);(t||0===t)&&s.splice(t,1)},clearStorage:function(){window.sessionStorage.clear()}}}()}])})),jQuery(document).ready((function(e){svg4everybody(),e(".articleHeader h1").each((function(){var t=e(this).html();t=t.replace(/ ([^ ]*)$/,"&nbsp;$1"),e(this).html(t)}))})),jQuery(document).ready((function(e){if(e("#menuToggle").click((function(t){e(this).toggleClass("active"),e(".menuFull").slideToggle(300)})),"ontouchstart"in window){jQuery("body").on("touchstart click",".mainNav > .menu-item-has-children > a",(function(e){if(e.preventDefault(),"click"!==e.type){var t=jQuery(this).parent();t.hasClass("focus")?window.location=this.href:(t.toggleClass("focus"),t.siblings(".focus").removeClass("focus"))}}))}else jQuery(".mainNav").find("a").on("focus blur",(function(){jQuery(this).closest(".menu-item-has-children").toggleClass("focus")}))})),jQuery(document).ready((function(e){e("#searchToggle").click((function(t){t.preventDefault(),e(this).toggleClass("active"),e(".searchForm").fadeToggle(300),e(".searchField")[0].focus()}))})),wp.domReady((()=>{wp.blocks.unregisterBlockStyle("core/button",["default","outline","squared","fill"]),wp.blocks.registerBlockStyle("core/button",[{name:"default",label:"Default",isDefault:!0},{name:"outline",label:"Outline"},{name:"arrow",label:"Arrow"}]),wp.blocks.unregisterBlockStyle("core/image",["rounded"]),wp.blocks.unregisterBlockType("core/preformatted"),wp.blocks.unregisterBlockType("core/pullquote"),wp.blocks.unregisterBlockType("core/verse"),wp.blocks.unregisterBlockType("core/more"),wp.blocks.unregisterBlockType("core/nextpage"),wp.blocks.unregisterBlockType("core/archives"),wp.blocks.unregisterBlockType("core/calendar"),wp.blocks.unregisterBlockType("core/categories"),wp.blocks.unregisterBlockType("core/latest-comments"),wp.blocks.unregisterBlockType("core/latest-posts"),wp.blocks.unregisterBlockType("core/rss"),wp.blocks.unregisterBlockType("core/search"),wp.blocks.unregisterBlockType("core/tag-cloud"),wp.blocks.unregisterBlockVariation("core/embed","amazon-kindle"),wp.blocks.unregisterBlockVariation("core/embed","animoto"),wp.blocks.unregisterBlockVariation("core/embed","cloudup"),wp.blocks.unregisterBlockVariation("core/embed","collegehumor"),wp.blocks.unregisterBlockVariation("core/embed","crowdsignal"),wp.blocks.unregisterBlockVariation("core/embed","dailymotion"),wp.blocks.unregisterBlockVariation("core/embed","flickr"),wp.blocks.unregisterBlockVariation("core/embed","funnyordie"),wp.blocks.unregisterBlockVariation("core/embed","hulu"),wp.blocks.unregisterBlockVariation("core/embed","imgur"),wp.blocks.unregisterBlockVariation("core/embed","issuu"),wp.blocks.unregisterBlockVariation("core/embed","kickstarter"),wp.blocks.unregisterBlockVariation("core/embed","meetup-com"),wp.blocks.unregisterBlockVariation("core/embed","mixcloud"),wp.blocks.unregisterBlockVariation("core/embed","photobucket"),wp.blocks.unregisterBlockVariation("core/embed","polldaddy"),wp.blocks.unregisterBlockVariation("core/embed","reddit"),wp.blocks.unregisterBlockVariation("core/embed","reverbnation"),wp.blocks.unregisterBlockVariation("core/embed","screencast"),wp.blocks.unregisterBlockVariation("core/embed","scribd"),wp.blocks.unregisterBlockVariation("core/embed","slideshare"),wp.blocks.unregisterBlockVariation("core/embed","smugmug"),wp.blocks.unregisterBlockVariation("core/embed","speaker"),wp.blocks.unregisterBlockVariation("core/embed","speaker-deck"),wp.blocks.unregisterBlockVariation("core/embed","spotify"),wp.blocks.unregisterBlockVariation("core/embed","ted"),wp.blocks.unregisterBlockVariation("core/embed","tiktok"),wp.blocks.unregisterBlockVariation("core/embed","tumblr"),wp.blocks.unregisterBlockVariation("core/embed","videopress"),wp.blocks.unregisterBlockVariation("core/embed","wordpress"),wp.blocks.unregisterBlockVariation("core/embed","wordpress-tv")})),jQuery(document).ready((function(e){function t(t){var o=e(t).hasClass("open"),n=e(t).next(".hiddenContent");e(".expandBlock .toggleContent.open").removeClass("open"),e(".hiddenContent.open").slideUp().removeClass("open"),o||(e(t).addClass("open"),n.slideDown().addClass("open"))}e(".expandBlock .toggleContent").click((function(e){e.preventDefault(),t(this)})),e(".expandBlock").each((function(){e(".gform_wrapper .validation_error",this).length&&t(e(".toggleContent",this)[0])}))}));
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define("whatInput", [], factory);
+	else if(typeof exports === 'object')
+		exports["whatInput"] = factory();
+	else
+		root["whatInput"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	module.exports = function () {
+	  /*
+	   * bail out if there is no document or window
+	   * (i.e. in a node/non-DOM environment)
+	   *
+	   * Return a stubbed API instead
+	   */
+	  if (typeof document === 'undefined' || typeof window === 'undefined') {
+	    return {
+	      // always return "initial" because no interaction will ever be detected
+	      ask: function ask() {
+	        return 'initial';
+	      },
+
+	      // always return null
+	      element: function element() {
+	        return null;
+	      },
+
+	      // no-op
+	      ignoreKeys: function ignoreKeys() {},
+
+	      // no-op
+	      specificKeys: function specificKeys() {},
+
+	      // no-op
+	      registerOnChange: function registerOnChange() {},
+
+	      // no-op
+	      unRegisterOnChange: function unRegisterOnChange() {}
+	    };
+	  }
+
+	  /*
+	   * variables
+	   */
+
+	  // cache document.documentElement
+	  var docElem = document.documentElement;
+
+	  // currently focused dom element
+	  var currentElement = null;
+
+	  // last used input type
+	  var currentInput = 'initial';
+
+	  // last used input intent
+	  var currentIntent = currentInput;
+
+	  // UNIX timestamp of current event
+	  var currentTimestamp = Date.now();
+
+	  // check for a `data-whatpersist` attribute on either the `html` or `body` elements, defaults to `true`
+	  var shouldPersist = 'false';
+
+	  // form input types
+	  var formInputs = ['button', 'input', 'select', 'textarea'];
+
+	  // empty array for holding callback functions
+	  var functionList = [];
+
+	  // list of modifier keys commonly used with the mouse and
+	  // can be safely ignored to prevent false keyboard detection
+	  var ignoreMap = [16, // shift
+	  17, // control
+	  18, // alt
+	  91, // Windows key / left Apple cmd
+	  93 // Windows menu / right Apple cmd
+	  ];
+
+	  var specificMap = [];
+
+	  // mapping of events to input types
+	  var inputMap = {
+	    keydown: 'keyboard',
+	    keyup: 'keyboard',
+	    mousedown: 'mouse',
+	    mousemove: 'mouse',
+	    MSPointerDown: 'pointer',
+	    MSPointerMove: 'pointer',
+	    pointerdown: 'pointer',
+	    pointermove: 'pointer',
+	    touchstart: 'touch',
+	    touchend: 'touch'
+
+	    // boolean: true if the page is being scrolled
+	  };var isScrolling = false;
+
+	  // store current mouse position
+	  var mousePos = {
+	    x: null,
+	    y: null
+
+	    // map of IE 10 pointer events
+	  };var pointerMap = {
+	    2: 'touch',
+	    3: 'touch', // treat pen like touch
+	    4: 'mouse'
+
+	    // check support for passive event listeners
+	  };var supportsPassive = false;
+
+	  try {
+	    var opts = Object.defineProperty({}, 'passive', {
+	      get: function get() {
+	        supportsPassive = true;
+	      }
+	    });
+
+	    window.addEventListener('test', null, opts);
+	  } catch (e) {}
+	  // fail silently
+
+
+	  /*
+	   * set up
+	   */
+
+	  var setUp = function setUp() {
+	    // add correct mouse wheel event mapping to `inputMap`
+	    inputMap[detectWheel()] = 'mouse';
+
+	    addListeners();
+	  };
+
+	  /*
+	   * events
+	   */
+
+	  var addListeners = function addListeners() {
+	    // `pointermove`, `MSPointerMove`, `mousemove` and mouse wheel event binding
+	    // can only demonstrate potential, but not actual, interaction
+	    // and are treated separately
+	    var options = supportsPassive ? { passive: true } : false;
+
+	    document.addEventListener('DOMContentLoaded', setPersist);
+
+	    // pointer events (mouse, pen, touch)
+	    if (window.PointerEvent) {
+	      window.addEventListener('pointerdown', setInput);
+	      window.addEventListener('pointermove', setIntent);
+	    } else if (window.MSPointerEvent) {
+	      window.addEventListener('MSPointerDown', setInput);
+	      window.addEventListener('MSPointerMove', setIntent);
+	    } else {
+	      // mouse events
+	      window.addEventListener('mousedown', setInput);
+	      window.addEventListener('mousemove', setIntent);
+
+	      // touch events
+	      if ('ontouchstart' in window) {
+	        window.addEventListener('touchstart', setInput, options);
+	        window.addEventListener('touchend', setInput);
+	      }
+	    }
+
+	    // mouse wheel
+	    window.addEventListener(detectWheel(), setIntent, options);
+
+	    // keyboard events
+	    window.addEventListener('keydown', setInput);
+	    window.addEventListener('keyup', setInput);
+
+	    // focus events
+	    window.addEventListener('focusin', setElement);
+	    window.addEventListener('focusout', clearElement);
+	  };
+
+	  // checks if input persistence should happen and
+	  // get saved state from session storage if true (defaults to `false`)
+	  var setPersist = function setPersist() {
+	    shouldPersist = !(docElem.getAttribute('data-whatpersist') || document.body.getAttribute('data-whatpersist') === 'false');
+
+	    if (shouldPersist) {
+	      // check for session variables and use if available
+	      try {
+	        if (window.sessionStorage.getItem('what-input')) {
+	          currentInput = window.sessionStorage.getItem('what-input');
+	        }
+
+	        if (window.sessionStorage.getItem('what-intent')) {
+	          currentIntent = window.sessionStorage.getItem('what-intent');
+	        }
+	      } catch (e) {
+	        // fail silently
+	      }
+	    }
+
+	    // always run these so at least `initial` state is set
+	    doUpdate('input');
+	    doUpdate('intent');
+	  };
+
+	  // checks conditions before updating new input
+	  var setInput = function setInput(event) {
+	    var eventKey = event.which;
+	    var value = inputMap[event.type];
+
+	    if (value === 'pointer') {
+	      value = pointerType(event);
+	    }
+
+	    var ignoreMatch = !specificMap.length && ignoreMap.indexOf(eventKey) === -1;
+
+	    var specificMatch = specificMap.length && specificMap.indexOf(eventKey) !== -1;
+
+	    var shouldUpdate = value === 'keyboard' && eventKey && (ignoreMatch || specificMatch) || value === 'mouse' || value === 'touch';
+
+	    // prevent touch detection from being overridden by event execution order
+	    if (validateTouch(value)) {
+	      shouldUpdate = false;
+	    }
+
+	    if (shouldUpdate && currentInput !== value) {
+	      currentInput = value;
+
+	      persistInput('input', currentInput);
+	      doUpdate('input');
+	    }
+
+	    if (shouldUpdate && currentIntent !== value) {
+	      // preserve intent for keyboard interaction with form fields
+	      var activeElem = document.activeElement;
+	      var notFormInput = activeElem && activeElem.nodeName && (formInputs.indexOf(activeElem.nodeName.toLowerCase()) === -1 || activeElem.nodeName.toLowerCase() === 'button' && !checkClosest(activeElem, 'form'));
+
+	      if (notFormInput) {
+	        currentIntent = value;
+
+	        persistInput('intent', currentIntent);
+	        doUpdate('intent');
+	      }
+	    }
+	  };
+
+	  // updates the doc and `inputTypes` array with new input
+	  var doUpdate = function doUpdate(which) {
+	    docElem.setAttribute('data-what' + which, which === 'input' ? currentInput : currentIntent);
+
+	    fireFunctions(which);
+	  };
+
+	  // updates input intent for `mousemove` and `pointermove`
+	  var setIntent = function setIntent(event) {
+	    var value = inputMap[event.type];
+
+	    if (value === 'pointer') {
+	      value = pointerType(event);
+	    }
+
+	    // test to see if `mousemove` happened relative to the screen to detect scrolling versus mousemove
+	    detectScrolling(event);
+
+	    // only execute if scrolling isn't happening
+	    if ((!isScrolling && !validateTouch(value) || isScrolling && event.type === 'wheel' || event.type === 'mousewheel' || event.type === 'DOMMouseScroll') && currentIntent !== value) {
+	      currentIntent = value;
+
+	      persistInput('intent', currentIntent);
+	      doUpdate('intent');
+	    }
+	  };
+
+	  var setElement = function setElement(event) {
+	    if (!event.target.nodeName) {
+	      // If nodeName is undefined, clear the element
+	      // This can happen if click inside an <svg> element.
+	      clearElement();
+	      return;
+	    }
+
+	    currentElement = event.target.nodeName.toLowerCase();
+	    docElem.setAttribute('data-whatelement', currentElement);
+
+	    if (event.target.classList && event.target.classList.length) {
+	      docElem.setAttribute('data-whatclasses', event.target.classList.toString().replace(' ', ','));
+	    }
+	  };
+
+	  var clearElement = function clearElement() {
+	    currentElement = null;
+
+	    docElem.removeAttribute('data-whatelement');
+	    docElem.removeAttribute('data-whatclasses');
+	  };
+
+	  var persistInput = function persistInput(which, value) {
+	    if (shouldPersist) {
+	      try {
+	        window.sessionStorage.setItem('what-' + which, value);
+	      } catch (e) {
+	        // fail silently
+	      }
+	    }
+	  };
+
+	  /*
+	   * utilities
+	   */
+
+	  var pointerType = function pointerType(event) {
+	    if (typeof event.pointerType === 'number') {
+	      return pointerMap[event.pointerType];
+	    } else {
+	      // treat pen like touch
+	      return event.pointerType === 'pen' ? 'touch' : event.pointerType;
+	    }
+	  };
+
+	  // prevent touch detection from being overridden by event execution order
+	  var validateTouch = function validateTouch(value) {
+	    var timestamp = Date.now();
+
+	    var touchIsValid = value === 'mouse' && currentInput === 'touch' && timestamp - currentTimestamp < 200;
+
+	    currentTimestamp = timestamp;
+
+	    return touchIsValid;
+	  };
+
+	  // detect version of mouse wheel event to use
+	  // via https://developer.mozilla.org/en-US/docs/Web/API/Element/wheel_event
+	  var detectWheel = function detectWheel() {
+	    var wheelType = null;
+
+	    // Modern browsers support "wheel"
+	    if ('onwheel' in document.createElement('div')) {
+	      wheelType = 'wheel';
+	    } else {
+	      // Webkit and IE support at least "mousewheel"
+	      // or assume that remaining browsers are older Firefox
+	      wheelType = document.onmousewheel !== undefined ? 'mousewheel' : 'DOMMouseScroll';
+	    }
+
+	    return wheelType;
+	  };
+
+	  // runs callback functions
+	  var fireFunctions = function fireFunctions(type) {
+	    for (var i = 0, len = functionList.length; i < len; i++) {
+	      if (functionList[i].type === type) {
+	        functionList[i].fn.call(undefined, type === 'input' ? currentInput : currentIntent);
+	      }
+	    }
+	  };
+
+	  // finds matching element in an object
+	  var objPos = function objPos(match) {
+	    for (var i = 0, len = functionList.length; i < len; i++) {
+	      if (functionList[i].fn === match) {
+	        return i;
+	      }
+	    }
+	  };
+
+	  var detectScrolling = function detectScrolling(event) {
+	    if (mousePos.x !== event.screenX || mousePos.y !== event.screenY) {
+	      isScrolling = false;
+
+	      mousePos.x = event.screenX;
+	      mousePos.y = event.screenY;
+	    } else {
+	      isScrolling = true;
+	    }
+	  };
+
+	  // manual version of `closest()`
+	  var checkClosest = function checkClosest(elem, tag) {
+	    var ElementPrototype = window.Element.prototype;
+
+	    if (!ElementPrototype.matches) {
+	      ElementPrototype.matches = ElementPrototype.msMatchesSelector || ElementPrototype.webkitMatchesSelector;
+	    }
+
+	    if (!ElementPrototype.closest) {
+	      do {
+	        if (elem.matches(tag)) {
+	          return elem;
+	        }
+
+	        elem = elem.parentElement || elem.parentNode;
+	      } while (elem !== null && elem.nodeType === 1);
+
+	      return null;
+	    } else {
+	      return elem.closest(tag);
+	    }
+	  };
+
+	  /*
+	   * init
+	   */
+
+	  // don't start script unless browser cuts the mustard
+	  // (also passes if polyfills are used)
+	  if ('addEventListener' in window && Array.prototype.indexOf) {
+	    setUp();
+	  }
+
+	  /*
+	   * api
+	   */
+
+	  return {
+	    // returns string: the current input type
+	    // opt: 'intent'|'input'
+	    // 'input' (default): returns the same value as the `data-whatinput` attribute
+	    // 'intent': includes `data-whatintent` value if it's different than `data-whatinput`
+	    ask: function ask(opt) {
+	      return opt === 'intent' ? currentIntent : currentInput;
+	    },
+
+	    // returns string: the currently focused element or null
+	    element: function element() {
+	      return currentElement;
+	    },
+
+	    // overwrites ignored keys with provided array
+	    ignoreKeys: function ignoreKeys(arr) {
+	      ignoreMap = arr;
+	    },
+
+	    // overwrites specific char keys to update on
+	    specificKeys: function specificKeys(arr) {
+	      specificMap = arr;
+	    },
+
+	    // attach functions to input and intent "events"
+	    // funct: function to fire on change
+	    // eventType: 'input'|'intent'
+	    registerOnChange: function registerOnChange(fn, eventType) {
+	      functionList.push({
+	        fn: fn,
+	        type: eventType || 'input'
+	      });
+	    },
+
+	    unRegisterOnChange: function unRegisterOnChange(fn) {
+	      var position = objPos(fn);
+
+	      if (position || position === 0) {
+	        functionList.splice(position, 1);
+	      }
+	    },
+
+	    clearStorage: function clearStorage() {
+	      window.sessionStorage.clear();
+	    }
+	  };
+	}();
+
+/***/ })
+/******/ ])
+});
+;
+/*
+ * Wrap jQuery JS in ready class
+*/
+jQuery(document).ready(function($) {
+	
+	
+	/**
+	* fallback for SVG icons in IE
+	*/
+	svg4everybody();
+	
+	
+	/*
+	 * Prevent Widows in h1 articleHeader
+	 */
+	$('.articleHeader h1').each(function () {
+		var string = $(this).html();
+		string = string.replace(/ ([^ ]*)$/, '&nbsp;$1');
+		$(this).html(string);
+	});
+	
+
+});
+
+jQuery(document).ready(function($) {
+		
+	/**
+	 * Mobile menu toggle
+	 */
+	$('#menuToggle').click(function(e) {
+		//e.preventDefault();
+		var $this = $(this);
+		$this.toggleClass('active');
+		$('.menuFull').slideToggle(300);
+		//$('.menuFull').toggleClass('active');
+	});
+
+
+	// First click opens the menu on touch screens
+    if ( 'ontouchstart' in window ) {
+        var touched = false;
+        jQuery('body')
+            .on('touchstart click', '.mainNav > .menu-item-has-children > a', function(e) {
+                e.preventDefault();
+                if ('click' !== e.type) {
+                    var el = jQuery(this).parent();
+                    if (!el.hasClass('focus')) {
+                        el.toggleClass('focus');
+                        el.siblings('.focus').removeClass('focus');
+                    } else {
+                        window.location = this.href;
+                    }
+                }
+            });
+    } else {
+        jQuery('.mainNav').find('a').on('focus blur', function() {
+            var el = jQuery(this).closest('.menu-item-has-children');
+            el.toggleClass('focus');
+        });
+    }
+
+});
+
+jQuery(document).ready(function($) {
+
+	/**
+	 * Open search panel and focus cursor
+	 */
+	$('#searchToggle').click(function(e) {
+		e.preventDefault();
+		var $this = $(this);
+		$this.toggleClass('active');
+		$('.searchForm').fadeToggle(300);
+		$('.searchField')[0].focus();
+	});
+
+});
+
+jQuery(document).ready(function($) {
+
+	/**
+	 * Expanding Text
+	 */
+	function egg_openExpandBlock(elem) {
+		var hasOpen = $(elem).hasClass('open'),
+			$hiddenContent = $(elem).next('.hiddenContent');
+	
+		// close all the others
+		$('.expandBlock .toggleContent.open').removeClass('open');
+		$('.hiddenContent.open').slideUp().removeClass('open');
+		
+		// open this one
+		if (!hasOpen) {
+			$(elem).addClass('open');
+			$hiddenContent.slideDown().addClass('open');
+		}
+	}
+
+	$('.expandBlock .toggleContent').click(function(e) {
+		e.preventDefault();
+		egg_openExpandBlock(this);
+	});
+	
+	// Open Block if Gravity Forms error message
+	$('.expandBlock').each(function() {
+		//var $expandBlock = $(this);
+		if ($('.gform_wrapper .validation_error', this).length) {
+			egg_openExpandBlock($('.toggleContent', this)[0]);
+		}
+	});
+
+});

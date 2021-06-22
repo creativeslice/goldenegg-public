@@ -8,12 +8,7 @@
 	$section_title = ( ! empty(get_field('section_title') ) ? get_field('section_title') : '');
 	$section_icon = ( ! empty(get_field('acf_icon') ) ? get_field('acf_icon') : '');
     $faq_schema = ( ! empty(get_field('faq_schema') ) ? get_field('faq_schema') : '');
-	
-	// Shared Block Settings
-	$dark_mode = ( ! empty(get_field('dark_mode') ) ? ' darkmode' : '');
-	if( $dark_mode ) { $block_classes .= $dark_mode; }
-	$block_color = ( ! empty(get_field('block_color') ) ? get_field('block_color') : '');
-	if( $block_color ) { $block_classes .= ' is-style-block-color has-' . $block_color . '-color'; }
+
 ?>
 
 <section id="<?php echo $block_id; ?>" class="<?php echo $block_classes; ?>"  
@@ -39,7 +34,7 @@
 					<span <?php if($faq_schema){ echo 'itemprop="name"'; } ?>>
 						<?php echo $title; ?>
 					</span>
-					<svg><use xlink:href="<?php echo get_svg('chevron-right'); ?>"></use></svg>
+					<svg><use xlink:href="<?php echo get_svg('arrow-right'); ?>"></use></svg>
 				</button>
 				
 				<div class="hiddenContent"<?php if($faq_schema){ echo ' itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"'; } ?>>

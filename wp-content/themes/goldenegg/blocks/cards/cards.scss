@@ -10,8 +10,7 @@ ACF Block - Cards
 		flex-wrap: wrap;
 		justify-content: center;
 		width: 100%;
-		//max-width: 1264px; // adjusted wrapper
-		max-width: 1360px;
+		max-width: 1360px; // adjusted wrapper
 	}
 	.cardACF {
 		box-shadow: $shadow;
@@ -28,12 +27,12 @@ ACF Block - Cards
 		align-items: stretch;
 		.cardContent {
 			padding: 20px;
-			width: 100%;
 			* {
 				margin: 0;
 			}
 			p {
 				line-height: 1.5;
+				width: 100%;
 			}
 			small {
 				color: $gray;
@@ -74,6 +73,12 @@ ACF Block - Cards
 		text-decoration: none;
 		.cardContent {
 			color: $black;
+		}
+		&:hover {
+			box-shadow: $shadow_hover;
+		}
+		&:active {
+			box-shadow: $shadow_active;
 		}
 	}
 	&.columns-two {
@@ -156,4 +161,3 @@ ACF Block - Cards
 	}
 }
 }
-
