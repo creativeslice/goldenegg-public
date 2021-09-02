@@ -1,4 +1,6 @@
-## Welcome to GitHub Pages
+## GitHub pages example for GoldenEgg
+
+Just testing how easy this is to use. The limit may be difficulty in adding images and screenshots...
 
 You can use the [editor on GitHub](https://github.com/creativeslice/goldenegg/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
