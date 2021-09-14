@@ -15,6 +15,6 @@ jobs:
         with:
           PAGELY_DEPLOY_DEST: "/httpdocs"
           PAGELY_INTEGRATION_SECRET: ${{secrets.PAGELY_STAGING_INTEGRATION_SECRET}}
-          PAGELY_INTEGRATION_ID: "niV8Qqt8Af5QjxMnrmXt999"
+          PAGELY_INTEGRATION_ID: "niV8Qqt8Af5QjxMnrmXt99"
           PAGELY_APP_ID: "38968"
           PAGELY_WORKING_DIR: ${{github.workspace}}
