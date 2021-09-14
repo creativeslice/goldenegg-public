@@ -24,7 +24,7 @@ jobs:
       - name: run gulp for staging
         working-directory: wp-content/themes/goldenegg
         run: |
-          npm run gulp-stage
+          npm run gulp:stage
       - name: Run deploy
         uses: pagely/action-deploy@v1
         with:
