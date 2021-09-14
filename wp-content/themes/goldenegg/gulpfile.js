@@ -2,7 +2,14 @@
  * Gulp v4 Configuration
  */
 
-var environment = 'dev', // 'prod' or 'dev'
+	var environment = 'prod' // always default to production
+	var compress = 'compressed' // default to compressed
+
+	if (process.env.NODE_ENV === 'development') {
+		environment = 'dev'
+		compress = 'expanded' // if development build try to expand
+	}
+	console.log('gulp settings NODE_ENV:', process.env.NODE_ENV, 'Environment: ' + environment, 'Compress: ' + compress)
 
 	gulp = 			require('gulp'),
 	sass = 			require('gulp-sass'),
@@ -32,7 +39,7 @@ var environment = 'dev', // 'prod' or 'dev'
 	// opinionated scss formatting
 	prettier = 		require('gulp-prettier'),
 
-	compression = ( 'prod' === environment ? 'compressed' : 'expanded' );
+	compression = compress;
 
 
 
@@ -193,14 +200,14 @@ gulp.task('default', gulp.series('pretty-scss', 'styles', 'styles-login', 'style
 gulp.task('watch', function() {
 	//environment = 'dev'
 	livereload({ start: true })
-	
+
 	gulp.watch('src/scss/**/*.scss', gulp.series('styles', 'styles-editor'));
 	gulp.watch('partials/**/*.scss', gulp.series('styles'));
 	gulp.watch('blocks/**/*.scss', gulp.series('styles'));
-	
+
 	gulp.watch('src/js/**/*.js', gulp.series('scripts'));
 	gulp.watch('partials/**/*.js', gulp.series('scripts'));
 	gulp.watch('blocks/**/*.js', gulp.series('scripts'));
 });
 
-	
+
