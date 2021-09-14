@@ -25,7 +25,6 @@ jobs:
         working-directory: wp-content/themes/goldenegg
         run: |
           npm run gulp-stage
-      - name: install vue node_modules
       - name: Run deploy
         uses: pagely/action-deploy@v1
         with:
