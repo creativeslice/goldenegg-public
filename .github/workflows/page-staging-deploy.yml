@@ -7,6 +7,8 @@ jobs:
   deploy:
     name: Deploy to Pagely Staging
     runs-on: ubuntu-20.04
+    env:
+      THEME_PATH: goldenegg
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -18,11 +20,11 @@ jobs:
         with:
           node-version: '12.x'
       - name: install root node_modules
-        working-directory: wp-content/themes/goldenegg
+        working-directory: wp-content/themes/${{ env.THEME_PATH }}
         run: |
           npm ci
       - name: run gulp for staging
-        working-directory: wp-content/themes/goldenegg
+        working-directory: wp-content/themes/${{ env.THEME_PATH }}
         run: |
           npm run gulp:stage
       - name: Run deploy
