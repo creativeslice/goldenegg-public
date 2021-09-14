@@ -29,6 +29,9 @@ var environment = 'dev', // 'prod' or 'dev'
 	gulpif = 		require('gulp-if'),
 	cheerio = 		require('gulp-cheerio'),
 
+	// opinionated scss formatting
+	prettier = 		require('gulp-prettier'),
+
 	compression = ( 'prod' === environment ? 'compressed' : 'expanded' );
 
 
@@ -156,10 +159,21 @@ gulp.task('icons', function() {
 		}))
 		.pipe(rename('icons.svg'))
 		.pipe(gulp.dest('assets/icons'))
-		.pipe(notify({
-			title: "Images",
-			message: "Icons complete"
-		}));
+		.pipe(notify({message: "Icon SVG updated"}));
+});
+
+
+/**
+ * PRETTIER
+ *
+ * 'gulp prettier'
+ */
+ gulp.task('pretty-scss', function() {
+	return gulp.src('**/*.scss')
+		.pipe(plumber({ errorHandler: onError }))
+		.pipe(prettier({ singleQuote: true, editorconfig: true }))
+		.pipe(gulp.dest(file => file.base))
+		//.pipe(notify({ message: "Prettier SCSS task complete" }));
 });
 
 
@@ -168,7 +182,7 @@ gulp.task('icons', function() {
  *
  * 'gulp'
  */
-gulp.task('default', gulp.series('styles', 'styles-login', 'styles-admin', 'styles-editor', 'scripts', 'scripts-admin'));
+gulp.task('default', gulp.series('pretty-scss', 'styles', 'styles-login', 'styles-admin', 'styles-editor', 'scripts', 'scripts-admin'));
 
 
 /**

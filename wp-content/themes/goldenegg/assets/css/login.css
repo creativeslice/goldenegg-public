@@ -23,9 +23,11 @@ body.login {
 .login .message {
   border-color: black; }
 
-.login #nav a, .login #backtoblog a {
+.login #nav a,
+.login #backtoblog a {
   color: rgba(0, 0, 0, 0.6); }
-  .login #nav a:hover, .login #backtoblog a:hover {
+  .login #nav a:hover,
+  .login #backtoblog a:hover {
     color: black; }
 
 form {

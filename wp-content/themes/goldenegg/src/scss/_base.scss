@@ -4,7 +4,8 @@ Stylesheet: BASE
 
 ******************************************************************/
 
-html, body {
+html,
+body {
 	background-color: $gray_lighter;
 }
 
@@ -16,7 +17,7 @@ body {
 	margin: 0;
 }
 
-::selection { 
+::selection {
 	background: #ff9; // bright yellow
 	color: black !important;
 	text-shadow: none;
@@ -38,16 +39,18 @@ hr {
 /*********************
 LINK STYLES
 *********************/
-a, a:visited {
+a,
+a:visited {
 	color: $link_color;
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		color: $link_hover;
 	}
 	&:active {
 		color: darken($link_hover, 10%);
 	}
 	&:link {
-		-webkit-tap-highlight-color: rgba( $link_color, 0.6 ); // mobile tap color
+		-webkit-tap-highlight-color: rgba($link_color, 0.6); // mobile tap color
 	}
 }
 
@@ -70,7 +73,7 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrapper {
-    //position: relative;
+	//position: relative;
 	width: 92%;
 	width: calc(100% - 40px);
 	margin-right: auto;
@@ -89,7 +92,6 @@ LAYOUT & GRID STYLES
 	position: relative;
 }
 
-
 /*********************
 GUTENBERG Blocks
 similar to old .entryContent
@@ -101,7 +103,7 @@ similar to old .entryContent
 
 // Gutenberg Blocks, first child
 // Style all the core blocks without a wrapper :not(.acf-block)
-.gutenbergBlocks > { 
+.gutenbergBlocks > {
 	*:not(.acf-block) {
 		width: calc(100% - 40px);
 		max-width: 760px;
@@ -122,7 +124,7 @@ similar to old .entryContent
 		width: 100%;
 		max-width: 100%;
 	}
-	
+
 	// Core group block
 	.wp-block-group {
 		.wp-block-group__inner-container > {
@@ -141,12 +143,9 @@ similar to old .entryContent
 			}
 		}
 	}
-@include breakpoint(large) {
+	@include breakpoint(large) {
+	}
 }
-}
-
-
-
 
 /*********************
 CORE GUTENBERG
@@ -174,11 +173,9 @@ If wp_dequeue_style( 'wp-block-library' );
 }
 */
 
-
 /*********************
 ACCESSIBILITY using what intent
 *********************/
 [data-whatintent='mouse'] *:focus {
 	outline: none;
 }
-

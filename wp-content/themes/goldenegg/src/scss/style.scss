@@ -3,27 +3,27 @@
 /*********************
 IMPORTING MODULES
 *********************/
-@import "modules/variables";
-@import "modules/typography";
-@import "modules/media";
-@import "modules/forms";
-@import "modules/buttons";
-@import "modules/header";
-@import "modules/footer";
+@import 'modules/variables';
+@import 'modules/typography';
+@import 'modules/media';
+@import 'modules/forms';
+@import 'modules/buttons';
+@import 'modules/header';
+@import 'modules/footer';
 
 //@import "modules/animation"; 		// aos-based animations
 
-@import "base";
+@import 'base';
 
 /*********************
 PARTIALS & BLOCKS
 *********************/
-@import "../../partials/**/*.scss";
-@import "../../blocks/**/*.scss";
+@import '../../partials/**/*.scss';
+@import '../../blocks/**/*.scss';
 
 /*********************
 PRINT STYLESHEET
 *********************/
 @media print {
-	@import "modules/print";
+	@import 'modules/print';
 }

@@ -3,7 +3,8 @@ SHARE LINKS
 *********************/
 
 .shareLinks {
-	a, a:visited {
+	a,
+	a:visited {
 		fill: $gray;
 		display: inline-block;
 		vertical-align: top;

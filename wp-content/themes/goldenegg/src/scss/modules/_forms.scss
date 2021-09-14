@@ -10,7 +10,7 @@ select,
 textarea,
 .field {
 	background-color: $gray_lighter;
-	border: 1px solid $gray_light;;
+	border: 1px solid $gray_light;
 	border-radius: 3px;
 	box-sizing: border-box;
 	box-shadow: none;
@@ -27,7 +27,6 @@ textarea,
 	&:active {
 		background-color: white;
 	}
-
 }
 
 textarea {
@@ -44,7 +43,6 @@ select {
 	background-position: 95% center;
 	-webkit-appearance: none;
 }
-
 
 /*********************
 GRAVITY FORMS
@@ -69,8 +67,8 @@ GRAVITY FORMS
 		padding-top: 4px !important;
 		color: $gray;
 	}
-	input[type=text],
-	input[type=email] {
+	input[type='text'],
+	input[type='email'] {
 		padding: 6px 10px 4px 10px !important;
 		&::placeholder {
 			color: $gray;
@@ -79,7 +77,8 @@ GRAVITY FORMS
 	textarea {
 		margin-top: 5px;
 		border: 1px solid $gray_light;
-		&:focus, &:active {
+		&:focus,
+		&:active {
 			border-color: $link_color;
 		}
 	}
@@ -87,7 +86,8 @@ GRAVITY FORMS
 		margin: 0 !important;
 		padding: 5px 10px !important;
 		border: 1px solid $gray_light;
-		&:focus, &:active {
+		&:focus,
+		&:active {
 			border-color: $link_color;
 		}
 	}
@@ -102,8 +102,7 @@ GRAVITY FORMS
 		}
 		label {
 		}
-		li input[type=checkbox]:checked+label {
-			
+		li input[type='checkbox']:checked + label {
 		}
 	}
 	// Labels below fields
@@ -119,7 +118,7 @@ GRAVITY FORMS
 			margin-right: 30px;
 		}
 	}
-	
+
 	// Error Messages
 	div.validation_error {
 		background: $link_color;

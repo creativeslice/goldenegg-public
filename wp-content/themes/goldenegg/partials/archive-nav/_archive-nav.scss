@@ -1,4 +1,3 @@
-
 /*************************************
 ARCHIVE PAGE NAVI STYLES
 **************************************/
@@ -22,7 +21,9 @@ ARCHIVE PAGE NAVI STYLES
 			border: none;
 		}
 	}
-	a, a:visited, span {
+	a,
+	a:visited,
+	span {
 		margin: 0;
 		text-decoration: none;
 		padding: 0;
@@ -33,30 +34,32 @@ ARCHIVE PAGE NAVI STYLES
 		min-width: 1em;
 		display: block;
 		color: $link_color;
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			background-color: $link_color;
 			color: $white;
 		}
 	}
-	
-	.current{
+
+	.current {
 		cursor: default;
 		color: $text_color;
 		font-weight: bold;
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			background-color: $white;
 			color: $text_color;
 		}
 	}
 }
 
-
-
-// Next Previous 
-.postPrev, .postNext {
-	font-size: .875em;
+// Next Previous
+.postPrev,
+.postNext {
+	font-size: 0.875em;
 	text-transform: uppercase;
-	a, a:visited {
+	a,
+	a:visited {
 		color: $gray;
 		&:hover {
 			color: $link_hover;

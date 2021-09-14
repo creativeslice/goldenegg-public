@@ -7,10 +7,9 @@ Stylesheet: Variables
 /*********************
 FONTS
 *********************/
-$sans_serif: 		"Helvetica Neue", Arial, sans-serif;
-$serif:				"Georgia", Cambria, Times, serif;
-$headline: 			'DIN', sans-serif;
-
+$sans_serif: 'Helvetica Neue', Arial, sans-serif;
+$serif: 'Georgia', Cambria, Times, serif;
+$headline: 'DIN', sans-serif;
 
 /* Font Face Example 
 @font-face {
@@ -26,48 +25,40 @@ $headline: 			'DIN', sans-serif;
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 */
 
-
 /*********************
 COLORS
 *********************/
 
-$black:				#000;
-$white:				#fff;
+$black: #000;
+$white: #fff;
 
-$gray_lighter:		#f9f9f9;
-$gray_light:		#eee;
-$gray:				#333;
-$gray_dark:			#111;
+$gray_lighter: #f9f9f9;
+$gray_light: #eee;
+$gray: #333;
+$gray_dark: #111;
 
-$gold:				#e8c200;
-$yellow:			$gold;
+$gold: #e8c200;
+$yellow: $gold;
 
-$green:				#547E2A; // #669933;
-$red:				#d3033d;
-$blue:				#2779AE;
+$green: #547e2a; // #669933;
+$red: #d3033d;
+$blue: #2779ae;
 
-$text_color:        $gray_dark;
-$link_color:        $green;
-$link_hover:        $blue;
-
+$text_color: $gray_dark;
+$link_color: $green;
+$link_hover: $blue;
 
 /* Gutenberg color options
 -- see editor-color-palette in includes/gutenberg.php
 --------------------------------------------- */
-$colors:  
-	( gray, $gray ),
-	( gray-light, $gray_light ),
-	( blue, $blue ),
-	( green, $green ),
-	( yellow, $yellow ),
-	( red, $red ),
-	( white, $white ),
-	( black, $black );
+$colors: (gray, $gray), (gray-light, $gray_light), (blue, $blue),
+	(green, $green), (yellow, $yellow), (red, $red), (white, $white),
+	(black, $black);
 
 /*********************
 INLINE COLORS
 *********************/
-@each $name, $color in $colors { 
+@each $name, $color in $colors {
 	.has-#{$name}-color {
 		color: $color;
 	}
@@ -76,33 +67,33 @@ INLINE COLORS
 	}
 }
 
-
 /*********************
 REUSABLE ITEMS
 *********************/
 
-$spacing:    		80px;
-$default_margin:    1.25rem; 	// 20px
+$spacing: 80px;
+$default_margin: 1.25rem; // 20px
 
-$radius:			8px;
+$radius: 8px;
 
-$shadow: 			0 2px 16px rgba(black, .12);
-$shadow_hover: 		0 4px 24px rgba(black, .24);
-$shadow_active:		0 1px 3px rgba(black, .2);
+$shadow: 0 2px 16px rgba(black, 0.12);
+$shadow_hover: 0 4px 24px rgba(black, 0.24);
+$shadow_active: 0 1px 3px rgba(black, 0.2);
 
-$ease:				.2s ease-in-out;
-$easeslow:			.6s ease-in;
-
+$ease: 0.2s ease-in-out;
+$easeslow: 0.6s ease-in;
 
 // Contain floats
-.clearfix, .cf {
+.clearfix,
+.cf {
 	zoom: 1;
-	&:before, &:after { 
-		content: ""; 
-		display: table; 
+	&:before,
+	&:after {
+		content: '';
+		display: table;
 	}
-	&:after { 
-		clear: both; 
+	&:after {
+		clear: both;
 	}
 }
 
@@ -147,16 +138,17 @@ $easeslow:			.6s ease-in;
 	overflow-y: auto; /* use hidden if you only want to show on hover */
 	-ms-overflow-style: none; /* IE 10+ */
 	scrollbar-width: thin; /* Firefox can also use 'none' */
-	&::-webkit-scrollbar { /* Safari and Chrome */
+	&::-webkit-scrollbar {
+		/* Safari and Chrome */
 		width: 8px;
 	}
 	&::-webkit-scrollbar-track {
-	    -webkit-box-shadow: inset 1px 0 0 0 $gray_lighter;
-	    background: $gray_light;
+		-webkit-box-shadow: inset 1px 0 0 0 $gray_lighter;
+		background: $gray_light;
 	}
 	&::-webkit-scrollbar-thumb {
-	    border-radius: 8px;
-	    background: $gray;
+		border-radius: 8px;
+		background: $gray;
 	}
 }
 
@@ -166,34 +158,43 @@ $easeslow:			.6s ease-in;
 }
 
 .hide {
-    display: none;
+	display: none;
 }
-
 
 /*********************
 BREAKPOINTS
 *********************/
 
-$small:		"screen and (min-width: 30em)"; // 480px
-$medium:	"screen and (min-width: 48em)";	// 768px
-$large:		"screen and (min-width: 64em)";	// 1024px
-$xlarge:	"screen and (min-width: 75em)";	// 1200px
-$xxlarge:	"screen and (min-width: 90em)";	// 1440px
+$small: 'screen and (min-width: 30em)'; // 480px
+$medium: 'screen and (min-width: 48em)'; // 768px
+$large: 'screen and (min-width: 64em)'; // 1024px
+$xlarge: 'screen and (min-width: 75em)'; // 1200px
+$xxlarge: 'screen and (min-width: 90em)'; // 1440px
 
 @mixin breakpoint($point) {
 	@if $point == xxlarge {
-		@media #{$xxlarge} { @content; }	// xxlarge screen content
+		@media #{$xxlarge} {
+			@content;
+		} // xxlarge screen content
 	}
 	@if $point == xlarge {
-		@media #{$xlarge} { @content; }		// xlarge screen content
+		@media #{$xlarge} {
+			@content;
+		} // xlarge screen content
 	}
 	@if $point == large {
-		@media #{$large} { @content; }		// large screen content
+		@media #{$large} {
+			@content;
+		} // large screen content
 	}
 	@if $point == medium {
-		@media #{$medium} { @content; }		// medium screen content
+		@media #{$medium} {
+			@content;
+		} // medium screen content
 	}
 	@if $point == small {
-		@media #{$small} { @content; }		// small screen content
+		@media #{$small} {
+			@content;
+		} // small screen content
 	}
 }

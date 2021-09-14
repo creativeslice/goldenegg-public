@@ -4,8 +4,9 @@
   "description": "Custom starter theme built by Creative Slice",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "gulp": "gulp;gulp watch",
+    "icons": "gulp icons"
+},
   "keywords": [
     "gulp",
     "wordpress"
@@ -17,27 +18,28 @@
   },
   "homepage": "https://github.com/creativeslice/goldenegg#readme",
   "devDependencies": {
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-cheerio": "^1.0.0",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-if": "^3.0.0",
-    "gulp-jshint": "^2.1.0",
-    "gulp-livereload": "^4.0.2",
-    "gulp-notify": "^3.2.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sass-glob": "^1.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-strip-debug": "^3.0.0",
-    "gulp-svgmin": "^2.2.0",
-    "gulp-svgstore": "^7.0.1",
-    "gulp-uglify": "^3.0.2",
-    "jshint": "^2.10.3"
+    "gulp-autoprefixer": "^7.0",
+    "gulp-cheerio": "^1.0",
+    "gulp-clean-css": "^4.2",
+    "gulp-concat": "^2.6",
+    "gulp-if": "^3.0",
+    "gulp-jshint": "^2.1",
+    "gulp-livereload": "^4.0",
+    "gulp-notify": "^3.2",
+    "gulp-plumber": "^1.2",
+    "gulp-prettier": "^4.0",
+    "gulp-rename": "^1.4",
+    "gulp-sass": "^4.0",
+    "gulp-sass-glob": "^1.1",
+    "gulp-sourcemaps": "^2.6",
+    "gulp-strip-debug": "^3.0",
+    "gulp-svgmin": "^2.2",
+    "gulp-svgstore": "^7.0",
+    "gulp-uglify": "^3.0",
+    "jshint": "^2.10"
   },
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4"
   },
   "repository": {
     "type": "git",

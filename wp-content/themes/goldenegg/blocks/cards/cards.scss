@@ -58,16 +58,15 @@ ACF Block - Cards
 			justify-content: space-between;
 		}
 		&.noText {
-            justify-content: center !important;
-        }
-        &.noImage {
-            flex-direction: column !important;
-            justify-content: center !important;
-            text-align: center;
-            padding-top: $spacing;
-            padding-bottom: $spacing;
-        }
-        
+			justify-content: center !important;
+		}
+		&.noImage {
+			flex-direction: column !important;
+			justify-content: center !important;
+			text-align: center;
+			padding-top: $spacing;
+			padding-bottom: $spacing;
+		}
 	}
 	a.cardACF {
 		text-decoration: none;
@@ -102,62 +101,62 @@ ACF Block - Cards
 			}
 		}
 	}
-@include breakpoint(medium) {
-	&.columns-two {
-		.cardACF {
-			//width: calc(50% - 30px);
-			flex-wrap: nowrap;
-			flex-direction: row !important;
-			align-items: center;
-			figure {
-				width: 45%;
-				min-width: 45%;
+	@include breakpoint(medium) {
+		&.columns-two {
+			.cardACF {
+				//width: calc(50% - 30px);
+				flex-wrap: nowrap;
+				flex-direction: row !important;
+				align-items: center;
+				figure {
+					width: 45%;
+					min-width: 45%;
+				}
+			}
+		}
+		&.columns-three,
+		&.columns-four {
+			.cardACF {
+				width: calc(33% - 20px);
 			}
 		}
 	}
-	&.columns-three,
-	&.columns-four {
-		.cardACF {
-			width: calc(33% - 20px);
+	@include breakpoint(large) {
+		&.columns-two {
+			.cardACF {
+				margin: 0;
+				width: calc(50% - 20px);
+			}
 		}
-	}
-}
-@include breakpoint(large) {
-	&.columns-two {
-		.cardACF {
-			margin: 0;
-			width: calc(50% - 20px);
-		}
-	}
-	&.columns-four {
-		.cardACF {
-			width: calc(25% - 40px);
-		}
-	}
-}
-@include breakpoint(xlarge) {
-	.cardACF {
-		margin: 20px;
-	}
-	&.columns-two {
-		.cardACF {
-			margin: 0;
-			width: 50%;
-		}
-	}
-	&.columns-three {
-		.cardACF {
-			.cardContent {
-				padding: $spacing/2;
+		&.columns-four {
+			.cardACF {
+				width: calc(25% - 40px);
 			}
 		}
 	}
-	&.columns-four {
+	@include breakpoint(xlarge) {
 		.cardACF {
-			.cardContent p {
-				font-size: 1.25rem;
+			margin: 20px;
+		}
+		&.columns-two {
+			.cardACF {
+				margin: 0;
+				width: 50%;
+			}
+		}
+		&.columns-three {
+			.cardACF {
+				.cardContent {
+					padding: $spacing/2;
+				}
+			}
+		}
+		&.columns-four {
+			.cardACF {
+				.cardContent p {
+					font-size: 1.25rem;
+				}
 			}
 		}
 	}
-}
 }

@@ -3,7 +3,7 @@ MENU NAVIGATION
 *********************/
 
 // Mobile Menu and Search Toggle
-#menuToggle{
+#menuToggle {
 	display: block;
 	position: relative;
 	float: right;
@@ -32,19 +32,18 @@ MENU NAVIGATION
 	.label {
 		display: none;
 	}
-@include breakpoint(small) {
-	width: auto;
-	.label {
-		display: block;
-		margin-right: 36px;
-		color: $link_color;
+	@include breakpoint(small) {
+		width: auto;
+		.label {
+			display: block;
+			margin-right: 36px;
+			color: $link_color;
+		}
+	}
+	@include breakpoint(large) {
+		display: none;
 	}
 }
-@include breakpoint(large) {
-	display: none;
-}
-}
-
 
 /*********************
 MAIN MENU
@@ -52,9 +51,9 @@ MAIN MENU
 // Main Menu Wrapper
 .menuFull {
 	display: none;
-@include breakpoint(large) {
-	display: block !important;
-}
+	@include breakpoint(large) {
+		display: block !important;
+	}
 }
 
 .mainNav {
@@ -67,12 +66,14 @@ MAIN MENU
 		list-style: none;
 	}
 	li {
-		a, a:visited {
+		a,
+		a:visited {
 			display: block;
 			text-decoration: none;
 			padding: 1em;
 			transition: all $ease;
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 			}
 		}
 		ul.sub-menu,
@@ -81,10 +82,11 @@ MAIN MENU
 				max-width: 49%;
 				display: inline-block;
 				vertical-align: top;
-				a, a:visited {
+				a,
+				a:visited {
 					text-transform: none;
 					letter-spacing: 0;
-					padding: .5em 1em;
+					padding: 0.5em 1em;
 				}
 			}
 		}
@@ -92,53 +94,55 @@ MAIN MENU
 	li.current-menu-item,
 	li.current_page_item,
 	li.current-page-ancestor {
-		> a, > a:visited {
+		> a,
+		> a:visited {
 		}
 	}
-@include breakpoint(large) {
-	li {
-		display: inline-block;
-		vertical-align: top;
-		position: relative;
-		ul.sub-menu,
-		ul.children {
-			left: 0;
-			//right: 0; // for menus on right side of screen
-			margin-top: 0;
-			position: absolute;
-			z-index: 999;
-			overflow: hidden;
-			visibility: hidden;
-			opacity: 0;
-			transition: visibility $ease, opacity $ease;
-			text-align: left;
-			background: $white;
-			box-shadow: $shadow;
-			li {
-				max-width: none;
-				a, a:visited {
-					padding-left: 1em;
-					border-right: 0;
-					display: block;
-					width: 220px;
-					border-top: 1px solid $gray_light;
-					&:hover {
+	@include breakpoint(large) {
+		li {
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			ul.sub-menu,
+			ul.children {
+				left: 0;
+				//right: 0; // for menus on right side of screen
+				margin-top: 0;
+				position: absolute;
+				z-index: 999;
+				overflow: hidden;
+				visibility: hidden;
+				opacity: 0;
+				transition: visibility $ease, opacity $ease;
+				text-align: left;
+				background: $white;
+				box-shadow: $shadow;
+				li {
+					max-width: none;
+					a,
+					a:visited {
+						padding-left: 1em;
+						border-right: 0;
+						display: block;
+						width: 220px;
+						border-top: 1px solid $gray_light;
+						&:hover {
+						}
+					}
+				}
+				li:first-child {
+					a {
+						border: none;
 					}
 				}
 			}
-			li:first-child {
-				a {
-					border: none;
-				}
+			// show on hover
+			&:hover ul {
+				top: auto;
+				overflow: visible;
+				visibility: visible;
+				opacity: 1;
 			}
 		}
-		// show on hover
-		&:hover ul {
-			top: auto;
-			overflow: visible;
-			visibility: visible;
-			opacity: 1;
-		}
 	}
-}
 }
