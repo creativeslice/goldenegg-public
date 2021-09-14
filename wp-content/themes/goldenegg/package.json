@@ -7,6 +7,7 @@
     "gulp:stage": "export DISABLE_NOTIFIER=true;export NODE_ENV=development;gulp",
     "gulp:prod": "export DISABLE_NOTIFIER=true;export NODE_ENV=production;gulp",
     "gulp:watch": "NODE_ENV=development;gulp;gulp watch",
+    "gulp": "NODE_ENV=development;gulp",
     "icons": "gulp icons"
   },
   "keywords": [
