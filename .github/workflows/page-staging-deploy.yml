@@ -2,7 +2,7 @@ name: "pagely-deploy"
 on:
   push:
     branches: [ develop ]
-     
+
 jobs:
   deploy:
     name: Deploy to Pagely Staging
@@ -10,6 +10,22 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+      - name: Build Assets
+        working-directory: ${{ github.workspace }}
+        run: ls -la
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: install root node_modules
+        working-directory: wp-content/themes/goldenegg
+        run: |
+          npm ci
+      - name: run gulp for staging
+        working-directory: wp-content/themes/goldenegg
+        run: |
+          npm run gulp-stage
+      - name: install vue node_modules
       - name: Run deploy
         uses: pagely/action-deploy@v1
         with:
