@@ -1,6 +1,8 @@
 name: "pagely-deploy"
 on:
-  push:[develop]
+  push:
+    branches: [ develop ]
+     
 jobs:
   deploy:
     name: Deploy to Pagely Staging
