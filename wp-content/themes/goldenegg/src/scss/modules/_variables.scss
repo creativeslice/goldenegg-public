@@ -5,11 +5,47 @@ Stylesheet: Variables
 ******************************************************************/
 
 /*********************
+BREAKPOINTS
+*********************/
+$small: 'screen and (min-width: 30em)'; // 480px
+$medium: 'screen and (min-width: 48em)'; // 768px
+$large: 'screen and (min-width: 64em)'; // 1024px
+$xlarge: 'screen and (min-width: 75em)'; // 1200px
+$xxlarge: 'screen and (min-width: 90em)'; // 1440px
+@mixin breakpoint($point) {
+	@if $point == xxlarge {
+		@media #{$xxlarge} {
+			@content;
+		}
+	}
+	@if $point == xlarge {
+		@media #{$xlarge} {
+			@content;
+		}
+	}
+	@if $point == large {
+		@media #{$large} {
+			@content;
+		}
+	}
+	@if $point == medium {
+		@media #{$medium} {
+			@content;
+		}
+	}
+	@if $point == small {
+		@media #{$small} {
+			@content;
+		}
+	}
+}
+
+/*********************
 FONTS
 *********************/
 $sans_serif: 'Helvetica Neue', Arial, sans-serif;
 $serif: 'Georgia', Cambria, Times, serif;
-$headline: 'DIN', sans-serif;
+//$headline: 'DIN', sans-serif;
 
 /* Font Face Example 
 @font-face {
@@ -26,8 +62,57 @@ $headline: 'DIN', sans-serif;
 */
 
 /*********************
+RESPONSIVE CSS VARIABLES
+example use: margin: var(--wp--preset--font-size--medium);
+*********************/
+/* 
+:root (this doesn't always work with theme.json)
+body #container
+*/
+body {
+	--wp--preset--font-size--xsmall: 0.75rem;
+	--wp--preset--font-size--small: 1rem;
+	--wp--preset--font-size--medium: 1.125rem;
+	--wp--preset--font-size--large: 1.25rem;
+	--wp--preset--font-size--xlarge: 2rem;
+	--wp--preset--font-size--huge: 3rem;
+
+	/*
+	--line-height--xsmall: 20px;
+	--line-height--regular: 24px;
+	--line-height--medium: 28px;
+	--line-height--large: 32px;
+	--line-height--xlarge: 40px;
+	--line-height--huge: 48px;
+
+	--wp--preset--font-family--helvetica: $sans_serif;
+	--typography__fontSize: 1rem;
+	--spacing__rhythmUnit: 1.5rem;
+	
+	--margin--xsmall: 10px;
+	--margin--small: 20px;
+	--margin--medium: 20px;
+	--margin--large: 30px;
+	*/
+	@include breakpoint(large) {
+		--wp--preset--font-size--xsmall: 0.875rem;
+		--wp--preset--font-size--small: 1.125rem;
+		--wp--preset--font-size--medium: 1.25rem;
+		--wp--preset--font-size--large: 1.5rem;
+		--wp--preset--font-size--xlarge: 3rem;
+		--wp--preset--font-size--huge: 4rem;
+	}
+}
+
+/*********************
 COLORS
 *********************/
+
+// Colors are set in theme.json file
+:root {
+	--dark-blue: #1973be;
+}
+$blueDark: var(--dark-blue);
 
 $black: #000;
 $white: #fff;
@@ -69,6 +154,7 @@ INLINE COLORS
 
 /*********************
 REUSABLE ITEMS
+These should be replaced by CSS variables above
 *********************/
 
 $spacing: 80px;
@@ -154,47 +240,9 @@ $easeslow: 0.6s ease-in;
 
 // keep phrase from breaking to 2nd line: class adding through wysiwyg
 .nowrap {
-	display: inline-block;
+	//display: inline-block;
 }
 
 .hide {
-	display: none;
-}
-
-/*********************
-BREAKPOINTS
-*********************/
-
-$small: 'screen and (min-width: 30em)'; // 480px
-$medium: 'screen and (min-width: 48em)'; // 768px
-$large: 'screen and (min-width: 64em)'; // 1024px
-$xlarge: 'screen and (min-width: 75em)'; // 1200px
-$xxlarge: 'screen and (min-width: 90em)'; // 1440px
-
-@mixin breakpoint($point) {
-	@if $point == xxlarge {
-		@media #{$xxlarge} {
-			@content;
-		} // xxlarge screen content
-	}
-	@if $point == xlarge {
-		@media #{$xlarge} {
-			@content;
-		} // xlarge screen content
-	}
-	@if $point == large {
-		@media #{$large} {
-			@content;
-		} // large screen content
-	}
-	@if $point == medium {
-		@media #{$medium} {
-			@content;
-		} // medium screen content
-	}
-	@if $point == small {
-		@media #{$small} {
-			@content;
-		} // small screen content
-	}
+	//display: none;
 }

@@ -9,6 +9,9 @@ Stylesheet: Variables
 
 ******************************************************************/
 /*********************
+BREAKPOINTS
+*********************/
+/*********************
 FONTS
 *********************/
 /* Font Face Example 
@@ -24,8 +27,52 @@ FONTS
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 */
 /*********************
+RESPONSIVE CSS VARIABLES
+example use: margin: var(--wp--preset--font-size--medium);
+*********************/
+/* 
+:root (this doesn't always work with theme.json)
+body #container
+*/
+body {
+  --wp--preset--font-size--xsmall: 0.75rem;
+  --wp--preset--font-size--small: 1rem;
+  --wp--preset--font-size--medium: 1.125rem;
+  --wp--preset--font-size--large: 1.25rem;
+  --wp--preset--font-size--xlarge: 2rem;
+  --wp--preset--font-size--huge: 3rem;
+  /*
+	--line-height--xsmall: 20px;
+	--line-height--regular: 24px;
+	--line-height--medium: 28px;
+	--line-height--large: 32px;
+	--line-height--xlarge: 40px;
+	--line-height--huge: 48px;
+
+	--wp--preset--font-family--helvetica: $sans_serif;
+	--typography__fontSize: 1rem;
+	--spacing__rhythmUnit: 1.5rem;
+	
+	--margin--xsmall: 10px;
+	--margin--small: 20px;
+	--margin--medium: 20px;
+	--margin--large: 30px;
+	*/ }
+  @media screen and (min-width: 64em) {
+    body {
+      --wp--preset--font-size--xsmall: 0.875rem;
+      --wp--preset--font-size--small: 1.125rem;
+      --wp--preset--font-size--medium: 1.25rem;
+      --wp--preset--font-size--large: 1.5rem;
+      --wp--preset--font-size--xlarge: 3rem;
+      --wp--preset--font-size--huge: 4rem; } }
+
+/*********************
 COLORS
 *********************/
+:root {
+  --dark-blue: #1973be; }
+
 /* Gutenberg color options
 -- see editor-color-palette in includes/gutenberg.php
 --------------------------------------------- */
@@ -82,6 +129,7 @@ INLINE COLORS
 
 /*********************
 REUSABLE ITEMS
+These should be replaced by CSS variables above
 *********************/
 .clearfix,
 .cf {
@@ -146,15 +194,6 @@ REUSABLE ITEMS
     border-radius: 8px;
     background: #333; }
 
-.nowrap {
-  display: inline-block; }
-
-.hide {
-  display: none; }
-
-/*********************
-BREAKPOINTS
-*********************/
 /* Page Title
 --------------------------------------------- */
 .edit-post-visual-editor__post-title-wrapper .editor-post-title {

@@ -1,4 +1,4 @@
-<?php
+<?php // CUSTOM POST TYPES (CPT)
 
 /**
  * Flush rewrite rules for custom post types

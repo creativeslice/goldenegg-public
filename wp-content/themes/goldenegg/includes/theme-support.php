@@ -29,6 +29,17 @@ add_filter( 'intermediate_image_sizes', function($sizes) {
 
 
 /**
+ * Allow SVG uploads
+ */
+add_filter( 'upload_mimes', 'cc_mime_types' );
+function cc_mime_types( $mimes ){
+	$mimes['svg'] = 'image/svg+xml';
+	$mimes['svg'] = 'image/svg';
+	return $mimes;
+}
+
+
+/**
  * Force galleries to link to file instead of attachment page
  */
 add_shortcode( 'gallery', 'my_gallery_shortcode' );

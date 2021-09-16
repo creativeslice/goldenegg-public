@@ -1,6 +1,5 @@
 <?php // CLEANUP WP ADMIN
 
-
 /**
  * Customize the login screen
  */
@@ -12,19 +11,19 @@ function egg_login_init() {
 }
 
 // Add theme login CSS
-function egg_login_css() {
-	wp_enqueue_style( 'egg_admin_login', get_template_directory_uri() . '/assets/css/login.css', false );
-}
+function egg_login_css() { wp_enqueue_style( 'egg_admin_login', get_template_directory_uri() . '/assets/css/login.css', false ); }
 
 // Change logo link to site home
-function egg_login_url() {
-	return home_url( '/' );
-}
+function egg_login_url() { return home_url( '/' ); }
 
 // Change the alt text on the logo to site name
-function egg_login_title() {
-	return get_option('blogname');
-}
+function egg_login_title() { return get_option('blogname'); }
+
+
+/**
+ * Re-enable infinite scrolling in media library
+ */
+add_filter( 'media_library_infinite_scrolling', '__return_true' );
 
 
 /**
@@ -34,12 +33,14 @@ function egg_login_title() {
 
 
 /**
- * Turn off Autosave
+ * Turn off Autosave (does not currently work with Gutenberg)
  */
-//add_action( 'admin_init', 'disable_autosave' );
+/*
+add_action( 'admin_init', 'disable_autosave' );
 function disable_autosave() {
 	wp_deregister_script( 'autosave' );
 }
+*/
 
 
 /**
@@ -141,15 +142,20 @@ function egg_hide_welcome_panel( $value, int $user_id, string $meta_key ) {
 	return [0];
 }
 
-
 /**
  * Remove some admin pages like links
  */
-add_action( 'admin_menu', 'egg_remove_menu_pages' );
+add_action( 'admin_menu', 'egg_remove_menu_pages', 999 );
 function egg_remove_menu_pages() {
+	
 	remove_menu_page('link-manager.php');
 	remove_submenu_page( 'tools.php', 'site-health.php' );
 	if (! current_user_can('manage_options') ) remove_menu_page('tools.php');
+	
+	// Hide CPT UI plugin menu
+	//remove_menu_page('cptui_main_menu');
+	
+	//echo '<pre>' . print_r( $GLOBALS[ 'menu' ], TRUE) . '</pre>';
 }
 
 
@@ -175,6 +181,7 @@ function egg_customize_admin_bar() {
 	$wp_admin_bar->remove_menu('customize-themes');
 	$wp_admin_bar->remove_menu('themes');
 	$wp_admin_bar->remove_menu('widgets');
+	//$wp_admin_bar->remove_node('rank-math'); // Rank Math plugin
 }
 
 

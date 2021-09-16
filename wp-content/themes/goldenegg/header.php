@@ -29,8 +29,8 @@
 	
 	<a class="screen-reader-text" href="#content">Skip to Content</a>
 	
-	<?php // Alert Bar Notices
-		get_template_part( 'partials/notices/notices' ); 
+	<?php // ACF Alert Bar Notices
+		//get_template_part( 'partials/notices/notices' ); 
 	?>
 	
 	<?php // Search Form 
@@ -39,7 +39,7 @@
 	
 	<header class="pageHeader">  
 	
-		<div class="wrap cf">
+		<div class="wrap">
 	
 			<a id="logo" href="<?php echo home_url(); ?>" title="Home">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" />
