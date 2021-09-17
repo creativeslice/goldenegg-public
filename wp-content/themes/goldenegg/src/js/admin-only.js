@@ -1,6 +1,6 @@
 /*
  * Scripts for the Admin Area Only
  */
- jQuery(document).ready(function() {
+window.addEventListener('load', function() {
 
 });
