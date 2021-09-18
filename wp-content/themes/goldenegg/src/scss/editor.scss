@@ -21,7 +21,7 @@ Stylesheet: WP Editor Stylesheet
 
 	// These load in the editor ONLY, not the sidebar
 	@import 'modules/typography';
-	@import 'base';
+	@import 'modules/base';
 
 	// Alignment Width in Editor
 	.wp-block {

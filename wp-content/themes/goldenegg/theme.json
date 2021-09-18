@@ -73,7 +73,7 @@
 		"customFontWeight": true,
 		"fontFamilies": [
 			{
-				"fontFamily": "-apple-system,BlinkMacSystemFont,Roboto,Ubuntu,sans-serif",
+				"fontFamily": "-apple-system,Ubuntu,sans-serif",
 				"slug": "system-fonts",
 				"name": "System Fonts"
 			},
@@ -170,24 +170,14 @@
 		"text": "var(--wp--preset--color--gray-dark)"
 	},
 	"typography": {
-		"fontSize": "18px",
+		"fontSize": "16px",
 		"fontFamily": "var(--wp--preset--font-family--helvetica)",
 		"lineHeight": "1.778rem"
 	},
 	"blocks": {
-		"core/heading": {
-			"color": {
-				"text": "var(--wp--preset--color--black)"
-			}
-		},
 		"core/paragraph": {
 			"typography": {
-				"fontSize": "var(--wp--preset--font-size--small)"
-			}
-		},
-		"core/list": {
-			"typography": {
-				"fontSize": "var(--wp--preset--font-size--small)"
+				"fontSize": "var(--wp--preset--font-size--normal)"
 			}
 		}
 	}

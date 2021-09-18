@@ -2,14 +2,14 @@
  * Gulp v4 Configuration
  */
 
-	var environment = 'prod' // always default to production
-	var compress = 'compressed' // default to compressed
+var environment = 'prod' // always default to production
+var compress = 'compressed' // default to compressed
 
-	if (process.env.NODE_ENV === 'development') {
-		environment = 'dev'
-		compress = 'expanded' // if development build try to expand
-	}
-	console.log('gulp settings NODE_ENV:', process.env.NODE_ENV, 'Environment: ' + environment, 'Compress: ' + compress)
+if (typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV === 'development') {
+	environment = 'dev'
+	compress = 'expanded' // if development build try to expand
+}
+//console.log('gulp settings NODE_ENV:', process.env.NODE_ENV, 'Environment: ' + environment, 'Compress: ' + compress)
 
 	gulp = 			require('gulp'),
 	sass = 			require('gulp-sass'),
@@ -39,8 +39,7 @@
 	// opinionated scss formatting
 	prettier = 		require('gulp-prettier'),
 
-	compression = compress;
-
+	compression = ( 'prod' === environment ? 'compressed' : 'expanded' );
 
 
 /**

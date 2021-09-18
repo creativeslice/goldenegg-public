@@ -39,15 +39,19 @@ hr {
 /*********************
 LINK STYLES
 *********************/
+
 a,
 a:visited {
-	color: $link_color;
+	color: var(--link-color);
+
+	//color: rgb(var(--red, var(--link-color, 0, 0, 255)));
+
 	&:hover,
 	&:focus {
-		color: $link_hover;
+		color: var(--link-color--hover);
 	}
 	&:active {
-		color: darken($link_hover, 10%);
+		color: var(--link-color--active);
 	}
 	&:link {
 		-webkit-tap-highlight-color: rgba($link_color, 0.6); // mobile tap color
