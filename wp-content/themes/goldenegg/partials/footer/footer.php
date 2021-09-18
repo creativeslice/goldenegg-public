@@ -9,7 +9,7 @@
 			'depth' => 1
 		)); ?>
 		
-		<a href="#" target="_blank" rel="noopener nofollow" aria-label="Twitter">
+		<a class="social-icon" href="#" target="_blank" rel="noopener nofollow" aria-label="Twitter">
 			<svg><use href="<?php echo get_svg('twitter'); ?>"></use></svg>
 		</a>
 

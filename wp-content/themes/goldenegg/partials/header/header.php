@@ -11,7 +11,7 @@
 	
 	<?php wp_head(); ?>
 	
-	<?php //get_template_part( 'partials/favicons/favicons' ); ?>
+	<?php get_template_part( 'partials/favicons/favicons' ); ?>
 	
 	<?php // Server Environment Type
 	switch ( wp_get_environment_type() ) {

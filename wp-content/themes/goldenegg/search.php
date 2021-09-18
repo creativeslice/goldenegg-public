@@ -1,4 +1,4 @@
-<?php get_header(); // Search Results ?>
+<?php get_template_part('partials/header/header'); // Search Results ?>
 
 <div id="content" class="wrap">
 	
@@ -38,4 +38,4 @@
 
 </div>
 
-<?php get_footer();
+<?php get_template_part('partials/footer/footer');

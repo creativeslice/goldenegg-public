@@ -1,4 +1,4 @@
-<?php get_header(); // Template Name: Has Sidebar ?>
+<?php get_template_part('partials/header/header'); // Template Name: Has Sidebar ?>
 
 <article id="content" class="wrapperWide">
 	
@@ -23,5 +23,5 @@
 
 </article>
 
-<?php get_footer();
+<?php get_template_part('partials/footer/footer');
 	

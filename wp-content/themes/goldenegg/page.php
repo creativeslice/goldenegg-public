@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_template_part('partials/header/header'); ?>
 
 <main id="content">
 	<article class="gutenbergBlocks">
@@ -6,4 +6,4 @@
 	</article>
 </main>
 
-<?php get_footer();
+<?php get_template_part('partials/footer/footer');
