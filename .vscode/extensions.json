@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ikappas.phpcs",
+        "persoderlind.vscode-phpcbf",
+        "stylelint.vscode-stylelint",
+        "EditorConfig.EditorConfig"
+    ]
+}
