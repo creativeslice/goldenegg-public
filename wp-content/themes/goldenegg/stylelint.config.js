@@ -2,7 +2,7 @@
 
 module.exports = {
 	extends: [
-		'stylelint-config-wordpress', 'prettier-stylelint/config.js'
+		'@wordpress/stylelint-config', 'prettier-stylelint/config.js'
 	],
 	plugins: 'stylelint-order',
 	rules: {

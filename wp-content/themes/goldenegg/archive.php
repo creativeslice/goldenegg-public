@@ -1,4 +1,4 @@
-<?php get_template_part('partials/header/header'); ?>
+<?php get_template_part( 'partials/header/header' ); ?>
 
 <div id="content" class="wrap">
 
@@ -12,36 +12,41 @@
 			<span>Posts Tagged:</span> <?php single_tag_title(); ?>
 		</h1>
 
-	<?php elseif ( is_author() ) :
+		<?php
+	elseif ( is_author() ) :
 		global $post;
 		$author_id = $post->post_author;
-	?>
+		?>
 		<h1 class="archiveTitle">
-			<span>Posts By:</span> <?php the_author_meta('display_name', $author_id); ?>
+			<span>Posts By:</span> <?php the_author_meta( 'display_name', $author_id ); ?>
 		</h1>
 	<?php elseif ( is_day() ) : ?>
 		<h1 class="archiveTitle">
-			<span>Daily Archives:</span> <?php the_time('l, F j, Y'); ?>
+			<span>Daily Archives:</span> <?php the_time( 'l, F j, Y' ); ?>
 		</h1>
 
 	<?php elseif ( is_month() ) : ?>
 		<h1 class="archiveTitle">
-			<span>Monthly Archives:</span> <?php the_time('F Y'); ?>
+			<span>Monthly Archives:</span> <?php the_time( 'F Y' ); ?>
 		</h1>
 
 	<?php elseif ( is_year() ) : ?>
 		<h1 class="archiveTitle">
-			<span>Yearly Archives:</span> <?php the_time('Y'); ?>
+			<span>Yearly Archives:</span> <?php the_time( 'Y' ); ?>
 		</h1>
-		
+	
 	<?php endif; ?>
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	<?php
+	if ( have_posts() ) :
+		while ( have_posts() ) :
+			the_post();
+			?>
 
 	<article <?php post_class( 'cf' ); ?>>
 
 		<header class="articleHeader">
-			<a class="h3" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+			<a class="h3" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 		</header>
 
 		<section class="entryContent">
@@ -51,12 +56,15 @@
 
 	</article>
 
-	<?php endwhile;
+			<?php
+	endwhile;
 		get_template_part( 'partials/archive-nav/archive-nav' );
-	else : 
+	else :
 		echo '<h1>Nothing Found Here</h1>';
-	endif; ?>
+	endif;
+	?>
 
 </div>
 
-<?php get_template_part('partials/footer/footer');
+<?php
+get_template_part( 'partials/footer/footer' );
