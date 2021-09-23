@@ -8,7 +8,8 @@
     "gulp:prod": "export DISABLE_NOTIFIER=true;export NODE_ENV=production;gulp",
     "gulp:watch": "NODE_ENV=development;gulp;gulp watch",
     "gulp": "NODE_ENV=development;gulp",
-    "gulp:icons": "export NODE_ENV=production;gulp icons"
+    "gulp:icons": "export NODE_ENV=production;gulp icons",
+      "lint": "eslint --fix"
   },
   "keywords": [
     "gulp",

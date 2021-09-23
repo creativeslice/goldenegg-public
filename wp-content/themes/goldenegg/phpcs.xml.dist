@@ -2,7 +2,7 @@
 <ruleset name="WordPress Theme">
 	<description>PHPCS Ruleset for a WordPress Theme</description>
 	<!-- Check files in this directory and subdirectories. -->
-	<file>.</file>
+	<file>wp-content</file>
 	<!-- Prevent sniffs of some directories. -->
 	<exclude-pattern>/vendor/</exclude-pattern>
 	<!-- Pass flags to PHPCS:
