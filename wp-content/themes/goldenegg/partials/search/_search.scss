@@ -2,7 +2,7 @@
 Search Form
 *********************/
 
-.searchForm {
+.search-form {
 	display: none; // hide before pressing #searchToggle
 	margin: 0;
 	text-align: center;
@@ -10,19 +10,19 @@ Search Form
 	top: 48px;
 	left: 0;
 	width: 100%;
-	.searchField {
+	.search-field {
 		display: inline-block;
 		vertical-align: top;
 		width: calc(100% - 120px);
 	}
-	.searchSubmit {
+	.search-submit {
 		display: inline-block;
 		vertical-align: top;
 		width: 100px;
 	}
 }
 
-#searchToggle {
+#search-toggle {
 	display: block;
 	position: relative;
 	float: right;
@@ -48,7 +48,7 @@ Search Form
 			display: none;
 		}
 	}
-	.menuText {
+	.menu-text {
 		display: none;
 	}
 }

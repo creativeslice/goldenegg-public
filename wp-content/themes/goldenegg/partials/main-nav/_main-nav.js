@@ -1,13 +1,13 @@
 jQuery(document).ready(function($) {
-		
+
 	/**
 	 * Mobile menu toggle
 	 */
-	$('#menuToggle').click(function(e) {
+	$('#menu-toggle').click(function(e) {
 		//e.preventDefault();
 		var $this = $(this);
 		$this.toggleClass('active');
-		$('.menuFull').slideToggle(300);
+		$('.menu-full').slideToggle(300);
 		//$('.menuFull').toggleClass('active');
 	});
 
@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
     if ( 'ontouchstart' in window ) {
         var touched = false;
         jQuery('body')
-            .on('touchstart click', '.mainNav > .menu-item-has-children > a', function(e) {
+            .on('touchstart click', '.main-nav > .menu-item-has-children > a', function(e) {
                 e.preventDefault();
                 if ('click' !== e.type) {
                     var el = jQuery(this).parent();
@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
                 }
             });
     } else {
-        jQuery('.mainNav').find('a').on('focus blur', function() {
+        jQuery('.main-nav').find('a').on('focus blur', function() {
             var el = jQuery(this).closest('.menu-item-has-children');
             el.toggleClass('focus');
         });

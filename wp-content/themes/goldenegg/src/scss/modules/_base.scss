@@ -85,7 +85,7 @@ LAYOUT & GRID STYLES
 	max-width: 1240px;
 }
 
-.wrapperInner {
+.wrapper-inner {
 	width: 92%;
 	margin-right: auto;
 	margin-left: auto;
@@ -101,13 +101,13 @@ GUTENBERG Blocks
 similar to old .entryContent
 *********************/
 
-.gutenbergBlocks {
-	overflow: hidden; // this might break position sticky
+.wp-site-blocks {
+	//overflow: hidden; // this might break position sticky
 }
 
 // Gutenberg Blocks, first child
 // Style all the core blocks without a wrapper :not(.acf-block)
-.gutenbergBlocks > {
+.wp-site-blocks > {
 	*:not(.acf-block) {
 		width: calc(100% - 40px);
 		max-width: 760px;
@@ -128,54 +128,9 @@ similar to old .entryContent
 		width: 100%;
 		max-width: 100%;
 	}
-
-	// Core group block
-	.wp-block-group {
-		.wp-block-group__inner-container > {
-			*:not(.acf-block) {
-				width: calc(100% - 40px);
-				max-width: 760px;
-				margin-right: auto;
-				margin-left: auto;
-			}
-			.alignwide {
-				max-width: 1240px; // 1180
-			}
-			.alignfull {
-				width: 100%;
-				max-width: 100%;
-			}
-		}
-	}
 	@include breakpoint(large) {
 	}
 }
-
-/*********************
-CORE GUTENBERG
-If wp_dequeue_style( 'wp-block-library' );
-*********************/
-/*
-.has-text-align-center {
-	text-align: center;
-}
-.has-text-align-left {
-	text-align: left;
-}
-.has-text-align-right {
-	text-align: right;
-}
-
-.is-content-justification-center {
-	justify-content: center;
-}
-
-.wp-block-buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-*/
 
 /*********************
 ACCESSIBILITY using what intent

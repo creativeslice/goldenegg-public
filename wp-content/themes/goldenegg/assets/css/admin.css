@@ -11,7 +11,7 @@ Stylesheet: Variables
 /*********************
 FONTS
 *********************/
-/* Font Face Example 
+/* Font Face Example
 @font-face {
 	font-family: 'MMResistSans';
 	src: url('../fonts/ResistSansDisplayBold.woff2') format('woff2');
@@ -30,22 +30,22 @@ BREAKPOINTS
 RESPONSIVE CSS VARIABLES
 example use: margin: var(--wp--preset--font-size--medium);
 *********************/
-/* 
+/*
 :root (this doesn't always work with theme.json)
 body #container
 */
 body {
-  --wp--preset--font-size--xsmall: 0.75rem;
-  --wp--preset--font-size--small: 1rem;
+  --wp--preset--font-size--tiny: 0.75rem;
+  --wp--preset--font-size--small: 0.875rem;
   --wp--preset--font-size--normal: 1rem;
-  --wp--preset--font-size--medium: 1.125rem;
   --wp--preset--font-size--large: 1.25rem;
   --wp--preset--font-size--xlarge: 2rem;
-  --wp--preset--font-size--huge: 3rem;
+  --wp--preset--font-size--huge: 2.25rem;
+  --wp--preset--font-size--gigantic: 3rem;
   --line-height--normal: 24px;
   /*
 	--line-height--xsmall: 20px;
-	
+
 	--line-height--medium: 28px;
 	--line-height--large: 32px;
 	--line-height--xlarge: 40px;
@@ -54,7 +54,7 @@ body {
 	--wp--preset--font-family--helvetica: $sans_serif;
 	--typography__fontSize: 1rem;
 	--spacing__rhythmUnit: 1.5rem;
-	
+
 	--margin--xsmall: 10px;
 	--margin--small: 20px;
 	--margin--medium: 20px;
@@ -62,13 +62,13 @@ body {
 	*/ }
   @media screen and (min-width: 64em) {
     body {
-      --wp--preset--font-size--xsmall: 0.875rem;
-      --wp--preset--font-size--small: 1.125rem;
+      --wp--preset--font-size--tiny: 0.75rem;
+      --wp--preset--font-size--small: 1rem;
       --wp--preset--font-size--normal: 1.125rem;
-      --wp--preset--font-size--medium: 1.25rem;
       --wp--preset--font-size--large: 1.5rem;
       --wp--preset--font-size--xlarge: 3rem;
-      --wp--preset--font-size--huge: 4rem;
+      --wp--preset--font-size--huge: 3.5rem;
+      --wp--preset--font-size--gigantic: 4rem;
       --line-height--normal: 32px; } }
 
 /*********************

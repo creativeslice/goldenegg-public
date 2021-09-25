@@ -3,12 +3,12 @@ jQuery(document).ready(function($) {
 	/**
 	 * Open search panel and focus cursor
 	 */
-	$('#searchToggle').click(function(e) {
+	$('#search-toggle').click(function(e) {
 		e.preventDefault();
 		var $this = $(this);
 		$this.toggleClass('active');
-		$('.searchForm').fadeToggle(300);
-		$('.searchField')[0].focus();
+		$('.search-form').fadeToggle(300);
+		$('.search-field')[0].focus();
 	});
 
 });

@@ -3,12 +3,12 @@
 <div id="content" class="wrap">
 
 	<?php if ( is_category() ) : ?>
-		<h1 class="archiveTitle">
+		<h1 class="archive-title">
 			<span>Posts Categorized:</span> <?php single_cat_title(); ?>
 		</h1>
 
 	<?php elseif ( is_tag() ) : ?>
-		<h1 class="archiveTitle">
+		<h1 class="archive-title">
 			<span>Posts Tagged:</span> <?php single_tag_title(); ?>
 		</h1>
 
@@ -17,24 +17,24 @@
 		global $post;
 		$author_id = $post->post_author;
 		?>
-		<h1 class="archiveTitle">
+		<h1 class="archive-title">
 			<span>Posts By:</span> <?php the_author_meta( 'display_name', $author_id ); ?>
 		</h1>
 	<?php elseif ( is_day() ) : ?>
-		<h1 class="archiveTitle">
+		<h1 class="archive-title">
 			<span>Daily Archives:</span> <?php the_time( 'l, F j, Y' ); ?>
 		</h1>
 
 	<?php elseif ( is_month() ) : ?>
-		<h1 class="archiveTitle">
+		<h1 class="archive-title">
 			<span>Monthly Archives:</span> <?php the_time( 'F Y' ); ?>
 		</h1>
 
 	<?php elseif ( is_year() ) : ?>
-		<h1 class="archiveTitle">
+		<h1 class="archive-title">
 			<span>Yearly Archives:</span> <?php the_time( 'Y' ); ?>
 		</h1>
-	
+
 	<?php endif; ?>
 
 	<?php
@@ -45,11 +45,11 @@
 
 	<article <?php post_class( 'cf' ); ?>>
 
-		<header class="articleHeader">
+		<header class="article-header">
 			<a class="h3" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 		</header>
 
-		<section class="entryContent">
+		<section class="entry-content">
 			<?php the_post_thumbnail( 'thumbnail' ); ?>
 			<?php the_excerpt(); ?>
 		</section>

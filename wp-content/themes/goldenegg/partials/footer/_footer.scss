@@ -4,12 +4,12 @@ Stylesheet: Footer
 
 ******************************************************************/
 
-.pageFooter {
+.page-footer {
 	clear: both;
 	text-align: center;
 	padding: 2em 0;
 	border-top: 1px solid $gray_light;
-	.footerLinks {
+	.footer-links {
 		ul {
 			padding: 0;
 		}
@@ -38,7 +38,7 @@ Stylesheet: Footer
 		margin-top: 1em;
 	}
 	@include breakpoint(medium) {
-		.footerLinks {
+		.footer-links {
 			li {
 				display: inline-block;
 			}

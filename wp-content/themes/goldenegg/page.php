@@ -1,12 +1,9 @@
-<?php get_template_part( 'partials/header/header' ); ?>
+<?php // Default page template
+get_template_part( 'partials/header/header' ); ?>
 
-<main id="content">
-	<article class="gutenbergBlocks">
-		<?php
-		the_post();
-		the_content();
-		?>
-	</article>
+<main id="content" class="wp-site-blocks">
+	<?php // Gutenberg blocks
+	the_post(); the_content(); ?>
 </main>
 
 <?php

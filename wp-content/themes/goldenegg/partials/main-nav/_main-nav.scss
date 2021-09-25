@@ -3,7 +3,7 @@ MENU NAVIGATION
 *********************/
 
 // Mobile Menu and Search Toggle
-#menuToggle {
+#menu-toggle {
 	display: block;
 	position: relative;
 	float: right;
@@ -49,14 +49,14 @@ MENU NAVIGATION
 MAIN MENU
 *********************/
 // Main Menu Wrapper
-.menuFull {
+.menu-full {
 	display: none;
 	@include breakpoint(large) {
 		display: block !important;
 	}
 }
 
-.mainNav {
+.main-nav {
 	clear: both;
 	text-align: center;
 	background: $white;

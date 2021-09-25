@@ -112,17 +112,17 @@ HTML5 IMAGE GALLERY
 RESPONSIVE VIDEOS
 *********************/
 // General Video Styles
-.videoContainer {
+.video-container {
 	position: relative;
 	padding-bottom: 56.25%;
 	height: 0;
 	overflow: hidden;
 }
 
-.videoContainer iframe,
-.videoContainer object,
-.videoContainer embed,
-.videoContainer video {
+.video-container iframe,
+.video-container object,
+.video-container embed,
+.video-container video {
 	position: absolute;
 	top: 0;
 	left: 0;

@@ -2,7 +2,7 @@
 ARCHIVE PAGE NAVI STYLES
 **************************************/
 
-.pageNavi {
+.pagination {
 	text-align: center;
 	ul {
 		display: inline-block;
@@ -54,8 +54,8 @@ ARCHIVE PAGE NAVI STYLES
 }
 
 // Next Previous
-.postPrev,
-.postNext {
+.post-prev,
+.post-next {
 	font-size: 0.875em;
 	text-transform: uppercase;
 	a,
@@ -66,9 +66,9 @@ ARCHIVE PAGE NAVI STYLES
 		}
 	}
 }
-.postPrev {
+.post-prev {
 	float: left;
 }
-.postNext {
+.post-next {
 	float: right;
 }
