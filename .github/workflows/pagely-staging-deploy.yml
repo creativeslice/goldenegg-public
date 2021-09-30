@@ -1,11 +1,11 @@
-name: "pagely-deploy"
+name: "Deploy goldenegg /develop to Pagely Staging"
 on:
   push:
     branches: [ develop ]
 
 jobs:
   deploy:
-    name: Deploy to Pagely Staging
+    name: Deploy Goldenegg to Pagely Staging
     runs-on: ubuntu-20.04
     env:
       THEME_PATH: goldenegg
