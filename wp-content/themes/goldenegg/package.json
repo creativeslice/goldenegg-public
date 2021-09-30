@@ -56,6 +56,7 @@
     "stylelint-order": "^0.8.1"
   },
   "dependencies": {
+    "@wordpress/stylelint-config": "^19.1.0",
     "gulp": "^4"
   },
   "repository": {
