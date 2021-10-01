@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest 
     steps: 
     - uses: actions/checkout@v2
     - name: GitHub Action Deploy to WP Engine
@@ -14,8 +14,9 @@ jobs:
       
       # Deploy vars
         WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }} 
+        PHP_LINT: FALSE
         CACHE_CLEAR: TRUE
       
       # Branches & Environments 
         STG_BRANCH: develop
-        STG_ENV: goldeneggstag
+        STG_ENV: goldeneggstag 
