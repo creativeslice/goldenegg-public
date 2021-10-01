@@ -1,6 +1,6 @@
 # Golden Egg WordPress Starter Theme
 
-A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS. This theme is block-based and organizes the the SCSS, JS, &amp; PHP that define a block all in the same directory within the blocks directory.
+A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS.
 
 More at: [https://goldenegg.dev](https://goldenegg.dev)
 
@@ -111,7 +111,6 @@ A PHP library of global functionality.
 ## Requirements
 
 1. **Node** and its package manager **NPM** need to be installed on your computer
-1. The [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/) plugin to add custom fields and use the page builder
 
 
 ## Install &amp; Set Up
