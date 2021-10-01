@@ -1,4 +1,4 @@
-name: "Deploy goldenegg /develop to WP Engine Staging"
+name: Deploy to WP Engine STAGING
 on:
   push:
     branches: [ develop ]
