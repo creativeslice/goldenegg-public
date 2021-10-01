@@ -1,4 +1,4 @@
-name: Deploy to WP Engine STAGING
+name: "Deploy goldenegg /develop to WP Engine Staging"
 on:
   push:
     branches: [ develop ]
@@ -18,5 +18,5 @@ jobs:
         CACHE_CLEAR: TRUE
       
       # Branches & Environments 
-        PRD_BRANCH: develop
-        PRD_ENV: goldeneggstag
+        STG_BRANCH: develop
+        STG_ENV: goldeneggstag
