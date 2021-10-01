@@ -32,6 +32,7 @@ jQuery( document ).ready( function ( $ ) {
 		}
 	} );
 } );
+
 /*
  * Scripts for the Admin Area Only
  */
