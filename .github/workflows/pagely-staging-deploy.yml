@@ -1,4 +1,4 @@
-name: "Deploy goldenegg /develop to Pagely Staging"
+name: "Pagely Staging Deploy from /develop"
 on:
   push:
     branches: [ develop ]

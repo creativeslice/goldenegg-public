@@ -1,4 +1,4 @@
-name: "Deploy goldenegg /main to WP Engine Production when a GitHub Release is made"
+name: "WPEngine PRODUCTION Deploy from /main when a GitHub Release is made"
 on:
   release:
     types: [published, created, edited]
