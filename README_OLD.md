@@ -2,13 +2,83 @@
 
 A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS.
 
-Pagely: [https://pagely.goldenegg.dev](goldenegg.dev)
-WPEngine: [goldenegg.dev](https://goldenegg.dev)
-WPEngine staging: goldeneggstag.wpengine.com
-
+More at: [https://goldenegg.dev](https://goldenegg.dev)
 
 ## Changelog
-Updates are documented here: https://github.com/creativeslice/goldenegg/releases
+
+**3.0.0 - 2021-06-21**
+1. Converted to Gutenberg!
+
+**2.1.0 - 2021-01-23**
+
+1. Separated out blocks from components
+1. Updating lazysizes to v5.3.0
+1. Time stamp SVG icons
+
+
+**2.0.12 - 2020-04-29**
+
+1. Dashboard widget framework for Care Plan links
+
+**2.0.11 - 2020-04-06**
+
+1. Dashboard cleanup for WordPress 5.4
+1. Updating lazysizes to v5.2.0
+1. Accessible expanding text trigger
+
+**2.0.10 - 2019-11-24**
+
+1. Update to Gulp 4
+1. Simpler css reset to replace sanitize
+1. Search form styling
+1. Accessible color refinements
+
+**2.0.9 - 2019-11-18**
+
+1. Add Cards content block
+1. Update package file for Gulp. Thanks Jake!
+
+**2.0.8 - 2019-11-17**
+
+1. Refined Content Blocks: Text Block, Expanding Text (with FAQ schema)
+1. Updating lazysizes to v5.2.0-beta1
+1. Simplify favicon output
+1. Adding ACF notices component
+1. Adding functions to cleanup Tribe Calendar output
+
+**2.0.7 - 2019-09-08**
+
+1. Adding title tag support
+1. Updating lazysizes to 5.1.1
+
+**2.0.6 - 2019-07-05**
+
+1. Moving contentBlocks.php core file to includes
+1. Minor tweaks and updating lazysizes to 5.1.0
+1. Removed inactive components
+
+**2.0.5 - 2019-05-15**
+
+1. Basic GF form styles
+1. page template detects if the_content exists
+1. Updated images scss to media and added videoContainer styles
+1. Updated lazysizes script to 5.0.0
+
+**2.0.4 - 2019-02-22**
+
+1. Move searchToggle to search component
+1. Updated lazysizes script
+
+**2.0.2 - 2018-09-07**
+
+1. Added package.json
+1. Updated README
+
+
+## Blocks
+
+As of 3.0.0, there is some extra automation to blocks and partials so SCSS files are auto discovered and compiled similar to JavaScript files.
+
 
 ## Organization
 
