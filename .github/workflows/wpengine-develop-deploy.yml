@@ -14,7 +14,6 @@ jobs:
       
       # Deploy vars
         WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }} 
-        PHP_LINT: FALSE
         CACHE_CLEAR: TRUE
       
       # Branches & Environments 
