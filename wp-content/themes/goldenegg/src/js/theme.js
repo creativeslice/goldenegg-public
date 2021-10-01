@@ -1,12 +1,9 @@
 /*
  * Wrap jQuery JS in ready class
-*/
-window.addEventListener('load', function ()  {
-
+ */
+window.addEventListener( 'load', function () {
 	/**
-	* fallback for SVG icons in IE
-	*/
+	 * fallback for SVG icons in IE
+	 */
 	//svg4everybody();
-
-
-});
+} );

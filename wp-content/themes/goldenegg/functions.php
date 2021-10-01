@@ -24,10 +24,10 @@ include_once get_stylesheet_directory() . '/blocks/blocks-acf.php'; // Custom AC
  * with: <svg><use href="<?php echo get_svg('globe'); ?>"></use></svg>
  *
  */
-define('SVG_LAST_MTIME', filemtime( realpath(__DIR__) . '/assets/icons/icons.svg' ));
-function get_svg($which) {
+define( 'SVG_LAST_MTIME', filemtime( realpath( __DIR__ ) . '/assets/icons/icons.svg' ) );
+function get_svg( $which ) {
 	$version = SVG_LAST_MTIME;
-	return get_template_directory_uri() . "/assets/icons/icons.svg?". $version . "#" . $which;
+	return get_template_directory_uri() . '/assets/icons/icons.svg?' . $version . '#' . $which;
 }
 
 
@@ -37,7 +37,7 @@ function get_svg($which) {
  */
 /*
 if ( function_exists( 'acf_add_options_page' ) ) {
-	
+
 	// Theme settings
 	acf_add_options_page([
 		'page_title' 	=> 'Theme Options',

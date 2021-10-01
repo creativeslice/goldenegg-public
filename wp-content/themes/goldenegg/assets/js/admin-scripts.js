@@ -1,40 +1,38 @@
-jQuery(document).ready(function($) {
-
+jQuery( document ).ready( function ( $ ) {
 	/**
 	 * Expanding Text
+	 *
+	 * @param  elem
 	 */
-	function egg_openExpandBlock(elem) {
-		var hasOpen = $(elem).hasClass('open'),
-			$hiddenContent = $(elem).next('.hiddenContent');
-	
+	function egg_openExpandBlock( elem ) {
+		const hasOpen = $( elem ).hasClass( 'open' ),
+			$hiddenContent = $( elem ).next( '.hiddenContent' );
+
 		// close all the others
-		$('.expandBlock .toggleContent.open').removeClass('open');
-		$('.hiddenContent.open').slideUp().removeClass('open');
-		
+		$( '.expandBlock .toggleContent.open' ).removeClass( 'open' );
+		$( '.hiddenContent.open' ).slideUp().removeClass( 'open' );
+
 		// open this one
-		if (!hasOpen) {
-			$(elem).addClass('open');
-			$hiddenContent.slideDown().addClass('open');
+		if ( ! hasOpen ) {
+			$( elem ).addClass( 'open' );
+			$hiddenContent.slideDown().addClass( 'open' );
 		}
 	}
 
-	$('.expandBlock .toggleContent').click(function(e) {
+	$( '.expandBlock .toggleContent' ).click( function ( e ) {
 		e.preventDefault();
-		egg_openExpandBlock(this);
-	});
-	
-	// Open Block if Gravity Forms error message
-	$('.expandBlock').each(function() {
-		//var $expandBlock = $(this);
-		if ($('.gform_wrapper .validation_error', this).length) {
-			egg_openExpandBlock($('.toggleContent', this)[0]);
-		}
-	});
+		egg_openExpandBlock( this );
+	} );
 
-});
+	// Open Block if Gravity Forms error message
+	$( '.expandBlock' ).each( function () {
+		//var $expandBlock = $(this);
+		if ( $( '.gform_wrapper .validation_error', this ).length ) {
+			egg_openExpandBlock( $( '.toggleContent', this )[ 0 ] );
+		}
+	} );
+} );
 /*
  * Scripts for the Admin Area Only
  */
-window.addEventListener('load', function() {
-
-});
+window.addEventListener( 'load', function () {} );

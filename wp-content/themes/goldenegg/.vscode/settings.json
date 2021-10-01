@@ -1,8 +1,8 @@
 {
   "phpcs.standard": "WordPress-Core",
-  "phpcs.executablePath": "./wp-content/themes/goldenegg/vendor/bin/phpcs",
+  "phpcs.executablePath": "./vendor/bin/phpcs",
   "phpcbf.standard": "WordPress-Core",
-  "phpcbf.executablePath": "./wp-content/themes/goldenegg/vendor/bin/phpcbf",
+  "phpcbf.executablePath": "./vendor/bin/phpcbf",
   "stylelint.enable": true,
   "css.validate": false,
   "scss.validate": false,
