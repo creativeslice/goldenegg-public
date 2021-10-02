@@ -1,79 +1,35 @@
-wp.domReady( () => {
-	
-	/* CUSTOMIZE BLOCK STYLES */
-	
-	// BUTTONS
-	wp.blocks.unregisterBlockStyle(
-		'core/button',
-		[ 'default', 'outline', 'squared', 'fill' ]
-	);
-	wp.blocks.registerBlockStyle(
-		'core/button',
-		[
-			{
-				name: 'default',
-				label: 'Default',
-				isDefault: true,
-			},
-			{
-				name: 'outline',
-				label: 'Outline',
-			},
-			{
-				name: 'arrow',
-				label: 'Arrow',
-			}
-		]
-	);
-	
-	// image styles
-	wp.blocks.unregisterBlockStyle(
-		'core/image',
-		[ 'rounded' ]
-	);
-	/*
-	wp.blocks.registerBlockStyle(
-		'core/image',
-		[
-			{
-				name: 'circle',
-				label: 'Circle',
-				isDefault: false,
-			},
-		]
-	);
-	*/
+window.addEventListener( 'load', function () {
+	/* CUSTOMIZE CORE BLOCK STYLES */
 
-	
-	/* REMOVE CORE BLOCKS THAT AREN'T NEEDED */
-	
-	
-	
-	// design
-	//wp.blocks.unregisterBlockType( 'core/columns' );
-	//wp.blocks.unregisterBlockType( 'core/spacer' );
-	//wp.blocks.unregisterBlockType( 'core/separator' );
-	
-	// formatting
-	wp.blocks.unregisterBlockType( 'core/preformatted' );
-	wp.blocks.unregisterBlockType( 'core/pullquote' );
-	wp.blocks.unregisterBlockType( 'core/verse' );
-	
-	// layouts
-	wp.blocks.unregisterBlockType( 'core/more' );
-	wp.blocks.unregisterBlockType( 'core/nextpage' );
-	
-	// widgets
-	wp.blocks.unregisterBlockType( 'core/archives' );
-	wp.blocks.unregisterBlockType( 'core/calendar' );
-	wp.blocks.unregisterBlockType( 'core/categories' );
-	wp.blocks.unregisterBlockType( 'core/latest-comments' );
-	wp.blocks.unregisterBlockType( 'core/latest-posts' );
-	wp.blocks.unregisterBlockType( 'core/rss' );
-	wp.blocks.unregisterBlockType( 'core/search' );
-	wp.blocks.unregisterBlockType( 'core/tag-cloud' );
-	
-	// embeds
+	// BUTTONS
+	wp.blocks.unregisterBlockStyle( 'core/button', [ 'default', 'squared' ] );
+	wp.blocks.registerBlockStyle( 'core/button', [
+		{
+			name: 'fill',
+			label: 'Fill',
+			isDefault: true,
+		},
+		{
+			name: 'outline',
+			label: 'Outline',
+		},
+		{
+			name: 'underline',
+			label: 'Underline',
+		},
+	] );
+
+	// COLUMNS - remove variations
+	wp.blocks.unregisterBlockVariation( 'core/columns', [
+		//'two-columns-equal' ,
+		//'two-columns-one-third-two-thirds',
+		'three-columns-wider-center',
+	] );
+
+	// IMAGE
+	wp.blocks.unregisterBlockStyle( 'core/image', [ 'rounded' ] );
+
+	// EMBED - remove variations
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'amazon-kindle' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'animoto' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'cloudup' );
@@ -93,6 +49,7 @@ wp.domReady( () => {
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'reddit' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'reverbnation' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'screencast' );
+	wp.blocks.unregisterBlockVariation( 'core/embed', 'soundcloud' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'scribd' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'slideshare' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'smugmug' );
@@ -102,8 +59,8 @@ wp.domReady( () => {
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'ted' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'tiktok' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'tumblr' );
+	wp.blocks.unregisterBlockVariation( 'core/embed', 'twitter' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'videopress' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'wordpress' );
 	wp.blocks.unregisterBlockVariation( 'core/embed', 'wordpress-tv' );
-
 } );

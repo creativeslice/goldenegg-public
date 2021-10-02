@@ -8,193 +8,107 @@ Stylesheet: Typography
 HEADLINES
 *********************/
 
-h1, .h1, 
-h2, .h2, 
-h3, .h3, 
-h4, .h4,
-h5, .h5,
-h6, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	clear: both;
-	margin: 20px 0;
 	font-family: $sans_serif;
-	em {
-		color: $gray;
-		font-weight: inherit;
-		font-style: normal;
-	}
+	margin: 0;
+	margin-bottom: var(--line-height--normal);
+
+	line-height: var(--line-height--normal); // 32px default
 }
-h1, .h1 {
+
+h1,
+.h1 {
 	font-size: 2.5rem;
 	line-height: 1.25;
 	font-weight: bold;
 }
-h2, .h2, .has-xlarge-font-size {
+h2,
+.h2,
+.has-xlarge-font-size {
 	font-size: 2rem;
 	line-height: 1.25;
 	font-weight: bold;
 }
-h3, .h3, .has-large-font-size {
+h3,
+.h3,
+.has-large-font-size {
 	font-size: 1.5rem;
 	line-height: 1.25;
 	font-weight: bold;
 }
-h4, .h4, .has-medium-font-size {
+h4,
+.h4,
+.has-medium-font-size {
 	font-size: 1.25rem;
 	line-height: 1.5;
 	font-weight: 500;
 }
-h5, .h5, .has-small-font-size {
+h5,
+.h5,
+.has-small-font-size {
 	font-size: 1rem;
 	line-height: 1.5;
 	font-weight: normal;
 }
-h6, .h6, .has-tiny-font-size {
-	font-size: .875rem;
+h6,
+.h6,
+.has-x-small-font-size {
+	font-size: 0.875rem;
 	line-height: 1.5;
 	font-weight: normal;
 }
-
 
 /*********************
 PARAGRAPH & LISTS
 *********************/
-// .wp-block p, p.wp-block, .gutenbergBlocks p
-p, ul, ol {
-	margin: 0;
+p,
+ul,
+ol {
+	font-size: var(--wp--preset--font-size--small); //1rem;
 	padding: 0;
-	font-size: 1rem;
-	font-weight: normal;
-	margin-bottom: $default_margin;
-	&.has-tiny-font-size {
-		font-size: .875rem;
-	}
-	&.has-small-font-size {
-		font-size: 1rem;
-	}
-	&.has-medium-font-size {
-		font-size: 1.25rem;
-	}
-	&.has-large-font-size {
-		font-size: 1.5rem;
-	}
-	&.has-xlarge-font-size {
-		font-size: 2rem;
+	margin: 0;
+	margin-bottom: var(--line-height--normal);
+	&.has-mediumtext-font-size {
+		font-size: var(--wp--preset--font-size--medium);
 	}
 }
-
 
 /*********************
-BREAKPOINTS
+LISTS
 *********************/
-@include breakpoint(small) {
-	h1, .h1 {
-		font-size: 3rem;
-		line-height: 1.1;
-	}
-}
-
-@include breakpoint(large) {
-	h1, .h1 {
-		font-size: 4rem;
-	}
-	h2, .h2, .has-xlarge-font-size {
-		font-size: 3rem;
-		line-height: 1.1;
-	}
-	h3, .h3, .has-large-font-size {
-		font-size: 2rem;
-		line-height: 1.25;
-	}
-	h4, .h4, .has-medium-font-size {
-		font-size: 1.25rem;
-		line-height: 1.4;
-	}
-	p, ul, ol {
-		font-size: 1.125rem;
-		&.has-tiny-font-size {
-			font-size: 14px;
-		}
-		&.has-small-font-size {
-			font-size: 18px;
-		}
-		&.has-medium-font-size {
-			font-size: 1.25rem;
-		}
-		&.has-large-font-size {
-			font-size: 2rem;
-		}
-		&.has-xlarge-font-size {
-			font-size: 3rem;
-		}
-	}
-}
-@include breakpoint(xlarge) {
-	h1, .h1 {
-		font-size: 4.5rem;
-	}
-	h2, .h2, .has-xlarge-font-size {
-		font-size: 3.25rem;
-	}
-	h3, .h3, .has-large-font-size {
-		font-size: 2.25rem;
-	}
-	h4, .h4, .has-medium-font-size {
-		font-size: 1.5rem;
-	}
-	p, ul, ol {
-		font-size: 1.25rem;
-		&.has-medium-font-size {
-			font-size: 1.5rem;
-		}
-		&.has-large-font-size {
-			font-size: 2.25rem;
-		}
-		&.has-xlarge-font-size {
-			font-size: 3.25rem;
-		}
-	}
-}
-
-
-// lists
-ul, ol {
+ul,
+ol {
+	padding-left: 1em;
+	padding-top: 8px;
 	li {
-		margin: .25em 0 .25em 1.25em;
+		padding-left: 1rem;
+		margin: 0 0 8px 0;
+		line-height: 24px;
+		&::marker {
+			color: var(--link-color);
+		}
+		ul {
+			margin-top: 8px;
+		}
+		li {
+			font-size: 0.875em;
+		}
 	}
 }
-ul li {
-	list-style: disc;
-}
-ol li {
-	list-style: decimal;
-}
-li {
-	& > ul,
-	& > ol {
-		margin-bottom: 0;
-		margin-left: 0;
-	}
-}
-
-
-// Elements with background color
-h1, h2, h3, h4, h5, h6, p {
-	&.has-background {
-		padding: 20px;
-	}
-@include breakpoint(large) {
-	&.has-background {
-		padding: 40px;
-	}
-}
-}
-
 
 /*********************
 BASE ELEMENTS
 *********************/
 
-dfn, em, i {
+dfn,
+em,
+i {
 	font-style: italic;
 }
 blockquote {
@@ -202,18 +116,18 @@ blockquote {
 	font-size: 1.25em;
 	line-height: 1.5;
 	margin: 0;
-@include breakpoint(large) {
-	font-size: 1.5em;
-}
+	@include breakpoint(large) {
+		font-size: 1.5em;
+	}
 }
 
 cite {
 	font-style: normal;
 	font-weight: 500;
-	font-size: .875rem;
-@include breakpoint(large) {
-	font-size: 1.125rem;
-}
+	font-size: 0.875rem;
+	@include breakpoint(large) {
+		font-size: 1.125rem;
+	}
 }
 
 address {
@@ -229,10 +143,12 @@ pre {
 	padding: 1em;
 	overflow: auto;
 }
-abbr, acronym {
+abbr,
+acronym {
 	cursor: help;
 }
-mark, ins {
+mark,
+ins {
 	background: #fff9c0;
 	text-decoration: none;
 }

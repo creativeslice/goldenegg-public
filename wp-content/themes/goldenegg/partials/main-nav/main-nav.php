@@ -1,4 +1,4 @@
-<button id="menuToggle">
+<button id="menu-toggle">
 	<span class="label">MENU</span>
 	<svg class="open">
 		<title>Open Menu</title>
@@ -10,11 +10,11 @@
 	</svg>
 </button>
 
-<nav class="menuFull">
+<nav class="menu-full">
 	<?php wp_nav_menu(array(
 		'container' => false,
-		'menu_class' => 'mainNav',
-		'theme_location' => 'mainNav',
+		'menu_class' => 'main-nav',
+		'theme_location' => 'main-nav',
 		'depth' => 2
 	)); ?>
 </nav>

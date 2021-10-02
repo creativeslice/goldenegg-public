@@ -1,0 +1,37 @@
+name: "Pagely Staging Deploy from /develop"
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  deploy:
+    name: Deploy Goldenegg to Pagely Staging
+    runs-on: ubuntu-20.04
+    env:
+      THEME_PATH: goldenegg
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Build Assets
+        working-directory: ${{ github.workspace }}
+        run: ls -la
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: install root node_modules
+        working-directory: wp-content/themes/${{ env.THEME_PATH }}
+        run: |
+          npm ci
+      - name: run gulp for staging
+        working-directory: wp-content/themes/${{ env.THEME_PATH }}
+        run: |
+          npm run gulp:stage
+      - name: Run deploy
+        uses: pagely/action-deploy@v1
+        with:
+          PAGELY_DEPLOY_DEST: "/httpdocs"
+          PAGELY_INTEGRATION_SECRET: ${{secrets.PAGELY_STAGING_INTEGRATION_SECRET}}
+          PAGELY_INTEGRATION_ID: "niV8Qqt8Af5QjxMnrmXt99"
+          PAGELY_APP_ID: "38968"
+          PAGELY_WORKING_DIR: ${{github.workspace}}

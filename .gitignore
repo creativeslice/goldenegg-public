@@ -125,3 +125,6 @@ local-phpinfo.php
 *.code-workspace
 .vscode/sftp.json
 wp-content/debug.log
+node_modules
+/vendor
+/wp-content/themes/goldenegg/vendor

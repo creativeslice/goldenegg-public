@@ -8,32 +8,34 @@ Stylesheet: Print
 	background: transparent !important;
 	color: black !important;
 	text-shadow: none !important;
-	filter:none !important;
+	filter: none !important;
 	-ms-filter: none !important;
 }
 
-a, a:visited {
+a,
+a:visited {
 	color: #444 !important;
 	text-decoration: underline;
 
 	// show links on printed pages
 	&:after {
-	  content: " (" attr(href) ")";
+		content: ' (' attr(href) ')';
 	}
 
 	// show title too
 	abbr[title]:after {
-	  content: " (" attr(title) ")";
+		content: ' (' attr(title) ')';
 	}
 }
 
 .ir a:after,
-a[href^="javascript:"]:after,
-a[href^="#"]:after {
-	content: "";
+a[href^='javascript:']:after,
+a[href^='#']:after {
+	content: '';
 }
 
-pre, blockquote {
+pre,
+blockquote {
 	border: 1px solid #999;
 	page-break-inside: avoid;
 }
@@ -42,7 +44,8 @@ thead {
 	display: table-header-group;
 }
 
-tr, img {
+tr,
+img {
 	page-break-inside: avoid;
 }
 
@@ -54,7 +57,9 @@ img {
 	margin: 0.5cm;
 }
 
-p, h2, h3 {
+p,
+h2,
+h3 {
 	orphans: 3;
 	widows: 3;
 }

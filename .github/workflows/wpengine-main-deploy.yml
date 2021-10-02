@@ -1,0 +1,24 @@
+name: "WPEngine PRODUCTION Deploy from /main when a GitHub Release is made"
+on:
+  release:
+    types: [published, created, edited]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # only run off of master
+    if: ${{ github.ref == 'refs/heads/main' }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: GitHub Action Deploy to WP Engine
+      uses: wpengine/github-action-wpe-site-deploy@v2.3.3
+      with:
+
+      # Deploy vars
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }}
+        PHP_LINT: TRUE
+        CACHE_CLEAR: TRUE
+
+      # Branches & Environments
+        PRD_BRANCH: main
+        PRD_ENV: goldeneggdev

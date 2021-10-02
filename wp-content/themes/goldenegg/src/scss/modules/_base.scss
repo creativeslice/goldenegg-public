@@ -4,7 +4,8 @@ Stylesheet: BASE
 
 ******************************************************************/
 
-html, body {
+html,
+body {
 	background-color: $gray_lighter;
 }
 
@@ -16,7 +17,7 @@ body {
 	margin: 0;
 }
 
-::selection { 
+::selection {
 	background: #ff9; // bright yellow
 	color: black !important;
 	text-shadow: none;
@@ -38,16 +39,22 @@ hr {
 /*********************
 LINK STYLES
 *********************/
-a, a:visited {
-	color: $link_color;
-	&:hover, &:focus {
-		color: $link_hover;
+
+a,
+a:visited {
+	color: var(--link-color);
+
+	//color: rgb(var(--red, var(--link-color, 0, 0, 255)));
+
+	&:hover,
+	&:focus {
+		color: var(--link-color--hover);
 	}
 	&:active {
-		color: darken($link_hover, 10%);
+		color: var(--link-color--active);
 	}
 	&:link {
-		-webkit-tap-highlight-color: rgba( $link_color, 0.6 ); // mobile tap color
+		-webkit-tap-highlight-color: rgba($link_color, 0.6); // mobile tap color
 	}
 }
 
@@ -70,7 +77,7 @@ LAYOUT & GRID STYLES
 *********************/
 
 .wrapper {
-    //position: relative;
+	//position: relative;
 	width: 92%;
 	width: calc(100% - 40px);
 	margin-right: auto;
@@ -78,7 +85,7 @@ LAYOUT & GRID STYLES
 	max-width: 1240px;
 }
 
-.wrapperInner {
+.wrapper-inner {
 	width: 92%;
 	margin-right: auto;
 	margin-left: auto;
@@ -89,19 +96,18 @@ LAYOUT & GRID STYLES
 	position: relative;
 }
 
-
 /*********************
 GUTENBERG Blocks
 similar to old .entryContent
 *********************/
 
-.gutenbergBlocks {
-	overflow: hidden; // this might break position sticky
+.wp-site-blocks {
+	//overflow: hidden; // this might break position sticky
 }
 
 // Gutenberg Blocks, first child
 // Style all the core blocks without a wrapper :not(.acf-block)
-.gutenbergBlocks > { 
+.wp-site-blocks > {
 	*:not(.acf-block) {
 		width: calc(100% - 40px);
 		max-width: 760px;
@@ -122,58 +128,9 @@ similar to old .entryContent
 		width: 100%;
 		max-width: 100%;
 	}
-	
-	// Core group block
-	.wp-block-group {
-		.wp-block-group__inner-container > {
-			*:not(.acf-block) {
-				width: calc(100% - 40px);
-				max-width: 760px;
-				margin-right: auto;
-				margin-left: auto;
-			}
-			.alignwide {
-				max-width: 1240px; // 1180
-			}
-			.alignfull {
-				width: 100%;
-				max-width: 100%;
-			}
-		}
+	@include breakpoint(large) {
 	}
-@include breakpoint(large) {
 }
-}
-
-
-
-
-/*********************
-CORE GUTENBERG
-If wp_dequeue_style( 'wp-block-library' );
-*********************/
-/*
-.has-text-align-center {
-	text-align: center;
-}
-.has-text-align-left {
-	text-align: left;
-}
-.has-text-align-right {
-	text-align: right;
-}
-
-.is-content-justification-center {
-	justify-content: center;
-}
-
-.wp-block-buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-*/
-
 
 /*********************
 ACCESSIBILITY using what intent
@@ -181,4 +138,3 @@ ACCESSIBILITY using what intent
 [data-whatintent='mouse'] *:focus {
 	outline: none;
 }
-

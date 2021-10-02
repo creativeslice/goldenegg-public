@@ -77,6 +77,65 @@ function acf_expanding_text_block() {
 
 
 /**
+ * ACF Radio Color Palette
+ *
+ * @link https://whiteleydesigns.com/create-a-gutenberg-like-color-picker-with-advanced-custom-fields
+ * Dynamically populates 'acf_color' fields with custom color palette
+ *
+*/
+add_filter('acf/load_field/name=acf_color', 'acf_dynamic_colors_load');
+function acf_dynamic_colors_load( $field ) {
+	
+     // get array of colors created from color palette above
+     $colors = get_theme_support( 'editor-color-palette' );
+     if( ! empty( $colors ) ) {
+	     
+          // loop over each color and create option
+          foreach( $colors[0] as $color ) {
+               $field['choices'][ $color['slug'] ] = $color['name'];
+          }
+     }
+     return $field;
+}
+
+
+/**
+ * ACF Dynamic Icons
+ *
+ * Dynamically populates 'acf_icon' fields with SVG icons
+ *
+*/
+add_filter('acf/load_field/name=acf_icon', 'acf_block_icons_load');
+function acf_block_icons_load( $field ) {
+    $icons = preg_grep('~\.(svg)$~', scandir( get_stylesheet_directory() . '/src/icons' ) );
+	
+	$icons = array_diff( $icons, array( '..', '.' ) );
+	$icons = array_values( $icons );
+	if( empty( $icons ) )
+		return $icons;
+		
+	// remove '.svg' from title
+	foreach( $icons as $i => $icon ) {
+		$icons[ $i ] = substr( $icon, 0, -4 );
+	}
+
+    $svg_markup = '<img width="14" height="14" style="margin: 4px 4px 0px 0; float: left;" src="' . get_template_directory_uri() . '/src/icons/';
+    //$svg_markup = '<img width="14" height="14" style="margin: 4px 4px 0px 0; float: left;" src="/wp-content/themes/goldenegg/src/icons/';
+	if( ! empty( $icons ) ) {
+		foreach( $icons as $icon ) {
+			// Exclude these icons
+			if($icon == "close" or $icon == "menu"):
+				continue;
+			else:
+				$field['choices'][ $icon ] = $svg_markup . $icon . '.svg"> ' . $icon;
+			endif;
+		}
+	}
+    return $field;
+}
+
+
+/**
  * Simplify ACF WYSIWYG bar
  */
 add_filter( 'acf/fields/wysiwyg/toolbars', 'acf_toolbars' );
@@ -102,39 +161,4 @@ switch ( wp_get_environment_type() ) {
 }
 
 
-// CTA Block
-/*
-add_action('acf/init', 'acf_cta_block');
-function acf_cta_block() {
-	if( function_exists('acf_register_block') ) {
-		acf_register_block(array(
-			'name'				=> 'cta_block',
-			'title'				=> __('CTA Block'),
-			'description'		=> __('A call to action block.'),
-			'render_template'	=> 'blocks/cta-block/cta-block.php',
-            'mode'              => 'edit',
-			'category'			=> 'layout',
-			'icon'				=> 'megaphone',
-			'keywords'			=> array( 'call to action', 'cta' ),
-			'align'           => 'wide',
-			'supports'          => [
-				'align'  => array( 'wide', 'full' ),
-				'anchor' => true,
-			],
-			'example'         => array(
-				'attributes' => array(
-					'data' => array(
-						'title'       => esc_html__( 'Call To Action Title', 'wds-acf-blocks' ),
-						'text'        => esc_html__( 'Call To Action Text', 'wds-acf-blocks' ),
-						'button_link' => array(
-							'title' => esc_html__( 'Learn More', 'wds-acf-blocks' ),
-							'url'   => '#',
-						),
-					),
-				),
-			),
-		));
-	}
-}
-*/
 

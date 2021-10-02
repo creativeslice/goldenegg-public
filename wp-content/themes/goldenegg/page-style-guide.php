@@ -1,4 +1,9 @@
-<?php get_header(); // Template Name: Style Guide (LEGACY) ?>
+<?php get_template_part('partials/header/header');
+/*
+Template Name: Template Name: Style Guide (LEGACY)
+Template Post Type: post, page
+*/
+?>
 	
 <article id="content" class="wrap">
 
@@ -59,4 +64,4 @@
 
 </article>
 
-<?php get_footer();
+<?php get_template_part('partials/footer/footer');

@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "felixfbecker.php-debug", 
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ikappas.phpcs",
+        "persoderlind.vscode-phpcbf",
+        "stylelint.vscode-stylelint"
+    ]
+}

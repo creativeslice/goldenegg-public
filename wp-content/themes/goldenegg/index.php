@@ -1,4 +1,4 @@
-<?php get_header();
+<?php get_template_part('partials/header/header');
 	
 	// Get ID of Page for Posts
 	$page_for_posts = get_option( 'page_for_posts' );
@@ -32,4 +32,4 @@
 	
 </div>
 
-<?php get_footer();
+<?php get_template_part('partials/footer/footer');

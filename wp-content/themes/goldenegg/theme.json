@@ -1,0 +1,185 @@
+{
+"version": 1,
+"settings": {
+	"layout": {
+		"contentSize": "800px",
+		"wideSize": "1200px"
+	},
+	"border": {
+		"customColor": false,
+		"customRadius": false,
+		"customStyle": false,
+		"customWidth": false
+	},
+	"color": {
+		"custom": false,
+		"customGradient": false,
+		"gradients": [],
+		"customDuotone": false,
+		"duotone": [],
+		"link": false,
+		"palette": [
+			{
+			  "slug": "primary",
+			  "color": "#547e2a",
+        "name": "Primary"
+			},
+			{
+			  "slug": "secondary",
+			  "color": "#007cba",
+        "name": "Secondary"
+			},
+			{
+			  "slug": "tertiary",
+			  "color": "#e8c200",
+        "name": "Tertiary"
+			},
+			{
+			  "slug": "background",
+			  "color": "#f9f9f9",
+        "name": "Background"
+			},
+			{
+			  "slug": "foreground",
+			  "color": "#111",
+        "name": "Foreground"
+			},
+			{
+			  "slug": "gray",
+			  "color": "#333",
+        "name": "Gray"
+			},
+			{
+			  "slug": "gray-light",
+			  "color": "#eee",
+        "name": "Gray Light"
+			},
+			{
+			  "slug": "red",
+			  "color": "#d3033d",
+        "name": "Red"
+			}
+		]
+	},
+	"spacing": {
+		"customMargin": false,
+		"customPadding": false,
+		"units": [ "px", "%" ]
+	},
+	"typography": {
+		"customFontSize": false,
+		"customLineHeight": false,
+		"dropCap": false,
+		"customFontWeight": true,
+		"fontFamilies": [
+			{
+				"fontFamily": "-apple-system,Ubuntu,sans-serif",
+				"slug": "system-fonts",
+				"name": "System Fonts"
+			},
+			{
+				"fontFamily": "Helvetica Neue, Arial, sans-serif",
+				"name": "Helvetica",
+				"slug": "helvetica"
+			}
+		],
+		"fontSizes": [
+			{
+				"slug": "tiny",
+				"size": "0.75rem",
+				"name": "Tiny"
+			},
+			{
+				"slug": "small",
+				"size": "0.875rem",
+				"name": "Small"
+			},
+			{
+				"slug": "normal",
+				"size": "1rem",
+				"name": "Normal"
+			},
+			{
+				"slug": "large",
+				"size": "1.5rem",
+				"name": "Large"
+			},
+			{
+				"slug": "xlarge",
+				"size": "2rem",
+				"name": "X-Large"
+			},
+			{
+				"slug": "huge",
+				"size": "3rem",
+				"name": "Huge"
+			},
+			{
+				"slug": "gigantic",
+				"size": "4rem",
+				"name": "Gigantic"
+			}
+		]
+	},
+	"blocks": {
+		"core/button": {
+			"border": {
+				"customRadius": false
+			},
+			"color": {
+				"palette": []
+			}
+		},
+		"core/list": {
+			"color": {
+				"palette": []
+			}
+		},
+		"core/group": {
+			"layout": {},
+			"color": {
+				"palette": [
+					{
+						"slug": "white",
+						"color": "#fff",
+						"name": "White"
+					},
+					{
+						"slug": "gray-lighter",
+						"color": "#f9f9f9",
+						"name": "Gray Lighter"
+					},
+					{
+						"slug": "green",
+						"color": "#547e2a",
+						"name": "Green"
+					}
+				]
+			}
+		},
+		"core/separator": {
+			"spacing": {
+				"customMargin": false
+			}
+		}
+	}
+},
+"styles": {
+	"color": {
+    "background": "var(--wp--preset--color--background)",
+    "text": "var(--wp--preset--color--foreground)"
+  },
+  "typography": {
+    "fontSize": "var(--wp--preset--font-size--normal)",
+    "fontFamily": "var(--wp--preset--font-family--helvetica)",
+    "lineHeight": "1.7"
+  },
+	"blocks": {
+		"core/paragraph": {
+			"typography": {
+				"fontSize": "var(--wp--preset--font-size--normal)"
+			}
+		}
+	}
+}
+}

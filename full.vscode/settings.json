@@ -1,0 +1,36 @@
+{
+  "phpcs.standard": "WordPress-Core",
+  "phpcs.executablePath": "./vendor/bin/phpcs",
+  "phpcbf.standard": "WordPress-Core",
+  "phpcbf.executablePath": "./vendor/bin/phpcbf",
+  "stylelint.enable": true,
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.formatOnPaste": true,
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "editor.formatOnSave": true,
+  "[css]": {
+    "editor.formatOnSave": true
+  },
+  "[php]": {
+    "editor.detectIndentation": true,
+    "editor.useTabStops": true,
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": false
+  },
+  "[javascript]": {
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.useTabStops": false
+  },
+  "[json]": {
+    "editor.formatOnSave": false
+  },
+  "[xml]": {
+    "editor.formatOnSave": false
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

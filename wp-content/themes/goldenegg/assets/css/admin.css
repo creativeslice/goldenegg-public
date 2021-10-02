@@ -11,7 +11,7 @@ Stylesheet: Variables
 /*********************
 FONTS
 *********************/
-/* Font Face Example 
+/* Font Face Example
 @font-face {
 	font-family: 'MMResistSans';
 	src: url('../fonts/ResistSansDisplayBold.woff2') format('woff2');
@@ -24,14 +24,88 @@ FONTS
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 */
 /*********************
+BREAKPOINTS
+*********************/
+/*********************
+RESPONSIVE CSS VARIABLES
+example use: margin: var(--wp--preset--font-size--medium);
+*********************/
+/*
+:root (this doesn't always work with theme.json)
+body #container
+*/
+body {
+  --wp--preset--font-size--tiny: 0.75rem;
+  --wp--preset--font-size--small: 0.875rem;
+  --wp--preset--font-size--normal: 1rem;
+  --wp--preset--font-size--large: 1.25rem;
+  --wp--preset--font-size--xlarge: 2rem;
+  --wp--preset--font-size--huge: 2.25rem;
+  --wp--preset--font-size--gigantic: 3rem;
+  --line-height--normal: 24px;
+  /*
+	--line-height--xsmall: 20px;
+
+	--line-height--medium: 28px;
+	--line-height--large: 32px;
+	--line-height--xlarge: 40px;
+	--line-height--huge: 48px;
+
+	--wp--preset--font-family--helvetica: $sans_serif;
+	--typography__fontSize: 1rem;
+	--spacing__rhythmUnit: 1.5rem;
+
+	--margin--xsmall: 10px;
+	--margin--small: 20px;
+	--margin--medium: 20px;
+	--margin--large: 30px;
+	*/ }
+  @media screen and (min-width: 64em) {
+    body {
+      --wp--preset--font-size--tiny: 0.75rem;
+      --wp--preset--font-size--small: 1rem;
+      --wp--preset--font-size--normal: 1.125rem;
+      --wp--preset--font-size--large: 1.5rem;
+      --wp--preset--font-size--xlarge: 3rem;
+      --wp--preset--font-size--huge: 3.5rem;
+      --wp--preset--font-size--gigantic: 4rem;
+      --line-height--normal: 32px; } }
+
+/*********************
 COLORS
 *********************/
+:root {
+  --dark-blue: #1973be;
+  --link-color: #547e2a;
+  --link-color--hover: #2779ae;
+  --link-color--active: #e8c200; }
+
+/*
+  --wp--preset--color--black: #000;
+  --wp--preset--color--cyan-bluish-gray: #abb8c3;
+  --wp--preset--color--white: #fff;
+  --wp--preset--color--pale-pink: #f78da7;
+  --wp--preset--color--vivid-red: #cf2e2e;
+  --wp--preset--color--luminous-vivid-orange: #ff6900;
+  --wp--preset--color--luminous-vivid-amber: #fcb900;
+  --wp--preset--color--light-green-cyan: #7bdcb5;
+  --wp--preset--color--vivid-green-cyan: #00d084;
+  --wp--preset--color--pale-cyan-blue: #8ed1fc;
+  --wp--preset--color--vivid-cyan-blue: #0693e3;
+  --wp--preset--color--vivid-purple: #9b51e0;
+  --wp--preset--color--gray-dark: #111;
+  --wp--preset--color--gray: #333;
+  --wp--preset--color--gray-light: #eee;
+  --wp--preset--color--gray-lighter: #f9f9f9;
+  --wp--preset--color--blue: #007cba;
+  --wp--preset--color--yellow: #e8c200;
+  --wp--preset--color--green: #547e2a;
+  --wp--preset--color--red: #d3033d;
+*/
 /* Gutenberg color options
 -- see editor-color-palette in includes/gutenberg.php
 --------------------------------------------- */
-/*********************
-INLINE COLORS
-*********************/
+/* INLINE COLORS */
 .has-gray-color {
   color: #333; }
 
@@ -45,16 +119,16 @@ INLINE COLORS
   background-color: #eee; }
 
 .has-blue-color {
-  color: #2779AE; }
+  color: #2779ae; }
 
 .has-blue-background-color {
-  background-color: #2779AE; }
+  background-color: #2779ae; }
 
 .has-green-color {
-  color: #547E2A; }
+  color: #547e2a; }
 
 .has-green-background-color {
-  background-color: #547E2A; }
+  background-color: #547e2a; }
 
 .has-yellow-color {
   color: #e8c200; }
@@ -82,13 +156,18 @@ INLINE COLORS
 
 /*********************
 REUSABLE ITEMS
+These should be replaced by CSS variables above
 *********************/
-.clearfix, .cf {
+.clearfix,
+.cf {
   zoom: 1; }
-  .clearfix:before, .clearfix:after, .cf:before, .cf:after {
-    content: "";
+  .clearfix:before, .clearfix:after,
+  .cf:before,
+  .cf:after {
+    content: '';
     display: table; }
-  .clearfix:after, .cf:after {
+  .clearfix:after,
+  .cf:after {
     clear: both; }
 
 .modern-clearfix {
@@ -122,7 +201,7 @@ REUSABLE ITEMS
     line-height: normal;
     text-decoration: none;
     background-color: #fff;
-    color: #547E2A; }
+    color: #547e2a; }
 
 .scroll-overflow {
   overflow-x: hidden;
@@ -142,15 +221,6 @@ REUSABLE ITEMS
     border-radius: 8px;
     background: #333; }
 
-.nowrap {
-  display: inline-block; }
-
-.hide {
-  display: none; }
-
-/*********************
-BREAKPOINTS
-*********************/
 /* Page Title
 --------------------------------------------- */
 .edit-post-visual-editor__post-title-wrapper .editor-post-title {
@@ -163,7 +233,7 @@ BREAKPOINTS
   .edit-post-visual-editor__post-title-wrapper .editor-post-title:before {
     content: 'Title';
     color: #757575;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     font-size: 13px;
     font-weight: 500;
     position: absolute;
@@ -189,23 +259,23 @@ BREAKPOINTS
 --------------------------------------------- */
 body .acf-block-fields,
 .edit-post-sidebar {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   font-size: 13px;
   line-height: 1.4em; }
-  body .acf-block-fields .acf-field input[type="text"],
-  body .acf-block-fields .acf-field input[type="password"],
-  body .acf-block-fields .acf-field input[type="number"],
-  body .acf-block-fields .acf-field input[type="search"],
-  body .acf-block-fields .acf-field input[type="email"],
-  body .acf-block-fields .acf-field input[type="url"],
+  body .acf-block-fields .acf-field input[type='text'],
+  body .acf-block-fields .acf-field input[type='password'],
+  body .acf-block-fields .acf-field input[type='number'],
+  body .acf-block-fields .acf-field input[type='search'],
+  body .acf-block-fields .acf-field input[type='email'],
+  body .acf-block-fields .acf-field input[type='url'],
   body .acf-block-fields .acf-field textarea,
   body .acf-block-fields .acf-field select,
-  .edit-post-sidebar .acf-field input[type="text"],
-  .edit-post-sidebar .acf-field input[type="password"],
-  .edit-post-sidebar .acf-field input[type="number"],
-  .edit-post-sidebar .acf-field input[type="search"],
-  .edit-post-sidebar .acf-field input[type="email"],
-  .edit-post-sidebar .acf-field input[type="url"],
+  .edit-post-sidebar .acf-field input[type='text'],
+  .edit-post-sidebar .acf-field input[type='password'],
+  .edit-post-sidebar .acf-field input[type='number'],
+  .edit-post-sidebar .acf-field input[type='search'],
+  .edit-post-sidebar .acf-field input[type='email'],
+  .edit-post-sidebar .acf-field input[type='url'],
   .edit-post-sidebar .acf-field textarea,
   .edit-post-sidebar .acf-field select {
     font-size: 14px;
@@ -222,17 +292,17 @@ body .acf-block-fields,
     -webkit-box-shadow: none;
             box-shadow: none;
     border: none; }
-  body .acf-block-fields .acf-field input[type="checkbox"],
-  body .acf-block-fields .acf-field input[type="radio"],
-  .edit-post-sidebar .acf-field input[type="checkbox"],
-  .edit-post-sidebar .acf-field input[type="radio"] {
+  body .acf-block-fields .acf-field input[type='checkbox'],
+  body .acf-block-fields .acf-field input[type='radio'],
+  .edit-post-sidebar .acf-field input[type='checkbox'],
+  .edit-post-sidebar .acf-field input[type='radio'] {
     border: 1px solid #b4b9be;
     color: #555;
     height: 16px;
     width: 16px;
     border-radius: 0; }
-  body .acf-block-fields .acf-field input[type="radio"],
-  .edit-post-sidebar .acf-field input[type="radio"] {
+  body .acf-block-fields .acf-field input[type='radio'],
+  .edit-post-sidebar .acf-field input[type='radio'] {
     border-radius: 50%;
     padding: 1px !important; }
 
@@ -241,7 +311,7 @@ body .acf-block-fields .acf-field-relationship .list {
 
 body .acf-block-fields .acf-field-relationship ul li {
   margin: 0;
-  font-size: .875rem; }
+  font-size: 0.875rem; }
 
 .edit-post-sidebar .block-editor-panel-color-gradient-settings + .components-panel__body {
   display: none; }
@@ -284,7 +354,7 @@ body .acf-block-fields .acf-field-relationship ul li {
     width: 100%;
     float: none; }
   .edit-post-sidebar .acf-field-relationship .selection .values {
-    border: 1px solid #2779AE;
+    border: 1px solid #2779ae;
     width: 100%;
     float: none; }
 
@@ -307,7 +377,7 @@ body .acf-block-fields .acf-field-relationship ul li {
       position: relative;
       margin: 6px 8px 6px 0;
       color: #fff; }
-      .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"] {
+      .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'] {
         position: absolute;
         top: 0;
         left: 0;
@@ -316,12 +386,12 @@ body .acf-block-fields .acf-field-relationship ul li {
         -webkit-box-shadow: none;
                 box-shadow: none;
         border: 1px solid rgba(0, 0, 0, 0.2); }
-        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"]:checked {
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio']:checked {
           border: 2px solid white;
           -webkit-box-shadow: 0 0 0px 2px #777;
                   box-shadow: 0 0 0px 2px #777; }
-          .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"]:checked::before {
-            content: "\f15e";
+          .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio']:checked::before {
+            content: '\f15e';
             font-family: dashicons;
             width: 20px;
             height: 20px;
@@ -329,21 +399,21 @@ body .acf-block-fields .acf-field-relationship ul li {
             font-size: 20px;
             margin: 0px;
             color: #fff; }
-        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="white"]:checked::before, .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="gray-light"]:checked::before {
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'][value='white']:checked::before, .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'][value='gray-light']:checked::before {
           color: #000; }
-        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="gray"] {
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'][value='gray'] {
           background-color: #333; }
-        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="gray-light"] {
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'][value='gray-light'] {
           background-color: #eee; }
-        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="blue"] {
-          background-color: #2779AE; }
-        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="green"] {
-          background-color: #547E2A; }
-        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="yellow"] {
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'][value='blue'] {
+          background-color: #2779ae; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'][value='green'] {
+          background-color: #547e2a; }
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'][value='yellow'] {
           background-color: #e8c200; }
-        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="red"] {
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'][value='red'] {
           background-color: #d3033d; }
-        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="white"] {
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'][value='white'] {
           background-color: #fff; }
-        .wp-admin .acf-block-component ul.acf-radio-list li label input[type="radio"][value="black"] {
+        .wp-admin .acf-block-component ul.acf-radio-list li label input[type='radio'][value='black'] {
           background-color: #000; }

@@ -12,7 +12,7 @@ ACF Block - Cards
 		width: 100%;
 		max-width: 1360px; // adjusted wrapper
 	}
-	.cardACF {
+	.card-acf {
 		box-shadow: $shadow;
 		border-radius: $radius;
 		overflow: hidden;
@@ -25,7 +25,7 @@ ACF Block - Cards
 		flex-direction: column;
 		align-content: space-between;
 		align-items: stretch;
-		.cardContent {
+		.card-content {
 			padding: 20px;
 			* {
 				margin: 0;
@@ -45,7 +45,7 @@ ACF Block - Cards
 		figure {
 			display: block;
 		}
-		.cardIcon {
+		.card-icon {
 			position: absolute;
 			top: 20px;
 			left: 20px;
@@ -57,21 +57,20 @@ ACF Block - Cards
 			flex-direction: column-reverse;
 			justify-content: space-between;
 		}
-		&.noText {
-            justify-content: center !important;
-        }
-        &.noImage {
-            flex-direction: column !important;
-            justify-content: center !important;
-            text-align: center;
-            padding-top: $spacing;
-            padding-bottom: $spacing;
-        }
-        
+		&.no-text {
+			justify-content: center !important;
+		}
+		&.no-image {
+			flex-direction: column !important;
+			justify-content: center !important;
+			text-align: center;
+			padding-top: $spacing;
+			padding-bottom: $spacing;
+		}
 	}
-	a.cardACF {
+	a.card-acf {
 		text-decoration: none;
-		.cardContent {
+		.card-content {
 			color: $black;
 		}
 		&:hover {
@@ -82,82 +81,82 @@ ACF Block - Cards
 		}
 	}
 	&.columns-two {
-		.cardACF {
+		.card-acf {
 			width: calc(100% - 20px);
 			box-shadow: none;
 		}
 	}
 	&.columns-three {
-		.cardACF {
+		.card-acf {
 			width: calc(100% - 40px);
 			max-width: 320px;
 		}
 	}
 	&.columns-four {
-		.cardACF {
+		.card-acf {
 			width: calc(50% - 30px);
 			max-width: 280px;
-			.cardContent p {
+			.card-content p {
 				font-weight: normal;
 			}
 		}
 	}
-@include breakpoint(medium) {
-	&.columns-two {
-		.cardACF {
-			//width: calc(50% - 30px);
-			flex-wrap: nowrap;
-			flex-direction: row !important;
-			align-items: center;
-			figure {
-				width: 45%;
-				min-width: 45%;
+	@include breakpoint(medium) {
+		&.columns-two {
+			.card-acf {
+				//width: calc(50% - 30px);
+				flex-wrap: nowrap;
+				flex-direction: row !important;
+				align-items: center;
+				figure {
+					width: 45%;
+					min-width: 45%;
+				}
+			}
+		}
+		&.columns-three,
+		&.columns-four {
+			.card-acf {
+				width: calc(33% - 20px);
 			}
 		}
 	}
-	&.columns-three,
-	&.columns-four {
-		.cardACF {
-			width: calc(33% - 20px);
+	@include breakpoint(large) {
+		&.columns-two {
+			.card-acf {
+				margin: 0;
+				width: calc(50% - 20px);
+			}
 		}
-	}
-}
-@include breakpoint(large) {
-	&.columns-two {
-		.cardACF {
-			margin: 0;
-			width: calc(50% - 20px);
-		}
-	}
-	&.columns-four {
-		.cardACF {
-			width: calc(25% - 40px);
-		}
-	}
-}
-@include breakpoint(xlarge) {
-	.cardACF {
-		margin: 20px;
-	}
-	&.columns-two {
-		.cardACF {
-			margin: 0;
-			width: 50%;
-		}
-	}
-	&.columns-three {
-		.cardACF {
-			.cardContent {
-				padding: $spacing/2;
+		&.columns-four {
+			.card-acf {
+				width: calc(25% - 40px);
 			}
 		}
 	}
-	&.columns-four {
-		.cardACF {
-			.cardContent p {
-				font-size: 1.25rem;
+	@include breakpoint(xlarge) {
+		.card-acf {
+			margin: 20px;
+		}
+		&.columns-two {
+			.card-acf {
+				margin: 0;
+				width: 50%;
+			}
+		}
+		&.columns-three {
+			.card-acf {
+				.card-content {
+					padding: $spacing/2;
+				}
+			}
+		}
+		&.columns-four {
+			.card-acf {
+				.card-content p {
+					font-size: 1.25rem;
+				}
 			}
 		}
 	}
-}
 }

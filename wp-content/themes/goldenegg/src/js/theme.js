@@ -1,23 +1,9 @@
 /*
  * Wrap jQuery JS in ready class
-*/
-jQuery(document).ready(function($) {
-	
-	
+ */
+window.addEventListener( 'load', function () {
 	/**
-	* fallback for SVG icons in IE
-	*/
-	svg4everybody();
-	
-	
-	/*
-	 * Prevent Widows in h1 articleHeader
+	 * fallback for SVG icons in IE
 	 */
-	$('.articleHeader h1').each(function () {
-		var string = $(this).html();
-		string = string.replace(/ ([^ ]*)$/, '&nbsp;$1');
-		$(this).html(string);
-	});
-	
-
-});
+	//svg4everybody();
+} );
