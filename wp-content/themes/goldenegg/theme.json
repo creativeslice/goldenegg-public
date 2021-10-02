@@ -19,17 +19,17 @@
 		"duotone": [],
 		"link": false,
 		"palette": [
-      {
+			{
 			  "slug": "primary",
 			  "color": "#547e2a",
         "name": "Primary"
 			},
-      {
+			{
 			  "slug": "secondary",
 			  "color": "#007cba",
         "name": "Secondary"
 			},
-      {
+			{
 			  "slug": "tertiary",
 			  "color": "#e8c200",
         "name": "Tertiary"
@@ -39,7 +39,7 @@
 			  "color": "#f9f9f9",
         "name": "Background"
 			},
-      {
+			{
 			  "slug": "foreground",
 			  "color": "#111",
         "name": "Foreground"
@@ -114,7 +114,7 @@
 				"size": "3rem",
 				"name": "Huge"
 			},
-      {
+			{
 				"slug": "gigantic",
 				"size": "4rem",
 				"name": "Gigantic"
@@ -142,17 +142,17 @@
 					{
 						"slug": "white",
 						"color": "#fff",
-            "name": "White"
+						"name": "White"
 					},
 					{
 						"slug": "gray-lighter",
 						"color": "#f9f9f9",
-            "name": "Gray Lighter"
+						"name": "Gray Lighter"
 					},
 					{
 						"slug": "green",
 						"color": "#547e2a",
-            "name": "Green"
+						"name": "Green"
 					}
 				]
 			}

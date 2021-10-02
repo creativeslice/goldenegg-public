@@ -2,9 +2,12 @@
 
 A responsive WordPress starter theme created by Creative Slice that uses Gulp to compile SCSS &amp; JS.
 
-Pagely: [https://pagely.goldenegg.dev](goldenegg.dev)
-WPEngine: [goldenegg.dev](https://goldenegg.dev)
-WPEngine staging: goldeneggstag.wpengine.com
+Deploy from `develop`:
+1. Pagely: [pagely.goldenegg.dev](https://goldenegg.dev)
+1. WPEngine Staging: [goldeneggstag.wpengine.com](https://goldeneggstag.wpengine.com)
+
+Deploy from `main` when a GitHub Release is made:
+1. WPEngine: [goldenegg.dev](https://goldenegg.dev)
 
 
 ## Changelog
