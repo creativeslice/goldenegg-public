@@ -1,7 +1,7 @@
 name: "WPEngine PRODUCTION Deploy from /main when a GitHub Release is made"
 on:
-  release:
-    types: [published, created, edited]
+  push:
+    branches: [ main ]
 
 jobs:
   build:
