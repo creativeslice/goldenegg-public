@@ -6,14 +6,14 @@ Stylesheet: BASE
 
 html,
 body {
-	background-color: $gray_lighter;
+	//background-color: $gray_lighter;
 }
 
 body {
 	font-size: 100%;
-	line-height: 1.7;
-	font-family: $sans_serif;
-	color: $gray_dark; //$black;
+	//line-height: 1.7;
+	//font-family: $sans_serif;
+	//color: $gray_dark; //$black; var(--wp--preset--color--primary)
 	margin: 0;
 }
 
@@ -27,14 +27,17 @@ hr {
 	//display: block;
 	height: 0;
 	border: 0;
-	border-top: 1px solid $gray_light;
-	border-bottom: 1px solid $white;
+	border-top: 1px solid var(--wp--preset--color--gray-light);
+	border-bottom: 1px solid white;
 	padding: 0;
 }
+
+/*
 .wp-block-separator.has-background {
 	height: 2px;
 	border: 0;
 }
+*/
 
 /*********************
 LINK STYLES
@@ -43,9 +46,6 @@ LINK STYLES
 a,
 a:visited {
 	color: var(--link-color);
-
-	//color: rgb(var(--red, var(--link-color, 0, 0, 255)));
-
 	&:hover,
 	&:focus {
 		color: var(--link-color--hover);
@@ -54,23 +54,9 @@ a:visited {
 		color: var(--link-color--active);
 	}
 	&:link {
-		-webkit-tap-highlight-color: rgba($link_color, 0.6); // mobile tap color
+		//-webkit-tap-highlight-color: rgba($link_color, 0.6); // mobile tap color
 	}
 }
-
-//<a> elements that don't have a class get default styles
-/*
-a:not([class]) {
-	text-decoration-skip-ink: auto;
-	color: inherit;
-	text-decoration: underline;
-	text-decoration-color: $link_color;
-	&:hover {
-		text-decoration: none;
-		color: $link_hover;
-	}
-}
-*/
 
 /*********************
 LAYOUT & GRID STYLES
@@ -107,6 +93,7 @@ similar to old .entryContent
 
 // Gutenberg Blocks, first child
 // Style all the core blocks without a wrapper :not(.acf-block)
+
 .wp-site-blocks > {
 	*:not(.acf-block) {
 		width: calc(100% - 40px);

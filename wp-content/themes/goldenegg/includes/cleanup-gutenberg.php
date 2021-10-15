@@ -13,6 +13,7 @@ function egg_allowed_block_types( $allowed_blocks ) {
 		'core/image',
 		'core/freeform', // Classic Editor Block
 		'core/list',
+		'core/file',
 		'core/code',
 		//'core/blockquote',
 		'core/pullquote',
@@ -48,17 +49,19 @@ function egg_allowed_block_types( $allowed_blocks ) {
 /**
  * Remove Embed Scripts & Gutenberg Styles
  */
+/*
 add_action( 'wp_enqueue_scripts', 'egg_wp_enqueue_scripts' );
 function egg_wp_enqueue_scripts() {
 	wp_deregister_script( 'wp-embed' ); // embed scripts
 	//wp_dequeue_style( 'wp-block-library' ); // gutenberg block styles
 }
+*/
 
 
 /**
  * Disabling the default block patterns
  */
-remove_theme_support( 'core-block-patterns' );
+//remove_theme_support( 'core-block-patterns' );
 
 
 /**

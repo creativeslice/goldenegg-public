@@ -1,5 +1,48 @@
 <?php // THEME SUPPORT
+
+
+/**
+ * Updating WordPress Functions & Theme Support
+ */
+function custom_theme_support() {
 	
+	// Title Tag for SEO
+	add_theme_support( 'title-tag' );
+	
+	// Featured Image by post type
+	add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
+	//set_post_thumbnail_size( 1792, 9999 );
+
+	// Add default posts and comments RSS feed links to head.
+	//add_theme_support('automatic-feed-links');
+
+	// HTML5 semantic markup.
+	add_theme_support( 'html5', array('search-form','gallery','caption'));
+	
+	// Add support for responsive embedded content.
+	add_theme_support( 'responsive-embeds' );
+
+	// Menu navigation
+	add_theme_support( 'menus' );
+	register_nav_menus(
+		array(
+			'mainNav'     => 'Main Menu',  		// main nav in header
+			'footerLinks' => 'Footer Links',	// links in footer
+		)
+	);
+	
+	// Adding support for core block visual styles.
+	//add_theme_support( 'wp-block-styles' );
+	
+	// Add support for editor styles.
+	add_theme_support( 'editor-styles' );
+		
+}
+add_action( 'after_setup_theme', 'custom_theme_support' );
+
+
+
+
 /**
  * Image sizes
  */
@@ -31,69 +74,37 @@ add_filter( 'intermediate_image_sizes', function($sizes) {
 /**
  * Allow SVG uploads
  */
-add_filter( 'upload_mimes', 'cc_mime_types' );
 function cc_mime_types( $mimes ){
 	$mimes['svg'] = 'image/svg+xml';
 	$mimes['svg'] = 'image/svg';
 	return $mimes;
 }
+add_filter( 'upload_mimes', 'cc_mime_types' );
 
 
 /**
  * Force galleries to link to file instead of attachment page
  */
-add_shortcode( 'gallery', 'my_gallery_shortcode' );
 function my_gallery_shortcode($atts) {
     $atts['link'] = 'file';
     return gallery_shortcode($atts);
 }
+add_shortcode( 'gallery', 'my_gallery_shortcode' );
 
 
 /**
  * Add responsive ".videoContainer" to YouTube and Vimeo embeds
  */
-add_filter( 'embed_oembed_html', 'vnmFunctionality_embedWrapper', 10, 3 );
+/*
 function vnmFunctionality_embedWrapper($html, $url, $attr) {
     if (strpos($html, 'youtube') !== false || strpos($html, 'vimeo') !== false) {
         return '<div class="videoContainer">' . $html . '</div>';
     }
 	return $html;
 }
+add_filter( 'embed_oembed_html', 'vnmFunctionality_embedWrapper', 10, 3 );
+*/
 
-
-/**
- * Updating WordPress Functions & Theme Support
- */
-add_action( 'after_setup_theme', 'custom_theme_support' );
-function custom_theme_support() {
-	
-	/* Title Tag for SEO */
-	add_theme_support( 'title-tag' );
-	
-	/* Featured Image */
-	add_theme_support( 'post-thumbnails', array( 'post', 'page' ) ); // Post types
-
-	/* Enables post and comment RSS feed links to head */
-	//add_theme_support('automatic-feed-links');
-
-	/* Enable support for HTML5 markup. */
-	add_theme_support( 'html5', 
-		array(
-			'search-form',
-			'gallery',
-			'caption'
-		)
-	);
-
-	/* registering WP menus */
-	add_theme_support( 'menus' );
-	register_nav_menus(
-		array(
-			'mainNav'     => 'Main Menu',  		// main nav in header
-			'footerLinks' => 'Footer Links',	// links in footer
-		)
-	);
-}
 
 
 /**
@@ -101,11 +112,11 @@ function custom_theme_support() {
  *
  * @return	bool Modified status for comments.
  */
-add_filter( 'excerpt_more',	'egg_excerpt_more' );
 function egg_excerpt_more($more) {
 	global $post;
 	return "&hellip;";
 }
+add_filter( 'excerpt_more',	'egg_excerpt_more' );
 
 
 /**
@@ -113,10 +124,10 @@ function egg_excerpt_more($more) {
  *
  * @return	Modified character length
  */
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 function custom_excerpt_length($length) {
 	return 33; // number of characters
 }
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
 /**

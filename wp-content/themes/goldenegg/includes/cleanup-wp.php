@@ -128,7 +128,7 @@ function egg_remove_comments_admin_menu() {
 	remove_submenu_page( 'options-general.php', 'options-discussion.php' );
 }
 
-// Remove from default post types - This doesn't seem to work for Gutenberg
+// Remove from default post types ************* This doesn't seem to work for Gutenberg
 add_action( 'init', 'egg_comments_init' );
 function egg_comments_init() {
 	remove_post_type_support( 'post', 'comments' );

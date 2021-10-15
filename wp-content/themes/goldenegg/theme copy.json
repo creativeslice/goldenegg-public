@@ -96,7 +96,7 @@
 		"customFontSize": false,
 		"customLineHeight": false,
 		"dropCap": false,
-		"customFontWeight": false,
+		"customFontWeight": true,
 		"fontFamilies": [
 			{
 				"fontFamily": "-apple-system,BlinkMacSystemFont,Cantarell,sans-serif",
@@ -104,7 +104,7 @@
 				"slug": "system-font"
 			},
 			{
-				"fontFamily": "Inter, sans-serif",
+				"fontFamily": "\"Inter\", sans-serif",
 				"name": "Inter",
 				"slug": "inter"
 			},
@@ -197,6 +197,11 @@
 },
 "styles": {
 	"blocks": {
+		"core/paragraph": {
+			"typography": {
+				"fontSize": "var(--wp--preset--font-size--normal)"
+			}
+		},
 		"core/button": {
 			"border": {
 				"color": "currentColor",
@@ -226,6 +231,62 @@
 			"color": {
 				"background": "var(--wp--preset--color--foreground)",
 				"text": "var(--wp--preset--color--background)"
+			}
+		}
+	},
+	"elements": {
+		"h1": {
+			"typography": {
+				"fontWeight": "700",
+				"fontSize": "var(--wp--preset--font-size--gigantic)",
+				"lineHeight": "var(--wp--custom--typography--line-height--gigantic)",
+				"letterSpacing": "var(--wp--custom--typography--letter-spacing--gigantic)"
+			}
+		},
+		"h2": {
+			"typography": {
+				"fontWeight": "900",
+				"fontSize": "var(--wp--preset--font-size--huge)",
+				"lineHeight": "var(--wp--custom--typography--line-height--huge)",
+				"letterSpacing": "var(--wp--custom--typography--letter-spacing--huge)"
+			}
+		},
+		"h3": {
+			"typography": {
+				"fontWeight": "600",
+				"fontSize": "var(--wp--preset--font-size--large)",
+				"lineHeight": "var(--wp--custom--typography--line-height--large)"
+			}
+		},
+		"h4": {
+			"typography": {
+				"fontWeight": "900",
+				"lineHeight": "var(--wp--custom--typography--line-height--huge)",
+				"fontSize": "var(--wp--preset--font-size--normal)"
+			}
+		},
+		"h5": {
+			"typography": {
+				"fontWeight": "600",
+				"textTransform": "uppercase",
+				"letterSpacing": "var(--wp--custom--typography--letter-spacing--spread)",
+				"lineHeight": "var(--wp--custom--typography--line-height--huge)",
+				"fontSize": "var(--wp--preset--font-size--small)"
+			}
+		},
+		"h6": {
+			"typography": {
+				"fontFamily": "var(--wp--preset--font-family--system-font)",
+				"fontWeight": "600",
+				"textTransform": "uppercase",
+				"letterSpacing": "var(--wp--custom--typography--letter-spacing--spread)",
+				"lineHeight": "var(--wp--custom--typography--line-height--huge)",
+				"fontSize": "var(--wp--preset--font-size--tiny)"
+			}
+		},
+		"link": {
+			"color": {
+				"text": "var(--wp--preset--color--foreground)"
 			}
 		}
 	},

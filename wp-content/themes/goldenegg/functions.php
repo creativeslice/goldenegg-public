@@ -14,7 +14,7 @@ include_once get_stylesheet_directory() . '/includes/theme-support.php';
 include_once get_stylesheet_directory() . '/partials/search/search-functions.php';
 
 // Block Functions
-include_once get_stylesheet_directory() . '/blocks/blocks-acf.php'; // Custom ACF Gutenberg Blocks
+//include_once get_stylesheet_directory() . '/blocks/blocks-acf.php'; // Custom ACF Gutenberg Blocks
 
 
 /**

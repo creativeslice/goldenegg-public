@@ -81,28 +81,20 @@ gulp.task( 'styles-login', function () {
 		.pipe( notify( { message: 'Styles login task complete' } ) );
 } );
 
-gulp.task( 'styles-admin', function () {
-	return gulp
-		.src( 'src/scss/admin.scss' )
-		.pipe( sass( { style: compression } ) )
-		.pipe( autoprefixer( 'last 2 versions' ) )
-		.pipe( gulp.dest( 'assets/css' ) )
-		.pipe( notify( { message: 'Styles admin task complete' } ) );
-} );
-
 gulp.task( 'styles-editor', function () {
 	return gulp
 		.src( 'src/scss/editor.scss' )
 		.pipe( plumber( { errorHandler: onError } ) )
 		.pipe( globSass() )
-		.pipe( sourcemaps.init() )
+		//.pipe( sourcemaps.init() )
 		.pipe( sass( { style: compression } ) )
 		.pipe( autoprefixer( 'last 2 versions', '> 1%', 'android > 4' ) )
 		.pipe( cleanCSS() )
-		.pipe( sourcemaps.write( '.' ) )
+		//.pipe( sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( 'assets/css' ) )
 		.pipe( notify( { message: 'Styles editor task complete' } ) );
 } );
+
 
 /**
  * JAVASCRIPT
@@ -151,16 +143,15 @@ gulp.task( 'scripts-admin', function () {
 		.pipe( notify( { message: 'Scripts admin task complete' } ) );
 } );
 
+
 /**
  * SVG ICONS
  *
  * 'gulp icons' (only compiles icons)
  */
 gulp.task( 'icons', function () {
-	return (
-		gulp
+	return ( gulp
 			.src( 'src/icons/*' )
-
 			//.pipe(gulpif('prod'==environment, svgmin()))
 			.pipe( svgstore( { inlineSvg: true } ) )
 			.pipe(
@@ -180,6 +171,7 @@ gulp.task( 'icons', function () {
 	);
 } );
 
+
 /**
  * PRETTIER
  *
@@ -195,6 +187,7 @@ gulp.task( 'pretty-scss', function () {
 	//.pipe(notify({ message: "Prettier SCSS task complete" }));
 } );
 
+
 /**
  * GULP Task
  *
@@ -206,7 +199,6 @@ gulp.task(
 		'pretty-scss',
 		'styles',
 		'styles-login',
-		'styles-admin',
 		'styles-editor',
 		'scripts',
 		'scripts-admin'
@@ -219,17 +211,15 @@ gulp.task(
  * 'gulp watch' (does not compile styles-login, styles-editor or icons)
  */
 gulp.task( 'watch', function () {
-	//environment = 'dev'
+	
 	livereload( { start: true } );
 
-	gulp.watch(
-		'src/scss/**/*.scss',
-		gulp.series( 'styles', 'styles-editor' )
-	);
+	gulp.watch('src/scss/**/*.scss', gulp.series( 'styles', 'styles-editor' ) );
 	gulp.watch( 'partials/**/*.scss', gulp.series( 'styles' ) );
 	gulp.watch( 'blocks/**/*.scss', gulp.series( 'styles' ) );
 
 	gulp.watch( 'src/js/**/*.js', gulp.series( 'scripts' ) );
 	gulp.watch( 'partials/**/*.js', gulp.series( 'scripts' ) );
 	gulp.watch( 'blocks/**/*.js', gulp.series( 'scripts' ) );
+	
 } );

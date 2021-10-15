@@ -40,10 +40,7 @@ add_filter('simple_history/logger/load_logger', function ($load_logger, $logger_
         'SimpleLogger',
     ];
 
-    if (in_array($logger_basename, $do_log_us)) {
-        $load_logger = true;
-    }
-
+    if (in_array($logger_basename, $do_log_us)) { $load_logger = true; }
     return $load_logger;
 },10,2);
 
