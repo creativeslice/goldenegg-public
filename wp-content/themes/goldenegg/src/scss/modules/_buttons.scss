@@ -11,8 +11,10 @@ button {
 }
 
 /**
- * Let's define our core button styles
+ * Core button styles
  */
+
+/*
 %button-styles {
 	font-weight: bold;
 	font-family: $sans_serif;
@@ -42,7 +44,7 @@ button {
 	}
 }
 
-/* ----- Core Block Buttons -------------------- */
+// Core Block Buttons
 .block-editor-block-list__block[data-type='core/buttons'],
 .block-editor-block-list__block[data-type='core/button'] {
 	margin-top: 0;
@@ -109,3 +111,4 @@ button {
 		border-radius: 50px;
 	}
 }
+*/

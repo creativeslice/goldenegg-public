@@ -4,6 +4,26 @@ Stylesheet: Typography
 
 ******************************************************************/
 
+@font-face {
+	font-family: 'Inter';
+	src: url('../fonts/inter/Inter-roman-var.woff2') format('woff2-variations');
+	font-display: auto; // swap
+	font-weight: 400 900;
+	font-style: normal;
+	font-stretch: normal;
+	font-named-instance: 'Regular';
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url('../fonts/inter/Inter-italic-var.woff2') format('woff2');
+	font-display: auto; // swap
+	font-weight: 300 900;
+	font-style: italic;
+	font-stretch: normal;
+	font-named-instance: 'Italic';
+}
+
 /*********************
 HEADLINES
 *********************/

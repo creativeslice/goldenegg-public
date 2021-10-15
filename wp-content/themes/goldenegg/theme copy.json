@@ -224,8 +224,9 @@
 				}
 			},
 			"typography": {
-				"fontFamily": "var(--wp--preset--font-family--source-serif-pro)",
-				"fontWeight": "300",
+				"fontFamily": "var(--wp--preset--font-family--system-font)",
+				"letterSpacing": "var(--wp--custom--typography--letter-spacing--normal)",
+				"fontWeight": "400",
 				"fontSize": "var(--wp--preset--font-size--huge)"
 			},
 			"color": {

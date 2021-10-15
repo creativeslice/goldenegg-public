@@ -12,7 +12,7 @@ function egg_styles() {
 		array(), '', 'all');
 	
 	// Add styles inline.
-	wp_add_inline_style( 'egg-style', egg_get_font_face_styles() );
+	//wp_add_inline_style( 'egg-style', egg_get_font_face_styles() );
 		
 	// Enqueue theme stylesheet.
 	//wp_style_add_data( 'egg-style', 'path', get_template_directory() . '/style.css' );
@@ -22,7 +22,7 @@ add_action( 'wp_enqueue_scripts', 'egg_styles', 999 );
 
 
 /**
- * Load Editor Only CSS
+ * Load Block Editor CSS
  */
 function egg_editor_styles() {
 	
@@ -41,20 +41,6 @@ add_action( 'admin_init', 'egg_editor_styles' );
 function egg_get_font_face_styles() {
 	return "
 	@font-face{
-		font-family: 'Inter';
-		font-weight: 400 900;
-		font-style: normal;
-		font-stretch: normal;
-		font-display: swap;
-		src: url('" . get_theme_file_uri( 'assets/fonts/inter/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2' ) . "') format('woff2-variations');
-	}
-	@font-face{
-		font-family: 'Inter';
-		font-weight: 400;
-		font-style: italic;
-		src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-Italic.woff2' ) . "') format('woff2');
-	}
-	@font-face{
 		font-family: 'Source Serif Pro';
 		font-weight: 200 900;
 		font-style: normal;
@@ -72,6 +58,16 @@ function egg_get_font_face_styles() {
 }
 
 /*
+
+@font-face{
+	font-family: 'Inter';
+	font-weight: 400 900;
+	font-style: normal;
+	font-stretch: normal;
+	font-display: swap;
+	src: url('" . get_theme_file_uri( 'assets/fonts/inter/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2' ) . "') format('woff2-variations');
+}
+
 @font-face{
 	font-family: 'Inter';
 	font-weight: 400 900;
@@ -128,44 +124,12 @@ function egg_scripts() {
 add_action( 'wp_enqueue_scripts', 'egg_scripts', 999 );
 
 
-/* GUTENBERG ADMIN
---------------------------------------------- */
-
-// Admin CSS - outside block editor
-/*
-add_action( 'admin_enqueue_scripts', 'egg_admin_style' );
-function egg_admin_style() {
-	$adminStyle = '/assets/css/admin.css';
-	wp_enqueue_style( 'admin-styles', 
-    	get_stylesheet_directory_uri() . $adminStyle . '?v=' . filemtime( get_template_directory() . $adminStyle ) 
-    );
-}
-*/
 
 
-// Editor & Admin CSS - admin & block editor
-/*
-add_action( 'enqueue_block_editor_assets', 'egg_block_editor_scripts' );
-function egg_block_editor_scripts() {
-
-    $editorStyle = '/assets/css/editor.css';
-	// wp-block-editor 'wp-blocks', 'wp-element', 'wp-components', 'wp-i18n'
-	wp_enqueue_style( 'editor-styles', 
-		get_theme_file_uri( $editorStyle ), 
-		[ 'wp-block-editor' ], 
-		filemtime( get_template_directory() . $editorStyle ), 'all' 
-	);
-	
-	// Gutenberg Customization Script	
-	wp_enqueue_script('wd-editor', get_stylesheet_directory_uri() . '/includes/core-block-overrides.js', array( 'wp-blocks', 'wp-dom' ), filemtime( get_stylesheet_directory() . '/includes/core-block-overrides.js' ), true );
-
-}
-*/
+// Add block patterns
+require get_template_directory() . '/blocks/block-patterns.php';
 
 
-// Block Editor CSS - block editor inline styles (DO NOT USE: cache clearing issues)
-//add_editor_style( 'assets/css/editor.css' );
-//add_theme_support( 'editor-styles' );
 
 
 /**
