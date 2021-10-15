@@ -44,10 +44,10 @@ WP CAPTIONS
 	max-width: 100%;
 	text-align: center;
 	&.alignleft {
-		margin-right: $default_margin;
+		margin-right: 1em;
 	}
 	&.alignright {
-		margin-left: $default_margin;
+		margin-left: 1em;
 	}
 	&.aligncenter {
 		margin-right: auto;

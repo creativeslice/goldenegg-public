@@ -35,7 +35,6 @@ ACF Block - Cards
 				width: 100%;
 			}
 			small {
-				color: $gray;
 				font-weight: normal;
 				margin-top: 1em;
 				font-size: 1rem;
@@ -71,7 +70,6 @@ ACF Block - Cards
 	a.card-acf {
 		text-decoration: none;
 		.card-content {
-			color: $black;
 		}
 		&:hover {
 			box-shadow: $shadow_hover;

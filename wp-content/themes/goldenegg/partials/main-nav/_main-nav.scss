@@ -8,7 +8,7 @@ MENU NAVIGATION
 	position: relative;
 	float: right;
 	cursor: pointer;
-	fill: $link_color;
+	fill: var(--wp--preset--color--primary);
 	width: 48px;
 	height: 48px;
 	svg {
@@ -37,7 +37,7 @@ MENU NAVIGATION
 		.label {
 			display: block;
 			margin-right: 36px;
-			color: $link_color;
+			color: var(--wp--preset--color--primary);
 		}
 	}
 	@include breakpoint(large) {
@@ -59,7 +59,6 @@ MAIN MENU
 .main-nav {
 	clear: both;
 	text-align: center;
-	background: $white;
 	ul {
 		margin: 0;
 		padding: 0;
@@ -115,7 +114,7 @@ MAIN MENU
 				opacity: 0;
 				transition: visibility $ease, opacity $ease;
 				text-align: left;
-				background: $white;
+				background: white;
 				box-shadow: $shadow;
 				li {
 					max-width: none;
@@ -125,7 +124,6 @@ MAIN MENU
 						border-right: 0;
 						display: block;
 						width: 220px;
-						border-top: 1px solid $gray_light;
 						&:hover {
 						}
 					}

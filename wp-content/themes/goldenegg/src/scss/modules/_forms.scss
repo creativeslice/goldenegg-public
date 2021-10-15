@@ -4,44 +4,52 @@ Stylesheet: Forms
 
 ******************************************************************/
 
-// Input defaults
+/*********************
+CSS NORMALIZE RESET
+*********************/
+button,
 input,
+optgroup,
 select,
-textarea,
-.field {
-	background-color: $gray_lighter;
-	border: 1px solid $gray_light;
-	border-radius: 3px;
-	box-sizing: border-box;
-	box-shadow: none;
-	color: $text_color;
-	display: block;
-	font-size: 1em;
-	height: 40px;
-	line-height: 40px;
-	margin-bottom: 14px;
-	padding: 0 12px;
-	transition: background-color $ease;
-	width: 100%;
-	&:focus,
-	&:active {
-		background-color: white;
-	}
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+
+// Show the overflow in IE.
+button,
+input {
+	overflow: visible;
+}
+
+// Remove the inheritance of text transform
+button,
+select {
+	text-transform: none;
+}
+
+// Correct the inability to style clickable types in iOS and Safari.
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+	-webkit-appearance: button;
+}
+
+progress {
+	vertical-align: baseline;
 }
 
 textarea {
-	line-height: 1.5em;
-	max-width: 100%;
-	min-height: 120px;
 	overflow: auto;
 }
 
-select {
-	// Base64 encoded little arrow
-	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAG0lEQVR42mNgwAfKy8v/48I4FeA0AacVDFQBAP9wJkE/KhUMAAAAAElFTkSuQmCC);
-	background-repeat: no-repeat;
-	background-position: 95% center;
-	-webkit-appearance: none;
+// Correct the inability to style clickable types in iOS and Safari.
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
 }
 
 /*********************
@@ -60,30 +68,27 @@ GRAVITY FORMS
 	}
 	.gfield_description {
 		padding-top: 4px !important;
-		color: $gray;
 	}
 	input[type='text'],
-	input[type='email'] {
+	input[type='email'],
+	input[type='tel'] {
 		padding: 6px 10px 4px 10px !important;
 		&::placeholder {
-			color: $gray;
 		}
 	}
 	textarea {
 		margin-top: 5px;
-		border: 1px solid $gray_light;
 		&:focus,
 		&:active {
-			border-color: $link_color;
+			border-color: var(--link-color);
 		}
 	}
 	select {
 		margin: 0 !important;
 		padding: 5px 10px !important;
-		border: 1px solid $gray_light;
 		&:focus,
 		&:active {
-			border-color: $link_color;
+			border-color: var(--link-color);
 		}
 	}
 	.gfield_radio {
@@ -100,9 +105,9 @@ GRAVITY FORMS
 		li input[type='checkbox']:checked + label {
 		}
 	}
+
 	// Labels below fields
 	.ginput_complex.ginput_container label {
-		color: $gray;
 		text-transform: uppercase;
 		font-size: 12px !important;
 		margin: 2px 0 8px 0 !important;
@@ -116,15 +121,16 @@ GRAVITY FORMS
 
 	// Error Messages
 	div.validation_error {
-		background: $link_color;
+		background: var(--link-color);
 		padding: 10px !important;
-		color: $white !important;
+		color: white !important;
 		border: none !important;
 	}
 	li.gfield.gfield_error {
 		border: none !important;
 		padding-top: 0 !important;
 	}
+
 	// Submit Button
 	.gform_footer {
 		.button {

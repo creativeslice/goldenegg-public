@@ -5,7 +5,6 @@ ACF Block - Expanding Text
 .expanding-text-block {
 	padding: $spacing/4 0;
 	.sectionTitle {
-		color: $black !important;
 		svg {
 			width: 24px;
 			height: 24px;
@@ -14,14 +13,12 @@ ACF Block - Expanding Text
 	}
 	.expandBlock {
 		margin-bottom: 10px;
-		background: $gray_lighter;
 	}
 	.toggleContent {
 		transition: color $ease;
 		display: block;
 		cursor: pointer;
-		padding: $default_margin;
-		padding-right: 60px;
+		padding: $spacing/4;
 		margin: 0;
 		position: relative;
 		transition: all $ease;
@@ -32,8 +29,9 @@ ACF Block - Expanding Text
 			height: 24px;
 			position: absolute;
 			top: 24px;
-			right: $default_margin;
+			right: $spacing/4;
 			transform: rotate(90deg);
+			fill: var(--wp--preset--color--primary);
 		}
 		&.open {
 			svg {
@@ -41,12 +39,12 @@ ACF Block - Expanding Text
 			}
 		}
 		&:hover svg {
-			fill: $link_hover;
+			fill: var(--wp--preset--color--secondary);
 		}
 	}
 	.hiddenContent {
 		display: none;
-		padding: $default_margin;
+		padding: $spacing/4;
 		padding-top: 0;
 		.entryContent {
 			*:first-child {

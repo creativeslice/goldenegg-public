@@ -21,6 +21,9 @@ function egg_styles() {
 add_action( 'wp_enqueue_scripts', 'egg_styles', 999 );
 
 
+/**
+ * Load Editor Only CSS
+ */
 function egg_editor_styles() {
 	
 	add_editor_style( array( '/assets/css/editor.css' ) );
@@ -28,51 +31,28 @@ function egg_editor_styles() {
 }
 add_action( 'admin_init', 'egg_editor_styles' );
 	
-	
-	
 
-/*function egg_editor_styles() {
-	add_editor_style( array( 
-		'/assets/css/editor.css',
-		egg_get_font_face_styles()
-	) );
-
-}
-add_action( 'admin_init', 'egg_editor_styles' );
-*/
-
-// Google Fonts
+/**
+ * Variable Fonts
+ *
+ * https://github.com/RoelN/google-variable-fonts-links
+ *
+ */
 function egg_get_font_face_styles() {
 	return "
 	@font-face{
 		font-family: 'Inter';
-		font-weight: 400;
+		font-weight: 400 900;
 		font-style: normal;
-		src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-Regular.woff2' ) . "') format('woff2');
+		font-stretch: normal;
+		font-display: swap;
+		src: url('" . get_theme_file_uri( 'assets/fonts/inter/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2' ) . "') format('woff2-variations');
 	}
 	@font-face{
 		font-family: 'Inter';
 		font-weight: 400;
 		font-style: italic;
 		src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-Italic.woff2' ) . "') format('woff2');
-	}
-	@font-face{
-		font-family: 'Inter';
-		font-weight: 600;
-		font-style: normal;
-		src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-SemiBold.woff2' ) . "') format('woff2');
-	}
-	@font-face{
-		font-family: 'Inter';
-		font-weight: 700;
-		font-style: normal;
-		src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-Bold.woff2' ) . "') format('woff2');
-	}
-	@font-face{
-		font-family: 'Inter';
-		font-weight: 900;
-		font-style: normal;
-		src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-Black.woff2' ) . "') format('woff2');
 	}
 	@font-face{
 		font-family: 'Source Serif Pro';
@@ -91,6 +71,47 @@ function egg_get_font_face_styles() {
 	";
 }
 
+/*
+@font-face{
+	font-family: 'Inter';
+	font-weight: 400 900;
+	font-style: oblique 0deg 7deg;
+	font-display: swap;
+	src: url('" . get_theme_file_uri( 'assets/fonts/inter/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2' ) . "') format('woff2-variations');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face{
+	font-family: 'Inter';
+	font-weight: 400;
+	font-style: normal;
+	src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-Regular.woff2' ) . "') format('woff2');
+}
+@font-face{
+	font-family: 'Inter';
+	font-weight: 400;
+	font-style: italic;
+	src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-Italic.woff2' ) . "') format('woff2');
+}
+@font-face{
+	font-family: 'Inter';
+	font-weight: 600;
+	font-style: normal;
+	src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-SemiBold.woff2' ) . "') format('woff2');
+}
+@font-face{
+	font-family: 'Inter';
+	font-weight: 700;
+	font-style: normal;
+	src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-Bold.woff2' ) . "') format('woff2');
+}
+@font-face{
+	font-family: 'Inter';
+	font-weight: 900;
+	font-style: normal;
+	src: url('" . get_theme_file_uri( 'assets/fonts/inter/Inter-Black.woff2' ) . "') format('woff2');
+}
+*/
 
 
 

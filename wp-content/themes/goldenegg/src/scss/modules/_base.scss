@@ -4,13 +4,13 @@ Stylesheet: BASE
 
 ******************************************************************/
 
-html,
-body {
-	//background-color: $gray_lighter;
+html:focus-within {
+	scroll-behavior: smooth;
 }
 
 body {
 	font-size: 100%;
+	text-rendering: optimizeSpeed;
 	//line-height: 1.7;
 	//font-family: $sans_serif;
 	//color: $gray_dark; //$black; var(--wp--preset--color--primary)
@@ -25,11 +25,14 @@ body {
 
 hr {
 	//display: block;
-	height: 0;
 	border: 0;
 	border-top: 1px solid var(--wp--preset--color--gray-light);
 	border-bottom: 1px solid white;
 	padding: 0;
+
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
 }
 
 /*
@@ -87,29 +90,31 @@ GUTENBERG Blocks
 similar to old .entryContent
 *********************/
 
-.wp-site-blocks {
-	//overflow: hidden; // this might break position sticky
+/*
+.wp-block-post-content.alignfull > :not(.alignfull):not([data-align='full']),
+.wp-block[data-align='full']
+	> .wp-block-post-content
+	> :not(.alignfull):not([data-align='full']),
+.wp-site-blocks
+	> [class*='wp-container-']
+	> :not(.alignfull):not([data-align='full']) {
+	margin-left: auto;
+	margin-right: auto;
+	width: calc( 100% - ( 2 * var( --wp--custom--gutter ) ) ) !important;
 }
+*/
 
 // Gutenberg Blocks, first child
-// Style all the core blocks without a wrapper :not(.acf-block)
-
 .wp-site-blocks > {
-	*:not(.acf-block) {
+	*:not(.alignfull) {
 		width: calc(100% - 40px);
-		max-width: 760px;
+		max-width: var(--wp--custom--layout-style--content-size);
 		margin-right: auto;
 		margin-left: auto;
 		position: relative;
-		/*
-		&:first-child {
-			margin-top: 0;
-			padding-top: $spacing;
-		}
-		*/
 	}
 	.alignwide {
-		max-width: 1240px;
+		max-width: var(--wp--custom--layout-style--wide-size);
 	}
 	.alignfull {
 		width: 100%;
@@ -120,8 +125,80 @@ similar to old .entryContent
 }
 
 /*********************
-ACCESSIBILITY using what intent
+ACCESSIBILITY 
+using what intent
 *********************/
 [data-whatintent='mouse'] *:focus {
 	outline: none;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/*********************
+CSS NORMALIZE RESET
+*********************/
+
+// Box sizing rules
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+abbr[title] {
+	border-bottom: none;
+	text-decoration: underline;
+	text-decoration: underline dotted;
+}
+
+// Add the correct font weight in Chrome, Edge, and Safari.
+b,
+strong {
+	font-weight: bolder;
+}
+
+small {
+	font-size: 80%;
+}
+
+// Prevent `sub` and `sup` elements from affecting line height
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sub {
+	bottom: -0.25em;
+}
+sup {
+	top: -0.5em;
+}
+
+main,
+details {
+	display: block;
+}
+
+summary {
+	display: list-item;
+}
+
+template,
+[hidden] {
+	display: none;
 }

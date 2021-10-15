@@ -27,7 +27,7 @@ Search Form
 	position: relative;
 	float: right;
 	cursor: pointer;
-	fill: $link_color;
+	fill: var(--wp--preset--color--primary);
 	width: 48px;
 	height: 48px;
 	svg {

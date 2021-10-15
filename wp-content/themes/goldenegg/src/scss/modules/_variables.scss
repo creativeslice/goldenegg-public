@@ -5,12 +5,6 @@ Stylesheet: Variables
 ******************************************************************/
 
 /*********************
-FONTS
-*********************/
-$sans_serif: 'Helvetica Neue', Arial, sans-serif;
-$serif: 'Georgia', Cambria, Times, serif;
-
-/*********************
 BREAKPOINTS
 *********************/
 $small: 'screen and (min-width: 30em)'; // 480px
@@ -55,8 +49,6 @@ example use: margin: var(--wp--preset--font-size--medium);
 body #container
 */
 body {
-	--line-height--normal: 24px;
-
 	/*
 	--wp--preset--font-size--tiny: 0.75rem;
 	--wp--preset--font-size--small: 0.875rem;
@@ -67,7 +59,7 @@ body {
 	--wp--preset--font-size--gigantic: 3rem;
 	
 	--line-height--xsmall: 20px;
-
+	--line-height--normal: 24px;
 	--line-height--medium: 28px;
 	--line-height--large: 32px;
 	--line-height--xlarge: 40px;
@@ -91,9 +83,9 @@ body {
 		--wp--preset--font-size--xlarge: 3rem;
 		--wp--preset--font-size--huge: 3.5rem;
 		--wp--preset--font-size--gigantic: 4rem;
-		*/
-
+		
 		--line-height--normal: 32px;
+		*/
 	}
 }
 
@@ -103,80 +95,17 @@ COLORS
 
 // Colors are set in theme.json file
 :root {
-	--dark-blue: #1973be;
 	--link-color: #547e2a;
 	--link-color--hover: #2779ae;
 	--link-color--active: #e8c200;
 }
 
-/*
-  --wp--preset--color--black: #000;
-  --wp--preset--color--cyan-bluish-gray: #abb8c3;
-  --wp--preset--color--white: #fff;
-  --wp--preset--color--pale-pink: #f78da7;
-  --wp--preset--color--vivid-red: #cf2e2e;
-  --wp--preset--color--luminous-vivid-orange: #ff6900;
-  --wp--preset--color--luminous-vivid-amber: #fcb900;
-  --wp--preset--color--light-green-cyan: #7bdcb5;
-  --wp--preset--color--vivid-green-cyan: #00d084;
-  --wp--preset--color--pale-cyan-blue: #8ed1fc;
-  --wp--preset--color--vivid-cyan-blue: #0693e3;
-  --wp--preset--color--vivid-purple: #9b51e0;
-  --wp--preset--color--gray-dark: #111;
-  --wp--preset--color--gray: #333;
-  --wp--preset--color--gray-light: #eee;
-  --wp--preset--color--gray-lighter: #f9f9f9;
-  --wp--preset--color--blue: #007cba;
-  --wp--preset--color--yellow: #e8c200;
-  --wp--preset--color--green: #547e2a;
-  --wp--preset--color--red: #d3033d;
-*/
-
-$blueDark: var(--dark-blue);
-
-$black: #000;
-$white: #fff;
-
-$gray_lighter: #f9f9f9;
-$gray_light: #eee;
-$gray: #333;
-$gray_dark: #111;
-
-$gold: #e8c200;
-$yellow: $gold;
-
-$green: #547e2a; // #669933;
-$red: #d3033d;
-$blue: #2779ae;
-
-$text_color: $gray_dark;
-$link_color: $green;
-$link_hover: $blue;
-
-/* Gutenberg color options
--- see editor-color-palette in includes/gutenberg.php
---------------------------------------------- */
-$colors: (gray, $gray), (gray-light, $gray_light), (blue, $blue),
-	(green, $green), (yellow, $yellow), (red, $red), (white, $white),
-	(black, $black);
-
-/* INLINE COLORS */
-@each $name, $color in $colors {
-	.has-#{$name}-color {
-		color: $color;
-	}
-	.has-#{$name}-background-color {
-		background-color: $color;
-	}
-}
-
 /*********************
 REUSABLE ITEMS
-These should be replaced by CSS variables above
 *********************/
 
 $spacing: 80px;
-$default_margin: 1.25rem; // 20px
+//$default_margin: 1.25rem; // 20px
 
 $radius: 8px;
 
@@ -231,8 +160,8 @@ $easeslow: 0.6s ease-in;
 		font-size: 1em;
 		line-height: normal;
 		text-decoration: none;
-		background-color: $white;
-		color: $link_color;
+		background-color: white;
+		color: var(--link-color);
 	}
 }
 
@@ -247,20 +176,11 @@ $easeslow: 0.6s ease-in;
 		width: 8px;
 	}
 	&::-webkit-scrollbar-track {
-		-webkit-box-shadow: inset 1px 0 0 0 $gray_lighter;
-		background: $gray_light;
+		-webkit-box-shadow: inset 1px 0 0 0 #eee;
+		background: #ccc;
 	}
 	&::-webkit-scrollbar-thumb {
 		border-radius: 8px;
-		background: $gray;
+		background: #666;
 	}
-}
-
-// keep phrase from breaking to 2nd line: class adding through wysiwyg
-.nowrap {
-	//display: inline-block;
-}
-
-.hide {
-	//display: none;
 }

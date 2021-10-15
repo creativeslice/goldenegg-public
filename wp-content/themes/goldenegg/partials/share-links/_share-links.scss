@@ -5,17 +5,17 @@ SHARE LINKS
 .share-links {
 	a,
 	a:visited {
-		fill: $gray;
 		display: inline-block;
 		vertical-align: top;
 		padding: 2px 6px;
 		width: 32px;
 		height: 32px;
-		background: $white;
 		border-radius: 50%;
+		fill: var(--wp--preset--color--primary);
+		background: white;
 		&:hover {
-			fill: $white;
-			background: $link_hover;
+			fill: white;
+			background: var(--wp--preset--color--primary);
 		}
 		svg {
 			width: 20px;

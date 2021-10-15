@@ -9,7 +9,7 @@ function custom_theme_support() {
 	// Title Tag for SEO
 	add_theme_support( 'title-tag' );
 	
-	// Featured Image by post type
+	// Add featured image by post type.
 	add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
 	//set_post_thumbnail_size( 1792, 9999 );
 
@@ -85,26 +85,13 @@ add_filter( 'upload_mimes', 'cc_mime_types' );
 /**
  * Force galleries to link to file instead of attachment page
  */
+/*
 function my_gallery_shortcode($atts) {
     $atts['link'] = 'file';
     return gallery_shortcode($atts);
 }
 add_shortcode( 'gallery', 'my_gallery_shortcode' );
-
-
-/**
- * Add responsive ".videoContainer" to YouTube and Vimeo embeds
- */
-/*
-function vnmFunctionality_embedWrapper($html, $url, $attr) {
-    if (strpos($html, 'youtube') !== false || strpos($html, 'vimeo') !== false) {
-        return '<div class="videoContainer">' . $html . '</div>';
-    }
-	return $html;
-}
-add_filter( 'embed_oembed_html', 'vnmFunctionality_embedWrapper', 10, 3 );
 */
-
 
 
 /**

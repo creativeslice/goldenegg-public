@@ -8,6 +8,12 @@ Stylesheet: Typography
 HEADLINES
 *********************/
 
+/*
+Variable Font Support
+@supports (font-variation-settings: "wght" 450) {
+}
+*/
+
 h1,
 .has-gigantic-font-size {
 	font-weight: 700;
@@ -29,14 +35,14 @@ h3,
 	font-weight: 600;
 	font-size: var(--wp--preset--font-size--large);
 	line-height: var(--wp--custom--typography--line-height--large);
-	letter-spacing: var(--wp--custom--typography--letter-spacing--body);
+	letter-spacing: var(--wp--custom--typography--letter-spacing--normal);
 }
 
 h4 {
 	font-weight: 900;
 	font-size: var(--wp--preset--font-size--normal);
 	line-height: var(--wp--custom--typography--line-height--huge);
-	letter-spacing: var(--wp--custom--typography--letter-spacing--body);
+	letter-spacing: var(--wp--custom--typography--letter-spacing--normal);
 }
 
 h5 {
