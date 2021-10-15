@@ -20,5 +20,5 @@ jobs:
         CACHE_CLEAR: TRUE
 
       # Branches & Environments
-        PRD_BRANCH: master
+        PRD_BRANCH: main
         PRD_ENV: goldeneggdev
