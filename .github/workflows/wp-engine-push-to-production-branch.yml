@@ -20,6 +20,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git checkout -B main
-          git commit -m "Push to production to deploy to WPEngine production"
+          # git commit -m "Push to production to deploy to WPEngine production"
           git push -f origin production
         if: success()
