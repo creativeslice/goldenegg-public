@@ -17,8 +17,53 @@ include_once get_stylesheet_directory() . '/partials/search/search-functions.php
 //include_once get_stylesheet_directory() . '/blocks/blocks-acf.php'; // Custom ACF Gutenberg Blocks
 
 
+
+
+
+
+function register_block_template() {
+	$block_template = [
+      [
+        'core/group',
+        [],
+        [
+          [
+            'core/heading',
+            [
+              'level'   => 2,
+              'content' => 'Example Block Template',
+            ]
+          ],
+          [
+            'core/paragraph',
+            [
+              'content' => 'Lorem ipsum dolor sit amet labore cras venenatis.',
+            ]
+          ],
+          [
+            'core/columns',
+            [],
+          ],
+        ]
+      ]
+    ];
+
+	$post_type_object                = get_post_type_object( 'post' );
+	$post_type_object->template      = $block_template;
+    $post_type_object->template_lock = 'all';
+}
+add_action( 'init', 'register_block_template' );
+
+
+
+
+
+
+
+
+
 /**
- * SVG Icons with version number
+ * SVG Icons with version number for cache busting.
  *
  * replaces: <svg><use xlink:href="<?php echo get_template_directory_uri(); ?>/assets/icons/icons.svg#close"></use></svg>
  * with: <svg><use href="<?php echo get_svg('globe'); ?>"></use></svg>
@@ -32,7 +77,7 @@ function get_svg( $which ) {
 
 
 /**
- * ACF Options Page for site-wide fields
+ * ACF options page for site-wide fields.
  * @link https://www.advancedcustomfields.com/resources/options-page/
  */
 /*

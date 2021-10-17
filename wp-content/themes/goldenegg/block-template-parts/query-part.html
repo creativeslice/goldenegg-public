@@ -1,20 +1,22 @@
 
-<!-- wp:group -->
-<div class="wp-block-group">
+<!-- wp:group {"align":"wide"} -->
+<div class="wp-block-group alignwide">
 	
-	<!-- wp:group -->
+	<!-- wp:group {"templateLock":"all"} -->
 	<div class="wp-block-group">
+		
 		<!-- wp:heading -->
 		<h2>All the classes</h2>
 		<!-- /wp:heading -->
+		
 		<!-- wp:paragraph -->
 		<p>This is where the stuff goes</p>
 		<!-- /wp:paragraph -->
+		
 	</div>
 	<!-- /wp:group -->
 
 	<!-- wp:query {
-		"templateLock":"all",
 		"queryId":1,
 		"query":{
 			"offset":0,
@@ -32,10 +34,10 @@
 			"type":"flex",
 			"columns":3
 		},
-		"align":"wide",
 		"layout":{
-			"inherit":true
-		}
+			"inherit":false
+		},
+		"templateLock":"all"
 	} -->
 	<div class="wp-block-query alignwide">
 		<!-- wp:post-template {"align":"wide"} -->
@@ -43,8 +45,6 @@
 			<!-- wp:post-featured-image /-->
 	
 			<!-- wp:post-title {"isLink":true,"fontSize":"large"} /-->
-	
-			<!-- wp:post-excerpt {"fontSize":"tiny"} /-->
 	
 		<!-- /wp:post-template -->
 	
