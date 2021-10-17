@@ -17,7 +17,7 @@ jobs:
       - name: Update version
         uses: brettdorrans/write-version-to-file@master
         with:
-          filename: 'wp-content/themes/goldenegg/.VERSION'
+          filename: '/wp-content/themes/goldenegg/.VERSION'
           placeholder: '${VERSION}'
       - name: Commit to production to trigger deploy to production
         working-directory: wp-content/themes/goldenegg/
