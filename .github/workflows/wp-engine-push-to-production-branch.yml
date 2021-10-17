@@ -14,12 +14,18 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.GOLDENEGG_PUSH_TOKEN }}
+      - name: Update version
+        uses: brettdorrans/write-version-to-file@master
+        with:
+          filename: '/.VERSION'
+          placeholder: '${VERSION}'
       - name: Commit to production to trigger deploy to production
         working-directory: wp-content/themes/goldenegg/
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git checkout -B main
-          # git commit -m "Push to production to deploy to WPEngine production"
+          git add -f /.VERSION
+          git commit -m "Push to production to deploy to WPEngine production"
           git push -f origin production
         if: success()
