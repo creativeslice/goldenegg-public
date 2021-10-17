@@ -4,8 +4,7 @@
 name: On Release created push to production to trigger deploy to WPEngine test
 
 on:
-  release:
-    types: [ published, edited ]
+  pull_request
 
 jobs:
   build:
