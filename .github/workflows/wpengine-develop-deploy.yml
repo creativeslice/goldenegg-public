@@ -5,18 +5,32 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest 
-    steps: 
+    runs-on: ubuntu-latest
+    steps:
     - uses: actions/checkout@v2
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+    - name: install root node_modules
+      # change working-directory to the theme folder path
+      working-directory: wp-content/themes/goldenegg
+      run: |
+        npm ci
+    - name: run gulp for staging
+      # change working-directory to the theme folder path
+      working-directory: wp-content/themes/goldenegg
+      run: |
+        npm run gulp:prod
     - name: GitHub Action Deploy to WP Engine
       uses: wpengine/github-action-wpe-site-deploy@v2.3.3
       with:
-      
+
       # Deploy vars
-        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }} 
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }}
         PHP_LINT: FALSE
         CACHE_CLEAR: TRUE
-      
-      # Branches & Environments 
+
+      # Branches & Environments
         STG_BRANCH: develop
-        STG_ENV: goldeneggstag 
+        STG_ENV: goldeneggstag
