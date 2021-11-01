@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    # spin up a docker container with the latest ubutnu lts running
     - name: Set up Node
       uses: actions/setup-node@v1
       with:
@@ -23,16 +22,6 @@ jobs:
       working-directory: wp-content/themes/goldenegg
       run: |
         npm run gulp:stage
-    # do not push these files to server
-    - name: Remove README.md File
-      uses: JesseTG/rm@v1.0.2
-      with:
-        path: README.md
-    - name: Remove Node Modules File
-      uses: JesseTG/rm@v1.0.2
-      with:
-        path: wp-content/themes/goldenegg/node_modules
-    # deploy to WP Engine
     - name: GitHub Action Deploy to WP Engine
       uses: wpengine/github-action-wpe-site-deploy@v2.3.3
       with:

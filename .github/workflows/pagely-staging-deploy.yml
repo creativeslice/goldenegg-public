@@ -31,6 +31,10 @@ jobs:
         uses: JesseTG/rm@v1.0.2
         with:
           path: README.md
+      - name: Remove node_modules Folder
+        uses: JesseTG/rm@v1.0.2
+        with:
+          path: wp-content/themes/${{ env.THEME_PATH }}/node_modules
       - name: Run deploy
         uses: pagely/action-deploy@v1
         with:
