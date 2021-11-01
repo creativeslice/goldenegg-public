@@ -10,6 +10,28 @@ jobs:
     # if: github.ref == 'refs/heads/main'
     steps:
     - uses: actions/checkout@v2
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+    - name: install root node_modules
+      # change working-directory to the theme folder path
+      working-directory: wp-content/themes/goldenegg
+      run: |
+        npm ci
+    - name: run gulp for staging
+      # change working-directory to the theme folder path
+      working-directory: wp-content/themes/goldenegg
+      run: |
+        npm run gulp:stage
+    - name: Remove README.md File
+      uses: JesseTG/rm@v1.0.2
+      with:
+        path: README.md
+    - name: Remove theme node_modules File
+      uses: JesseTG/rm@v1.0.2
+      with:
+        path: wp-content/themes/goldenegg/node_modules
     - name: GitHub Action Deploy to WP Engine
       uses: wpengine/github-action-wpe-site-deploy@v2.3.3
       with:

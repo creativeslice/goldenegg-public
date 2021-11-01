@@ -22,10 +22,6 @@ jobs:
       working-directory: wp-content/themes/goldenegg
       run: |
         npm run gulp:stage
-    - name: Remove README.md File
-      uses: JesseTG/rm@v1.0.2
-      with:
-        path: README.md
     - name: GitHub Action Deploy to WP Engine
       uses: wpengine/github-action-wpe-site-deploy@v2.3.3
       with:
