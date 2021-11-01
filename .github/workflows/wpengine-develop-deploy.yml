@@ -5,8 +5,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest 
-    steps: 
+    runs-on: ubuntu-latest
+    steps:
     - uses: actions/checkout@v2
     - name: Set up Node
       uses: actions/setup-node@v1
@@ -22,19 +22,19 @@ jobs:
       working-directory: wp-content/themes/goldenegg
       run: |
         npm run gulp:stage
-    - name: Remove File
+    - name: Remove README.md File
       uses: JesseTG/rm@v1.0.2
       with:
         path: README.md
     - name: GitHub Action Deploy to WP Engine
       uses: wpengine/github-action-wpe-site-deploy@v2.3.3
       with:
-      
+
       # Deploy vars
-        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }} 
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }}
         PHP_LINT: FALSE
         CACHE_CLEAR: TRUE
-      
-      # Branches & Environments 
+
+      # Branches & Environments
         STG_BRANCH: develop
-        STG_ENV: goldeneggstag 
+        STG_ENV: goldeneggstag
