@@ -72,15 +72,6 @@ gulp.task( 'styles', function () {
 		.pipe( livereload() );
 } );
 
-gulp.task( 'styles-login', function () {
-	return gulp
-		.src( 'src/scss/login.scss' )
-		.pipe( sass( { style: compression } ) )
-		.pipe( autoprefixer( 'last 2 versions' ) )
-		.pipe( gulp.dest( 'assets/css' ) )
-		.pipe( notify( { message: 'Styles login task complete' } ) );
-} );
-
 gulp.task( 'styles-editor', function () {
 	return gulp
 		.src( 'src/scss/editor.scss' )
@@ -198,7 +189,6 @@ gulp.task(
 	gulp.series(
 		'pretty-scss',
 		'styles',
-		'styles-login',
 		'styles-editor',
 		'scripts',
 		'scripts-admin'
@@ -208,7 +198,7 @@ gulp.task(
 /**
  * GULP WATCH Task
  *
- * 'gulp watch' (does not compile styles-login, styles-editor or icons)
+ * 'gulp watch' (does not compile styles-editor or icons)
  */
 gulp.task( 'watch', function () {
 	

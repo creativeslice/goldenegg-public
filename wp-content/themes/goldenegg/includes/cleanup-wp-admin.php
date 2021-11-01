@@ -1,47 +1,146 @@
-<?php // CLEANUP WP ADMIN
+<?php
+/**
+ * Cleanup: WordPress Admin
+ * 
+ * Author: Creative Slice
+ * URI: https://github.com/creativeslice/goldenegg
+ * Version: 1.0
+*/
+ 
+ 
 
 /**
- * Customize the login screen
+* Removes hard-coded admin bar offsets
+*/
+add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
+
+
+/**
+ * Style front end admin bar.
  */
-function egg_login_init() {
-	add_action( 'login_enqueue_scripts', 	'egg_login_css' );
-	add_filter( 'login_headerurl',			'egg_login_url' );
-	add_filter( 'login_headertext',			'egg_login_title' );
+function cslice_admin_bar_style() {
+	if ( is_user_logged_in() ) {
+	    echo "<style type='text/css'>
+	    @media (min-width: 782px){
+			#wpadminbar {
+				width: auto;
+				min-width: 400px;
+				background: rgba(29,35,39,.9);
+				border-bottom-right-radius: 4px;
+			}
+		}
+		#wpadminbar #wp-admin-bar-site-name>.ab-item::before {
+			content: '\\f324';
+			margin-right: 0;
+		}
+		</style>";
+	}
 }
-add_action( 'login_init', 'egg_login_init' );
-
-// Add theme login CSS
-function egg_login_css() { wp_enqueue_style( 'egg_admin_login', get_template_directory_uri() . '/assets/css/login.css', false ); }
-
-// Change logo link to site home
-function egg_login_url() { return home_url( '/' ); }
-
-// Change the alt text on the logo to site name
-function egg_login_title() { return get_option('blogname'); }
-
+add_action( 'wp_head', 'cslice_admin_bar_style' );
 
 
 /**
- * Re-enable infinite scrolling in media library
- */
-add_filter( 'media_library_infinite_scrolling', '__return_true' );
-
-
-/**
- * Turn OFF Theme Editor - PAGELY already does this
- */
-#define( 'DISALLOW_FILE_EDIT', true );
-
-
-/**
- * Turn off Autosave (does not currently work with Gutenberg)
- */
-
-function disable_autosave() {
-	wp_deregister_script( 'autosave' );
+* Modify the admin bar left link title
+*/
+function cslice_admin_bar_titles( ) {
+	if(is_admin()) { 
+		$title = "Home";
+	} else {
+		$title = "";
+		global $wp_admin_bar;
+		$wp_admin_bar->add_menu( array(
+			'id'    => 'site-name',
+			'title' => $title,
+		));
+	}
 }
-add_action( 'admin_init', 'disable_autosave', 999);
+add_action( 'wp_before_admin_bar_render', 'cslice_admin_bar_titles' );
 
+
+/**
+ * Remove howdy next to username in the admin bar
+ */
+function cslice_replace_howdy( $translated, $text, $domain ) {
+	if ( false !== strpos($translated, "Howdy") ) {
+		return str_replace("Howdy,", "", $translated);
+	}
+	return $translated;
+}
+add_filter( 'gettext', 'cslice_replace_howdy', 10, 3 );
+
+
+/**
+ * Remove top admin menu items
+ */
+function cslice_customize_admin_bar() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('search');
+	$wp_admin_bar->remove_menu('wp-logo');
+	$wp_admin_bar->remove_menu('about');
+	$wp_admin_bar->remove_menu('wporg');
+	$wp_admin_bar->remove_menu('documentation');
+	$wp_admin_bar->remove_menu('support-forums');
+	$wp_admin_bar->remove_menu('feedback');
+	$wp_admin_bar->remove_menu('view-site');
+	$wp_admin_bar->remove_menu('new-content');
+	$wp_admin_bar->remove_menu('new-link');
+	$wp_admin_bar->remove_menu('new-media');
+	$wp_admin_bar->remove_menu('new-user');
+	$wp_admin_bar->remove_menu('customize');
+	$wp_admin_bar->remove_menu('customize-themes');
+	$wp_admin_bar->remove_menu('themes');
+	$wp_admin_bar->remove_menu('widgets');
+	
+	// Plugins
+	# $wp_admin_bar->remove_node('rank-math'); // Rank Math plugin
+}
+add_action( 'wp_before_admin_bar_render', 'cslice_customize_admin_bar' );
+
+
+// Plugin: SearchWP - Remove top bar menu item
+add_filter( 'searchwp\admin_bar', '__return_false' ); 
+
+
+
+
+/**
+ * WordPress Admin Login
+ * 
+ */
+// Change logo from WordPress to custom theme.
+function cslice_login_css() {
+	echo '<style type="text/css">
+		body.login {
+			background: #efefef;
+		}
+		body.login h1 a {
+			background: url("' . get_template_directory_uri() . '/assets/img/login-logo.png") no-repeat top center;
+			background-size: contain;
+			width: 300px;
+			height: 40px;
+		}
+		</style>';
+}
+add_action( 'login_enqueue_scripts', 'cslice_login_css' );
+
+// Change logo link from wordpress.org to the site home.
+function cslice_login_url() {
+	return home_url( '/' );
+}
+add_filter( 'login_headerurl', 'cslice_login_url' );
+
+// Change alt text on the logo to site name
+function cslice_login_title() {
+	return get_option('blogname');
+}
+add_filter( 'login_headertext', 'cslice_login_title' );
+
+
+
+
+/**
+ * DASHBOARD
+ */
 
 
 /**

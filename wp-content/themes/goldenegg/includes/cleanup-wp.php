@@ -1,5 +1,29 @@
 <?php // CLEANUP WP
 
+
+
+/**
+ * Re-enable infinite scrolling in media library
+ */
+add_filter( 'media_library_infinite_scrolling', '__return_true' );
+
+
+
+/**
+ * Turn off Autosave (does not currently work with Gutenberg)
+ */
+
+function disable_autosave() {
+	wp_deregister_script( 'autosave' );
+}
+//add_action( 'admin_init', 'disable_autosave', 999);
+
+
+
+
+
+
+
 /**
  * Basic WordPress cleanup
  */
