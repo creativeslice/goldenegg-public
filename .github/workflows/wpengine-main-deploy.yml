@@ -1,4 +1,4 @@
-name: "WPEngine PRODUCTION Deploy from /main when a GitHub Release is made"
+name: "WP Engine PRODUCTION Deploy from /main when a GitHub Release is made"
 on:
   release:
     types: [published, created, edited]
@@ -10,10 +10,13 @@ jobs:
     # if: github.ref == 'refs/heads/main'
     steps:
     - uses: actions/checkout@v2
+
+    # spin up a docker container with the latest ubutnu lts running
     - name: Set up Node
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
+
     - name: install root node_modules
       # change working-directory to the theme folder path
       working-directory: wp-content/themes/goldenegg
@@ -24,14 +27,18 @@ jobs:
       working-directory: wp-content/themes/goldenegg
       run: |
         npm run gulp:stage
-    - name: Remove README.md File
+
+    # do not push readme or node_modules to server
+    - name: remove README.md
       uses: JesseTG/rm@v1.0.2
       with:
         path: README.md
-    - name: Remove theme node_modules File
+    - name: remove theme node_modules
       uses: JesseTG/rm@v1.0.2
       with:
         path: wp-content/themes/goldenegg/node_modules
+
+    # deploy to WP Engine
     - name: GitHub Action Deploy to WP Engine
       uses: wpengine/github-action-wpe-site-deploy@v2.3.3
       with:
