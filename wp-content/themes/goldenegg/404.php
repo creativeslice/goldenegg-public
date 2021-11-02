@@ -1,4 +1,5 @@
-<?php get_header(); ?>
+<?php // 404 Page Not Found
+get_template_part( 'partials/header/header' ); ?>
 
 <main id="content" class="wrap">
 
@@ -18,4 +19,4 @@
 
 </main>
 
-<?php get_footer();
+<?php get_template_part( 'partials/footer/footer' );
