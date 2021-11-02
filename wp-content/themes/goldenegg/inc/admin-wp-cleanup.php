@@ -1,5 +1,11 @@
-<?php // CLEANUP WP
-
+<?php
+/**
+ * Admin: WordPress Cleanup
+ * 
+ * Author: Creative Slice
+ * URI: https://github.com/creativeslice/goldenegg
+ * Version: 1.0
+*/
 
 
 /**
@@ -131,30 +137,4 @@ function egg_disable_emojis_remove_dns_prefetch( array $urls, string $relation_t
 		}
 	}
 	return $urls;
-}
-
-
-/**
- * Disable Comments
- */
-
-// Remove Comments from wpadmin menu (TOP BAR)
-add_action( 'wp_before_admin_bar_render', 'egg_remove_comments_admin_bar' );
-function egg_remove_comments_admin_bar() {
-	global $wp_admin_bar;
-	$wp_admin_bar->remove_menu('comments');
-}
-
-// Remove Comments from admin menu (LEFT SIDEBAR)
-add_action( 'admin_menu', 'egg_remove_comments_admin_menu', 999 );
-function egg_remove_comments_admin_menu() {	
-	remove_menu_page('edit-comments.php');
-	remove_submenu_page( 'options-general.php', 'options-discussion.php' );
-}
-
-// Remove from default post types ************* This doesn't seem to work for Gutenberg
-add_action( 'init', 'egg_comments_init' );
-function egg_comments_init() {
-	remove_post_type_support( 'post', 'comments' );
-	remove_post_type_support( 'page', 'comments' );
 }

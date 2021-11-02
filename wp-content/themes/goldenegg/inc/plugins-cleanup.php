@@ -1,6 +1,13 @@
 <?php // CLEANUP & REFINE PLUGINS
 
 
+
+// Plugin: SearchWP - Remove top bar menu item
+add_filter( 'searchwp\admin_bar', '__return_false' ); 
+
+
+
+
 /**
  * PLUGIN: Rank Math SEO
  *

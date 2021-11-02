@@ -1,14 +1,22 @@
 <?php // FUNCTIONS
 
 // Core WordPress Functions
-include_once get_stylesheet_directory() . '/includes/cleanup-wp-admin.php';
-include_once get_stylesheet_directory() . '/includes/cleanup-wp.php';
-include_once get_stylesheet_directory() . '/includes/cleanup-gutenberg.php';
-include_once get_stylesheet_directory() . '/includes/enqueue.php';
+include_once get_stylesheet_directory() . '/inc/admin-bar.php';
+include_once get_stylesheet_directory() . '/inc/admin-dashboard.php';
+include_once get_stylesheet_directory() . '/inc/admin-login.php';
+include_once get_stylesheet_directory() . '/inc/admin-wp-cleanup.php';
+
+include_once get_stylesheet_directory() . '/inc/disable-comments.php';
+
+include_once get_stylesheet_directory() . '/inc/enqueue.php';
+
+//include_once get_stylesheet_directory() . '/inc/gutenberg.php';
+//include_once get_stylesheet_directory() . '/inc/plugins-cleanup.php';
+
 
 // Theme Functions
-//include_once get_stylesheet_directory() . '/includes/custom-post-types.php'; // Or use CPT plugin
-include_once get_stylesheet_directory() . '/includes/theme-support.php';
+//include_once get_stylesheet_directory() . '/inc/theme-custom-post-types.php'; // Or use CPT plugin
+include_once get_stylesheet_directory() . '/inc/theme-support.php';
 
 // Partial Functions
 include_once get_stylesheet_directory() . '/partials/search/search-functions.php';
@@ -20,7 +28,8 @@ include_once get_stylesheet_directory() . '/partials/search/search-functions.php
 
 
 
-
+// BLOCK TEMPLATE TEST
+/*
 function register_block_template() {
 	$block_template = [
       [
@@ -53,11 +62,7 @@ function register_block_template() {
     $post_type_object->template_lock = 'all';
 }
 add_action( 'init', 'register_block_template' );
-
-
-
-
-
+*/
 
 
 

@@ -4,8 +4,7 @@ get_template_part( 'partials/header/header' ); ?>
 <article id="content" class="wrapper-wide">
 
 	<main class="wp-site-blocks post-content-blocks ">
-		<?php the_post(); the_content();
-		?>
+		<?php the_post(); the_content(); ?>
 	</main>
 
 	<?php get_template_part( 'partials/sidebar/sidebar' ); ?>
