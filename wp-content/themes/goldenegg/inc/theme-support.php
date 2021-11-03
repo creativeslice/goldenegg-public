@@ -1,4 +1,40 @@
-<?php // THEME SUPPORT
+<?php
+/**
+ * Theme Support: Customizations for this theme
+*/
+
+
+
+/**
+ * Image sizes
+ */
+ 
+// WP DEFAULTS: /wp-admin/options-media.php
+# thumbnail		150, 	150,	true
+# medium		800, 	800,	false
+# large			1600, 	1600,	false
+
+// CUSTOM SIZES
+//add_image_size( 'fhd', 		1920, 	1080, 	true );
+//add_image_size( 'hd', 		1280, 	720, 	true );
+//add_image_size( 'hdsm', 	640, 	360, 	true );
+
+// Disable srcset images
+//add_filter( 'wp_calculate_image_srcset', '__return_false' );
+	
+// Disable large image scaling
+add_filter( 'big_image_size_threshold', '__return_false' );
+
+// Remove 'medium_large' image size since we have no control over it
+add_filter( 'intermediate_image_sizes', function($sizes) {
+    return array_filter( $sizes, function($val) {
+        return 'medium_large' !== $val;
+    });
+});
+
+// Re-enable infinite scrolling in media library
+add_filter( 'media_library_infinite_scrolling', '__return_true' );
+
 
 
 /**
@@ -32,7 +68,7 @@ function custom_theme_support() {
 	);
 	
 	// Adding support for core block visual styles.
-	//add_theme_support( 'wp-block-styles' );
+	#add_theme_support( 'wp-block-styles' );
 	
 	// Add support for editor styles.
 	add_theme_support( 'editor-styles' );
@@ -42,62 +78,32 @@ add_action( 'after_setup_theme', 'custom_theme_support' );
 
 
 
-
-/**
- * Image sizes
- */
- 
-// WP DEFAULTS (Defining in Settings)
-# thumbnail		150, 	150,	true
-# medium		800, 	800,	false
-# large			1600, 	1600,	false
-
-// CUSTOM SIZES
-//add_image_size( 'fhd', 		1920, 	1080, 	true );
-//add_image_size( 'hd', 		1280, 	720, 	true );
-//add_image_size( 'hdsm', 	640, 	360, 	true );
-
-// Disable srcset images
-//add_filter( 'wp_calculate_image_srcset', '__return_false' );
-	
-// Disable large image scaling
-add_filter( 'big_image_size_threshold', '__return_false' );
-
-// Remove 'medium_large' image size since we have no control over it
-add_filter( 'intermediate_image_sizes', function($sizes) {
-    return array_filter( $sizes, function($val) {
-        return 'medium_large' !== $val;
-    });
-});
-
-
 /**
  * Allow SVG uploads
  */
-function cc_mime_types( $mimes ){
-	$mimes['svg'] = 'image/svg+xml';
+function egg_mime_types( $mimes ){
+	//$mimes['svg'] = 'image/svg+xml';
 	$mimes['svg'] = 'image/svg';
 	return $mimes;
 }
-add_filter( 'upload_mimes', 'cc_mime_types' );
+add_filter( 'upload_mimes', 'egg_mime_types' );
 
 
 /**
  * Force galleries to link to file instead of attachment page
  */
 /*
-function my_gallery_shortcode($atts) {
+function egg_gallery_shortcode($atts) {
     $atts['link'] = 'file';
     return gallery_shortcode($atts);
 }
-add_shortcode( 'gallery', 'my_gallery_shortcode' );
+add_shortcode( 'gallery', 'egg_gallery_shortcode' );
 */
+
 
 
 /**
  * Updates the […] for Read More links
- *
- * @return	bool Modified status for comments.
  */
 function egg_excerpt_more($more) {
 	global $post;
@@ -107,14 +113,12 @@ add_filter( 'excerpt_more',	'egg_excerpt_more' );
 
 
 /**
- * Shorten excerpt length
- *
- * @return	Modified character length
+ * Shorten excerpt length by number of characters.
  */
-function custom_excerpt_length($length) {
-	return 33; // number of characters
+function egg_custom_excerpt_length($length) {
+	return 33;
 }
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'egg_custom_excerpt_length', 999 );
 
 
 /**

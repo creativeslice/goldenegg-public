@@ -1,12 +1,11 @@
 <?php
 /**
- * Cleanup: WordPress Admin
+ * Admin Bar
  * 
  * Author: Creative Slice
  * URI: https://github.com/creativeslice/goldenegg
- * Version: 1.0
+ * Version: 1.0.1
 */
- 
  
 
 /**
@@ -21,41 +20,24 @@ add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
 function egg_admin_bar_style() {
 	if ( is_user_logged_in() ) {
 	    echo "<style type='text/css'>
+	    #wpadminbar {
+			width: auto;
+			min-width: 46px;
+			background: rgba(29,35,39,.8);
+			outline: 1px solid rgba(255,255,255,.3);
+		}
+		#wpadminbar #wp-admin-bar-my-account {
+			display: none !important;
+		}
 	    @media (min-width: 782px){
-			#wpadminbar {
-				height: 40px;
-				width: auto;
-				min-width: 40px;
-				background: rgba(29,35,39,.8);
-				/*
-				border-right: 4px solid var(--wp--preset--color--primary);
-				border-color: rgb(29,35,39);
-				box-shadow: 1px 1px 0 1px rgb(29,35,39);
-				*/
-				border-bottom-right-radius: 3px;
-				outline: 1px solid rgba(255,255,255,.4);
-				padding-right: 4px;
+			#wpadminbar .quicklinks>ul>li>a {
+				padding: 0 10px;
+				border-right: 1px solid rgb(29,35,39);
 			}
-			#wpadminbar .quicklinks a {
-				height: 40px;
-				line-height: 40px;
+			#wpadminbar #wp-admin-bar-site-name>.ab-item::before {
+				content: '\\f324';
+				margin-right: 0;
 			}
-			#wpadminbar .quicklinks a::before {
-				padding: 8px 0;
-			}
-			#wp-admin-bar-my-account {
-				display: none;
-			}
-		}
-		#wpadminbar #wp-admin-bar-site-name>.ab-item {
-			/*border-right: 1px solid rgba(255,255,255,.2);*/
-			padding: 0 12px 0 10px;
-			/*background: rgb(30,30,30);*/
-		}
-		#wpadminbar #wp-admin-bar-site-name>.ab-item::before {
-			content: '\\f324';
-			margin-right: 0;
-			color: white;
 		}
 		</style>";
 	}
@@ -67,7 +49,7 @@ add_action( 'wp_head', 'egg_admin_bar_style' );
 * Modify the admin bar left link title
 */
 function egg_admin_bar_titles( ) {
-	if(is_admin()) { 
+	if( is_admin() ) { 
 		$title = "Home";
 	} else {
 		$title = "";
@@ -116,7 +98,7 @@ function egg_customize_admin_bar() {
 	$wp_admin_bar->remove_menu('widgets');
 	
 	// Plugins
-	# $wp_admin_bar->remove_node('rank-math'); // Rank Math plugin
+	#$wp_admin_bar->remove_node('rank-math'); // Rank Math plugin
 }
 add_action( 'wp_before_admin_bar_render', 'egg_customize_admin_bar' );
 

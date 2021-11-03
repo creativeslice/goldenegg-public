@@ -4,45 +4,54 @@
  * 
  * Author: Creative Slice
  * URI: https://github.com/creativeslice/goldenegg
- * Version: 1.0
+ * Version: 1.0.1
 */
 
 
 /**
- * Re-enable infinite scrolling in media library
+ * Disable the auto generated email sent to the admin after a successful core update:
  */
-add_filter( 'media_library_infinite_scrolling', '__return_true' );
-
+function egg_bypass_auto_update_email( $send, $type, $core_update, $result ) {
+    if ( ! empty( $type ) && $type == 'success' ) {
+        return false;
+    }
+    return true;
+}
+add_filter( 'auto_core_update_send_email', 'egg_bypass_auto_update_email', 10, 4 );
 
 
 /**
  * Turn off Autosave (does not currently work with Gutenberg)
  */
-
+/*
 function disable_autosave() {
 	wp_deregister_script( 'autosave' );
 }
-//add_action( 'admin_init', 'disable_autosave', 999);
-
-
-
-
-
+add_action( 'admin_init', 'disable_autosave', 999);
+*/
 
 
 /**
  * Basic WordPress cleanup
  */
-add_action( 'after_setup_theme', 'egg_cleanup' );
 function egg_cleanup() {
-	add_action( 'init',						'egg_head_cleanup' );
-	add_filter( 'the_generator',			'egg_rss_version' );
+	add_filter( 'the_generator', 'egg_rss_version' ); // function below
+	add_action( 'init', 'egg_head_cleanup' ); // function below
+}
+add_action( 'after_setup_theme', 'egg_cleanup' );
+
+
+/**
+ * Remove WP version from RSS feed.
+ */
+function egg_rss_version() { 
+	return ''; 
 }
 
-/* Remove WP version from RSS */
-function egg_rss_version() { return ''; }
 
-/* Cleanup the head output */
+/**
+ * Cleanup the head output.
+ */
 function egg_head_cleanup() {
 	
 	// Remove shortlink from head and header
@@ -70,10 +79,10 @@ function egg_head_cleanup() {
 	
 	// Remove WP version
 	remove_action( 'wp_head',				'wp_generator' );
-	// Remove WP version from css
-	add_filter( 'style_loader_src',			'egg_remove_wp_ver_css_js', 9999 );
-	// Remove WP version from scripts
-	add_filter( 'script_loader_src',		'egg_remove_wp_ver_css_js', 9999 );
+	
+	// Remove WP version from css and js
+	add_filter( 'style_loader_src',			'egg_remove_wp_ver_css_js', 9999 ); // function below
+	add_filter( 'script_loader_src',		'egg_remove_wp_ver_css_js', 9999 ); // function below
 	
 	// Remove emoji scripts
 	remove_action( 'wp_head',				'print_emoji_detection_script', 7 );
@@ -83,8 +92,8 @@ function egg_head_cleanup() {
 	remove_filter( 'the_content_feed', 		'wp_staticize_emoji' );
 	remove_filter( 'comment_text_rss', 		'wp_staticize_emoji' );
 	remove_filter( 'wp_mail', 				'wp_staticize_emoji_for_email' );
-	add_filter( 'wp_resource_hints', 		'egg_disable_emojis_remove_dns_prefetch', 10, 2 );
 	add_filter( 'option_use_smilies', 		'__return_false' );
+	add_filter( 'wp_resource_hints', 		'egg_disable_emojis_remove_dns_prefetch', 10, 2 ); // function below
 	
 	// Remove REST API links
 	remove_action( 'wp_head', 				'rest_output_link_wp_head', 10 );
@@ -92,7 +101,7 @@ function egg_head_cleanup() {
 	remove_action( 'template_redirect', 	'rest_output_link_header', 11 );
 	
 	// Remove DNS Prefetch
-	//remove_action( 'wp_head', 			'wp_resource_hints', 2 );
+	#remove_action( 'wp_head', 			'wp_resource_hints', 2 );
 	
 	// Remove canonical links
 	#remove_action( 'wp_head', 				'rel_canonical');

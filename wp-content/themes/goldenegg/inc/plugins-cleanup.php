@@ -1,10 +1,44 @@
-<?php // CLEANUP & REFINE PLUGINS
+<?php
+/**
+ * Plugins: Cleanup and Refinement
+ * 
+ * Author: Creative Slice
+ * URI: https://github.com/creativeslice/goldenegg
+ * Version: 1.0.1
+*/
 
 
 
-// Plugin: SearchWP - Remove top bar menu item
+/**
+ * PLUGIN: Advanced Custom Fields PRO
+ *
+ * @link https://www.advancedcustomfields.com/resources/
+ */
+
+// Allow Delicious Brains plugins (like ACF) to update
+add_filter( 'https_ssl_verify', '__return_false' );
+
+// Only allow ACF updates on development server
+/*
+switch ( wp_get_environment_type() ) {
+	case 'staging': case 'production':
+		add_filter( 'acf/settings/show_admin', '__return_false' );
+		break;
+	case 'development': default:
+		break;
+}
+*/
+
+
+
+/**
+ * PLUGIN: SearchWP
+ *
+ * @link https://searchwp.com/documentation/
+ */
+
+// Remove top admin bar menu link.
 add_filter( 'searchwp\admin_bar', '__return_false' ); 
-
 
 
 

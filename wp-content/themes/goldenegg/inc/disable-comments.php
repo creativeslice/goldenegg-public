@@ -6,7 +6,15 @@
  * URI: https://github.com/creativeslice/goldenegg
  * Version: 1.0
 */
- 
+
+
+
+
+/*************** NEEDS REFINEMENT FOR GUTENBERG ***************/
+
+
+
+
  
 /**
  * Remove Comments from wpadmin menu (TOP BAR)
