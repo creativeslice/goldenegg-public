@@ -1,0 +1,47 @@
+name: "WPEngine PRODUCTION Deploy from /production when a pushed to production"
+on:
+  push:
+    branches: [ production ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      THEME_PATH: goldenegg
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check working directory
+        working-directory: ${{ github.workspace }}
+        run: ls -la
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: install root node_modules
+        working-directory: wp-content/themes/${{ env.THEME_PATH }}
+        run: |
+          npm ci
+      - name: run gulp for staging
+        working-directory: wp-content/themes/${{ env.THEME_PATH }}
+        run: |
+          npm run gulp:prod
+      # do not push readme or node_modules to server
+      - name: remove README.md
+        uses: JesseTG/rm@v1.0.2
+        with:
+            path: README.md
+      - name: remove theme node_modules
+        uses: JesseTG/rm@v1.0.2
+        with:
+          path: wp-content/themes/${{ env.THEME_PATH }}/node_modules
+      - name: GitHub Action Deploy to WP Engine
+        uses: wpengine/github-action-wpe-site-deploy@v2.3.3
+        with:
+          # Deploy vars
+          WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }}
+          PHP_LINT: TRUE
+          CACHE_CLEAR: TRUE
+
+          # Branches & Environments
+          PRD_BRANCH: production
+          PRD_ENV: goldeneggdev
