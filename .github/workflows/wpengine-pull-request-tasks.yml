@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: '14.x'
           cache: 'npm'
+          cache-dependency-path: wp-content/themes/${{ env.THEME_PATH }}/package-lock.json
       - name: install theme node_modules
         working-directory: wp-content/themes/${{ env.THEME_PATH }}
         run: |
