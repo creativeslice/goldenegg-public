@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       THEME_PATH: goldenegg
+      STAGING_ENV: goldeneggstag
     steps:
     - uses: actions/checkout@v2
     - name: Set up Node
@@ -41,4 +42,4 @@ jobs:
 
       # Branches & Environments
         STG_BRANCH: develop
-        STG_ENV: goldeneggstag
+        STG_ENV: ${{ env.STAGING_ENV }}

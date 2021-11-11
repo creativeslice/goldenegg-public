@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       THEME_PATH: goldenegg
+      PRODUCTION_ENV: goldeneggdev
     steps:
       - uses: actions/checkout@v2
       - name: Check working directory
@@ -44,4 +45,4 @@ jobs:
 
           # Branches & Environments
           PRD_BRANCH: production
-          PRD_ENV: goldeneggdev
+          PRD_ENV: ${{ env.PRODUCTION_ENV }}
