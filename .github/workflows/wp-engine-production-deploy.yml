@@ -15,9 +15,10 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: ls -la
       - name: Set up Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '14.x'
+          cache: 'npm'
       - name: install root node_modules
         working-directory: wp-content/themes/${{ env.THEME_PATH }}
         run: |
