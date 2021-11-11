@@ -24,7 +24,8 @@ jobs:
     - name: install root node_modules
       # change working-directory to the theme folder path
       working-directory: wp-content/themes/${{ env.THEME_PATH }}
-      run: npm ci --ignore-scripts
+      run: |
+        npm ci --ignore-scripts
     - name: run gulp for staging
       # change working-directory to the theme folder path
       working-directory: wp-content/themes/${{ env.THEME_PATH }}
