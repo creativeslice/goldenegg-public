@@ -15,12 +15,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14.x'
-    - name: Cache dependencies
-      uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: npm-${{ hashFiles('package-lock.json') }}
-        restore-keys: npm-
+        cache: 'npm'
     - name: install root node_modules
       # change working-directory to the theme folder path
       working-directory: wp-content/themes/${{ env.THEME_PATH }}
