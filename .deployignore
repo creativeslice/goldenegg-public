@@ -1,0 +1,34 @@
+# Project specific files to NOT rsync to server
+.idea
+.vscode
+
+README.md
+
+# WordPress core files are not kept in GitHub so should
+# not be part of rsync or --delete flag will remove them
+
+# wp core (as of 5.8.3)
+db-config.php
+license.txt
+readme.html
+index.php
+wp-activate.php
+wp-blog-header.php
+wp-comments-post.php
+wp-config-sample.php
+wp-cron.php
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+wp-admin/
+wp-includes/
+wp-content/plugins/akismet*
+wp-content/themes/index.php
+wp-content/plugins/index.php
+
+# For other ignored files see https://github.com/wpengine/github-action-wpe-site-deploy/blob/main/exclude.txt
