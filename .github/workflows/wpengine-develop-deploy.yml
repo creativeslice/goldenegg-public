@@ -39,6 +39,7 @@ jobs:
 
       # Deploy vars
         WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }}
+        FLAGS: -azvr --inplace --delete --exclude=".*" --exclude-from=.deployignore --exclude-from=.deployignore_develop
         PHP_LINT: FALSE
         CACHE_CLEAR: TRUE
 

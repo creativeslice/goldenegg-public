@@ -31,4 +31,8 @@ wp-content/plugins/akismet*
 wp-content/themes/index.php
 wp-content/plugins/index.php
 
+# should the contents of all mu_plugins be preserved? or do we assume that is handled by the
+# provided ignore list provided by WPEngine below?
+wp-content/mu_plugins/
+
 # For other ignored files see https://github.com/wpengine/github-action-wpe-site-deploy/blob/main/exclude.txt

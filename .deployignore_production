@@ -1,0 +1,5 @@
+# Add plugins and other resources that you do NOT WANT ON Production
+
+
+wp-content/plugins/post-meta-inspector
+wp-content/plugins/password-protected

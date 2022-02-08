@@ -1,0 +1,5 @@
+# Add plugins and other resources that you do NOT WANT ON DEVELOP
+
+
+wp-content/plugins/shortpixel-image-optimiser
+wp-content/plugins/two-factor

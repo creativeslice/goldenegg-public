@@ -1,0 +1,4 @@
+# Add plugins and other resources that you do NOT WANT ON Staging
+
+wp-content/plugins/post-meta-inspector
+wp-content/plugins/password-protected
