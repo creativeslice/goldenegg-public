@@ -39,7 +39,7 @@ jobs:
 
       # Deploy vars
         WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }}
-        FLAGS: -azvr --inplace --delete  --exclude="**" --dry-run
+        FLAGS: -azvr --inplace --delete  --filter="merge .deploy-filter.txt" --dry-run
         PHP_LINT: FALSE
         CACHE_CLEAR: TRUE
 
