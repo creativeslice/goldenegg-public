@@ -18,5 +18,4 @@ get_template_part( 'partials/header/header' ); ?>
 	</section>
 
 </main>
-
 <?php get_template_part( 'partials/footer/footer' );

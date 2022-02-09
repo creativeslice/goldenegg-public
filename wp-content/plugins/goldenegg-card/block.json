@@ -1,0 +1,24 @@
+{
+  "apiVersion": 2,
+  "name": "create-block/goldenegg-card",
+  "version": "0.1.0",
+  "title": "Goldenegg Card",
+  "category": "widgets",
+  "icon": "index-card",
+  "description": "Example block written with ESNext standard and JSX support – build step required.",
+  "supports": {
+	"html": false
+  },
+  "textdomain": "goldenegg-card",
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "style": "file:./build/style-index.css",
+  "attributes": {
+	"message": {
+	  "type": "string",
+	  "source": "text",
+	  "selector": "div",
+	  "default": ""
+	}
+  }
+}
