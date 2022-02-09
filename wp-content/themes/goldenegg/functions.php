@@ -12,7 +12,7 @@ include_once get_stylesheet_directory() . '/inc/enqueue.php';
 
 //include_once get_stylesheet_directory() . '/inc/gutenberg.php';
 //include_once get_stylesheet_directory() . '/inc/plugins-cleanup.php';
-
+//include_once get_stylesheet_directory() . '/inc/plugins-manage.php';
 
 // Theme Functions
 //include_once get_stylesheet_directory() . '/inc/theme-custom-post-types.php'; // Or use CPT plugin
