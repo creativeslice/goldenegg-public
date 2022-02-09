@@ -1,0 +1,8 @@
++ /wp-content/
++ /wp-content/themes/
++ /wp-content/themes/goldenegg
++ /wp-content/themes/goldenegg/**
++ /wp-content/plugins/
++ /wp-content/plugins/goldenegg-card
++ /wp-content/plugins/goldenegg-card/**
+- /**
