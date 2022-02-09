@@ -5,4 +5,5 @@
 + /wp-content/plugins/
 + /wp-content/plugins/goldenegg-card
 + /wp-content/plugins/goldenegg-card/**
+- /wp-content/plugins/**
 - /**
