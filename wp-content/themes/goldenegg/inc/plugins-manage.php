@@ -17,7 +17,7 @@
             $deactivate_plugins = array();
 
             /** @var  array $activate_plugins full paths to plugins to activate
-             * you can start by adding plugins you NEVER want activated
+             * you can start by adding plugins you ALWAYS want activated
              * $activate_plugins = array('lazy-blocks/lazy-blocks.php','advanced-custom-fields-pro-master/acf.php');
              */
             $activate_plugins = array(
