@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       THEME_PATH: goldenegg
-      PRODUCTION_ENV: goldeneggdev
+      DEPLOY_ENV: goldeneggdev
     steps:
       - uses: actions/checkout@v2
       - name: Check working directory
@@ -37,13 +37,12 @@ jobs:
         with:
           path: wp-content/themes/${{ env.THEME_PATH }}/node_modules
       - name: GitHub Action Deploy to WP Engine
-        uses: wpengine/github-action-wpe-site-deploy@v2.3.3
+        uses: wpengine/github-action-wpe-site-deploy@v3.0
         with:
           # Deploy vars
           WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPENGINE_SSH_KEY_PRIVATE }}
           PHP_LINT: TRUE
           CACHE_CLEAR: TRUE
-
-          # Branches & Environments
-          PRD_BRANCH: production
-          PRD_ENV: ${{ env.PRODUCTION_ENV }}
+          FLAGS: -azvr --inplace --delete --include-from=.deployinclude
+          # Environment
+          WPE_ENV: ${{ env.PRODUCTION_ENV }}

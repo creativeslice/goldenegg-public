@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       THEME_PATH: goldenegg
-      STAGING_ENV: goldeneggstag
+      DEPLOY_ENV: goldeneggstag
     steps:
     - uses: actions/checkout@v2
     - name: Set up Node
@@ -26,7 +26,7 @@ jobs:
       # change working-directory to the theme folder path
       working-directory: wp-content/themes/${{ env.THEME_PATH }}
       run: |
-        npm run gulp:prod
+        npm run gulp:dev
     # remove node_modules like we do in production to catch issues
     - name: remove theme node_modules
       uses: JesseTG/rm@v1.0.2
@@ -34,7 +34,7 @@ jobs:
         path: wp-content/themes/${{ env.THEME_PATH }}/node_modules
 
     - name: GitHub Action Deploy to WP Engine
-      uses: wpengine/github-action-wpe-site-deploy@v2.3.3
+      uses: wpengine/github-action-wpe-site-deploy@v3.0
       with:
 
       # Deploy vars
@@ -43,6 +43,5 @@ jobs:
         PHP_LINT: FALSE
         CACHE_CLEAR: TRUE
 
-      # Branches & Environments
-        STG_BRANCH: develop
-        STG_ENV: ${{ env.STAGING_ENV }}
+      # Environment
+        WPE_ENV: ${{ env.DEPLOY_ENV }}

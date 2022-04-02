@@ -1,13 +1,14 @@
-name: "WP Engine PRODUCTION Deploy from /main when a GitHub Release is made"
+name: "WP Engine Staging Deploy from /main when pushed"
 on:
-  release:
-    types: [published, created, edited]
+  push:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    # only run off of master
-    # if: github.ref == 'refs/heads/main'
+    env:
+      THEME_PATH: goldenegg
+      DEPLOY_ENV: goldeneggdev
     steps:
     - uses: actions/checkout@v2
 
@@ -41,7 +42,7 @@ jobs:
 
     # deploy to WP Engine
     - name: GitHub Action Deploy to WP Engine
-      uses: wpengine/github-action-wpe-site-deploy@v2.3.3
+      uses: wpengine/github-action-wpe-site-deploy@v3.0
       with:
 
       # Deploy vars
@@ -49,6 +50,5 @@ jobs:
         PHP_LINT: TRUE
         CACHE_CLEAR: TRUE
 
-      # Branches & Environments
-        PRD_BRANCH: main
-        PRD_ENV: goldeneggdev
+      # Environment
+        WPE_ENV: ${{ env.DEPLOY_ENV }}

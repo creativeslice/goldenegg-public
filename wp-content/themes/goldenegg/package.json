@@ -4,7 +4,8 @@
   "description": "Custom WordPress Gutenberg starter theme built by Creative Slice",
   "main": "gulpfile.js",
   "scripts": {
-    "gulp:stage": "export DISABLE_NOTIFIER=true;export NODE_ENV=development;gulp",
+    "gulp:dev": "export DISABLE_NOTIFIER=true;export NODE_ENV=development;gulp",
+    "gulp:stage": "export DISABLE_NOTIFIER=true;export NODE_ENV=production;gulp",
     "gulp:prod": "export DISABLE_NOTIFIER=true;export NODE_ENV=production;gulp",
     "gulp:watch": "NODE_ENV=development;gulp;gulp watch",
     "gulp": "NODE_ENV=development;gulp",
