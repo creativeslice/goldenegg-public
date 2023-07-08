@@ -50,7 +50,7 @@
     "prettier": "npm:wp-prettier@2.0",
     "prettier-eslint": "^8.8",
     "prettier-stylelint": "^0.4",
-    "stylelint": "^9.1",
+    "stylelint": "^15.10",
     "stylelint-order": "^0.8"
   },
   "dependencies": {
